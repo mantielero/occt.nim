@@ -1,3 +1,9 @@
+import ../../tkernel/quantity/quantity_types
+import ../../tkv3d/graphic3d/graphic3d_types
+import opengl_types
+
+
+
 ##  Created on: 2011-09-20
 ##  Created by: Sergey ZERCHANINOV
 ##  Copyright (c) 2011-2013 OPEN CASCADE SAS
@@ -13,80 +19,57 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of OpenGl_Context"
-type
-  OpenGlMaterialCommon* {.importcpp: "OpenGl_MaterialCommon",
-                         header: "OpenGl_Material.hxx", bycopy.} = object
-    ambient* {.importc: "Ambient".}: OpenGlVec4 ## !< ambient reflection coefficient
-    diffuse* {.importc: "Diffuse".}: OpenGlVec4 ## !< diffuse reflection coefficient
-    specular* {.importc: "Specular".}: OpenGlVec4 ## !< glossy  reflection coefficient
-    emission* {.importc: "Emission".}: OpenGlVec4 ## !< material emission
-    params* {.importc: "Params".}: OpenGlVec4 ## !< extra packed parameters
 
 
 proc shine*(this: OpenGlMaterialCommon): cfloat {.noSideEffect, cdecl,
-    importcpp: "Shine", dynlib: tkkxbase.}
+    importcpp: "Shine", header: "OpenGl_Material.hxx".}
 proc changeShine*(this: var OpenGlMaterialCommon): var cfloat {.cdecl,
-    importcpp: "ChangeShine", dynlib: tkkxbase.}
+    importcpp: "ChangeShine", header: "OpenGl_Material.hxx".}
 proc transparency*(this: OpenGlMaterialCommon): cfloat {.noSideEffect, cdecl,
-    importcpp: "Transparency", dynlib: tkkxbase.}
+    importcpp: "Transparency", header: "OpenGl_Material.hxx".}
 proc changeTransparency*(this: var OpenGlMaterialCommon): var cfloat {.cdecl,
-    importcpp: "ChangeTransparency", dynlib: tkkxbase.}
+    importcpp: "ChangeTransparency", header: "OpenGl_Material.hxx".}
 proc newOpenGlMaterialCommon*(): OpenGlMaterialCommon {.cdecl, constructor,
-    importcpp: "OpenGl_MaterialCommon(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_MaterialCommon(@)", header: "OpenGl_Material.hxx".}
 proc packed*(this: OpenGlMaterialCommon): ptr OpenGlVec4 {.noSideEffect, cdecl,
-    importcpp: "Packed", dynlib: tkkxbase.}
+    importcpp: "Packed", header: "OpenGl_Material.hxx".}
 proc nbOfVec4*(): cint {.cdecl, importcpp: "OpenGl_MaterialCommon::NbOfVec4(@)",
-                      dynlib: tkkxbase.}
+                      header: "OpenGl_Material.hxx".}
 ## ! OpenGL material definition
 
-type
-  OpenGlMaterialPBR* {.importcpp: "OpenGl_MaterialPBR",
-                      header: "OpenGl_Material.hxx", bycopy.} = object
-    baseColor* {.importc: "BaseColor".}: OpenGlVec4 ## !< base color of PBR material with alpha component
-    emissionIOR* {.importc: "EmissionIOR".}: OpenGlVec4 ## !< light intensity which is emitted by PBR material and index of refraction
-    params* {.importc: "Params".}: OpenGlVec4 ## !< extra packed parameters
 
 
 proc metallic*(this: OpenGlMaterialPBR): cfloat {.noSideEffect, cdecl,
-    importcpp: "Metallic", dynlib: tkkxbase.}
+    importcpp: "Metallic", header: "OpenGl_Material.hxx".}
 proc changeMetallic*(this: var OpenGlMaterialPBR): var cfloat {.cdecl,
-    importcpp: "ChangeMetallic", dynlib: tkkxbase.}
+    importcpp: "ChangeMetallic", header: "OpenGl_Material.hxx".}
 proc roughness*(this: OpenGlMaterialPBR): cfloat {.noSideEffect, cdecl,
-    importcpp: "Roughness", dynlib: tkkxbase.}
+    importcpp: "Roughness", header: "OpenGl_Material.hxx".}
 proc changeRoughness*(this: var OpenGlMaterialPBR): var cfloat {.cdecl,
-    importcpp: "ChangeRoughness", dynlib: tkkxbase.}
+    importcpp: "ChangeRoughness", header: "OpenGl_Material.hxx".}
 proc newOpenGlMaterialPBR*(): OpenGlMaterialPBR {.cdecl, constructor,
-    importcpp: "OpenGl_MaterialPBR(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_MaterialPBR(@)", header: "OpenGl_Material.hxx".}
 proc packed*(this: OpenGlMaterialPBR): ptr OpenGlVec4 {.noSideEffect, cdecl,
-    importcpp: "Packed", dynlib: tkkxbase.}
-proc nbOfVec4*(): cint {.cdecl, importcpp: "OpenGl_MaterialPBR::NbOfVec4(@)",
-                      dynlib: tkkxbase.}
+    importcpp: "Packed", header: "OpenGl_Material.hxx".}
+# proc nbOfVec4*(): cint {.cdecl, importcpp: "OpenGl_MaterialPBR::NbOfVec4(@)",
+#                       header: "OpenGl_Material.hxx".}
 ## ! OpenGL material definition
 
-type
-  OpenGlMaterial* {.importcpp: "OpenGl_Material", header: "OpenGl_Material.hxx",
-                   bycopy.} = object
-    common* {.importc: "Common".}: OpenGlMaterialCommon
-    pbr* {.importc: "Pbr".}: OpenGlMaterialPBR ## ! Set material color.
 
 
 proc setColor*(this: var OpenGlMaterial; theColor: OpenGlVec4) {.cdecl,
-    importcpp: "SetColor", dynlib: tkkxbase.}
+    importcpp: "SetColor", header: "OpenGl_Material.hxx".}
 proc init*(this: var OpenGlMaterial; theCtx: OpenGlContext;
           theProp: Graphic3dMaterialAspect; theInteriorColor: QuantityColor) {.
-    cdecl, importcpp: "Init", dynlib: tkkxbase.}
+    cdecl, importcpp: "Init", header: "OpenGl_Material.hxx".}
 proc isEqual*(this: OpenGlMaterial; theOther: OpenGlMaterial): bool {.noSideEffect,
-    cdecl, importcpp: "IsEqual", dynlib: tkkxbase.}
+    cdecl, importcpp: "IsEqual", header: "OpenGl_Material.hxx".}
 proc `==`*(this: var OpenGlMaterial; theOther: OpenGlMaterial): bool {.cdecl,
-    importcpp: "(# == #)", dynlib: tkkxbase.}
+    importcpp: "(# == #)", header: "OpenGl_Material.hxx".}
 proc `==`*(this: OpenGlMaterial; theOther: OpenGlMaterial): bool {.noSideEffect, cdecl,
-    importcpp: "(# == #)", dynlib: tkkxbase.}
+    importcpp: "(# == #)", header: "OpenGl_Material.hxx".}
 ## ! Material flag
 
-type
-  OpenGlMaterialFlag* {.size: sizeof(cint), importcpp: "OpenGl_MaterialFlag",
-                       header: "OpenGl_Material.hxx".} = enum
-    OpenGlMaterialFlagFront,  ## !< material for front faces
-    OpenGlMaterialFlagBack    ## !< material for back  faces
+
+
 

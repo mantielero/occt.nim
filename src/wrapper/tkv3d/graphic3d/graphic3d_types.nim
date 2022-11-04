@@ -4,6 +4,8 @@ import ../../tkernel/standard/standard_types
 import ../../tkservice/aspect/aspect_types
 
 type
+  Graphic3dMapOfAspectsToAspects* = object # FIXME
+
   Graphic3dAlphaMode* {.size: sizeof(cint), importcpp: "Graphic3d_AlphaMode",
                        header: "Graphic3d_AlphaMode.hxx".} = enum
     Graphic3dAlphaModeBlendAuto = -1, 

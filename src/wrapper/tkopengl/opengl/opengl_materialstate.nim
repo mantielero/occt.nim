@@ -1,3 +1,7 @@
+import opengl_types
+
+
+
 ##  Created on: 2013-10-02
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -15,35 +19,23 @@
 
 ## ! Defines generic state of material properties.
 
-type
-  OpenGlMaterialState* {.importcpp: "OpenGl_MaterialState",
-                        header: "OpenGl_MaterialState.hxx", bycopy.} = object of OpenGlStateInterface ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## new
-                                                                                               ## material
-                                                                                               ## state.
-    ## !< front material
-    ## !< back  material
-    ## !< alpha cutoff value
-    ## !< distinguish front/back flag
-    ## !< flag for mapping a texture
 
 
 proc newOpenGlMaterialState*(): OpenGlMaterialState {.cdecl, constructor,
-    importcpp: "OpenGl_MaterialState(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_MaterialState(@)", header: "OpenGl_MaterialState.hxx".}
 proc set*(this: var OpenGlMaterialState; theFrontMat: OpenGlMaterial;
          theBackMat: OpenGlMaterial; theAlphaCutoff: cfloat; theToDistinguish: bool;
-         theToMapTexture: bool) {.cdecl, importcpp: "Set", dynlib: tkkxbase.}
+         theToMapTexture: bool) {.cdecl, importcpp: "Set", header: "OpenGl_MaterialState.hxx".}
 proc frontMaterial*(this: OpenGlMaterialState): OpenGlMaterial {.noSideEffect, cdecl,
-    importcpp: "FrontMaterial", dynlib: tkkxbase.}
+    importcpp: "FrontMaterial", header: "OpenGl_MaterialState.hxx".}
 proc backMaterial*(this: OpenGlMaterialState): OpenGlMaterial {.noSideEffect, cdecl,
-    importcpp: "BackMaterial", dynlib: tkkxbase.}
+    importcpp: "BackMaterial", header: "OpenGl_MaterialState.hxx".}
 proc alphaCutoff*(this: OpenGlMaterialState): cfloat {.noSideEffect, cdecl,
-    importcpp: "AlphaCutoff", dynlib: tkkxbase.}
+    importcpp: "AlphaCutoff", header: "OpenGl_MaterialState.hxx".}
 proc hasAlphaCutoff*(this: OpenGlMaterialState): bool {.noSideEffect, cdecl,
-    importcpp: "HasAlphaCutoff", dynlib: tkkxbase.}
+    importcpp: "HasAlphaCutoff", header: "OpenGl_MaterialState.hxx".}
 proc toDistinguish*(this: OpenGlMaterialState): bool {.noSideEffect, cdecl,
-    importcpp: "ToDistinguish", dynlib: tkkxbase.}
+    importcpp: "ToDistinguish", header: "OpenGl_MaterialState.hxx".}
 proc toMapTexture*(this: OpenGlMaterialState): bool {.noSideEffect, cdecl,
-    importcpp: "ToMapTexture", dynlib: tkkxbase.}
+    importcpp: "ToMapTexture", header: "OpenGl_MaterialState.hxx".}
+

@@ -21,6 +21,10 @@ var THE_NODE_MIN_SIZE* {.importcpp: "BVH::THE_NODE_MIN_SIZE", header: "BVH_Const
 
 
 type
+  BVH_BoxNt* = object # FIXME
+
+  QuadBvhHandle* = object # FIXME
+
   BVH_Tree*[T; N: static[cint]] {.importcpp: "BVH_Tree<\'0,\'1>",
                                    header: "BVH_Tree.hxx", bycopy.} = object
 

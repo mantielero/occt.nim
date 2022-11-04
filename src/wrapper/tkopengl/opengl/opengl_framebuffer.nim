@@ -1,3 +1,10 @@
+import ../../tkernel/standard/standard_types
+import ../../tkv3d/selectmgr/selectmgr_types
+import ../../tkv3d/graphic3d/graphic3d_types
+import opengl_types
+
+
+
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS
 ##
@@ -12,176 +19,96 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of OpenGl_FrameBuffer"
-type
-  HandleOpenGlFrameBuffer* = Handle[OpenGlFrameBuffer]
 
-## ! Short declaration of useful collection types.
 
-type
-  OpenGlColorFormats* = NCollectionVector[GLint]
 
-## ! Class implements FrameBuffer Object (FBO) resource
-## ! intended for off-screen rendering.
 
-type
-  OpenGlFrameBuffer* {.importcpp: "OpenGl_FrameBuffer",
-                      header: "OpenGl_FrameBuffer.hxx", bycopy.} = object of OpenGlResource ##
-                                                                                     ## !
-                                                                                     ## Helpful
-                                                                                     ## constants
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Dump
-                                                                                     ## content
-                                                                                     ## into
-                                                                                     ## image.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## @param
-                                                                                     ## theGlCtx
-                                                                                     ## bound
-                                                                                     ## OpenGL
-                                                                                     ## context
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## @param
-                                                                                     ## theFbo
-                                                                                     ## FBO
-                                                                                     ## to
-                                                                                     ## dump
-                                                                                     ## (or
-                                                                                     ## window
-                                                                                     ## buffer,
-                                                                                     ## if
-                                                                                     ## NULL)
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## @param
-                                                                                     ## theImage
-                                                                                     ## target
-                                                                                     ## image
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## @param
-                                                                                     ## theBufferType
-                                                                                     ## buffer
-                                                                                     ## type
-                                                                                     ## (attachment)
-                                                                                     ## to
-                                                                                     ## dump
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## @return
-                                                                                     ## TRUE
-                                                                                     ## on
-                                                                                     ## success
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Empty
-                                                                                     ## constructor
-                                                                                     ##
-                                                                                     ## Type
-                                                                                     ## definition
-    ## !< viewport width  specified during initialization (kept even on failure)
-    ## !< viewport height specified during initialization (kept even on failure)
-    ## !< viewport width  (should be <= texture width)
-    ## !< viewport height (should be <= texture height)
-    ## !< number of MSAA samples
-    ## !< sized format for color         texture, GL_RGBA8 by default
-    ## !< sized format for depth-stencil texture, GL_DEPTH24_STENCIL8 by default
-    ## !< FBO object ID
-    ## !< color         Render Buffer object (alternative to myColorTexture)
-    ## !< depth-stencil Render Buffer object (alternative to myDepthStencilTexture)
-    ## !< flag indicating that FBO should be deallocated by this class
-    ## !< flag indicating that FBO should be deallocated by this class
-    ## !< color texture objects
-    ## !< depth-stencil texture object
 
 
 proc bufferDump*(theGlCtx: Handle[OpenGlContext];
                 theFbo: Handle[OpenGlFrameBuffer]; theImage: var ImagePixMap;
                 theBufferType: Graphic3dBufferType): bool {.cdecl,
-    importcpp: "OpenGl_FrameBuffer::BufferDump(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_FrameBuffer::BufferDump(@)", header: "OpenGl_FrameBuffer.hxx".}
 proc newOpenGlFrameBuffer*(): OpenGlFrameBuffer {.cdecl, constructor,
-    importcpp: "OpenGl_FrameBuffer(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_FrameBuffer(@)", header: "OpenGl_FrameBuffer.hxx".}
 proc destroyOpenGlFrameBuffer*(this: var OpenGlFrameBuffer) {.cdecl,
-    importcpp: "#.~OpenGl_FrameBuffer()", dynlib: tkkxbase.}
+    importcpp: "#.~OpenGl_FrameBuffer()", header: "OpenGl_FrameBuffer.hxx".}
 proc release*(this: var OpenGlFrameBuffer; theGlCtx: ptr OpenGlContext) {.cdecl,
-    importcpp: "Release", dynlib: tkkxbase.}
+    importcpp: "Release", header: "OpenGl_FrameBuffer.hxx".}
 proc nbSamples*(this: OpenGlFrameBuffer): GLsizei {.noSideEffect, cdecl,
-    importcpp: "NbSamples", dynlib: tkkxbase.}
+    importcpp: "NbSamples", header: "OpenGl_FrameBuffer.hxx".}
 proc nbColorBuffers*(this: OpenGlFrameBuffer): GLsizei {.noSideEffect, cdecl,
-    importcpp: "NbColorBuffers", dynlib: tkkxbase.}
+    importcpp: "NbColorBuffers", header: "OpenGl_FrameBuffer.hxx".}
 proc hasColor*(this: OpenGlFrameBuffer): bool {.noSideEffect, cdecl,
-    importcpp: "HasColor", dynlib: tkkxbase.}
+    importcpp: "HasColor", header: "OpenGl_FrameBuffer.hxx".}
 proc hasDepth*(this: OpenGlFrameBuffer): bool {.noSideEffect, cdecl,
-    importcpp: "HasDepth", dynlib: tkkxbase.}
+    importcpp: "HasDepth", header: "OpenGl_FrameBuffer.hxx".}
 proc getSizeX*(this: OpenGlFrameBuffer): GLsizei {.noSideEffect, cdecl,
-    importcpp: "GetSizeX", dynlib: tkkxbase.}
+    importcpp: "GetSizeX", header: "OpenGl_FrameBuffer.hxx".}
 proc getSizeY*(this: OpenGlFrameBuffer): GLsizei {.noSideEffect, cdecl,
-    importcpp: "GetSizeY", dynlib: tkkxbase.}
+    importcpp: "GetSizeY", header: "OpenGl_FrameBuffer.hxx".}
 proc getVPSizeX*(this: OpenGlFrameBuffer): GLsizei {.noSideEffect, cdecl,
-    importcpp: "GetVPSizeX", dynlib: tkkxbase.}
+    importcpp: "GetVPSizeX", header: "OpenGl_FrameBuffer.hxx".}
 proc getVPSizeY*(this: OpenGlFrameBuffer): GLsizei {.noSideEffect, cdecl,
-    importcpp: "GetVPSizeY", dynlib: tkkxbase.}
+    importcpp: "GetVPSizeY", header: "OpenGl_FrameBuffer.hxx".}
 proc getInitVPSizeX*(this: OpenGlFrameBuffer): GLsizei {.noSideEffect, cdecl,
-    importcpp: "GetInitVPSizeX", dynlib: tkkxbase.}
+    importcpp: "GetInitVPSizeX", header: "OpenGl_FrameBuffer.hxx".}
 proc getInitVPSizeY*(this: OpenGlFrameBuffer): GLsizei {.noSideEffect, cdecl,
-    importcpp: "GetInitVPSizeY", dynlib: tkkxbase.}
+    importcpp: "GetInitVPSizeY", header: "OpenGl_FrameBuffer.hxx".}
 proc isValid*(this: OpenGlFrameBuffer): bool {.noSideEffect, cdecl,
-    importcpp: "IsValid", dynlib: tkkxbase.}
+    importcpp: "IsValid", header: "OpenGl_FrameBuffer.hxx".}
 proc init*(this: var OpenGlFrameBuffer; theGlCtx: Handle[OpenGlContext];
           theSizeX: GLsizei; theSizeY: GLsizei; theColorFormats: OpenGlColorFormats;
           theDepthStencilTexture: Handle[OpenGlTexture]; theNbSamples: GLsizei = 0): bool {.
-    cdecl, importcpp: "Init", dynlib: tkkxbase.}
+    cdecl, importcpp: "Init", header: "OpenGl_FrameBuffer.hxx".}
 proc init*(this: var OpenGlFrameBuffer; theGlCtx: Handle[OpenGlContext];
           theSizeX: GLsizei; theSizeY: GLsizei; theColorFormat: GLint;
           theDepthFormat: GLint; theNbSamples: GLsizei = 0): bool {.cdecl,
-    importcpp: "Init", dynlib: tkkxbase.}
+    importcpp: "Init", header: "OpenGl_FrameBuffer.hxx".}
 proc init*(this: var OpenGlFrameBuffer; theGlCtx: Handle[OpenGlContext];
           theSizeX: GLsizei; theSizeY: GLsizei; theColorFormats: OpenGlColorFormats;
           theDepthFormat: GLint; theNbSamples: GLsizei = 0): bool {.cdecl,
-    importcpp: "Init", dynlib: tkkxbase.}
+    importcpp: "Init", header: "OpenGl_FrameBuffer.hxx".}
 proc initLazy*(this: var OpenGlFrameBuffer; theGlCtx: Handle[OpenGlContext];
               theViewportSizeX: GLsizei; theViewportSizeY: GLsizei;
               theColorFormat: GLint; theDepthFormat: GLint;
               theNbSamples: GLsizei = 0): bool {.cdecl, importcpp: "InitLazy",
-    dynlib: tkkxbase.}
+    header: "OpenGl_FrameBuffer.hxx".}
 proc initLazy*(this: var OpenGlFrameBuffer; theGlCtx: Handle[OpenGlContext];
               theViewportSizeX: GLsizei; theViewportSizeY: GLsizei;
               theColorFormats: OpenGlColorFormats; theDepthFormat: GLint;
               theNbSamples: GLsizei = 0): bool {.cdecl, importcpp: "InitLazy",
-    dynlib: tkkxbase.}
+    header: "OpenGl_FrameBuffer.hxx".}
 proc initLazy*(this: var OpenGlFrameBuffer; theGlCtx: Handle[OpenGlContext];
               theFbo: OpenGlFrameBuffer): bool {.cdecl, importcpp: "InitLazy",
-    dynlib: tkkxbase.}
+    header: "OpenGl_FrameBuffer.hxx".}
 proc initWithRB*(this: var OpenGlFrameBuffer; theGlCtx: Handle[OpenGlContext];
                 theSizeX: GLsizei; theSizeY: GLsizei; theColorFormat: GLint;
                 theDepthFormat: GLint; theColorRBufferFromWindow: GLuint = 0): bool {.
-    cdecl, importcpp: "InitWithRB", dynlib: tkkxbase.}
+    cdecl, importcpp: "InitWithRB", header: "OpenGl_FrameBuffer.hxx".}
 proc initWrapper*(this: var OpenGlFrameBuffer; theGlCtx: Handle[OpenGlContext]): bool {.
-    cdecl, importcpp: "InitWrapper", dynlib: tkkxbase.}
+    cdecl, importcpp: "InitWrapper", header: "OpenGl_FrameBuffer.hxx".}
 proc setupViewport*(this: var OpenGlFrameBuffer; theGlCtx: Handle[OpenGlContext]) {.
-    cdecl, importcpp: "SetupViewport", dynlib: tkkxbase.}
+    cdecl, importcpp: "SetupViewport", header: "OpenGl_FrameBuffer.hxx".}
 proc changeViewport*(this: var OpenGlFrameBuffer; theVPSizeX: GLsizei;
                     theVPSizeY: GLsizei) {.cdecl, importcpp: "ChangeViewport",
-    dynlib: tkkxbase.}
+    header: "OpenGl_FrameBuffer.hxx".}
 proc bindBuffer*(this: var OpenGlFrameBuffer; theGlCtx: Handle[OpenGlContext]) {.
-    cdecl, importcpp: "BindBuffer", dynlib: tkkxbase.}
+    cdecl, importcpp: "BindBuffer", header: "OpenGl_FrameBuffer.hxx".}
 proc bindDrawBuffer*(this: var OpenGlFrameBuffer; theGlCtx: Handle[OpenGlContext]) {.
-    cdecl, importcpp: "BindDrawBuffer", dynlib: tkkxbase.}
+    cdecl, importcpp: "BindDrawBuffer", header: "OpenGl_FrameBuffer.hxx".}
 proc bindReadBuffer*(this: var OpenGlFrameBuffer; theGlCtx: Handle[OpenGlContext]) {.
-    cdecl, importcpp: "BindReadBuffer", dynlib: tkkxbase.}
+    cdecl, importcpp: "BindReadBuffer", header: "OpenGl_FrameBuffer.hxx".}
 proc unbindBuffer*(this: var OpenGlFrameBuffer; theGlCtx: Handle[OpenGlContext]) {.
-    cdecl, importcpp: "UnbindBuffer", dynlib: tkkxbase.}
+    cdecl, importcpp: "UnbindBuffer", header: "OpenGl_FrameBuffer.hxx".}
 proc colorTexture*(this: OpenGlFrameBuffer; theColorBufferIndex: GLint = 0): Handle[
-    OpenGlTexture] {.noSideEffect, cdecl, importcpp: "ColorTexture", dynlib: tkkxbase.}
+    OpenGlTexture] {.noSideEffect, cdecl, importcpp: "ColorTexture", header: "OpenGl_FrameBuffer.hxx".}
 proc depthStencilTexture*(this: OpenGlFrameBuffer): Handle[OpenGlTexture] {.
-    noSideEffect, cdecl, importcpp: "DepthStencilTexture", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "DepthStencilTexture", header: "OpenGl_FrameBuffer.hxx".}
 proc colorRenderBuffer*(this: OpenGlFrameBuffer): GLuint {.noSideEffect, cdecl,
-    importcpp: "ColorRenderBuffer", dynlib: tkkxbase.}
+    importcpp: "ColorRenderBuffer", header: "OpenGl_FrameBuffer.hxx".}
 proc depthStencilRenderBuffer*(this: OpenGlFrameBuffer): GLuint {.noSideEffect,
-    cdecl, importcpp: "DepthStencilRenderBuffer", dynlib: tkkxbase.}
+    cdecl, importcpp: "DepthStencilRenderBuffer", header: "OpenGl_FrameBuffer.hxx".}
 proc estimatedDataSize*(this: OpenGlFrameBuffer): csize_t {.noSideEffect, cdecl,
-    importcpp: "EstimatedDataSize", dynlib: tkkxbase.}
+    importcpp: "EstimatedDataSize", header: "OpenGl_FrameBuffer.hxx".}
+

@@ -1,3 +1,7 @@
+import ../../tkernel/standard/standard_types
+import opengl_types
+
+
 ##  Created on: 2013-09-05
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -15,18 +19,9 @@
 
 ##  Forward declaration
 
-discard "forward decl of OpenGl_CappingPlaneResource"
-discard "forward decl of OpenGl_Structure"
-type
-  OpenGlCappingAlgo* {.importcpp: "OpenGl_CappingAlgo",
-                      header: "OpenGl_CappingAlgo.hxx", bycopy.} = object ## ! Draw capping surfaces by OpenGl for the clipping planes enabled in current context state.
-                                                                     ## ! Depth buffer must be generated  for the passed groups.
-                                                                     ## ! @param
-                                                                     ## theWorkspace [in] the GL workspace, context state
-                                                                     ## ! @param
-                                                                     ## theStructure [in] the structure to be capped
 
 
 proc renderCapping*(theWorkspace: Handle[OpenGlWorkspace];
                    theStructure: OpenGlStructure) {.cdecl,
-    importcpp: "OpenGl_CappingAlgo::RenderCapping(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_CappingAlgo::RenderCapping(@)", header: "OpenGl_CappingAlgo.hxx".}
+

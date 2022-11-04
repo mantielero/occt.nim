@@ -1,3 +1,6 @@
+
+
+
 ##  Created on: 2013-07-25
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -15,12 +18,6 @@
 
 ## ! Filter for rendering elements.
 
-type
-  OpenGlRenderFilter* {.size: sizeof(cint), importcpp: "OpenGl_RenderFilter",
-                       header: "OpenGl_RenderFilter.hxx".} = enum
-    OpenGlRenderFilterEmpty = 0x000, ## !< disabled filter
-    OpenGlRenderFilterOpaqueOnly = 0x001, ## !< render only opaque elements and any non-filling elements   (conflicts with OpenGl_RenderFilter_TransparentOnly)
-    OpenGlRenderFilterTransparentOnly = 0x002, ## !< render only semitransparent elements and OpenGl_AspectFace (conflicts with OpenGl_RenderFilter_OpaqueOnly)
-    OpenGlRenderFilterNonRaytraceableOnly = 0x004, ## !< render only non-raytraceable elements
-    OpenGlRenderFilterFillModeOnly = 0x008 ## !< render only filled elements
+
+
 

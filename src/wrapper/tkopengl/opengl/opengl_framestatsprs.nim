@@ -1,3 +1,9 @@
+import ../../tkernel/standard/standard_types
+import ../../tkv3d/graphic3d/graphic3d_types
+import opengl_types
+
+
+
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -11,46 +17,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_ArrayOfTriangles"
-discard "forward decl of Graphic3d_TransformPers"
-discard "forward decl of OpenGl_IndexBuffer"
-discard "forward decl of OpenGl_VertexBuffer"
-type
-  OpenGlFrameStatsPrs* {.importcpp: "OpenGl_FrameStatsPrs",
-                        header: "OpenGl_FrameStatsPrs.hxx", bycopy.} = object of OpenGlElement ##
-                                                                                        ## !
-                                                                                        ## Default
-                                                                                        ## constructor.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Update
-                                                                                        ## chart
-                                                                                        ## presentation.
-    ## !< currently displayed stats
-    ## !< transformation persistence for counters presentation
-    ## !< counters presentation
-    ## !< text aspect
-    ## !< transformation persistence for chart presentation
-    ## !< array of chart triangles
-    ## !< VBO with chart triangles
-    ## !< VBO with chart triangle indexes
-    ## !< array of chart lines
-    ## !< chart labels
 
 
 proc newOpenGlFrameStatsPrs*(): OpenGlFrameStatsPrs {.cdecl, constructor,
-    importcpp: "OpenGl_FrameStatsPrs(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_FrameStatsPrs(@)", header: "OpenGl_FrameStatsPrs.hxx".}
 proc destroyOpenGlFrameStatsPrs*(this: var OpenGlFrameStatsPrs) {.cdecl,
-    importcpp: "#.~OpenGl_FrameStatsPrs()", dynlib: tkkxbase.}
+    importcpp: "#.~OpenGl_FrameStatsPrs()", header: "OpenGl_FrameStatsPrs.hxx".}
 proc render*(this: OpenGlFrameStatsPrs; theWorkspace: Handle[OpenGlWorkspace]) {.
-    noSideEffect, cdecl, importcpp: "Render", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "Render", header: "OpenGl_FrameStatsPrs.hxx".}
 proc release*(this: var OpenGlFrameStatsPrs; theCtx: ptr OpenGlContext) {.cdecl,
-    importcpp: "Release", dynlib: tkkxbase.}
+    importcpp: "Release", header: "OpenGl_FrameStatsPrs.hxx".}
 proc update*(this: var OpenGlFrameStatsPrs; theWorkspace: Handle[OpenGlWorkspace]) {.
-    cdecl, importcpp: "Update", dynlib: tkkxbase.}
+    cdecl, importcpp: "Update", header: "OpenGl_FrameStatsPrs.hxx".}
 proc setTextAspect*(this: var OpenGlFrameStatsPrs;
                    theAspect: Handle[Graphic3dAspectText3d]) {.cdecl,
-    importcpp: "SetTextAspect", dynlib: tkkxbase.}
+    importcpp: "SetTextAspect", header: "OpenGl_FrameStatsPrs.hxx".}
 proc dumpJson*(this: OpenGlFrameStatsPrs; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkkxbase.}
+                                 header: "OpenGl_FrameStatsPrs.hxx".}
+

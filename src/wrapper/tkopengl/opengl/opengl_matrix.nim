@@ -1,3 +1,6 @@
+
+
+
 ##  Created on: 2011-09-20
 ##  Created by: Sergey ZERCHANINOV
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS
@@ -13,7 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  OpenGlMatrix* {.importcpp: "OpenGl_Matrix", header: "OpenGl_Matrix.hxx", bycopy.} = object
-    mat* {.importc: "mat".}: array[4, array[4, cfloat]]
+
+
 

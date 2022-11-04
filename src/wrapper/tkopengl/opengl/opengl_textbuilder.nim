@@ -1,3 +1,8 @@
+import opengl_types
+import ../../tkernel/standard/standard_types
+import ../../tkv3d/selectmgr/selectmgr_types
+import ../../tkernel/ncollection/ncollection_types
+
 ##  Created on: 2015-06-18
 ##  Created by: Ilya SEVRIKOV
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -14,17 +19,12 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Font_TextFormatter"
-type
-  OpenGlTextBuilder* {.importcpp: "OpenGl_TextBuilder",
-                      header: "OpenGl_TextBuilder.hxx", bycopy.} = object ## ! Creates empty object.
-                                                                     ## ! @name class auxillary methods
-                                                                     ## ! @name class auxillary fields
 
 
 proc newOpenGlTextBuilder*(): OpenGlTextBuilder {.cdecl, constructor,
-    importcpp: "OpenGl_TextBuilder(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_TextBuilder(@)", header: "OpenGl_TextBuilder.hxx".}
 proc perform*(this: var OpenGlTextBuilder; theFormatter: Handle[FontTextFormatter];
              theContext: Handle[OpenGlContext]; theFont: var OpenGlFont;
              theTextures: var NCollectionVector[GLuint]; theVertsPerTexture: var NCollectionVector[
     Handle[OpenGlVertexBuffer]]; theTCrdsPerTexture: var NCollectionVector[
-    Handle[OpenGlVertexBuffer]]) {.cdecl, importcpp: "Perform", dynlib: tkkxbase.}
+    Handle[OpenGlVertexBuffer]]) {.cdecl, importcpp: "Perform", header: "OpenGl_TextBuilder.hxx".}

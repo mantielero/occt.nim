@@ -1,3 +1,5 @@
+import opengl_types
+
 ##  Created on: 2018-10-04
 ##  Created by: Maxim NEVROV
 ##  Copyright (c) 2018 OPEN CASCADE SAS
@@ -15,11 +17,5 @@
 
 ## ! Definition of shader programs source code dump levels.
 
-type
-  OpenGlShaderProgramDumpLevel* {.size: sizeof(cint),
-                                 importcpp: "OpenGl_ShaderProgramDumpLevel",
-                                 header: "OpenGl_ShaderProgramDumpLevel.hxx".} = enum
-    OpenGlShaderProgramDumpLevelOff, ## !< Disable shader programs source code dump.
-    OpenGlShaderProgramDumpLevelShort, ## !< Shader programs source code dump in short format (except common declarations).
-    OpenGlShaderProgramDumpLevelFull ## !< Shader programs source code dump in full format.
+
 

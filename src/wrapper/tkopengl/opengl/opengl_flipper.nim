@@ -1,3 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import opengl_types
+
+
+
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -11,47 +17,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Ax2"
-type
-  OpenGlFlipper* {.importcpp: "OpenGl_Flipper", header: "OpenGl_Flipper.hxx", bycopy.} = object of OpenGlElement ##
-                                                                                                       ## !
-                                                                                                       ## Construct
-                                                                                                       ## rendering
-                                                                                                       ## element
-                                                                                                       ## to
-                                                                                                       ## flip
-                                                                                                       ## model-view
-                                                                                                       ## matrix
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## along
-                                                                                                       ## the
-                                                                                                       ## reference
-                                                                                                       ## system
-                                                                                                       ## to
-                                                                                                       ## ensure
-                                                                                                       ## up-Y,
-                                                                                                       ## right-X
-                                                                                                       ## orientation.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## @param
-                                                                                                       ## theReferenceSystem
-                                                                                                       ## [in]
-                                                                                                       ## the
-                                                                                                       ## reference
-                                                                                                       ## coordinate
-                                                                                                       ## system.
 
 
-proc newOpenGlFlipper*(theReferenceSystem: Ax2): OpenGlFlipper {.cdecl, constructor,
-    importcpp: "OpenGl_Flipper(@)", dynlib: tkkxbase.}
+proc newOpenGlFlipper*(theReferenceSystem: Ax2Obj): OpenGlFlipper {.cdecl, constructor,
+    importcpp: "OpenGl_Flipper(@)", header: "OpenGl_Flipper.hxx".}
 proc setOptions*(this: var OpenGlFlipper; theIsEnabled: bool) {.cdecl,
-    importcpp: "SetOptions", dynlib: tkkxbase.}
+    importcpp: "SetOptions", header: "OpenGl_Flipper.hxx".}
 proc render*(this: OpenGlFlipper; theWorkspace: Handle[OpenGlWorkspace]) {.
-    noSideEffect, cdecl, importcpp: "Render", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "Render", header: "OpenGl_Flipper.hxx".}
 proc release*(this: var OpenGlFlipper; theCtx: ptr OpenGlContext) {.cdecl,
-    importcpp: "Release", dynlib: tkkxbase.}
+    importcpp: "Release", header: "OpenGl_Flipper.hxx".}
 proc dumpJson*(this: OpenGlFlipper; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkkxbase.}
+                                 header: "OpenGl_Flipper.hxx".}
+

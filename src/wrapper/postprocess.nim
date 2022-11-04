@@ -634,15 +634,15 @@ for typ in typs:
 #createTypesFile("./tk*/*")
 #createTypesFile("./tkopengl/opengl")
 
-reorderContent("./tkopengl/opengl/opengl_types.nim")
+#reorderContent("./tkopengl/opengl/opengl_types.nim")
 #reorderContent("./tkg3d/geom/geom_types.nim")
 
-# for fname in walkFiles("tk*/*/*.nim"):
-#   if fname.startsWith("tkxsbase/interface"):
+for fname in walkFiles("tk*/*/*.nim"):
+  if fname.startsWith("tkopengl/opengl"):
 #   #if not fname.startsWith("tkernel") and not fname.startsWith("tkmath"):
 #     if not fname.endsWith("_types.nim") and not fname.endsWith("_includes.nim"): 
-#       echo "Functions: ", fname
-#       addImports(fname)
+      echo "Functions: ", fname
+      addImports(fname)
 
 #addImports("tkg3d/geomadaptor/geomadaptor.nim")
 

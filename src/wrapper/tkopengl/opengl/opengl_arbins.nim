@@ -1,3 +1,6 @@
+
+
+
 ##  Created on: 2012-04-10
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2012-2014 OPEN CASCADE SAS
@@ -19,10 +22,8 @@
 ## ! Note that this structure does not include glVertexAttribDivisor(),
 ## ! which has been introduced in later OpenGL versions (OpenGL 3.3 or OpenGL ES 3.0).
 
-type
-  OpenGlArbIns* {.importcpp: "OpenGl_ArbIns", header: "OpenGl_ArbIns.hxx", bycopy.} = object of OpenGlGlFunctions
 
 
-## using statement
 
-## using statement
+
+

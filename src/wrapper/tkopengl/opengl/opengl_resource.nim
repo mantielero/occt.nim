@@ -1,3 +1,8 @@
+import ../../tkernel/standard/standard_types
+import opengl_types
+
+
+
 ##  Created on: 2011-03-18
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS
@@ -13,25 +18,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_Transient"
-discard "forward decl of OpenGl_Context"
-type
-  OpenGlResource* {.importcpp: "OpenGl_Resource", header: "OpenGl_Resource.hxx",
-                   bycopy.} = object of StandardTransient ## ! Empty constructor
-                                                     ## ! Copy should be performed only within Handles!
-                                                     ##  Type definition
 
 
 proc newOpenGlResource*(): OpenGlResource {.cdecl, constructor,
-    importcpp: "OpenGl_Resource(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_Resource(@)", header: "OpenGl_Resource.hxx".}
 proc destroyOpenGlResource*(this: var OpenGlResource) {.cdecl,
-    importcpp: "#.~OpenGl_Resource()", dynlib: tkkxbase.}
+    importcpp: "#.~OpenGl_Resource()", header: "OpenGl_Resource.hxx".}
 proc release*(this: var OpenGlResource; theGlCtx: ptr OpenGlContext) {.cdecl,
-    importcpp: "Release", dynlib: tkkxbase.}
+    importcpp: "Release", header: "OpenGl_Resource.hxx".}
 proc estimatedDataSize*(this: OpenGlResource): csize_t {.noSideEffect, cdecl,
-    importcpp: "EstimatedDataSize", dynlib: tkkxbase.}
+    importcpp: "EstimatedDataSize", header: "OpenGl_Resource.hxx".}
 proc dumpJson*(this: OpenGlResource; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkkxbase.}
-type
-  HandleOpenGlResource* = Handle[OpenGlResource]
+                                 header: "OpenGl_Resource.hxx".}
+
+

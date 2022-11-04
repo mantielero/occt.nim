@@ -1,3 +1,7 @@
+import opengl_types
+
+
+
 ##  Copyright (c) 2012 Leonhard Gruenschloss (leonhard@gruenschloss.org)
 ##
 ##  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,24 +24,14 @@
 
 ## ! Compute points of the Halton sequence with digit-permutations for different bases.
 
-type
-  OpenGlHaltonSampler* {.importcpp: "OpenGl_HaltonSampler",
-                        header: "OpenGl_HaltonSampler.hxx", bycopy.} = object ## ! Return the number of
-                                                                         ## supported
-                                                                         ## dimensions.
-                                                                         ## ! Init the
-                                                                         ## permutation arrays using
-                                                                         ## Faure-permutations.
-                                                                         ## ! Init the
-                                                                         ## permutation arrays using
-                                                                         ## Faure-permutations.
 
 
 proc getNumDimensions*(): cuint {.cdecl, importcpp: "OpenGl_HaltonSampler::get_num_dimensions(@)",
-                               dynlib: tkkxbase.}
+                               header: "OpenGl_HaltonSampler.hxx".}
 proc newOpenGlHaltonSampler*(): OpenGlHaltonSampler {.cdecl, constructor,
-    importcpp: "OpenGl_HaltonSampler(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_HaltonSampler(@)", header: "OpenGl_HaltonSampler.hxx".}
 proc sample*(this: OpenGlHaltonSampler; theDimension: cuint; theIndex: cuint): cfloat {.
-    noSideEffect, cdecl, importcpp: "sample", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "sample", header: "OpenGl_HaltonSampler.hxx".}
 proc initFaure*(this: var OpenGlHaltonSampler) {.cdecl, importcpp: "initFaure",
-    dynlib: tkkxbase.}
+    header: "OpenGl_HaltonSampler.hxx".}
+

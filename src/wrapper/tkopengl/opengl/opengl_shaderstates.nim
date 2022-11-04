@@ -1,3 +1,7 @@
+import opengl_types
+import ../../tkernel/standard/standard_types
+import ../../tkv3d/graphic3d/graphic3d_types
+
 ##  Created on: 2013-10-02
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -15,152 +19,87 @@
 
 ## ! Defines interface for OpenGL state.
 
-type
-  OpenGlStateInterface* {.importcpp: "OpenGl_StateInterface",
-                         header: "OpenGl_ShaderStates.hxx", bycopy.} = object ## ! Creates new state.
-    ## !< current state index
 
 
 proc newOpenGlStateInterface*(): OpenGlStateInterface {.cdecl, constructor,
-    importcpp: "OpenGl_StateInterface(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_StateInterface(@)", header: "OpenGl_ShaderStates.hxx".}
 proc index*(this: OpenGlStateInterface): csize_t {.noSideEffect, cdecl,
-    importcpp: "Index", dynlib: tkkxbase.}
+    importcpp: "Index", header: "OpenGl_ShaderStates.hxx".}
 proc update*(this: var OpenGlStateInterface) {.cdecl, importcpp: "Update",
-    dynlib: tkkxbase.}
+    header: "OpenGl_ShaderStates.hxx".}
 ## ! Defines state of OCCT projection transformation.
 
-type
-  OpenGlProjectionState* {.importcpp: "OpenGl_ProjectionState",
-                          header: "OpenGl_ShaderStates.hxx", bycopy.} = object of OpenGlStateInterface ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## uninitialized
-                                                                                                ## projection
-                                                                                                ## state.
-    ## !< OCCT projection matrix
-    ## !< Inverse of OCCT projection matrix
-    ## !< Is inversed matrix outdated?
 
 
 proc newOpenGlProjectionState*(): OpenGlProjectionState {.cdecl, constructor,
-    importcpp: "OpenGl_ProjectionState(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_ProjectionState(@)", header: "OpenGl_ShaderStates.hxx".}
 proc set*(this: var OpenGlProjectionState; theProjectionMatrix: OpenGlMat4) {.cdecl,
-    importcpp: "Set", dynlib: tkkxbase.}
+    importcpp: "Set", header: "OpenGl_ShaderStates.hxx".}
 proc projectionMatrix*(this: OpenGlProjectionState): OpenGlMat4 {.noSideEffect,
-    cdecl, importcpp: "ProjectionMatrix", dynlib: tkkxbase.}
+    cdecl, importcpp: "ProjectionMatrix", header: "OpenGl_ShaderStates.hxx".}
 proc projectionMatrixInverse*(this: OpenGlProjectionState): OpenGlMat4 {.
-    noSideEffect, cdecl, importcpp: "ProjectionMatrixInverse", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "ProjectionMatrixInverse", header: "OpenGl_ShaderStates.hxx".}
 ## ! Defines state of OCCT model-world transformation.
 
-type
-  OpenGlModelWorldState* {.importcpp: "OpenGl_ModelWorldState",
-                          header: "OpenGl_ShaderStates.hxx", bycopy.} = object of OpenGlStateInterface ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## uninitialized
-                                                                                                ## model-world
-                                                                                                ## state.
-    ## !< OCCT model-world matrix
-    ## !< Inverse of OCCT model-world matrix
-    ## !< Is inversed matrix outdated?
 
 
 proc newOpenGlModelWorldState*(): OpenGlModelWorldState {.cdecl, constructor,
-    importcpp: "OpenGl_ModelWorldState(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_ModelWorldState(@)", header: "OpenGl_ShaderStates.hxx".}
 proc set*(this: var OpenGlModelWorldState; theModelWorldMatrix: OpenGlMat4) {.cdecl,
-    importcpp: "Set", dynlib: tkkxbase.}
+    importcpp: "Set", header: "OpenGl_ShaderStates.hxx".}
 proc modelWorldMatrix*(this: OpenGlModelWorldState): OpenGlMat4 {.noSideEffect,
-    cdecl, importcpp: "ModelWorldMatrix", dynlib: tkkxbase.}
+    cdecl, importcpp: "ModelWorldMatrix", header: "OpenGl_ShaderStates.hxx".}
 proc modelWorldMatrixInverse*(this: OpenGlModelWorldState): OpenGlMat4 {.
-    noSideEffect, cdecl, importcpp: "ModelWorldMatrixInverse", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "ModelWorldMatrixInverse", header: "OpenGl_ShaderStates.hxx".}
 ## ! Defines state of OCCT world-view transformation.
 
-type
-  OpenGlWorldViewState* {.importcpp: "OpenGl_WorldViewState",
-                         header: "OpenGl_ShaderStates.hxx", bycopy.} = object of OpenGlStateInterface ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## uninitialized
-                                                                                               ## world-view
-                                                                                               ## state.
-    ## !< OCCT world-view matrix
-    ## !< Inverse of OCCT world-view matrix
-    ## !< Is inversed matrix outdated?
 
 
 proc newOpenGlWorldViewState*(): OpenGlWorldViewState {.cdecl, constructor,
-    importcpp: "OpenGl_WorldViewState(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_WorldViewState(@)", header: "OpenGl_ShaderStates.hxx".}
 proc set*(this: var OpenGlWorldViewState; theWorldViewMatrix: OpenGlMat4) {.cdecl,
-    importcpp: "Set", dynlib: tkkxbase.}
+    importcpp: "Set", header: "OpenGl_ShaderStates.hxx".}
 proc worldViewMatrix*(this: OpenGlWorldViewState): OpenGlMat4 {.noSideEffect, cdecl,
-    importcpp: "WorldViewMatrix", dynlib: tkkxbase.}
+    importcpp: "WorldViewMatrix", header: "OpenGl_ShaderStates.hxx".}
 proc worldViewMatrixInverse*(this: OpenGlWorldViewState): OpenGlMat4 {.noSideEffect,
-    cdecl, importcpp: "WorldViewMatrixInverse", dynlib: tkkxbase.}
+    cdecl, importcpp: "WorldViewMatrixInverse", header: "OpenGl_ShaderStates.hxx".}
 ## ! Defines state of OCCT light sources.
 
-type
-  OpenGlLightSourceState* {.importcpp: "OpenGl_LightSourceState",
-                           header: "OpenGl_ShaderStates.hxx", bycopy.} = object of OpenGlStateInterface ##
-                                                                                                 ## !
-                                                                                                 ## Creates
-                                                                                                 ## uninitialized
-                                                                                                 ## state
-                                                                                                 ## of
-                                                                                                 ## light
-                                                                                                 ## sources.
-    ## !< List of OCCT light sources
-    ## !< Number of mipmap levels used in specular IBL map (0 by default or in case of using non-PBR shading model)
 
 
 proc newOpenGlLightSourceState*(): OpenGlLightSourceState {.cdecl, constructor,
-    importcpp: "OpenGl_LightSourceState(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_LightSourceState(@)", header: "OpenGl_ShaderStates.hxx".}
 proc set*(this: var OpenGlLightSourceState;
          theLightSources: Handle[Graphic3dLightSet]) {.cdecl, importcpp: "Set",
-    dynlib: tkkxbase.}
+    header: "OpenGl_ShaderStates.hxx".}
 proc lightSources*(this: OpenGlLightSourceState): Handle[Graphic3dLightSet] {.
-    noSideEffect, cdecl, importcpp: "LightSources", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "LightSources", header: "OpenGl_ShaderStates.hxx".}
 proc specIBLMapLevels*(this: OpenGlLightSourceState): cint {.noSideEffect, cdecl,
-    importcpp: "SpecIBLMapLevels", dynlib: tkkxbase.}
+    importcpp: "SpecIBLMapLevels", header: "OpenGl_ShaderStates.hxx".}
 proc setSpecIBLMapLevels*(this: var OpenGlLightSourceState;
                          theSpecIBLMapLevels: cint) {.cdecl,
-    importcpp: "SetSpecIBLMapLevels", dynlib: tkkxbase.}
+    importcpp: "SetSpecIBLMapLevels", header: "OpenGl_ShaderStates.hxx".}
 ## ! Defines generic state of OCCT clipping state.
 
-type
-  OpenGlClippingState* {.importcpp: "OpenGl_ClippingState",
-                        header: "OpenGl_ShaderStates.hxx", bycopy.} = object ## ! Creates new clipping state.
-    ## !< Current state index
-    ## !< Next    state index
-    ## !< Stack of previous states
 
 
 proc newOpenGlClippingState*(): OpenGlClippingState {.cdecl, constructor,
-    importcpp: "OpenGl_ClippingState(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_ClippingState(@)", header: "OpenGl_ShaderStates.hxx".}
 proc index*(this: OpenGlClippingState): csize_t {.noSideEffect, cdecl,
-    importcpp: "Index", dynlib: tkkxbase.}
+    importcpp: "Index", header: "OpenGl_ShaderStates.hxx".}
 proc update*(this: var OpenGlClippingState) {.cdecl, importcpp: "Update",
-    dynlib: tkkxbase.}
+    header: "OpenGl_ShaderStates.hxx".}
 proc revert*(this: var OpenGlClippingState) {.cdecl, importcpp: "Revert",
-    dynlib: tkkxbase.}
+    header: "OpenGl_ShaderStates.hxx".}
 ## ! Defines generic state of order-independent transparency rendering properties.
 
-type
-  OpenGlOitState* {.importcpp: "OpenGl_OitState",
-                   header: "OpenGl_ShaderStates.hxx", bycopy.} = object of OpenGlStateInterface ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## new
-                                                                                         ## uniform
-                                                                                         ## state.
-    ## !< writing color and coverage.
-    ## !< factor of depth influence to coverage.
 
 
 proc newOpenGlOitState*(): OpenGlOitState {.cdecl, constructor,
-    importcpp: "OpenGl_OitState(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_OitState(@)", header: "OpenGl_ShaderStates.hxx".}
 proc set*(this: var OpenGlOitState; theToEnableWrite: bool; theDepthFactor: cfloat) {.
-    cdecl, importcpp: "Set", dynlib: tkkxbase.}
+    cdecl, importcpp: "Set", header: "OpenGl_ShaderStates.hxx".}
 proc toEnableWrite*(this: OpenGlOitState): bool {.noSideEffect, cdecl,
-    importcpp: "ToEnableWrite", dynlib: tkkxbase.}
+    importcpp: "ToEnableWrite", header: "OpenGl_ShaderStates.hxx".}
 proc depthFactor*(this: OpenGlOitState): cfloat {.noSideEffect, cdecl,
-    importcpp: "DepthFactor", dynlib: tkkxbase.}
+    importcpp: "DepthFactor", header: "OpenGl_ShaderStates.hxx".}

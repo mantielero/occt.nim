@@ -1,3 +1,11 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
+import ../../tkv3d/graphic3d/graphic3d_types
+import opengl_types
+import ../../tkmath/gp/gp_types
+
+
 ##  Created on: 2013-09-26
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -13,190 +21,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of OpenGl_View"
-discard "forward decl of OpenGl_VertexBuffer"
-type
-  OpenGlShaderProgramList* = NCollectionSequence[Handle[OpenGlShaderProgram]]
 
-## ! This class is responsible for managing shader programs.
 
-type
-  OpenGlShaderManager* {.importcpp: "OpenGl_ShaderManager",
-                        header: "OpenGl_ShaderManager.hxx", bycopy.} = object of StandardTransient ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## new
-                                                                                            ## empty
-                                                                                            ## shader
-                                                                                            ## manager.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## current
-                                                                                            ## state
-                                                                                            ## of
-                                                                                            ## OCCT
-                                                                                            ## light
-                                                                                            ## sources.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## current
-                                                                                            ## state
-                                                                                            ## of
-                                                                                            ## OCCT
-                                                                                            ## projection
-                                                                                            ## transform.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## current
-                                                                                            ## state
-                                                                                            ## of
-                                                                                            ## OCCT
-                                                                                            ## model-world
-                                                                                            ## transform.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## current
-                                                                                            ## state
-                                                                                            ## of
-                                                                                            ## OCCT
-                                                                                            ## world-view
-                                                                                            ## transform.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Updates
-                                                                                            ## state
-                                                                                            ## of
-                                                                                            ## OCCT
-                                                                                            ## clipping
-                                                                                            ## planes.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## current
-                                                                                            ## state
-                                                                                            ## of
-                                                                                            ## material.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Setup
-                                                                                            ## interior
-                                                                                            ## style
-                                                                                            ## line
-                                                                                            ## edges
-                                                                                            ## variables.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## state
-                                                                                            ## of
-                                                                                            ## OIT
-                                                                                            ## uniforms.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Pushes
-                                                                                            ## current
-                                                                                            ## state
-                                                                                            ## of
-                                                                                            ## OCCT
-                                                                                            ## graphics
-                                                                                            ## parameters
-                                                                                            ## to
-                                                                                            ## specified
-                                                                                            ## program.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Overwrites
-                                                                                            ## context
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Define
-                                                                                            ## clipping
-                                                                                            ## planes
-                                                                                            ## program
-                                                                                            ## bits.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Packed
-                                                                                            ## properties
-                                                                                            ## of
-                                                                                            ## light
-                                                                                            ## source
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Append
-                                                                                            ## clipping
-                                                                                            ## plane
-                                                                                            ## definition
-                                                                                            ## to
-                                                                                            ## temporary
-                                                                                            ## buffers.
-    ## !< lighting shading model
-    ## !< The list of shader programs
-    ## !< pointer to active lighting programs matrix
-    ## !< programs matrix without lighting
-    ## !< programs matrix without lighting for outline presentation
-    ## !< standard program for textured text
-    ## !< standard program for FBO blit emulation
-    ## !< standard program for bounding box
-    ## !< standard program for OIT compositing (default and MSAA).
-    ## !< map of lighting programs depending on lights configuration
-    ## !< program for IBL maps generation used in PBR pipeline
-    ## !< program for background cubemap rendering
-    ## !< standard stereo programs
-    ## !< bounding box vertex buffer
-    ## !< manager of IBL maps used in PBR pipeline
-    ## !< OpenGL context
-    ## !< track sRGB state
-    ## !< State of OCCT projection  transformation
-    ## !< State of OCCT model-world transformation
-    ## !< State of OCCT world-view  transformation
-    ## !< State of OCCT clipping planes
-    ## !< State of OCCT light sources
-    ## !< State of Front and Back materials
-    ## !< State of OIT uniforms
-    ## !< local camera transformation
-    ## !< flag indicating that local camera transformation has been set
-    ## !< Pointer to the last view shader manager used with
 
 
 proc newOpenGlShaderManager*(theContext: ptr OpenGlContext): OpenGlShaderManager {.
-    cdecl, constructor, importcpp: "OpenGl_ShaderManager(@)", dynlib: tkkxbase.}
+    cdecl, constructor, importcpp: "OpenGl_ShaderManager(@)", header: "OpenGl_ShaderManager.hxx".}
 proc destroyOpenGlShaderManager*(this: var OpenGlShaderManager) {.cdecl,
-    importcpp: "#.~OpenGl_ShaderManager()", dynlib: tkkxbase.}
+    importcpp: "#.~OpenGl_ShaderManager()", header: "OpenGl_ShaderManager.hxx".}
 proc clear*(this: var OpenGlShaderManager) {.cdecl, importcpp: "clear",
-    dynlib: tkkxbase.}
+    header: "OpenGl_ShaderManager.hxx".}
 proc updateSRgbState*(this: var OpenGlShaderManager) {.cdecl,
-    importcpp: "UpdateSRgbState", dynlib: tkkxbase.}
-proc localOrigin*(this: OpenGlShaderManager): Xyz {.noSideEffect, cdecl,
-    importcpp: "LocalOrigin", dynlib: tkkxbase.}
-proc setLocalOrigin*(this: var OpenGlShaderManager; theOrigin: Xyz) {.cdecl,
-    importcpp: "SetLocalOrigin", dynlib: tkkxbase.}
+    importcpp: "UpdateSRgbState", header: "OpenGl_ShaderManager.hxx".}
+proc localOrigin*(this: OpenGlShaderManager): XyzObj {.noSideEffect, cdecl,
+    importcpp: "LocalOrigin", header: "OpenGl_ShaderManager.hxx".}
+proc setLocalOrigin*(this: var OpenGlShaderManager; theOrigin: XyzObj) {.cdecl,
+    importcpp: "SetLocalOrigin", header: "OpenGl_ShaderManager.hxx".}
 proc localClippingPlaneW*(this: OpenGlShaderManager; thePlane: Graphic3dClipPlane): cfloat {.
-    noSideEffect, cdecl, importcpp: "LocalClippingPlaneW", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "LocalClippingPlaneW", header: "OpenGl_ShaderManager.hxx".}
 proc create*(this: var OpenGlShaderManager;
             theProxy: Handle[Graphic3dShaderProgram];
             theShareKey: var TCollectionAsciiString;
             theProgram: var Handle[OpenGlShaderProgram]): bool {.cdecl,
-    importcpp: "Create", dynlib: tkkxbase.}
+    importcpp: "Create", header: "OpenGl_ShaderManager.hxx".}
 proc unregister*(this: var OpenGlShaderManager;
                 theShareKey: var TCollectionAsciiString;
                 theProgram: var Handle[OpenGlShaderProgram]) {.cdecl,
-    importcpp: "Unregister", dynlib: tkkxbase.}
+    importcpp: "Unregister", header: "OpenGl_ShaderManager.hxx".}
 proc shaderPrograms*(this: OpenGlShaderManager): OpenGlShaderProgramList {.
-    noSideEffect, cdecl, importcpp: "ShaderPrograms", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "ShaderPrograms", header: "OpenGl_ShaderManager.hxx".}
 proc isEmpty*(this: OpenGlShaderManager): bool {.noSideEffect, cdecl,
-    importcpp: "IsEmpty", dynlib: tkkxbase.}
+    importcpp: "IsEmpty", header: "OpenGl_ShaderManager.hxx".}
 proc bindFaceProgram*(this: var OpenGlShaderManager;
                      theTextures: Handle[OpenGlTextureSet];
                      theShadingModel: Graphic3dTypeOfShadingModel;
                      theAlphaMode: Graphic3dAlphaMode; theHasVertColor: bool;
                      theEnableEnvMap: bool;
                      theCustomProgram: Handle[OpenGlShaderProgram]): bool {.cdecl,
-    importcpp: "BindFaceProgram", dynlib: tkkxbase.}
+    importcpp: "BindFaceProgram", header: "OpenGl_ShaderManager.hxx".}
 proc bindFaceProgram*(this: var OpenGlShaderManager;
                      theTextures: Handle[OpenGlTextureSet];
                      theShadingModel: Graphic3dTypeOfShadingModel;
@@ -204,161 +66,161 @@ proc bindFaceProgram*(this: var OpenGlShaderManager;
                      theInteriorStyle: AspectInteriorStyle; theHasVertColor: bool;
                      theEnableEnvMap: bool; theEnableMeshEdges: bool;
                      theCustomProgram: Handle[OpenGlShaderProgram]): bool {.cdecl,
-    importcpp: "BindFaceProgram", dynlib: tkkxbase.}
+    importcpp: "BindFaceProgram", header: "OpenGl_ShaderManager.hxx".}
 proc bindLineProgram*(this: var OpenGlShaderManager;
                      theTextures: Handle[OpenGlTextureSet];
                      theLineType: AspectTypeOfLine;
                      theShadingModel: Graphic3dTypeOfShadingModel;
                      theAlphaMode: Graphic3dAlphaMode; theHasVertColor: bool;
                      theCustomProgram: Handle[OpenGlShaderProgram]): bool {.cdecl,
-    importcpp: "BindLineProgram", dynlib: tkkxbase.}
+    importcpp: "BindLineProgram", header: "OpenGl_ShaderManager.hxx".}
 proc bindMarkerProgram*(this: var OpenGlShaderManager;
                        theTextures: Handle[OpenGlTextureSet];
                        theShadingModel: Graphic3dTypeOfShadingModel;
                        theAlphaMode: Graphic3dAlphaMode; theHasVertColor: bool;
                        theCustomProgram: Handle[OpenGlShaderProgram]): bool {.
-    cdecl, importcpp: "BindMarkerProgram", dynlib: tkkxbase.}
+    cdecl, importcpp: "BindMarkerProgram", header: "OpenGl_ShaderManager.hxx".}
 proc bindFontProgram*(this: var OpenGlShaderManager;
                      theCustomProgram: Handle[OpenGlShaderProgram]): bool {.cdecl,
-    importcpp: "BindFontProgram", dynlib: tkkxbase.}
+    importcpp: "BindFontProgram", header: "OpenGl_ShaderManager.hxx".}
 proc bindOutlineProgram*(this: var OpenGlShaderManager): bool {.cdecl,
-    importcpp: "BindOutlineProgram", dynlib: tkkxbase.}
+    importcpp: "BindOutlineProgram", header: "OpenGl_ShaderManager.hxx".}
 proc bindFboBlitProgram*(this: var OpenGlShaderManager; theNbSamples: cint;
                         theIsFallbackSRGB: bool): bool {.cdecl,
-    importcpp: "BindFboBlitProgram", dynlib: tkkxbase.}
+    importcpp: "BindFboBlitProgram", header: "OpenGl_ShaderManager.hxx".}
 proc bindOitCompositingProgram*(this: var OpenGlShaderManager;
                                theIsMSAAEnabled: bool): bool {.cdecl,
-    importcpp: "BindOitCompositingProgram", dynlib: tkkxbase.}
+    importcpp: "BindOitCompositingProgram", header: "OpenGl_ShaderManager.hxx".}
 proc bindStereoProgram*(this: var OpenGlShaderManager;
                        theStereoMode: Graphic3dStereoMode): bool {.cdecl,
-    importcpp: "BindStereoProgram", dynlib: tkkxbase.}
+    importcpp: "BindStereoProgram", header: "OpenGl_ShaderManager.hxx".}
 proc bindBoundBoxProgram*(this: var OpenGlShaderManager): bool {.cdecl,
-    importcpp: "BindBoundBoxProgram", dynlib: tkkxbase.}
+    importcpp: "BindBoundBoxProgram", header: "OpenGl_ShaderManager.hxx".}
 proc boundBoxVertBuffer*(this: OpenGlShaderManager): Handle[OpenGlVertexBuffer] {.
-    noSideEffect, cdecl, importcpp: "BoundBoxVertBuffer", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "BoundBoxVertBuffer", header: "OpenGl_ShaderManager.hxx".}
 proc bindPBREnvBakingProgram*(this: var OpenGlShaderManager): bool {.cdecl,
-    importcpp: "BindPBREnvBakingProgram", dynlib: tkkxbase.}
+    importcpp: "BindPBREnvBakingProgram", header: "OpenGl_ShaderManager.hxx".}
 proc getBgCubeMapProgram*(this: var OpenGlShaderManager): Handle[
     Graphic3dShaderProgram] {.cdecl, importcpp: "GetBgCubeMapProgram",
-                             dynlib: tkkxbase.}
+                             header: "OpenGl_ShaderManager.hxx".}
 proc pBRShadingModelFallback*(theShadingModel: Graphic3dTypeOfShadingModel;
                              theIsPbrAllowed: bool = false): Graphic3dTypeOfShadingModel {.
     cdecl, importcpp: "OpenGl_ShaderManager::PBRShadingModelFallback(@)",
-    dynlib: tkkxbase.}
+    header: "OpenGl_ShaderManager.hxx".}
 proc lightSourceState*(this: OpenGlShaderManager): OpenGlLightSourceState {.
-    noSideEffect, cdecl, importcpp: "LightSourceState", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "LightSourceState", header: "OpenGl_ShaderManager.hxx".}
 proc updateLightSourceStateTo*(this: var OpenGlShaderManager;
                               theLights: Handle[Graphic3dLightSet];
                               theSpecIBLMapLevels: cint = 0) {.cdecl,
-    importcpp: "UpdateLightSourceStateTo", dynlib: tkkxbase.}
+    importcpp: "UpdateLightSourceStateTo", header: "OpenGl_ShaderManager.hxx".}
 proc updateLightSourceState*(this: var OpenGlShaderManager) {.cdecl,
-    importcpp: "UpdateLightSourceState", dynlib: tkkxbase.}
+    importcpp: "UpdateLightSourceState", header: "OpenGl_ShaderManager.hxx".}
 proc pushLightSourceState*(this: OpenGlShaderManager;
                           theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
-    cdecl, importcpp: "PushLightSourceState", dynlib: tkkxbase.}
-proc pushLightSourceState*(this: OpenGlShaderManager;
-                          theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
-    cdecl, importcpp: "pushLightSourceState", dynlib: tkkxbase.}
+    cdecl, importcpp: "PushLightSourceState", header: "OpenGl_ShaderManager.hxx".}
+# proc pushLightSourceState*(this: OpenGlShaderManager;
+#                           theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
+#     cdecl, importcpp: "pushLightSourceState", header: "OpenGl_ShaderManager.hxx".}
 proc projectionState*(this: OpenGlShaderManager): OpenGlProjectionState {.
-    noSideEffect, cdecl, importcpp: "ProjectionState", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "ProjectionState", header: "OpenGl_ShaderManager.hxx".}
 proc updateProjectionStateTo*(this: var OpenGlShaderManager;
                              theProjectionMatrix: OpenGlMat4) {.cdecl,
-    importcpp: "UpdateProjectionStateTo", dynlib: tkkxbase.}
+    importcpp: "UpdateProjectionStateTo", header: "OpenGl_ShaderManager.hxx".}
 proc pushProjectionState*(this: OpenGlShaderManager;
                          theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
-    cdecl, importcpp: "PushProjectionState", dynlib: tkkxbase.}
-proc pushProjectionState*(this: OpenGlShaderManager;
-                         theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
-    cdecl, importcpp: "pushProjectionState", dynlib: tkkxbase.}
+    cdecl, importcpp: "PushProjectionState", header: "OpenGl_ShaderManager.hxx".}
+# proc pushProjectionState*(this: OpenGlShaderManager;
+#                          theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
+#     cdecl, importcpp: "pushProjectionState", header: "OpenGl_ShaderManager.hxx".}
 proc modelWorldState*(this: OpenGlShaderManager): OpenGlModelWorldState {.
-    noSideEffect, cdecl, importcpp: "ModelWorldState", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "ModelWorldState", header: "OpenGl_ShaderManager.hxx".}
 proc updateModelWorldStateTo*(this: var OpenGlShaderManager;
                              theModelWorldMatrix: OpenGlMat4) {.cdecl,
-    importcpp: "UpdateModelWorldStateTo", dynlib: tkkxbase.}
+    importcpp: "UpdateModelWorldStateTo", header: "OpenGl_ShaderManager.hxx".}
 proc pushModelWorldState*(this: OpenGlShaderManager;
                          theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
-    cdecl, importcpp: "PushModelWorldState", dynlib: tkkxbase.}
-proc pushModelWorldState*(this: OpenGlShaderManager;
-                         theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
-    cdecl, importcpp: "pushModelWorldState", dynlib: tkkxbase.}
+    cdecl, importcpp: "PushModelWorldState", header: "OpenGl_ShaderManager.hxx".}
+# proc pushModelWorldState*(this: OpenGlShaderManager;
+#                          theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
+#     cdecl, importcpp: "pushModelWorldState", header: "OpenGl_ShaderManager.hxx".}
 proc worldViewState*(this: OpenGlShaderManager): OpenGlWorldViewState {.
-    noSideEffect, cdecl, importcpp: "WorldViewState", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "WorldViewState", header: "OpenGl_ShaderManager.hxx".}
 proc updateWorldViewStateTo*(this: var OpenGlShaderManager;
                             theWorldViewMatrix: OpenGlMat4) {.cdecl,
-    importcpp: "UpdateWorldViewStateTo", dynlib: tkkxbase.}
+    importcpp: "UpdateWorldViewStateTo", header: "OpenGl_ShaderManager.hxx".}
 proc pushWorldViewState*(this: OpenGlShaderManager;
                         theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
-    cdecl, importcpp: "PushWorldViewState", dynlib: tkkxbase.}
-proc pushWorldViewState*(this: OpenGlShaderManager;
-                        theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
-    cdecl, importcpp: "pushWorldViewState", dynlib: tkkxbase.}
+    cdecl, importcpp: "PushWorldViewState", header: "OpenGl_ShaderManager.hxx".}
+# proc pushWorldViewState*(this: OpenGlShaderManager;
+#                         theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
+#     cdecl, importcpp: "pushWorldViewState", header: "OpenGl_ShaderManager.hxx".}
 proc updateClippingState*(this: var OpenGlShaderManager) {.cdecl,
-    importcpp: "UpdateClippingState", dynlib: tkkxbase.}
+    importcpp: "UpdateClippingState", header: "OpenGl_ShaderManager.hxx".}
 proc revertClippingState*(this: var OpenGlShaderManager) {.cdecl,
-    importcpp: "RevertClippingState", dynlib: tkkxbase.}
+    importcpp: "RevertClippingState", header: "OpenGl_ShaderManager.hxx".}
 proc pushClippingState*(this: OpenGlShaderManager;
                        theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
-    cdecl, importcpp: "PushClippingState", dynlib: tkkxbase.}
-proc pushClippingState*(this: OpenGlShaderManager;
-                       theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
-    cdecl, importcpp: "pushClippingState", dynlib: tkkxbase.}
+    cdecl, importcpp: "PushClippingState", header: "OpenGl_ShaderManager.hxx".}
+# proc pushClippingState*(this: OpenGlShaderManager;
+#                        theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
+#     cdecl, importcpp: "pushClippingState", header: "OpenGl_ShaderManager.hxx".}
 proc materialState*(this: OpenGlShaderManager): OpenGlMaterialState {.noSideEffect,
-    cdecl, importcpp: "MaterialState", dynlib: tkkxbase.}
+    cdecl, importcpp: "MaterialState", header: "OpenGl_ShaderManager.hxx".}
 proc updateMaterialStateTo*(this: var OpenGlShaderManager;
                            theFrontMat: OpenGlMaterial;
                            theBackMat: OpenGlMaterial; theAlphaCutoff: cfloat;
                            theToDistinguish: bool; theToMapTexture: bool) {.cdecl,
-    importcpp: "UpdateMaterialStateTo", dynlib: tkkxbase.}
+    importcpp: "UpdateMaterialStateTo", header: "OpenGl_ShaderManager.hxx".}
 proc updateMaterialState*(this: var OpenGlShaderManager) {.cdecl,
-    importcpp: "UpdateMaterialState", dynlib: tkkxbase.}
+    importcpp: "UpdateMaterialState", header: "OpenGl_ShaderManager.hxx".}
 proc pushMaterialState*(this: OpenGlShaderManager;
                        theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
-    cdecl, importcpp: "PushMaterialState", dynlib: tkkxbase.}
-proc pushMaterialState*(this: OpenGlShaderManager;
-                       theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
-    cdecl, importcpp: "pushMaterialState", dynlib: tkkxbase.}
+    cdecl, importcpp: "PushMaterialState", header: "OpenGl_ShaderManager.hxx".}
+# proc pushMaterialState*(this: OpenGlShaderManager;
+#                        theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect,
+#     cdecl, importcpp: "pushMaterialState", header: "OpenGl_ShaderManager.hxx".}
 proc pushInteriorState*(this: OpenGlShaderManager;
                        theProgram: Handle[OpenGlShaderProgram];
                        theAspect: Handle[Graphic3dAspects]) {.noSideEffect, cdecl,
-    importcpp: "PushInteriorState", dynlib: tkkxbase.}
+    importcpp: "PushInteriorState", header: "OpenGl_ShaderManager.hxx".}
 proc oitState*(this: OpenGlShaderManager): OpenGlOitState {.noSideEffect, cdecl,
-    importcpp: "OitState", dynlib: tkkxbase.}
+    importcpp: "OitState", header: "OpenGl_ShaderManager.hxx".}
 proc setOitState*(this: var OpenGlShaderManager; theToEnableOitWrite: bool;
                  theDepthFactor: cfloat) {.cdecl, importcpp: "SetOitState",
-    dynlib: tkkxbase.}
+    header: "OpenGl_ShaderManager.hxx".}
 proc pushOitState*(this: OpenGlShaderManager;
                   theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect, cdecl,
-    importcpp: "PushOitState", dynlib: tkkxbase.}
-proc pushOitState*(this: OpenGlShaderManager;
-                  theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect, cdecl,
-    importcpp: "pushOitState", dynlib: tkkxbase.}
+    importcpp: "PushOitState", header: "OpenGl_ShaderManager.hxx".}
+# proc pushOitState*(this: OpenGlShaderManager;
+#                   theProgram: Handle[OpenGlShaderProgram]) {.noSideEffect, cdecl,
+#     importcpp: "pushOitState", header: "OpenGl_ShaderManager.hxx".}
 proc pushState*(this: OpenGlShaderManager; theProgram: Handle[OpenGlShaderProgram];
     theShadingModel: Graphic3dTypeOfShadingModel = graphic3dTOSM_UNLIT) {.
-    noSideEffect, cdecl, importcpp: "PushState", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "PushState", header: "OpenGl_ShaderManager.hxx".}
 proc setContext*(this: var OpenGlShaderManager; theCtx: ptr OpenGlContext) {.cdecl,
-    importcpp: "SetContext", dynlib: tkkxbase.}
+    importcpp: "SetContext", header: "OpenGl_ShaderManager.hxx".}
 proc isSameContext*(this: OpenGlShaderManager; theCtx: ptr OpenGlContext): bool {.
-    noSideEffect, cdecl, importcpp: "IsSameContext", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "IsSameContext", header: "OpenGl_ShaderManager.hxx".}
 proc chooseFaceShadingModel*(this: OpenGlShaderManager;
                             theCustomModel: Graphic3dTypeOfShadingModel;
                             theHasNodalNormals: bool): Graphic3dTypeOfShadingModel {.
-    noSideEffect, cdecl, importcpp: "ChooseFaceShadingModel", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "ChooseFaceShadingModel", header: "OpenGl_ShaderManager.hxx".}
 proc chooseLineShadingModel*(this: OpenGlShaderManager;
                             theCustomModel: Graphic3dTypeOfShadingModel;
                             theHasNodalNormals: bool): Graphic3dTypeOfShadingModel {.
-    noSideEffect, cdecl, importcpp: "ChooseLineShadingModel", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "ChooseLineShadingModel", header: "OpenGl_ShaderManager.hxx".}
 proc chooseMarkerShadingModel*(this: OpenGlShaderManager;
                               theCustomModel: Graphic3dTypeOfShadingModel;
                               theHasNodalNormals: bool): Graphic3dTypeOfShadingModel {.
-    noSideEffect, cdecl, importcpp: "ChooseMarkerShadingModel", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "ChooseMarkerShadingModel", header: "OpenGl_ShaderManager.hxx".}
 proc shadingModel*(this: OpenGlShaderManager): Graphic3dTypeOfShadingModel {.
-    noSideEffect, cdecl, importcpp: "ShadingModel", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "ShadingModel", header: "OpenGl_ShaderManager.hxx".}
 proc setShadingModel*(this: var OpenGlShaderManager;
                      theModel: Graphic3dTypeOfShadingModel) {.cdecl,
-    importcpp: "SetShadingModel", dynlib: tkkxbase.}
+    importcpp: "SetShadingModel", header: "OpenGl_ShaderManager.hxx".}
 proc setLastView*(this: var OpenGlShaderManager; theLastView: ptr OpenGlView) {.cdecl,
-    importcpp: "SetLastView", dynlib: tkkxbase.}
+    importcpp: "SetLastView", header: "OpenGl_ShaderManager.hxx".}
 proc isSameView*(this: OpenGlShaderManager; theView: ptr OpenGlView): bool {.
-    noSideEffect, cdecl, importcpp: "IsSameView", dynlib: tkkxbase.}
-type
-  HandleOpenGlShaderManager* = Handle[OpenGlShaderManager]
+    noSideEffect, cdecl, importcpp: "IsSameView", header: "OpenGl_ShaderManager.hxx".}
+
+

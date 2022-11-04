@@ -1,4 +1,4 @@
-{.passL:"-lTKOpengl".}
+{.passL:"-lTKOpenGl".}
 {.passC:"-I/usr/include/opencascade/" .}
 #{.experimental: "codeReordering".}
 #{.experimental: "callOperator".}

@@ -1,3 +1,7 @@
+import opengl_types
+import ../../tkernel/standard/standard_types
+import ../../tkv3d/graphic3d/graphic3d_types
+
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
@@ -23,54 +27,40 @@
 ## ! user shouldn't cast it to base class and all really useful methods
 ## ! are declared in this class.
 
-type
-  OpenGlTextureBufferArb* {.importcpp: "OpenGl_TextureBufferArb",
-                           header: "OpenGl_TextureBufferArb.hxx", bycopy.} = object of OpenGlVertexBuffer ##
-                                                                                                   ## !
-                                                                                                   ## Helpful
-                                                                                                   ## constants
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## Create
-                                                                                                   ## uninitialized
-                                                                                                   ## TBO.
-    ## !< texture id
-    ## !< internal texture format
 
 
 proc newOpenGlTextureBufferArb*(): OpenGlTextureBufferArb {.cdecl, constructor,
-    importcpp: "OpenGl_TextureBufferArb(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_TextureBufferArb(@)", header: "OpenGl_TextureBufferArb.hxx".}
 proc destroyOpenGlTextureBufferArb*(this: var OpenGlTextureBufferArb) {.cdecl,
-    importcpp: "#.~OpenGl_TextureBufferArb()", dynlib: tkkxbase.}
+    importcpp: "#.~OpenGl_TextureBufferArb()", header: "OpenGl_TextureBufferArb.hxx".}
 proc getTarget*(this: OpenGlTextureBufferArb): GLenum {.noSideEffect, cdecl,
-    importcpp: "GetTarget", dynlib: tkkxbase.}
+    importcpp: "GetTarget", header: "OpenGl_TextureBufferArb.hxx".}
 proc isValid*(this: OpenGlTextureBufferArb): bool {.noSideEffect, cdecl,
-    importcpp: "IsValid", dynlib: tkkxbase.}
+    importcpp: "IsValid", header: "OpenGl_TextureBufferArb.hxx".}
 proc release*(this: var OpenGlTextureBufferArb; theGlCtx: ptr OpenGlContext) {.cdecl,
-    importcpp: "Release", dynlib: tkkxbase.}
+    importcpp: "Release", header: "OpenGl_TextureBufferArb.hxx".}
 proc create*(this: var OpenGlTextureBufferArb; theGlCtx: Handle[OpenGlContext]): bool {.
-    cdecl, importcpp: "Create", dynlib: tkkxbase.}
+    cdecl, importcpp: "Create", header: "OpenGl_TextureBufferArb.hxx".}
 proc init*(this: var OpenGlTextureBufferArb; theGlCtx: Handle[OpenGlContext];
           theComponentsNb: GLuint; theElemsNb: GLsizei; theData: ptr GLfloat): bool {.
-    cdecl, importcpp: "Init", dynlib: tkkxbase.}
+    cdecl, importcpp: "Init", header: "OpenGl_TextureBufferArb.hxx".}
 proc init*(this: var OpenGlTextureBufferArb; theGlCtx: Handle[OpenGlContext];
           theComponentsNb: GLuint; theElemsNb: GLsizei; theData: ptr GLuint): bool {.
-    cdecl, importcpp: "Init", dynlib: tkkxbase.}
+    cdecl, importcpp: "Init", header: "OpenGl_TextureBufferArb.hxx".}
 proc init*(this: var OpenGlTextureBufferArb; theGlCtx: Handle[OpenGlContext];
           theComponentsNb: GLuint; theElemsNb: GLsizei; theData: ptr GLushort): bool {.
-    cdecl, importcpp: "Init", dynlib: tkkxbase.}
+    cdecl, importcpp: "Init", header: "OpenGl_TextureBufferArb.hxx".}
 proc init*(this: var OpenGlTextureBufferArb; theGlCtx: Handle[OpenGlContext];
           theComponentsNb: GLuint; theElemsNb: GLsizei; theData: ptr GLubyte): bool {.
-    cdecl, importcpp: "Init", dynlib: tkkxbase.}
+    cdecl, importcpp: "Init", header: "OpenGl_TextureBufferArb.hxx".}
 proc bindTexture*(this: OpenGlTextureBufferArb; theGlCtx: Handle[OpenGlContext];
                  theTextureUnit: Graphic3dTextureUnit) {.noSideEffect, cdecl,
-    importcpp: "BindTexture", dynlib: tkkxbase.}
+    importcpp: "BindTexture", header: "OpenGl_TextureBufferArb.hxx".}
 proc unbindTexture*(this: OpenGlTextureBufferArb; theGlCtx: Handle[OpenGlContext];
                    theTextureUnit: Graphic3dTextureUnit) {.noSideEffect, cdecl,
-    importcpp: "UnbindTexture", dynlib: tkkxbase.}
+    importcpp: "UnbindTexture", header: "OpenGl_TextureBufferArb.hxx".}
 proc textureId*(this: OpenGlTextureBufferArb): GLuint {.noSideEffect, cdecl,
-    importcpp: "TextureId", dynlib: tkkxbase.}
+    importcpp: "TextureId", header: "OpenGl_TextureBufferArb.hxx".}
 proc textureFormat*(this: OpenGlTextureBufferArb): GLenum {.noSideEffect, cdecl,
-    importcpp: "TextureFormat", dynlib: tkkxbase.}
-type
-  HandleOpenGlTextureBufferArb* = Handle[OpenGlTextureBufferArb]
+    importcpp: "TextureFormat", header: "OpenGl_TextureBufferArb.hxx".}
+

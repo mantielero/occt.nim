@@ -1,3 +1,10 @@
+import ../../tkernel/tcollection/[tcollection_types, tcollection_asciistring]
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
+import opengl_types
+
+
+
 ##  Created on: 2013-01-29
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -13,78 +20,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Font_FTFont"
-type
-  OpenGlFont* {.importcpp: "OpenGl_Font", header: "OpenGl_Font.hxx", bycopy.} = object of OpenGlResource ##
-                                                                                               ## !
-                                                                                               ## Simple
-                                                                                               ## structure
-                                                                                               ## stores
-                                                                                               ## tile
-                                                                                               ## rectangle.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Main
-                                                                                               ## constructor.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Render
-                                                                                               ## new
-                                                                                               ## glyph
-                                                                                               ## to
-                                                                                               ## the
-                                                                                               ## texture.
-                                                                                               ##
-                                                                                               ## Type
-                                                                                               ## definition
-    ## !< key of shared resource
-    ## !< FreeType font instance
-    ## !< ascender     provided my FT font
-    ## !< descender    provided my FT font
-    ## !< tile height
-    ## !< id of last tile
-    ## !< texture format
-    ## !< array of textures
-    ## !< array of loaded tiles
 
-  OpenGlFontTile* {.importcpp: "OpenGl_Font::Tile", header: "OpenGl_Font.hxx", bycopy.} = object
-    uv* {.importc: "uv".}: FontRect ## !< UV coordinates in texture
-    px* {.importc: "px".}: FontRect ## !< pixel displacement coordinates
-    texture* {.importc: "texture".}: GLuint ## !< GL texture ID
 
-  OpenGlFontRectI* {.importcpp: "OpenGl_Font::RectI", header: "OpenGl_Font.hxx",
-                    bycopy.} = object
-    left* {.importc: "Left".}: cint
-    right* {.importc: "Right".}: cint
-    top* {.importc: "Top".}: cint
-    bottom* {.importc: "Bottom".}: cint
 
 
 proc newOpenGlFont*(theFont: Handle[FontFTFont];
-                   theKey: TCollectionAsciiString = ""): OpenGlFont {.cdecl,
-    constructor, importcpp: "OpenGl_Font(@)", dynlib: tkkxbase.}
+                   theKey: TCollectionAsciiString = newTCollectionAsciiString("")): OpenGlFont {.cdecl,
+    constructor, importcpp: "OpenGl_Font(@)", header: "OpenGl_Font.hxx".}
 proc destroyOpenGlFont*(this: var OpenGlFont) {.cdecl, importcpp: "#.~OpenGl_Font()",
-    dynlib: tkkxbase.}
+    header: "OpenGl_Font.hxx".}
 proc release*(this: var OpenGlFont; theCtx: ptr OpenGlContext) {.cdecl,
-    importcpp: "Release", dynlib: tkkxbase.}
+    importcpp: "Release", header: "OpenGl_Font.hxx".}
 proc estimatedDataSize*(this: OpenGlFont): csize_t {.noSideEffect, cdecl,
-    importcpp: "EstimatedDataSize", dynlib: tkkxbase.}
+    importcpp: "EstimatedDataSize", header: "OpenGl_Font.hxx".}
 proc resourceKey*(this: OpenGlFont): TCollectionAsciiString {.noSideEffect, cdecl,
-    importcpp: "ResourceKey", dynlib: tkkxbase.}
+    importcpp: "ResourceKey", header: "OpenGl_Font.hxx".}
 proc fTFont*(this: OpenGlFont): Handle[FontFTFont] {.noSideEffect, cdecl,
-    importcpp: "FTFont", dynlib: tkkxbase.}
+    importcpp: "FTFont", header: "OpenGl_Font.hxx".}
 proc isValid*(this: OpenGlFont): bool {.noSideEffect, cdecl, importcpp: "IsValid",
-                                    dynlib: tkkxbase.}
+                                    header: "OpenGl_Font.hxx".}
 proc wasInitialized*(this: OpenGlFont): bool {.noSideEffect, cdecl,
-    importcpp: "WasInitialized", dynlib: tkkxbase.}
+    importcpp: "WasInitialized", header: "OpenGl_Font.hxx".}
 proc init*(this: var OpenGlFont; theCtx: Handle[OpenGlContext]): bool {.cdecl,
-    importcpp: "Init", dynlib: tkkxbase.}
+    importcpp: "Init", header: "OpenGl_Font.hxx".}
 proc ascender*(this: OpenGlFont): cfloat {.noSideEffect, cdecl, importcpp: "Ascender",
-                                       dynlib: tkkxbase.}
+                                       header: "OpenGl_Font.hxx".}
 proc descender*(this: OpenGlFont): cfloat {.noSideEffect, cdecl,
-                                        importcpp: "Descender", dynlib: tkkxbase.}
+                                        importcpp: "Descender", header: "OpenGl_Font.hxx".}
 proc renderGlyph*(this: var OpenGlFont; theCtx: Handle[OpenGlContext];
                  theUChar: StandardUtf32Char; theGlyph: var OpenGlFontTile): bool {.
-    cdecl, importcpp: "RenderGlyph", dynlib: tkkxbase.}
-type
-  HandleOpenGlFont* = Handle[OpenGlFont]
+    cdecl, importcpp: "RenderGlyph", header: "OpenGl_Font.hxx".}
+
+

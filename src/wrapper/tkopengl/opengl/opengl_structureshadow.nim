@@ -1,3 +1,7 @@
+import opengl_types
+import ../../tkernel/standard/standard_types
+import ../../tkv3d/graphic3d/graphic3d_types
+
 ##  Created on: 2014-09-01
 ##  Created by: Ivan SAZONOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -15,31 +19,13 @@
 
 ## ! Dummy structure which just redirects to groups of another structure.
 
-type
-  OpenGlStructureShadow* {.importcpp: "OpenGl_StructureShadow",
-                          header: "OpenGl_StructureShadow.hxx", bycopy.} = object of OpenGlStructure ##
-                                                                                              ## !
-                                                                                              ## Create
-                                                                                              ## empty
-                                                                                              ## structure
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Raise
-                                                                                              ## exception
-                                                                                              ## on
-                                                                                              ## API
-                                                                                              ## misuse.
-                                                                                              ##
-                                                                                              ## Type
-                                                                                              ## definition
 
 
 proc newOpenGlStructureShadow*(theManager: Handle[Graphic3dStructureManager];
                               theStructure: Handle[OpenGlStructure]): OpenGlStructureShadow {.
-    cdecl, constructor, importcpp: "OpenGl_StructureShadow(@)", dynlib: tkkxbase.}
+    cdecl, constructor, importcpp: "OpenGl_StructureShadow(@)", header: "OpenGl_StructureShadow.hxx".}
 proc connect*(this: var OpenGlStructureShadow; a2: var Graphic3dCStructure) {.cdecl,
-    importcpp: "Connect", dynlib: tkkxbase.}
+    importcpp: "Connect", header: "OpenGl_StructureShadow.hxx".}
 proc disconnect*(this: var OpenGlStructureShadow; a2: var Graphic3dCStructure) {.cdecl,
-    importcpp: "Disconnect", dynlib: tkkxbase.}
-type
-  HandleOpenGlStructureShadow* = Handle[OpenGlStructureShadow]
+    importcpp: "Disconnect", header: "OpenGl_StructureShadow.hxx".}
+

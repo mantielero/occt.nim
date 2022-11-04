@@ -1,3 +1,6 @@
+
+
+
 ##  Created on: 2011-11-02
 ##  Created by: Sergey ZERCHANINOV
 ##  Copyright (c) 2011-2015 OPEN CASCADE SAS
@@ -13,5 +16,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  OpenGlLayer* = Graphic3dLayer
+
+

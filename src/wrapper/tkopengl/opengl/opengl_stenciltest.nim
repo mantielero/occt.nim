@@ -1,3 +1,6 @@
+import opengl_types
+import ../../tkernel/standard/standard_types
+
 ##  Created on: 2013-09-26
 ##  Created by: Dmitry BOBYLEV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -13,25 +16,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  OpenGlStencilTest* {.importcpp: "OpenGl_StencilTest",
-                      header: "OpenGl_StencilTest.hxx", bycopy.} = object of OpenGlElement ##
-                                                                                    ## !
-                                                                                    ## Default
-                                                                                    ## constructor
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## Destructor
 
 
 proc newOpenGlStencilTest*(): OpenGlStencilTest {.cdecl, constructor,
-    importcpp: "OpenGl_StencilTest(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_StencilTest(@)", header: "OpenGl_StencilTest.hxx".}
 proc render*(this: OpenGlStencilTest; theWorkspace: Handle[OpenGlWorkspace]) {.
-    noSideEffect, cdecl, importcpp: "Render", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "Render", header: "OpenGl_StencilTest.hxx".}
 proc release*(this: var OpenGlStencilTest; theContext: ptr OpenGlContext) {.cdecl,
-    importcpp: "Release", dynlib: tkkxbase.}
+    importcpp: "Release", header: "OpenGl_StencilTest.hxx".}
 proc setOptions*(this: var OpenGlStencilTest; theIsEnabled: bool) {.cdecl,
-    importcpp: "SetOptions", dynlib: tkkxbase.}
+    importcpp: "SetOptions", header: "OpenGl_StencilTest.hxx".}
 proc dumpJson*(this: OpenGlStencilTest; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkkxbase.}
+                                 header: "OpenGl_StencilTest.hxx".}

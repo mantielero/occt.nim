@@ -1,3 +1,7 @@
+import opengl_types
+import ../../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
+
 ##  Created on: 2016-06-16
 ##  Created by: Denis BOGOLEPOV & Danila ULYANOV
 ##  Copyright (c) 2016 OPEN CASCADE SAS
@@ -14,58 +18,42 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Graphic3d_RenderingParams"
-type
-  OpenGlTileSampler* {.importcpp: "OpenGl_TileSampler",
-                      header: "OpenGl_TileSampler.hxx", bycopy.} = object ## ! Creates new tile sampler.
-                                                                     ## ! Returns number of pixels in the given tile.
-    ## !< number of samples per tile (initially all 1)
-    ## !< number of samples for all pixels within the tile (initially equals to Tile area)
-    ## !< Estimation of visual error per tile
-    ## !< Estimation of visual error per tile (raw data)
-    ## !< 2D array of tiles redirecting to another tile
-    ## !< 2D array of tiles redirecting to another tile (shrunk)
-    ## !< Marginal distribution of 2D error map
-    ## !< Halton sequence generator
-    ## !< Index of generated sample
-    ## !< scale factor for quantization of visual error (float) into signed integer
-    ## !< tile size
-    ## !< ray-tracing viewport
 
 
 proc newOpenGlTileSampler*(): OpenGlTileSampler {.cdecl, constructor,
-    importcpp: "OpenGl_TileSampler(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_TileSampler(@)", header: "OpenGl_TileSampler.hxx".}
 proc tileSize*(this: OpenGlTileSampler): Graphic3dVec2i {.noSideEffect, cdecl,
-    importcpp: "TileSize", dynlib: tkkxbase.}
+    importcpp: "TileSize", header: "OpenGl_TileSampler.hxx".}
 proc varianceScaleFactor*(this: OpenGlTileSampler): cfloat {.noSideEffect, cdecl,
-    importcpp: "VarianceScaleFactor", dynlib: tkkxbase.}
+    importcpp: "VarianceScaleFactor", header: "OpenGl_TileSampler.hxx".}
 proc nbTilesX*(this: OpenGlTileSampler): cint {.noSideEffect, cdecl,
-    importcpp: "NbTilesX", dynlib: tkkxbase.}
+    importcpp: "NbTilesX", header: "OpenGl_TileSampler.hxx".}
 proc nbTilesY*(this: OpenGlTileSampler): cint {.noSideEffect, cdecl,
-    importcpp: "NbTilesY", dynlib: tkkxbase.}
+    importcpp: "NbTilesY", header: "OpenGl_TileSampler.hxx".}
 proc nbTiles*(this: OpenGlTileSampler): cint {.noSideEffect, cdecl,
-    importcpp: "NbTiles", dynlib: tkkxbase.}
+    importcpp: "NbTiles", header: "OpenGl_TileSampler.hxx".}
 proc viewSize*(this: OpenGlTileSampler): Graphic3dVec2i {.noSideEffect, cdecl,
-    importcpp: "ViewSize", dynlib: tkkxbase.}
+    importcpp: "ViewSize", header: "OpenGl_TileSampler.hxx".}
 proc nbOffsetTiles*(this: OpenGlTileSampler; theAdaptive: bool): Graphic3dVec2i {.
-    noSideEffect, cdecl, importcpp: "NbOffsetTiles", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "NbOffsetTiles", header: "OpenGl_TileSampler.hxx".}
 proc nbOffsetTilesMax*(this: OpenGlTileSampler): Graphic3dVec2i {.noSideEffect,
-    cdecl, importcpp: "NbOffsetTilesMax", dynlib: tkkxbase.}
+    cdecl, importcpp: "NbOffsetTilesMax", header: "OpenGl_TileSampler.hxx".}
 proc offsetTilesViewport*(this: OpenGlTileSampler; theAdaptive: bool): Graphic3dVec2i {.
-    noSideEffect, cdecl, importcpp: "OffsetTilesViewport", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "OffsetTilesViewport", header: "OpenGl_TileSampler.hxx".}
 proc offsetTilesViewportMax*(this: OpenGlTileSampler): Graphic3dVec2i {.
-    noSideEffect, cdecl, importcpp: "OffsetTilesViewportMax", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "OffsetTilesViewportMax", header: "OpenGl_TileSampler.hxx".}
 proc maxTileSamples*(this: OpenGlTileSampler): cint {.noSideEffect, cdecl,
-    importcpp: "MaxTileSamples", dynlib: tkkxbase.}
+    importcpp: "MaxTileSamples", header: "OpenGl_TileSampler.hxx".}
 proc setSize*(this: var OpenGlTileSampler; theParams: Graphic3dRenderingParams;
-             theSize: Graphic3dVec2i) {.cdecl, importcpp: "SetSize", dynlib: tkkxbase.}
+             theSize: Graphic3dVec2i) {.cdecl, importcpp: "SetSize", header: "OpenGl_TileSampler.hxx".}
 proc grabVarianceMap*(this: var OpenGlTileSampler;
                      theContext: Handle[OpenGlContext];
                      theTexture: Handle[OpenGlTexture]) {.cdecl,
-    importcpp: "GrabVarianceMap", dynlib: tkkxbase.}
-proc reset*(this: var OpenGlTileSampler) {.cdecl, importcpp: "Reset", dynlib: tkkxbase.}
+    importcpp: "GrabVarianceMap", header: "OpenGl_TileSampler.hxx".}
+proc reset*(this: var OpenGlTileSampler) {.cdecl, importcpp: "Reset", header: "OpenGl_TileSampler.hxx".}
 proc uploadSamples*(this: var OpenGlTileSampler; theContext: Handle[OpenGlContext];
                    theSamplesTexture: Handle[OpenGlTexture]; theAdaptive: bool): bool {.
-    cdecl, importcpp: "UploadSamples", dynlib: tkkxbase.}
+    cdecl, importcpp: "UploadSamples", header: "OpenGl_TileSampler.hxx".}
 proc uploadOffsets*(this: var OpenGlTileSampler; theContext: Handle[OpenGlContext];
                    theOffsetsTexture: Handle[OpenGlTexture]; theAdaptive: bool): bool {.
-    cdecl, importcpp: "UploadOffsets", dynlib: tkkxbase.}
+    cdecl, importcpp: "UploadOffsets", header: "OpenGl_TileSampler.hxx".}

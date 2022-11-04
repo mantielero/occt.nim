@@ -1,3 +1,6 @@
+import opengl_types
+import ../../tkernel/standard/standard_types
+
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -12,99 +15,74 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of OpenGl_Texture"
-type
-  OpenGlTextureSet* {.importcpp: "OpenGl_TextureSet",
-                     header: "OpenGl_TextureSet.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Texture
-                                                                                      ## slot
-                                                                                      ## -
-                                                                                      ## combination
-                                                                                      ## of
-                                                                                      ## Texture
-                                                                                      ## and
-                                                                                      ## binding
-                                                                                      ## Unit.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor.
 
-  OpenGlTextureSetTextureSlot* {.importcpp: "OpenGl_TextureSet::TextureSlot",
-                                header: "OpenGl_TextureSet.hxx", bycopy.} = object
-    texture* {.importc: "Texture".}: Handle[OpenGlTexture]
-    unit* {.importc: "Unit".}: Graphic3dTextureUnit
 
 
 converter `constopencascade`*(this: OpenGlTextureSetTextureSlot): Handle[
     OpenGlTexture] {.noSideEffect, cdecl,
                     importcpp: "TextureSlot::operator constopencascade",
-                    dynlib: tkkxbase.}
+                    header: "OpenGl_TextureSet.hxx".}
 converter `opencascade`*(this: var OpenGlTextureSetTextureSlot): var Handle[
     OpenGlTexture] {.cdecl, importcpp: "TextureSlot::operator opencascade",
-                    dynlib: tkkxbase.}
+                    header: "OpenGl_TextureSet.hxx".}
 proc newOpenGlTextureSetTextureSlot*(): OpenGlTextureSetTextureSlot {.cdecl,
-    constructor, importcpp: "OpenGl_TextureSet::TextureSlot(@)", dynlib: tkkxbase.}
-type
-  OpenGlTextureSetIterator* {.importcpp: "OpenGl_TextureSet::Iterator",
-                             header: "OpenGl_TextureSet.hxx", bycopy.} = object of OpenGlTextureSetIterator[
-      OpenGlTextureSetTextureSlot] ## ! Empty constructor.
+    constructor, importcpp: "OpenGl_TextureSet::TextureSlot(@)", header: "OpenGl_TextureSet.hxx".}
 
 
 proc newOpenGlTextureSetIterator*(): OpenGlTextureSetIterator {.cdecl, constructor,
-    importcpp: "OpenGl_TextureSet::Iterator(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_TextureSet::Iterator(@)", header: "OpenGl_TextureSet.hxx".}
 proc newOpenGlTextureSetIterator*(theSet: Handle[OpenGlTextureSet]): OpenGlTextureSetIterator {.
     cdecl, constructor, importcpp: "OpenGl_TextureSet::Iterator(@)",
-    dynlib: tkkxbase.}
+    header: "OpenGl_TextureSet.hxx".}
 proc value*(this: OpenGlTextureSetIterator): Handle[OpenGlTexture] {.noSideEffect,
-    cdecl, importcpp: "Value", dynlib: tkkxbase.}
+    cdecl, importcpp: "Value", header: "OpenGl_TextureSet.hxx".}
 proc changeValue*(this: var OpenGlTextureSetIterator): var Handle[OpenGlTexture] {.
-    cdecl, importcpp: "ChangeValue", dynlib: tkkxbase.}
+    cdecl, importcpp: "ChangeValue", header: "OpenGl_TextureSet.hxx".}
 proc unit*(this: OpenGlTextureSetIterator): Graphic3dTextureUnit {.noSideEffect,
-    cdecl, importcpp: "Unit", dynlib: tkkxbase.}
+    cdecl, importcpp: "Unit", header: "OpenGl_TextureSet.hxx".}
 proc changeUnit*(this: var OpenGlTextureSetIterator): var Graphic3dTextureUnit {.
-    cdecl, importcpp: "ChangeUnit", dynlib: tkkxbase.}
+    cdecl, importcpp: "ChangeUnit", header: "OpenGl_TextureSet.hxx".}
 proc newOpenGlTextureSet*(): OpenGlTextureSet {.cdecl, constructor,
-    importcpp: "OpenGl_TextureSet(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_TextureSet(@)", header: "OpenGl_TextureSet.hxx".}
 proc newOpenGlTextureSet*(theNbTextures: cint): OpenGlTextureSet {.cdecl,
-    constructor, importcpp: "OpenGl_TextureSet(@)", dynlib: tkkxbase.}
+    constructor, importcpp: "OpenGl_TextureSet(@)", header: "OpenGl_TextureSet.hxx".}
 proc newOpenGlTextureSet*(theTexture: Handle[OpenGlTexture]): OpenGlTextureSet {.
-    cdecl, constructor, importcpp: "OpenGl_TextureSet(@)", dynlib: tkkxbase.}
+    cdecl, constructor, importcpp: "OpenGl_TextureSet(@)", header: "OpenGl_TextureSet.hxx".}
 proc textureSetBits*(this: OpenGlTextureSet): cint {.noSideEffect, cdecl,
-    importcpp: "TextureSetBits", dynlib: tkkxbase.}
+    importcpp: "TextureSetBits", header: "OpenGl_TextureSet.hxx".}
 proc changeTextureSetBits*(this: var OpenGlTextureSet): var cint {.cdecl,
-    importcpp: "ChangeTextureSetBits", dynlib: tkkxbase.}
+    importcpp: "ChangeTextureSetBits", header: "OpenGl_TextureSet.hxx".}
 proc isEmpty*(this: OpenGlTextureSet): bool {.noSideEffect, cdecl,
-    importcpp: "IsEmpty", dynlib: tkkxbase.}
+    importcpp: "IsEmpty", header: "OpenGl_TextureSet.hxx".}
 proc size*(this: OpenGlTextureSet): cint {.noSideEffect, cdecl, importcpp: "Size",
-                                       dynlib: tkkxbase.}
+                                       header: "OpenGl_TextureSet.hxx".}
 proc lower*(this: OpenGlTextureSet): cint {.noSideEffect, cdecl, importcpp: "Lower",
-                                        dynlib: tkkxbase.}
+                                        header: "OpenGl_TextureSet.hxx".}
 proc upper*(this: OpenGlTextureSet): cint {.noSideEffect, cdecl, importcpp: "Upper",
-                                        dynlib: tkkxbase.}
+                                        header: "OpenGl_TextureSet.hxx".}
 proc first*(this: OpenGlTextureSet): Handle[OpenGlTexture] {.noSideEffect, cdecl,
-    importcpp: "First", dynlib: tkkxbase.}
+    importcpp: "First", header: "OpenGl_TextureSet.hxx".}
 proc changeFirst*(this: var OpenGlTextureSet): var Handle[OpenGlTexture] {.cdecl,
-    importcpp: "ChangeFirst", dynlib: tkkxbase.}
+    importcpp: "ChangeFirst", header: "OpenGl_TextureSet.hxx".}
 proc firstUnit*(this: OpenGlTextureSet): Graphic3dTextureUnit {.noSideEffect, cdecl,
-    importcpp: "FirstUnit", dynlib: tkkxbase.}
+    importcpp: "FirstUnit", header: "OpenGl_TextureSet.hxx".}
 proc last*(this: OpenGlTextureSet): Handle[OpenGlTexture] {.noSideEffect, cdecl,
-    importcpp: "Last", dynlib: tkkxbase.}
+    importcpp: "Last", header: "OpenGl_TextureSet.hxx".}
 proc changeLast*(this: var OpenGlTextureSet): var Handle[OpenGlTexture] {.cdecl,
-    importcpp: "ChangeLast", dynlib: tkkxbase.}
+    importcpp: "ChangeLast", header: "OpenGl_TextureSet.hxx".}
 proc lastUnit*(this: OpenGlTextureSet): Graphic3dTextureUnit {.noSideEffect, cdecl,
-    importcpp: "LastUnit", dynlib: tkkxbase.}
+    importcpp: "LastUnit", header: "OpenGl_TextureSet.hxx".}
 proc changeLastUnit*(this: var OpenGlTextureSet): var Graphic3dTextureUnit {.cdecl,
-    importcpp: "ChangeLastUnit", dynlib: tkkxbase.}
+    importcpp: "ChangeLastUnit", header: "OpenGl_TextureSet.hxx".}
 proc value*(this: OpenGlTextureSet; theIndex: cint): Handle[OpenGlTexture] {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "Value", header: "OpenGl_TextureSet.hxx".}
 proc changeValue*(this: var OpenGlTextureSet; theIndex: cint): var Handle[OpenGlTexture] {.
-    cdecl, importcpp: "ChangeValue", dynlib: tkkxbase.}
+    cdecl, importcpp: "ChangeValue", header: "OpenGl_TextureSet.hxx".}
 proc isModulate*(this: OpenGlTextureSet): bool {.noSideEffect, cdecl,
-    importcpp: "IsModulate", dynlib: tkkxbase.}
+    importcpp: "IsModulate", header: "OpenGl_TextureSet.hxx".}
 proc hasNonPointSprite*(this: OpenGlTextureSet): bool {.noSideEffect, cdecl,
-    importcpp: "HasNonPointSprite", dynlib: tkkxbase.}
+    importcpp: "HasNonPointSprite", header: "OpenGl_TextureSet.hxx".}
 proc hasPointSprite*(this: OpenGlTextureSet): bool {.noSideEffect, cdecl,
-    importcpp: "HasPointSprite", dynlib: tkkxbase.}
+    importcpp: "HasPointSprite", header: "OpenGl_TextureSet.hxx".}
 proc initZero*(this: var OpenGlTextureSet) {.cdecl, importcpp: "InitZero",
-    dynlib: tkkxbase.}
+    header: "OpenGl_TextureSet.hxx".}

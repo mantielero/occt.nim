@@ -1,3 +1,6 @@
+
+
+
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -14,30 +17,17 @@
 ## ! Provide Sampler Object functionality (texture parameters stored independently from texture itself).
 ## ! Available since OpenGL 3.3+ (GL_ARB_sampler_objects extension) and OpenGL ES 3.0+.
 
-type
-  OpenGlArbSamplerObject* {.importcpp: "OpenGl_ArbSamplerObject",
-                           header: "OpenGl_ArbSamplerObject.hxx", bycopy.} = object of OpenGlGlFunctions
 
 
-## using statement
 
-## using statement
 
-## using statement
 
-## using statement
 
-## using statement
 
-## using statement
 
-## using statement
 
-## using statement
 
-## using statement
 
-## using statement
 
 when not defined(gl_Es_Version_20):
   discard
@@ -47,3 +37,4 @@ when not defined(gl_Es_Version_20):
   discard
 when not defined(gl_Es_Version_20):
   discard
+

@@ -1,3 +1,6 @@
+
+
+
 ##  Created on: 2013-08-25
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -15,14 +18,10 @@
 
 ## ! Debug context routines
 
-type
-  OpenGlArbDbg* {.importcpp: "OpenGl_ArbDbg", header: "OpenGl_ArbDbg.hxx", bycopy.} = object of OpenGlGlFunctions
 
 
-## using statement
 
-## using statement
 
-## using statement
 
-## using statement
+
+

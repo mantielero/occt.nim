@@ -1,3 +1,7 @@
+import opengl_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
+
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
@@ -27,70 +31,36 @@
 ## !
 ## ! Method Create() creates dummy identifier for this object which should NOT be passed to OpenGL functions.
 
-type
-  OpenGlVertexBufferCompat* {.importcpp: "OpenGl_VertexBufferCompat",
-                             header: "OpenGl_VertexBufferCompat.hxx", bycopy.} = object of OpenGlVertexBuffer ##
-                                                                                                       ## !
-                                                                                                       ## Create
-                                                                                                       ## uninitialized
-                                                                                                       ## VBO.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## @name
-                                                                                                       ## advanced
-                                                                                                       ## methods
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Initialize
-                                                                                                       ## buffer
-                                                                                                       ## with
-                                                                                                       ## existing
-                                                                                                       ## data.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Data
-                                                                                                       ## will
-                                                                                                       ## NOT
-                                                                                                       ## be
-                                                                                                       ## copied
-                                                                                                       ## by
-                                                                                                       ## this
-                                                                                                       ## method!
-                                                                                                       ##
-                                                                                                       ## Type
-                                                                                                       ## definition
-    ## !< buffer data
 
 
 proc newOpenGlVertexBufferCompat*(): OpenGlVertexBufferCompat {.cdecl, constructor,
-    importcpp: "OpenGl_VertexBufferCompat(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_VertexBufferCompat(@)", header: "OpenGl_VertexBufferCompat.hxx".}
 proc destroyOpenGlVertexBufferCompat*(this: var OpenGlVertexBufferCompat) {.cdecl,
-    importcpp: "#.~OpenGl_VertexBufferCompat()", dynlib: tkkxbase.}
+    importcpp: "#.~OpenGl_VertexBufferCompat()", header: "OpenGl_VertexBufferCompat.hxx".}
 proc isVirtual*(this: OpenGlVertexBufferCompat): bool {.noSideEffect, cdecl,
-    importcpp: "IsVirtual", dynlib: tkkxbase.}
+    importcpp: "IsVirtual", header: "OpenGl_VertexBufferCompat.hxx".}
 proc create*(this: var OpenGlVertexBufferCompat; theGlCtx: Handle[OpenGlContext]): bool {.
-    cdecl, importcpp: "Create", dynlib: tkkxbase.}
+    cdecl, importcpp: "Create", header: "OpenGl_VertexBufferCompat.hxx".}
 proc release*(this: var OpenGlVertexBufferCompat; theGlCtx: ptr OpenGlContext) {.cdecl,
-    importcpp: "Release", dynlib: tkkxbase.}
+    importcpp: "Release", header: "OpenGl_VertexBufferCompat.hxx".}
 proc `bind`*(this: OpenGlVertexBufferCompat; theGlCtx: Handle[OpenGlContext]) {.
-    noSideEffect, cdecl, importcpp: "Bind", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "Bind", header: "OpenGl_VertexBufferCompat.hxx".}
 proc unbind*(this: OpenGlVertexBufferCompat; theGlCtx: Handle[OpenGlContext]) {.
-    noSideEffect, cdecl, importcpp: "Unbind", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "Unbind", header: "OpenGl_VertexBufferCompat.hxx".}
 proc initLink*(this: var OpenGlVertexBufferCompat;
               theData: Handle[NCollectionBuffer]; theComponentsNb: GLuint;
               theElemsNb: GLsizei; theDataType: GLenum): bool {.cdecl,
-    importcpp: "initLink", dynlib: tkkxbase.}
+    importcpp: "initLink", header: "OpenGl_VertexBufferCompat.hxx".}
 proc init*(this: var OpenGlVertexBufferCompat; theGlCtx: Handle[OpenGlContext];
           theComponentsNb: GLuint; theElemsNb: GLsizei; theData: pointer;
           theDataType: GLenum; theStride: GLsizei): bool {.cdecl, importcpp: "init",
-    dynlib: tkkxbase.}
+    header: "OpenGl_VertexBufferCompat.hxx".}
 proc subData*(this: var OpenGlVertexBufferCompat; theGlCtx: Handle[OpenGlContext];
              theElemFrom: GLsizei; theElemsNb: GLsizei; theData: pointer;
              theDataType: GLenum): bool {.cdecl, importcpp: "subData",
-                                       dynlib: tkkxbase.}
+                                       header: "OpenGl_VertexBufferCompat.hxx".}
 proc getSubData*(this: var OpenGlVertexBufferCompat;
                 theGlCtx: Handle[OpenGlContext]; theElemFrom: GLsizei;
                 theElemsNb: GLsizei; theData: pointer; theDataType: GLenum): bool {.
-    cdecl, importcpp: "getSubData", dynlib: tkkxbase.}
-type
-  HandleOpenGlVertexBufferCompat* = Handle[OpenGlVertexBufferCompat]
+    cdecl, importcpp: "getSubData", header: "OpenGl_VertexBufferCompat.hxx".}
+

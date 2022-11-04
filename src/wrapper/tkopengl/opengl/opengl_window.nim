@@ -1,3 +1,6 @@
+import opengl_types
+import ../../tkernel/standard/standard_types
+import ../../tkservice/aspect/aspect_types
 ##  Created on: 2011-09-20
 ##  Created by: Sergey ZERCHANINOV
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS
@@ -26,39 +29,8 @@ when defined(apple):
 discard "forward decl of OpenGl_Context"
 discard "forward decl of OpenGl_GraphicDriver"
 discard "forward decl of OpenGl_Window"
-type
-  HandleOpenGlWindow* = Handle[OpenGlWindow]
 
-## ! This class represents low-level wrapper over window with GL context.
-## ! The window itself should be provided to constructor.
 
-type
-  OpenGlWindow* {.importcpp: "OpenGl_Window", header: "OpenGl_Window.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                        ## !
-                                                                                                        ## Main
-                                                                                                        ## constructor
-                                                                                                        ## -
-                                                                                                        ## prepare
-                                                                                                        ## GL
-                                                                                                        ## context
-                                                                                                        ## for
-                                                                                                        ## specified
-                                                                                                        ## window.
-                                                                                                        ##
-                                                                                                        ## Type
-                                                                                                        ## definition
-    ## !< set to TRUE if GL context was not created by this class
-    ## !< software platform window wrapper
-    ##  #if defined(__APPLE__)
-    ##  #if defined(TARGET_OS_IPHONE) && TARGET_OS_IPHONE
-    ##    UIView*                myUIView;
-    ##  #endif
-    ##    Standard_Integer       myWidthPt;     //!< window width  in logical units
-    ##    Standard_Integer       myHeightPt;    //!< window height in logical units
-    ##  #endif
-    ## !< window width  in pixels
-    ## !< window height in pixels
-    ## !< last assigned swap interval (VSync) for this window
 
 
 proc newOpenGlWindow*(theDriver: Handle[OpenGlGraphicDriver];
@@ -66,20 +38,20 @@ proc newOpenGlWindow*(theDriver: Handle[OpenGlGraphicDriver];
                      theGContext: AspectRenderingContext;
                      theCaps: Handle[OpenGlCaps];
                      theShareCtx: Handle[OpenGlContext]): OpenGlWindow {.cdecl,
-    constructor, importcpp: "OpenGl_Window(@)", dynlib: tkkxbase.}
+    constructor, importcpp: "OpenGl_Window(@)", header: "OpenGl_Windows.hxx".}
 proc destroyOpenGlWindow*(this: var OpenGlWindow) {.cdecl,
-    importcpp: "#.~OpenGl_Window()", dynlib: tkkxbase.}
-proc resize*(this: var OpenGlWindow) {.cdecl, importcpp: "Resize", dynlib: tkkxbase.}
+    importcpp: "#.~OpenGl_Window()", header: "OpenGl_Windows.hxx".}
+proc resize*(this: var OpenGlWindow) {.cdecl, importcpp: "Resize", header: "OpenGl_Windows.hxx".}
 proc platformWindow*(this: var OpenGlWindow): Handle[AspectWindow] {.cdecl,
-    importcpp: "PlatformWindow", dynlib: tkkxbase.}
+    importcpp: "PlatformWindow", header: "OpenGl_Windows.hxx".}
 proc width*(this: OpenGlWindow): cint {.noSideEffect, cdecl, importcpp: "Width",
-                                    dynlib: tkkxbase.}
+                                    header: "OpenGl_Windows.hxx".}
 proc height*(this: OpenGlWindow): cint {.noSideEffect, cdecl, importcpp: "Height",
-                                     dynlib: tkkxbase.}
+                                     header: "OpenGl_Windows.hxx".}
 proc getGlContext*(this: OpenGlWindow): Handle[OpenGlContext] {.noSideEffect, cdecl,
-    importcpp: "GetGlContext", dynlib: tkkxbase.}
-proc init*(this: var OpenGlWindow) {.cdecl, importcpp: "Init", dynlib: tkkxbase.}
+    importcpp: "GetGlContext", header: "OpenGl_Windows.hxx".}
+proc init*(this: var OpenGlWindow) {.cdecl, importcpp: "Init", header: "OpenGl_Windows.hxx".}
 proc activate*(this: var OpenGlWindow): bool {.cdecl, importcpp: "Activate",
-    dynlib: tkkxbase.}
+    header: "OpenGl_Windows.hxx".}
 proc setSwapInterval*(this: var OpenGlWindow; theToForceNoSync: bool) {.cdecl,
-    importcpp: "SetSwapInterval", dynlib: tkkxbase.}
+    importcpp: "SetSwapInterval", header: "OpenGl_Windows.hxx".}

@@ -1,3 +1,8 @@
+import ../../tkernel/standard/standard_types
+import opengl_types
+
+
+
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
@@ -14,17 +19,14 @@
 
 ## ! Index buffer is just a VBO with special target (GL_ELEMENT_ARRAY_BUFFER).
 
-type
-  OpenGlIndexBuffer* {.importcpp: "OpenGl_IndexBuffer",
-                      header: "OpenGl_IndexBuffer.hxx", bycopy.} = object of OpenGlVertexBuffer ##  Type definition
 
 
 proc newOpenGlIndexBuffer*(): OpenGlIndexBuffer {.cdecl, constructor,
-    importcpp: "OpenGl_IndexBuffer(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_IndexBuffer(@)", header: "OpenGl_IndexBuffer.hxx".}
 proc getTarget*(this: OpenGlIndexBuffer): GLenum {.noSideEffect, cdecl,
-    importcpp: "GetTarget", dynlib: tkkxbase.}
+    importcpp: "GetTarget", header: "OpenGl_IndexBuffer.hxx".}
 proc dumpJson*(this: OpenGlIndexBuffer; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkkxbase.}
-type
-  HandleOpenGlIndexBuffer* = Handle[OpenGlIndexBuffer]
+                                 header: "OpenGl_IndexBuffer.hxx".}
+
+

@@ -1,3 +1,9 @@
+import ../../tkernel/standard/standard_types
+import ../../tkv3d/graphic3d/graphic3d_types
+import opengl_types
+
+
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -11,36 +17,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of OpenGl_Context"
-discard "forward decl of OpenGl_PointSprite"
-type
-  OpenGlAspectsSprite* {.importcpp: "OpenGl_AspectsSprite",
-                        header: "OpenGl_AspectsSprite.hxx", bycopy.} = object ## ! Empty
-                                                                         ## constructor.
-                                                                         ## ! Build texture
-                                                                         ## resources.
 
 
 proc newOpenGlAspectsSprite*(): OpenGlAspectsSprite {.cdecl, constructor,
-    importcpp: "OpenGl_AspectsSprite(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_AspectsSprite(@)", header: "OpenGl_AspectsSprite.hxx".}
 proc markerSize*(this: OpenGlAspectsSprite): StandardShortReal {.noSideEffect, cdecl,
-    importcpp: "MarkerSize", dynlib: tkkxbase.}
+    importcpp: "MarkerSize", header: "OpenGl_AspectsSprite.hxx".}
 proc isReady*(this: OpenGlAspectsSprite): bool {.noSideEffect, cdecl,
-    importcpp: "IsReady", dynlib: tkkxbase.}
+    importcpp: "IsReady", header: "OpenGl_AspectsSprite.hxx".}
 proc invalidate*(this: var OpenGlAspectsSprite) {.cdecl, importcpp: "Invalidate",
-    dynlib: tkkxbase.}
+    header: "OpenGl_AspectsSprite.hxx".}
 proc hasPointSprite*(this: var OpenGlAspectsSprite; theCtx: Handle[OpenGlContext];
                     theAspects: Handle[Graphic3dAspects]): bool {.cdecl,
-    importcpp: "HasPointSprite", dynlib: tkkxbase.}
+    importcpp: "HasPointSprite", header: "OpenGl_AspectsSprite.hxx".}
 proc isDisplayListSprite*(this: var OpenGlAspectsSprite;
                          theCtx: Handle[OpenGlContext];
                          theAspects: Handle[Graphic3dAspects]): bool {.cdecl,
-    importcpp: "IsDisplayListSprite", dynlib: tkkxbase.}
+    importcpp: "IsDisplayListSprite", header: "OpenGl_AspectsSprite.hxx".}
 proc sprite*(this: var OpenGlAspectsSprite; theCtx: Handle[OpenGlContext];
             theAspects: Handle[Graphic3dAspects]; theIsAlphaSprite: bool): Handle[
-    OpenGlPointSprite] {.cdecl, importcpp: "Sprite", dynlib: tkkxbase.}
+    OpenGlPointSprite] {.cdecl, importcpp: "Sprite", header: "OpenGl_AspectsSprite.hxx".}
 proc updateRediness*(this: var OpenGlAspectsSprite;
                     theAspect: Handle[Graphic3dAspects]) {.cdecl,
-    importcpp: "UpdateRediness", dynlib: tkkxbase.}
+    importcpp: "UpdateRediness", header: "OpenGl_AspectsSprite.hxx".}
 proc release*(this: var OpenGlAspectsSprite; theCtx: ptr OpenGlContext) {.cdecl,
-    importcpp: "Release", dynlib: tkkxbase.}
+    importcpp: "Release", header: "OpenGl_AspectsSprite.hxx".}
+

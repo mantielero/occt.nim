@@ -1,3 +1,9 @@
+import ../../tkernel/standard/standard_types
+import ../../tkv3d/graphic3d/graphic3d_types
+import opengl_types
+
+
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -11,25 +17,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_Aspects"
-discard "forward decl of OpenGl_Context"
-discard "forward decl of OpenGl_ShaderProgram"
-type
-  OpenGlAspectsProgram* {.importcpp: "OpenGl_AspectsProgram",
-                         header: "OpenGl_AspectsProgram.hxx", bycopy.} = object ## ! Empty
-                                                                           ## constructor.
-                                                                           ## ! Build
-                                                                           ## shader
-                                                                           ## resource.
 
 
 proc newOpenGlAspectsProgram*(): OpenGlAspectsProgram {.cdecl, constructor,
-    importcpp: "OpenGl_AspectsProgram(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_AspectsProgram(@)", header: "OpenGl_AspectsProgram.hxx".}
 proc shaderProgram*(this: var OpenGlAspectsProgram; theCtx: Handle[OpenGlContext];
                    theShader: Handle[Graphic3dShaderProgram]): Handle[
-    OpenGlShaderProgram] {.cdecl, importcpp: "ShaderProgram", dynlib: tkkxbase.}
+    OpenGlShaderProgram] {.cdecl, importcpp: "ShaderProgram", header: "OpenGl_AspectsProgram.hxx".}
 proc updateRediness*(this: var OpenGlAspectsProgram;
                     theAspect: Handle[Graphic3dAspects]) {.cdecl,
-    importcpp: "UpdateRediness", dynlib: tkkxbase.}
+    importcpp: "UpdateRediness", header: "OpenGl_AspectsProgram.hxx".}
 proc release*(this: var OpenGlAspectsProgram; theCtx: ptr OpenGlContext) {.cdecl,
-    importcpp: "Release", dynlib: tkkxbase.}
+    importcpp: "Release", header: "OpenGl_AspectsProgram.hxx".}
+

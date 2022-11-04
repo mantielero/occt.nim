@@ -1,3 +1,9 @@
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/quantity/quantity_types
+import ../../tkv3d/graphic3d/graphic3d_types
+import opengl_types
+
+
 ##  Created on: 2015-01-16
 ##  Created by: Anastasia BORISOVA
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -16,93 +22,34 @@
 ## ! Tool class for generating reusable data for
 ## ! gradient or texture background rendering.
 
-type
-  OpenGlBackgroundArray* {.importcpp: "OpenGl_BackgroundArray",
-                          header: "OpenGl_BackgroundArray.hxx", bycopy.} = object of OpenGlPrimitiveArray ##
-                                                                                                   ## !
-                                                                                                   ## Main
-                                                                                                   ## constructor.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## @name
-                                                                                                   ## Internal
-                                                                                                   ## structure
-                                                                                                   ## for
-                                                                                                   ## storing
-                                                                                                   ## gradient
-                                                                                                   ## parameters
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## Fill
-                                                                                                   ## attributes
-                                                                                                   ## arrays
-                                                                                                   ## for
-                                                                                                   ## background
-                                                                                                   ## array
-                                                                                                   ## according
-                                                                                                   ## to
-                                                                                                   ## its
-                                                                                                   ## type:
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## -
-                                                                                                   ## for
-                                                                                                   ## gradient
-                                                                                                   ## background
-                                                                                                   ## its
-                                                                                                   ## attributes
-                                                                                                   ## consist
-                                                                                                   ## of
-                                                                                                   ## colors
-                                                                                                   ## and
-                                                                                                   ## gradient
-                                                                                                   ## coordinates
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## -
-                                                                                                   ## for
-                                                                                                   ## texture
-                                                                                                   ## one
-                                                                                                   ## its
-                                                                                                   ## attributes
-                                                                                                   ## consist
-                                                                                                   ## of
-                                                                                                   ## position
-                                                                                                   ## and
-                                                                                                   ## texture
-                                                                                                   ## coordinates.
-    ## !< Type of background: texture or gradient.
-    ## !< Texture parameters
-    ## !< Gradient parameters
-    ## !< view width  used for array initialization
-    ## !< view height used for array initialization
-    ## !< Shows if array parameters were changed and data (myAttribs storage) is to be updated
 
 
 proc newOpenGlBackgroundArray*(theType: Graphic3dTypeOfBackground): OpenGlBackgroundArray {.
-    cdecl, constructor, importcpp: "OpenGl_BackgroundArray(@)", dynlib: tkkxbase.}
-proc render*(this: OpenGlBackgroundArray; theWorkspace: Handle[OpenGlWorkspace];
-            theProjection: Projection) {.noSideEffect, cdecl, importcpp: "Render",
-                                       dynlib: tkkxbase.}
+    cdecl, constructor, importcpp: "OpenGl_BackgroundArray(@)", header: "OpenGl_BackgroundArray.hxx".}
+# proc render*(this: OpenGlBackgroundArray; theWorkspace: Handle[OpenGlWorkspace];
+#             theProjection: Projection) {.noSideEffect, cdecl, importcpp: "Render",
+#                                        header: "OpenGl_BackgroundArray.hxx".}
 proc isDefined*(this: OpenGlBackgroundArray): bool {.noSideEffect, cdecl,
-    importcpp: "IsDefined", dynlib: tkkxbase.}
+    importcpp: "IsDefined", header: "OpenGl_BackgroundArray.hxx".}
 proc setTextureParameters*(this: var OpenGlBackgroundArray;
                           theFillMethod: AspectFillMethod) {.cdecl,
-    importcpp: "SetTextureParameters", dynlib: tkkxbase.}
+    importcpp: "SetTextureParameters", header: "OpenGl_BackgroundArray.hxx".}
 proc setTextureFillMethod*(this: var OpenGlBackgroundArray;
                           theFillMethod: AspectFillMethod) {.cdecl,
-    importcpp: "SetTextureFillMethod", dynlib: tkkxbase.}
+    importcpp: "SetTextureFillMethod", header: "OpenGl_BackgroundArray.hxx".}
 proc textureFillMethod*(this: OpenGlBackgroundArray): AspectFillMethod {.
-    noSideEffect, cdecl, importcpp: "TextureFillMethod", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "TextureFillMethod", header: "OpenGl_BackgroundArray.hxx".}
 proc gradientFillMethod*(this: OpenGlBackgroundArray): AspectGradientFillMethod {.
-    noSideEffect, cdecl, importcpp: "GradientFillMethod", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "GradientFillMethod", header: "OpenGl_BackgroundArray.hxx".}
 proc gradientColor*(this: OpenGlBackgroundArray; theIndex: cint): OpenGlVec4 {.
-    noSideEffect, cdecl, importcpp: "GradientColor", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "GradientColor", header: "OpenGl_BackgroundArray.hxx".}
 proc setGradientFillMethod*(this: var OpenGlBackgroundArray;
                            theType: AspectGradientFillMethod) {.cdecl,
-    importcpp: "SetGradientFillMethod", dynlib: tkkxbase.}
+    importcpp: "SetGradientFillMethod", header: "OpenGl_BackgroundArray.hxx".}
 proc setGradientParameters*(this: var OpenGlBackgroundArray;
                            theColor1: QuantityColor; theColor2: QuantityColor;
                            theType: AspectGradientFillMethod) {.cdecl,
-    importcpp: "SetGradientParameters", dynlib: tkkxbase.}
+    importcpp: "SetGradientParameters", header: "OpenGl_BackgroundArray.hxx".}
 ## using statement
+
+

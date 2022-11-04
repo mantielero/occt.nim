@@ -1,3 +1,9 @@
+import ../../tkernel/standard/standard_types
+import ../../tkv3d/graphic3d/graphic3d_types
+import opengl_types
+
+
+
 ##  Created on: 2014-10-08
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -13,76 +19,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of OpenGl_Texture"
-type
-  OpenGlSampler* {.importcpp: "OpenGl_Sampler", header: "OpenGl_Sampler.hxx", bycopy.} = object of OpenGlResource ##
-                                                                                                        ## !
-                                                                                                        ## Helpful
-                                                                                                        ## constant
-                                                                                                        ## defining
-                                                                                                        ## invalid
-                                                                                                        ## sampler
-                                                                                                        ## identifier
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## new
-                                                                                                        ## sampler
-                                                                                                        ## object.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Checks
-                                                                                                        ## if
-                                                                                                        ## sampler
-                                                                                                        ## object
-                                                                                                        ## is
-                                                                                                        ## valid.
-    ## !< texture parameters
-    ## !< modification counter of parameters related to sampler state
-    ## !< OpenGL sampler object ID
-    ## !< immutable flag preventing further modifications of sampler parameters, FALSE by default
 
 
 proc newOpenGlSampler*(theParams: Handle[Graphic3dTextureParams]): OpenGlSampler {.
-    cdecl, constructor, importcpp: "OpenGl_Sampler(@)", dynlib: tkkxbase.}
+    cdecl, constructor, importcpp: "OpenGl_Sampler(@)", header: "Opengl_Sampler.hxx".}
 proc destroyOpenGlSampler*(this: var OpenGlSampler) {.cdecl,
-    importcpp: "#.~OpenGl_Sampler()", dynlib: tkkxbase.}
+    importcpp: "#.~OpenGl_Sampler()", header: "Opengl_Sampler.hxx".}
 proc release*(this: var OpenGlSampler; theContext: ptr OpenGlContext) {.cdecl,
-    importcpp: "Release", dynlib: tkkxbase.}
+    importcpp: "Release", header: "Opengl_Sampler.hxx".}
 proc estimatedDataSize*(this: OpenGlSampler): csize_t {.noSideEffect, cdecl,
-    importcpp: "EstimatedDataSize", dynlib: tkkxbase.}
+    importcpp: "EstimatedDataSize", header: "Opengl_Sampler.hxx".}
 proc create*(this: var OpenGlSampler; theContext: Handle[OpenGlContext]): bool {.cdecl,
-    importcpp: "Create", dynlib: tkkxbase.}
+    importcpp: "Create", header: "Opengl_Sampler.hxx".}
 proc init*(this: var OpenGlSampler; theContext: Handle[OpenGlContext];
           theTexture: OpenGlTexture): bool {.cdecl, importcpp: "Init",
-    dynlib: tkkxbase.}
+    header: "Opengl_Sampler.hxx".}
 proc isValid*(this: OpenGlSampler): bool {.noSideEffect, cdecl, importcpp: "IsValid",
-                                       dynlib: tkkxbase.}
+                                       header: "Opengl_Sampler.hxx".}
 proc `bind`*(this: var OpenGlSampler; theCtx: Handle[OpenGlContext]) {.cdecl,
-    importcpp: "Bind", dynlib: tkkxbase.}
+    importcpp: "Bind", header: "Opengl_Sampler.hxx".}
 proc unbind*(this: var OpenGlSampler; theCtx: Handle[OpenGlContext]) {.cdecl,
-    importcpp: "Unbind", dynlib: tkkxbase.}
+    importcpp: "Unbind", header: "Opengl_Sampler.hxx".}
 proc `bind`*(this: var OpenGlSampler; theCtx: Handle[OpenGlContext];
             theUnit: Graphic3dTextureUnit) {.cdecl, importcpp: "Bind",
-    dynlib: tkkxbase.}
+    header: "Opengl_Sampler.hxx".}
 proc unbind*(this: var OpenGlSampler; theCtx: Handle[OpenGlContext];
             theUnit: Graphic3dTextureUnit) {.cdecl, importcpp: "Unbind",
-    dynlib: tkkxbase.}
+    header: "Opengl_Sampler.hxx".}
 proc setParameter*(this: var OpenGlSampler; theCtx: Handle[OpenGlContext];
                   theTarget: GLenum; theParam: GLenum; theValue: GLint) {.cdecl,
-    importcpp: "SetParameter", dynlib: tkkxbase.}
+    importcpp: "SetParameter", header: "Opengl_Sampler.hxx".}
 proc samplerID*(this: OpenGlSampler): GLuint {.noSideEffect, cdecl,
-    importcpp: "SamplerID", dynlib: tkkxbase.}
+    importcpp: "SamplerID", header: "Opengl_Sampler.hxx".}
 proc isImmutable*(this: OpenGlSampler): bool {.noSideEffect, cdecl,
-    importcpp: "IsImmutable", dynlib: tkkxbase.}
+    importcpp: "IsImmutable", header: "Opengl_Sampler.hxx".}
 proc setImmutable*(this: var OpenGlSampler) {.cdecl, importcpp: "SetImmutable",
-    dynlib: tkkxbase.}
+    header: "Opengl_Sampler.hxx".}
 proc parameters*(this: var OpenGlSampler): Handle[Graphic3dTextureParams] {.cdecl,
-    importcpp: "Parameters", dynlib: tkkxbase.}
+    importcpp: "Parameters", header: "Opengl_Sampler.hxx".}
 proc setParameters*(this: var OpenGlSampler;
                    theParams: Handle[Graphic3dTextureParams]) {.cdecl,
-    importcpp: "SetParameters", dynlib: tkkxbase.}
+    importcpp: "SetParameters", header: "Opengl_Sampler.hxx".}
 proc toUpdateParameters*(this: OpenGlSampler): bool {.noSideEffect, cdecl,
-    importcpp: "ToUpdateParameters", dynlib: tkkxbase.}
-type
-  HandleOpenGlSampler* = Handle[OpenGlSampler]
+    importcpp: "ToUpdateParameters", header: "Opengl_Sampler.hxx".}
+
+

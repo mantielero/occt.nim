@@ -1,3 +1,7 @@
+import opengl_types
+import ../../tkernel/standard/standard_types
+import ../../tkv3d/graphic3d/graphic3d_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -14,23 +18,19 @@
 ## ! Class for iterating pair of texture sets through each defined texture slot.
 ## ! Note that iterator considers texture slots being in ascending order within OpenGl_TextureSet.
 
-type
-  OpenGlTextureSetPairIterator* {.importcpp: "OpenGl_TextureSetPairIterator",
-                                 header: "OpenGl_TextureSetPairIterator.hxx",
-                                 bycopy.} = object ## ! Constructor.
 
 
 proc newOpenGlTextureSetPairIterator*(theSet1: Handle[OpenGlTextureSet];
                                      theSet2: Handle[OpenGlTextureSet]): OpenGlTextureSetPairIterator {.
     cdecl, constructor, importcpp: "OpenGl_TextureSetPairIterator(@)",
-    dynlib: tkkxbase.}
+    header: "OpenGl_TextureSetPairIterator.hxx".}
 proc more*(this: OpenGlTextureSetPairIterator): bool {.noSideEffect, cdecl,
-    importcpp: "More", dynlib: tkkxbase.}
+    importcpp: "More", header: "OpenGl_TextureSetPairIterator.hxx".}
 proc unit*(this: OpenGlTextureSetPairIterator): Graphic3dTextureUnit {.noSideEffect,
-    cdecl, importcpp: "Unit", dynlib: tkkxbase.}
+    cdecl, importcpp: "Unit", header: "OpenGl_TextureSetPairIterator.hxx".}
 proc texture1*(this: OpenGlTextureSetPairIterator): ptr OpenGlTexture {.noSideEffect,
-    cdecl, importcpp: "Texture1", dynlib: tkkxbase.}
+    cdecl, importcpp: "Texture1", header: "OpenGl_TextureSetPairIterator.hxx".}
 proc texture2*(this: OpenGlTextureSetPairIterator): ptr OpenGlTexture {.noSideEffect,
-    cdecl, importcpp: "Texture2", dynlib: tkkxbase.}
+    cdecl, importcpp: "Texture2", header: "OpenGl_TextureSetPairIterator.hxx".}
 proc next*(this: var OpenGlTextureSetPairIterator) {.cdecl, importcpp: "Next",
-    dynlib: tkkxbase.}
+    header: "OpenGl_TextureSetPairIterator.hxx".}

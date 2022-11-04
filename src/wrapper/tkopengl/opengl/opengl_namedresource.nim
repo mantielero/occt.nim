@@ -1,3 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import opengl_types
+
+
+
 ##  Created on: 2011-03-18
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS
@@ -15,16 +20,10 @@
 
 ## ! Named resource object.
 
-type
-  OpenGlNamedResource* {.importcpp: "OpenGl_NamedResource",
-                        header: "OpenGl_NamedResource.hxx", bycopy.} = object of OpenGlResource ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## constructor
-    ## !< resource name
 
 
 proc newOpenGlNamedResource*(theId: TCollectionAsciiString): OpenGlNamedResource {.
-    cdecl, constructor, importcpp: "OpenGl_NamedResource(@)", dynlib: tkkxbase.}
+    cdecl, constructor, importcpp: "OpenGl_NamedResource(@)", header: "OpenGl_NamedResource.hxx".}
 proc resourceId*(this: OpenGlNamedResource): TCollectionAsciiString {.noSideEffect,
-    cdecl, importcpp: "ResourceId", dynlib: tkkxbase.}
+    cdecl, importcpp: "ResourceId", header: "OpenGl_NamedResource.hxx".}
+

@@ -1,3 +1,7 @@
+import opengl_types
+import ../../tkernel/standard/standard_types
+
+
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
@@ -25,33 +29,23 @@
 ## ! Also this class doesn't retrieve existing data from VBO - data transferred only in one direction!
 ## ! In case of static data this is preferred to upload it within one call during VBO initialization.
 
-type
-  OpenGlVertexBufferEditor*[TheVecT] {.importcpp: "OpenGl_VertexBufferEditor<\'0>",
-                                      header: "OpenGl_VertexBufferEditor.hxx",
-                                      bycopy.} = object ## ! Creates empty editor
-                                                     ## ! theTmpBufferLength - temporary buffer length
-    ## !< handle to current OpenGL context
-    ## !< edited VBO
-    ## !< element in VBO to upload from
-    ## !< current element in temporary buffer
-    ## !< temporary array
 
 
 proc newOpenGlVertexBufferEditor*[TheVecT](theTmpBufferLength: cint = 0): OpenGlVertexBufferEditor[
     TheVecT] {.cdecl, constructor, importcpp: "OpenGl_VertexBufferEditor<\'*0>(@)",
-              dynlib: tkkxbase.}
+              header: "OpenGl_VertexBufferEditor.hxx".}
 proc newOpenGlVertexBufferEditor*[TheVecT](theTmpBuffer: ptr TheVecT;
     theTmpBufferLength: cint): OpenGlVertexBufferEditor[TheVecT] {.cdecl,
-    constructor, importcpp: "OpenGl_VertexBufferEditor<\'*0>(@)", dynlib: tkkxbase.}
+    constructor, importcpp: "OpenGl_VertexBufferEditor<\'*0>(@)", header: "OpenGl_VertexBufferEditor.hxx".}
 proc init*[TheVecT](this: var OpenGlVertexBufferEditor[TheVecT];
                    theGlCtx: Handle[OpenGlContext];
                    theVbo: Handle[OpenGlVertexBuffer]): bool {.cdecl,
-    importcpp: "Init", dynlib: tkkxbase.}
+    importcpp: "Init", header: "OpenGl_VertexBufferEditor.hxx".}
 proc value*[TheVecT](this: var OpenGlVertexBufferEditor[TheVecT]): var TheVecT {.
-    cdecl, importcpp: "Value", dynlib: tkkxbase.}
+    cdecl, importcpp: "Value", header: "OpenGl_VertexBufferEditor.hxx".}
 proc next*[TheVecT](this: var OpenGlVertexBufferEditor[TheVecT]): bool {.cdecl,
-    importcpp: "Next", dynlib: tkkxbase.}
+    importcpp: "Next", header: "OpenGl_VertexBufferEditor.hxx".}
 proc flush*[TheVecT](this: var OpenGlVertexBufferEditor[TheVecT]): bool {.cdecl,
-    importcpp: "Flush", dynlib: tkkxbase.}
+    importcpp: "Flush", header: "OpenGl_VertexBufferEditor.hxx".}
 proc getVBO*[TheVecT](this: OpenGlVertexBufferEditor[TheVecT]): Handle[
-    OpenGlVertexBuffer] {.noSideEffect, cdecl, importcpp: "GetVBO", dynlib: tkkxbase.}
+    OpenGlVertexBuffer] {.noSideEffect, cdecl, importcpp: "GetVBO", header: "OpenGl_VertexBufferEditor.hxx".}

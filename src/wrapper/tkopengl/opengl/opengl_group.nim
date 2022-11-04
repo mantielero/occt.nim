@@ -1,3 +1,9 @@
+import ../../tkernel/standard/standard_types
+import ../../tkv3d/graphic3d/graphic3d_types
+import opengl_types
+import ../../tkmath/gp/gp_types
+
+
 ##  Created on: 2011-08-01
 ##  Created by: Sergey ZERCHANINOV
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS
@@ -13,82 +19,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of OpenGl_Group"
-discard "forward decl of OpenGl_Structure"
-type
-  OpenGlElementNode* {.importcpp: "OpenGl_ElementNode", header: "OpenGl_Group.hxx",
-                      bycopy.} = object
-    elem* {.importc: "elem".}: ptr OpenGlElement
-    next* {.importc: "next".}: ptr OpenGlElementNode
 
 
-## ! Implementation of low-level graphic group.
 
-type
-  OpenGlGroup* {.importcpp: "OpenGl_Group", header: "OpenGl_Group.hxx", bycopy.} = object of Graphic3dGroup ##
-                                                                                                  ## !
-                                                                                                  ## Create
-                                                                                                  ## empty
-                                                                                                  ## group.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Will
-                                                                                                  ## throw
-                                                                                                  ## exception
-                                                                                                  ## if
-                                                                                                  ## not
-                                                                                                  ## created
-                                                                                                  ## by
-                                                                                                  ## OpenGl_Structure.
-                                                                                                  ##
-                                                                                                  ## Type
-                                                                                                  ## definition
 
 
 proc newOpenGlGroup*(theStruct: Handle[Graphic3dStructure]): OpenGlGroup {.cdecl,
-    constructor, importcpp: "OpenGl_Group(@)", dynlib: tkkxbase.}
+    constructor, importcpp: "OpenGl_Group(@)", header: "OpenGl_Group.hxx".}
 proc clear*(this: var OpenGlGroup; theToUpdateStructureMgr: bool) {.cdecl,
-    importcpp: "Clear", dynlib: tkkxbase.}
+    importcpp: "Clear", header: "OpenGl_Group.hxx".}
 proc aspects*(this: OpenGlGroup): Handle[Graphic3dAspects] {.noSideEffect, cdecl,
-    importcpp: "Aspects", dynlib: tkkxbase.}
+    importcpp: "Aspects", header: "OpenGl_Group.hxx".}
 proc setGroupPrimitivesAspect*(this: var OpenGlGroup;
                               theAspect: Handle[Graphic3dAspects]) {.cdecl,
-    importcpp: "SetGroupPrimitivesAspect", dynlib: tkkxbase.}
+    importcpp: "SetGroupPrimitivesAspect", header: "OpenGl_Group.hxx".}
 proc setPrimitivesAspect*(this: var OpenGlGroup; theAspect: Handle[Graphic3dAspects]) {.
-    cdecl, importcpp: "SetPrimitivesAspect", dynlib: tkkxbase.}
+    cdecl, importcpp: "SetPrimitivesAspect", header: "OpenGl_Group.hxx".}
 proc synchronizeAspects*(this: var OpenGlGroup) {.cdecl,
-    importcpp: "SynchronizeAspects", dynlib: tkkxbase.}
+    importcpp: "SynchronizeAspects", header: "OpenGl_Group.hxx".}
 proc replaceAspects*(this: var OpenGlGroup; theMap: Graphic3dMapOfAspectsToAspects) {.
-    cdecl, importcpp: "ReplaceAspects", dynlib: tkkxbase.}
+    cdecl, importcpp: "ReplaceAspects", header: "OpenGl_Group.hxx".}
 proc addPrimitiveArray*(this: var OpenGlGroup;
                        theType: Graphic3dTypeOfPrimitiveArray;
                        theIndices: Handle[Graphic3dIndexBuffer];
                        theAttribs: Handle[Graphic3dBuffer];
                        theBounds: Handle[Graphic3dBoundBuffer];
                        theToEvalMinMax: bool) {.cdecl,
-    importcpp: "AddPrimitiveArray", dynlib: tkkxbase.}
+    importcpp: "AddPrimitiveArray", header: "OpenGl_Group.hxx".}
 proc addText*(this: var OpenGlGroup; theTextParams: Handle[Graphic3dText];
-             theToEvalMinMax: bool) {.cdecl, importcpp: "AddText", dynlib: tkkxbase.}
-proc setFlippingOptions*(this: var OpenGlGroup; theIsEnabled: bool; theRefPlane: Ax2) {.
-    cdecl, importcpp: "SetFlippingOptions", dynlib: tkkxbase.}
+             theToEvalMinMax: bool) {.cdecl, importcpp: "AddText", header: "OpenGl_Group.hxx".}
+proc setFlippingOptions*(this: var OpenGlGroup; theIsEnabled: bool; theRefPlane: Ax2Obj) {.
+    cdecl, importcpp: "SetFlippingOptions", header: "OpenGl_Group.hxx".}
 proc setStencilTestOptions*(this: var OpenGlGroup; theIsEnabled: bool) {.cdecl,
-    importcpp: "SetStencilTestOptions", dynlib: tkkxbase.}
+    importcpp: "SetStencilTestOptions", header: "OpenGl_Group.hxx".}
 proc glStruct*(this: OpenGlGroup): ptr OpenGlStructure {.noSideEffect, cdecl,
-    importcpp: "GlStruct", dynlib: tkkxbase.}
+    importcpp: "GlStruct", header: "OpenGl_Group.hxx".}
 proc addElement*(this: var OpenGlGroup; theElem: ptr OpenGlElement) {.cdecl,
-    importcpp: "AddElement", dynlib: tkkxbase.}
+    importcpp: "AddElement", header: "OpenGl_Group.hxx".}
 proc render*(this: OpenGlGroup; theWorkspace: Handle[OpenGlWorkspace]) {.
-    noSideEffect, cdecl, importcpp: "Render", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "Render", header: "OpenGl_Group.hxx".}
 proc release*(this: var OpenGlGroup; theGlCtx: Handle[OpenGlContext]) {.cdecl,
-    importcpp: "Release", dynlib: tkkxbase.}
+    importcpp: "Release", header: "OpenGl_Group.hxx".}
 proc firstNode*(this: OpenGlGroup): ptr OpenGlElementNode {.noSideEffect, cdecl,
-    importcpp: "FirstNode", dynlib: tkkxbase.}
+    importcpp: "FirstNode", header: "OpenGl_Group.hxx".}
 proc glAspects*(this: OpenGlGroup): ptr OpenGlAspects {.noSideEffect, cdecl,
-    importcpp: "GlAspects", dynlib: tkkxbase.}
+    importcpp: "GlAspects", header: "OpenGl_Group.hxx".}
 proc isRaytracable*(this: OpenGlGroup): bool {.noSideEffect, cdecl,
-    importcpp: "IsRaytracable", dynlib: tkkxbase.}
+    importcpp: "IsRaytracable", header: "OpenGl_Group.hxx".}
 proc dumpJson*(this: OpenGlGroup; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkkxbase.}
-type
-  HandleOpenGlGroup* = Handle[OpenGlGroup]
+                                 header: "OpenGl_Group.hxx".}
+
+

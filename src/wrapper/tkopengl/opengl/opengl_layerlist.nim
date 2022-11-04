@@ -1,3 +1,11 @@
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkv3d/selectmgr/selectmgr_types
+import ../../tkv3d/graphic3d/graphic3d_types
+import opengl_types
+
+
+
 ##  Created on: 2012-02-02
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2012-2014 OPEN CASCADE SAS
@@ -13,81 +21,71 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of OpenGl_FrameBuffer"
-discard "forward decl of OpenGl_Structure"
-discard "forward decl of OpenGl_Workspace"
-discard "forward decl of OpenGl_GlobalLayerSettings"
-type
-  OpenGlLayerList* {.importcpp: "OpenGl_LayerList", header: "OpenGl_LayerList.hxx",
-                    bycopy.} = object ## ! Constructor
-                                   ## ! Stack of references to existing layers of predefined maximum size.
-    ## !< BVH tree builder for frustom culling
-    ## !< number of structures within immediate layers
-    ## ! Collection of references to layers with transparency gathered during rendering pass.
 
 
 proc newOpenGlLayerList*(theNbPriorities: cint): OpenGlLayerList {.cdecl,
-    constructor, importcpp: "OpenGl_LayerList(@)", dynlib: tkkxbase.}
+    constructor, importcpp: "OpenGl_LayerList(@)", header: "OpenGl_LayerList.hxx".}
 proc destroyOpenGlLayerList*(this: var OpenGlLayerList) {.cdecl,
-    importcpp: "#.~OpenGl_LayerList()", dynlib: tkkxbase.}
+    importcpp: "#.~OpenGl_LayerList()", header: "OpenGl_LayerList.hxx".}
 proc nbPriorities*(this: OpenGlLayerList): cint {.noSideEffect, cdecl,
-    importcpp: "NbPriorities", dynlib: tkkxbase.}
+    importcpp: "NbPriorities", header: "OpenGl_LayerList.hxx".}
 proc nbStructures*(this: OpenGlLayerList): cint {.noSideEffect, cdecl,
-    importcpp: "NbStructures", dynlib: tkkxbase.}
+    importcpp: "NbStructures", header: "OpenGl_LayerList.hxx".}
 proc nbImmediateStructures*(this: OpenGlLayerList): cint {.noSideEffect, cdecl,
-    importcpp: "NbImmediateStructures", dynlib: tkkxbase.}
+    importcpp: "NbImmediateStructures", header: "OpenGl_LayerList.hxx".}
 proc insertLayerBefore*(this: var OpenGlLayerList; theNewLayerId: Graphic3dZLayerId;
                        theSettings: Graphic3dZLayerSettings;
                        theLayerAfter: Graphic3dZLayerId) {.cdecl,
-    importcpp: "InsertLayerBefore", dynlib: tkkxbase.}
+    importcpp: "InsertLayerBefore", header: "OpenGl_LayerList.hxx".}
 proc insertLayerAfter*(this: var OpenGlLayerList; theNewLayerId: Graphic3dZLayerId;
                       theSettings: Graphic3dZLayerSettings;
                       theLayerBefore: Graphic3dZLayerId) {.cdecl,
-    importcpp: "InsertLayerAfter", dynlib: tkkxbase.}
+    importcpp: "InsertLayerAfter", header: "OpenGl_LayerList.hxx".}
 proc removeLayer*(this: var OpenGlLayerList; theLayerId: Graphic3dZLayerId) {.cdecl,
-    importcpp: "RemoveLayer", dynlib: tkkxbase.}
+    importcpp: "RemoveLayer", header: "OpenGl_LayerList.hxx".}
 proc addStructure*(this: var OpenGlLayerList; theStruct: ptr OpenGlStructure;
                   theLayerId: Graphic3dZLayerId; thePriority: cint;
                   isForChangePriority: bool = false) {.cdecl,
-    importcpp: "AddStructure", dynlib: tkkxbase.}
+    importcpp: "AddStructure", header: "OpenGl_LayerList.hxx".}
 proc removeStructure*(this: var OpenGlLayerList; theStructure: ptr OpenGlStructure) {.
-    cdecl, importcpp: "RemoveStructure", dynlib: tkkxbase.}
+    cdecl, importcpp: "RemoveStructure", header: "OpenGl_LayerList.hxx".}
 proc changeLayer*(this: var OpenGlLayerList; theStructure: ptr OpenGlStructure;
                  theOldLayerId: Graphic3dZLayerId;
                  theNewLayerId: Graphic3dZLayerId) {.cdecl,
-    importcpp: "ChangeLayer", dynlib: tkkxbase.}
+    importcpp: "ChangeLayer", header: "OpenGl_LayerList.hxx".}
 proc changePriority*(this: var OpenGlLayerList; theStructure: ptr OpenGlStructure;
                     theLayerId: Graphic3dZLayerId; theNewPriority: cint) {.cdecl,
-    importcpp: "ChangePriority", dynlib: tkkxbase.}
+    importcpp: "ChangePriority", header: "OpenGl_LayerList.hxx".}
 proc layer*(this: var OpenGlLayerList; theLayerId: Graphic3dZLayerId): var OpenGlLayer {.
-    cdecl, importcpp: "Layer", dynlib: tkkxbase.}
+    cdecl, importcpp: "Layer", header: "OpenGl_LayerList.hxx".}
 proc layer*(this: OpenGlLayerList; theLayerId: Graphic3dZLayerId): OpenGlLayer {.
-    noSideEffect, cdecl, importcpp: "Layer", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "Layer", header: "OpenGl_LayerList.hxx".}
 proc setLayerSettings*(this: var OpenGlLayerList; theLayerId: Graphic3dZLayerId;
                       theSettings: Graphic3dZLayerSettings) {.cdecl,
-    importcpp: "SetLayerSettings", dynlib: tkkxbase.}
+    importcpp: "SetLayerSettings", header: "OpenGl_LayerList.hxx".}
 proc updateCulling*(this: var OpenGlLayerList;
                    theWorkspace: Handle[OpenGlWorkspace]; theToDrawImmediate: bool) {.
-    cdecl, importcpp: "UpdateCulling", dynlib: tkkxbase.}
+    cdecl, importcpp: "UpdateCulling", header: "OpenGl_LayerList.hxx".}
 proc render*(this: OpenGlLayerList; theWorkspace: Handle[OpenGlWorkspace];
             theToDrawImmediate: bool; theLayersToProcess: OpenGlLayerFilter;
             theReadDrawFbo: ptr OpenGlFrameBuffer;
             theOitAccumFbo: ptr OpenGlFrameBuffer) {.noSideEffect, cdecl,
-    importcpp: "Render", dynlib: tkkxbase.}
+    importcpp: "Render", header: "OpenGl_LayerList.hxx".}
 proc layers*(this: OpenGlLayerList): NCollectionList[Handle[Graphic3dLayer]] {.
-    noSideEffect, cdecl, importcpp: "Layers", dynlib: tkkxbase.}
-proc layerIDs*(this: OpenGlLayerList): NCollectionDataMap[Graphic3dZLayerId,
-    Handle[Graphic3dLayer]] {.noSideEffect, cdecl, importcpp: "LayerIDs",
-                             dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "Layers", header: "OpenGl_LayerList.hxx".}
+# proc layerIDs*(this: OpenGlLayerList): NCollectionDataMap[Graphic3dZLayerId,
+#     Handle[Graphic3dLayer]] {.noSideEffect, cdecl, importcpp: "LayerIDs",
+#                              header: "OpenGl_LayerList.hxx".}
 proc invalidateBVHData*(this: var OpenGlLayerList; theLayerId: Graphic3dZLayerId) {.
-    cdecl, importcpp: "InvalidateBVHData", dynlib: tkkxbase.}
+    cdecl, importcpp: "InvalidateBVHData", header: "OpenGl_LayerList.hxx".}
 proc modificationStateOfRaytracable*(this: OpenGlLayerList): csize_t {.noSideEffect,
-    cdecl, importcpp: "ModificationStateOfRaytracable", dynlib: tkkxbase.}
+    cdecl, importcpp: "ModificationStateOfRaytracable", header: "OpenGl_LayerList.hxx".}
 proc frustumCullingBVHBuilder*(this: OpenGlLayerList): Handle[Select3D_BVHBuilder3d] {.
-    noSideEffect, cdecl, importcpp: "FrustumCullingBVHBuilder", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "FrustumCullingBVHBuilder", header: "OpenGl_LayerList.hxx".}
 proc setFrustumCullingBVHBuilder*(this: var OpenGlLayerList;
                                  theBuilder: Handle[Select3D_BVHBuilder3d]) {.
-    cdecl, importcpp: "SetFrustumCullingBVHBuilder", dynlib: tkkxbase.}
+    cdecl, importcpp: "SetFrustumCullingBVHBuilder", header: "OpenGl_LayerList.hxx".}
 proc dumpJson*(this: OpenGlLayerList; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkkxbase.}
+                                 header: "OpenGl_LayerList.hxx".}
+

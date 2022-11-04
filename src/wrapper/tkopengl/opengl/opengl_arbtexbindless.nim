@@ -1,3 +1,6 @@
+
+
+
 ##  Created on: 2014-10-07
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -18,9 +21,6 @@
 ## ! shaders without first binding each texture to one of a limited number of
 ## ! texture image units.
 
-type
-  OpenGlArbTexBindless* {.importcpp: "OpenGl_ArbTexBindless",
-                         header: "OpenGl_ArbTexBindless.hxx", bycopy.} = object of OpenGlGlFunctions
 
 
 when not defined(gl_Es_Version_20):
@@ -55,3 +55,4 @@ when not defined(gl_Es_Version_20):
   discard
 when not defined(gl_Es_Version_20):
   discard
+

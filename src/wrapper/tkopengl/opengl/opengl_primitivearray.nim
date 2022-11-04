@@ -1,3 +1,9 @@
+import ../../tkernel/standard/standard_types
+import ../../tkv3d/graphic3d/graphic3d_types
+import opengl_types
+
+
+
 ##  Created on: 2011-07-13
 ##  Created by: Sergey ZERCHANINOV
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS
@@ -13,130 +19,57 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of OpenGl_GraphicDriver"
-type
-  OpenGlPrimitiveArray* {.importcpp: "OpenGl_PrimitiveArray",
-                         header: "OpenGl_PrimitiveArray.hxx", bycopy.} = object of OpenGlElement ##
-                                                                                          ## !
-                                                                                          ## OpenGL
-                                                                                          ## does
-                                                                                          ## not
-                                                                                          ## provide
-                                                                                          ## a
-                                                                                          ## constant
-                                                                                          ## for
-                                                                                          ## "none"
-                                                                                          ## draw
-                                                                                          ## mode.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## So
-                                                                                          ## we
-                                                                                          ## define
-                                                                                          ## our
-                                                                                          ## own
-                                                                                          ## one
-                                                                                          ## that
-                                                                                          ## does
-                                                                                          ## not
-                                                                                          ## conflict
-                                                                                          ## with
-                                                                                          ## GL
-                                                                                          ## constants
-                                                                                          ## and
-                                                                                          ## utilizes
-                                                                                          ## common
-                                                                                          ## GL
-                                                                                          ## invalid
-                                                                                          ## value.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## index
-                                                                                          ## VBO.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## VBO
-                                                                                          ## initialization
-                                                                                          ## procedures
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param
-                                                                                          ## theCtx
-                                                                                          ## bound
-                                                                                          ## GL
-                                                                                          ## context
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param
-                                                                                          ## theToKeepData
-                                                                                          ## when
-                                                                                          ## true,
-                                                                                          ## myAttribs
-                                                                                          ## will
-                                                                                          ## not
-                                                                                          ## be
-                                                                                          ## nullified
-                                                                                          ## after
-                                                                                          ## VBO
-                                                                                          ## creation
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Initialize
-                                                                                          ## normal
-                                                                                          ## (OpenGL-provided)
-                                                                                          ## VBO
-    ## !< Unique ID of primitive array.
 
 
 const
   OpenGlPrimitiveArrayDRAW_MODE_NONE* = -1
 
 proc newOpenGlPrimitiveArray*(theDriver: ptr OpenGlGraphicDriver): OpenGlPrimitiveArray {.
-    cdecl, constructor, importcpp: "OpenGl_PrimitiveArray(@)", dynlib: tkkxbase.}
+    cdecl, constructor, importcpp: "OpenGl_PrimitiveArray(@)", header: "OpenGl_PrimitiveArray.hxx".}
 proc newOpenGlPrimitiveArray*(theDriver: ptr OpenGlGraphicDriver;
                              theType: Graphic3dTypeOfPrimitiveArray;
                              theIndices: Handle[Graphic3dIndexBuffer];
                              theAttribs: Handle[Graphic3dBuffer];
                              theBounds: Handle[Graphic3dBoundBuffer]): OpenGlPrimitiveArray {.
-    cdecl, constructor, importcpp: "OpenGl_PrimitiveArray(@)", dynlib: tkkxbase.}
+    cdecl, constructor, importcpp: "OpenGl_PrimitiveArray(@)", header: "OpenGl_PrimitiveArray.hxx".}
 proc destroyOpenGlPrimitiveArray*(this: var OpenGlPrimitiveArray) {.cdecl,
-    importcpp: "#.~OpenGl_PrimitiveArray()", dynlib: tkkxbase.}
+    importcpp: "#.~OpenGl_PrimitiveArray()", header: "OpenGl_PrimitiveArray.hxx".}
 proc render*(this: OpenGlPrimitiveArray; theWorkspace: Handle[OpenGlWorkspace]) {.
-    noSideEffect, cdecl, importcpp: "Render", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "Render", header: "OpenGl_PrimitiveArray.hxx".}
 proc release*(this: var OpenGlPrimitiveArray; theContext: ptr OpenGlContext) {.cdecl,
-    importcpp: "Release", dynlib: tkkxbase.}
+    importcpp: "Release", header: "OpenGl_PrimitiveArray.hxx".}
 proc estimatedDataSize*(this: OpenGlPrimitiveArray): csize_t {.noSideEffect, cdecl,
-    importcpp: "EstimatedDataSize", dynlib: tkkxbase.}
+    importcpp: "EstimatedDataSize", header: "OpenGl_PrimitiveArray.hxx".}
 proc updateDrawStats*(this: OpenGlPrimitiveArray;
                      theStats: var Graphic3dFrameStatsDataTmp; theIsDetailed: bool) {.
-    noSideEffect, cdecl, importcpp: "UpdateDrawStats", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "UpdateDrawStats", header: "OpenGl_PrimitiveArray.hxx".}
 proc isInitialized*(this: OpenGlPrimitiveArray): bool {.noSideEffect, cdecl,
-    importcpp: "IsInitialized", dynlib: tkkxbase.}
+    importcpp: "IsInitialized", header: "OpenGl_PrimitiveArray.hxx".}
 proc invalidate*(this: OpenGlPrimitiveArray) {.noSideEffect, cdecl,
-    importcpp: "Invalidate", dynlib: tkkxbase.}
+    importcpp: "Invalidate", header: "OpenGl_PrimitiveArray.hxx".}
 proc drawMode*(this: OpenGlPrimitiveArray): GLint {.noSideEffect, cdecl,
-    importcpp: "DrawMode", dynlib: tkkxbase.}
+    importcpp: "DrawMode", header: "OpenGl_PrimitiveArray.hxx".}
 proc isFillDrawMode*(this: OpenGlPrimitiveArray): bool {.noSideEffect, cdecl,
-    importcpp: "IsFillDrawMode", dynlib: tkkxbase.}
+    importcpp: "IsFillDrawMode", header: "OpenGl_PrimitiveArray.hxx".}
 proc indices*(this: OpenGlPrimitiveArray): Handle[Graphic3dIndexBuffer] {.
-    noSideEffect, cdecl, importcpp: "Indices", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "Indices", header: "OpenGl_PrimitiveArray.hxx".}
 proc attributes*(this: OpenGlPrimitiveArray): Handle[Graphic3dBuffer] {.
-    noSideEffect, cdecl, importcpp: "Attributes", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "Attributes", header: "OpenGl_PrimitiveArray.hxx".}
 proc bounds*(this: OpenGlPrimitiveArray): Handle[Graphic3dBoundBuffer] {.
-    noSideEffect, cdecl, importcpp: "Bounds", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "Bounds", header: "OpenGl_PrimitiveArray.hxx".}
 proc getUID*(this: OpenGlPrimitiveArray): csize_t {.noSideEffect, cdecl,
-    importcpp: "GetUID", dynlib: tkkxbase.}
+    importcpp: "GetUID", header: "OpenGl_PrimitiveArray.hxx".}
 proc initBuffers*(this: var OpenGlPrimitiveArray; theContext: Handle[OpenGlContext];
                  theType: Graphic3dTypeOfPrimitiveArray;
                  theIndices: Handle[Graphic3dIndexBuffer];
                  theAttribs: Handle[Graphic3dBuffer];
                  theBounds: Handle[Graphic3dBoundBuffer]) {.cdecl,
-    importcpp: "InitBuffers", dynlib: tkkxbase.}
+    importcpp: "InitBuffers", header: "OpenGl_PrimitiveArray.hxx".}
 proc indexVbo*(this: OpenGlPrimitiveArray): Handle[OpenGlVertexBuffer] {.
-    noSideEffect, cdecl, importcpp: "IndexVbo", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "IndexVbo", header: "OpenGl_PrimitiveArray.hxx".}
 proc attributesVbo*(this: OpenGlPrimitiveArray): Handle[OpenGlVertexBuffer] {.
-    noSideEffect, cdecl, importcpp: "AttributesVbo", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "AttributesVbo", header: "OpenGl_PrimitiveArray.hxx".}
 proc dumpJson*(this: OpenGlPrimitiveArray; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkkxbase.}
+                                 header: "OpenGl_PrimitiveArray.hxx".}
+

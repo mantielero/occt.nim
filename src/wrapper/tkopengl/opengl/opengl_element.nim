@@ -1,3 +1,9 @@
+import ../../tkernel/standard/standard_types
+import ../../tkv3d/graphic3d/graphic3d_types
+import opengl_types
+
+
+
 ##  Created on: 2011-08-05
 ##  Created by: Sergey ZERCHANINOV
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS
@@ -13,48 +19,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_FrameStatsDataTmp"
-discard "forward decl of OpenGl_Workspace"
-discard "forward decl of OpenGl_Context"
-type
-  OpenGlElement* {.importcpp: "OpenGl_Element", header: "OpenGl_Element.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Return
-                                                                                        ## TRUE
-                                                                                        ## if
-                                                                                        ## primitive
-                                                                                        ## type
-                                                                                        ## generates
-                                                                                        ## shaded
-                                                                                        ## triangulation
-                                                                                        ## (to
-                                                                                        ## be
-                                                                                        ## used
-                                                                                        ## in
-                                                                                        ## filters).
 
 
 proc newOpenGlElement*(): OpenGlElement {.cdecl, constructor,
                                        importcpp: "OpenGl_Element(@)",
-                                       dynlib: tkkxbase.}
+                                       header: "OpenGl_Element.hxx".}
 proc render*(this: OpenGlElement; theWorkspace: Handle[OpenGlWorkspace]) {.
-    noSideEffect, cdecl, importcpp: "Render", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "Render", header: "OpenGl_Element.hxx".}
 proc release*(this: var OpenGlElement; theContext: ptr OpenGlContext) {.cdecl,
-    importcpp: "Release", dynlib: tkkxbase.}
+    importcpp: "Release", header: "OpenGl_Element.hxx".}
 proc destroy*[TheResourceT](theContext: ptr OpenGlContext;
                            theElement: ptr TheResourceT) {.cdecl,
-    importcpp: "OpenGl_Element::Destroy(@)", dynlib: tkkxbase.}
+    importcpp: "OpenGl_Element::Destroy(@)", header: "OpenGl_Element.hxx".}
 proc isFillDrawMode*(this: OpenGlElement): bool {.noSideEffect, cdecl,
-    importcpp: "IsFillDrawMode", dynlib: tkkxbase.}
+    importcpp: "IsFillDrawMode", header: "OpenGl_Element.hxx".}
 proc estimatedDataSize*(this: OpenGlElement): csize_t {.noSideEffect, cdecl,
-    importcpp: "EstimatedDataSize", dynlib: tkkxbase.}
+    importcpp: "EstimatedDataSize", header: "OpenGl_Element.hxx".}
 proc updateMemStats*(this: OpenGlElement; theStats: var Graphic3dFrameStatsDataTmp) {.
-    noSideEffect, cdecl, importcpp: "UpdateMemStats", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "UpdateMemStats", header: "OpenGl_Element.hxx".}
 proc updateDrawStats*(this: OpenGlElement;
                      theStats: var Graphic3dFrameStatsDataTmp; theIsDetailed: bool) {.
-    noSideEffect, cdecl, importcpp: "UpdateDrawStats", dynlib: tkkxbase.}
+    noSideEffect, cdecl, importcpp: "UpdateDrawStats", header: "OpenGl_Element.hxx".}
 proc synchronizeAspects*(this: var OpenGlElement) {.cdecl,
-    importcpp: "SynchronizeAspects", dynlib: tkkxbase.}
+    importcpp: "SynchronizeAspects", header: "OpenGl_Element.hxx".}
 proc dumpJson*(this: OpenGlElement; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkkxbase.}
+                                 header: "OpenGl_Element.hxx".}
+

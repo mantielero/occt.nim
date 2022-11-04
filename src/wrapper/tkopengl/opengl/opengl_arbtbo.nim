@@ -1,3 +1,6 @@
+
+
+
 ##  Created on: 2012-04-10
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2012-2014 OPEN CASCADE SAS
@@ -15,8 +18,7 @@
 
 ## ! TBO is available on OpenGL 3.0+ and OpenGL ES 3.2+ hardware
 
-type
-  OpenGlArbTBO* {.importcpp: "OpenGl_ArbTBO", header: "OpenGl_ArbTBO.hxx", bycopy.} = object of OpenGlGlFunctions
 
 
-## using statement
+
+

@@ -1,3 +1,6 @@
+
+
+
 ##  Created on: 2012-09-26
 ##  Created by: Olga SURYANINOVA
 ##  Copyright (c) 2012-2014 OPEN CASCADE SAS
@@ -15,9 +18,8 @@
 
 ## ! Geometry shader as extension is available on OpenGL 2.0+
 
-type
-  OpenGlExtGS* {.importcpp: "OpenGl_ExtGS", header: "OpenGl_ExtGS.hxx", bycopy.} = object of OpenGlGlFunctions
 
 
 when not defined(gl_Es_Version_20):
   discard
+

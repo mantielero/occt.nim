@@ -2,6 +2,7 @@
 {.passC:"-I/usr/include/opencascade/" .}
 #{.experimental: "codeReordering".}
 
+import quantity_types
 #import quantity_absorbeddose
 import quantity_acceleration
 import quantity_acousticintensity
@@ -96,6 +97,7 @@ import quantity_volumeflow
 import quantity_weight
 import quantity_work
 
+export quantity_types
 #export quantity_absorbeddose
 export quantity_acceleration
 export quantity_acousticintensity

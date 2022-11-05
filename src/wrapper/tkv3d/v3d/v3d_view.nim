@@ -6,9 +6,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkernel/quantity/quantity_types
 import v3d_types
 import ../../tkmath/bnd/bnd_types
-
-
-
+import ../../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/quantity/quantity_color
 
 
 ##  Created on: 1992-01-15
@@ -38,9 +37,9 @@ proc newV3dView*(theViewer: Handle[V3dViewer]; theView: Handle[V3dView]): V3dVie
     cdecl, constructor, importcpp: "V3d_View(@)", header: "V3d_View.hxx".}
 proc destroyV3dView*(this: var V3dView) {.cdecl, importcpp: "#.~V3d_View()",
                                       header: "V3d_View.hxx".}
-#proc setWindow*(this: var V3dView; theWindow: Handle[AspectWindow];
-#               theContext: AspectRenderingContext = nil) {.cdecl,
-#    importcpp: "SetWindow", header: "V3d_View.hxx".}
+proc setWindow*(this: var V3dView; theWindow: Handle[AspectWindow];
+               theContext: AspectRenderingContext = nil) {.cdecl,
+    importcpp: "SetWindow", header: "V3d_View.hxx".}
 proc setMagnify*(this: var V3dView; theWindow: Handle[AspectWindow];
                 thePreviousView: Handle[V3dView]; theX1: cint; theY1: cint;
                 theX2: cint; theY2: cint) {.cdecl, importcpp: "SetMagnify",
@@ -108,9 +107,9 @@ proc setBackgroundColor*(this: var V3dView; theColor: QuantityColor) {.cdecl,
 #    importcpp: "ClearPBREnvironment", header: "V3d_View.hxx".}
 #proc setAxis*(this: var V3dView; x: cfloat; y: cfloat; z: cfloat; vx: cfloat; vy: cfloat;
 #             vz: cfloat) {.cdecl, importcpp: "SetAxis", header: "V3d_View.hxx".}
-#proc setShadingModel*(this: var V3dView;
-#                     theShadingModel: Graphic3dTypeOfShadingModel) {.cdecl,
-#    importcpp: "SetShadingModel", header: "V3d_View.hxx".}
+proc setShadingModel*(this: var V3dView;
+                     theShadingModel: Graphic3dTypeOfShadingModel) {.cdecl,
+    importcpp: "SetShadingModel", header: "V3d_View.hxx".}
 #proc setTextureEnv*(this: var V3dView; theTexture: Handle[Graphic3dTextureEnv]) {.
 #    cdecl, importcpp: "SetTextureEnv", header: "V3d_View.hxx".}
 #proc setVisualization*(this: var V3dView; theType: V3dTypeOfVisualization) {.cdecl,
@@ -132,11 +131,11 @@ proc setImmediateUpdate*(this: var V3dView; theImmediateUpdate: bool): bool {.cd
 #                          theSizeRatio: cfloat = 0.8; theAxisDiametr: cfloat = 0.05;
 #                          theNbFacettes: cint = 12) {.cdecl,
 #    importcpp: "ZBufferTriedronSetup", header: "V3d_View.hxx".}
-#proc triedronDisplay*(this: var V3dView; thePosition: AspectTypeOfTriedronPosition = aspectTOTP_CENTER;
-#                     theColor: QuantityColor = quantityNOC_WHITE;
-#                     theScale: cfloat = 0.02;
-#                     theMode: V3dTypeOfVisualization = v3dWIREFRAME) {.cdecl,
-#    importcpp: "TriedronDisplay", header: "V3d_View.hxx".}
+proc triedronDisplay*(this: var V3dView; thePosition: AspectTypeOfTriedronPosition = aspectTOTP_CENTER;
+                     theColor: QuantityColor = newQuantityColor( quantityNOC_WHITE );
+                     theScale: cfloat = 0.02;
+                     theMode: V3dTypeOfVisualization = v3dWIREFRAME) {.cdecl,
+    importcpp: "TriedronDisplay", header: "V3d_View.hxx".}
 #proc triedronErase*(this: var V3dView) {.cdecl, importcpp: "TriedronErase",
 #                                     header: "V3d_View.hxx".}
 #proc getGraduatedTrihedron*(this: V3dView): Graphic3dGraduatedTrihedron {.
@@ -379,8 +378,8 @@ proc planeLimit*(this: V3dView): cint {.noSideEffect, cdecl, importcpp: "PlaneLi
                                     header: "V3d_View.hxx".}
 #proc setCamera*(this: var V3dView; theCamera: Handle[Graphic3dCamera]) {.cdecl,
 #    importcpp: "SetCamera", header: "V3d_View.hxx".}
-#proc camera*(this: V3dView): Handle[Graphic3dCamera] {.noSideEffect, cdecl,
-#    importcpp: "Camera", header: "V3d_View.hxx".}
+proc camera*(this: V3dView): Handle[Graphic3dCamera] {.noSideEffect, cdecl,
+    importcpp: "Camera", header: "V3d_View.hxx".}
 #proc defaultCamera*(this: V3dView): Handle[Graphic3dCamera] {.noSideEffect, cdecl,
 #    importcpp: "DefaultCamera", header: "V3d_View.hxx".}
 #proc renderingParams*(this: V3dView): Graphic3dRenderingParams {.noSideEffect, cdecl,

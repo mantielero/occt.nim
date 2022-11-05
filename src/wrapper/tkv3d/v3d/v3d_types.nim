@@ -83,7 +83,7 @@ type
   V3dTypeOfVisualization* {.size: sizeof(cint),
                            importcpp: "V3d_TypeOfVisualization",
                            header: "V3d_TypeOfVisualization.hxx".} = enum
-    V3dWIREFRAME, V3dZBUFFER
+    v3dWIREFRAME, v3dZBUFFER
 
   V3d* {.importcpp: "V3d", header: "V3d.hxx", bycopy.} = object 
 

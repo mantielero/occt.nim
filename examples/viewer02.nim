@@ -24,14 +24,14 @@ var theDriver:Handle[Graphic3dGraphicDriver] # Handle(Graphic3d_GraphicDriver) t
 var aViewer:Handle[V3d_Viewer] = newHandle( cnew newV3dViewer( theDriver ) ) # Handle(V3d_Viewer) aViewer =  new V3d_Viewer (theDriver);
 var aView:Handle[V3d_View] = newHandle( cnew newV3dView(aViewer) )   # Handle(V3d_View) aView = new V3d_View (aViewer);
 var tmp = `*`(aView).setImmediateUpdate( false )       # aView->SetImmediateUpdate (false);
-`*`(aView).setShadingModel( Graphic3d_TOSM_FRAGMENT )  # aView->SetShadingModel (Graphic3d_TOSM_FRAGMENT);
+`*`(aView).setShadingModel( graphic3dTOSM_FRAGMENT )  # aView->SetShadingModel (Graphic3d_TOSM_FRAGMENT);
 
 
 var theWindow:Handle[Aspect_Window]  # Handle(Aspect_Window) theWindow;
 `*`(aView).setWindow( theWindow )    # aView->SetWindow (theWindow);
-`*`(aView).setBackgroundColor( Quantity_NOC_GRAY50 )    # aView->SetBackgroundColor (Quantity_NOC_GRAY50);
-`*`(aView).camera().setProjectionType(Projection_Orthographic) # aView->Camera()->SetProjectionType (Graphic3d_Camera::Projection_Orthographic);
-`*`(aView).TriedronDisplay()  # aView->TriedronDisplay();
+`*`(aView).setBackgroundColor( newQuantityColor(quantityNOC_GRAY50) )    # aView->SetBackgroundColor (Quantity_NOC_GRAY50);
+`*`(`*`(aView).camera()).setProjectionType(Projection_Orthographic) # aView->Camera()->SetProjectionType (Graphic3d_Camera::Projection_Orthographic);
+`*`(aView).triedronDisplay()  # aView->TriedronDisplay();
 
 
 

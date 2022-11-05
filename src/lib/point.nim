@@ -110,3 +110,10 @@ proc `y=`*(pnt:var HandleCartesianPointObj; y:SomeNumber) =
   `*`(pnt).setY(y.cfloat)
 proc `z=`*(pnt:var HandleCartesianPointObj; z:SomeNumber) =
   `*`(pnt).setZ(z.cfloat)
+
+
+# ===========
+# EXPERIMENTS
+# ===========
+proc newCircle*(c: CircObj): Handle[GeomCircle] {.cdecl, constructor,
+                                       importcpp: "new Geom_Circle(@)", header: "Geom_Circle.hxx".}

@@ -1,19 +1,15 @@
 import occt
 
-#type
-#  HandleGeomCurve = Handle[GeomCurve]
-
-
 proc main() =
   let
     myWidth = 50.0
     myThickness = 20.0
     myHeight = 70.0
-    aPnt1 = newPnt(-myWidth / 2.0, 0, 0)
-    aPnt2 = newPnt(-myWidth / 2.0, -myThickness / 4.0, 0)
-    aPnt3 = newPnt(0, -myThickness / 2.0, 0)
-    aPnt4 = newPnt(myWidth / 2.0, -myThickness / 4.0, 0)
-    aPnt5 = newPnt(myWidth / 2.0, 0, 0)
+    aPnt1 = pnt(-myWidth / 2.0, 0, 0)
+    aPnt2 = pnt(-myWidth / 2.0, -myThickness / 4.0, 0)
+    aPnt3 = pnt(0, -myThickness / 2.0, 0)
+    aPnt4 = pnt(myWidth / 2.0, -myThickness / 4.0, 0)
+    aPnt5 = pnt(myWidth / 2.0, 0, 0)
 
   let 
     aArcOfCircle:HandleGeomTrimmedCurve = arcCircle(aPnt2,aPnt3,aPnt4) # MakeCircle --(converter)--> Handle[GeomTrimmedCurve] 

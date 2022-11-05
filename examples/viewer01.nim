@@ -3,6 +3,7 @@
 import occt
 
 proc main =
+  # 1. Create a new shape # TopoDS_Shape myBottle = MakeBottle(70., 120., 30.); // from the official tutorial
   var mybox = box(1.0, 2.0, 3.0)
   mybox.build()
   var solid:TopoDS_Solid =  mybox.solid()
@@ -17,30 +18,55 @@ proc main =
   # Viewer  https://github.com/nim-lang/Nim/issues/4108  https://forum.nim-lang.org/t/8660#56349
   
   
-  var theViewer:Handle[V3dViewer]
-  echo "The theViewer is nil: ", theViewer.isNull
-  var tmp2 = cnew newAIS_InteractiveContext(theViewer) 
-  echo tmp2 == nil
+  var theViewer:Handle[V3dViewer]  # Handle(V3d_Viewer) theViewer;
+  #echo "The theViewer is nil: ", theViewer.isNull
+  #var tmp2 = cnew newAIS_InteractiveContext(theViewer) 
+  #echo tmp2 == nil
+
+
+  # Handle(AIS_InteractiveContext) aContext = new AIS_InteractiveContext (theViewer);
   var aContext:HandleAIS_InteractiveContext = newHandle( cnew newAIS_InteractiveContext(theViewer) )   # HandleAISInteractiveContext
   echo "ok2"  
-  
   #echo repr aContext
   #if aContext.isNull:
   #  echo "NULL"
   #echo "OK"
-  #var aContext:AIS_InteractiveContext = cnew newAIS_InteractiveContext(theViewer)   # HandleAISInteractiveContext
-  #var hObject:Handle[AIS_InteractiveObject] = constructHandle[Handle[AIS_InteractiveObject]]()
+
+  
+  #Handle(Aspect_DisplayConnection) aDisplayConnection;
+  #var aDisplayConnection:Handle[Aspect]
+
   `*`(aContext).display(aShapePrs, AIS_Shaded.cint, 0.cint, true)
+
 
 main()
 
 #[
-Handle(V3d_Viewer) theViewer;
-Handle(AIS_InteractiveContext) aContext = new AIS_InteractiveContext (theViewer);
+
+
  
 BRepPrimAPI_MakeWedge aWedgeMaker (theWedgeDX, theWedgeDY, theWedgeDZ, theWedgeLtx);
 TopoDS_Solid aShape = aWedgeMaker.Solid();
 
 Handle(AIS_Shape) aShapePrs = new AIS_Shape (aShape); // creation of the presentable object
 aContext->Display (aShapePrs, AIS_Shaded, 0, true);   // display the presentable object and redraw 3d viewer  
+]#
+
+#[
+    
+
+    
+    Handle(OpenGl_GraphicDriver) aGraphicDriver = new OpenGl_GraphicDriver(aDisplayConnection);
+
+    //Handle(Xw_Window) aWindow = new Xw_Window(aDisplayConnection, (short* const)"myViewer", 0, 0, 640, 480);
+    // this is commented because it returns error, It's bad implemented
+
+    Handle(V3d_Viewer) aViewer = new V3d_Viewer(aGraphicDriver, (short* const)"Viewer");
+    aViewer->SetDefaultLights();
+    aViewer->SetLightOn();
+
+    Handle(AIS_InteractiveContext) aContext = new AIS_InteractiveContext(aViewer);
+    Handle(AIS_Shape) anAISShape = new AIS_Shape(myBottle);
+    aContext->SetDisplayMode(AIS_Shaded);
+    aContext->Display(anAISShape);
 ]#

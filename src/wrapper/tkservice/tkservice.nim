@@ -13,5 +13,7 @@ else:
   const tkservice* = "libTKService.so" 
 
 import aspect/aspect_includes
+import xw/xw_includes
 
 export aspect_includes
+export xw_includes

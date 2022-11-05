@@ -233,3 +233,5 @@ int main()
     aContext->SetDisplayMode(AIS_Shaded);
     aContext->Display(anAISShape);
 ]#
+
+# https://github.com/caadxyz/glfwOcctViewer

@@ -25,7 +25,8 @@ import v3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-
+proc newV3dViewer*(theDriver: Handle[Graphic3d_GraphicDriver]): V3d_Viewer {.constructor, cdecl,
+                                       importcpp: "V3dViewer(@)", header: "V3d_Viewer.hxx".} # FIXME
 
 proc ifMoreViews*(this: V3dViewer): bool {.noSideEffect, cdecl,
                                        importcpp: "IfMoreViews", header: "V3d_Viewer.hxx".}

@@ -3,30 +3,43 @@ import occt
 
 # 1. Graphic driver initialization
 #[
-Handle(Aspect_DisplayConnection) aDisplay =
-  new Aspect_DisplayConnection();
-Handle(OpenGl_GraphicDriver) aGlDriver =
-  new OpenGl_GraphicDriver (aDisplay);
+Handle(Aspect_DisplayConnection) aDisplay = new Aspect_DisplayConnection();
+Handle(OpenGl_GraphicDriver) aGlDriver =  new OpenGl_GraphicDriver (aDisplay);
 aGlDriver->ChangeOptions().swapInterval = 1;
 Handle(Graphic3d_GraphicDriver) aDriver = aGlDriver;
 ]#
 var aDisplay:HandleAspectDisplayConnection = newHandle( cnew newAspectDisplayConnection() )
-var aGlDriver:HandleOpenGl_GraphcDriver    = newHandle( cnew newOpenGl_GraphicDriver(aDisplay) )
+var aGlDriver:Handle[OpenGl_GraphicDriver] = newHandle( cnew newOpenGl_GraphicDriver(aDisplay) )
+`*`(aGlDriver).changeOptions().swapInterval = 1
+#var aDriver:Handle[Graphic3dGraphicDriver] = aGlDriver
+
+
+#Handle(Aspect_DisplayConnection) aDisplay = new Aspect_DisplayConnection();
+# :Handle[AspectWindow] 
+var aWindow = newHandle( cnew newXwWindow(aDisplay, "Window Title", 0, 0, 640, 480))
+
+
+# 3. Viewer and Views
+var theDriver:Handle[Graphic3dGraphicDriver] # Handle(Graphic3d_GraphicDriver) theDriver;
+var aViewer:Handle[V3d_Viewer] = newHandle( cnew newV3dViewer( theDriver ) ) # Handle(V3d_Viewer) aViewer =  new V3d_Viewer (theDriver);
+var aView:Handle[V3d_View] = newHandle( cnew newV3dView(aViewer) )   # Handle(V3d_View) aView = new V3d_View (aViewer);
+var tmp = `*`(aView).setImmediateUpdate( false )       # aView->SetImmediateUpdate (false);
+`*`(aView).setShadingModel( Graphic3d_TOSM_FRAGMENT )  # aView->SetShadingModel (Graphic3d_TOSM_FRAGMENT);
+
+
+var theWindow:Handle[Aspect_Window]  # Handle(Aspect_Window) theWindow;
+`*`(aView).setWindow( theWindow )    # aView->SetWindow (theWindow);
+`*`(aView).setBackgroundColor( Quantity_NOC_GRAY50 )    # aView->SetBackgroundColor (Quantity_NOC_GRAY50);
+`*`(aView).camera().setProjectionType(Projection_Orthographic) # aView->Camera()->SetProjectionType (Graphic3d_Camera::Projection_Orthographic);
+`*`(aView).TriedronDisplay()  # aView->TriedronDisplay();
 
 
 
 
+# while true:
+#   discard
 
-#[
-csource "Standard_Handle.hxx":
-  type
-    Handle*[T] {.cgen:"(Handle::$1(@))".} = object of CClass
 
-csource "V3D_Viewer.hxx":
-  type
-    V3dViewer* {.cgen:"(V3d_Viewer::$1(@))".} = object of CClass
-
-]#
 #[
 Handle(V3d_Viewer) theViewer;
 Handle(AIS_InteractiveContext) aContext = new AIS_InteractiveContext (theViewer);

@@ -123,8 +123,8 @@ proc setBackgroundColor*(this: var V3dView; theColor: QuantityColor) {.cdecl,
 #proc setLightOff*(this: var V3dView) {.cdecl, importcpp: "SetLightOff", header: "V3d_View.hxx".}
 #proc isActiveLight*(this: V3dView; theLight: Handle[V3dLight]): bool {.noSideEffect,
 #    cdecl, importcpp: "IsActiveLight", header: "V3d_View.hxx".}
-#proc setImmediateUpdate*(this: var V3dView; theImmediateUpdate: bool): bool {.cdecl,
-#    importcpp: "SetImmediateUpdate", header: "V3d_View.hxx".}
+proc setImmediateUpdate*(this: var V3dView; theImmediateUpdate: bool): bool {.cdecl,
+    importcpp: "SetImmediateUpdate", header: "V3d_View.hxx".}
 #proc zBufferTriedronSetup*(this: var V3dView;
 #                          theXColor: QuantityColor = quantityNOC_RED;
 #                          theYColor: QuantityColor = quantityNOC_GREEN;

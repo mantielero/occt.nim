@@ -4,19 +4,21 @@ import ../../tkernel/standard/standard_types
 import ../../tkmath/gp/gp_types
 import ../../tkernel/tcollection/tcollection_types
 
-when not defined(win32) and (not defined(apple) or defined(macosx_Use_Glx)) and
-    not defined(android) and not defined(qnx) and not defined(emscripten):
-  type
-    gLXFBConfigRec* = object  # FIXME    
-    GLXFBConfig* = ptr gLXFBConfigRec
-    AspectFBConfig* = GLXFBConfig
-  ##  GLXFBConfig* under UNIX
-else:
-  type
-    AspectFBConfig* = pointer
-  ##  unused on other systems
+# when not defined(win32) and (not defined(apple) or defined(macosx_Use_Glx)) and
+#     not defined(android) and not defined(qnx) and not defined(emscripten):
+#   type
+#     gLXFBConfigRec* = object  # FIXME    
+#     GLXFBConfig* = ptr gLXFBConfigRec
+#     AspectFBConfig* = GLXFBConfig
+#   ##  GLXFBConfig* under UNIX
+# else:
+#   type
+#     AspectFBConfig* = pointer
+#   ##  unused on other systems
   
 type
+  AspectFBConfig* {.importcpp: "Aspect_FBConfig",
+                             header: "Aspect_FBConfig.hxx.hxx".} = object # FIXME
   Display* = object  # FIXME
   Atom* = object  # FIXME
   AspectDrawable* = culong  # FIXME

@@ -632,13 +632,13 @@ for typ in typs:
 
 #"./tkmath/gp"
 #createTypesFile("./tk*/*")
-#createTypesFile("./tkopengl/opengl")
+#createTypesFile("./tkservice/xw")
 
 #reorderContent("./tkopengl/opengl/opengl_types.nim")
 #reorderContent("./tkg3d/geom/geom_types.nim")
 
 for fname in walkFiles("tk*/*/*.nim"):
-  if fname.startsWith("tkopengl/opengl"):
+  if fname.startsWith("tkservice/xw"):
 #   #if not fname.startsWith("tkernel") and not fname.startsWith("tkmath"):
 #     if not fname.endsWith("_types.nim") and not fname.endsWith("_includes.nim"): 
       echo "Functions: ", fname

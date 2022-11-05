@@ -21,6 +21,7 @@ var aWindow = newHandle( cnew newXwWindow(aDisplay, "Window Title", 0, 0, 640, 4
 
 # 3. Viewer and Views
 var theDriver:Handle[Graphic3dGraphicDriver] # Handle(Graphic3d_GraphicDriver) theDriver;
+#theDriver = newHandle( cnew OpenGl_GraphicDriver("TKOpenGl") ) 
 var aViewer:Handle[V3d_Viewer] = newHandle( cnew newV3dViewer( theDriver ) ) # Handle(V3d_Viewer) aViewer =  new V3d_Viewer (theDriver);
 var aView:Handle[V3d_View] = newHandle( cnew newV3dView(aViewer) )   # Handle(V3d_View) aView = new V3d_View (aViewer);
 var tmp = `*`(aView).setImmediateUpdate( false )       # aView->SetImmediateUpdate (false);

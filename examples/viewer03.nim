@@ -235,3 +235,5 @@ int main()
 ]#
 
 # https://github.com/caadxyz/glfwOcctViewer
+# http://milindasf.blogspot.com/2014/03/how-to-build-simple-opencascade-program.html
+# https://github.com/Open-Cascade-SAS/OCCT/tree/master/samples/glfw

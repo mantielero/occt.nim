@@ -1,1 +1,0 @@
-c2nim --cpp --header --out=Geom2d_CartesianPoint.nim common.c2nim /usr/include/opencascade/Geom2d_CartesianPoint.hxx

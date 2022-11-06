@@ -1,7 +1,0 @@
-#ifdef C2NIM
-#def Standard_EXPORT
-#def Standard_OVERRIDE
-#pp DEFINE_STANDARD_HANDLE
-#pp DEFINE_STANDARD_HANDLECLASS
-#pp Handle
-#endif

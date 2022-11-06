@@ -10,10 +10,17 @@ import ../../tkernel/standard/standard_types
 import ../v3d/v3d_types
 import ../../tkbrep/toptools/toptools_types
 
-type
-  AIS_InteractiveObject* {.importcpp: "AIS_InteractiveObject",
-                          header: "AIS_InteractiveObject.hxx", bycopy.} = object of SelectMgrSelectableObject 
+export prsdim_ais_types
 
+type
+  # AIS_InteractiveObject* {.importcpp: "AIS_InteractiveObject",
+  #                         header: "AIS_InteractiveObject.hxx", bycopy.} = object of SelectMgrSelectableObject 
+
+  # PrsDimDimension* {.importcpp: "PrsDim_Dimension", header: "PrsDim_Dimension.hxx",
+  #                   bycopy.} = object of AIS_InteractiveObject 
+
+  # PrsDimRelation* {.importcpp: "PrsDim_Relation", header: "PrsDim_Relation.hxx",
+  #                  bycopy.} = object of AIS_InteractiveObject 
 
   Ais* {.importcpp: "AIS", header: "AIS.hxx", bycopy.} = object
 

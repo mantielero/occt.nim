@@ -65,6 +65,48 @@ proc `==`*[T; T2](this: Handle[T]; thePtr: ptr T2): bool {.noSideEffect, cdecl,
     importcpp: "(# == #)", header: "Standard_Handle.hxx".}
 proc `<`*[T; T2](this: Handle[T]; theHandle: Handle[T2]): bool {.noSideEffect, cdecl,
     importcpp: "(# < #)", header: "Standard_Handle.hxx".}
+
+#proc downcast*[T; T2](this: Handle[T] ): Handle[T2] {.cdecl,constructor,
+#    importcpp: "handle (dynamic_cast<'1*>(const_cast<'2*>(@.get())))", header: "Standard_Handle.hxx".} # "Handle('0)::DownCast(@)"
+
+#proc downcast*[T; T2](this: Handle[T] ): Handle[T2] {.cdecl,constructor
+#    importcpp: "opencascade::handle<\'*0>::Downcast(@)", header: "Standard_Handle.hxx".}
+
+#proc downcast*[T; T2](this: Handle[T] ): Handle[T2] {.cdecl,
+#    importcpp: "opencascade::handle<\'*2>::DownCast(@)", header: "Standard_Handle.hxx".}
+
+
+#proc downcast*[A; B](this: Handle[A] ): Handle[B] {.cdecl,
+#    importcpp: "opencascade::handle<\'*0>::DownCast(@)", header: "Standard_Handle.hxx".}
+
+#proc downcast*[A; B](this: Handle[A] ): Handle[B] {.cdecl,
+#    importcpp: "\'0::DownCast(@)", header: "Standard_Handle.hxx".}
+
+#proc downcast*[A; B](this: Handle[A] ): Handle[B] {.cdecl, constructor,
+#    importcpp: "handle (dynamic_cast<\'*1*>(const_cast<\'*0*>(#.get())))", header: "Standard_Handle.hxx".}
+
+#proc upcast*[A; B](this: Handle[A] ): Handle[B] {.cdecl, constructor,
+#    importcpp: "#", header: "Standard_Handle.hxx".}
+
+
+#[
+    //! Down casting operator from handle to base type
+    template <class T2>
+    static typename opencascade::std::enable_if<is_base_but_not_same<T2, T>::value, handle>::type
+      DownCast (const handle<T2>& theObject)
+    {
+      return handle (dynamic_cast<T*>(const_cast<T2*>(theObject.get())));
+    }
+
+    //! Down casting operator from pointer to base type
+    template <class T2>
+    static typename opencascade::std::enable_if<is_base_but_not_same<T2, T>::value, handle>::type 
+      DownCast (const T2* thePtr)
+    {
+      return handle (dynamic_cast<T*>(const_cast<T2*>(thePtr)));
+    }
+
+]#
 ##  namespace opencascade
 ## ! Computes a hash code for the standard handle, in the range [1, theUpperBound]
 ## ! @param theHandle the handle which hash code is to be computed

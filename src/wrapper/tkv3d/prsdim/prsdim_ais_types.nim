@@ -1,10 +1,10 @@
-import ../ais/ais_types
+#import ../ais/ais_types
 import ../selectmgr/selectmgr_types
 
 type
-  # FIXME: for some reason the ais_types import is not working 
+  #FIXME: for some reason the ais_types import is not working 
   AIS_InteractiveObject* {.importcpp: "AIS_InteractiveObject",
-                          header: "AIS_InteractiveObject.hxx", bycopy.} = object of SelectMgrSelectableObject 
+                         header: "AIS_InteractiveObject.hxx", bycopy.} = object of SelectMgrSelectableObject 
 
 
 

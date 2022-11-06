@@ -384,8 +384,8 @@ proc camera*(this: V3dView): Handle[Graphic3dCamera] {.noSideEffect, cdecl,
 #    importcpp: "DefaultCamera", header: "V3d_View.hxx".}
 #proc renderingParams*(this: V3dView): Graphic3dRenderingParams {.noSideEffect, cdecl,
 #    importcpp: "RenderingParams", header: "V3d_View.hxx".}
-#proc changeRenderingParams*(this: var V3dView): var Graphic3dRenderingParams {.cdecl,
-#    importcpp: "ChangeRenderingParams", header: "V3d_View.hxx".}
+proc changeRenderingParams*(this: var V3dView): var Graphic3dRenderingParams {.cdecl,
+    importcpp: "ChangeRenderingParams", header: "V3d_View.hxx".}
 proc isCullingEnabled*(this: V3dView): bool {.noSideEffect, cdecl,
     importcpp: "IsCullingEnabled", header: "V3d_View.hxx".}
 proc setFrustumCulling*(this: var V3dView; theMode: bool) {.cdecl,

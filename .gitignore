@@ -6,6 +6,10 @@ src/wrapper2/temp/*
 src/wrapper2/acme.py
 experiments/lib/nimcache
 experiments/wrapper2/nimcache
-examples/.cache
-examples/*
-!examples/*.nim
+
+
+
+/examples/*
+!/examples/*.*
+/examples/.cache/
+!/examples/* */

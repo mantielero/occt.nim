@@ -26,4 +26,7 @@ import precision/precision_includes
 import convert/convert_includes
 import bnd/bnd_includes
 import bvh/bvh_includes
+import elclib/elclib_includes
+
 export gp_includes, tcolgp_includes, geomabs_includes, toploc_includes, poly_includes, math_includes, precision_includes, convert_includes, bnd_includes, bvh_includes
+export elclib_includes

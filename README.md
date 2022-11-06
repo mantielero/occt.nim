@@ -12,5 +12,3 @@ Creating CAD models. The following has been done with **occt.nim**.
 # Status
 Preliminar status. Some of the examples currently compiles and run. But the coverage of the library still is pretty low.
 
-
-

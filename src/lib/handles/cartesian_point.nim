@@ -4,13 +4,10 @@ import ../../wrapper/tkg3d/geom/[geom_types,geom_cartesianpoint]
 import ../../wrapper/cnew
 
 import ../../wrapper/tkmath/gp/[gp_types]
+
 # ------------------
 # GeomCartesianPoint
 # ------------------
-
-
-#proc cnew*[T](x: T): ptr T {.importcpp: "(new '*0#@)", nodecl.}
-
 type
   HandleCartesianPointObj* = Handle[GeomCartesianPoint]
 proc newPnt*[X,Y,Z:SomeNumber](x:X;y:Y;z:Z):HandleCartesianPointObj =
@@ -46,3 +43,4 @@ converter toObj*(val:Handle[GeomCircle]):GeomCircle =
   `*`(val)
 
 proc radius*(this: Handle[GeomCircle]): cfloat {.noSideEffect, cdecl, importcpp: "#->Radius()".}
+

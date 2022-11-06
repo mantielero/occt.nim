@@ -4,10 +4,11 @@ import wrapper/occt_wrapper
 export occt_wrapper
 
 # Porqué no está accesible `$` desde point.
-import lib/[point]
+import lib/primitives/[point]
 export point
 
-
+import lib/handles/[cartesian_point]
+export cartesian_point
 
 import lib/exporter/[toStep]
 export toStep

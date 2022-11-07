@@ -79,8 +79,15 @@ proc `<`*[T; T2](this: Handle[T]; theHandle: Handle[T2]): bool {.noSideEffect, c
 #proc downcast*[A; B](this: Handle[A] ): Handle[B] {.cdecl,
 #    importcpp: "opencascade::handle<\'*0>::DownCast(@)", header: "Standard_Handle.hxx".}
 
-#proc downcast*[A; B](this: Handle[A] ): Handle[B] {.cdecl,
-#    importcpp: "\'0::DownCast(@)", header: "Standard_Handle.hxx".}
+proc downcast*[A; B](this: Handle[A] ): Handle[B] {.cdecl, importcpp: "\'0::DownCast(@)".}
+
+#proc dcast*[A; B](this: Handle[A]): Handle[B] =
+#    downcast[typeof(*this),typeof(*result)]( this )
+
+
+#proc downcast*[A;B](this:A,next:B)
+
+#proc downcast*[B](this: Handle[A] ): Handle[B]
 
 #proc downcast*[A; B](this: Handle[A] ): Handle[B] {.cdecl, constructor,
 #    importcpp: "handle (dynamic_cast<\'*1*>(const_cast<\'*0*>(#.get())))", header: "Standard_Handle.hxx".}

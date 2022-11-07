@@ -227,7 +227,7 @@ type
     aIS_RotationModeBndBoxScene 
 
   AIS_ViewController* {.importcpp: "AIS_ViewController",
-                       header: "AIS_ViewController.hxx", bycopy.} = object 
+                       header: "AIS_ViewController.hxx", bycopy, pure,inheritable.} = object 
 
   AIS_ViewSelectionTool* {.size: sizeof(cint), importcpp: "AIS_ViewSelectionTool",
                           header: "AIS_ViewInputBuffer.hxx".} = enum

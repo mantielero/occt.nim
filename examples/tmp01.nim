@@ -11,14 +11,18 @@ import occt
 var aPnt1: Handle[Geom_Point]           
 var aPnt2, aPnt3: Handle[Geom_CartesianPoint] 
  
-assert(`*`(aPnt2) of Geom_Point)
-assert(`*`(aPnt2) of Geom_CartesianPoint)
+assert(*aPnt2 of Geom_Point)
+assert(*aPnt2 of Geom_CartesianPoint)
 aPnt2 = newHandle( cnew newGeomCartesianPoint(1.0,2.0,3.0) ) # 
 aPnt1 = newHandle( cast[ptr Geom_Point](aPnt2.get) )
 
 assert (`*`(aPnt1).x) == (`*`(aPnt2).x)
 
-aPnt3 = newHandle( cast[ptr Geom_CartesianPoint](aPnt1.get) )
+#aPnt3 = newHandle( cast[ptr Geom_CartesianPoint](aPnt1.get) )
+aPnt3 = downcast[Geom_Point, Geom_CartesianPoint](aPnt1)
+aPnt3 = dcast(aPnt1)
+
+assert( *aPnt3 of Geom_CartesianPoint)
 assert (`*`(aPnt1).x) == (`*`(aPnt3).x)
 # var a = new Person
 # var b = new Student

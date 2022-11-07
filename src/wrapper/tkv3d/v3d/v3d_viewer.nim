@@ -45,8 +45,8 @@ proc redrawImmediate*(this: V3dViewer) {.noSideEffect, cdecl,
 proc invalidate*(this: V3dViewer) {.noSideEffect, cdecl, importcpp: "Invalidate",
                                  header: "V3d_Viewer.hxx".}
 proc remove*(this: var V3dViewer) {.cdecl, importcpp: "Remove", header: "V3d_Viewer.hxx".}
-#proc driver*(this: V3dViewer): Handle[Graphic3dGraphicDriver] {.noSideEffect, cdecl,
-#    importcpp: "Driver", header: "V3d_Viewer.hxx".}
+proc driver*(this: V3dViewer): Handle[Graphic3dGraphicDriver] {.noSideEffect, cdecl,
+    importcpp: "Driver", header: "V3d_Viewer.hxx".}
 #proc structureManager*(this: V3dViewer): Handle[Graphic3dStructureManager] {.
 #    noSideEffect, cdecl, importcpp: "StructureManager", header: "V3d_Viewer.hxx".}
 #proc defaultRenderingParams*(this: V3dViewer): Graphic3dRenderingParams {.

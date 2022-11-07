@@ -1,20 +1,32 @@
 import occt
 
+#-----
+# 1. Type definition
+#------
+type
+  OcctAisHello* = object of AIS_ViewController
+    myContext*:Handle[AISInteractiveContext]
+    myView*:Handle[V3d_View]
 
-#type
-#  OcctAisHello* = object of AIS_ViewController  # OcctAisHello : public AIS_ViewController
 
-#proc newOcctAisHello*():OcctAisHello =
-#  discard
-
-#proc downcast
+# Return context.
+proc context(this:OcctAisHello):Handle[AIS_InteractiveContext] =
+  return this.myContext
 
 
-proc main =
+# Return view.
+proc view(this:OcctAisHello):Handle[V3d_View] =
+  return this.myView
+
+
+# --------------------------------------
+# 2. This is the constructor
+# --------------------------------------
+proc newOcctAisHello*():OcctAisHello =
   # graphic driver setup
   var aDisplay:Handle[Aspect_DisplayConnection] = newHandle( cnew newAspectDisplayConnection() )
   var aDriverOpenGl:Handle[OpenGlGraphicDriver] = newHandle( cnew newOpenGlGraphicDriver(aDisplay) )
-  var aDriver:Handle[Graphic3d_GraphicDriver] = newHandle( cast[ptr Graphic3d_GraphicDriver](aDriverOpenGl.get) )
+  var aDriver:Handle[Graphic3d_GraphicDriver]   = newHandle( cast[ptr Graphic3d_GraphicDriver](aDriverOpenGl.get) )
   #var aDriver:Graphic3d_GraphicDriver   = aDriverOpenGl.downcast  
 
 
@@ -35,7 +47,8 @@ proc main =
 
   # interactive context and demo scene
   var myContext = newHandle( cnew newAISInteractiveContext(aViewer) )
-
+  result.myContext = myContext
+  result.myView    = myView
   #var aSolid:TopoDS_Solid = box(100.0,100.0,100.0).solid()
   var mybox = box(1.0, 2.0, 3.0)
   mybox.build()
@@ -52,109 +65,18 @@ proc main =
   `*`(aWindow).map()
   `*`(myView).reDraw()
 
+# --------------------------------------
+# 3. Here it is define the main function
+# --------------------------------------
+proc main =
+  var aViewer:OcctAisHello = newOcctAisHello()
   # X11 event loop
-  
   #var aWindow:Handle[Xw_Window] = newHandle( cast[ptr Xw_Window]( `*`(`*`(aViewer).view()).window) )
-  #Handle(Xw_Window) aWindow = Handle(Xw_Window)::DownCast (aViewer.View()->Window());
-  #Handle(Aspect_DisplayConnection) aDispConn = aViewer.View()->Viewer()->Driver()->GetDisplayConnection();
-  #var aDispConn = 
+  #var aDispConn:Handle[Aspect_DisplayConnection] = `*`(`*`(`*`(aViewer.view()).viewer()).driver()).getDisplayConnection()
+  
+  #var anXDisplay:Display = `*`(aDispConn).getDisplay()[]
 
-  #var aContext:Handle[AIS_InteractiveContext] = newHandle( cnew newAIS_InteractiveContext( theViewer ) )
+  #while true:
+  #  discard
 
-
-  #var aShapePrs:Handle[AIS_Shape] = newHandle( cnew newAIS_Shape(solid) )
-  #`*`(aContext).display(aShapePrs, 0, 0, true) # AIS_Shaded
-
-
-#var aDisplay = newHandle( cnew newAspectDisplayConnection() )
-#var aGlDriver:Handle[OpenGl_GraphicDriver] = newHandle( cnew newOpenGl_GraphicDriver(aDisplay) )
-
-#[
-
-BRepPrimAPI_MakeWedge aWedgeMaker (theWedgeDX, theWedgeDY, theWedgeDZ, theWedgeLtx);
-TopoDS_Solid aShape = aWedgeMaker.Solid();
-Handle(AIS_Shape) aShapePrs = new AIS_Shape (aShape); // creation of the presentable object
-
-aContext->Display (aShapePrs, AIS_Shaded, 0, true);   // display the presentable object and redraw 3d viewer
-]#
-
-#[
-// g++ ex07_viewer.cc -I/usr/include/opencascade -lTKernel -lTKMath -lTKSTEP -lTKTopAlgo -lTKG3d  -lTKPrim -lTKBO -lTKV3d -lTKService -lTKOpenGl -lX11 -o ex07_viewer
-
-#include <Xw_Window.hxx>
-#include <X11/Xlib.h>
-
-
-//! Sample single-window viewer class.
-class OcctAisHello : public AIS_ViewController
-{
-public:
-  //! Main constructor.
-  OcctAisHello()
-  {
-
-
-
-  }
-
-  //! Return context.
-  const Handle(AIS_InteractiveContext)& Context() const { return myContext; }
-
-  //! Return view.
-  const Handle(V3d_View)& View() const { return myView; }
-
-//private:
-  //! Handle expose event.
-/*   virtual void ProcessExpose() override
-  {
-    if (!myView.IsNull())
-    {
-      FlushViewEvents (myContext, myView, true);
-    }
-  }
-
-  //! Handle window resize event.
-  virtual void ProcessConfigure (bool theIsResized) override
-  {
-    if (!myView.IsNull() && theIsResized)
-    {
-      myView->Window()->DoResize();
-      myView->MustBeResized();
-      myView->Invalidate();
-      FlushViewEvents (myContext, myView, true);
-    }
-  }
-
-  //! Handle input.
-  virtual void ProcessInput() override
-  {
-    if (!myView.IsNull())
-    {
-      ProcessExpose();
-    }
-  } */
-
-
-private:
-
-  Handle(AIS_InteractiveContext) myContext;
-  Handle(V3d_View) myView;
-};
-
-int main()
-{
-  OSD::SetSignal (false);
-
-  OcctAisHello aViewer;
-
-  // X11 event loop
-  Handle(Xw_Window) aWindow = Handle(Xw_Window)::DownCast (aViewer.View()->Window());
-  Handle(Aspect_DisplayConnection) aDispConn = aViewer.View()->Viewer()->Driver()->GetDisplayConnection();
-  for (;;)
-  {
-    XEvent anXEvent;
-  }
-
-  return 0;
-}
-]#
+main()

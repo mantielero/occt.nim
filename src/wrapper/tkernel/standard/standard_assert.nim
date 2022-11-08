@@ -1,4 +1,4 @@
-import standard_types
+#import standard_types
 
 ##  Created on: 2001-03-20
 ##  Created by: Andrey BETENEV

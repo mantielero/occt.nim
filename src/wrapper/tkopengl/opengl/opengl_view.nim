@@ -3,7 +3,7 @@ import ../../tkernel/standard/standard_types
 import ../../tkv3d/graphic3d/graphic3d_types
 import ../../tkservice/aspect/aspect_types
 import ../../tkernel/ncollection/ncollection_types
-import ../../tkmath/bnd/bnd_box
+#import ../../tkmath/bnd/bnd_box
 import ../../tkmath/gp/gp_types
 import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkernel/tcollection/tcollection_types

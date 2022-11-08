@@ -1,4 +1,4 @@
-import tcollection_types
+#import tcollection_types
 
 ##  Created on: 1992-10-13
 ##  Created by: Ramin BARRETO

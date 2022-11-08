@@ -1,5 +1,5 @@
 import occt
-
+import x11/xlib
 #-----
 # 1. Type definition
 #------
@@ -19,10 +19,46 @@ proc view(this:OcctAisHello):Handle[V3d_View] =
   return this.myView
 
 
+# proc processExpose(this:OcctAisHello) =
+#   if !this.myView.isNull():
+#     flushViewEvents (myContext, myView, true)
+
+  # //! Handle expose event.
+  # virtual void ProcessExpose() override
+  # {
+  #   if (!myView.IsNull())
+  #   {
+  #     FlushViewEvents (myContext, myView, true);
+  #   }
+  # }
+
+
+  # //! Handle window resize event.
+  # virtual void ProcessConfigure (bool theIsResized) override
+  # {
+  #   if (!myView.IsNull() && theIsResized)
+  #   {
+  #     myView->Window()->DoResize();
+  #     myView->MustBeResized();
+  #     myView->Invalidate();
+  #     FlushViewEvents (myContext, myView, true);
+  #   }
+  # }
+
+  # //! Handle input.
+  # virtual void ProcessInput() override
+  # {
+  #   if (!myView.IsNull())
+  #   {
+  #     ProcessExpose();
+  #   }
+  # }
+
+
 # --------------------------------------
 # 2. This is the constructor
 # --------------------------------------
-proc newOcctAisHello*():OcctAisHello =
+proc getContextAndView*():tuple[context:Handle[AIS_InteractiveContext], view:Handle[V3dView]] =
   # graphic driver setup
   var aDisplay:Handle[Aspect_DisplayConnection] = newHandle( cnew newAspectDisplayConnection() )
   var aDriverOpenGl:Handle[OpenGlGraphicDriver] = newHandle( cnew newOpenGlGraphicDriver(aDisplay) )
@@ -47,8 +83,7 @@ proc newOcctAisHello*():OcctAisHello =
 
   # interactive context and demo scene
   var myContext = newHandle( cnew newAISInteractiveContext(aViewer) )
-  result.myContext = myContext
-  result.myView    = myView
+
   #var aSolid:TopoDS_Solid = box(100.0,100.0,100.0).solid()
   var mybox = box(1.0, 2.0, 3.0)
   mybox.build()
@@ -64,19 +99,22 @@ proc newOcctAisHello*():OcctAisHello =
 
   `*`(aWindow).map()
   `*`(myView).reDraw()
+  return (context:myContext, view:myView)
+
 
 # --------------------------------------
 # 3. Here it is define the main function
 # --------------------------------------
 proc main =
-  var aViewer:OcctAisHello = newOcctAisHello()
+  var aViewer:OcctAisHello
+  (aViewer.myContext, aViewer.myView) = getContextAndView()
   # X11 event loop
-  #var aWindow:Handle[Xw_Window] = newHandle( cast[ptr Xw_Window]( `*`(`*`(aViewer).view()).window) )
-  #var aDispConn:Handle[Aspect_DisplayConnection] = `*`(`*`(`*`(aViewer.view()).viewer()).driver()).getDisplayConnection()
+  var aWindow:Handle[Xw_Window] = newHandle( cast[ptr Xw_Window]( get(window( *aViewer.view() ))  ) )
+  #echo typeof(getDisplayConnection(*driver( *viewer(*aViewer.view() ))) )
+  var aDispConn:Handle[Aspect_DisplayConnection] = getDisplayConnection(*driver( *viewer(*aViewer.view() ))) 
   
-  #var anXDisplay:Display = `*`(aDispConn).getDisplay()[]
-
-  #while true:
-  #  discard
+  var anXDisplayPtr = getDisplay( `*`(aDispConn) ) 
+  while true:
+    discard
 
 main()

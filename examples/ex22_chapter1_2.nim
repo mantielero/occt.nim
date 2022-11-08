@@ -3,6 +3,7 @@ import occt
 import math  # For Pi
 import std/strformat  # For fmt"Hello {name}" like formatting
 
+
 proc main =
   #[
   We create a circle centered at (2.5,2.5) with a radius of 2.5 
@@ -43,10 +44,10 @@ proc main =
   let f = open("chapter1_2_circlePoints.txt", fmWrite)
   defer: f.close()
 
-  var lib:ElCLib
+  #var lib:ElCLib
   for i in 0..<numberOfSamplePoints:
     let delta = (i.float * deltaU).cdouble
-    let pointOnCircle = lib.value(delta, circle)
+    let pointOnCircle =  value(delta, circle)  #lib.value(delta, circle)
     f.writeLine( fmt"{pointOnCircle.x} {pointOnCircle.y} {pointOnCircle.z}" )
 
   # We can evaluate the tangent vector by using the D1 function from ElClib
@@ -55,8 +56,8 @@ proc main =
 
   for i in 0..<numberOfSamplePoints:
     let delta = (i.float * deltaU).cdouble
-    var pointOnCircle:Pnt
-    var tangentVector:Vec
+    var pointOnCircle:PntObj
+    var tangentVector:VecObj
     lib.d1(delta, circle2, pointOnCircle, tangentVector)
     f1.writeLine( fmt"{pointOnCircle.x} {pointOnCircle.y} {pointOnCircle.z} {tangentVector.x} {tangentVector.y} {tangentVector.z}" )
   

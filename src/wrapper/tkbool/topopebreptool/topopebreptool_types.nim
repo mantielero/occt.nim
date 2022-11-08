@@ -1,5 +1,5 @@
 import ../../tkbrep/topods/topods_types
-import ../../tkbrep/brep/brep_types
+#import ../../tkbrep/brep/brep_types
 import ../../tkmath/bnd/bnd_types
 import ../../tkbrep/toptools/toptools_types
 import ../../tkernel/ncollection/ncollection_types

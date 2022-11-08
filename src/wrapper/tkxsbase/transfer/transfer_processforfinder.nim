@@ -1,3 +1,4 @@
+{.hints:off.}
 import ../../tkernel/standard/standard_types
 import ../../tkernel/message/message_types
 import transfer_types

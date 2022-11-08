@@ -1,5 +1,6 @@
+{.hints:off.}
 import graphic3d_types
-import ../selectmgr/selectmgr_types
+#import ../selectmgr/selectmgr_types
 
 
 

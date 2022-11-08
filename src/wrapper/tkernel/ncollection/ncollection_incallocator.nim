@@ -1,5 +1,5 @@
 import ncollection_types
-import ../standard/standard_types
+#import ../standard/standard_types
 
 ##  Created on: 2002-04-12
 ##  Created by: Alexander GRIGORIEV

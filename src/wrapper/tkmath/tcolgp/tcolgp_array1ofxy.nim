@@ -1,4 +1,4 @@
-import tcolgp_types
+#import tcolgp_types
 
 ##  Created on: 1993-03-10
 ##  Created by: Philippe DAUTRY

@@ -1,3 +1,4 @@
+{.hints:off.}
 import ../../tkmath/tcolgp/tcolgp_types
 import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types

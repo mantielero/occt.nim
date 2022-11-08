@@ -1,3 +1,4 @@
+#{.hints:off.}
 import graphic3d_types
 
 
@@ -22,9 +23,9 @@ import graphic3d_types
 
 proc newGraphic3dCubeMapOrder*(): Graphic3dCubeMapOrder {.cdecl, constructor,
     importcpp: "Graphic3d_CubeMapOrder(@)", header: "Graphic3d_CubeMapOrder.hxx".}
-proc newGraphic3dCubeMapOrder*(thePosXLocation: cuchar; theNegXLocation: cuchar;
-                              thePosYLocation: cuchar; theNegYLocation: cuchar;
-                              thePosZLocation: cuchar; theNegZLocation: cuchar): Graphic3dCubeMapOrder {.
+proc newGraphic3dCubeMapOrder*(thePosXLocation: uint8; theNegXLocation: uint8;
+                              thePosYLocation: uint8; theNegYLocation: uint8;
+                              thePosZLocation: uint8; theNegZLocation: uint8): Graphic3dCubeMapOrder {.
     cdecl, constructor, importcpp: "Graphic3d_CubeMapOrder(@)", header: "Graphic3d_CubeMapOrder.hxx".}
 proc newGraphic3dCubeMapOrder*(theOrder: Graphic3dValidatedCubeMapOrder): Graphic3dCubeMapOrder {.
     cdecl, constructor, importcpp: "Graphic3d_CubeMapOrder(@)", header: "Graphic3d_CubeMapOrder.hxx".}
@@ -33,7 +34,7 @@ proc set*(this: var Graphic3dCubeMapOrder; theOrder: Graphic3dCubeMapOrder): var
 proc validated*(this: Graphic3dCubeMapOrder): Graphic3dValidatedCubeMapOrder {.
     noSideEffect, cdecl, importcpp: "Validated", header: "Graphic3d_CubeMapOrder.hxx".}
 proc set*(this: var Graphic3dCubeMapOrder; theCubeMapSide: Graphic3dCubeMapSide;
-         theValue: cuchar): var Graphic3dCubeMapOrder {.cdecl, importcpp: "Set",
+         theValue: uint8): var Graphic3dCubeMapOrder {.cdecl, importcpp: "Set",
     header: "Graphic3d_CubeMapOrder.hxx".}
 proc setDefault*(this: var Graphic3dCubeMapOrder): var Graphic3dCubeMapOrder {.cdecl,
     importcpp: "SetDefault", header: "Graphic3d_CubeMapOrder.hxx".}
@@ -48,9 +49,9 @@ proc swap*(this: var Graphic3dCubeMapOrder; theFirstSide: Graphic3dCubeMapSide;
 proc swapped*(this: Graphic3dCubeMapOrder; theFirstSide: Graphic3dCubeMapSide;
              theSecondSide: Graphic3dCubeMapSide): Graphic3dCubeMapOrder {.
     noSideEffect, cdecl, importcpp: "Swapped", header: "Graphic3d_CubeMapOrder.hxx".}
-proc get*(this: Graphic3dCubeMapOrder; theCubeMapSide: Graphic3dCubeMapSide): cuchar {.
+proc get*(this: Graphic3dCubeMapOrder; theCubeMapSide: Graphic3dCubeMapSide): uint8 {.
     noSideEffect, cdecl, importcpp: "Get", header: "Graphic3d_CubeMapOrder.hxx".}
-proc `[]`*(this: Graphic3dCubeMapOrder; theCubeMapSide: Graphic3dCubeMapSide): cuchar {.
+proc `[]`*(this: Graphic3dCubeMapOrder; theCubeMapSide: Graphic3dCubeMapSide): uint8 {.
     noSideEffect, cdecl, importcpp: "#[@]", header: "Graphic3d_CubeMapOrder.hxx".}
 proc clear*(this: var Graphic3dCubeMapOrder): var Graphic3dCubeMapOrder {.cdecl,
     importcpp: "Clear", header: "Graphic3d_CubeMapOrder.hxx".}

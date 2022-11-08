@@ -1,4 +1,4 @@
-import standard_types
+#import standard_types
 
 ##  Created on: 1991-09-05
 ##  Created by: J.P. TIRAUlt

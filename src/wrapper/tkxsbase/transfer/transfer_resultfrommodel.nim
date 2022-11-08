@@ -3,7 +3,7 @@ import transfer_types
 import ../../tkernel/tcolstd/tcolstd_types
 
 import "../interface/interface_types"
-import ../../tkernel/message/[message_types, message_progressrange]
+#import ../../tkernel/message/[message_types, message_progressrange]
 
 
 

@@ -1,4 +1,4 @@
-import standard_types
+#import standard_types
 
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##

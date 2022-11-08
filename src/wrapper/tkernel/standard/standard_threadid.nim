@@ -1,4 +1,4 @@
-import standard_types
+#import standard_types
 
 ##  Created on: 2006-03-10
 ##  Created by: data exchange team

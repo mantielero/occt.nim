@@ -1,5 +1,5 @@
 import tcollection_types
-import ../standard/standard_types
+#import ../standard/standard_types
 
 ##  Created on: 1998-01-19
 ##  Created by: Kernel

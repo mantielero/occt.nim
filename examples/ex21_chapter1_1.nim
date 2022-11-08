@@ -23,8 +23,7 @@ proc main() =
   let pnt3 = pnt1.mirrored(axisOfSymmetry)
   echo "pnt3 after mirroring: ", pnt3
 
-when isMainModule:
-  main()
+main()
 
 
 

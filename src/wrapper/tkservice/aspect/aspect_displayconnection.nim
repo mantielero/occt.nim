@@ -1,7 +1,9 @@
 import ../../tkernel/tcollection/tcollection_types
 import aspect_types
+import x11/xlib
 
-
+when defined(linux):
+    export xlib
 
 
 

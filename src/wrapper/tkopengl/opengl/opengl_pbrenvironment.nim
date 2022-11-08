@@ -1,7 +1,7 @@
 import ../../tkernel/standard/standard_types
 import opengl_types
 import ../../tkernel/tcollection/[tcollection_types, tcollection_asciistring]
-import ../../tkv3d/graphic3d/[graphic3d_types, graphic3d_vec3]
+#import ../../tkv3d/graphic3d/[graphic3d_types, graphic3d_vec3]
 
 ##  Author: Ilya Khramov
 ##  Copyright (c) 2019 OPEN CASCADE SAS

@@ -1,5 +1,5 @@
 import opengl_types
-import ../../tkernel/tcollection/[tcollection_types, tcollection_asciistring]
+#import ../../tkernel/tcollection/[tcollection_types, tcollection_asciistring]
 import ../../tkernel/standard/standard_types
 import ../../tkv3d/graphic3d/graphic3d_types
 import ../../tkv3d/selectmgr/selectmgr_types

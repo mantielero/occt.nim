@@ -1,5 +1,5 @@
 import ../bopalgo/bopalgo_types
-import ../../tkbrep/brep/brep_types
+#import ../../tkbrep/brep/brep_types
 import ../../tktopalgo/brepbuilderapi/brepbuilderapi_types
 
 type

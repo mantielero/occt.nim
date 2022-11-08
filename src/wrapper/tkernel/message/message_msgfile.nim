@@ -1,4 +1,4 @@
-import message_types
+#import message_types
 import ../tcollection/tcollection_types
 ##  Created on: 2001-04-26
 ##  Created by: OCC Team

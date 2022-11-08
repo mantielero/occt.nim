@@ -1,4 +1,4 @@
-import opengl_types
+#import opengl_types
 
 ##  Created on: 2018-10-04
 ##  Created by: Maxim NEVROV

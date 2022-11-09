@@ -1,13 +1,13 @@
 import occt
 import x11/xlib
-#-----
+
+#-------------------
 # 1. Type definition
-#------
+#-------------------
 type
   OcctAisHello* = object of AIS_ViewController
     myContext*:Handle[AISInteractiveContext]
     myView*:Handle[V3d_View]
-
 
 # Return context.
 proc context(this:OcctAisHello):Handle[AIS_InteractiveContext] =
@@ -17,42 +17,6 @@ proc context(this:OcctAisHello):Handle[AIS_InteractiveContext] =
 # Return view.
 proc view(this:OcctAisHello):Handle[V3d_View] =
   return this.myView
-
-
-# proc processExpose(this:OcctAisHello) =
-#   if !this.myView.isNull():
-#     flushViewEvents (myContext, myView, true)
-
-  # //! Handle expose event.
-  # virtual void ProcessExpose() override
-  # {
-  #   if (!myView.IsNull())
-  #   {
-  #     FlushViewEvents (myContext, myView, true);
-  #   }
-  # }
-
-
-  # //! Handle window resize event.
-  # virtual void ProcessConfigure (bool theIsResized) override
-  # {
-  #   if (!myView.IsNull() && theIsResized)
-  #   {
-  #     myView->Window()->DoResize();
-  #     myView->MustBeResized();
-  #     myView->Invalidate();
-  #     FlushViewEvents (myContext, myView, true);
-  #   }
-  # }
-
-  # //! Handle input.
-  # virtual void ProcessInput() override
-  # {
-  #   if (!myView.IsNull())
-  #   {
-  #     ProcessExpose();
-  #   }
-  # }
 
 
 # --------------------------------------
@@ -113,7 +77,7 @@ proc main =
   #echo typeof(getDisplayConnection(*driver( *viewer(*aViewer.view() ))) )
   var aDispConn:Handle[Aspect_DisplayConnection] = getDisplayConnection(*driver( *viewer(*aViewer.view() ))) 
   
-  var anXDisplayPtr = getDisplay( `*`(aDispConn) ) 
+  #var anXDisplayPtr:Display = getDisplay( `*`(aDispConn) )
   while true:
     discard
 

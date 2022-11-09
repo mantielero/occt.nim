@@ -75,11 +75,14 @@ proc `<`*[T; T2](this: Handle[T]; theHandle: Handle[T2]): bool {.noSideEffect, c
 #proc downcast*[T; T2](this: Handle[T] ): Handle[T2] {.cdecl,
 #    importcpp: "opencascade::handle<\'*2>::DownCast(@)", header: "Standard_Handle.hxx".}
 
+proc downcast*[A; B](this: Handle[A] ): Handle[B] {.cdecl,
+    importcpp: "\'0::DownCast(@)".}
 
-#proc downcast*[A; B](this: Handle[A] ): Handle[B] {.cdecl,
-#    importcpp: "opencascade::handle<\'*0>::DownCast(@)", header: "Standard_Handle.hxx".}
+proc dcast*[T](this: Handle[auto] ):Handle[T] {.cdecl, importcpp: "\'0::DownCast(@)".}
 
-proc downcast*[A; B](this: Handle[A] ): Handle[B] {.cdecl, importcpp: "\'0::DownCast(@)".}
+#proc dcast*[T](this: Handle[auto] ):Handle[T] =
+#    downcast[this,T](this)
+
 
 #proc dcast*[A; B](this: Handle[A]): Handle[B] =
 #    downcast[typeof(*this),typeof(*result)]( this )

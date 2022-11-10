@@ -95,12 +95,13 @@ proc main =
   var aWindow:Handle[Xw_Window] = newHandle( cast[ptr Xw_Window]( get(window( *aViewer.view() ))  ) )
   #echo typeof(getDisplayConnection(*driver( *viewer(*aViewer.view() ))) )
   var aDispConn:Handle[Aspect_DisplayConnection] = getDisplayConnection(*driver( *viewer(*aViewer.view() ))) 
-  var display: PDisplay
+  var display: ptr AspectXDisplay
   #var anXDisplay:Display = getDisplay( `*`(aDispConn) )
-  display = getDisplay( *aDispConn )
+  display = getDisplayAspect( *aDispConn )
   var event: XEvent
+  var anDisplay = cast[ptr Display](display)
   while true:
-    discard XNextEvent(display, event.addr)  # XNextEvent (anXDisplay, &anXEvent);
+    discard XNextEvent(anDisplay, event.addr)  # XNextEvent (anXDisplay, &anXEvent);
     #*aWindow.processMessage(aViewer, event)
     #if event.type == ClientMessage && (Atom)anXEvent.xclient.data.l[0] == aDispConn->GetAtom(Aspect_XA_DELETE_WINDOW))
     #  return 0 #; // exit when window is closed

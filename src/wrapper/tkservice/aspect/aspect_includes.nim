@@ -6,6 +6,7 @@
 {.passC:"-I/usr/import/opencascade/" .}
 #{.experimental: "codeReordering".}
 
+import aspect_types
 import aspect_aspectfillareadefinitionerror
 import aspect_aspectlinedefinitionerror
 import aspect_aspectmarkerdefinitionerror
@@ -75,7 +76,7 @@ import aspect_xrposeactiondata
 import aspect_xrsession
 import aspect_xrtrackeddevicerole
 
-
+export aspect_types
 export aspect_aspectfillareadefinitionerror
 export aspect_aspectlinedefinitionerror
 export aspect_aspectmarkerdefinitionerror

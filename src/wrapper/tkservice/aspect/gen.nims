@@ -115,6 +115,68 @@ proc pp*(file:string,
 
 # ls /usr/include/opencascade/Aspect*.hxx | cut -c 26-
 
+
+# Aspect_DisplayConnection.hxx
+# Aspect_Display.hxx
+# Aspect_Drawable.hxx
+# Aspect_Eye.hxx
+# Aspect_FBConfig.hxx
+# Aspect_FillMethod.hxx
+# Aspect_FrustumLRBT.hxx
+# Aspect_GenId.hxx
+# Aspect_GradientBackground.hxx
+# Aspect_GradientFillMethod.hxx
+# Aspect_GraphicDeviceDefinitionError.hxx
+# Aspect_GraphicsLibrary.hxx
+# Aspect_GridDrawMode.hxx
+# Aspect_Grid.hxx
+# Aspect_GridType.hxx
+# Aspect_Handle.hxx
+# Aspect_HatchStyle.hxx
+# Aspect_IdentDefinitionError.hxx
+# Aspect_InteriorStyle.hxx
+# Aspect_NeutralWindow.hxx
+# Aspect_OpenVRSession.hxx
+# Aspect_PolygonOffsetMode.hxx
+# Aspect_RectangularGrid.hxx
+# Aspect_RenderingContext.hxx
+# Aspect_ScrollDelta.hxx
+# Aspect_SequenceOfColor.hxx
+# Aspect_Touch.hxx
+# Aspect_TouchMap.hxx
+# Aspect_TrackedDevicePose.hxx
+# Aspect_TypeOfColorScaleData.hxx
+# Aspect_TypeOfColorScaleOrientation.hxx
+# Aspect_TypeOfColorScalePosition.hxx
+# Aspect_TypeOfDeflection.hxx
+# Aspect_TypeOfDisplayText.hxx
+# Aspect_TypeOfFacingModel.hxx
+# Aspect_TypeOfHighlightMethod.hxx
+# Aspect_TypeOfLine.hxx
+# Aspect_TypeOfMarker.hxx
+# Aspect_TypeOfResize.hxx
+# Aspect_TypeOfStyleText.hxx
+# Aspect_TypeOfTriedronPosition.hxx
+# Aspect_Units.hxx
+# Aspect_VKeyFlags.hxx
+# Aspect_VKey.hxx
+# Aspect_VKeySet.hxx
+# Aspect_WidthOfLine.hxx
+# Aspect_WindowDefinitionError.hxx
+# Aspect_WindowError.hxx
+# Aspect_Window.hxx
+# Aspect_WindowInputListener.hxx
+# Aspect_XAtom.hxx
+# Aspect_XRAction.hxx
+# Aspect_XRActionSet.hxx
+# Aspect_XRActionType.hxx
+# Aspect_XRAnalogActionData.hxx
+# Aspect_XRDigitalActionData.hxx
+# Aspect_XRGenericAction.hxx
+# Aspect_XRHapticActionData.hxx
+# Aspect_XRPoseActionData.hxx
+# Aspect_XRSession.hxx
+# Aspect_XRTrackedDeviceRole.hxx
 genFiles("Aspect_AspectFillAreaDefinitionError")
 pp("aspect_aspectfillareadefinitionerror.nim",
   commentRange = @[(16,30)]
@@ -133,13 +195,13 @@ pp("aspect_background.nim",
 )
 genFiles("Aspect_CircularGrid")
 genFiles("Aspect_ColorSpace")
-genFiles("Aspect_Convert")
+#genFiles("Aspect_Convert")
 genFiles("Aspect_DisplayConnectionDefinitionError")
 pp("aspect_displayconnectiondefinitionerror.nim",
   commentRange = @[(16,31)]
 )
 genFiles("Aspect_DisplayConnection",
-  comment = @[(42,42), (81,81)]
+  comment = @[(87,87), (119,119)]
 )
 genFiles("Aspect_Display")
 genFiles("Aspect_Drawable")
@@ -316,9 +378,9 @@ pp("aspect_xrtrackeddevicerole.nim",
     ("aspectXRTrackedDeviceRoleOther + 1","aspectXRTrackedDeviceRoleOther.int + 1")
   ]
 )
-genFiles("Aspect_XWD",
-  comment = @[(17, 92)]
-)
+#genFiles("Aspect_XWD",
+#  comment = @[(17, 92)]
+#)
 
 
 

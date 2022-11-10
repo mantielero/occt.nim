@@ -2,6 +2,7 @@ import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
 import aspect_types
 import ../../tkernel/quantity/quantity_types
+import ../../tkv3d/graphic3d/graphic3d_types
 
 
 
@@ -27,54 +28,62 @@ import ../../tkernel/quantity/quantity_types
 
 
 proc setBackground*(this: var AspectWindow; aBack: AspectBackground) {.cdecl,
-    importcpp: "SetBackground", header: "Aspect_Window.hxx".}
+    importcpp: "SetBackground".}
 proc setBackground*(this: var AspectWindow; color: QuantityColor) {.cdecl,
-    importcpp: "SetBackground", header: "Aspect_Window.hxx".}
+    importcpp: "SetBackground".}
 proc setBackground*(this: var AspectWindow; aBackground: AspectGradientBackground) {.
-    cdecl, importcpp: "SetBackground", header: "Aspect_Window.hxx".}
+    cdecl, importcpp: "SetBackground".}
 proc setBackground*(this: var AspectWindow; theFirstColor: QuantityColor;
                    theSecondColor: QuantityColor;
                    theFillMethod: AspectGradientFillMethod) {.cdecl,
-    importcpp: "SetBackground", header: "Aspect_Window.hxx".}
+    importcpp: "SetBackground".}
 proc map*(this: AspectWindow) {.noSideEffect, cdecl, importcpp: "Map",
-                             header: "Aspect_Window.hxx".}
+                             .}
 proc unmap*(this: AspectWindow) {.noSideEffect, cdecl, importcpp: "Unmap",
-                               header: "Aspect_Window.hxx".}
+                               .}
 proc doResize*(this: var AspectWindow): AspectTypeOfResize {.cdecl,
-    importcpp: "DoResize", header: "Aspect_Window.hxx".}
+    importcpp: "DoResize".}
 proc doMapping*(this: AspectWindow): bool {.noSideEffect, cdecl,
-                                        importcpp: "DoMapping", header: "Aspect_Window.hxx".}
+                                        importcpp: "DoMapping".}
 proc background*(this: AspectWindow): AspectBackground {.noSideEffect, cdecl,
-    importcpp: "Background", header: "Aspect_Window.hxx".}
+    importcpp: "Background".}
 proc backgroundFillMethod*(this: AspectWindow): AspectFillMethod {.noSideEffect,
-    cdecl, importcpp: "BackgroundFillMethod", header: "Aspect_Window.hxx".}
+    cdecl, importcpp: "BackgroundFillMethod".}
 proc gradientBackground*(this: AspectWindow): AspectGradientBackground {.
-    noSideEffect, cdecl, importcpp: "GradientBackground", header: "Aspect_Window.hxx".}
+    noSideEffect, cdecl, importcpp: "GradientBackground".}
 proc isMapped*(this: AspectWindow): bool {.noSideEffect, cdecl, importcpp: "IsMapped",
-                                       header: "Aspect_Window.hxx".}
+                                       .}
 proc isVirtual*(this: AspectWindow): bool {.noSideEffect, cdecl,
-                                        importcpp: "IsVirtual", header: "Aspect_Window.hxx".}
+                                        importcpp: "IsVirtual".}
 proc setVirtual*(this: var AspectWindow; theVirtual: bool) {.cdecl,
-    importcpp: "SetVirtual", header: "Aspect_Window.hxx".}
+    importcpp: "SetVirtual".}
 proc ratio*(this: AspectWindow): cfloat {.noSideEffect, cdecl, importcpp: "Ratio",
-                                      header: "Aspect_Window.hxx".}
+                                      .}
 proc position*(this: AspectWindow; x1: var cint; y1: var cint; x2: var cint; y2: var cint) {.
-    noSideEffect, cdecl, importcpp: "Position", header: "Aspect_Window.hxx".}
+    noSideEffect, cdecl, importcpp: "Position".}
 proc size*(this: AspectWindow; width: var cint; height: var cint) {.noSideEffect, cdecl,
-    importcpp: "Size", header: "Aspect_Window.hxx".}
+    importcpp: "Size".}
 proc nativeHandle*(this: AspectWindow): AspectDrawable {.noSideEffect, cdecl,
-    importcpp: "NativeHandle", header: "Aspect_Window.hxx".}
+    importcpp: "NativeHandle".}
 proc nativeParentHandle*(this: AspectWindow): AspectDrawable {.noSideEffect, cdecl,
-    importcpp: "NativeParentHandle", header: "Aspect_Window.hxx".}
+    importcpp: "NativeParentHandle".}
 proc nativeFBConfig*(this: AspectWindow): AspectFBConfig {.noSideEffect, cdecl,
-    importcpp: "NativeFBConfig", header: "Aspect_Window.hxx".}
+    importcpp: "NativeFBConfig".}
+proc displayConnection*(this: AspectWindow): Handle[AspectDisplayConnection] {.
+    noSideEffect, cdecl, importcpp: "DisplayConnection".}
 proc setTitle*(this: var AspectWindow; theTitle: TCollectionAsciiString) {.cdecl,
-    importcpp: "SetTitle", header: "Aspect_Window.hxx".}
+    importcpp: "SetTitle".}
 proc invalidateContent*(this: var AspectWindow;
                        theDisp: Handle[AspectDisplayConnection]) {.cdecl,
-    importcpp: "InvalidateContent", header: "Aspect_Window.hxx".}
+    importcpp: "InvalidateContent".}
+proc devicePixelRatio*(this: AspectWindow): cfloat {.noSideEffect, cdecl,
+    importcpp: "DevicePixelRatio".}
+proc convertPointToBacking*(this: AspectWindow; thePnt: Graphic3dVec2d): Graphic3dVec2d {.
+    noSideEffect, cdecl, importcpp: "ConvertPointToBacking".}
+proc convertPointFromBacking*(this: AspectWindow; thePnt: Graphic3dVec2d): Graphic3dVec2d {.
+    noSideEffect, cdecl, importcpp: "ConvertPointFromBacking".}
 proc dumpJson*(this: AspectWindow; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 header: "Aspect_Window.hxx".}
+                                 .}
 
 

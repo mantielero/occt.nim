@@ -28,7 +28,7 @@
 #      condition, message: untyped): void =
 #    if condition:
 #      proc aspectAspectFillAreaDefinitionError*(a1: Message): Throw {.cdecl,
-#          importcpp: "Aspect_AspectFillAreaDefinitionError(@)", header: "Aspect_AspectFillAreaDefinitionError.hxx".}
+#          importcpp: "Aspect_AspectFillAreaDefinitionError(@)".}
 #
 #else:
 #  discard

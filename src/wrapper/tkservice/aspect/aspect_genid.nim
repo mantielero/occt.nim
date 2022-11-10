@@ -21,28 +21,30 @@ import aspect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+## ! This class permits the creation and control of integer identifiers.
+
 
 
 proc newAspectGenId*(): AspectGenId {.cdecl, constructor,
-                                   importcpp: "Aspect_GenId(@)", header: "Aspect_GenId.hxx".}
+                                   importcpp: "Aspect_GenId(@)".}
 proc newAspectGenId*(theLow: cint; theUpper: cint): AspectGenId {.cdecl, constructor,
-    importcpp: "Aspect_GenId(@)", header: "Aspect_GenId.hxx".}
-proc free*(this: var AspectGenId) {.cdecl, importcpp: "Free", header: "Aspect_GenId.hxx".}
+    importcpp: "Aspect_GenId(@)".}
+proc free*(this: var AspectGenId) {.cdecl, importcpp: "Free".}
 proc free*(this: var AspectGenId; theId: cint) {.cdecl, importcpp: "Free",
-    header: "Aspect_GenId.hxx".}
+    .}
 proc hasFree*(this: AspectGenId): bool {.noSideEffect, cdecl, importcpp: "HasFree",
-                                     header: "Aspect_GenId.hxx".}
+                                     .}
 proc available*(this: AspectGenId): cint {.noSideEffect, cdecl,
-                                       importcpp: "Available", header: "Aspect_GenId.hxx".}
+                                       importcpp: "Available".}
 proc lower*(this: AspectGenId): cint {.noSideEffect, cdecl, importcpp: "Lower",
-                                   header: "Aspect_GenId.hxx".}
-proc next*(this: var AspectGenId): cint {.cdecl, importcpp: "Next", header: "Aspect_GenId.hxx".}
+                                   .}
+proc next*(this: var AspectGenId): cint {.cdecl, importcpp: "Next".}
 proc next*(this: var AspectGenId; theId: var cint): bool {.cdecl, importcpp: "Next",
-    header: "Aspect_GenId.hxx".}
+    .}
 proc upper*(this: AspectGenId): cint {.noSideEffect, cdecl, importcpp: "Upper",
-                                   header: "Aspect_GenId.hxx".}
+                                   .}
 proc dumpJson*(this: AspectGenId; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 header: "Aspect_GenId.hxx".}
+                                 .}
 
 

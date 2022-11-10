@@ -25,7 +25,7 @@
 #  template aspectAspectLineDefinitionErrorRaiseIf*(condition, message: untyped): void =
 #    if condition:
 #      proc aspectAspectLineDefinitionError*(a1: Message): Throw {.cdecl,
-#          importcpp: "Aspect_AspectLineDefinitionError(@)", header: "Aspect_AspectLineDefinitionError.hxx".}
+#          importcpp: "Aspect_AspectLineDefinitionError(@)".}
 #
 #else:
 #  discard

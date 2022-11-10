@@ -26,42 +26,42 @@ import aspect_types
 
 
 proc newAspectNeutralWindow*(): AspectNeutralWindow {.cdecl, constructor,
-    importcpp: "Aspect_NeutralWindow(@)", header: "Aspect_NeutralWindow.hxx".}
+    importcpp: "Aspect_NeutralWindow(@)".}
 proc nativeHandle*(this: AspectNeutralWindow): AspectDrawable {.noSideEffect, cdecl,
-    importcpp: "NativeHandle", header: "Aspect_NeutralWindow.hxx".}
+    importcpp: "NativeHandle".}
 proc nativeParentHandle*(this: AspectNeutralWindow): AspectDrawable {.noSideEffect,
-    cdecl, importcpp: "NativeParentHandle", header: "Aspect_NeutralWindow.hxx".}
+    cdecl, importcpp: "NativeParentHandle".}
 proc nativeFBConfig*(this: AspectNeutralWindow): AspectFBConfig {.noSideEffect,
-    cdecl, importcpp: "NativeFBConfig", header: "Aspect_NeutralWindow.hxx".}
+    cdecl, importcpp: "NativeFBConfig".}
 proc setNativeHandle*(this: var AspectNeutralWindow; theWindow: AspectDrawable): bool {.
-    cdecl, importcpp: "SetNativeHandle", header: "Aspect_NeutralWindow.hxx".}
+    cdecl, importcpp: "SetNativeHandle".}
 proc setNativeHandles*(this: var AspectNeutralWindow; theWindow: AspectDrawable;
                       theParentWindow: AspectDrawable; theFbConfig: AspectFBConfig): bool {.
-    cdecl, importcpp: "SetNativeHandles", header: "Aspect_NeutralWindow.hxx".}
+    cdecl, importcpp: "SetNativeHandles".}
 proc isMapped*(this: AspectNeutralWindow): bool {.noSideEffect, cdecl,
-    importcpp: "IsMapped", header: "Aspect_NeutralWindow.hxx".}
+    importcpp: "IsMapped".}
 proc map*(this: AspectNeutralWindow) {.noSideEffect, cdecl, importcpp: "Map",
-                                    header: "Aspect_NeutralWindow.hxx".}
+                                    .}
 proc unmap*(this: AspectNeutralWindow) {.noSideEffect, cdecl, importcpp: "Unmap",
-                                      header: "Aspect_NeutralWindow.hxx".}
+                                      .}
 proc doResize*(this: var AspectNeutralWindow): AspectTypeOfResize {.cdecl,
-    importcpp: "DoResize", header: "Aspect_NeutralWindow.hxx".}
+    importcpp: "DoResize".}
 proc doMapping*(this: AspectNeutralWindow): bool {.noSideEffect, cdecl,
-    importcpp: "DoMapping", header: "Aspect_NeutralWindow.hxx".}
+    importcpp: "DoMapping".}
 proc ratio*(this: AspectNeutralWindow): cfloat {.noSideEffect, cdecl,
-    importcpp: "Ratio", header: "Aspect_NeutralWindow.hxx".}
+    importcpp: "Ratio".}
 proc position*(this: AspectNeutralWindow; theX1: var cint; theY1: var cint;
               theX2: var cint; theY2: var cint) {.noSideEffect, cdecl,
-    importcpp: "Position", header: "Aspect_NeutralWindow.hxx".}
+    importcpp: "Position".}
 proc setPosition*(this: var AspectNeutralWindow; theX1: cint; theY1: cint): bool {.cdecl,
-    importcpp: "SetPosition", header: "Aspect_NeutralWindow.hxx".}
+    importcpp: "SetPosition".}
 proc setPosition*(this: var AspectNeutralWindow; theX1: cint; theY1: cint; theX2: cint;
                  theY2: cint): bool {.cdecl, importcpp: "SetPosition",
-                                   header: "Aspect_NeutralWindow.hxx".}
+                                   .}
 proc size*(this: AspectNeutralWindow; theWidth: var cint; theHeight: var cint) {.
-    noSideEffect, cdecl, importcpp: "Size", header: "Aspect_NeutralWindow.hxx".}
+    noSideEffect, cdecl, importcpp: "Size".}
 proc setSize*(this: var AspectNeutralWindow; theWidth: cint; theHeight: cint): bool {.
-    cdecl, importcpp: "SetSize", header: "Aspect_NeutralWindow.hxx".}
+    cdecl, importcpp: "SetSize".}
 
 
 

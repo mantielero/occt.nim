@@ -23,12 +23,12 @@ import ../../tkernel/ncollection/ncollection_types
 
 
 proc delta*(this: AspectTouch): NCollectionVec2[cfloat] {.noSideEffect, cdecl,
-    importcpp: "Delta", header: "Aspect_Touch.hxx".}
+    importcpp: "Delta".}
 proc newAspectTouch*(): AspectTouch {.cdecl, constructor,
-                                   importcpp: "Aspect_Touch(@)", header: "Aspect_Touch.hxx".}
+                                   importcpp: "Aspect_Touch(@)".}
 proc newAspectTouch*(thePnt: NCollectionVec2[cfloat]; theIsPreciseDevice: bool): AspectTouch {.
-    cdecl, constructor, importcpp: "Aspect_Touch(@)", header: "Aspect_Touch.hxx".}
+    cdecl, constructor, importcpp: "Aspect_Touch(@)".}
 proc newAspectTouch*(theX: cfloat; theY: cfloat; theIsPreciseDevice: bool): AspectTouch {.
-    cdecl, constructor, importcpp: "Aspect_Touch(@)", header: "Aspect_Touch.hxx".}
+    cdecl, constructor, importcpp: "Aspect_Touch(@)".}
 
 

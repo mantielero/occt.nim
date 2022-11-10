@@ -22,7 +22,7 @@ import aspect_types
 
 
 proc newAspectTrackedDevicePose*(): AspectTrackedDevicePose {.cdecl, constructor,
-    importcpp: "Aspect_TrackedDevicePose(@)", header: "Aspect_TrackedDevicePose.hxx".}
+    importcpp: "Aspect_TrackedDevicePose(@)".}
 ## ! Array of tracked poses.
 
 

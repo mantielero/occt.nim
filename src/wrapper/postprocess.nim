@@ -1,7 +1,10 @@
 import std/[os, strutils, strformat, sequtils, parseutils, tables, sets]
 import system/io
 # Once we have the headers, we will modify them
-
+#[
+sed -i "s|, dynlib: tkservice||g" *.nim
+sed -i "s|dynlib: tkservice||g" *.nim 
+]#
 
 # ----------------------------------------------------
 # 1. Create a file holding all the types in the folder
@@ -632,13 +635,13 @@ for typ in typs:
 
 #"./tkmath/gp"
 #createTypesFile("./tk*/*")
-#createTypesFile("./tkservice/xw")
+createTypesFile("./tkservice/aspect")
 
 #reorderContent("./tkopengl/opengl/opengl_types.nim")
-#reorderContent("./tkg3d/geom/geom_types.nim")
+reorderContent("./tkservice/aspect/aspect_types.nim")
 
 for fname in walkFiles("tk*/*/*.nim"):
-  if fname.startsWith("tkservice/xw"):
+  if fname.startsWith("tkservice/aspect"):
 #   #if not fname.startsWith("tkernel") and not fname.startsWith("tkmath"):
 #     if not fname.endsWith("_types.nim") and not fname.endsWith("_includes.nim"): 
       echo "Functions: ", fname

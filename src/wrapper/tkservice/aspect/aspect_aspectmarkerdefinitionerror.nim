@@ -27,7 +27,7 @@
 #  template aspectAspectMarkerDefinitionErrorRaiseIf*(condition, message: untyped): void =
 #    if condition:
 #      proc aspectAspectMarkerDefinitionError*(a1: Message): Throw {.cdecl,
-#          importcpp: "Aspect_AspectMarkerDefinitionError(@)", header: "Aspect_AspectMarkerDefinitionError.hxx".}
+#          importcpp: "Aspect_AspectMarkerDefinitionError(@)".}
 #
 #else:
 #  discard

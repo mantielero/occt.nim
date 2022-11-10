@@ -22,6 +22,6 @@ import aspect_types
 
 
 proc newAspectXRDigitalActionData*(): AspectXRDigitalActionData {.cdecl,
-    constructor, importcpp: "Aspect_XRDigitalActionData(@)", header: "Aspect_XRDigitalActionData.hxx".}
+    constructor, importcpp: "Aspect_XRDigitalActionData(@)".}
 
 

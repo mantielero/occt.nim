@@ -26,32 +26,32 @@ import aspect_types
 proc newAspectRectangularGrid*(aXStep: cfloat; aYStep: cfloat; anXOrigin: cfloat = 0;
                               anYOrigin: cfloat = 0; aFirstAngle: cfloat = 0;
                               aSecondAngle: cfloat = 0; aRotationAngle: cfloat = 0): AspectRectangularGrid {.
-    cdecl, constructor, importcpp: "Aspect_RectangularGrid(@)", header: "Aspect_RectangularGrid.hxx".}
+    cdecl, constructor, importcpp: "Aspect_RectangularGrid(@)".}
 proc setXStep*(this: var AspectRectangularGrid; aStep: cfloat) {.cdecl,
-    importcpp: "SetXStep", header: "Aspect_RectangularGrid.hxx".}
+    importcpp: "SetXStep".}
 proc setYStep*(this: var AspectRectangularGrid; aStep: cfloat) {.cdecl,
-    importcpp: "SetYStep", header: "Aspect_RectangularGrid.hxx".}
+    importcpp: "SetYStep".}
 proc setAngle*(this: var AspectRectangularGrid; anAngle1: cfloat; anAngle2: cfloat) {.
-    cdecl, importcpp: "SetAngle", header: "Aspect_RectangularGrid.hxx".}
+    cdecl, importcpp: "SetAngle".}
 proc setGridValues*(this: var AspectRectangularGrid; xOrigin: cfloat; yOrigin: cfloat;
                    xStep: cfloat; yStep: cfloat; rotationAngle: cfloat) {.cdecl,
-    importcpp: "SetGridValues", header: "Aspect_RectangularGrid.hxx".}
+    importcpp: "SetGridValues".}
 proc compute*(this: AspectRectangularGrid; x: cfloat; y: cfloat; gridX: var cfloat;
              gridY: var cfloat) {.noSideEffect, cdecl, importcpp: "Compute",
-                               header: "Aspect_RectangularGrid.hxx".}
+                               .}
 proc xStep*(this: AspectRectangularGrid): cfloat {.noSideEffect, cdecl,
-    importcpp: "XStep", header: "Aspect_RectangularGrid.hxx".}
+    importcpp: "XStep".}
 proc yStep*(this: AspectRectangularGrid): cfloat {.noSideEffect, cdecl,
-    importcpp: "YStep", header: "Aspect_RectangularGrid.hxx".}
+    importcpp: "YStep".}
 proc firstAngle*(this: AspectRectangularGrid): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstAngle", header: "Aspect_RectangularGrid.hxx".}
+    importcpp: "FirstAngle".}
 proc secondAngle*(this: AspectRectangularGrid): cfloat {.noSideEffect, cdecl,
-    importcpp: "SecondAngle", header: "Aspect_RectangularGrid.hxx".}
+    importcpp: "SecondAngle".}
 proc init*(this: var AspectRectangularGrid) {.cdecl, importcpp: "Init",
-    header: "Aspect_RectangularGrid.hxx".}
+    .}
 proc dumpJson*(this: AspectRectangularGrid; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 header: "Aspect_RectangularGrid.hxx".}
+                                 .}
 
 
 

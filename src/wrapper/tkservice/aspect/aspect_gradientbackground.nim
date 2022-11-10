@@ -21,24 +21,25 @@ import ../../tkernel/quantity/quantity_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+## ! This class allows the definition of a window gradient background.
+
 
 
 proc newAspectGradientBackground*(): AspectGradientBackground {.cdecl, constructor,
-    importcpp: "Aspect_GradientBackground(@)", header: "Aspect_GradientBackground.hxx".}
-proc newAspectGradientBackground*(aColor1: QuantityColor; aColor2: QuantityColor;
-    aMethod: AspectGradientFillMethod = aspectGFM_HOR): AspectGradientBackground {.
-    cdecl, constructor, importcpp: "Aspect_GradientBackground(@)", header: "Aspect_GradientBackground.hxx".}
-proc setColors*(this: var AspectGradientBackground; aColor1: QuantityColor;
-               aColor2: QuantityColor;
-               aMethod: AspectGradientFillMethod = aspectGFM_HOR) {.cdecl,
-    importcpp: "SetColors", header: "Aspect_GradientBackground.hxx".}
-proc colors*(this: AspectGradientBackground; aColor1: var QuantityColor;
-            aColor2: var QuantityColor) {.noSideEffect, cdecl, importcpp: "Colors",
-                                       header: "Aspect_GradientBackground.hxx".}
+    importcpp: "Aspect_GradientBackground(@)".}
+proc newAspectGradientBackground*(theColor1: QuantityColor;
+                                 theColor2: QuantityColor; theMethod: AspectGradientFillMethod = aspectGradientFillMethodHorizontal): AspectGradientBackground {.
+    cdecl, constructor, importcpp: "Aspect_GradientBackground(@)".}
+proc setColors*(this: var AspectGradientBackground; theColor1: QuantityColor;
+               theColor2: QuantityColor; theMethod: AspectGradientFillMethod = aspectGradientFillMethodHorizontal) {.
+    cdecl, importcpp: "SetColors".}
+proc colors*(this: AspectGradientBackground; theColor1: var QuantityColor;
+            theColor2: var QuantityColor) {.noSideEffect, cdecl, importcpp: "Colors",
+    .}
 proc bgGradientFillMethod*(this: AspectGradientBackground): AspectGradientFillMethod {.
-    noSideEffect, cdecl, importcpp: "BgGradientFillMethod", header: "Aspect_GradientBackground.hxx".}
+    noSideEffect, cdecl, importcpp: "BgGradientFillMethod".}
 proc dumpJson*(this: AspectGradientBackground; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 header: "Aspect_GradientBackground.hxx".}
+                                 .}
 
 

@@ -22,8 +22,8 @@ import aspect_types
 
 
 proc isValid*(this: AspectXRHapticActionData): bool {.noSideEffect, cdecl,
-    importcpp: "IsValid", header: "Aspect_XRHapticActionData.hxx".}
+    importcpp: "IsValid".}
 proc newAspectXRHapticActionData*(): AspectXRHapticActionData {.cdecl, constructor,
-    importcpp: "Aspect_XRHapticActionData(@)", header: "Aspect_XRHapticActionData.hxx".}
+    importcpp: "Aspect_XRHapticActionData(@)".}
 
 

@@ -22,8 +22,8 @@ import aspect_types
 
 
 proc isChanged*(this: var AspectXRAnalogActionData): bool {.cdecl,
-    importcpp: "IsChanged", header: "Aspect_XRAnalogActionData.hxx".}
+    importcpp: "IsChanged".}
 proc newAspectXRAnalogActionData*(): AspectXRAnalogActionData {.cdecl, constructor,
-    importcpp: "Aspect_XRAnalogActionData(@)", header: "Aspect_XRAnalogActionData.hxx".}
+    importcpp: "Aspect_XRAnalogActionData(@)".}
 
 

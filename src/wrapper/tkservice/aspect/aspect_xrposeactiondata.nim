@@ -22,6 +22,6 @@ import aspect_types
 
 
 proc newAspectXRPoseActionData*(): AspectXRPoseActionData {.cdecl, constructor,
-    importcpp: "Aspect_XRPoseActionData(@)", header: "Aspect_XRPoseActionData.hxx".}
+    importcpp: "Aspect_XRPoseActionData(@)".}
 
 

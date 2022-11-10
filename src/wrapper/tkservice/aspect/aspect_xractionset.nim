@@ -24,17 +24,17 @@ import aspect_types
 
 
 proc id*(this: AspectXRActionSet): TCollectionAsciiString {.noSideEffect, cdecl,
-    importcpp: "Id", header: "Aspect_XRActionSet.hxx".}
+    importcpp: "Id".}
 proc rawHandle*(this: AspectXRActionSet): uint64 {.noSideEffect, cdecl,
-    importcpp: "RawHandle", header: "Aspect_XRActionSet.hxx".}
+    importcpp: "RawHandle".}
 proc setRawHandle*(this: var AspectXRActionSet; theHande: uint64) {.cdecl,
-    importcpp: "SetRawHandle", header: "Aspect_XRActionSet.hxx".}
+    importcpp: "SetRawHandle".}
 proc addAction*(this: var AspectXRActionSet; theAction: Handle[AspectXRAction]) {.
-    cdecl, importcpp: "AddAction", header: "Aspect_XRActionSet.hxx".}
+    cdecl, importcpp: "AddAction".}
 proc actions*(this: AspectXRActionSet): AspectXRActionMap {.noSideEffect, cdecl,
-    importcpp: "Actions", header: "Aspect_XRActionSet.hxx".}
+    importcpp: "Actions".}
 proc newAspectXRActionSet*(theId: TCollectionAsciiString): AspectXRActionSet {.
-    cdecl, constructor, importcpp: "Aspect_XRActionSet(@)", header: "Aspect_XRActionSet.hxx".}
+    cdecl, constructor, importcpp: "Aspect_XRActionSet(@)".}
 
 
 

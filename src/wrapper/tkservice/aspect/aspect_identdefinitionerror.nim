@@ -25,7 +25,7 @@
 #  template aspectIdentDefinitionErrorRaiseIf*(condition, message: untyped): void =
 #    if condition:
 #      proc aspectIdentDefinitionError*(a1: Message): Throw {.cdecl,
-#          importcpp: "Aspect_IdentDefinitionError(@)", header: "Aspect_IdentDefinitionError.hxx".}
+#          importcpp: "Aspect_IdentDefinitionError(@)".}
 #
 #else:
 #  discard

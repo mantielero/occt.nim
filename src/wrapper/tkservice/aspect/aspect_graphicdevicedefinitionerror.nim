@@ -27,7 +27,7 @@
 #  template aspectGraphicDeviceDefinitionErrorRaiseIf*(condition, message: untyped): void =
 #    if condition:
 #      proc aspectGraphicDeviceDefinitionError*(a1: Message): Throw {.cdecl,
-#          importcpp: "Aspect_GraphicDeviceDefinitionError(@)", header: "Aspect_GraphicDeviceDefinitionError.hxx".}
+#          importcpp: "Aspect_GraphicDeviceDefinitionError(@)".}
 #
 #else:
 #  discard

@@ -20,27 +20,5 @@
 
 
 
-const
-  aspectVKeyFlagsNONE* = 0      ##  reserve first 8 bits to combine value with Aspect_VKey
-  aspectVKeyFlagsSHIFT* = 1 shl 8 ## !< Aspect_VKey_Shift
-  aspectVKeyFlagsCTRL* = 1 shl 9  ## !< Aspect_VKey_Control
-  aspectVKeyFlagsALT* = 1 shl 10  ## !< Aspect_VKey_Alt
-  aspectVKeyFlagsMENU* = 1 shl 11 ## !< Aspect_VKey_Menu
-  aspectVKeyFlagsMETA* = 1 shl 12 ## !< Aspect_VKey_Meta
-  aspectVKeyFlagsALL* = aspectVKeyFlagsSHIFT or aspectVKeyFlagsCTRL or
-      aspectVKeyFlagsALT or aspectVKeyFlagsMENU or aspectVKeyFlagsMETA
-
-## ! Mouse buttons, for combining with Aspect_VKey and Aspect_VKeyFlags.
-
-
-
-const
-  AspectVKeyMouseNONE* = 0      ## !< no buttons
-  AspectVKeyMouseLeftButton* = 1 shl 13 ## !< mouse left   button
-  AspectVKeyMouseMiddleButton* = 1 shl 14 ## !< mouse middle button (scroll)
-  AspectVKeyMouseRightButton* = 1 shl 15 ## !< mouse right  button
-  AspectVKeyMouseMainButtons* = AspectVKeyMouseLeftButton or
-      AspectVKeyMouseMiddleButton or AspectVKeyMouseRightButton
-
 
 

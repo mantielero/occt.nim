@@ -1,4 +1,4 @@
-import aspect_types, aspect_vkeyflags
+import aspect_types
 import ../../tkernel/ncollection/ncollection_types
 
 
@@ -23,16 +23,16 @@ import ../../tkernel/ncollection/ncollection_types
 
 
 proc hasPoint*(this: AspectScrollDelta): bool {.noSideEffect, cdecl,
-    importcpp: "HasPoint", header: "Aspect_ScrollDelta.hxx".}
+    importcpp: "HasPoint".}
 proc resetPoint*(this: var AspectScrollDelta) {.cdecl, importcpp: "ResetPoint",
-    header: "Aspect_ScrollDelta.hxx".}
+    .}
 proc newAspectScrollDelta*(): AspectScrollDelta {.cdecl, constructor,
-    importcpp: "Aspect_ScrollDelta(@)", header: "Aspect_ScrollDelta.hxx".}
+    importcpp: "Aspect_ScrollDelta(@)".}
 proc newAspectScrollDelta*(thePnt: NCollectionVec2[cint]; theValue: cfloat;
                           theFlags: AspectVKeyFlags = aspectVKeyFlagsNONE): AspectScrollDelta {.
-    cdecl, constructor, importcpp: "Aspect_ScrollDelta(@)", header: "Aspect_ScrollDelta.hxx".}
+    cdecl, constructor, importcpp: "Aspect_ScrollDelta(@)".}
 proc newAspectScrollDelta*(theValue: cfloat;
                           theFlags: AspectVKeyFlags = aspectVKeyFlagsNONE): AspectScrollDelta {.
-    cdecl, constructor, importcpp: "Aspect_ScrollDelta(@)", header: "Aspect_ScrollDelta.hxx".}
+    cdecl, constructor, importcpp: "Aspect_ScrollDelta(@)".}
 
 

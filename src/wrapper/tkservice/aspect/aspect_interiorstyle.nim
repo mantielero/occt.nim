@@ -1,4 +1,3 @@
-{.hints:off.}
 import aspect_types
 
 

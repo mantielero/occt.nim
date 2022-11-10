@@ -16,14 +16,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 ## ============================================================================
-## ==== Titre: Aspect_RenderingContext.hxx
-## ==== Role : The header file of primitive type "RenderingContext" from package
+## ==== Title: Aspect_RenderingContext.hxx
+## ==== Role: The header file of primitive type "RenderingContext" from package
 ## ==== "V3d"
 ## ==== Implementation:  This is a primitive type implemented with typedef
 ## ============================================================================
 ##  To manage 2D or 3D graphic context
 
-##  #if defined(__APPLE__) && !defined(MACOSX_USE_GLX)
+##  #include <Standard_Macro.hxx>
+##
+##  #if defined(__APPLE__) && !defined(HAVE_XLIB)
 ##    #import <TargetConditionals.h>
 ##    #if defined(TARGET_OS_IPHONE) && TARGET_OS_IPHONE
 ##      #ifdef __OBJC__
@@ -38,9 +40,9 @@
 ##      #else
 ##        struct NSOpenGLContext;
 ##      #endif
-##      typedef NSOpenGLContext* Aspect_RenderingContext;
-##    #endif
-##  #else
+##      Standard_DISABLE_DEPRECATION_WARNINGS
+
+
 
 
 

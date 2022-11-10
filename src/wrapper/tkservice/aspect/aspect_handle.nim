@@ -15,7 +15,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 ## ============================================================================
-## ==== Titre: Aspect_Handle.hxx
+## ==== Title: Aspect_Handle.hxx
 ## ==== Role : The header file of primitive type "Handle" from packages
 ## ==== "Xw" & "WNT"
 ## ==== Implementation:  This is a primitive type implemented with typedef

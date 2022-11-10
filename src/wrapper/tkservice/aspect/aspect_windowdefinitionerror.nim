@@ -25,7 +25,7 @@
 #  template aspectWindowDefinitionErrorRaiseIf*(condition, message: untyped): void =
 #    if condition:
 #      proc aspectWindowDefinitionError*(a1: Message): Throw {.cdecl,
-#          importcpp: "Aspect_WindowDefinitionError(@)", header: "Aspect_WindowDefinitionError.hxx".}
+#          importcpp: "Aspect_WindowDefinitionError(@)".}
 #
 #else:
 #  discard

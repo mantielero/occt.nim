@@ -1,15 +1,17 @@
-{.passL:"-lTKMath".}
-{.passC:"-I/usr/include/opencascade/" .}
+
+
+
+
+{.passL:"-lTKService".}
+{.passC:"-I/usr/import/opencascade/" .}
 #{.experimental: "codeReordering".}
 
-import aspect_types
 import aspect_aspectfillareadefinitionerror
 import aspect_aspectlinedefinitionerror
 import aspect_aspectmarkerdefinitionerror
 import aspect_background
 import aspect_circulargrid
 import aspect_colorspace
-import aspect_convert
 import aspect_display
 import aspect_displayconnection
 import aspect_displayconnectiondefinitionerror
@@ -60,6 +62,7 @@ import aspect_widthofline
 import aspect_window
 import aspect_windowdefinitionerror
 import aspect_windowerror
+import aspect_windowinputlistener
 import aspect_xatom
 import aspect_xraction
 import aspect_xractionset
@@ -71,6 +74,73 @@ import aspect_xrhapticactiondata
 import aspect_xrposeactiondata
 import aspect_xrsession
 import aspect_xrtrackeddevicerole
-import aspect_xwd
 
-export aspect_types, aspect_aspectfillareadefinitionerror, aspect_aspectlinedefinitionerror, aspect_aspectmarkerdefinitionerror, aspect_background, aspect_circulargrid, aspect_colorspace, aspect_convert, aspect_display, aspect_displayconnection, aspect_displayconnectiondefinitionerror, aspect_drawable, aspect_eye, aspect_fbconfig, aspect_fillmethod, aspect_frustumlrbt, aspect_genid, aspect_gradientbackground, aspect_gradientfillmethod, aspect_graphicdevicedefinitionerror, aspect_graphicslibrary, aspect_grid, aspect_griddrawmode, aspect_gridtype, aspect_handle, aspect_hatchstyle, aspect_identdefinitionerror, aspect_interiorstyle, aspect_neutralwindow, aspect_openvrsession, aspect_polygonoffsetmode, aspect_rectangulargrid, aspect_renderingcontext, aspect_scrolldelta, aspect_sequenceofcolor, aspect_touch, aspect_touchmap, aspect_trackeddevicepose, aspect_typeofcolorscaledata, aspect_typeofcolorscaleorientation, aspect_typeofcolorscaleposition, aspect_typeofdeflection, aspect_typeofdisplaytext, aspect_typeoffacingmodel, aspect_typeofhighlightmethod, aspect_typeofline, aspect_typeofmarker, aspect_typeofresize, aspect_typeofstyletext, aspect_typeoftriedronposition, aspect_units, aspect_vkey, aspect_vkeyflags, aspect_vkeyset, aspect_widthofline, aspect_window, aspect_windowdefinitionerror, aspect_windowerror, aspect_xatom, aspect_xraction, aspect_xractionset, aspect_xractiontype, aspect_xranalogactiondata, aspect_xrdigitalactiondata, aspect_xrgenericaction, aspect_xrhapticactiondata, aspect_xrposeactiondata, aspect_xrsession, aspect_xrtrackeddevicerole, aspect_xwd
+
+export aspect_aspectfillareadefinitionerror
+export aspect_aspectlinedefinitionerror
+export aspect_aspectmarkerdefinitionerror
+export aspect_background
+export aspect_circulargrid
+export aspect_colorspace
+export aspect_display
+export aspect_displayconnection
+export aspect_displayconnectiondefinitionerror
+export aspect_drawable
+export aspect_eye
+export aspect_fbconfig
+export aspect_fillmethod
+export aspect_frustumlrbt
+export aspect_genid
+export aspect_gradientbackground
+export aspect_gradientfillmethod
+export aspect_graphicdevicedefinitionerror
+export aspect_graphicslibrary
+export aspect_grid
+export aspect_griddrawmode
+export aspect_gridtype
+export aspect_handle
+export aspect_hatchstyle
+export aspect_identdefinitionerror
+export aspect_interiorstyle
+export aspect_neutralwindow
+export aspect_openvrsession
+export aspect_polygonoffsetmode
+export aspect_rectangulargrid
+export aspect_renderingcontext
+export aspect_scrolldelta
+export aspect_sequenceofcolor
+export aspect_touch
+export aspect_touchmap
+export aspect_trackeddevicepose
+export aspect_typeofcolorscaledata
+export aspect_typeofcolorscaleorientation
+export aspect_typeofcolorscaleposition
+export aspect_typeofdeflection
+export aspect_typeofdisplaytext
+export aspect_typeoffacingmodel
+export aspect_typeofhighlightmethod
+export aspect_typeofline
+export aspect_typeofmarker
+export aspect_typeofresize
+export aspect_typeofstyletext
+export aspect_typeoftriedronposition
+export aspect_units
+export aspect_vkey
+export aspect_vkeyflags
+export aspect_vkeyset
+export aspect_widthofline
+export aspect_window
+export aspect_windowdefinitionerror
+export aspect_windowerror
+export aspect_windowinputlistener
+export aspect_xatom
+export aspect_xraction
+export aspect_xractionset
+export aspect_xractiontype
+export aspect_xranalogactiondata
+export aspect_xrdigitalactiondata
+export aspect_xrgenericaction
+export aspect_xrhapticactiondata
+export aspect_xrposeactiondata
+export aspect_xrsession
+export aspect_xrtrackeddevicerole

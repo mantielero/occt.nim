@@ -22,13 +22,13 @@ import aspect_types
 
 
 proc newAspectFrustumLRBT*[ElemT](): AspectFrustumLRBT[ElemT] {.cdecl, constructor,
-    importcpp: "Aspect_FrustumLRBT<\'*0>(@)", header: "Aspect_FrustumLRBT.hxx".}
+    importcpp: "Aspect_FrustumLRBT<\'*0>(@)".}
 proc newAspectFrustumLRBT*[ElemT; OtherT](theOther: AspectFrustumLRBT[OtherT]): AspectFrustumLRBT[
     ElemT] {.cdecl, constructor, importcpp: "Aspect_FrustumLRBT<\'*0>(@)",
-            header: "Aspect_FrustumLRBT.hxx".}
+            .}
 proc multiply*[ElemT](this: var AspectFrustumLRBT[ElemT]; theScale: ElemT) {.cdecl,
-    importcpp: "Multiply", header: "Aspect_FrustumLRBT.hxx".}
+    importcpp: "Multiply".}
 proc multiplied*[ElemT](this: var AspectFrustumLRBT[ElemT]; theScale: ElemT): AspectFrustumLRBT[
-    ElemT] {.cdecl, importcpp: "Multiplied", header: "Aspect_FrustumLRBT.hxx".}
+    ElemT] {.cdecl, importcpp: "Multiplied".}
 
 

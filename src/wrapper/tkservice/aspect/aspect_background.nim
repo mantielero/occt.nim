@@ -22,18 +22,20 @@ import ../../tkernel/quantity/quantity_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+## ! This class allows the definition of
+## ! a window background.
+
 
 
 proc newAspectBackground*(): AspectBackground {.cdecl, constructor,
-    importcpp: "Aspect_Background(@)", header: "Aspect_Background.hxx".}
+    importcpp: "Aspect_Background(@)".}
 proc newAspectBackground*(aColor: QuantityColor): AspectBackground {.cdecl,
-    constructor, importcpp: "Aspect_Background(@)", header: "Aspect_Background.hxx".}
+    constructor, importcpp: "Aspect_Background(@)".}
 proc setColor*(this: var AspectBackground; aColor: QuantityColor) {.cdecl,
-    importcpp: "SetColor", header: "Aspect_Background.hxx".}
+    importcpp: "SetColor".}
 proc color*(this: AspectBackground): QuantityColor {.noSideEffect, cdecl,
-    importcpp: "Color", header: "Aspect_Background.hxx".}
+    importcpp: "Color".}
 proc dumpJson*(this: AspectBackground; theOStream: var StandardOStream;
-              theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 header: "Aspect_Background.hxx".}
+              theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson".}
 
 

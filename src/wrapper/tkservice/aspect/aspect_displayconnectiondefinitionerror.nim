@@ -29,7 +29,7 @@
 #    if condition:
 #      proc aspectDisplayConnectionDefinitionError*(a1: Message): Throw {.cdecl,
 #          importcpp: "Aspect_DisplayConnectionDefinitionError(@)",
-#          header: "Aspect_DisplayConnectionDefinitionError.hxx".}
+#          .}
 #
 #else:
 #  discard

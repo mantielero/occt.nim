@@ -26,25 +26,23 @@ import aspect_types
 proc newAspectCircularGrid*(aRadiusStep: cfloat; aDivisionNumber: cint;
                            xOrigin: cfloat = 0; anYOrigin: cfloat = 0;
                            aRotationAngle: cfloat = 0): AspectCircularGrid {.cdecl,
-    constructor, importcpp: "Aspect_CircularGrid(@)", header: "Aspect_CircularGrid.hxx".}
+    constructor, importcpp: "Aspect_CircularGrid(@)".}
 proc setRadiusStep*(this: var AspectCircularGrid; aStep: cfloat) {.cdecl,
-    importcpp: "SetRadiusStep", header: "Aspect_CircularGrid.hxx".}
+    importcpp: "SetRadiusStep".}
 proc setDivisionNumber*(this: var AspectCircularGrid; aNumber: cint) {.cdecl,
-    importcpp: "SetDivisionNumber", header: "Aspect_CircularGrid.hxx".}
+    importcpp: "SetDivisionNumber".}
 proc setGridValues*(this: var AspectCircularGrid; xOrigin: cfloat; yOrigin: cfloat;
                    radiusStep: cfloat; divisionNumber: cint; rotationAngle: cfloat) {.
-    cdecl, importcpp: "SetGridValues", header: "Aspect_CircularGrid.hxx".}
+    cdecl, importcpp: "SetGridValues".}
 proc compute*(this: AspectCircularGrid; x: cfloat; y: cfloat; gridX: var cfloat;
-             gridY: var cfloat) {.noSideEffect, cdecl, importcpp: "Compute",
-                               header: "Aspect_CircularGrid.hxx".}
+             gridY: var cfloat) {.noSideEffect, cdecl, importcpp: "Compute".}
 proc radiusStep*(this: AspectCircularGrid): cfloat {.noSideEffect, cdecl,
-    importcpp: "RadiusStep", header: "Aspect_CircularGrid.hxx".}
+    importcpp: "RadiusStep".}
 proc divisionNumber*(this: AspectCircularGrid): cint {.noSideEffect, cdecl,
-    importcpp: "DivisionNumber", header: "Aspect_CircularGrid.hxx".}
-proc init*(this: var AspectCircularGrid) {.cdecl, importcpp: "Init", header: "Aspect_CircularGrid.hxx".}
+    importcpp: "DivisionNumber".}
+proc init*(this: var AspectCircularGrid) {.cdecl, importcpp: "Init".}
 proc dumpJson*(this: AspectCircularGrid; theOStream: var StandardOStream;
-              theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 header: "Aspect_CircularGrid.hxx".}
+              theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson".}
 
 
 

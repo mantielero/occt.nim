@@ -25,49 +25,49 @@ import ../../tkernel/quantity/quantity_types
 
 
 proc setXOrigin*(this: var AspectGrid; anOrigin: cfloat) {.cdecl,
-    importcpp: "SetXOrigin", header: "Aspect_Grid.hxx".}
+    importcpp: "SetXOrigin".}
 proc setYOrigin*(this: var AspectGrid; anOrigin: cfloat) {.cdecl,
-    importcpp: "SetYOrigin", header: "Aspect_Grid.hxx".}
+    importcpp: "SetYOrigin".}
 proc setRotationAngle*(this: var AspectGrid; anAngle: cfloat) {.cdecl,
-    importcpp: "SetRotationAngle", header: "Aspect_Grid.hxx".}
+    importcpp: "SetRotationAngle".}
 proc rotate*(this: var AspectGrid; anAngle: cfloat) {.cdecl, importcpp: "Rotate",
-    header: "Aspect_Grid.hxx".}
+    .}
 proc translate*(this: var AspectGrid; aDx: cfloat; aDy: cfloat) {.cdecl,
-    importcpp: "Translate", header: "Aspect_Grid.hxx".}
+    importcpp: "Translate".}
 proc setColors*(this: var AspectGrid; aColor: QuantityColor;
                aTenthColor: QuantityColor) {.cdecl, importcpp: "SetColors",
-    header: "Aspect_Grid.hxx".}
+    .}
 proc hit*(this: AspectGrid; x: cfloat; y: cfloat; gridX: var cfloat; gridY: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "Hit", header: "Aspect_Grid.hxx".}
+    noSideEffect, cdecl, importcpp: "Hit".}
 proc compute*(this: AspectGrid; x: cfloat; y: cfloat; gridX: var cfloat; gridY: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "Compute", header: "Aspect_Grid.hxx".}
-proc activate*(this: var AspectGrid) {.cdecl, importcpp: "Activate", header: "Aspect_Grid.hxx".}
+    noSideEffect, cdecl, importcpp: "Compute".}
+proc activate*(this: var AspectGrid) {.cdecl, importcpp: "Activate".}
 proc deactivate*(this: var AspectGrid) {.cdecl, importcpp: "Deactivate",
-                                     header: "Aspect_Grid.hxx".}
+                                     .}
 proc xOrigin*(this: AspectGrid): cfloat {.noSideEffect, cdecl, importcpp: "XOrigin",
-                                      header: "Aspect_Grid.hxx".}
+                                      .}
 proc yOrigin*(this: AspectGrid): cfloat {.noSideEffect, cdecl, importcpp: "YOrigin",
-                                      header: "Aspect_Grid.hxx".}
+                                      .}
 proc rotationAngle*(this: AspectGrid): cfloat {.noSideEffect, cdecl,
-    importcpp: "RotationAngle", header: "Aspect_Grid.hxx".}
+    importcpp: "RotationAngle".}
 proc isActive*(this: AspectGrid): bool {.noSideEffect, cdecl, importcpp: "IsActive",
-                                     header: "Aspect_Grid.hxx".}
+                                     .}
 proc colors*(this: AspectGrid; aColor: var QuantityColor;
             aTenthColor: var QuantityColor) {.noSideEffect, cdecl,
-    importcpp: "Colors", header: "Aspect_Grid.hxx".}
+    importcpp: "Colors".}
 proc setDrawMode*(this: var AspectGrid; aDrawMode: AspectGridDrawMode) {.cdecl,
-    importcpp: "SetDrawMode", header: "Aspect_Grid.hxx".}
+    importcpp: "SetDrawMode".}
 proc drawMode*(this: AspectGrid): AspectGridDrawMode {.noSideEffect, cdecl,
-    importcpp: "DrawMode", header: "Aspect_Grid.hxx".}
-proc display*(this: var AspectGrid) {.cdecl, importcpp: "Display", header: "Aspect_Grid.hxx".}
+    importcpp: "DrawMode".}
+proc display*(this: var AspectGrid) {.cdecl, importcpp: "Display".}
 proc erase*(this: AspectGrid) {.noSideEffect, cdecl, importcpp: "Erase",
-                             header: "Aspect_Grid.hxx".}
+                             .}
 proc isDisplayed*(this: AspectGrid): bool {.noSideEffect, cdecl,
                                         importcpp: "IsDisplayed",
-                                        header: "Aspect_Grid.hxx".}
-proc init*(this: var AspectGrid) {.cdecl, importcpp: "Init", header: "Aspect_Grid.hxx".}
+                                        .}
+proc init*(this: var AspectGrid) {.cdecl, importcpp: "Init".}
 proc dumpJson*(this: AspectGrid; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", header: "Aspect_Grid.hxx".}
+    noSideEffect, cdecl, importcpp: "DumpJson".}
 
 
 

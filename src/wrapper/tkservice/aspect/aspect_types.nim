@@ -3,6 +3,11 @@ import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
 import ../../tkmath/gp/gp_types
 import ../../tkernel/tcollection/tcollection_types
+
+
+when defined(linux):
+  import x11/xlib
+  export xlib
   # This is for XLib
 # when not defined(win32) and (not defined(apple) or defined(macosx_Use_Glx)) and
 #     not defined(android) and not defined(qnx) and not defined(emscripten):
@@ -19,8 +24,8 @@ import ../../tkernel/tcollection/tcollection_types
 type
   AspectFBConfig* {.importcpp: "Aspect_FBConfig",
                              header: "Aspect_FBConfig.hxx.hxx".} = object # FIXME
-  #Display* {.importcpp: "Display",
-  #                           header: "Aspect_DisplayConnection.hxx".} = object  # FIXME
+  #Display* {.importcpp: "Display".} = object
+  #Display*
   Atom* = object  # FIXME
   AspectDrawable* = culong  # FIXME
   InfoString* = object  # FIXME

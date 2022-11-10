@@ -1,5 +1,5 @@
 import occt
-import x11/xlib
+#import x11/xlib
 
 #-------------------
 # 1. Type definition
@@ -17,6 +17,25 @@ proc context(this:OcctAisHello):Handle[AIS_InteractiveContext] =
 # Return view.
 proc view(this:OcctAisHello):Handle[V3d_View] =
   return this.myView
+
+# Handle expose event
+# https://dev.opencascade.org/doc/refman/html/class_a_i_s___view_controller.html#a4265b9ecc5d7fda71c7b883ec03fd636
+method processExpose(this:var OcctAisHello) {.exportc.} = 
+  if not this.myView.isNull:
+    this.flushViewEvents( this.myContext, this.myView, true )
+
+# Handle window resize event.
+method processConfigure(this:var OcctAisHello; theIsResized:bool) {.exportc.} = 
+  if not this.myView.isNull and theIsResized:
+    discard doResize(*(window(*(this.myView))))
+    mustBeResized( *(this.myView) )
+    invalidate( *(this.myView) )
+    this.flushViewEvents( this.myContext, this.myView, true )
+
+# Handle input.
+method processInput(this:var OcctAisHello) {.exportc.} =
+  if not this.myView.isNull:
+    this.processExpose()
 
 
 # --------------------------------------
@@ -76,9 +95,14 @@ proc main =
   var aWindow:Handle[Xw_Window] = newHandle( cast[ptr Xw_Window]( get(window( *aViewer.view() ))  ) )
   #echo typeof(getDisplayConnection(*driver( *viewer(*aViewer.view() ))) )
   var aDispConn:Handle[Aspect_DisplayConnection] = getDisplayConnection(*driver( *viewer(*aViewer.view() ))) 
-  
-  #var anXDisplayPtr:Display = getDisplay( `*`(aDispConn) )
+  var display: PDisplay
+  #var anXDisplay:Display = getDisplay( `*`(aDispConn) )
+  display = getDisplay( *aDispConn )
+  var event: XEvent
   while true:
-    discard
+    discard XNextEvent(display, event.addr)  # XNextEvent (anXDisplay, &anXEvent);
+    #*aWindow.processMessage(aViewer, event)
+    #if event.type == ClientMessage && (Atom)anXEvent.xclient.data.l[0] == aDispConn->GetAtom(Aspect_XA_DELETE_WINDOW))
+    #  return 0 #; // exit when window is closed
 
 main()

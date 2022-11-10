@@ -1,5 +1,7 @@
 {.passL:"-lTKService".}
 {.passC:"-I/usr/include/opencascade/" .}
+when defined(linux):
+  {.passL:"-lX11" .}
 #{.experimental: "codeReordering".}
 
 

@@ -1,9 +1,6 @@
 import ../../tkernel/tcollection/tcollection_types
 import aspect_types
-import x11/xlib
 
-when defined(linux):
-    export xlib
 
 
 
@@ -38,7 +35,7 @@ proc newAspectDisplayConnection*(theDisplayName: TCollectionAsciiString): Aspect
     cdecl, constructor, importcpp: "Aspect_DisplayConnection(@)", header: "Aspect_DisplayConnection.hxx".}
 proc newAspectDisplayConnection*(theDisplay: ptr Display): AspectDisplayConnection {.
     cdecl, constructor, importcpp: "Aspect_DisplayConnection(@)", header: "Aspect_DisplayConnection.hxx".}
-proc getDisplay*(this: var AspectDisplayConnection): ptr Display {.cdecl,
+proc getDisplay*(this: var AspectDisplayConnection): PDisplay {.cdecl,
     importcpp: "GetDisplay", header: "Aspect_DisplayConnection.hxx".}
 proc isOwnDisplay*(this: AspectDisplayConnection): bool {.noSideEffect, cdecl,
     importcpp: "IsOwnDisplay", header: "Aspect_DisplayConnection.hxx".}
@@ -46,7 +43,7 @@ proc getAtom*(this: AspectDisplayConnection; theAtom: AspectXAtom): Atom {.
     noSideEffect, cdecl, importcpp: "GetAtom", header: "Aspect_DisplayConnection.hxx".}
 proc getDisplayName*(this: var AspectDisplayConnection): TCollectionAsciiString {.
     cdecl, importcpp: "GetDisplayName", header: "Aspect_DisplayConnection.hxx".}
-proc init*(this: var AspectDisplayConnection; theDisplay: ptr Display) {.cdecl,
+proc init*(this: var AspectDisplayConnection; theDisplay: PDisplay) {.cdecl,
     importcpp: "Init", header: "Aspect_DisplayConnection.hxx".}
 
 

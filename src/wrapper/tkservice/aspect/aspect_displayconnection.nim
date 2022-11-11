@@ -46,8 +46,8 @@ proc setDefaultVisualInfo*(this: var AspectDisplayConnection;
                           theVisual: ptr AspectXVisualInfo;
                           theFBConfig: AspectFBConfig) {.cdecl,
     importcpp: "SetDefaultVisualInfo".}
-proc newAspectDisplayConnection*(theDisplay: ptr Display): AspectDisplayConnection {.
-    cdecl, constructor, importcpp: "Aspect_DisplayConnection(@)".}
+#proc newAspectDisplayConnection*(theDisplay: ptr Display): AspectDisplayConnection {.
+#    cdecl, constructor, importcpp: "Aspect_DisplayConnection(@)".}
 proc getDisplay*(this: var AspectDisplayConnection): ptr Display {.cdecl,
     importcpp: "GetDisplay".}
 proc getDefaultVisualInfoX*(this: AspectDisplayConnection): ptr XVisualInfo {.
@@ -57,8 +57,8 @@ proc setDefaultVisualInfo*(this: var AspectDisplayConnection;
     cdecl, importcpp: "SetDefaultVisualInfo".}
 proc getAtomX*(this: AspectDisplayConnection; theAtom: AspectXAtom): Atom {.
     noSideEffect, cdecl, importcpp: "GetAtomX".}
-proc init*(this: var AspectDisplayConnection; theDisplay: ptr Display) {.cdecl,
-    importcpp: "Init".}
+#proc init*(this: var AspectDisplayConnection; theDisplay: ptr Display) {.cdecl,
+#    importcpp: "Init".}
 
 
 

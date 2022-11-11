@@ -1,8 +1,9 @@
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
-import ../aspect/aspect_types
+import ../aspect/aspect_types  # x11/xlib exported from here
 import xw_types
-
+import ../../tkv3d/ais/ais_types
+#import x11/xlib
 ##  Created on: 2013-04-06
 ##  Created by: Kirill Gavrilov
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -56,4 +57,5 @@ proc invalidateContent*(this: var XwWindow; theDisp: Handle[AspectDisplayConnect
     cdecl, importcpp: "InvalidateContent".}
 proc processMessage*(this: var XwWindow; theListener: var AspectWindowInputListener;
                     theMsg: var XEvent): bool {.cdecl, importcpp: "ProcessMessage".}
-
+#proc processMessage*(this: var XwWindow; theListener: var AIS_ViewController;
+#                    theMsg: var XEvent): bool {.cdecl, importcpp: "ProcessMessage".}

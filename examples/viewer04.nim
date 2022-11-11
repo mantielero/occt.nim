@@ -88,21 +88,23 @@ proc getContextAndView*():tuple[context:Handle[AIS_InteractiveContext], view:Han
 # --------------------------------------
 # 3. Here it is define the main function
 # --------------------------------------
+proc processMessage*(this: var XwWindow; theListener: var AIS_ViewController;
+                    theMsg: var XEvent): bool {.cdecl, importcpp: "ProcessMessage".}
+
 proc main =
   var aViewer:OcctAisHello
   (aViewer.myContext, aViewer.myView) = getContextAndView()
   # X11 event loop
   var aWindow:Handle[Xw_Window] = newHandle( cast[ptr Xw_Window]( get(window( *aViewer.view() ))  ) )
-  #echo typeof(getDisplayConnection(*driver( *viewer(*aViewer.view() ))) )
   var aDispConn:Handle[Aspect_DisplayConnection] = getDisplayConnection(*driver( *viewer(*aViewer.view() ))) 
-  var display: ptr AspectXDisplay
-  #var anXDisplay:Display = getDisplay( `*`(aDispConn) )
-  display = getDisplayAspect( *aDispConn )
+  var display = getDisplayAspect( *aDispConn )
   var event: XEvent
+  #var eventPtr:ptr XEvent = event.addr
   var anDisplay = cast[ptr Display](display)
   while true:
     discard XNextEvent(anDisplay, event.addr)  # XNextEvent (anXDisplay, &anXEvent);
-    #*aWindow.processMessage(aViewer, event)
+    #var anEvent = cast[ptr XEvent](XEvent)
+    discard (*aWindow).processMessage(aViewer, event)
     #if event.type == ClientMessage && (Atom)anXEvent.xclient.data.l[0] == aDispConn->GetAtom(Aspect_XA_DELETE_WINDOW))
     #  return 0 #; // exit when window is closed
 

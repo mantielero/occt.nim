@@ -3,7 +3,7 @@ import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
 import ../../tkmath/gp/gp_types
 import ../../tkernel/tcollection/tcollection_types
-
+#import ../../tkv3d/ais/ais_types
 
 when defined(linux):
   import x11/xlib
@@ -39,7 +39,8 @@ const
 
 
 type
-  AspectXDisplay*    = object  # FIXME
+  AspectXDisplay*    {.importcpp: "Aspect_XDisplay",
+                     header: "Aspect_DisplayConnection.hxx", bycopy.}= object#Display  # FIXME
   NSOpenGLContext*   = object # FIXME
   AspectXVisualInfo* = object # FIXME
   XVisualInfo*       = object # FIXME
@@ -61,7 +62,7 @@ type
 
   AspectDisplay* = pointer
   AspectWindowInputListener* {.importcpp: "Aspect_WindowInputListener",
-                              header: "Aspect_WindowInputListener.hxx", bycopy.} = object ## /DEFINE_STANDARD_ALLOC
+                              header: "Aspect_WindowInputListener.hxx", bycopy.} = object #of AIS_ViewController## /DEFINE_STANDARD_ALLOC
 
   AspectDisplayConnection* {.importcpp: "Aspect_DisplayConnection",
                             header: "Aspect_DisplayConnection.hxx", bycopy.} = object of StandardTransient 

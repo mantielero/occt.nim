@@ -38,7 +38,7 @@ const
       AspectVKeyMouseMiddleButton or AspectVKeyMouseRightButton
 
 
-type
+type          
   AspectXDisplay*    {.importcpp: "Aspect_XDisplay",
                      header: "Aspect_DisplayConnection.hxx", bycopy.}= object#Display  # FIXME
   NSOpenGLContext*   = object # FIXME

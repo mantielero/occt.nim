@@ -55,7 +55,7 @@ proc setTitle*(this: var XwWindow; theTitle: TCollectionAsciiString) {.cdecl,
     importcpp: "SetTitle".}
 proc invalidateContent*(this: var XwWindow; theDisp: Handle[AspectDisplayConnection]) {.
     cdecl, importcpp: "InvalidateContent".}
-proc processMessage*(this: var XwWindow; theListener: var AspectWindowInputListener;
-                    theMsg: var XEvent): bool {.cdecl, importcpp: "ProcessMessage".}
+#proc processMessage*(this: var XwWindow; theListener: var AspectWindowInputListener;
+#                    theMsg: var XEvent): bool {.cdecl, importcpp: "ProcessMessage".}
 #proc processMessage*(this: var XwWindow; theListener: var AIS_ViewController;
 #                    theMsg: var XEvent): bool {.cdecl, importcpp: "ProcessMessage".}

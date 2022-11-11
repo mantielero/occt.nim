@@ -91,6 +91,7 @@ proc getContextAndView*():tuple[context:Handle[AIS_InteractiveContext], view:Han
 proc processMessage*(this: var XwWindow; theListener: var AIS_ViewController;
                     theMsg: var XEvent): bool {.cdecl, importcpp: "ProcessMessage".}
 
+
 proc main =
   var aViewer:OcctAisHello
   (aViewer.myContext, aViewer.myView) = getContextAndView()
@@ -103,7 +104,7 @@ proc main =
   var anDisplay = cast[ptr Display](display)
   while true:
     discard XNextEvent(anDisplay, event.addr)  # XNextEvent (anXDisplay, &anXEvent);
-    #var anEvent = cast[ptr XEvent](XEvent)
+    #echo event.theType
     discard (*aWindow).processMessage(aViewer, event)
     #if event.type == ClientMessage && (Atom)anXEvent.xclient.data.l[0] == aDispConn->GetAtom(Aspect_XA_DELETE_WINDOW))
     #  return 0 #; // exit when window is closed

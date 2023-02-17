@@ -1,5 +1,13 @@
 import occt
 #import x11/xlib
+import x11/[x, xutil]
+import std/bitops
+
+converter toDisplay(display:ptr AspectXDisplay):ptr Display =
+  cast[ptr Display](display)
+
+# converter toWindow(ad:ptr AspectDrawable):ptr Window =
+#   cast[ptr Window](ad)
 
 #-------------------
 # 1. Type definition
@@ -57,6 +65,15 @@ proc getContextAndView*():tuple[context:Handle[AIS_InteractiveContext], view:Han
   # view setup
   var myView = newHandle( cnew newV3dView(aViewer) )
   var aWindow:Handle[Xw_Window] = newHandle( cnew newXwWindow(aDisplay, "OCCT Viewer", 100, 100, 512, 512) )
+  var anWinAspect = getDisplayAspect( *aDisplay )
+
+  var flags = bitor(ExposureMask, KeyPressMask, KeyReleaseMask, FocusChangeMask,
+              StructureNotifyMask, ButtonPressMask, ButtonReleaseMask,
+              PointerMotionMask, Button1MotionMask, Button2MotionMask, Button3MotionMask )
+  discard XSelectInput( anWinAspect, 
+                       `*`(aWindow).nativeHandle(), # (Window )aWindow->NativeHandle(),
+                       flags.clong)
+
   var aWinAspect:Handle[AspectWindow] = newHandle( cast[ptr AspectWindow](aWindow.get) )
   # Atom aDelWinAtom = aDisplay->GetAtom (Aspect_XA_DELETE_WINDOW);
   `*`(myView).setWindow(aWinAspect)
@@ -89,9 +106,11 @@ proc getContextAndView*():tuple[context:Handle[AIS_InteractiveContext], view:Han
 # 3. Here it is define the main function
 # --------------------------------------
 
-converter toDisplay(display:ptr AspectXDisplay):ptr Display =
-  cast[ptr Display](display)
 
+
+
+var
+  deleteMessage: x.Atom
 proc main =
   var aViewer:OcctAisHello
   (aViewer.myContext, aViewer.myView) = getContextAndView()
@@ -104,10 +123,17 @@ proc main =
   #var anDisplay = cast[ptr Display](display)
   while true:
     var tmp = XNextEvent(display, event.addr)
-    echo event.theType
-    echo aViewer
-    echo *aWindow
+    #echo event.theType
+    #echo aViewer
+    #echo *aWindow
+    echo tmp
     discard (*aWindow).processMessage(aViewer, event)
+    case event.theType
+    of ClientMessage:
+      if cast[x.Atom](event.xclient.data.l[0]) == deleteMessage:
+        break
+    else:
+      discard      
     #if event.type == ClientMessage && (Atom)anXEvent.xclient.data.l[0] == aDispConn->GetAtom(Aspect_XA_DELETE_WINDOW))
     #  return 0 #; // exit when window is closed
 

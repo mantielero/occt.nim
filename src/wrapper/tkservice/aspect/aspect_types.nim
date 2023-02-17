@@ -6,7 +6,7 @@ import ../../tkernel/tcollection/tcollection_types
 #import ../../tkv3d/ais/ais_types
 
 when defined(linux):
-  import x11/xlib
+  import x11/[xlib,x]
   export xlib
 # type
 #   GLXFBConfig* {.importcpp: "GLXFBConfig",
@@ -45,7 +45,8 @@ type
   AspectXVisualInfo* = object # FIXME
   XVisualInfo*       = object # FIXME
   Atom* = object # FIXME
-  AspectDrawable* = object # FIXME
+  #AspectDrawable* = object # FIXME
+  AspectDrawable* = Window # FIXME
   InfoString* = object # FIXME
   TrackingUniverseOrigin* = object # FIXME
   #AspectWindow_InputListener* = object # FIXME

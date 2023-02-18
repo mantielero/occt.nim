@@ -26,43 +26,63 @@ import ../brepprim/brepprim_types
 
 proc box*(): BRepPrimAPI_MakeBox {.cdecl, constructor,
     importcpp: "BRepPrimAPI_MakeBox(@)", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc box*(dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimAPI_MakeBox {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeBox(@)", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc box*(p: PntObj; dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimAPI_MakeBox {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeBox(@)", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc box*(p1: PntObj; p2: PntObj): BRepPrimAPI_MakeBox {.cdecl,
     constructor, importcpp: "BRepPrimAPI_MakeBox(@)", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc box*(axes: Ax2Obj; dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimAPI_MakeBox {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeBox(@)", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc init*(this: var BRepPrimAPI_MakeBox; theDX: cfloat; theDY: cfloat; theDZ: cfloat) {.
     cdecl, importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc init*(this: var BRepPrimAPI_MakeBox; thePnt: PntObj; theDX: cfloat; theDY: cfloat;
           theDZ: cfloat) {.cdecl, importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc init*(this: var BRepPrimAPI_MakeBox; thePnt1: PntObj; thePnt2: PntObj) {.cdecl,
     importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc init*(this: var BRepPrimAPI_MakeBox; theAxes: Ax2Obj; theDX: cfloat; theDY: cfloat;
           theDZ: cfloat) {.cdecl, importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc wedge*(this: var BRepPrimAPI_MakeBox): var BRepPrimWedge {.cdecl,
     importcpp: "Wedge", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc build*(this: var BRepPrimAPI_MakeBox) {.cdecl, importcpp: "Build", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc shell*(this: var BRepPrimAPI_MakeBox): TopoDS_Shell {.cdecl, importcpp: "Shell",
     header: "BRepPrimAPI_MakeBox.hxx".}
+
 converter `topoDS_Shell`*(this: var BRepPrimAPI_MakeBox): TopoDS_Shell {.cdecl,
     importcpp: "BRepPrimAPI_MakeBox::operator TopoDS_Shell", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc solid*(this: var BRepPrimAPI_MakeBox): TopoDS_Solid {.cdecl, importcpp: "Solid",
     header: "BRepPrimAPI_MakeBox.hxx".}
+
 converter `topoDS_Solid`*(this: var BRepPrimAPI_MakeBox): TopoDS_Solid {.cdecl,
     importcpp: "BRepPrimAPI_MakeBox::operator TopoDS_Solid", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc bottomFace*(this: var BRepPrimAPI_MakeBox): TopoDS_Face {.cdecl,
     importcpp: "BottomFace", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc backFace*(this: var BRepPrimAPI_MakeBox): TopoDS_Face {.cdecl,
     importcpp: "BackFace", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc frontFace*(this: var BRepPrimAPI_MakeBox): TopoDS_Face {.cdecl,
     importcpp: "FrontFace", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc leftFace*(this: var BRepPrimAPI_MakeBox): TopoDS_Face {.cdecl,
     importcpp: "LeftFace", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc rightFace*(this: var BRepPrimAPI_MakeBox): TopoDS_Face {.cdecl,
     importcpp: "RightFace", header: "BRepPrimAPI_MakeBox.hxx".}
+
 proc topFace*(this: var BRepPrimAPI_MakeBox): TopoDS_Face {.cdecl,
     importcpp: "TopFace", header: "BRepPrimAPI_MakeBox.hxx".}
 

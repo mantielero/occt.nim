@@ -26,15 +26,20 @@ import ../../tkbrep/topods/topods_types
 
 proc build*(this: var BRepBuilderAPI_MakeShape) {.cdecl, importcpp: "Build",
     header: "BRepBuilderAPI_MakeShape.hxx".}
-proc shape*(this: var BRepBuilderAPI_MakeShape): TopoDS_Shape {.cdecl,
+
+proc shape*(this: BRepBuilderAPI_MakeShape): TopoDS_Shape {.cdecl,
     importcpp: "Shape", header: "BRepBuilderAPI_MakeShape.hxx".}
-converter `topoDS_Shape`*(this: var BRepBuilderAPI_MakeShape): TopoDS_Shape {.cdecl,
+
+converter toTopoDS_Shape*(this: BRepBuilderAPI_MakeShape): TopoDS_Shape {.cdecl,
     importcpp: "BRepBuilderAPI_MakeShape::operator TopoDS_Shape",
     header: "BRepBuilderAPI_MakeShape.hxx".}
+
 proc generated*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): TopToolsListOfShape {.
     cdecl, importcpp: "Generated", header: "BRepBuilderAPI_MakeShape.hxx".}
+
 proc modified*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): TopToolsListOfShape {.
     cdecl, importcpp: "Modified", header: "BRepBuilderAPI_MakeShape.hxx".}
+
 proc isDeleted*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): bool {.cdecl,
     importcpp: "IsDeleted", header: "BRepBuilderAPI_MakeShape.hxx".}
 

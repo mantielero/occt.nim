@@ -3,7 +3,7 @@ import ../../wrapper/tkstep/stepcontrol/[stepcontrol_types, stepcontrol_writer]
 import "../../wrapper/tkxsbase/interface/interface_static"
 import ../../wrapper/tkxsbase/ifselect/ifselect_types
 
-proc toSTEP*[T:TopoDS_Solid | TopoDS_Wire ](fname:string; solid:T) =
+proc toSTEP*[T:TopoDS_Shape | TopoDS_Solid | TopoDS_Wire ]( solid:T; fname:string) =
   # Writer
   var writer = newSTEPControlWriter() 
   var tmp1 = setCVal("xstep.cascade.unit", "MM")

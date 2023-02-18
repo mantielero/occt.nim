@@ -7,7 +7,9 @@ proc main() =
   # Create a simple box with a size 100x100x50, centered around the origin
   let lowerLeftCornerOfBox = pnt(-50, -50, 0)
   let boxMaker = box( lowerLeftCornerOfBox, 100, 100, 50)
+  #echo typeof(boxMaker)
   let box = boxMaker.shape()
+  #echo typeof(box)
 
   # Create a cylinder with a radius 25.0 and height 50.0, centered at the origin 
   cylinderMaker = MakeCylinder(25.0,50.0)

@@ -30,9 +30,11 @@ proc destroyBRepAlgoAPI_Common*(this: var BRepAlgoAPI_Common) {.cdecl,
     importcpp: "#.~BRepAlgoAPI_Common()", header: "BRepAlgoAPI_Common.hxx".}
 proc newBRepAlgoAPI_Common*(pf: BOPAlgoPaveFiller): BRepAlgoAPI_Common {.cdecl,
     constructor, importcpp: "BRepAlgoAPI_Common(@)", header: "BRepAlgoAPI_Common.hxx".}
-proc newBRepAlgoAPI_Common*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI_Common {.
+
+proc common*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI_Common {.
     cdecl, constructor, importcpp: "BRepAlgoAPI_Common(@)", header: "BRepAlgoAPI_Common.hxx".}
-proc newBRepAlgoAPI_Common*(s1: TopoDS_Shape; s2: TopoDS_Shape; pf: BOPAlgoPaveFiller): BRepAlgoAPI_Common {.
+
+proc common*(s1: TopoDS_Shape; s2: TopoDS_Shape; pf: BOPAlgoPaveFiller): BRepAlgoAPI_Common {.
     cdecl, constructor, importcpp: "BRepAlgoAPI_Common(@)", header: "BRepAlgoAPI_Common.hxx".}
 
 

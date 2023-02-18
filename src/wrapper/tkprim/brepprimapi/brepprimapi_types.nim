@@ -5,8 +5,6 @@ import ../../tktopalgo/brepbuilderapi/brepbuilderapi_types
 type
   # I think they should be included in brepprim_types
 
-
-
   BRepPrimAPI_MakeBox* {.importcpp: "BRepPrimAPI_MakeBox",
                         header: "BRepPrimAPI_MakeBox.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape 
 

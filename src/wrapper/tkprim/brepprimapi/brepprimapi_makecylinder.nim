@@ -24,16 +24,28 @@ import ../brepprim/brepprim_types
 
 
 proc cylinder*(r: cfloat; h: cfloat): BRepPrimAPI_MakeCylinder {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", header: "BRepPrimAPI_MakeCylinder.hxx".}
+    cdecl,  constructor, 
+    importcpp: "BRepPrimAPI_MakeCylinder(@)", 
+    header: "BRepPrimAPI_MakeCylinder.hxx" .}
+
 proc cylinder*(r: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCylinder {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", header: "BRepPrimAPI_MakeCylinder.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", 
+    header: "BRepPrimAPI_MakeCylinder.hxx".}
+
 proc cylinder*(axes: Ax2Obj; r: cfloat; h: cfloat): BRepPrimAPI_MakeCylinder {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", header: "BRepPrimAPI_MakeCylinder.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", 
+    header: "BRepPrimAPI_MakeCylinder.hxx".}
+
 proc cylinder*(axes: Ax2Obj; r: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCylinder {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", header: "BRepPrimAPI_MakeCylinder.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", 
+    header: "BRepPrimAPI_MakeCylinder.hxx".}
+
 proc oneAxis*(this: var BRepPrimAPI_MakeCylinder): pointer {.cdecl,
-    importcpp: "OneAxis", header: "BRepPrimAPI_MakeCylinder.hxx".}
+    importcpp: "OneAxis", 
+    header: "BRepPrimAPI_MakeCylinder.hxx".}
+
 proc cylinder*(this: var BRepPrimAPI_MakeCylinder): var BRepPrimCylinder {.cdecl,
-    importcpp: "Cylinder", header: "BRepPrimAPI_MakeCylinder.hxx".}
+    importcpp: "Cylinder", 
+    header: "BRepPrimAPI_MakeCylinder.hxx".}
 
 

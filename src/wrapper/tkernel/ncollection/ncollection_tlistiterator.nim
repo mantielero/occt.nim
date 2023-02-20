@@ -26,13 +26,17 @@ import ncollection_types
 proc newNCollectionTListIterator*[TheItemType](): NCollectionTListIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_TListIterator<\'*0>(@)", header: "NCollection_TListIterator.hxx".}
-proc newNCollectionTListIterator*[TheItemType](theList: NCollectionBaseList): NCollectionTListIterator[
+
+proc newNCollectionTListIterator*[TheItemType](theList: NCollectionList[TheItemType]): NCollectionTListIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_TListIterator<\'*0>(@)", header: "NCollection_TListIterator.hxx".}
+
 proc more*[TheItemType](this: NCollectionTListIterator[TheItemType]): bool {.
     noSideEffect, cdecl, importcpp: "More", header: "NCollection_TListIterator.hxx".}
+
 proc next*[TheItemType](this: var NCollectionTListIterator[TheItemType]) {.cdecl,
     importcpp: "Next", header: "NCollection_TListIterator.hxx".}
+
 proc value*[TheItemType](this: NCollectionTListIterator[TheItemType]): TheItemType {.
     noSideEffect, cdecl, importcpp: "Value", header: "NCollection_TListIterator.hxx".}
 proc value*[TheItemType](this: var NCollectionTListIterator[TheItemType]): var TheItemType {.

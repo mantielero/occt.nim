@@ -20,27 +20,29 @@ type
   TheItemType* = object
 
   NCollectionArray1*[TheItemType] {.importcpp: "NCollection_Array1<\'0>",
-                                   header: "NCollection_Array1.hxx", bycopy.} = object of RootObj 
+                                   header: "NCollection_Array1.hxx", bycopy, 
+                                   pure, inheritable.} = object of RootObj
 
   NCollectionArray1valueType*[TheItemType] = TheItemType
 
   NCollectionArray2*[TheItemType] {.importcpp: "NCollection_Array2<\'0>",
-                                   header: "NCollection_Array2.hxx", bycopy.} = object of RootObj 
+                                   header: "NCollection_Array2.hxx", bycopy, pure, inheritable.} = object of RootObj
 
   NCollectionArray2valueType*[TheItemType] = TheItemType
 
   NCollectionArray2Iterator*[TheItemType] {.
       importcpp: "NCollection_Array2<\'0>::Iterator",
-      header: "NCollection_Array2.hxx", bycopy.} = object of RootObj 
+      header: "NCollection_Array2.hxx", bycopy,pure, inheritable.} = object
 
   NCollectionDelListNode* = proc (a1: ptr NCollectionListNode;
                                theAl: var Handle[NCollectionBaseAllocator]) {.cdecl.}
 
   NCollectionBaseList* {.importcpp: "NCollection_BaseList",
-                        header: "NCollection_BaseList.hxx", bycopy.} = object of RootObj 
+                        header: "NCollection_BaseList.hxx", bycopy, pure, inheritable.} = object
 
   NCollectionBaseListIterator* {.importcpp: "NCollection_BaseList::Iterator",
-                                header: "NCollection_BaseList.hxx", bycopy.} = object of RootObj 
+                                 header: "NCollection_BaseList.hxx", bycopy,
+                                 pure, inheritable.} = object 
     myCurrent* {.importc: "myCurrent".}: ptr NCollectionListNode 
     myPrevious* {.importc: "myPrevious".}: ptr NCollectionListNode 
 
@@ -48,25 +50,25 @@ type
                               theAl: var Handle[NCollectionBaseAllocator]) {.cdecl.}
 
   NCollectionBaseMap* {.importcpp: "NCollection_BaseMap",
-                       header: "NCollection_BaseMap.hxx", bycopy.} = object of RootObj 
+                       header: "NCollection_BaseMap.hxx", bycopy, pure, inheritable.} = object
 
   NCollectionBaseMapIterator* {.importcpp: "NCollection_BaseMap::Iterator",
-                               header: "NCollection_BaseMap.hxx", bycopy.} = object of RootObj 
+                               header: "NCollection_BaseMap.hxx", bycopy, pure, inheritable.} = object 
 
   NCollectionSeqNode* {.importcpp: "NCollection_SeqNode",
-                       header: "NCollection_BaseSequence.hxx", bycopy.} = object of RootObj 
+                       header: "NCollection_BaseSequence.hxx", bycopy,pure, inheritable.} = object 
 
   NCollectionDelSeqNode* = proc (a1: ptr NCollectionSeqNode;
                               theAl: var Handle[NCollectionBaseAllocator]) {.cdecl.}
 
   NCollectionBaseSequence* {.importcpp: "NCollection_BaseSequence",
-                            header: "NCollection_BaseSequence.hxx", bycopy.} = object of RootObj 
+                            header: "NCollection_BaseSequence.hxx", bycopy, pure, inheritable.} = object
 
   NCollectionBaseSequenceIterator* {.importcpp: "NCollection_BaseSequence::Iterator",
-                                    header: "NCollection_BaseSequence.hxx", bycopy.} = object of RootObj 
+                                    header: "NCollection_BaseSequence.hxx", bycopy,pure, inheritable.} = object 
 
   NCollectionBaseVector* {.importcpp: "NCollection_BaseVector",
-                          header: "NCollection_BaseVector.hxx", bycopy.} = object of RootObj 
+                          header: "NCollection_BaseVector.hxx", bycopy,pure, inheritable.} = object
 
   NCollectionCellFilterAction* {.size: sizeof(cint),
                                 importcpp: "NCollection_CellFilter_Action",
@@ -90,7 +92,7 @@ type
 
   NCollectionDoubleMapIterator*[TheKey1Type; TheKey2Type; Hasher1; Hasher2] {.
       importcpp: "NCollection_DoubleMap<\'0,\'1,\'2,\'3>::Iterator",
-      header: "NCollection_DoubleMap.hxx", bycopy.} = object of RootObj 
+      header: "NCollection_DoubleMap.hxx", bycopy,pure, inheritable.} = object 
 
   TheObjType* = object
 
@@ -100,7 +102,7 @@ type
 
   NCollectionEBTree*[TheObjType; TheBndType] {.
       importcpp: "NCollection_EBTree<\'0,\'1>", header: "NCollection_EBTree.hxx",
-      bycopy.} = object of RootObj
+      bycopy,pure, inheritable.} = object
 
   TheKeyType* = object
 
@@ -108,7 +110,7 @@ type
                        header: "NCollection_Lerp.hxx", bycopy.} = object 
 
   NCollectionListNode* {.importcpp: "NCollection_ListNode",
-                        header: "NCollection_ListNode.hxx", bycopy.} = object of RootObj 
+                        header: "NCollection_ListNode.hxx", bycopy,pure, inheritable.} = object
 
   NCollectionLocalArray*[TheItem; Max_Array_Size: static[cint]] {.
       importcpp: "NCollection_LocalArray<\'0,\'1>",
@@ -116,16 +118,16 @@ type
 
   NCollectionMapIterator*[TheKeyType; Hasher] {.
       importcpp: "NCollection_Map<\'0,\'1>::Iterator",
-      header: "NCollection_Map.hxx", bycopy.} = object of RootObj 
+      header: "NCollection_Map.hxx", bycopy,pure, inheritable.} = object 
 
   NCollectionMat4*[ElementT] {.importcpp: "NCollection_Mat4<\'0>",
                               header: "NCollection_Mat4.hxx", bycopy.} = object 
 
   NCollectionSparseArrayBase* {.importcpp: "NCollection_SparseArrayBase",
-                               header: "NCollection_SparseArrayBase.hxx", bycopy.} = object of RootObj 
+                               header: "NCollection_SparseArrayBase.hxx", bycopy,pure, inheritable.} = object
 
   NCollectionSparseArrayBaseIterator* {.importcpp: "NCollection_SparseArrayBase::Iterator", header: "NCollection_SparseArrayBase.hxx",
-                                       bycopy.} = object of RootObj 
+                                       bycopy,pure, inheritable.} = object 
 
   NCollectionStdAllocator*[T] {.importcpp: "NCollection_StdAllocator<\'0>",
                                header: "NCollection_StdAllocator.hxx", bycopy.} = object
@@ -235,11 +237,11 @@ type
 
   NCollectionArray1Iterator*[TheItemType] {.
       importcpp: "NCollection_Array1<\'0>::Iterator",
-      header: "NCollection_Array1.hxx", bycopy.} = object of RootObj 
+      header: "NCollection_Array1.hxx", bycopy,pure, inheritable.} = object 
 
   NCollectionDataMapIterator*[TheKeyType; TheItemType; Hasher] {.
       importcpp: "NCollection_DataMap<\'0,\'1,\'2>::Iterator",
-      header: "NCollection_DataMap.hxx", bycopy.} = object of RootObj 
+      header: "NCollection_DataMap.hxx", bycopy,pure, inheritable.} = object
 
   NCollectionDefaultHasher*[TheKeyType] {.
       importcpp: "NCollection_DefaultHasher<\'0>",
@@ -249,7 +251,7 @@ type
 
   NCollectionSequenceIterator*[TheItemType] {.
       importcpp: "NCollection_Sequence<\'0>::Iterator",
-      header: "NCollection_Sequence.hxx", bycopy.} = object of RootObj 
+      header: "NCollection_Sequence.hxx", bycopy,pure, inheritable.} = object 
 
   NCollectionStdAllocatorrebind*[T; U] {.importcpp: "NCollection_StdAllocator<\'0>::rebind<\'1>",
                                        header: "NCollection_StdAllocator.hxx",
@@ -257,10 +259,10 @@ type
 
   NCollectionVectorIterator*[TheItemType] {.
       importcpp: "NCollection_Vector<\'0>::Iterator",
-      header: "NCollection_Vector.hxx", bycopy.} = object of RootObj 
+      header: "NCollection_Vector.hxx", bycopy,pure, inheritable.} = object 
 
   NCollectionCellFilterInspectorXYZ* {.importcpp: "NCollection_CellFilter_InspectorXYZ",
-                                      header: "NCollection_CellFilter.hxx", bycopy.} = object of RootObj
+                                      header: "NCollection_CellFilter.hxx", bycopy,pure, inheritable.} = object 
 
   NCollectionBaseAllocator* {.importcpp: "NCollection_BaseAllocator",
                              header: "NCollection_BaseAllocator.hxx", bycopy.} = object of StandardTransient
@@ -374,7 +376,7 @@ type
       header: "NCollection_IndexedMap.hxx", bycopy.} = object of NCollectionBaseMap 
 
   NCollectionList*[TheItemType] {.importcpp: "NCollection_List<\'0>",
-                                 header: "NCollection_List.hxx", bycopy.} = object of NCollectionBaseList 
+                                  header: "NCollection_List.hxx", bycopy.} = object of NCollectionBaseList 
 
   NCollectionListListNode* = NCollectionTListNode[TheItemType]
 

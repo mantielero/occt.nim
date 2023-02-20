@@ -9,7 +9,8 @@ type
                               header: "BRepFilletAPI_MakeChamfer.hxx", bycopy.} = object of BRepFilletAPI_LocalOperation 
 
   BRepFilletAPI_MakeFillet* {.importcpp: "BRepFilletAPI_MakeFillet",
-                             header: "BRepFilletAPI_MakeFillet.hxx", bycopy.} = object of BRepFilletAPI_LocalOperation 
+                             header: "BRepFilletAPI_MakeFillet.hxx", bycopy
+                             .} = object of BRepFilletAPI_LocalOperation 
                              #header: "BRepFilletAPI_MakeFillet.hxx", bycopy.} = object of BRepFilletAPI_LocalOperation 
 
                              #header: "BRepFilletAPI_MakeFillet.hxx", bycopy.} = object of BRepFilletAPI_LocalOperation 

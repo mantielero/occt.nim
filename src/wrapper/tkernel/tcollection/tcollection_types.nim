@@ -11,7 +11,7 @@ type
   TCollection* {.importcpp: "TCollection", header: "TCollection.hxx", bycopy.} = object 
 
   TCollectionAsciiString* {.importcpp: "TCollection_AsciiString",
-                           header: "TCollection_AsciiString.hxx", bycopy.} = object 
+                           header: "TCollection_AsciiString.hxx", bycopy, pure,inheritable.} = object 
 
   TCollectionMapNodePtr* = ptr TCollectionMapNode
 

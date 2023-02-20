@@ -95,8 +95,10 @@ proc setToFillHistory*(this: var BRepAlgoAPI_BuilderAlgo; theHistFlag: bool) {.c
     importcpp: "SetToFillHistory", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc hasHistory*(this: BRepAlgoAPI_BuilderAlgo): bool {.noSideEffect, cdecl,
     importcpp: "HasHistory", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
-proc sectionEdges*(this: var BRepAlgoAPI_BuilderAlgo): TopToolsListOfShape {.cdecl,
+
+proc sectionEdges*(this: BRepAlgoAPI_BuilderAlgo): TopToolsListOfShape {.cdecl,
     importcpp: "SectionEdges", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
+
 proc dSFiller*(this: BRepAlgoAPI_BuilderAlgo): BOPAlgoPPaveFiller {.noSideEffect,
     cdecl, importcpp: "DSFiller", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc builder*(this: BRepAlgoAPI_BuilderAlgo): BOPAlgoPBuilder {.noSideEffect, cdecl,

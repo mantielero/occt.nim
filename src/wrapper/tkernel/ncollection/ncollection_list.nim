@@ -22,9 +22,12 @@ import ../standard/standard_types
 ##
 
 
+# NCollectionListiterator
+# NCollectionTListNode[TheItemType]
+#
+proc begin*[TheItemType](this: NCollectionList[TheItemType]):NCollectionListiterator {.
+    noSideEffect, cdecl, importcpp: "#.begin()", header: "NCollection_List.hxx".}
 
-proc begin*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListiterator {.
-    noSideEffect, cdecl, importcpp: "begin", header: "NCollection_List.hxx".}
 proc `end`*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListiterator {.
     noSideEffect, cdecl, importcpp: "end", header: "NCollection_List.hxx".}
 proc cbegin*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListconstIterator {.
@@ -49,22 +52,27 @@ proc clear*[TheItemType](this: var NCollectionList[TheItemType];
     cdecl, importcpp: "Clear", header: "NCollection_List.hxx".}
 proc first*[TheItemType](this: NCollectionList[TheItemType]): TheItemType {.
     noSideEffect, cdecl, importcpp: "First", header: "NCollection_List.hxx".}
+    
 proc first*[TheItemType](this: var NCollectionList[TheItemType]): var TheItemType {.
     cdecl, importcpp: "First", header: "NCollection_List.hxx".}
 proc last*[TheItemType](this: NCollectionList[TheItemType]): TheItemType {.
     noSideEffect, cdecl, importcpp: "Last", header: "NCollection_List.hxx".}
 proc last*[TheItemType](this: var NCollectionList[TheItemType]): var TheItemType {.
     cdecl, importcpp: "Last", header: "NCollection_List.hxx".}
+
 proc append*[TheItemType](this: var NCollectionList[TheItemType];
-                         theItem: TheItemType): var TheItemType {.cdecl,
-    importcpp: "Append", header: "NCollection_List.hxx".}
+                         theItem: TheItemType): TheItemType {.cdecl,
+    importcpp: "Append", header: "NCollection_List.hxx", discardable.}
+
 proc append*[TheItemType](this: var NCollectionList[TheItemType];
                          theItem: TheItemType;
                          theIter: var NCollectionListIterator) {.cdecl,
     importcpp: "Append", header: "NCollection_List.hxx".}
+
 proc append*[TheItemType](this: var NCollectionList[TheItemType];
                          theOther: var NCollectionList) {.cdecl,
     importcpp: "Append", header: "NCollection_List.hxx".}
+
 proc prepend*[TheItemType](this: var NCollectionList[TheItemType];
                           theItem: TheItemType): var TheItemType {.cdecl,
     importcpp: "Prepend", header: "NCollection_List.hxx".}

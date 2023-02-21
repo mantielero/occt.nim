@@ -31,7 +31,21 @@ import ../../tkgeomalgo/law/law_types
 ##  commercial license or contractual agreement.
 
 
-proc newFillet*(s: TopoDS_Shape;
+# proc fillet*(s: TopoDS_Shape;
+#                fShape: ChFi3dFilletShape = chFi3dRational): BRepFilletAPI_MakeFillet {.
+#     nodecl, constructor,  importc: "BRepFilletAPI_MakeFillet",
+#     header: "BRepFilletAPI_MakeFillet.hxx".}
+
+# proc newFillet2*(s: TopoDS_Shape;
+#                fShape: ChFi3dFilletShape = chFi3dRational): BRepFilletAPI_MakeFillet {.
+#     constructor,  importcpp: "BRepFilletAPI_MakeFillet(@)",
+#     dynlib:"libTKFillet.so".}
+
+# proc newFillet3*(s: TopoDS_Shape;
+#                fShape: ChFi3dFilletShape = chFi3dRational): BRepFilletAPI_MakeFillet {.
+#     importcpp: "BRepFilletAPI_MakeFillet(@)", constructor, cdecl, dynlib: "libTKFillet.so".}
+
+proc fillet*(s: TopoDS_Shape;
                fShape: ChFi3dFilletShape = chFi3dRational): BRepFilletAPI_MakeFillet {.
     cdecl, constructor,  importcpp: "BRepFilletAPI_MakeFillet(@)",
     header: "BRepFilletAPI_MakeFillet.hxx".}

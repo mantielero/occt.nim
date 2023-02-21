@@ -1,6 +1,6 @@
 # Package
 
-version     = "0.0.1"
+version     = "0.0.2"
 author      = "mantielero"
 description = "OpenCascade nim wrapper"
 license     = "BSD 3-Clause"

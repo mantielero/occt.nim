@@ -26,9 +26,11 @@ import topexp_types
 
 proc newExplorer*(): TopExpExplorer {.cdecl, constructor,
     importcpp: "TopExp_Explorer(@)", header: "TopExp_Explorer.hxx".}
+
 proc newExplorer*(s: TopoDS_Shape; toFind: TopAbsShapeEnum;
                        toAvoid: TopAbsShapeEnum = topAbsSHAPE): TopExpExplorer {.
     cdecl, constructor, importcpp: "TopExp_Explorer(@)", header: "TopExp_Explorer.hxx".}
+    
 proc init*(this: var TopExpExplorer; s: TopoDS_Shape; toFind: TopAbsShapeEnum;
           toAvoid: TopAbsShapeEnum = topAbsSHAPE) {.cdecl, importcpp: "Init",
     header: "TopExp_Explorer.hxx".}

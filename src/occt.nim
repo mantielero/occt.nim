@@ -16,6 +16,9 @@ export toStep
 import lib/foundation/[iter]
 export iter
 
+import lib/gc/[gc]
+export gc
+
 #proc `$`*(pnt:PntObj):string =
 #  &"Pnt(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 

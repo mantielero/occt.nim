@@ -5,8 +5,15 @@ type
 
   TopAbsShapeEnum* {.size: sizeof(cint), importcpp: "TopAbs_ShapeEnum",
                     header: "TopAbs_ShapeEnum.hxx".} = enum
-    topAbsCOMPOUND, topAbsCOMPSOLID, topAbsSOLID, topAbsSHELL, topAbsFACE,
-    topAbsWIRE, topAbsEDGE, topAbsVERTEX, topAbsSHAPE
+    topAbsCOMPOUND, 
+    topAbsCOMPSOLID, 
+    topAbsSOLID, 
+    topAbsSHELL, 
+    topAbsFACE,
+    topAbsWIRE, 
+    topAbsEDGE, 
+    topAbsVERTEX, 
+    topAbsSHAPE
 
   TopAbsState* {.size: sizeof(cint), importcpp: "TopAbs_State",
                 header: "TopAbs_State.hxx".} = enum

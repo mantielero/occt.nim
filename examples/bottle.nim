@@ -12,21 +12,21 @@ proc main() =
     aPnt5 = pnt(myWidth / 2.0, 0, 0)
 
   let 
-    aArcOfCircle:HandleGeomTrimmedCurve = arcCircle(aPnt2,aPnt3,aPnt4) # MakeCircle --(converter)--> Handle[GeomTrimmedCurve] 
-    aSegment1:HandleGeomTrimmedCurve    = segment(aPnt1, aPnt2)  # MakeSegment --(converter)--> Handle[GeomTrimmedCurve] 
-    aSegment2:HandleGeomTrimmedCurve    = segment(aPnt4, aPnt5)
+    aArcOfCircle = arcCircle(aPnt2,aPnt3,aPnt4) # MakeArcOfCircle
+    aSegment1    = segment(aPnt1, aPnt2)  # MakeSegment --(converter)--> Handle[GeomTrimmedCurve] 
+    aSegment2    = segment(aPnt4, aPnt5)
     # Note: HandleGeomCurve = Handle[GeomCurve] 
     # Note: HandleGeomTrimmedCurve should inherit from HandleGeomCurve
-
+  #echo typeof(aArcOfCircle)
   # Profile: Defining the Topology
   # Converting suporting geometry
   var
     #aEdge1:TopoDS_Edge = makeEdge(aSegment1)    # BRepBuilderAPI_MakeEdge
     #aEdge2:TopoDS_Edge = makeEdge(aArcOfCircle)
     #aEdge3:TopoDS_Edge = makeEdge(aSegment2)
-    aEdge1:BRepBuilderAPI_MakeEdge = edge(aSegment1)    # BRepBuilderAPI_MakeEdge
-    aEdge2:BRepBuilderAPI_MakeEdge = edge(aArcOfCircle)
-    aEdge3:BRepBuilderAPI_MakeEdge = edge(aSegment2)
+    aEdge1 = edge(aSegment1)    # BRepBuilderAPI_MakeEdge
+    aEdge2 = edge(aArcOfCircle) # BRepBuilderAPI_MakeEdge
+    aEdge3 = edge(aSegment2)    # BRepBuilderAPI_MakeEdge
 
     #aEdge1 = makeEdge(aPnt1, aPnt3)
     #aEdge3 = makeEdge(aPnt4, aPnt5)
@@ -34,13 +34,13 @@ proc main() =
 
 
     # Profile: Completing the Profile
-    aOrigin = newPnt(0, 0, 0)
-    xDir    = newDir(1, 0, 0)
-    xAxis   = newAx1(aOrigin, xDir)
+    aOrigin = pnt(0, 0, 0)
+    xDir    = dir(1, 0, 0)
+    xAxis   = ax1(aOrigin, xDir)
     # gp_Ax1 xAxis = gp::OX();
 
 
-  var aTrsf:Trsf
+  var aTrsf:TrsfObj
   aTrsf.setMirror(xAxis)
 
   # apply the transformation 
@@ -63,12 +63,12 @@ proc main() =
   # Building the body
   #   let myFaceProfile:BRepBuilderAPI_MakeFace = MakeFace(myWireProfile)
   let myFaceProfile:TopoDS_Face = face(myWireProfile)
-  let aPrismVec = newVec(0.0, 0.0, myHeight)
-  var myBody:BRepPrimAPI_MakePrism = newPrism(myFaceProfile, aPrismVec)  # BRepPrimAPI_MakePrism
+  let aPrismVec = vec(0.0, 0.0, myHeight)
+  var myBody:BRepPrimAPI_MakePrism = prism(myFaceProfile, aPrismVec)  # BRepPrimAPI_MakePrism
 
 
   # - Applying fillets
-  var mkFillet = newFillet(myBody)
+  var mkFillet = fillet(myBody)
 
   var anEdgeExplorer = newExplorer(myBody, topAbsEDGE)
   while anEdgeExplorer.more():
@@ -80,19 +80,19 @@ proc main() =
   let myFilletedBody = mkFillet.shape()
 
   # Adding the Neck
-  let neckLocation = newPnt(0, 0, myHeight)
-  let neckAxis:Dir = dzAsDir()
-  let neckAx2 = newAx2(neckLocation, neckAxis)
+  let neckLocation = pnt(0, 0, myHeight)
+  let neckAxis     = dzAsDir()
+  let neckAx2 = ax2(neckLocation, neckAxis)
 
   let myNeckRadius = myThickness / 4.0
   let myNeckHeight = myHeight / 10.0
 
-  var mkCylinder:BRepBuilderAPI_MakeShape = newCylinder(neckAx2, myNeckRadius, myNeckHeight)
+  var mkCylinder = cylinder(neckAx2, myNeckRadius, myNeckHeight)
   var myNeck:TopoDS_Shape = mkCylinder.shape()
    
 
   var myBodyFused = fuse(myFilletedBody, myNeck)
-  
+  myBodyFused.toStep("bottle.stp")
   # Creating a Hollowed Solid
 
 #[

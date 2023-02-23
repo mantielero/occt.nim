@@ -60,6 +60,7 @@ proc d3*(this: Geom2dCurve; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: va
         v3: var Vec2dObj) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_Curve.hxx".}
 proc dn*(this: Geom2dCurve; u: cfloat; n: cint): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom2d_Curve.hxx".}
+
 proc value*(this: Geom2dCurve; u: cfloat): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "Value", header: "Geom2d_Curve.hxx".}
 proc dumpJson*(this: Geom2dCurve; theOStream: var StandardOStream;

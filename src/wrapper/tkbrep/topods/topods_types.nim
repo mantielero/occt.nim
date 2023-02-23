@@ -14,7 +14,8 @@ type
 
   TopoDS* {.importcpp: "TopoDS", header: "TopoDS.hxx", bycopy.} = object 
 
-  TopoDS_Builder* {.importcpp: "TopoDS_Builder", header: "TopoDS_Builder.hxx", bycopy.} = object of RootObj 
+  TopoDS_Builder* {.importcpp: "TopoDS_Builder", header: "TopoDS_Builder.hxx", 
+                    bycopy, pure, inheritable.} = object
 
   TopoDS_Iterator* {.importcpp: "TopoDS_Iterator", header: "TopoDS_Iterator.hxx",
                     bycopy.} = object 

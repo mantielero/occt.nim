@@ -2,6 +2,7 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
+import brep_types
 import brep_builder
 import brep_curve3d
 import brep_curveon2surfaces
@@ -28,4 +29,4 @@ import brep_tface
 import brep_tool
 import brep_tvertex
 
-export brep_builder, brep_curve3d, brep_curveon2surfaces, brep_curveonclosedsurface, brep_curveonsurface, brep_curverepresentation, brep_gcurve, brep_listiteratoroflistofcurverepresentation, brep_listiteratoroflistofpointrepresentation, brep_listofcurverepresentation, brep_listofpointrepresentation, brep_pointoncurve, brep_pointoncurveonsurface, brep_pointonsurface, brep_pointrepresentation, brep_pointsonsurface, brep_polygon3d, brep_polygononclosedsurface, brep_polygononclosedtriangulation, brep_polygononsurface, brep_polygonontriangulation, brep_tedge, brep_tface, brep_tool, brep_tvertex
+export brep_types, brep_builder, brep_curve3d, brep_curveon2surfaces, brep_curveonclosedsurface, brep_curveonsurface, brep_curverepresentation, brep_gcurve, brep_listiteratoroflistofcurverepresentation, brep_listiteratoroflistofpointrepresentation, brep_listofcurverepresentation, brep_listofpointrepresentation, brep_pointoncurve, brep_pointoncurveonsurface, brep_pointonsurface, brep_pointrepresentation, brep_pointsonsurface, brep_polygon3d, brep_polygononclosedsurface, brep_polygononclosedtriangulation, brep_polygononsurface, brep_polygonontriangulation, brep_tedge, brep_tface, brep_tool, brep_tvertex

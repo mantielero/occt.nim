@@ -12,7 +12,8 @@ type
 
   BRepListOfPointRepresentation* = NCollectionList[Handle[BRepPointRepresentation]]
 
-  BRepBuilder* {.importcpp: "BRep_Builder", header: "BRep_Builder.hxx", bycopy.} = object of TopoDS_Builder 
+  BRepBuilder* {.importcpp: "BRep_Builder", header: "BRep_Builder.hxx", 
+                 bycopy.} = object of TopoDS_Builder 
 
   BRepCurveRepresentation* {.importcpp: "BRep_CurveRepresentation",
                             header: "BRep_CurveRepresentation.hxx", bycopy.} = object of StandardTransient 

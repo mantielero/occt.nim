@@ -25,11 +25,15 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+proc newGeom2dTrimmedCurve2*[T:Geom2dCurve | Geom2dEllipse](c: Handle[T]; u1: cfloat; u2: cfloat;
+            sense: bool = true; theAdjustPeriodic: bool = true): Geom2dTrimmedCurve {.
+    cdecl, constructor, importcpp: "Geom2d_TrimmedCurve(@)", header: "Geom2d_TrimmedCurve.hxx".}
 
 
 proc newGeom2dTrimmedCurve*(c: Handle[Geom2dCurve]; u1: cfloat; u2: cfloat;
-                           sense: bool = true; theAdjustPeriodic: bool = true): Geom2dTrimmedCurve {.
+            sense: bool = true; theAdjustPeriodic: bool = true): Geom2dTrimmedCurve {.
     cdecl, constructor, importcpp: "Geom2d_TrimmedCurve(@)", header: "Geom2d_TrimmedCurve.hxx".}
+
 proc reverse*(this: var Geom2dTrimmedCurve) {.cdecl, importcpp: "Reverse",
     header: "Geom2d_TrimmedCurve.hxx".}
 proc reversedParameter*(this: Geom2dTrimmedCurve; u: cfloat): cfloat {.noSideEffect,

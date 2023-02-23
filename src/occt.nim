@@ -19,6 +19,12 @@ export iter
 import lib/gc/[gc]
 export gc
 
+import lib/tkoffset/tkoffset
+export tkoffset
+
+import lib/tktopalgo/[breplib]
+export breplib
+
 #proc `$`*(pnt:PntObj):string =
 #  &"Pnt(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 

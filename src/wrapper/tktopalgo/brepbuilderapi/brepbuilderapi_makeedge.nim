@@ -24,6 +24,10 @@ import ../../tkg2d/geom2d/geom2d_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+import ../../tkgeombase/gce2d/gce2d_types
+
+proc edge2*[T:Handle[Geom2dTrimmedCurve]|HandleGeom2dTrimmedCurve](L: T; s: Handle[GeomCylindricalSurface]): EdgeObj {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 
 
 

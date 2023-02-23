@@ -10,6 +10,7 @@ import ../../wrapper/tkmath/gp/[gp_types]
 # ------------------
 type
   HandleCartesianPointObj* = Handle[GeomCartesianPoint]
+  
 proc newPnt*[X,Y,Z:SomeNumber](x:X;y:Y;z:Z):HandleCartesianPointObj =
   newHandle( cnew newGeomCartesianPoint( (x).cfloat, (y).cfloat, (z).cfloat ) ) 
 
@@ -44,3 +45,29 @@ converter toObj*(val:Handle[GeomCircle]):GeomCircle =
 
 proc radius*(this: Handle[GeomCircle]): cfloat {.noSideEffect, cdecl, importcpp: "#->Radius()".}
 
+
+#
+# Prueba
+# 
+
+#proc checkType[T](obj:T):bool {.importcpp:"#->dynamicType == ".}
+#  aSurface.dynamicType() == GeomPlane
+
+#(aSurface->DynamicType() == STANDARD_TYPE(Geom_Plane))
+# FIXME: we need something much more generic
+proc isGeomPlane*[T](obj:Handle[T]): bool {.importcpp:"(#->DynamicType() == Geom_Plane::get_type_descriptor())",
+                                            header:"Geom_Plane.hxx".}
+
+
+#[
+proc downcast*[A; B](this: Handle[A] ): Handle[B] {.cdecl,
+    importcpp: "\'0::DownCast(@)".}
+
+proc dcast*[T](this: Handle[auto] ):Handle[T] {.cdecl, importcpp: "\'0::DownCast(@)".}
+
+
+
+]#
+
+#proc checkType*[T](obj:Handle[auto]): T {.importcpp:"(#->DynamicType() == \'0::get_type_descriptor())",
+#                                            header:"Geom_Plane.hxx".}

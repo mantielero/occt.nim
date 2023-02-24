@@ -31,4 +31,11 @@ proc trimmedCurve*[T:Geom2dCurve | Geom2dEllipse](c: Handle[T];
 proc getPnt*[T:Geom2dTrimmedCurve|Geom2dEllipse; N:SomeNumber](c:Handle[T]; val:N):Pnt2dObj =
   `*`(c).value(val.cfloat)
 
+#----
+#Handle[geom_types.GeomSurface]
+converter toPlane*(aSurface:Handle[Geom_Surface]): Handle[GeomPlane] =
+  return downcast[Geom_Surface, GeomPlane](aSurface)
 
+
+proc location*(aPlane:Handle[GeomPlane]):PntObj =
+  `*`(aPlane).location()

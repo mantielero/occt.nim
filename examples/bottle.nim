@@ -80,7 +80,7 @@ proc main() =
   let myNeckHeight = myHeight / 10.0
 
   var mkCylinder = cylinder(neckAx2, myNeckRadius, myNeckHeight)
-  var myNeck:TopoDS_Shape = mkCylinder.shape()
+  var myNeck = mkCylinder.shape()
    
 
   myBody = fuse(myBody, myNeck)
@@ -90,10 +90,10 @@ proc main() =
   var zMax = -1f
 
   for aFace in myBody.getFaces():
-    var aSurface = aface.surface # Handle(Geom_Surface) aSurface = BRep_Tool::Surface(aFace);
+    var aSurface = aface.surface 
     if aSurface.isGeomPlane:  # Consider only plane surfaces
-      var aPlane = downcast[Geom_Surface, GeomPlane](aSurface) # FIXME: this is ugly
-      var aPnt = `*`(aPlane).location()
+      var aPlane = aSurface.toPlane
+      var aPnt = aPlane.location()      
       var aZ = aPnt.z() 
 
       if aZ > zMax: # We get the plane surface with the highest Z value
@@ -136,8 +136,8 @@ proc main() =
   var anEdge1OnSurf2 = edge(anArc2, aCyl2)
   var anEdge2OnSurf2 = edge(aSegment, aCyl2)
 
-  var threadingWire1:BRepBuilderAPI_MakeWire = wire(anEdge1OnSurf1, anEdge2OnSurf1)
-  var threadingWire2:BRepBuilderAPI_MakeWire = wire(anEdge1OnSurf2, anEdge2OnSurf2)
+  var threadingWire1 = wire(anEdge1OnSurf1, anEdge2OnSurf1)
+  var threadingWire2 = wire(anEdge1OnSurf2, anEdge2OnSurf2)
 
   # Threading : Build Edges and Wires
   # FIXME

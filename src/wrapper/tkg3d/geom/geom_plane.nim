@@ -34,6 +34,7 @@ proc newGeomPlane*(pl: PlnObj): GeomPlane {.cdecl, constructor,
                                      importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
 proc newGeomPlane*(p: PntObj; v: DirObj): GeomPlane {.cdecl, constructor,
     importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
+    
 proc newGeomPlane*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): GeomPlane {.cdecl,
     constructor, importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
 proc setPln*(this: var GeomPlane; pl: PlnObj) {.cdecl, importcpp: "SetPln", header: "Geom_Plane.hxx".}

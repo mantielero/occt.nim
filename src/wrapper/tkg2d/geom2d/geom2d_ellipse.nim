@@ -33,6 +33,7 @@ proc newGeom2dEllipse*(majorAxis: Ax2dObj; majorRadius: cfloat; minorRadius: cfl
     importcpp: "Geom2d_Ellipse(@)", header: "Geom2d_Ellipse.hxx".}
 proc newGeom2dEllipse*(axis: Ax22dObj; majorRadius: cfloat; minorRadius: cfloat): Geom2dEllipse {.
     cdecl, constructor, importcpp: "Geom2d_Ellipse(@)", header: "Geom2d_Ellipse.hxx".}
+    
 proc setElips2d*(this: var Geom2dEllipse; e: Elips2dObj) {.cdecl, importcpp: "SetElips2d",
     header: "Geom2d_Ellipse.hxx".}
 proc setMajorRadius*(this: var Geom2dEllipse; majorRadius: cfloat) {.cdecl,

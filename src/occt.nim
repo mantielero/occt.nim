@@ -31,6 +31,10 @@ export explorer
 
 import lib/geom/geom
 export geom
+
+import lib/topology/edge
+export edge
+
 #proc `$`*(pnt:PntObj):string =
 #  &"Pnt(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 

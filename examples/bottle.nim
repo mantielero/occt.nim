@@ -74,7 +74,7 @@ proc main() =
   # Adding the Neck
   let neckLocation = pnt(0, 0, myHeight)
   let neckAxis     = dzAsDir()
-  let neckAx2 = ax2(neckLocation, neckAxis)
+  let neckAx2      = ax2(neckLocation, neckAxis)
 
   let myNeckRadius = myThickness / 4.0
   let myNeckHeight = myHeight / 10.0
@@ -84,7 +84,6 @@ proc main() =
    
 
   myBody = fuse(myBody, myNeck)
-  #myBodyFused.toStep("bottle_DELETEME.stp")
 
   # Creating a Hollowed Solid
   var faceToRemove:TopoDS_Face 
@@ -92,9 +91,7 @@ proc main() =
 
   for aFace in myBody.getFaces():
     var aSurface = aface.surface # Handle(Geom_Surface) aSurface = BRep_Tool::Surface(aFace);
-    #echo typeof(aFace)
     if aSurface.isGeomPlane:  # Consider only plane surfaces
-      #echo "   is plane"
       var aPlane = downcast[Geom_Surface, GeomPlane](aSurface) # FIXME: this is ugly
       var aPnt = `*`(aPlane).location()
       var aZ = aPnt.z() 
@@ -102,14 +99,12 @@ proc main() =
       if aZ > zMax: # We get the plane surface with the highest Z value
         zMax = aZ
         faceToRemove = aFace
-        #echo "   ",aPnt
 
   var facesToRemove:TopTools_ListOfShape
   facesToRemove.append(faceToRemove)
   var aSolidMaker:ThickSolid
   aSolidMaker.makeThickSolidByJoin(myBody, facesToRemove, -myThickness / 50.0, 1.0e-3)
   myBody = aSolidMaker.shape()
-  #myBody.toStep("bottle.stp")
 
   # ======================== Threading
   # Threading : Create Surfaces
@@ -124,45 +119,30 @@ proc main() =
   var aMajor = 2f * PI
   var aMinor = myNeckHeight / 10f
 
-  var anEllipse1 = newHandle(cnew newGeom2dEllipse(anAx2d, aMajor, aMinor) )
-  var anEllipse2 = newHandle(cnew newGeom2dEllipse(anAx2d, aMajor, aMinor / 4f))
-  #echo typeof(anEllipse1)  # Handle[geom2d_types.Geom2dEllipse]
+  var anEllipse1 = ellipse(anAx2d, aMajor, aMinor) 
+  var anEllipse2 = ellipse(anAx2d, aMajor, aMinor/4f)  
 
-  #var tmp1:Handle[Geom2dCurve]
-  #tmp1 = anEllipse1
-  #echo typeof(tmp1)
+  var anArc1 = trimmedCurve(anEllipse1, 0f, PI)
+  var anArc2 = trimmedCurve(anEllipse2, 0f, PI)
 
-  # FIXME
-  var anArc1 = newHandle(cnew newGeom2dTrimmedCurve2(anEllipse1, 0.cfloat, PI.cfloat) )
-  var anArc2 = newHandle(cnew newGeom2dTrimmedCurve2(anEllipse2, 0.cfloat, PI.cfloat) )
+  var anEllipsePnt1 = anEllipse1.getPnt(0f)
+  var anEllipsePnt2 = anEllipse2.getPnt(PI)
 
-  var anEllipsePnt1:Pnt2dObj = `*`(anEllipse1).value(0f)
-  var anEllipsePnt2:Pnt2dObj = `*`(anEllipse2).value(PI)
-
-  var aSegment:HandleGeom2dTrimmedCurve = segment(anEllipsePnt1, anEllipsePnt2).toHandleGeom2dTrimmedCurve 
+  var aSegment = segment(anEllipsePnt1, anEllipsePnt2).toHandleGeom2dTrimmedCurve 
 
   # Threading : Build Edges and Wires 
-  # FIXME
-  var anEdge1OnSurf1_Obj:EdgeObj  = edge2(anArc1, aCyl1) # <Handle[geom2d_types.Geom2dTrimmedCurve], Handle[geom_types.GeomCylindricalSurface]>
-  var anEdge1OnSurf1:TopoDS_Edge = anEdge1OnSurf1_Obj.TopoDS_Edge
+  var anEdge1OnSurf1 = edge(anArc1, aCyl1)
+  var anEdge2OnSurf1 = edge(aSegment, aCyl1)
+  var anEdge1OnSurf2 = edge(anArc2, aCyl2)
+  var anEdge2OnSurf2 = edge(aSegment, aCyl2)
 
-  var anEdge2OnSurf1_Obj = edge2(aSegment, aCyl1)
-  var anEdge2OnSurf1 = anEdge2OnSurf1_Obj.TopoDS_Edge
-
-  var anEdge1OnSurf2_Obj = edge2(anArc2, aCyl2)
-  var anEdge1OnSurf2 = anEdge1OnSurf2_Obj.TopoDS_Edge
-
-  var anEdge2OnSurf2_Obj = edge2(aSegment, aCyl2)
-  var anEdge2OnSurf2 = anEdge2OnSurf2_Obj.TopoDS_Edge
-
-  var threadingWire1:BRepBuilderAPI_MakeWire = wire(anEdge1OnSurf1, anEdge2OnSurf1)#.TopoDS_Wire
+  var threadingWire1:BRepBuilderAPI_MakeWire = wire(anEdge1OnSurf1, anEdge2OnSurf1)
   var threadingWire2:BRepBuilderAPI_MakeWire = wire(anEdge1OnSurf2, anEdge2OnSurf2)
-  #var anEdge2OnSurf2 = anEdge2OnSurf2_Obj.TopoDS_Edge
 
   # Threading : Build Edges and Wires
   # FIXME
-  discard buildCurves3d(threadingWire1)
-  discard buildCurves3d(threadingWire2)
+  buildCurves3d(threadingWire1)
+  buildCurves3d(threadingWire2)
 
   # Create Threading
   var aTool = newBRepOffsetAPI_ThruSections(true)
@@ -177,7 +157,7 @@ proc main() =
   aBuilder.makeCompound(aRes)
   aBuilder.add(aRes, myBody)
   aBuilder.add(aRes, myThreading)  
-  aRes.toSTEP("bottle.stp")
+  aRes.toStep("bottle.stp")
 
 main()
 

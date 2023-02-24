@@ -25,11 +25,6 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
-proc newGeom2dTrimmedCurve2*[T:Geom2dCurve | Geom2dEllipse](c: Handle[T]; u1: cfloat; u2: cfloat;
-            sense: bool = true; theAdjustPeriodic: bool = true): Geom2dTrimmedCurve {.
-    cdecl, constructor, importcpp: "Geom2d_TrimmedCurve(@)", header: "Geom2d_TrimmedCurve.hxx".}
-
-
 proc newGeom2dTrimmedCurve*(c: Handle[Geom2dCurve]; u1: cfloat; u2: cfloat;
             sense: bool = true; theAdjustPeriodic: bool = true): Geom2dTrimmedCurve {.
     cdecl, constructor, importcpp: "Geom2d_TrimmedCurve(@)", header: "Geom2d_TrimmedCurve.hxx".}

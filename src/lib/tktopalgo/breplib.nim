@@ -11,7 +11,7 @@ type
                                                               ## ! Sets the default precision.  The current Precision
                                                               ## ! is returned.
 proc buildCurves3d*[T:BRepBuilderAPI_MakeWire](E: T): bool {.
-    importcpp: "BRepLib::BuildCurves3d(@)", header: "BRepLib.hxx".}
+    importcpp: "BRepLib::BuildCurves3d(@)", header: "BRepLib.hxx", discardable.}
 
 #[ proc BuildCurve3d*(E: TopoDS_Edge; Tolerance: float = 1.0e-5;
                   Continuity: GeomAbs_Shape = GeomAbs_C1;

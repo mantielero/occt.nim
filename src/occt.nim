@@ -25,6 +25,12 @@ export tkoffset
 import lib/tktopalgo/[breplib]
 export breplib
 
+
+import lib/explorer/explorer
+export explorer
+
+import lib/geom/geom
+export geom
 #proc `$`*(pnt:PntObj):string =
 #  &"Pnt(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 

@@ -28,6 +28,7 @@ import geom_types
 
 
 
+
 proc newGeomCylindricalSurface*(a3: Ax3Obj; radius: cfloat): GeomCylindricalSurface {.
     cdecl, constructor, importcpp: "Geom_CylindricalSurface(@)", header: "Geom_CylindricalSurface.hxx".}
 proc newGeomCylindricalSurface*(c: CylinderObj): GeomCylindricalSurface {.cdecl,

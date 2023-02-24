@@ -6,7 +6,7 @@ Further documentation in [occt.nim site](https://mantielero.github.io/occt-site/
 # Purpose
 Creating CAD models. The following has been done with **occt.nim**.
 
-![](https://i.imgur.com/B7S6PIo.png)
+![](./examples/bottle.png)
 
 
 # Status

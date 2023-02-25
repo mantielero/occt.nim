@@ -28,6 +28,7 @@ import ../../tkernel/standard/standard_types
 
 proc coord*(this: Geom2dPoint; x: var cfloat; y: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Coord", header: "Geom2d_Point.hxx".}
+    
 proc pnt2d*(this: Geom2dPoint): Pnt2dObj {.noSideEffect, cdecl, importcpp: "Pnt2d",
                                     header: "Geom2d_Point.hxx".}
 proc x*(this: Geom2dPoint): cfloat {.noSideEffect, cdecl, importcpp: "X", header: "Geom2d_Point.hxx".}

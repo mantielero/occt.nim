@@ -32,9 +32,20 @@ export explorer
 import lib/geom/geom
 export geom
 
+import lib/geom2d/[geom2d, gce2d]
+export geom2d, gce2d
+
 import lib/topology/edge
 export edge
 
+
+
+#========== NEW API ===============
+import lib/sketcher/sketcher2d
+export sketcher2d
+
+import lib/topo2d/topo2d
+export topo2d
 #proc `$`*(pnt:PntObj):string =
 #  &"Pnt(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 

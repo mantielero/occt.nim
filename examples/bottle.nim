@@ -128,7 +128,8 @@ proc main() =
   var anEllipsePnt1 = anEllipse1.getPnt(0f)
   var anEllipsePnt2 = anEllipse2.getPnt(PI)
 
-  var aSegment = segment(anEllipsePnt1, anEllipsePnt2).toHandleGeom2dTrimmedCurve 
+  var aSegment = segment(anEllipsePnt1, anEllipsePnt2)
+
 
   # Threading : Build Edges and Wires 
   var anEdge1OnSurf1 = edge(anArc1, aCyl1)
@@ -140,9 +141,9 @@ proc main() =
   var threadingWire2 = wire(anEdge1OnSurf2, anEdge2OnSurf2)
 
   # Threading : Build Edges and Wires
-  # FIXME
   buildCurves3d(threadingWire1)
   buildCurves3d(threadingWire2)
+
 
   # Create Threading
   var aTool = newBRepOffsetAPI_ThruSections(true)

@@ -106,6 +106,7 @@ proc edge*(L: HandleGeom2dCurve; s: Handle[GeomSurface];
                                 v1: TopoDS_Vertex; v2: TopoDS_Vertex; p1: cfloat;
                                 p2: cfloat): EdgeObj {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
+    
 proc init*(this: var EdgeObj; c: HandleGeomCurve) {.cdecl,
     importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc init*(this: var EdgeObj; c: HandleGeomCurve; p1: cfloat;

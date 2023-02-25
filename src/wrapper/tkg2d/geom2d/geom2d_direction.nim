@@ -30,6 +30,7 @@ proc newGeom2dDirection*(x: cfloat; y: cfloat): Geom2dDirection {.cdecl, constru
     importcpp: "Geom2d_Direction(@)", header: "Geom2d_Direction.hxx".}
 proc newGeom2dDirection*(v: Dir2dObj): Geom2dDirection {.cdecl, constructor,
     importcpp: "Geom2d_Direction(@)", header: "Geom2d_Direction.hxx".}
+    
 proc setCoord*(this: var Geom2dDirection; x: cfloat; y: cfloat) {.cdecl,
     importcpp: "SetCoord", header: "Geom2d_Direction.hxx".}
 proc setDir2d*(this: var Geom2dDirection; v: Dir2dObj) {.cdecl, importcpp: "SetDir2d",

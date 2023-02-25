@@ -1,5 +1,6 @@
 import ../../tkmath/gp/gp_types
 import ../../tkg2d/geom2d/geom2d_types
+import ../../tkernel/tkernel
 import gce2d_types
 
 
@@ -24,8 +25,9 @@ import gce2d_types
 
 
 
-proc segment*(p1: Pnt2dObj; p2: Pnt2dObj): GCE2dMakeSegment {.cdecl, constructor,
+proc segment*(p1: Pnt2dObj; p2: Pnt2dObj): GCE2dMakeSegment {.cdecl,
     importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
+
 proc segment*(p1: Pnt2dObj; v: Dir2dObj; p2: Pnt2dObj): GCE2dMakeSegment {.cdecl,
     constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
 proc segment*(line: Lin2dObj; u1: cfloat; u2: cfloat): GCE2dMakeSegment {.
@@ -36,6 +38,7 @@ proc segment*(line: Lin2dObj; p1: Pnt2dObj; p2: Pnt2dObj): GCE2dMakeSegment {.cd
     constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
 proc value*(this: GCE2dMakeSegment): HandleGeom2dTrimmedCurve {.noSideEffect,
     cdecl, importcpp: "Value", header: "GCE2d_MakeSegment.hxx".}
+
 converter toHandleGeom2dTrimmedCurve*(this: GCE2dMakeSegment): HandleGeom2dTrimmedCurve {.
     noSideEffect, cdecl,
     importcpp: "(Handle_Geom2d_TrimmedCurve)(#)", header: "GCE2d_MakeSegment.hxx".}

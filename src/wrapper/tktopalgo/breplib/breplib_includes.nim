@@ -1,0 +1,50 @@
+{.passL:"-lTKTopAlgo".}
+{.passC:"-I/usr/include/opencascade/" .}
+
+
+import breplib_types
+
+import breplib_checkcurveonsurface
+import breplib_command
+import breplib_edgeerror
+import breplib_faceerror
+import breplib_findsurface
+import breplib_fuseedges
+import breplib_makeedge2d
+import breplib_makeedge
+import breplib_makeface
+import breplib_makepolygon
+import breplib_makeshape
+import breplib_makeshell
+import breplib_makesolid
+import breplib_makevertex
+import breplib_makewire
+import breplib
+import breplib_shapemodification
+import breplib_shellerror
+import breplib_validateedge
+import breplib_wireerror
+
+
+export breplib_types
+
+export breplib_checkcurveonsurface
+export breplib_command
+export breplib_edgeerror
+export breplib_faceerror
+export breplib_findsurface
+export breplib_fuseedges
+export breplib_makeedge2d
+export breplib_makeedge
+export breplib_makeface
+export breplib_makepolygon
+export breplib_makeshape
+export breplib_makeshell
+export breplib_makesolid
+export breplib_makevertex
+export breplib_makewire
+export breplib
+export breplib_shapemodification
+export breplib_shellerror
+export breplib_validateedge
+export breplib_wireerror

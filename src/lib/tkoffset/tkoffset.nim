@@ -1,10 +1,11 @@
-{.passL:"-lTKOffset".}
-{.passC:"-I/usr/include/opencascade/" .}
-import ../../wrapper/tkbrep/tkbrep
-import ../../wrapper/tkmath/tkmath
-import ../../wrapper/tkernel/tkernel
-import ../../wrapper/tktopalgo/tktopalgo
-import ../../wrapper/tkprim/tkprim
+# {.passL:"-lTKOffset".}
+# {.passC:"-I/usr/include/opencascade/" .}
+import ../../wrapper/tkoffset/brepoffset/brepoffset_types
+# import ../../wrapper/tkbrep/tkbrep
+# import ../../wrapper/tkmath/tkmath
+# import ../../wrapper/tkernel/tkernel
+# import ../../wrapper/tktopalgo/tktopalgo
+# import ../../wrapper/tkprim/tkprim
 # when defined(windows):
 #   const tkbrep* = "TKBRep.dll"
 # elif defined(macosx):
@@ -13,10 +14,14 @@ import ../../wrapper/tkprim/tkprim
 #   const tkbrep* = "libTKBRep.so"
 
 type
+  ThickSolid* = BRepOffsetAPI_MakeThickSolid
+
+
+#[ type
   ThickSolid*  {.importcpp: "BRepOffsetAPI_MakeThickSolid", 
                  header: "BRepOffsetAPI_MakeThickSolid.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape 
-
-  BRepOffset_Mode* = enum
+ ]#
+#[   BRepOffset_Mode* = enum
     BRepOffset_Skin
     BRepOffset_Pipe
     BRepOffset_RectoVerso
@@ -24,7 +29,7 @@ type
 type
   BRepOffsetAPI_ThruSections* {.importcpp: "BRepOffsetAPI_ThruSections",
                                header: "BRepOffsetAPI_ThruSections.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
-
+ ]#
 #[
 enum BRepOffset_Mode
 {
@@ -33,7 +38,7 @@ BRepOffset_Pipe,
 BRepOffset_RectoVerso
 };
 ]#
-proc makeThickSolidByJoin*(this: var ThickSolid; 
+#[ proc makeThickSolidByJoin*(this: var ThickSolid; 
                            S: TopoDS_Shape;
                            ClosingFaces: TopTools_ListOfShape;
                            Offset: float; Tol: float;
@@ -45,7 +50,7 @@ proc makeThickSolidByJoin*(this: var ThickSolid;
     theRange: Message_ProgressRange = Message_ProgressRange()) {.
      cdecl, 
      importcpp: "MakeThickSolidByJoin", 
-     header: "BRepOffsetAPI_MakeThickSolid.hxx".}
+     header: "BRepOffsetAPI_MakeThickSolid.hxx".} ]#
 
 #proc shape*(obj:ThickSolid): BRepPrimAPI_MakePrism {.importcpp:"#.Shape()".}
 # proc MakeThickSolidByJoin*(this: var BRepOffsetAPI_MakeThickSolid; S: TopoDS_Shape;
@@ -73,7 +78,7 @@ proc makeThickSolidByJoin*(this: var ThickSolid;
 
 ]#
 
-proc newBRepOffsetAPI_ThruSections*(
+#[ proc newBRepOffsetAPI_ThruSections*(
     isSolid: bool = false;
     ruled: bool = false; pres3d: float = 1.0e-06): BRepOffsetAPI_ThruSections {.
     constructor, importcpp: "BRepOffsetAPI_ThruSections(@)",
@@ -85,4 +90,4 @@ proc addWire*( this:BRepOffsetAPI_ThruSections; w: TopoDS_Wire ) {.
 
 proc checkCompatibility*(this:BRepOffsetAPI_ThruSections; v:bool)  {.
     constructor, importcpp: "#.CheckCompatibility(#)",
-    header: "BRepOffsetAPI_ThruSections.hxx".}
+    header: "BRepOffsetAPI_ThruSections.hxx".} ]#

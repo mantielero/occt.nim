@@ -20,6 +20,7 @@ import tkstep/tkstep
 import tkv3d/tkv3d
 import tkservice/tkservice
 import tkopengl/tkopengl
+import tkoffset/tkoffset
 
 export cnew
 export tkernel
@@ -39,3 +40,4 @@ export tkstep
 export tkv3d
 export tkservice
 export tkopengl
+export tkoffset

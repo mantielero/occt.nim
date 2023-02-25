@@ -43,9 +43,9 @@ proc main() =
   aTrsf.setMirror(xAxis)
 
   # apply the transformation 
-  var aBRepTrsf:BRepBuilderAPI_Transform = transform(aWire, aTrsf)
+  var aBRepTrsf = transform(aWire, aTrsf)
   
-  var aMirroredShape:TopoDS_Shape  = aBRepTrsf.shape
+  var aMirroredShape  = aBRepTrsf.shape
 
 
   # Get the wire from the shape
@@ -61,7 +61,6 @@ proc main() =
   let myFaceProfile:TopoDS_Face = face(myWireProfile)
   let aPrismVec = vec(0, 0, myHeight)
   var myBody:TopoDS_Shape = prism(myFaceProfile, aPrismVec)  # BRepPrimAPI_MakePrism
-
 
   # - Applying fillets
   var mkFillet = fillet(myBody)
@@ -81,7 +80,6 @@ proc main() =
 
   var mkCylinder = cylinder(neckAx2, myNeckRadius, myNeckHeight)
   var myNeck = mkCylinder.shape()
-   
 
   myBody = fuse(myBody, myNeck)
 
@@ -130,7 +128,6 @@ proc main() =
 
   var aSegment = segment(anEllipsePnt1, anEllipsePnt2)
 
-
   # Threading : Build Edges and Wires 
   var anEdge1OnSurf1 = edge(anArc1, aCyl1)
   var anEdge2OnSurf1 = edge(aSegment, aCyl1)
@@ -143,7 +140,6 @@ proc main() =
   # Threading : Build Edges and Wires
   buildCurves3d(threadingWire1)
   buildCurves3d(threadingWire2)
-
 
   # Create Threading
   var aTool = newBRepOffsetAPI_ThruSections(true)

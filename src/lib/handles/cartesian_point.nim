@@ -55,9 +55,6 @@ proc radius*(this: Handle[GeomCircle]): cfloat {.noSideEffect, cdecl, importcpp:
 
 #(aSurface->DynamicType() == STANDARD_TYPE(Geom_Plane))
 # FIXME: we need something much more generic
-proc isGeomPlane*[T](obj:Handle[T]): bool {.importcpp:"(#->DynamicType() == Geom_Plane::get_type_descriptor())",
-                                            header:"Geom_Plane.hxx".}
-
 
 #[
 proc downcast*[A; B](this: Handle[A] ): Handle[B] {.cdecl,

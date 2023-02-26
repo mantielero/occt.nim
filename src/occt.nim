@@ -35,8 +35,8 @@ export geom
 import lib/geom2d/[geom2d, gce2d]
 export geom2d, gce2d
 
-import lib/topology/edge
-export edge
+import lib/topology/[edge, wire, compound]
+export edge, wire, compound
 
 
 

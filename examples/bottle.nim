@@ -17,10 +17,8 @@ proc main() =
   # Profile : Define the Geometry
   let # immutable
     aArcOfCircle = arcCircle(aPnt2,aPnt3,aPnt4) # MakeArcOfCircle
-    aSegment1    = segment(aPnt1, aPnt2)  # MakeSegment --(converter)--> Handle[GeomTrimmedCurve] 
+    aSegment1    = segment(aPnt1, aPnt2)
     aSegment2    = segment(aPnt4, aPnt5)
-    # Note: HandleGeomCurve = Handle[GeomCurve] 
-    # Note: HandleGeomTrimmedCurve should inherit from HandleGeomCurve
 
   # Profile: Define the Topology
   # Converting suporting geometry
@@ -30,7 +28,6 @@ proc main() =
     aEdge3 = edge(aSegment2)   
 
     aWire = wire(aEdge1, aEdge2, aEdge3)
-
 
     # Profile: Completing the Profile
     aOrigin = pnt(0, 0, 0)
@@ -47,18 +44,14 @@ proc main() =
   
   var aMirroredShape  = aBRepTrsf.shape
 
-
   # Get the wire from the shape
-  let aMirroredWire:TopoDS_Wire = aMirroredShape.wire  # newTopoDS_WBRepAlgo_BooleanOperationire(aMirroredShape) #
+  let aMirroredWire = aMirroredShape.wire  # newTopoDS_WBRepAlgo_BooleanOperationire(aMirroredShape) #
 
   # Join the wires into a shape
-  var mkWire = wire() #:BRepBuilderAPI_MakeWire
-  mkWire.add(aWire)
-  mkWire.add(aMirroredWire)
-  let myWireProfile:TopoDS_Wire = mkWire.wire 
+  let myWireProfile = aWire & aMirroredWire 
 
   # Body : Prim the Profile
-  let myFaceProfile:TopoDS_Face = face(myWireProfile)
+  let myFaceProfile:TopoDS_Face = face(myWireProfile.toTopoDSWire)
   let aPrismVec = vec(0, 0, myHeight)
   var myBody:TopoDS_Shape = prism(myFaceProfile, aPrismVec)  # BRepPrimAPI_MakePrism
 
@@ -84,25 +77,9 @@ proc main() =
   myBody = fuse(myBody, myNeck)
 
   # Creating a Hollowed Solid
-  var faceToRemove:TopoDS_Face 
-  var zMax = -1f
+  var faceToRemove = mybody.getPlaneZmax # Get the plane with highest Z value in the body
 
-  for aFace in myBody.getFaces():
-    var aSurface = aface.surface 
-    if aSurface.isGeomPlane:  # Consider only plane surfaces
-      var aPlane = aSurface.toPlane
-      var aPnt = aPlane.location()      
-      var aZ = aPnt.z() 
-
-      if aZ > zMax: # We get the plane surface with the highest Z value
-        zMax = aZ
-        faceToRemove = aFace
-
-  var facesToRemove:TopTools_ListOfShape
-  facesToRemove.append(faceToRemove)
-  var aSolidMaker:ThickSolid
-  aSolidMaker.makeThickSolidByJoin(myBody, facesToRemove, -myThickness / 50.0, 1.0e-3)
-  myBody = aSolidMaker.shape()
+  myBody = mybody.makeThickSolidByJoin(@[faceToRemove], -myThickness / 50.0, 1.0e-3)
 
   # ======================== Threading
   # Threading : Create Surfaces
@@ -149,11 +126,7 @@ proc main() =
   var myThreading = aTool.shape()
 
   # Building the Resulting Compound 
-  var aRes:TopoDS_Compound
-  var aBuilder:BRepBuilder
-  aBuilder.makeCompound(aRes)
-  aBuilder.add(aRes, myBody)
-  aBuilder.add(aRes, myThreading)  
+  var aRes = newCompound(myBody, myThreading)
   aRes.toStep("bottle.stp")
 
 main()

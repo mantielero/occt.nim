@@ -20,3 +20,9 @@ converter toPlane*(aSurface:Handle[Geom_Surface]): Handle[GeomPlane] =
 
 proc location*(aPlane:Handle[GeomPlane]):PntObj =
   `*`(aPlane).location()
+
+
+
+proc isGeomPlane*[T](obj:Handle[T]): bool {.importcpp:"(#->DynamicType() == Geom_Plane::get_type_descriptor())",
+                                            header:"Geom_Plane.hxx".}
+

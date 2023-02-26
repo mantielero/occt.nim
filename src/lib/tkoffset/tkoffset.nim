@@ -1,20 +1,25 @@
-# {.passL:"-lTKOffset".}
-# {.passC:"-I/usr/include/opencascade/" .}
-import ../../wrapper/tkoffset/brepoffset/brepoffset_types
-# import ../../wrapper/tkbrep/tkbrep
-# import ../../wrapper/tkmath/tkmath
-# import ../../wrapper/tkernel/tkernel
-# import ../../wrapper/tktopalgo/tktopalgo
-# import ../../wrapper/tkprim/tkprim
-# when defined(windows):
-#   const tkbrep* = "TKBRep.dll"
-# elif defined(macosx):
-#   const tkbrep* = "libTKBRep.dylib"
-# else:
-#   const tkbrep* = "libTKBRep.so"
+import ../../wrapper/occt_wrapper
 
 type
   ThickSolid* = BRepOffsetAPI_MakeThickSolid
+
+
+proc makeThickSolidByJoin*(
+        S: TopoDS_Shape;
+        ClosingFaces: TopTools_ListOfShape;
+        Offset: float; Tol: float;
+        Mode: BRepOffset_Mode = BRepOffset_Skin;
+        Intersection: bool = false;
+        SelfInter: bool = false;
+        Join: GeomAbsJoinType = GeomAbs_Arc;
+        RemoveIntEdges: bool = false;
+        theRange: Message_ProgressRange = Message_ProgressRange()): TopoDS_Shape =
+  var aSolidMaker:ThickSolid
+  aSolidMaker.makeThickSolidByJoin(S, ClosingFaces, Offset, Tol, Mode, 
+      Intersection, SelfInter, Join, RemoveIntEdges, theRange)
+  return aSolidMaker.shape()
+
+
 
 
 #[ type
@@ -77,17 +82,3 @@ BRepOffset_RectoVerso
                                             const Message_ProgressRange& theRange = Message_ProgressRange());
 
 ]#
-
-#[ proc newBRepOffsetAPI_ThruSections*(
-    isSolid: bool = false;
-    ruled: bool = false; pres3d: float = 1.0e-06): BRepOffsetAPI_ThruSections {.
-    constructor, importcpp: "BRepOffsetAPI_ThruSections(@)",
-    header: "BRepOffsetAPI_ThruSections.hxx".}
-
-proc addWire*( this:BRepOffsetAPI_ThruSections; w: TopoDS_Wire ) {.
-    constructor, importcpp: "#.AddWire(#)",
-    header: "BRepOffsetAPI_ThruSections.hxx".}
-
-proc checkCompatibility*(this:BRepOffsetAPI_ThruSections; v:bool)  {.
-    constructor, importcpp: "#.CheckCompatibility(#)",
-    header: "BRepOffsetAPI_ThruSections.hxx".} ]#

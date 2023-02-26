@@ -77,6 +77,7 @@ proc face*(s: Handle[GeomSurface]; w: TopoDS_Wire;
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
 proc face*(f: TopoDS_Face; w: TopoDS_Wire): BRepBuilderAPI_MakeFace {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
+
 proc init*(this: var BRepBuilderAPI_MakeFace; f: TopoDS_Face) {.cdecl,
     importcpp: "Init", header: "BRepBuilderAPI_MakeFace.hxx".}
 proc init*(this: var BRepBuilderAPI_MakeFace; s: Handle[GeomSurface]; bound: bool;

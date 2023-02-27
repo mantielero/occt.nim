@@ -35,7 +35,8 @@ proc newGCE2dMakeMirror*(point: Pnt2dObj; direc: Dir2dObj): GCE2dMakeMirror {.cd
     constructor, importcpp: "GCE2d_MakeMirror(@)", header: "GCE2d_MakeMirror.hxx".}
 proc value*(this: GCE2dMakeMirror): Handle[Geom2dTransformation] {.noSideEffect,
     cdecl, importcpp: "Value", header: "GCE2d_MakeMirror.hxx".}
-converter `constopencascade`*(this: GCE2dMakeMirror): Handle[Geom2dTransformation] {.
+
+converter toHandleGeom2dTransformation*(this: GCE2dMakeMirror): Handle[Geom2dTransformation] {.
     noSideEffect, cdecl, importcpp: "GCE2d_MakeMirror::operator constopencascade",
     header: "GCE2d_MakeMirror.hxx".}
 

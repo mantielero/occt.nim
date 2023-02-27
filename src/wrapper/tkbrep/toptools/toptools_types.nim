@@ -5,6 +5,9 @@ import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/message/message_types
 
 type
+  TopTools_FormatVersion* = object # FIXME
+
+type
   TopToolsDataMapIteratorOfDataMapOfIntegerListOfShape* {.importcpp:"NCollection_DataMap<Standard_Integer,TopTools_ListOfShape,TColStd_MapIntegerHasher>::Iterator", header:"TopTools_DataMapOfIntegerListOfShape.hxx",bycopy.} = object
 
   TopToolsDataMapIteratorOfDataMapOfIntegerShape* {.importcpp:"NCollection_DataMap<Standard_Integer,TopoDS_Shape,TColStd_MapIntegerHasher>::Iterator", header:"TopTools_DataMapOfIntegerShape.hxx",bycopy.} = object
@@ -50,7 +53,7 @@ type
                                   bycopy.} = object 
 
   TopToolsShapeSet* {.importcpp: "TopTools_ShapeSet",
-                     header: "TopTools_ShapeSet.hxx", bycopy.} = object 
+                     header: "TopTools_ShapeSet.hxx", bycopy, pure,inheritable.} = object 
 
   TopToolsOrientedShapeMapHasher* {.importcpp: "TopTools_OrientedShapeMapHasher", header: "TopTools_OrientedShapeMapHasher.hxx",
                                    bycopy.} = object 

@@ -1,3 +1,6 @@
+
+type
+  TopAbs_Shape* = object # FIXME
 type
   TopAbsOrientation* {.size: sizeof(cint), importcpp: "TopAbs_Orientation",
                       header: "TopAbs_Orientation.hxx".} = enum

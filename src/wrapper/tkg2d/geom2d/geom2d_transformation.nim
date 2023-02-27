@@ -28,12 +28,16 @@ import ../../tkernel/standard/standard_types
 
 proc newGeom2dTransformation*(): Geom2dTransformation {.cdecl, constructor,
     importcpp: "Geom2d_Transformation(@)", header: "Geom2d_Transformation.hxx".}
+
 proc newGeom2dTransformation*(t: Trsf2dObj): Geom2dTransformation {.cdecl, constructor,
     importcpp: "Geom2d_Transformation(@)", header: "Geom2d_Transformation.hxx".}
+    
 proc setMirror*(this: var Geom2dTransformation; p: Pnt2dObj) {.cdecl,
     importcpp: "SetMirror", header: "Geom2d_Transformation.hxx".}
+
 proc setMirror*(this: var Geom2dTransformation; a: Ax2dObj) {.cdecl,
     importcpp: "SetMirror", header: "Geom2d_Transformation.hxx".}
+
 proc setRotation*(this: var Geom2dTransformation; p: Pnt2dObj; ang: cfloat) {.cdecl,
     importcpp: "SetRotation", header: "Geom2d_Transformation.hxx".}
 proc setScale*(this: var Geom2dTransformation; p: Pnt2dObj; s: cfloat) {.cdecl,
@@ -55,23 +59,32 @@ proc form*(this: Geom2dTransformation): TrsfFormObj {.noSideEffect, cdecl,
     importcpp: "Form", header: "Geom2d_Transformation.hxx".}
 proc scaleFactor*(this: Geom2dTransformation): cfloat {.noSideEffect, cdecl,
     importcpp: "ScaleFactor", header: "Geom2d_Transformation.hxx".}
+
 proc trsf2d*(this: Geom2dTransformation): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "Trsf2d", header: "Geom2d_Transformation.hxx".}
+
 proc value*(this: Geom2dTransformation; row: cint; col: cint): cfloat {.noSideEffect,
     cdecl, importcpp: "Value", header: "Geom2d_Transformation.hxx".}
+
 proc invert*(this: var Geom2dTransformation) {.cdecl, importcpp: "Invert",
     header: "Geom2d_Transformation.hxx".}
+
 proc inverted*(this: Geom2dTransformation): Handle[Geom2dTransformation] {.
     noSideEffect, cdecl, importcpp: "Inverted", header: "Geom2d_Transformation.hxx".}
+
 proc multiplied*(this: Geom2dTransformation; other: Handle[Geom2dTransformation]): Handle[
     Geom2dTransformation] {.noSideEffect, cdecl, importcpp: "Multiplied",
                            header: "Geom2d_Transformation.hxx".}
+
 proc `*`*(this: Geom2dTransformation; other: Handle[Geom2dTransformation]): Handle[
     Geom2dTransformation] {.noSideEffect, cdecl, importcpp: "(# * #)", header: "Geom2d_Transformation.hxx".}
+
 proc multiply*(this: var Geom2dTransformation; other: Handle[Geom2dTransformation]) {.
     cdecl, importcpp: "Multiply", header: "Geom2d_Transformation.hxx".}
+
 proc `*=`*(this: var Geom2dTransformation; other: Handle[Geom2dTransformation]) {.
     cdecl, importcpp: "(# *= #)", header: "Geom2d_Transformation.hxx".}
+
 proc power*(this: var Geom2dTransformation; n: cint) {.cdecl, importcpp: "Power",
     header: "Geom2d_Transformation.hxx".}
 proc powered*(this: Geom2dTransformation; n: cint): Handle[Geom2dTransformation] {.

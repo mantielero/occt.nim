@@ -66,8 +66,10 @@ proc d3*(this: Geom2dTrimmedCurve; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj;
         v3: var Vec2dObj) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_TrimmedCurve.hxx".}
 proc dn*(this: Geom2dTrimmedCurve; u: cfloat; n: cint): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom2d_TrimmedCurve.hxx".}
+
 proc transform*(this: var Geom2dTrimmedCurve; t: Trsf2dObj) {.cdecl,
     importcpp: "Transform", header: "Geom2d_TrimmedCurve.hxx".}
+
 proc transformedParameter*(this: Geom2dTrimmedCurve; u: cfloat; t: Trsf2dObj): cfloat {.
     noSideEffect, cdecl, importcpp: "TransformedParameter", header: "Geom2d_TrimmedCurve.hxx".}
 proc parametricTransformation*(this: Geom2dTrimmedCurve; t: Trsf2dObj): cfloat {.

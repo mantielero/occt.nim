@@ -22,6 +22,13 @@ import tkservice/tkservice
 import tkopengl/tkopengl
 import tkoffset/tkoffset
 
+# TKBrep
+import breptools/breptools_includes
+
+
+# TKBrep
+export breptools_includes
+
 export cnew
 export tkernel
 export tkmath

@@ -33,8 +33,10 @@ proc arcCircle*(p1: PntObj; p2: PntObj; p3: PntObj): MakeArcOfCircle {.cdecl,
     constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
 proc arcCircle*(p1: PntObj; v: VecObj; p2: PntObj): MakeArcOfCircle {.cdecl, constructor,
     importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
+
 proc value*(this: MakeArcOfCircle): HandleGeomTrimmedCurve {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeArcOfCircle.hxx".}
+
 converter toHandleGeomTrimmedCurve*(this: MakeArcOfCircle): HandleGeomTrimmedCurve {.
     noSideEffect, cdecl,
     importcpp: "(Handle_Geom_TrimmedCurve)(#)", header: "GC_MakeArcOfCircle.hxx".}

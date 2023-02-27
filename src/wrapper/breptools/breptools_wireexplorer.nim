@@ -21,28 +21,39 @@ discard "forward decl of TopoDS_Wire"
 
 proc newBRepTools_WireExplorer*(): BRepTools_WireExplorer {.cdecl, constructor,
     importcpp: "BRepTools_WireExplorer(@)", header: "BRepTools_WireExplorer.hxx".}
+
 proc newBRepTools_WireExplorer*(W: TopoDS_Wire): BRepTools_WireExplorer {.cdecl,
     constructor, importcpp: "BRepTools_WireExplorer(@)",
     header: "BRepTools_WireExplorer.hxx".}
+
 proc newBRepTools_WireExplorer*(W: TopoDS_Wire; F: TopoDS_Face): BRepTools_WireExplorer {.
     cdecl, constructor, importcpp: "BRepTools_WireExplorer(@)",
     header: "BRepTools_WireExplorer.hxx".}
+
 proc Init*(this: var BRepTools_WireExplorer; W: TopoDS_Wire) {.cdecl,
     importcpp: "Init", header: "BRepTools_WireExplorer.hxx".}
+
 proc Init*(this: var BRepTools_WireExplorer; W: TopoDS_Wire; F: TopoDS_Face) {.cdecl,
     importcpp: "Init", header: "BRepTools_WireExplorer.hxx".}
+
 proc Init*(this: var BRepTools_WireExplorer; W: TopoDS_Wire; F: TopoDS_Face;
           UMin: cfloat; UMax: cfloat; VMin: cfloat; VMax: cfloat) {.cdecl,
     importcpp: "Init", header: "BRepTools_WireExplorer.hxx".}
-proc More*(this: BRepTools_WireExplorer): bool {.noSideEffect, cdecl,
+
+proc more*(this: BRepTools_WireExplorer): bool {.noSideEffect, cdecl,
     importcpp: "More", header: "BRepTools_WireExplorer.hxx".}
-proc Next*(this: var BRepTools_WireExplorer) {.cdecl, importcpp: "Next",
+
+proc next*(this: var BRepTools_WireExplorer) {.cdecl, importcpp: "Next",
     header: "BRepTools_WireExplorer.hxx".}
-proc Current*(this: BRepTools_WireExplorer): TopoDS_Edge {.noSideEffect, cdecl,
+
+proc current*(this: BRepTools_WireExplorer): TopoDS_Edge {.noSideEffect, cdecl,
     importcpp: "Current", header: "BRepTools_WireExplorer.hxx".}
-proc Orientation*(this: BRepTools_WireExplorer): TopAbs_Orientation {.noSideEffect,
+
+proc orientation*(this: BRepTools_WireExplorer): TopAbs_Orientation {.noSideEffect,
     cdecl, importcpp: "Orientation", header: "BRepTools_WireExplorer.hxx".}
-proc CurrentVertex*(this: BRepTools_WireExplorer): TopoDS_Vertex {.noSideEffect,
+
+proc currentVertex*(this: BRepTools_WireExplorer): TopoDS_Vertex {.noSideEffect,
     cdecl, importcpp: "CurrentVertex", header: "BRepTools_WireExplorer.hxx".}
-proc Clear*(this: var BRepTools_WireExplorer) {.cdecl, importcpp: "Clear",
+
+proc clear*(this: var BRepTools_WireExplorer) {.cdecl, importcpp: "Clear",
     header: "BRepTools_WireExplorer.hxx".}

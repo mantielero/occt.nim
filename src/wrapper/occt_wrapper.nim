@@ -26,8 +26,10 @@ import tkoffset/tkoffset
 import breptools/breptools_includes
 
 
-# TKBrep
-export breptools_includes
+# TKTopAlgo
+import brepcheck/brepcheck_includes
+
+
 
 export cnew
 export tkernel
@@ -48,3 +50,9 @@ export tkv3d
 export tkservice
 export tkopengl
 export tkoffset
+
+# TKBrep
+export breptools_includes
+
+# TKTopAlgo
+export brepcheck_includes

@@ -6,6 +6,7 @@ OpenCascade provides:
 ]#
 import ../../wrapper/occt_wrapper
 import ../topology/wire
+import ../explorer/explorer
 #import ../exporter/toStep
 
 type
@@ -115,8 +116,34 @@ proc closeWithMirror*(skt: Sketch2dRef): Sketch2dRef {.discardable.} =
   aWire &= w
   aWire &= w2
 
+  #var f = face(aWire.wire, true)  # Error: unhandled unknown cpp exception
+
+  echo aWire.wire.isClosed
+  echo "isDone: ", aWire.isDone
+  echo w.wire.isClosed
+  echo skt.points
+  for s in skt.segments:
+    var p1 = s.firstVertex.pnt 
+    echo p1.x, " ", p1.y, " ", p1.z
+
+  echo "---"
+  for v in w.wire.getVertex(): 
+    var p1 = v.pnt 
+    echo p1.x, " ", p1.y, " ", p1.z
+
+  echo "---"
+  for e in w.wire.getEdges(): 
+    echo e.isGeometric, " ", e.isClosed
+    echo "."
+    var first, last: float    
+    var aCurve = curve(e, first, last)
+    echo `*`(aCurve).firstParameter
+    #echo first, " ", last
+    #`*`(aCurve).reverse
+    
+
   # Reverse can be done over Geom2d_Curve
-  var v3 = w2.HandleGeom2dCurve
+  #var v3 = w2.HandleGeom2dCurve
   #echo aWire.isDone
   #var tmp = face()
   #tmp.add(aWire.wire)
@@ -218,6 +245,23 @@ export const make2dThreePointArc = (
 ]#
 
 
+#[
+// perform validity checks on wire
+    BRepCheck_Analyzer analyzer(wire);
+    if (!analyzer.IsValid()) {
+        std::cout << "Wire is not valid." << std::endl;
+    }
+    if (!wire.Closed()) {
+        std::cout << "Wire is not closed." << std::endl;
+    }
+    if (!analyzer.IsPlanar()) {
+        std::cout << "Wire is not planar." << std::endl;
+    }
+    if (analyzer.SelfIntersect()) {
+        std::cout << "Wire self-intersects." << std::endl;
+    }
+
+]#
 
 
 

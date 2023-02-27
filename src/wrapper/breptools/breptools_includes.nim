@@ -1,4 +1,4 @@
-{.passL:"-lTKBrep".}
+{.passL:"-lTKBRep".}
 {.passC:"-I/usr/include/opencascade/".}
 
 import breptools_gtrsfmodification

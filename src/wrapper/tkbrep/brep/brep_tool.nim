@@ -49,10 +49,14 @@ proc isGeometric*(f: TopoDS_Face): bool {.cdecl,
 proc isGeometric*(e: TopoDS_Edge): bool {.cdecl,
                                       importcpp: "BRep_Tool::IsGeometric(@)",
                                       header: "BRep_Tool.hxx".}
-proc curve*(e: TopoDS_Edge; L: var TopLocLocation; first: var cfloat; last: var cfloat): Handle[
+
+proc curve*(e: TopoDS_Edge; L: var 
+; first: var float; last: var float): Handle[
     GeomCurve] {.cdecl, importcpp: "BRep_Tool::Curve(@)", header: "BRep_Tool.hxx".}
-proc curve*(e: TopoDS_Edge; first: var cfloat; last: var cfloat): Handle[GeomCurve] {.
+
+proc curve*(e: TopoDS_Edge; first: var float; last: var float): Handle[GeomCurve] {.
     cdecl, importcpp: "BRep_Tool::Curve(@)", header: "BRep_Tool.hxx".}
+
 proc polygon3D*(e: TopoDS_Edge; L: var TopLocLocation): Handle[PolyPolygon3D] {.cdecl,
     importcpp: "BRep_Tool::Polygon3D(@)", header: "BRep_Tool.hxx".}
 proc curveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; first: var cfloat;

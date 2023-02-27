@@ -47,6 +47,7 @@ proc is3DCurve*(this: BRepAdaptorCurve): bool {.noSideEffect, cdecl,
     importcpp: "Is3DCurve", header: "BRepAdaptor_Curve.hxx".}
 proc isCurveOnSurface*(this: BRepAdaptorCurve): bool {.noSideEffect, cdecl,
     importcpp: "IsCurveOnSurface", header: "BRepAdaptor_Curve.hxx".}
+    
 proc curve*(this: BRepAdaptorCurve): GeomAdaptorCurve {.noSideEffect, cdecl,
     importcpp: "Curve", header: "BRepAdaptor_Curve.hxx".}
 proc curveOnSurface*(this: BRepAdaptorCurve): Adaptor3dCurveOnSurface {.

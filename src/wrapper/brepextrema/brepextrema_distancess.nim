@@ -24,14 +24,14 @@ discard "forward decl of TopoDS_Face"
 
 proc newBRepExtrema_DistanceSS*(S1: TopoDS_Shape; S2: TopoDS_Shape; B1: Bnd_Box;
                                B2: Bnd_Box; DstRef: cfloat;
-                               F: Extrema_ExtFlag = Extrema_ExtFlag_MINMAX;
-                               A: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad): BRepExtrema_DistanceSS {.
+                               F: Extrema_ExtFlag = extremaExtFlagMINMAX;
+                               A: Extrema_ExtAlgo = extremaExtAlgoGrad): BRepExtrema_DistanceSS {.
     cdecl, constructor, importcpp: "BRepExtrema_DistanceSS(@)",
     header: "BRepExtrema_DistanceSS.hxx".}
 proc newBRepExtrema_DistanceSS*(S1: TopoDS_Shape; S2: TopoDS_Shape; B1: Bnd_Box;
                                B2: Bnd_Box; DstRef: cfloat; aDeflection: cfloat;
-                               F: Extrema_ExtFlag = Extrema_ExtFlag_MINMAX;
-                               A: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad): BRepExtrema_DistanceSS {.
+                               F: Extrema_ExtFlag = extremaExtFlagMINMAX;
+                               A: Extrema_ExtAlgo = extremaExtAlgoGrad): BRepExtrema_DistanceSS {.
     cdecl, constructor, importcpp: "BRepExtrema_DistanceSS(@)",
     header: "BRepExtrema_DistanceSS.hxx".}
 proc IsDone*(this: BRepExtrema_DistanceSS): bool {.noSideEffect, cdecl,

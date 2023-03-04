@@ -22,14 +22,18 @@ Preliminar status. Some of the examples currently compiles and run. But the cove
     The idea is to remove the nesting of the packages within the toolkits. It 
     is difficult to find the packages as it is.
 
-    Some examples are: `breptools` and `brepcheck`.    
+    Some examples are: `breptools` and `brepcheck`. 
+```
+find ./ -name "*.nim" -exec sed -i 's/\.\.\/tkgeombase\/extrema\/extrema_genlocateextps/\.\.\/extrema\/extrema_genlocateextps/g' {} \;
+```
+
 
   - [ ] To revert the original names of some classes. 
     
     In particular, within the package `gp`. For example, to go back from `PntObj`
     into `gp_Pnt`.
 
-```nim
+```sh
 sed -i 's/Pnt2dObj/gp_Pnt2d/g' *.nim
 sed -i 's/Vec2dObj/gp_Vec2d/g' *.nim
 sed -i 's/Lin2dObj/gp_Lin2d/g' *.nim

@@ -188,6 +188,7 @@ proc select*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
 proc newBVH_PairTraverse*[NumType; Dimension: static[cint]; BVHSetType; MetricType](): BVH_PairTraverse[
     NumType, Dimension, BVHSetType, MetricType] {.cdecl, constructor,
     importcpp: "BVH_PairTraverse<\'*0,\'*1,\'*2,\'*3>(@)", header: "BVH_Traverse.hxx".}
+    
 proc setBVHSets*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
     this: var BVH_PairTraverse[NumType, Dimension, BVHSetType, MetricType];
     theBVHSet1: ptr BVHSetType; theBVHSet2: ptr BVHSetType) {.cdecl,

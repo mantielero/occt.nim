@@ -21,13 +21,13 @@ discard "forward decl of TopoDS_Face"
 proc newBRepExtrema_ExtPF*(): BRepExtrema_ExtPF {.cdecl, constructor,
     importcpp: "BRepExtrema_ExtPF(@)", header: "BRepExtrema_ExtPF.hxx".}
 proc newBRepExtrema_ExtPF*(TheVertex: TopoDS_Vertex; TheFace: TopoDS_Face;
-                          TheFlag: Extrema_ExtFlag = Extrema_ExtFlag_MINMAX;
-                          TheAlgo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad): BRepExtrema_ExtPF {.
+                          TheFlag: Extrema_ExtFlag = extremaExtFlagMINMAX;
+                          TheAlgo: Extrema_ExtAlgo = extremaExtAlgoGrad): BRepExtrema_ExtPF {.
     cdecl, constructor, importcpp: "BRepExtrema_ExtPF(@)",
     header: "BRepExtrema_ExtPF.hxx".}
 proc Initialize*(this: var BRepExtrema_ExtPF; TheFace: TopoDS_Face;
-                TheFlag: Extrema_ExtFlag = Extrema_ExtFlag_MINMAX;
-                TheAlgo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad) {.cdecl,
+                TheFlag: Extrema_ExtFlag = extremaExtFlagMINMAX;
+                TheAlgo: Extrema_ExtAlgo = extremaExtAlgoGrad) {.cdecl,
     importcpp: "Initialize", header: "BRepExtrema_ExtPF.hxx".}
 proc Perform*(this: var BRepExtrema_ExtPF; TheVertex: TopoDS_Vertex;
              TheFace: TopoDS_Face) {.cdecl, importcpp: "Perform",

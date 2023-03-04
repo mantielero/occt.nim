@@ -5,45 +5,35 @@ import ../tkernel/message/message_types
 import ../tkmath/gp/gp_types
 import ../tkernel/standard/standard_types
 
-##  Copyright (c) 1999-2014 OPEN CASCADE SAS
-##
-##  This file is part of Open CASCADE Technology software library.
-##
-##  This library is free software; you can redistribute it and/or modify it under
-##  the terms of the GNU Lesser General Public License version 2.1 as published
-##  by the Free Software Foundation, with special exception defined in the file
-##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
-##  distribution for complete text of the license and disclaimer of any warranty.
-##
-##  Alternatively, this file may be used under the terms of Open CASCADE
-##  commercial license or contractual agreement.
-
-## ! This class  provides tools to compute minimum distance
-## ! between two Shapes (Compound,CompSolid, Solid, Shell, Face, Wire, Edge, Vertex).
-
+## This class provides tools to compute minimum distance between two Shapes (Compound,CompSolid, Solid, Shell, Face, Wire, Edge, Vertex).
 
 proc newBRepExtrema_DistShapeShape*(): BRepExtrema_DistShapeShape {.cdecl,
-    constructor, importcpp: "BRepExtrema_DistShapeShape(@)",
+    importcpp: "new BRepExtrema_DistShapeShape(@)",
     header: "BRepExtrema_DistShapeShape.hxx".}
+
 proc newBRepExtrema_DistShapeShape*(Shape1: TopoDS_Shape; Shape2: TopoDS_Shape;
-                                   F: Extrema_ExtFlag = Extrema_ExtFlag_MINMAX;
-                                   A: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad;
+                                   F: Extrema_ExtFlag = extremaExtFlagMINMAX;
+                                   A: Extrema_ExtAlgo = extremaExtAlgoGrad;
     theRange: Message_ProgressRange = Message_ProgressRange()): BRepExtrema_DistShapeShape {.
     cdecl, constructor, importcpp: "BRepExtrema_DistShapeShape(@)",
     header: "BRepExtrema_DistShapeShape.hxx".}
 proc newBRepExtrema_DistShapeShape*(Shape1: TopoDS_Shape; Shape2: TopoDS_Shape;
                                    theDeflection: cfloat;
-                                   F: Extrema_ExtFlag = Extrema_ExtFlag_MINMAX;
-                                   A: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad;
+                                   F: Extrema_ExtFlag = extremaExtFlagMINMAX;
+                                   A: Extrema_ExtAlgo = extremaExtAlgoGrad;
     theRange: Message_ProgressRange = Message_ProgressRange()): BRepExtrema_DistShapeShape {.
     cdecl, constructor, importcpp: "BRepExtrema_DistShapeShape(@)",
     header: "BRepExtrema_DistShapeShape.hxx".}
 proc SetDeflection*(this: var BRepExtrema_DistShapeShape; theDeflection: cfloat) {.
     cdecl, importcpp: "SetDeflection", header: "BRepExtrema_DistShapeShape.hxx".}
-proc LoadS1*(this: var BRepExtrema_DistShapeShape; Shape1: TopoDS_Shape) {.cdecl,
+
+proc loadS1*(this: var BRepExtrema_DistShapeShape; Shape1: TopoDS_Shape) {.cdecl,
     importcpp: "LoadS1", header: "BRepExtrema_DistShapeShape.hxx".}
+  ## load first shape into extrema
+
 proc LoadS2*(this: var BRepExtrema_DistShapeShape; Shape1: TopoDS_Shape) {.cdecl,
     importcpp: "LoadS2", header: "BRepExtrema_DistShapeShape.hxx".}
+
 proc Perform*(this: var BRepExtrema_DistShapeShape;
              theRange: Message_ProgressRange = Message_ProgressRange()): bool {.
     cdecl, importcpp: "Perform", header: "BRepExtrema_DistShapeShape.hxx".}

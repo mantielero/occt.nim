@@ -17,6 +17,7 @@ import ../../wrapper/tkg3d/topabs/topabs_types
     topAbsSHAPE
 ]#
 
+
 # Compound
 iterator getCompounds*(body:TopoDS_Shape):TopoDS_Face =
   var aFaceExplorer = newExplorer(body, topAbsCOMPOUND) # myBodyFused?
@@ -125,7 +126,16 @@ iterator getVertex*(body:TopoDS_Shape):TopoDS_Vertex =
   }
 ]#
 
+proc atDistance*[D,PX,PY,PZ: SomeNumber](distance:D;
+        px: PX; py: PY; pz:PZ) =
+  let p = pnt(px,py,pz)
+  #let v = vertex(p)
 
+  # Calculates minimum distances between shapes
+  var distanceBuilder = newBRepExtrema_DistShapeShape()
+
+  # - loads the first shape: the vertex
+  distanceBuilder.loadS1(p.vertex)
 #[
   /**
    * Filter to find elements that are at a specified distance from a point.
@@ -212,6 +222,34 @@ for (int i = 1; i <= distCalculator.NbSolution(); i++) {
 }
 ]#
 
+# iterator getFaces*(body:TopoDS_Shape; p: PntObj): TopoDS_Face =
+#   ## get the faces of a shape containing a point
+#   for aFace in body.getFaces():
+#     if isPointOnFace(p, aFace):
+
+
+
+
+
+#[
+// iterate over the faces in the shape
+TopExp_Explorer faceExplorer(shapeToSearch, TopAbs_FACE);
+while (faceExplorer.More()) {
+    TopoDS_Face face = TopoDS::Face(faceExplorer.Current());
+
+    // check if the face contains the point
+    if (BRep_Tool::IsPointOnFace(vertex, face)) {
+        elementsContainingPoint[face] = true;
+    }
+
+    faceExplorer.Next();
+}
+]#
+
+
+
+
+
 #[ChatGPT
 In this example, we create a point in 3D space and a shape for the 
 point using the BRepBuilderAPI_MakeVertex class. We then create a 
@@ -234,31 +272,8 @@ the point, we add it to the map.
 Finally, we iterate over the elements containing the point using 
 a for-each loop and do something with each element, like add it to a list.
 
-// create a point in 3D space
-gp_Pnt point(0, 0, 0);
 
-// create a shape for the point
-BRepBuilderAPI_MakeVertex vertexMaker(point);
-TopoDS_Vertex vertex = vertexMaker.Vertex();
 
-// create a shape for the edges and faces you want to search
-TopoDS_Shape shapeToSearch = /* insert your shape here */;
-
-// create a map to store the edges and faces that contain the point
-std::map<TopoDS_Shape, bool> elementsContainingPoint;
-
-// iterate over the faces in the shape
-TopExp_Explorer faceExplorer(shapeToSearch, TopAbs_FACE);
-while (faceExplorer.More()) {
-    TopoDS_Face face = TopoDS::Face(faceExplorer.Current());
-
-    // check if the face contains the point
-    if (BRep_Tool::IsPointOnFace(vertex, face)) {
-        elementsContainingPoint[face] = true;
-    }
-
-    faceExplorer.Next();
-}
 
 // iterate over the edges in the shape
 TopExp_Explorer edgeExplorer(shapeToSearch, TopAbs_EDGE);

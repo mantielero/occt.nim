@@ -7,19 +7,19 @@ import ../tkernel/standard/standard_types
 type
   Extrema_ElementType* {.size: sizeof(cint), importcpp: "Extrema_ElementType",
                         header: "Extrema_ElementType.hxx".} = enum
-    Extrema_Node, Extrema_UIsoEdge, Extrema_VIsoEdge, Extrema_Face
+    extremaNode, extrema_UIsoEdge, extrema_VIsoEdge, extremaFace
 
 type
   Extrema_ExtAlgo* {.size: sizeof(cint), importcpp: "Extrema_ExtAlgo",
                     header: "Extrema_ExtAlgo.hxx".} = enum
-    Extrema_ExtAlgo_Grad, Extrema_ExtAlgo_Tree
+    extremaExtAlgoGrad, extremaExtAlgoTree
 
 type
   Extrema_ExtFlag* {.size: sizeof(cint), importcpp: "Extrema_ExtFlag",
                     header: "Extrema_ExtFlag.hxx".} = enum
-    Extrema_ExtFlag_MIN, 
-    Extrema_ExtFlag_MAX, 
-    Extrema_ExtFlag_MINMAX
+    extremaExtFlagMIN, 
+    extremaExtFlagMAX, 
+    extremaExtFlagMINMAX
 
 
 

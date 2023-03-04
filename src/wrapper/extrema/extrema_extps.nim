@@ -26,13 +26,13 @@ proc newExtrema_ExtPS*(): Extrema_ExtPS {.cdecl, constructor,
                                        importcpp: "Extrema_ExtPS(@)",
                                        header: "Extrema_ExtPS.hxx".}
 proc newExtrema_ExtPS*(P: PntObj; S: Adaptor3d_Surface; TolU: cfloat; TolV: cfloat;
-                      F: Extrema_ExtFlag = Extrema_ExtFlag_MINMAX;
-                      A: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad): Extrema_ExtPS {.
+                      F: Extrema_ExtFlag = extremaExtFlagMINMAX;
+                      A: Extrema_ExtAlgo = extremaExtAlgoGrad): Extrema_ExtPS {.
     cdecl, constructor, importcpp: "Extrema_ExtPS(@)", header: "Extrema_ExtPS.hxx".}
 proc newExtrema_ExtPS*(P: PntObj; S: Adaptor3d_Surface; Uinf: cfloat; Usup: cfloat;
                       Vinf: cfloat; Vsup: cfloat; TolU: cfloat; TolV: cfloat;
-                      F: Extrema_ExtFlag = Extrema_ExtFlag_MINMAX;
-                      A: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad): Extrema_ExtPS {.
+                      F: Extrema_ExtFlag = extremaExtFlagMINMAX;
+                      A: Extrema_ExtAlgo = extremaExtAlgoGrad): Extrema_ExtPS {.
     cdecl, constructor, importcpp: "Extrema_ExtPS(@)", header: "Extrema_ExtPS.hxx".}
 proc Initialize*(this: var Extrema_ExtPS; S: Adaptor3d_Surface; Uinf: cfloat;
                 Usup: cfloat; Vinf: cfloat; Vsup: cfloat; TolU: cfloat; TolV: cfloat) {.

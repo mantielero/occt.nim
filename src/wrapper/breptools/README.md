@@ -9,14 +9,14 @@ Copy an example `.c2nim` file from other folder:
 cp ../tkoffset/brepoffset/brepoffset.c2nim breptools.c2nim
 ```
 
-If everything went fine, remove the headers:
-```
-rm *.hxx
-```
-
 Create the headers:
 ```
 find ./ -name "*.hxx" -exec c2nim --cpp --header breptools.c2nim {} \;
+```
+
+If everything went fine, remove the headers:
+```
+rm *.hxx
 ```
 
 Convert the filenames to lowercase:

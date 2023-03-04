@@ -18,6 +18,8 @@ import gce/gce_includes
 import approx/approx_includes
 import appcont/appcont_includes
 import appparcurves/appparcurves_includes
-import extrema/extrema_includes
+#import extrema/extrema_includes
 import gce2d/gce2d_includes
-export gc_includes, gce_includes, approx_includes, appcont_includes, appparcurves_includes, extrema_includes, gce2d_includes
+export gc_includes, gce_includes, approx_includes, appcont_includes, appparcurves_includes
+#export extrema_includes
+export gce2d_includes

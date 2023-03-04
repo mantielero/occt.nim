@@ -49,7 +49,7 @@ import extrema_harray1ofponsurf
 import extrema_harray2ofponcurv2d
 import extrema_harray2ofponcurv
 import extrema_harray2ofponsurf
-import extrema_hubtreeofsphere
+import extrema_harray2ofponsurfparams
 import extrema_locateextcc2d
 import extrema_locateextcc
 import extrema_locateextpc2d
@@ -118,7 +118,7 @@ export extrema_harray1ofponsurf
 export extrema_harray2ofponcurv2d
 export extrema_harray2ofponcurv
 export extrema_harray2ofponsurf
-export extrema_hubtreeofsphere
+export extrema_harray2ofponsurfparams
 export extrema_locateextcc2d
 export extrema_locateextcc
 export extrema_locateextpc2d

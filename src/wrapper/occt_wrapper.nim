@@ -25,10 +25,12 @@ import tkoffset/tkoffset
 # TKBrep
 import breptools/breptools_includes
 
+# TKGeombase
+import extrema/extrema_includes
 
 # TKTopAlgo
 import brepcheck/brepcheck_includes
-
+import brepextrema/brepextrema_includes
 
 
 export cnew
@@ -54,5 +56,9 @@ export tkoffset
 # TKBrep
 export breptools_includes
 
+# TKGeomBase
+export extrema_includes
+
 # TKTopAlgo
 export brepcheck_includes
+export brepextrema_includes

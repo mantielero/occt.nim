@@ -1,11 +1,5 @@
+import brepextrema_types
 
-
-
-
-
-##  Created on: 1991-02-26
-##  Created by: Isabelle GRIGNON
-##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -19,6 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+discard "forward decl of TopoDS_Shape"
+discard "forward decl of gp_Pnt"
 
 
-
+proc Distance*(S1: TopoDS_Shape; S2: TopoDS_Shape; P1: var gp_Pnt; P2: var gp_Pnt;
+              dist: var cfloat): bool {.cdecl,
+                                    importcpp: "BRepExtrema_Poly::Distance(@)",
+                                    header: "BRepExtrema_Poly.hxx".}

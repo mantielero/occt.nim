@@ -42,7 +42,22 @@ Create an include file:
 ls *.nim > breptools_includes.nim
 ```
 
-We edit `bretools_includes.nim` so that it imports and exports all the files in the folder (except itself). We also append the required pragmas for its proper compilation. In this case, [we can see](https://dev.opencascade.org/doc/refman/html/class_b_rep_tools.html) that it depends on the toolkit `TKBrep`. So:
+We can add the `import ` at the beginning of each line:
+```
+sed -i 's/^/import /' breptools_includes.nim
+```
+
+We can remove the extension in all lines:
+```
+sed -i 's/\.nim$//' breptools_includes.nim 
+```
+
+We can add the `export` lines by doing:
+```
+sed 's/^import /export /' breptools_includes.nim >> breptools_includes.nim
+```
+
+We also append the required pragmas for its proper compilation. In this case, [we can see](https://dev.opencascade.org/doc/refman/html/class_b_rep_tools.html) that it depends on the toolkit `TKBrep`. So:
 ```nim
 {.passL:"-lTKBRep".}
 {.passC:"-I/usr/include/opencascade/".}

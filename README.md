@@ -14,3 +14,17 @@ Creating CAD models. The following has been done with **occt.nim**.
 # Status
 Preliminar status. Some of the examples currently compiles and run. But the coverage of the library still is pretty low.
 
+# TODO
+- [ ] To fix some decissions taken early in the project
+
+  - [ ] Make the wrapper folder "flatter" 
+   
+    The idea is to remove the nesting of the packages within the toolkits. It 
+    is difficult to find the packages as it is.
+
+    Some examples are: `breptools` and `brepcheck`.    
+
+  - [ ] To revert the original names of some classes. 
+    
+    In particular, within the package `gp`. For example, to go back from `PntObj`
+    into `gp_Pnt`.

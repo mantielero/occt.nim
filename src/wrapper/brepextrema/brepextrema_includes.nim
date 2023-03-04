@@ -1,0 +1,34 @@
+{.passL:"-lTKTopAlgo".}
+{.passC:"-I/usr/include/opencascade/".}
+
+import brepextrema_types
+import brepextrema_distancess
+import brepextrema_distshapeshape
+import brepextrema_elementfilter
+import brepextrema_extcc
+import brepextrema_extcf
+import brepextrema_extff
+import brepextrema_extpc
+import brepextrema_extpf
+import brepextrema_overlaptool
+import brepextrema_poly
+import brepextrema_selfintersection
+import brepextrema_shapeproximity
+import brepextrema_solutionelem
+import brepextrema_triangleset
+
+export brepextrema_types
+export brepextrema_distancess
+export brepextrema_distshapeshape
+export brepextrema_elementfilter
+export brepextrema_extcc
+export brepextrema_extcf
+export brepextrema_extff
+export brepextrema_extpc
+export brepextrema_extpf
+export brepextrema_overlaptool
+export brepextrema_poly
+export brepextrema_selfintersection
+export brepextrema_shapeproximity
+export brepextrema_solutionelem
+export brepextrema_triangleset

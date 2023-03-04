@@ -160,11 +160,22 @@ iterator getVertex*(body:TopoDS_Shape):TopoDS_Vertex =
 ]#
 
 #[ChatGPT
-In this example, we create a point in 3D space and a shape for the point using the BRepBuilderAPI_MakeVertex class. We then create a bounding box around the point using the BRepBndLib::Add function and a shape for the bounding box using the BRepPrimAPI_MakeBox class.
+In this example, we create a point in 3D space and a shape 
+for the point using the BRepBuilderAPI_MakeVertex class. 
+We then create a bounding box around the point using 
+the BRepBndLib::Add function and a shape for the bounding box 
+using the BRepPrimAPI_MakeBox class.
 
-Next, we create a shape for the edges we want to search (you would replace this with the shape you want to search). We create an instance of the BRepExtrema_DistShapeShape class with the shape to search and the bounding box shape. We set the maximum distance we want to search using the SetMaxDistance function.
+Next, we create a shape for the edges we want to search 
+(you would replace this with the shape you want to search). 
+We create an instance of the BRepExtrema_DistShapeShape class 
+with the shape to search and the bounding box shape. We 
+set the maximum distance we want to search using 
+the SetMaxDistance function.
 
-Finally, we perform the distance calculation using the Perform function and iterate over the edges that are within the maximum distance using the NbSolution function.
+Finally, we perform the distance calculation using 
+the Perform function and iterate over the edges that 
+are within the maximum distance using the NbSolution function.
 
 
 // create a point in 3D space

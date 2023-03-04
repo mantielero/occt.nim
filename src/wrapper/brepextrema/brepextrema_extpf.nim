@@ -1,5 +1,7 @@
 import brepextrema_types
-
+import ../tkbrep/topods/topods_types
+import ../extrema/extrema_types
+import ../tkmath/gp/gp_types
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -38,7 +40,7 @@ proc SquareDistance*(this: BRepExtrema_ExtPF; N: cint): cfloat {.noSideEffect, c
     importcpp: "SquareDistance", header: "BRepExtrema_ExtPF.hxx".}
 proc Parameter*(this: BRepExtrema_ExtPF; N: cint; U: var cfloat; V: var cfloat) {.
     noSideEffect, cdecl, importcpp: "Parameter", header: "BRepExtrema_ExtPF.hxx".}
-proc Point*(this: BRepExtrema_ExtPF; N: cint): gp_Pnt {.noSideEffect, cdecl,
+proc Point*(this: BRepExtrema_ExtPF; N: cint): PntObj {.noSideEffect, cdecl,
     importcpp: "Point", header: "BRepExtrema_ExtPF.hxx".}
 proc SetFlag*(this: var BRepExtrema_ExtPF; F: Extrema_ExtFlag) {.cdecl,
     importcpp: "SetFlag", header: "BRepExtrema_ExtPF.hxx".}

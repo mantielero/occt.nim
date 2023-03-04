@@ -1,5 +1,6 @@
 import brepextrema_types
-
+import ../tkbrep/topods/topods_types
+import ../tkmath/gp/gp_types
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -14,10 +15,10 @@ import brepextrema_types
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Shape"
-discard "forward decl of gp_Pnt"
+discard "forward decl of PntObj"
 
 
-proc Distance*(S1: TopoDS_Shape; S2: TopoDS_Shape; P1: var gp_Pnt; P2: var gp_Pnt;
+proc Distance*(S1: TopoDS_Shape; S2: TopoDS_Shape; P1: var PntObj; P2: var PntObj;
               dist: var cfloat): bool {.cdecl,
                                     importcpp: "BRepExtrema_Poly::Distance(@)",
                                     header: "BRepExtrema_Poly.hxx".}

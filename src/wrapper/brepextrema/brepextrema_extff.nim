@@ -1,5 +1,6 @@
 import brepextrema_types
-
+import ../tkbrep/topods/topods_types
+import ../tkmath/gp/gp_types
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -38,7 +39,7 @@ proc ParameterOnFace1*(this: BRepExtrema_ExtFF; N: cint; U: var cfloat; V: var c
 proc ParameterOnFace2*(this: BRepExtrema_ExtFF; N: cint; U: var cfloat; V: var cfloat) {.
     noSideEffect, cdecl, importcpp: "ParameterOnFace2",
     header: "BRepExtrema_ExtFF.hxx".}
-proc PointOnFace1*(this: BRepExtrema_ExtFF; N: cint): gp_Pnt {.noSideEffect, cdecl,
+proc PointOnFace1*(this: BRepExtrema_ExtFF; N: cint): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnFace1", header: "BRepExtrema_ExtFF.hxx".}
-proc PointOnFace2*(this: BRepExtrema_ExtFF; N: cint): gp_Pnt {.noSideEffect, cdecl,
+proc PointOnFace2*(this: BRepExtrema_ExtFF; N: cint): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnFace2", header: "BRepExtrema_ExtFF.hxx".}

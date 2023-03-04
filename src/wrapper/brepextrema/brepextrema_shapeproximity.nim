@@ -1,4 +1,6 @@
 import brepextrema_types
+import ../tkbrep/topods/topods_types
+import ../tkernel/standard/standard_types
 
 ##  Created on: 2014-10-20
 ##  Created by: Denis BOGOLEPOV
@@ -60,9 +62,9 @@ proc GetSubShape1*(this: BRepExtrema_ShapeProximity; theID: cint): TopoDS_Face {
 proc GetSubShape2*(this: BRepExtrema_ShapeProximity; theID: cint): TopoDS_Face {.
     noSideEffect, cdecl, importcpp: "GetSubShape2",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc ElementSet1*(this: BRepExtrema_ShapeProximity): handle[BRepExtrema_TriangleSet] {.
+proc ElementSet1*(this: BRepExtrema_ShapeProximity): Handle[BRepExtrema_TriangleSet] {.
     noSideEffect, cdecl, importcpp: "ElementSet1",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc ElementSet2*(this: BRepExtrema_ShapeProximity): handle[BRepExtrema_TriangleSet] {.
+proc ElementSet2*(this: BRepExtrema_ShapeProximity): Handle[BRepExtrema_TriangleSet] {.
     noSideEffect, cdecl, importcpp: "ElementSet2",
     header: "BRepExtrema_ShapeProximity.hxx".}

@@ -4,6 +4,9 @@
 
 import ../../tkernel/standard/standard_types
 
+type
+    MetricType* = object # FIXME
+
 const                         ## ! The optimal tree depth.
      ## ! Should be in sync with maximum stack size while traversing the tree - don't pass the trees of greater depth to OCCT algorithms!
   BVH_ConstantsMaxTreeDepth* = 32 ## ! Leaf node size optimal for complex nodes,
@@ -104,7 +107,7 @@ type
 
   BVH_ToolsBVH_VecNt*[T; N] = object
 
-  BVH_BaseTraverse*[MetricType] {.importcpp: "BVH_BaseTraverse<\'0>",
+  BVH_BaseTraverse*[M:MetricType] {.importcpp: "BVH_BaseTraverse<\'0>",
                                  header: "BVH_Traverse.hxx", bycopy.} = object of RootObj  
 
   BVH_QuadTree* {.importcpp: "BVH_QuadTree", header: "BVH_Tree.hxx", bycopy.} = object
@@ -199,6 +202,7 @@ type
   BVH_PairTraverse*[NumType; Dimension: static[cint]; BVHSetType; MetricType] {.
       importcpp: "BVH_PairTraverse<\'0,\'1,\'2,\'3>", header: "BVH_Traverse.hxx",
       bycopy.} = object of BVH_BaseTraverse[MetricType] 
+
 
   BVH_Distance*[NumType; Dimension: static[cint]; ObjectType; BVHSetType] {.
       importcpp: "BVH_Distance<\'0,\'1,\'2,\'3>", header: "BVH_Distance.hxx", bycopy.} = object of BVH_Traverse[

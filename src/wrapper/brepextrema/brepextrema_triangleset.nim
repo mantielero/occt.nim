@@ -1,5 +1,6 @@
 import brepextrema_types
-
+import ../tkmath/bvh/bvh_types
+import ../tkernel/standard/standard_types
 ##  Created on: 2014-10-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -48,4 +49,4 @@ proc GetVertices*(this: BRepExtrema_TriangleSet; theIndex: cint;
 proc GetFaceID*(this: BRepExtrema_TriangleSet; theIndex: cint): cint {.noSideEffect,
     cdecl, importcpp: "GetFaceID", header: "BRepExtrema_TriangleSet.hxx".}
 type
-  Handle_BRepExtrema_TriangleSet* = handle[BRepExtrema_TriangleSet]
+  Handle_BRepExtrema_TriangleSet* = Handle[BRepExtrema_TriangleSet]

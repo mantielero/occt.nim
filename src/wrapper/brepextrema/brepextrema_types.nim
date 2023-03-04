@@ -6,9 +6,18 @@ import ../tkbrep/topods/topods_types
 
 type
   BRepExtrema_UnCompatibleShape* = object  # FIXME
-  Extrema_ExtFlag* = object # FIXME
-  Extrema_ExtFlag_MINMAX* = object # FIXME
+  FilterResult* = object # FIXME
 
+type
+  BVH_PairTraverse2*[NumType; Dimension: static[cint]] {.
+      importcpp: "BVH_PairTraverse<\'0,\'1>", header: "BVH_Traverse.hxx",
+      bycopy.} = object of BVH_BaseTraverse[MetricType] 
+
+  NCollectionDataMap*[TheKeyType; TheItemType] {.
+      importcpp: "NCollection_DataMap<\'0,\'1>",
+      header: "NCollection_DataMap.hxx", bycopy.} = object of NCollectionBaseMap 
+
+#---------      
 type
   BRepExtrema_DistanceSS* {.importcpp: "BRepExtrema_DistanceSS",
                            header: "BRepExtrema_DistanceSS.hxx", bycopy.} = object ## !
@@ -94,21 +103,21 @@ type
   BRepExtrema_ExtPF* {.importcpp: "BRepExtrema_ExtPF",
                       header: "BRepExtrema_ExtPF.hxx", bycopy.} = object
 
-# type
-#   BRepExtrema_MapOfIntegerPackedMapOfInteger* = NCollection_DataMap[cint,
-#       TColStd_PackedMapOfInteger]
+type
+  BRepExtrema_MapOfIntegerPackedMapOfInteger* = NCollection_DataMap[cint,
+      TColStd_PackedMapOfInteger]
 
-# type
-#   BRepExtrema_OverlapTool* {.importcpp: "BRepExtrema_OverlapTool",
-#                             header: "BRepExtrema_OverlapTool.hxx", bycopy.} = object of BVH_PairTraverse[
-#       cfloat, 3] ## ! Creates new uninitialized overlap tool.
-#                ## ! Loads the given element sets into the overlap tool.
-#                ## ! Performs narrow-phase of overlap test (exact intersection).
-#                ## ! Set of all mesh elements (triangles) of the 1st shape.
-#     ## ! Set of all mesh elements (triangles) of the 2nd shape.
-#     ## ! Filter for preliminary checking pairs of mesh elements.
-#     ## ! Resulted set of overlapped sub-shapes of 1st shape (only faces).
-#     ## ! Resulted set of overlapped sub-shapes of 2nd shape (only faces).
+type
+  BRepExtrema_OverlapTool* {.importcpp: "BRepExtrema_OverlapTool",
+      header: "BRepExtrema_OverlapTool.hxx", 
+      bycopy.} = object of BVH_PairTraverse2[cfloat, 3] ## ! Creates new uninitialized overlap tool.
+               ## ! Loads the given element sets into the overlap tool.
+               ## ! Performs narrow-phase of overlap test (exact intersection).
+               ## ! Set of all mesh elements (triangles) of the 1st shape.
+    ## ! Set of all mesh elements (triangles) of the 2nd shape.
+    ## ! Filter for preliminary checking pairs of mesh elements.
+    ## ! Resulted set of overlapped sub-shapes of 1st shape (only faces).
+    ## ! Resulted set of overlapped sub-shapes of 2nd shape (only faces).
 
 type
   BRepExtrema_Poly* {.importcpp: "BRepExtrema_Poly",

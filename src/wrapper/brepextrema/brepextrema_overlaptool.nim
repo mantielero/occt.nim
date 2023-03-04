@@ -1,5 +1,5 @@
 import brepextrema_types
-
+import ../tkernel/standard/standard_types
 ##  Created on: 2015-04-26
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -32,13 +32,13 @@ import brepextrema_types
 
 proc newBRepExtrema_OverlapTool*(): BRepExtrema_OverlapTool {.cdecl, constructor,
     importcpp: "BRepExtrema_OverlapTool(@)", header: "BRepExtrema_OverlapTool.hxx".}
-proc newBRepExtrema_OverlapTool*(theSet1: handle[BRepExtrema_TriangleSet];
-                                theSet2: handle[BRepExtrema_TriangleSet]): BRepExtrema_OverlapTool {.
+proc newBRepExtrema_OverlapTool*(theSet1: Handle[BRepExtrema_TriangleSet];
+                                theSet2: Handle[BRepExtrema_TriangleSet]): BRepExtrema_OverlapTool {.
     cdecl, constructor, importcpp: "BRepExtrema_OverlapTool(@)",
     header: "BRepExtrema_OverlapTool.hxx".}
 proc LoadTriangleSets*(this: var BRepExtrema_OverlapTool;
-                      theSet1: handle[BRepExtrema_TriangleSet];
-                      theSet2: handle[BRepExtrema_TriangleSet]) {.cdecl,
+                      theSet1: Handle[BRepExtrema_TriangleSet];
+                      theSet2: Handle[BRepExtrema_TriangleSet]) {.cdecl,
     importcpp: "LoadTriangleSets", header: "BRepExtrema_OverlapTool.hxx".}
 proc Perform*(this: var BRepExtrema_OverlapTool; theTolerance: cfloat = 0.0) {.cdecl,
     importcpp: "Perform", header: "BRepExtrema_OverlapTool.hxx".}

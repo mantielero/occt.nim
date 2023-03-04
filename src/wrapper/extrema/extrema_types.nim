@@ -17,7 +17,9 @@ type
 type
   Extrema_ExtFlag* {.size: sizeof(cint), importcpp: "Extrema_ExtFlag",
                     header: "Extrema_ExtFlag.hxx".} = enum
-    Extrema_ExtFlag_MIN, Extrema_ExtFlag_MAX, Extrema_ExtFlag_MINMAX
+    Extrema_ExtFlag_MIN, 
+    Extrema_ExtFlag_MAX, 
+    Extrema_ExtFlag_MINMAX
 
 
 

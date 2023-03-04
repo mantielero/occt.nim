@@ -1,7 +1,7 @@
 import brepextrema_types
 import ../tkbrep/topods/topods_types
 import ../tkmath/bnd/bnd_types
-
+import ../extrema/extrema_types
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.

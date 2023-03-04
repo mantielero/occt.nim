@@ -1,4 +1,9 @@
 import brepextrema_types
+import ../tkbrep/topods/topods_types
+import ../extrema/extrema_types
+import ../tkernel/message/message_types
+import ../tkmath/gp/gp_types
+import ../tkernel/standard/standard_types
 
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -50,9 +55,9 @@ proc Value*(this: BRepExtrema_DistShapeShape): cfloat {.noSideEffect, cdecl,
     importcpp: "Value", header: "BRepExtrema_DistShapeShape.hxx".}
 proc InnerSolution*(this: BRepExtrema_DistShapeShape): bool {.noSideEffect, cdecl,
     importcpp: "InnerSolution", header: "BRepExtrema_DistShapeShape.hxx".}
-proc PointOnShape1*(this: BRepExtrema_DistShapeShape; N: cint): gp_Pnt {.noSideEffect,
+proc PointOnShape1*(this: BRepExtrema_DistShapeShape; N: cint): PntObj {.noSideEffect,
     cdecl, importcpp: "PointOnShape1", header: "BRepExtrema_DistShapeShape.hxx".}
-proc PointOnShape2*(this: BRepExtrema_DistShapeShape; N: cint): gp_Pnt {.noSideEffect,
+proc PointOnShape2*(this: BRepExtrema_DistShapeShape; N: cint): PntObj {.noSideEffect,
     cdecl, importcpp: "PointOnShape2", header: "BRepExtrema_DistShapeShape.hxx".}
 proc SupportTypeShape1*(this: BRepExtrema_DistShapeShape; N: cint): BRepExtrema_SupportType {.
     noSideEffect, cdecl, importcpp: "SupportTypeShape1",

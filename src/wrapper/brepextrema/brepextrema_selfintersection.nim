@@ -1,5 +1,7 @@
 import brepextrema_types
-
+import ../tkbrep/topods/topods_types
+import ../tkernel/standard/standard_types
+import ../tkmath/bvh/bvh_types
 ##  Created on: 2015-04-26
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -51,7 +53,7 @@ proc OverlapElements*(this: BRepExtrema_SelfIntersection): BRepExtrema_MapOfInte
 proc GetSubShape*(this: BRepExtrema_SelfIntersection; theID: cint): TopoDS_Face {.
     noSideEffect, cdecl, importcpp: "GetSubShape",
     header: "BRepExtrema_SelfIntersection.hxx".}
-proc ElementSet*(this: BRepExtrema_SelfIntersection): handle[
+proc ElementSet*(this: BRepExtrema_SelfIntersection): Handle[
     BRepExtrema_TriangleSet] {.noSideEffect, cdecl, importcpp: "ElementSet",
                               header: "BRepExtrema_SelfIntersection.hxx".}
 ## !!!Ignored construct:  # OVERLAP_TOOL_OUTPUT_TRIANGLES [NewLine] ! Returns set of overlapped mesh elements (only triangles). const TColStd_PackedMapOfInteger & OverlapTriangles ( ) const { return myOverlapTool . OverlapTriangles1 ( ) ; } # [NewLine] protected : ! Filter out correct adjacent mesh elements. virtual BRepExtrema_ElementFilter :: FilterResult PreCheckElements ( const int theIndex1 , const int theIndex2 ) ;

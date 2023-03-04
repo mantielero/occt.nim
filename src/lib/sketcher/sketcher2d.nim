@@ -4,10 +4,12 @@ OpenCascade provides:
 - tkg2d/geom2d/geom2d_cartesianpoint: Describes a point in 2D space 
 
 ]#
+import std/sequtils
 import ../../wrapper/occt_wrapper
 import ../topology/wire
 import ../explorer/explorer
-#import ../exporter/toStep
+import ../exporter/toStep
+import ../tkoffset/tkoffset
 
 type
   Point2dObj*   = array[2, float] # Point/Coord/Vector 2D
@@ -21,6 +23,9 @@ type
     wires*:seq[TopoDS_Wire]
     shapes*:seq[TopoDS_Shape]
   Sketch2dRef* = ref Sketch2dObj
+
+  #Wire3dObj = TopoDS_Wire
+
 
 proc x*(obj:Point2dObj):float =
   obj[0]
@@ -63,11 +68,21 @@ proc vLine*(skt: Sketch2dRef; distance: SomeNumber): Sketch2dRef {.discardable.}
   var aPnt2 = aPnt1
   aPnt2.y = aPnt2.y + distance
   skt.points &= aPnt2
-  echo typeof( edge2d(aPnt1.pnt2d, aPnt2.pnt2d))
+  #echo typeof( edge2d(aPnt1.pnt2d, aPnt2.pnt2d))
   var e:TopoDS_Edge = edge2d(aPnt1.pnt2d, aPnt2.pnt2d).toTopoDS_Edge
   skt.segments &= e
   return skt
 
+proc hLine*(skt: Sketch2dRef; distance: SomeNumber): Sketch2dRef {.discardable.} =
+  ## draw vertical line from last vertex
+  var aPnt1 = skt.points[skt.points.high]
+  var aPnt2 = aPnt1
+  aPnt2.x = aPnt2.x + distance
+  skt.points &= aPnt2
+  #echo typeof( edge2d(aPnt1.pnt2d, aPnt2.pnt2d))
+  var e:TopoDS_Edge = edge2d(aPnt1.pnt2d, aPnt2.pnt2d).toTopoDS_Edge
+  skt.segments &= e
+  return skt
 
 proc edge2d*(L: Handle[Geom2dTrimmedCurve]): Edge2dObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge2d(@)", header: "BRepBuilderAPI_MakeEdge2d.hxx".}
@@ -92,197 +107,123 @@ proc threePointsArc*[P1X:SomeNumber,P1Y:SomeNumber,P2X:SomeNumber,P2Y: SomeNumbe
 
   return skt
 
-proc closeWithMirror*(skt: Sketch2dRef): Sketch2dRef {.discardable.} = 
+
+proc closeWithMirror*(skt: Sketch2dRef): TopoDS_Wire {.discardable.} = 
+
+  # Create the wire (BRepBuilderAPI_MakeWire)
+  var w:BRepBuilderAPI_MakeWire = newWire()
+  for s in skt.segments:
+    w &= s.edge
+
   var v = newGeom2dVectorWithMagnitude( pnt2d(skt.points[0]), 
                                         pnt2d(skt.points[skt.points.high]) )
   v.normalize
 
-  #newGCE2dMakeMirror*(axis: Ax2dObj): GCE2dMakeMirror 
+  #newGCE2dMakeMirror*(axis: Ax2dObj): GCE2dMakeMirror
+
+
+
+  # transformation - not used 
   var aTrsf = newGeom2dTransformation()
-  #Ax2dObj
   var ax = ax2d( pnt2d(skt.points[0]), dir2d(v.x, v.y) )
+  #var ax = oX2d() # ox2ax2d( pnt2d(skt.points[0]), dir2d(v.x, v.y) )  
   aTrsf.setMirror(ax) 
   var trf = aTrsf.trsf2d.trsf
 
-  var w:BRepBuilderAPI_MakeWire
-  for s in skt.segments:
-    w &= s
-
   # Apply transformation
-  var aBRepTrsf = transform(w.shape, trf, true)
-  var w2 = w.shape.wire
+  var aBRepTrsf = transform(w.shape, trf)
+  #aWire &= aBRepTrsf.shape.wire
+  var aMirroredWire = aBRepTrsf.wire
+  #var newWireReversed = newWire.reversed.wire
 
-  var aWire:BRepBuilderAPI_MakeWire = newWire()
-  aWire &= w
-  aWire &= w2
+  #var xAxis = ox()
+  #var aTrsf:TrsfObj
+  #aTrsf.setMirror(xAxis)
+  #var aB = w.transform(aTrsf)
+  #var aMirroredShape = aB.shape
+  #var aMirroredWire = aMirroredShape.wire
 
-  #var f = face(aWire.wire, true)  # Error: unhandled unknown cpp exception
+  let myWireProfile = w & aMirroredWire 
 
-  echo aWire.wire.isClosed
-  echo "isDone: ", aWire.isDone
-  echo w.wire.isClosed
-  echo skt.points
-  for s in skt.segments:
-    var p1 = s.firstVertex.pnt 
-    echo p1.x, " ", p1.y, " ", p1.z
+  buildCurves3d(myWireProfile)  
 
-  echo "---"
-  for v in w.wire.getVertex(): 
-    var p1 = v.pnt 
-    echo p1.x, " ", p1.y, " ", p1.z
+  return myWireProfile
 
-  echo "---"
-  for e in w.wire.getEdges(): 
-    echo e.isGeometric, " ", e.isClosed
-    echo "."
-    var first, last: float    
-    var aCurve = curve(e, first, last)
-    echo `*`(aCurve).firstParameter
-    #echo first, " ", last
-    #`*`(aCurve).reverse
-    
 
-  # Reverse can be done over Geom2d_Curve
-  #var v3 = w2.HandleGeom2dCurve
-  #echo aWire.isDone
-  #var tmp = face()
-  #tmp.add(aWire.wire)
+proc extrude*( aWire: TopoDS_Wire; height: SomeNumber ): TopoDS_Shape {.discardable.} =
+  let aFace  = aWire.face.face
+  let aPrismVec = vec(0, 0, height)
+  return prism(aFace, aPrismVec)
 
-  return skt
 
-#[
-  protected _closeWithMirror() {
-    if (samePoint(this.pointer, this.firstPoint))
-      throw new Error(
-        "Cannot close with a mirror when the sketch is already closed"
-      );
-    const startToEndVector: Point2D = [
-      this.pointer[0] - this.firstPoint[0],
-      this.pointer[1] - this.firstPoint[1],
-    ];
+proc fillet*(aBody: TopoDS_Shape; radius: SomeNumber): TopoDS_Shape {.discardable.}=
+  var mkFillet = fillet(aBody)
 
-    const mirrorAxis = axis2d(
-      this._convertToUV(this.pointer),
-      this._convertToUV(startToEndVector)
-    );
+  for anEdge in aBody.getEdges():
+    mkFillet.add( radius.float, anEdge )  # myThickness / 12.0
 
-    const mirroredCurves = this.pendingCurves.map(
-      (c) =>
-        new Curve2D(c.innerCurve.Mirrored_2(mirrorAxis) as Handle_Geom2d_Curve)
-    );
-    mirroredCurves.reverse();
-    mirroredCurves.map((c) => c.reverse());
-    this.pendingCurves.push(...mirroredCurves);
-    this.pointer = this.firstPoint;
-  }
-}
-]#
+  return mkFillet.shape()
+
+
+proc cylinder*[R,H: SomeNumber]( radius: R; height: H;
+                                 position: PntObj;
+                                 axis: DirObj): TopoDS_Shape =
+  let cylAx2 = ax2(position, axis) 
+  return cylinder(cylAx2, radius.float, height.float).shape()
+
+# https://replicad.xyz/docs/api/classes/Shell#shell
+
+
+
+
+
+proc shell*(shp: TopoDS_Shape; offset: SomeNumber; 
+            removePlains: varargs[TopoDS_Face];
+            tolerance:float = 1.0e-3): TopoDS_Shape =
+  ## creates a shape from hollowed shape
+  let planes = removePlains.toSeq
+  result = shp.makeThickSolidByJoin( planes, offset.float, tolerance)
 
 #[
-  protected _mirrorWireOnStartEnd(wire: Wire): Wire {
-    const startToEndVector = this.pointer.sub(this.firstPoint).normalize();
-    const normal = startToEndVector.cross(this.plane.zDir);
-
-    const mirroredWire = wire.clone().mirror(normal, this.pointer);
-
-    const combinedWire = assembleWire([wire, mirroredWire]);
-
-    return combinedWire;
-  }
+  shape = shape.shell(myThickness / 50, (f) =>
+    f.inPlane("XY", [0, 0, myHeight + myNeckHeight])
+  );
 ]#
 
-# arc1 = BRepBuilderAPI_MakeEdge(geomapi_To3d(trimmed_outer, plane)).Edge()  
+#[ChatGPT
+To create a solid from a shell using Replicad, you 
+can follow these general steps:
 
-#[
-export const make2dSegmentCurve = (
-  startPoint: Point2D,
-  endPoint: Point2D
-): Curve2D => {
-  const oc = getOC();
-  const [r, gc] = localGC();
+Define the shell: Use Replicad to create the initial 
+shell, which is a thin-walled, hollow shape that 
+represents the outer boundary of the final solid.
 
-  const segment = r(
-    new oc.GCE2d_MakeSegment_1(r(pnt(startPoint)), r(pnt(endPoint)))
-  ).Value();
-  const curve = new Curve2D(segment);
+Define the thickness: Specify the thickness of the shell 
+wall. This can be done by setting a parameter for the 
+shell thickness, which can be adjusted later to modify 
+the final solid.
 
-  if (!samePoint(curve.firstPoint, startPoint)) {
-    curve.reverse();
-  }
+Add features: Add any additional features to the 
+shell, such as holes, bosses, or fillets. These features
+can be added parametrically, meaning that they can be 
+defined by parameters that can be modified later.
 
-  gc();
-  return curve;
-};
+Create the solid: Once you have defined the shell and 
+added any features, use Replicad to generate the solid 
+from the shell. This can be done by using the "Convert 
+to Solid" or similar function in the Replicad software.
 
-export const make2dThreePointArc = (
-  startPoint: Point2D,
-  midPoint: Point2D,
-  endPoint: Point2D
-): Curve2D => {
-  const oc = getOC();
-  const [r, gc] = localGC();
+Modify the solid: The final solid can be modified by 
+adjusting the parameters that were used to define the 
+shell and its features. This allows you to make 
+changes to the design of the solid without having 
+to recreate it from scratch.
 
-  const segment = r(
-    new oc.GCE2d_MakeArcOfCircle_4(
-      r(pnt(startPoint)),
-      r(pnt(midPoint)),
-      r(pnt(endPoint))
-    )
-  ).Value();
-  gc();
-
-  const curve = new Curve2D(segment);
-  if (!samePoint(curve.firstPoint, startPoint)) {
-    (curve.wrapped.get() as Geom2d_TrimmedCurve).SetTrim(
-      curve.lastParameter,
-      curve.firstParameter,
-      true,
-      true
-    );
-  }
-  return curve;
-};
+Overall, the "shell" functionality in Replicad allows 
+you to create complex shapes by starting with a 
+simpler shell and adding features to it. This can 
+make the design process more efficient and flexible, 
+since changes can be made easily by adjusting the 
+parameters that define the shell and its features.
 ]#
 
-
-#[
-// perform validity checks on wire
-    BRepCheck_Analyzer analyzer(wire);
-    if (!analyzer.IsValid()) {
-        std::cout << "Wire is not valid." << std::endl;
-    }
-    if (!wire.Closed()) {
-        std::cout << "Wire is not closed." << std::endl;
-    }
-    if (!analyzer.IsPlanar()) {
-        std::cout << "Wire is not planar." << std::endl;
-    }
-    if (analyzer.SelfIntersect()) {
-        std::cout << "Wire self-intersects." << std::endl;
-    }
-
-]#
-
-
-
-
-
-
-
-
-
-
-
-#[
-export const makeThreePointArc = (v1: Point, v2: Point, v3: Point): Edge => {
-  const oc = getOC();
-  const circleGeom = new oc.GC_MakeArcOfCircle_4(
-    asPnt(v1),
-    asPnt(v2),
-    asPnt(v3)
-  ).Value();
-
-  const curve = new oc.Handle_Geom_Curve_2(circleGeom.get());
-  return new Edge(new oc.BRepBuilderAPI_MakeEdge_24(curve).Edge());
-};
-]#

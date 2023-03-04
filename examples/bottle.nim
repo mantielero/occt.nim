@@ -83,14 +83,17 @@ proc main() =
 
   # ======================== Threading
   # Threading : Create Surfaces
-  var aCyl1 = cylindricalSurface(neckAx2.ax3, myNeckRadius * 0.99)
+  # the first cylinder is smaller than the neck to be sure of being in contact
+  var aCyl1 = cylindricalSurface(neckAx2.ax3, myNeckRadius * 0.99) 
   var aCyl2 = cylindricalSurface(neckAx2.ax3, myNeckRadius * 1.05)  
 
-  # Threading : Define 2D Curves
-  var aPnt   = pnt2d(2f * PI, myNeckHeight / 2f)
+  # Threading : Define 2D Curves (in the U,V parametric space)
+  # - Defines a reference in 2D (ax2d): "y" along the vertical axis; "x"
+  var aPnt   = pnt2d(2f * PI, myNeckHeight / 2f) # middle of the parametric space
   var aDir   = dir2d(2f * PI, myNeckHeight / 4f)
   var anAx2d = ax2d(aPnt, aDir)
 
+  # - Defines two ellipses in the U,V space
   var aMajor = 2f * PI
   var aMinor = myNeckHeight / 10f
 
@@ -100,14 +103,16 @@ proc main() =
   var anArc1 = trimmedCurve(anEllipse1, 0f, PI)
   var anArc2 = trimmedCurve(anEllipse2, 0f, PI)
 
-  var anEllipsePnt1 = anEllipse1.getPnt(0f)
+  var anEllipsePnt1 = anEllipse1.getPnt(0f) 
   var anEllipsePnt2 = anEllipse2.getPnt(PI)
 
   var aSegment = segment(anEllipsePnt1, anEllipsePnt2)
 
   # Threading : Build Edges and Wires 
+  # - inner cylinder curves
   var anEdge1OnSurf1 = edge(anArc1, aCyl1)
   var anEdge2OnSurf1 = edge(aSegment, aCyl1)
+  # - outer cylinder curves
   var anEdge1OnSurf2 = edge(anArc2, aCyl2)
   var anEdge2OnSurf2 = edge(aSegment, aCyl2)
 
@@ -130,63 +135,3 @@ proc main() =
   aRes.toStep("bottle.stp")
 
 main()
-
-#[ REPLICAD Example
-const defaultParams = {
-  width: 50,
-  height: 70,
-  thickness: 30,
-};
-
-const { draw, makeCylinder, makeOffset, FaceFinder } = replicad;
-
-const main = (
-  r,
-  { width: myWidth, height: myHeight, thickness: myThickness }
-) => {
-  let shape = draw([-myWidth / 2, 0])
-    .vLine(-myThickness / 4)
-    .threePointsArc(myWidth, 0, myWidth / 2, -myThickness / 4)
-    .vLine(myThickness / 4)
-    .closeWithMirror()
-    .sketchOnPlane()
-    .extrude(myHeight)
-    .fillet(myThickness / 12);
-
-  const myNeckRadius = myThickness / 4;
-  const myNeckHeight = myHeight / 10;
-  const neck = makeCylinder(
-    myNeckRadius,
-    myNeckHeight,
-    [0, 0, myHeight],
-    [0, 0, 1]
-  );
-
-  shape = shape.fuse(neck);
-
-  shape = shape.shell(myThickness / 50, (f) =>
-    f.inPlane("XY", [0, 0, myHeight + myNeckHeight])
-  );
-
-  const neckFace = new FaceFinder()
-    .containsPoint([0, myNeckRadius, myHeight])
-    .ofSurfaceType("CYLINDRE")
-    .find(shape.clone(), { unique: true });
-
-  const bottomThreadFace = makeOffset(neckFace, -0.01 * myNeckRadius).faces[0];
-  const baseThreadSketch = draw([0.75, 0.25])
-    .halfEllipse(2, 0.5, 0.1)
-    .close()
-    .sketchOnFace(bottomThreadFace, "bounds");
-
-  const topThreadFace = makeOffset(neckFace, 0.05 * myNeckRadius).faces[0];
-  const topThreadSketch = draw([0.75, 0.25])
-    .halfEllipse(2, 0.5, 0.05)
-    .close()
-    .sketchOnFace(topThreadFace, "bounds");
-
-  const thread = baseThreadSketch.loftWith(topThreadSketch);
-
-  return shape.fuse(thread);
-};
-]#

@@ -7,7 +7,8 @@ type
 proc makeThickSolidByJoin*(
         S: TopoDS_Shape;
         ClosingFaces: TopTools_ListOfShape;
-        Offset: float; Tol: float;
+        Offset: float; 
+        Tol: float;
         Mode: BRepOffset_Mode = BRepOffset_Skin;
         Intersection: bool = false;
         SelfInter: bool = false;
@@ -20,6 +21,16 @@ proc makeThickSolidByJoin*(
   return aSolidMaker.shape()
 
 
+# proc makeThickSolidByJoin*(this: var BRepOffsetAPI_MakeThickSolid; 
+#                           S: TopoDS_Shape;
+#                           ClosingFaces: TopTools_ListOfShape; 
+#                           Offset: cfloat;
+#                           Tol: cfloat; 
+#                           Mode: BRepOffset_Mode = BRepOffset_Skin;
+#                           Intersection: bool = false; SelfInter: bool = false;
+#                           Join: GeomAbs_JoinType = GeomAbs_Arc;
+#                           RemoveIntEdges: bool = false; 
+#                           theRange: Message_ProgressRange = Message_ProgressRange()) 
 
 
 #[ type

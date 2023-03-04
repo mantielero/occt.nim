@@ -25,6 +25,7 @@ discard "forward decl of TopoDS_Shape"
 
 proc newBRepOffsetAPI_MakeThickSolid*(): BRepOffsetAPI_MakeThickSolid {.cdecl,
     constructor, importcpp: "BRepOffsetAPI_MakeThickSolid(@)".}
+
 proc makeThickSolidBySimple*(this: var BRepOffsetAPI_MakeThickSolid;
                             theS: TopoDS_Shape; theOffsetValue: cfloat) {.cdecl,
     importcpp: "MakeThickSolidBySimple".}
@@ -36,8 +37,10 @@ proc makeThickSolidByJoin*(this: var BRepOffsetAPI_MakeThickSolid; S: TopoDS_Sha
                           Join: GeomAbs_JoinType = GeomAbs_Arc;
                           RemoveIntEdges: bool = false; theRange: Message_ProgressRange = Message_ProgressRange()) {.
     cdecl, importcpp: "MakeThickSolidByJoin".}
+
 proc Build*(this: var BRepOffsetAPI_MakeThickSolid;
            theRange: Message_ProgressRange = Message_ProgressRange()) {.cdecl,
     importcpp: "Build".}
+    
 proc Modified*(this: var BRepOffsetAPI_MakeThickSolid; S: TopoDS_Shape): TopTools_ListOfShape {.
     cdecl, importcpp: "Modified".}

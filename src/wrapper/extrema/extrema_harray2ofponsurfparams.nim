@@ -1,4 +1,4 @@
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tkernel/tcolstd/tcolstd_types
 import extrema_types
 
 

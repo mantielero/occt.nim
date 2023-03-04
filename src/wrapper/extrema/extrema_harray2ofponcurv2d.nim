@@ -1,5 +1,5 @@
 import extrema_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tkernel/tcolstd/tcolstd_types
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision

@@ -1,6 +1,6 @@
 import extrema_types
-import ../../tkmath/math/math_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../tkmath/math/math_types
+import ../tkg3d/adaptor3d/adaptor3d_types
 ##  Created on: 2014-06-23
 ##  Created by: Alexander Malyshev
 ##  Copyright (c) 2014-2014 OPEN CASCADE SAS

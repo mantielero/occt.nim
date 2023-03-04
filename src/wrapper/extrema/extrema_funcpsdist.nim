@@ -1,7 +1,7 @@
 import extrema_types
-import ../../tkmath/math/math_types
-import ../../tkmath/gp/gp_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../tkmath/math/math_types
+import ../tkmath/gp/gp_types
+import ../tkg3d/adaptor3d/adaptor3d_types
 ##  Created on: 2016-05-10
 ##  Created by: Alexander MALYSHEV
 ##  Copyright (c) 1991-1999 Matra Datavision

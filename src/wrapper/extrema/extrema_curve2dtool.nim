@@ -1,10 +1,10 @@
 import extrema_types
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
-import ../../tkg2d/adaptor2d/adaptor2d_types
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkmath/geomabs/geomabs_types
-import ../../tkg2d/geom2d/geom2d_types
+import ../tkmath/gp/gp_types
+import ../tkernel/standard/standard_types
+import ../tkg2d/adaptor2d/adaptor2d_types
+import ../tkernel/tcolstd/tcolstd_types
+import ../tkmath/geomabs/geomabs_types
+import ../tkg2d/geom2d/geom2d_types
 
 ##  Created on: 1995-07-18
 ##  Created by: Modelistation

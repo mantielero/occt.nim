@@ -1,6 +1,6 @@
 import extrema_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tkg3d/adaptor3d/adaptor3d_types
+import ../tkernel/tcolstd/tcolstd_types
 
 ##  Created on: 1996-01-23
 ##  Created by: Laurent PAINNOT

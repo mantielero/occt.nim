@@ -1,5 +1,5 @@
 import extrema_types
-import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../tkg2d/adaptor2d/adaptor2d_types
 
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON

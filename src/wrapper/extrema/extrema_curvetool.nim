@@ -41,7 +41,7 @@ proc NbIntervals*(C: var Adaptor3d_Curve; S: GeomAbs_Shape): cint {.cdecl,
 proc Intervals*(C: var Adaptor3d_Curve; T: var TColStd_Array1OfReal; S: GeomAbs_Shape) {.
     cdecl, importcpp: "Extrema_CurveTool::Intervals(@)",
     header: "Extrema_CurveTool.hxx".}
-proc DeflCurvIntervals*(C: Adaptor3d_Curve): handle[TColStd_HArray1OfReal] {.cdecl,
+proc DeflCurvIntervals*(C: Adaptor3d_Curve): Handle[TColStd_HArray1OfReal] {.cdecl,
     importcpp: "Extrema_CurveTool::DeflCurvIntervals(@)",
     header: "Extrema_CurveTool.hxx".}
 proc IsPeriodic*(C: Adaptor3d_Curve): bool {.cdecl,
@@ -85,7 +85,7 @@ proc NbPoles*(C: Adaptor3d_Curve): cint {.cdecl, importcpp: "Extrema_CurveTool::
                                       header: "Extrema_CurveTool.hxx".}
 proc NbKnots*(C: Adaptor3d_Curve): cint {.cdecl, importcpp: "Extrema_CurveTool::NbKnots(@)",
                                       header: "Extrema_CurveTool.hxx".}
-proc Bezier*(C: Adaptor3d_Curve): handle[Geom_BezierCurve] {.cdecl,
+proc Bezier*(C: Adaptor3d_Curve): Handle[Geom_BezierCurve] {.cdecl,
     importcpp: "Extrema_CurveTool::Bezier(@)", header: "Extrema_CurveTool.hxx".}
-proc BSpline*(C: Adaptor3d_Curve): handle[Geom_BSplineCurve] {.cdecl,
+proc BSpline*(C: Adaptor3d_Curve): Handle[Geom_BSplineCurve] {.cdecl,
     importcpp: "Extrema_CurveTool::BSpline(@)", header: "Extrema_CurveTool.hxx".}

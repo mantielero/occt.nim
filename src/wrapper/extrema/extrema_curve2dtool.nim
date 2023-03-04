@@ -43,7 +43,7 @@ proc NbIntervals*(C: Adaptor2d_Curve2d; S: GeomAbs_Shape): cint {.cdecl,
 proc Intervals*(C: Adaptor2d_Curve2d; T: var TColStd_Array1OfReal; S: GeomAbs_Shape) {.
     cdecl, importcpp: "Extrema_Curve2dTool::Intervals(@)",
     header: "Extrema_Curve2dTool.hxx".}
-proc DeflCurvIntervals*(C: Adaptor2d_Curve2d): handle[TColStd_HArray1OfReal] {.
+proc DeflCurvIntervals*(C: Adaptor2d_Curve2d): Handle[TColStd_HArray1OfReal] {.
     cdecl, importcpp: "Extrema_Curve2dTool::DeflCurvIntervals(@)",
     header: "Extrema_Curve2dTool.hxx".}
 proc IsClosed*(C: Adaptor2d_Curve2d): bool {.cdecl,
@@ -96,8 +96,8 @@ proc NbPoles*(C: Adaptor2d_Curve2d): cint {.cdecl, importcpp: "Extrema_Curve2dTo
                                         header: "Extrema_Curve2dTool.hxx".}
 proc NbKnots*(C: Adaptor2d_Curve2d): cint {.cdecl, importcpp: "Extrema_Curve2dTool::NbKnots(@)",
                                         header: "Extrema_Curve2dTool.hxx".}
-proc Bezier*(C: Adaptor2d_Curve2d): handle[Geom2d_BezierCurve] {.cdecl,
+proc Bezier*(C: Adaptor2d_Curve2d): Handle[Geom2d_BezierCurve] {.cdecl,
     importcpp: "Extrema_Curve2dTool::Bezier(@)", header: "Extrema_Curve2dTool.hxx".}
-proc BSpline*(C: Adaptor2d_Curve2d): handle[Geom2d_BSplineCurve] {.cdecl,
+proc BSpline*(C: Adaptor2d_Curve2d): Handle[Geom2d_BSplineCurve] {.cdecl,
     importcpp: "Extrema_Curve2dTool::BSpline(@)",
     header: "Extrema_Curve2dTool.hxx".}

@@ -17,26 +17,26 @@ import ../tkmath/gp/gp_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Lin"
-discard "forward decl of gp_Circ"
-discard "forward decl of gp_Elips"
-discard "forward decl of gp_Hypr"
-discard "forward decl of gp_Parab"
+discard "forward decl of LinObj"
+discard "forward decl of CircObj"
+discard "forward decl of ElipsObj"
+discard "forward decl of HyprObj"
+discard "forward decl of ParabObj"
 
 
 proc newExtrema_ExtElC*(): Extrema_ExtElC {.cdecl, constructor,
     importcpp: "Extrema_ExtElC(@)", header: "Extrema_ExtElC.hxx".}
-proc newExtrema_ExtElC*(C1: gp_Lin; C2: gp_Lin; AngTol: cfloat): Extrema_ExtElC {.cdecl,
+proc newExtrema_ExtElC*(C1: LinObj; C2: LinObj; AngTol: cfloat): Extrema_ExtElC {.cdecl,
     constructor, importcpp: "Extrema_ExtElC(@)", header: "Extrema_ExtElC.hxx".}
-proc newExtrema_ExtElC*(C1: gp_Lin; C2: gp_Circ; Tol: cfloat): Extrema_ExtElC {.cdecl,
+proc newExtrema_ExtElC*(C1: LinObj; C2: CircObj; Tol: cfloat): Extrema_ExtElC {.cdecl,
     constructor, importcpp: "Extrema_ExtElC(@)", header: "Extrema_ExtElC.hxx".}
-proc newExtrema_ExtElC*(C1: gp_Lin; C2: gp_Elips): Extrema_ExtElC {.cdecl, constructor,
+proc newExtrema_ExtElC*(C1: LinObj; C2: ElipsObj): Extrema_ExtElC {.cdecl, constructor,
     importcpp: "Extrema_ExtElC(@)", header: "Extrema_ExtElC.hxx".}
-proc newExtrema_ExtElC*(C1: gp_Lin; C2: gp_Hypr): Extrema_ExtElC {.cdecl, constructor,
+proc newExtrema_ExtElC*(C1: LinObj; C2: HyprObj): Extrema_ExtElC {.cdecl, constructor,
     importcpp: "Extrema_ExtElC(@)", header: "Extrema_ExtElC.hxx".}
-proc newExtrema_ExtElC*(C1: gp_Lin; C2: gp_Parab): Extrema_ExtElC {.cdecl, constructor,
+proc newExtrema_ExtElC*(C1: LinObj; C2: ParabObj): Extrema_ExtElC {.cdecl, constructor,
     importcpp: "Extrema_ExtElC(@)", header: "Extrema_ExtElC.hxx".}
-proc newExtrema_ExtElC*(C1: gp_Circ; C2: gp_Circ): Extrema_ExtElC {.cdecl, constructor,
+proc newExtrema_ExtElC*(C1: CircObj; C2: CircObj): Extrema_ExtElC {.cdecl, constructor,
     importcpp: "Extrema_ExtElC(@)", header: "Extrema_ExtElC.hxx".}
 proc IsDone*(this: Extrema_ExtElC): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                        header: "Extrema_ExtElC.hxx".}

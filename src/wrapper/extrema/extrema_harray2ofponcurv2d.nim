@@ -23,7 +23,7 @@ proc newExtrema_HArray2OfPOnCurv2d*(theRowLow: cint; theRowUpp: cint;
     header: "Extrema_HArray2OfPOnCurv2d.hxx".}
 proc newExtrema_HArray2OfPOnCurv2d*(theRowLow: cint; theRowUpp: cint;
                                    theColLow: cint; theColUpp: cint;
-                                   theValue: value_type): Extrema_HArray2OfPOnCurv2d {.
+                                   theValue: Value_type): Extrema_HArray2OfPOnCurv2d {.
     cdecl, constructor, importcpp: "Extrema_HArray2OfPOnCurv2d(@)",
     header: "Extrema_HArray2OfPOnCurv2d.hxx".}
 proc newExtrema_HArray2OfPOnCurv2d*(theOther: Extrema_Array2OfPOnCurv2d): Extrema_HArray2OfPOnCurv2d {.

@@ -20,7 +20,7 @@ import ../tkg3d/adaptor3d/adaptor3d_types
 
 discard "forward decl of Math_Vector"
 
-proc newExtrema_FuncPSDist*(theS: Adaptor3d_Surface; theP: gp_Pnt): Extrema_FuncPSDist {.
+proc newExtrema_FuncPSDist*(theS: Adaptor3d_Surface; theP: PntObj): Extrema_FuncPSDist {.
     cdecl, constructor, importcpp: "Extrema_FuncPSDist(@)",
     header: "Extrema_FuncPSDist.hxx".}
 proc NbVariables*(this: Extrema_FuncPSDist): cint {.noSideEffect, cdecl,

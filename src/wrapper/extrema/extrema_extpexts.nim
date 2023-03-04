@@ -21,12 +21,12 @@ import ../tkg3d/geomadaptor/geomadaptor_types
 
 proc newExtrema_ExtPExtS*(): Extrema_ExtPExtS {.cdecl, constructor,
     importcpp: "Extrema_ExtPExtS(@)", header: "Extrema_ExtPExtS.hxx".}
-proc newExtrema_ExtPExtS*(P: gp_Pnt;
+proc newExtrema_ExtPExtS*(P: PntObj;
                          S: Handle[GeomAdaptor_SurfaceOfLinearExtrusion];
                          Umin: cfloat; Usup: cfloat; Vmin: cfloat; Vsup: cfloat;
                          TolU: cfloat; TolV: cfloat): Extrema_ExtPExtS {.cdecl,
     constructor, importcpp: "Extrema_ExtPExtS(@)", header: "Extrema_ExtPExtS.hxx".}
-proc newExtrema_ExtPExtS*(P: gp_Pnt;
+proc newExtrema_ExtPExtS*(P: PntObj;
                          S: Handle[GeomAdaptor_SurfaceOfLinearExtrusion];
                          TolU: cfloat; TolV: cfloat): Extrema_ExtPExtS {.cdecl,
     constructor, importcpp: "Extrema_ExtPExtS(@)", header: "Extrema_ExtPExtS.hxx".}
@@ -34,7 +34,7 @@ proc Initialize*(this: var Extrema_ExtPExtS;
                 S: Handle[GeomAdaptor_SurfaceOfLinearExtrusion]; Uinf: cfloat;
                 Usup: cfloat; Vinf: cfloat; Vsup: cfloat; TolU: cfloat; TolV: cfloat) {.
     cdecl, importcpp: "Initialize", header: "Extrema_ExtPExtS.hxx".}
-proc Perform*(this: var Extrema_ExtPExtS; P: gp_Pnt) {.cdecl, importcpp: "Perform",
+proc Perform*(this: var Extrema_ExtPExtS; P: PntObj) {.cdecl, importcpp: "Perform",
     header: "Extrema_ExtPExtS.hxx".}
 proc IsDone*(this: Extrema_ExtPExtS): bool {.noSideEffect, cdecl, importcpp: "IsDone",
     header: "Extrema_ExtPExtS.hxx".}

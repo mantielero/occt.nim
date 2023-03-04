@@ -20,8 +20,8 @@ import ../tkg2d/adaptor2d/adaptor2d_types
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Extrema_Curve2dTool"
 discard "forward decl of Extrema_POnCurv2d"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec2d"
+discard "forward decl of Pnt2dObj"
+discard "forward decl of Vec2dObj"
 
 
 proc newExtrema_ECC2d*(): Extrema_ECC2d {.cdecl, constructor,

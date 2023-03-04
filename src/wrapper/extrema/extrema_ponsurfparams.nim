@@ -1,5 +1,5 @@
 import extrema_types
-
+import ../tkmath/gp/gp_types
 ##  Created on: 2012-12-06
 ##  Created by: Sergey KHROMOV
 ##  Copyright (c) 2004-2014 OPEN CASCADE SAS
@@ -15,12 +15,12 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
+discard "forward decl of PntObj"
 
 
 proc newExtrema_POnSurfParams*(): Extrema_POnSurfParams {.cdecl, constructor,
     importcpp: "Extrema_POnSurfParams(@)", header: "Extrema_POnSurfParams.hxx".}
-proc newExtrema_POnSurfParams*(theU: cfloat; theV: cfloat; thePnt: gp_Pnt): Extrema_POnSurfParams {.
+proc newExtrema_POnSurfParams*(theU: cfloat; theV: cfloat; thePnt: PntObj): Extrema_POnSurfParams {.
     cdecl, constructor, importcpp: "Extrema_POnSurfParams(@)",
     header: "Extrema_POnSurfParams.hxx".}
 proc SetSqrDistance*(this: var Extrema_POnSurfParams; theSqrDistance: cfloat) {.cdecl,

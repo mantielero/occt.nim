@@ -24,17 +24,17 @@ discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Extrema_Curve2dTool"
 discard "forward decl of Extrema_POnCurv2d"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec2d"
+discard "forward decl of Pnt2dObj"
+discard "forward decl of Vec2dObj"
 discard "forward decl of Extrema_PCFOfEPCOfExtPC2d"
 
 proc newExtrema_EPCOfExtPC2d*(): Extrema_EPCOfExtPC2d {.cdecl, constructor,
     importcpp: "Extrema_EPCOfExtPC2d(@)", header: "Extrema_EPCOfExtPC2d.hxx".}
-proc newExtrema_EPCOfExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d; NbU: cint;
+proc newExtrema_EPCOfExtPC2d*(P: Pnt2dObj; C: Adaptor2d_Curve2d; NbU: cint;
                              TolU: cfloat; TolF: cfloat): Extrema_EPCOfExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_EPCOfExtPC2d(@)",
     header: "Extrema_EPCOfExtPC2d.hxx".}
-proc newExtrema_EPCOfExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d; NbU: cint;
+proc newExtrema_EPCOfExtPC2d*(P: Pnt2dObj; C: Adaptor2d_Curve2d; NbU: cint;
                              Umin: cfloat; Usup: cfloat; TolU: cfloat; TolF: cfloat): Extrema_EPCOfExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_EPCOfExtPC2d(@)",
     header: "Extrema_EPCOfExtPC2d.hxx".}
@@ -49,7 +49,7 @@ proc Initialize*(this: var Extrema_EPCOfExtPC2d; C: Adaptor2d_Curve2d) {.cdecl,
 proc Initialize*(this: var Extrema_EPCOfExtPC2d; NbU: cint; Umin: cfloat; Usup: cfloat;
                 TolU: cfloat; TolF: cfloat) {.cdecl, importcpp: "Initialize",
     header: "Extrema_EPCOfExtPC2d.hxx".}
-proc Perform*(this: var Extrema_EPCOfExtPC2d; P: gp_Pnt2d) {.cdecl,
+proc Perform*(this: var Extrema_EPCOfExtPC2d; P: Pnt2dObj) {.cdecl,
     importcpp: "Perform", header: "Extrema_EPCOfExtPC2d.hxx".}
 proc IsDone*(this: Extrema_EPCOfExtPC2d): bool {.noSideEffect, cdecl,
     importcpp: "IsDone", header: "Extrema_EPCOfExtPC2d.hxx".}

@@ -603,3 +603,8 @@ type
 
 type
   Extrema_SequenceOfPOnSurf* = NCollection_Sequence[Extrema_POnSurf]
+
+
+  ExtremaHArray2OfPOnSurfParams* {.importcpp: "Extrema_HArray2OfPOnSurfParams",
+                                  header: "Extrema_HArray2OfPOnSurfParams.hxx",
+                                  bycopy.} = object of ExtremaArray2OfPOnSurfParams

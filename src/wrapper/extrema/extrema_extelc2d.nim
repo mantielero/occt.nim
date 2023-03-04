@@ -16,33 +16,33 @@ import ../tkmath/gp/gp_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Lin2d"
-discard "forward decl of gp_Circ2d"
-discard "forward decl of gp_Elips2d"
-discard "forward decl of gp_Hypr2d"
-discard "forward decl of gp_Parab2d"
+discard "forward decl of Lin2dObj"
+discard "forward decl of Circ2dObj"
+discard "forward decl of Elips2dObj"
+discard "forward decl of Hypr2dObj"
+discard "forward decl of Parab2dObj"
 
 proc newExtrema_ExtElC2d*(): Extrema_ExtElC2d {.cdecl, constructor,
     importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtrema_ExtElC2d*(C1: gp_Lin2d; C2: gp_Lin2d; AngTol: cfloat): Extrema_ExtElC2d {.
+proc newExtrema_ExtElC2d*(C1: Lin2dObj; C2: Lin2dObj; AngTol: cfloat): Extrema_ExtElC2d {.
     cdecl, constructor, importcpp: "Extrema_ExtElC2d(@)",
     header: "Extrema_ExtElC2d.hxx".}
-proc newExtrema_ExtElC2d*(C1: gp_Lin2d; C2: gp_Circ2d; Tol: cfloat): Extrema_ExtElC2d {.
+proc newExtrema_ExtElC2d*(C1: Lin2dObj; C2: Circ2dObj; Tol: cfloat): Extrema_ExtElC2d {.
     cdecl, constructor, importcpp: "Extrema_ExtElC2d(@)",
     header: "Extrema_ExtElC2d.hxx".}
-proc newExtrema_ExtElC2d*(C1: gp_Lin2d; C2: gp_Elips2d): Extrema_ExtElC2d {.cdecl,
+proc newExtrema_ExtElC2d*(C1: Lin2dObj; C2: Elips2dObj): Extrema_ExtElC2d {.cdecl,
     constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtrema_ExtElC2d*(C1: gp_Lin2d; C2: gp_Hypr2d): Extrema_ExtElC2d {.cdecl,
+proc newExtrema_ExtElC2d*(C1: Lin2dObj; C2: Hypr2dObj): Extrema_ExtElC2d {.cdecl,
     constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtrema_ExtElC2d*(C1: gp_Lin2d; C2: gp_Parab2d): Extrema_ExtElC2d {.cdecl,
+proc newExtrema_ExtElC2d*(C1: Lin2dObj; C2: Parab2dObj): Extrema_ExtElC2d {.cdecl,
     constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtrema_ExtElC2d*(C1: gp_Circ2d; C2: gp_Circ2d): Extrema_ExtElC2d {.cdecl,
+proc newExtrema_ExtElC2d*(C1: Circ2dObj; C2: Circ2dObj): Extrema_ExtElC2d {.cdecl,
     constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtrema_ExtElC2d*(C1: gp_Circ2d; C2: gp_Elips2d): Extrema_ExtElC2d {.cdecl,
+proc newExtrema_ExtElC2d*(C1: Circ2dObj; C2: Elips2dObj): Extrema_ExtElC2d {.cdecl,
     constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtrema_ExtElC2d*(C1: gp_Circ2d; C2: gp_Hypr2d): Extrema_ExtElC2d {.cdecl,
+proc newExtrema_ExtElC2d*(C1: Circ2dObj; C2: Hypr2dObj): Extrema_ExtElC2d {.cdecl,
     constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtrema_ExtElC2d*(C1: gp_Circ2d; C2: gp_Parab2d): Extrema_ExtElC2d {.cdecl,
+proc newExtrema_ExtElC2d*(C1: Circ2dObj; C2: Parab2dObj): Extrema_ExtElC2d {.cdecl,
     constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
 proc IsDone*(this: Extrema_ExtElC2d): bool {.noSideEffect, cdecl, importcpp: "IsDone",
     header: "Extrema_ExtElC2d.hxx".}

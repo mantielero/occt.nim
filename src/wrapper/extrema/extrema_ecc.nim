@@ -20,8 +20,8 @@ import ../tkg3d/adaptor3d/adaptor3d_types
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Extrema_CurveTool"
 discard "forward decl of Extrema_POnCurv"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
+discard "forward decl of PntObj"
+discard "forward decl of VecObj"
 
 proc newExtrema_ECC*(): Extrema_ECC {.cdecl, constructor,
                                    importcpp: "Extrema_ECC(@)",

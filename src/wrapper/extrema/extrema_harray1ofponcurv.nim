@@ -21,7 +21,7 @@ proc newExtrema_HArray1OfPOnCurv*(theLower: cint; theUpper: cint): Extrema_HArra
     cdecl, constructor, importcpp: "Extrema_HArray1OfPOnCurv(@)",
     header: "Extrema_HArray1OfPOnCurv.hxx".}
 proc newExtrema_HArray1OfPOnCurv*(theLower: cint; theUpper: cint;
-                                 theValue: value_type): Extrema_HArray1OfPOnCurv {.
+                                 theValue: Value_type): Extrema_HArray1OfPOnCurv {.
     cdecl, constructor, importcpp: "Extrema_HArray1OfPOnCurv(@)",
     header: "Extrema_HArray1OfPOnCurv.hxx".}
 proc newExtrema_HArray1OfPOnCurv*(theOther: Extrema_Array1OfPOnCurv): Extrema_HArray1OfPOnCurv {.

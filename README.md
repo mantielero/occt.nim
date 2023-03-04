@@ -28,3 +28,27 @@ Preliminar status. Some of the examples currently compiles and run. But the cove
     
     In particular, within the package `gp`. For example, to go back from `PntObj`
     into `gp_Pnt`.
+
+```nim
+sed -i 's/Pnt2dObj/gp_Pnt2d/g' *.nim
+sed -i 's/Vec2dObj/gp_Vec2d/g' *.nim
+sed -i 's/Lin2dObj/gp_Lin2d/g' *.nim
+sed -i 's/Circ2dObj/gp_Circ2d/g' *.nim
+```
+
+gp_Elips2d
+gp_Hypr2d
+gp_Parab2d
+gp_Pnt
+gp_Vec
+gp_Lin
+gp_Circ
+gp_Elips
+gp_Hypr
+gp_Parab
+gp_Pln
+gp_Cylinder
+gp_Cone
+gp_Sphere
+gp_Torus
+gp_Pnt2d

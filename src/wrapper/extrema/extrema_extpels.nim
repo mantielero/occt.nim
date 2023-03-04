@@ -16,35 +16,35 @@ import ../tkmath/gp/gp_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Cylinder"
-discard "forward decl of gp_Pln"
-discard "forward decl of gp_Cone"
-discard "forward decl of gp_Torus"
-discard "forward decl of gp_Sphere"
+discard "forward decl of PntObj"
+discard "forward decl of CylinderObj"
+discard "forward decl of PlnObj"
+discard "forward decl of ConeObj"
+discard "forward decl of TorusObj"
+discard "forward decl of SphereObj"
 
 proc newExtrema_ExtPElS*(): Extrema_ExtPElS {.cdecl, constructor,
     importcpp: "Extrema_ExtPElS(@)", header: "Extrema_ExtPElS.hxx".}
-proc newExtrema_ExtPElS*(P: gp_Pnt; S: gp_Cylinder; Tol: cfloat): Extrema_ExtPElS {.
+proc newExtrema_ExtPElS*(P: PntObj; S: CylinderObj; Tol: cfloat): Extrema_ExtPElS {.
     cdecl, constructor, importcpp: "Extrema_ExtPElS(@)",
     header: "Extrema_ExtPElS.hxx".}
-proc Perform*(this: var Extrema_ExtPElS; P: gp_Pnt; S: gp_Cylinder; Tol: cfloat) {.cdecl,
+proc Perform*(this: var Extrema_ExtPElS; P: PntObj; S: CylinderObj; Tol: cfloat) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtPElS.hxx".}
-proc newExtrema_ExtPElS*(P: gp_Pnt; S: gp_Pln; Tol: cfloat): Extrema_ExtPElS {.cdecl,
+proc newExtrema_ExtPElS*(P: PntObj; S: PlnObj; Tol: cfloat): Extrema_ExtPElS {.cdecl,
     constructor, importcpp: "Extrema_ExtPElS(@)", header: "Extrema_ExtPElS.hxx".}
-proc Perform*(this: var Extrema_ExtPElS; P: gp_Pnt; S: gp_Pln; Tol: cfloat) {.cdecl,
+proc Perform*(this: var Extrema_ExtPElS; P: PntObj; S: PlnObj; Tol: cfloat) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtPElS.hxx".}
-proc newExtrema_ExtPElS*(P: gp_Pnt; S: gp_Cone; Tol: cfloat): Extrema_ExtPElS {.cdecl,
+proc newExtrema_ExtPElS*(P: PntObj; S: ConeObj; Tol: cfloat): Extrema_ExtPElS {.cdecl,
     constructor, importcpp: "Extrema_ExtPElS(@)", header: "Extrema_ExtPElS.hxx".}
-proc Perform*(this: var Extrema_ExtPElS; P: gp_Pnt; S: gp_Cone; Tol: cfloat) {.cdecl,
+proc Perform*(this: var Extrema_ExtPElS; P: PntObj; S: ConeObj; Tol: cfloat) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtPElS.hxx".}
-proc newExtrema_ExtPElS*(P: gp_Pnt; S: gp_Torus; Tol: cfloat): Extrema_ExtPElS {.cdecl,
+proc newExtrema_ExtPElS*(P: PntObj; S: TorusObj; Tol: cfloat): Extrema_ExtPElS {.cdecl,
     constructor, importcpp: "Extrema_ExtPElS(@)", header: "Extrema_ExtPElS.hxx".}
-proc Perform*(this: var Extrema_ExtPElS; P: gp_Pnt; S: gp_Torus; Tol: cfloat) {.cdecl,
+proc Perform*(this: var Extrema_ExtPElS; P: PntObj; S: TorusObj; Tol: cfloat) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtPElS.hxx".}
-proc newExtrema_ExtPElS*(P: gp_Pnt; S: gp_Sphere; Tol: cfloat): Extrema_ExtPElS {.cdecl,
+proc newExtrema_ExtPElS*(P: PntObj; S: SphereObj; Tol: cfloat): Extrema_ExtPElS {.cdecl,
     constructor, importcpp: "Extrema_ExtPElS(@)", header: "Extrema_ExtPElS.hxx".}
-proc Perform*(this: var Extrema_ExtPElS; P: gp_Pnt; S: gp_Sphere; Tol: cfloat) {.cdecl,
+proc Perform*(this: var Extrema_ExtPElS; P: PntObj; S: SphereObj; Tol: cfloat) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtPElS.hxx".}
 proc IsDone*(this: Extrema_ExtPElS): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                         header: "Extrema_ExtPElS.hxx".}

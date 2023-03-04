@@ -22,7 +22,7 @@ proc newExtrema_HArray2OfPOnSurf*(theRowLow: cint; theRowUpp: cint; theColLow: c
     cdecl, constructor, importcpp: "Extrema_HArray2OfPOnSurf(@)",
     header: "Extrema_HArray2OfPOnSurf.hxx".}
 proc newExtrema_HArray2OfPOnSurf*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
-                                 theColUpp: cint; theValue: value_type): Extrema_HArray2OfPOnSurf {.
+                                 theColUpp: cint; theValue: Value_type): Extrema_HArray2OfPOnSurf {.
     cdecl, constructor, importcpp: "Extrema_HArray2OfPOnSurf(@)",
     header: "Extrema_HArray2OfPOnSurf.hxx".}
 proc newExtrema_HArray2OfPOnSurf*(theOther: Extrema_Array2OfPOnSurf): Extrema_HArray2OfPOnSurf {.

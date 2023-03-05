@@ -16,7 +16,7 @@ import tkbool/tkbool
 import tkgeomalgo/tkgeomalgo
 import tkbo/tkbo
 import tkxsbase/tkxsbase
-import tkstep/tkstep
+#import tkstep/tkstep
 import tkv3d/tkv3d
 import tkservice/tkservice
 import tkopengl/tkopengl
@@ -35,6 +35,11 @@ import brepcheck/brepcheck_includes
 import brepextrema/brepextrema_includes
 
 
+# TKStep
+import stepcontrol/stepcontrol_includes
+
+
+
 export cnew
 export tkernel
 export tkmath
@@ -49,7 +54,7 @@ export tkbool
 export tkgeomalgo
 export tkbo
 export tkxsbase
-export tkstep
+#export tkstep
 export tkv3d
 export tkservice
 export tkopengl
@@ -67,3 +72,6 @@ export brepextrema_includes
 
 # TKOffset
 export brepoffset_includes
+
+# TKStep
+export stepcontrol_includes

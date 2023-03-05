@@ -1,10 +1,10 @@
-import ../../tkxsbase/transfer/transfer_types
-import ../../tkernel/standard/standard_types
-import ../../tkxsbase/ifselect/ifselect_types
-import ../../tkbrep/topods/topods_types
+import ../tkxsbase/transfer/transfer_types
+import ../tkernel/standard/standard_types
+import ../tkxsbase/ifselect/ifselect_types
+import ../tkbrep/topods/topods_types
 import stepcontrol_types
-import "../../tkxsbase/interface/interface_types"
-import ../../tkernel/message/[message_types, message_progressrange]
+import "../tkxsbase/interface/interface_types"
+import ../tkernel/message/[message_types, message_progressrange]
 
 
 

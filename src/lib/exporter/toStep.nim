@@ -1,5 +1,5 @@
 import ../../wrapper/tkbrep/topods/topods_types
-import ../../wrapper/tkstep/stepcontrol/[stepcontrol_types, stepcontrol_writer]
+import ../../wrapper/stepcontrol/[stepcontrol_types, stepcontrol_writer]
 import "../../wrapper/tkxsbase/interface/interface_static"
 import ../../wrapper/tkxsbase/ifselect/ifselect_types
 

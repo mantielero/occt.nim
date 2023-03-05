@@ -1,11 +1,11 @@
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkbrep/topods/topods_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkernel/standard/standard_types
-import ../../tktopalgo/brepbuilderapi/brepbuilderapi_types
-import ../../tkprim/brepprim/brepprim_types
-import ../../tkprim/brepprimapi/brepprimapi_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tkernel/ncollection/ncollection_types
+import ../tkbrep/topods/topods_types
+import ../tkbrep/toptools/toptools_types
+import ../tkernel/standard/standard_types
+import ../tktopalgo/brepbuilderapi/brepbuilderapi_types
+import ../tkprim/brepprim/brepprim_types
+import ../tkprim/brepprimapi/brepprimapi_types
+import ../tkernel/tcolstd/tcolstd_types
 
 type
   BRepTools_Modification = object of RootObj # FIXME

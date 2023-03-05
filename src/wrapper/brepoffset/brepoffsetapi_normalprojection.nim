@@ -1,9 +1,9 @@
 import brepoffset_types
-import ../../tkbrep/topods/topods_types
-import ../../tkmath/geomabs/geomabs_types
-import ../../tkernel/message/message_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkernel/standard/standard_types
+import ../tkbrep/topods/topods_types
+import ../tkmath/geomabs/geomabs_types
+import ../tkernel/message/message_types
+import ../tkbrep/toptools/toptools_types
+import ../tkernel/standard/standard_types
 
 
 

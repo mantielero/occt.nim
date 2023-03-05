@@ -1,9 +1,9 @@
 import brepoffset_types
-import ../../tkbrep/topods/topods_types
-import ../../tkgeombase/approx/approx_types
-import ../../tkmath/geomabs/geomabs_types
-import ../../tkernel/message/message_types
-import ../../tkbrep/toptools/toptools_types
+import ../tkbrep/topods/topods_types
+import ../tkgeombase/approx/approx_types
+import ../tkmath/geomabs/geomabs_types
+import ../tkernel/message/message_types
+import ../tkbrep/toptools/toptools_types
 ##  Created on: 1995-07-17
 ##  Created by: Jing-Cheng MEI
 ##  Copyright (c) 1995-1999 Matra Datavision

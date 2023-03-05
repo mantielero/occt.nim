@@ -20,7 +20,9 @@ import tkstep/tkstep
 import tkv3d/tkv3d
 import tkservice/tkservice
 import tkopengl/tkopengl
-import tkoffset/tkoffset
+
+# TKOffset
+import brepoffset/brepoffset_includes#tkoffset
 
 # TKBrep
 import breptools/breptools_includes
@@ -51,7 +53,7 @@ export tkstep
 export tkv3d
 export tkservice
 export tkopengl
-export tkoffset
+#export tkoffset
 
 # TKBrep
 export breptools_includes
@@ -62,3 +64,6 @@ export extrema_includes
 # TKTopAlgo
 export brepcheck_includes
 export brepextrema_includes
+
+# TKOffset
+export brepoffset_includes

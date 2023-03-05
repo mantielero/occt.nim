@@ -1,7 +1,7 @@
 import brepoffset_types
-import ../../tkernel/standard/standard_types
-import ../../tkbrep/topods/topods_types
-import ../../tkbrep/toptools/toptools_types
+import ../tkernel/standard/standard_types
+import ../tkbrep/topods/topods_types
+import ../tkbrep/toptools/toptools_types
 
 
 ##  Created on: 1996-08-30

@@ -1,9 +1,9 @@
 import brepoffset_types
-import ../../tkbrep/topods/topods_types
-import ../../tkg3d/topabs/topabs_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/geom/geom_types
+import ../tkbrep/topods/topods_types
+import ../tkg3d/topabs/topabs_types
+import ../tkbrep/toptools/toptools_types
+import ../tkernel/standard/standard_types
+import ../tkg3d/geom/geom_types
 ##  Created on: 1995-10-23
 ##  Created by: Yves FRICAUD
 ##  Copyright (c) 1995-1999 Matra Datavision

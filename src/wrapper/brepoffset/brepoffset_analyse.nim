@@ -1,8 +1,8 @@
 import brepoffset_types
-import ../../tkbrep/topods/topods_types
-import ../../tkernel/message/message_types
-import ../../tkfillet/chfids/chfids_types
-import ../../tkbrep/toptools/toptools_types
+import ../tkbrep/topods/topods_types
+import ../tkernel/message/message_types
+import ../tkfillet/chfids/chfids_types
+import ../tkbrep/toptools/toptools_types
 
 ##  Created on: 1995-10-20
 ##  Created by: Yves FRICAUD

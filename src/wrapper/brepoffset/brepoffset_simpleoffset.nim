@@ -1,11 +1,11 @@
 import brepoffset_types
-import ../../tkbrep/topods/topods_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/geom/geom_types
-import ../../tkg2d/geom2d/geom2d_types
-import ../../tkmath/toploc/toploc_types
-import ../../tkmath/gp/gp_types
-import ../../tkmath/geomabs/geomabs_types
+import ../tkbrep/topods/topods_types
+import ../tkernel/standard/standard_types
+import ../tkg3d/geom/geom_types
+import ../tkg2d/geom2d/geom2d_types
+import ../tkmath/toploc/toploc_types
+import ../tkmath/gp/gp_types
+import ../tkmath/geomabs/geomabs_types
 ##  Created on: 2016-10-14
 ##  Created by: Alexander MALYSHEV
 ##  Copyright (c) 1999-2016 OPEN CASCADE SAS

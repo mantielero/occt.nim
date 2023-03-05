@@ -1,6 +1,6 @@
 import brepoffset_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkernel/standard/standard_types
+import ../tkbrep/toptools/toptools_types
+import ../tkernel/standard/standard_types
 
 ##  Created on: 1996-09-05
 ##  Created by: Yves FRICAUD

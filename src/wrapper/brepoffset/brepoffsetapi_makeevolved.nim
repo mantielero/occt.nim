@@ -1,8 +1,8 @@
 import brepoffset_types
-import ../../tkbrep/topods/topods_types
-import ../../tkmath/geomabs/geomabs_types
-import ../../tkernel/message/message_types
-import ../../tkbrep/toptools/toptools_types
+import ../tkbrep/topods/topods_types
+import ../tkmath/geomabs/geomabs_types
+import ../tkernel/message/message_types
+import ../tkbrep/toptools/toptools_types
 
 ##  Created on: 1995-09-18
 ##  Created by: Bruno DUMORTIER

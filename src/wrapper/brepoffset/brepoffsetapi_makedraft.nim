@@ -1,10 +1,10 @@
 import brepoffset_types
-import ../../tkbrep/topods/topods_types
-import ../../tkmath/gp/gp_types
-import ../../tktopalgo/brepbuilderapi/brepbuilderapi_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/geom/geom_types
-import ../../tkbrep/toptools/toptools_types
+import ../tkbrep/topods/topods_types
+import ../tkmath/gp/gp_types
+import ../tktopalgo/brepbuilderapi/brepbuilderapi_types
+import ../tkernel/standard/standard_types
+import ../tkg3d/geom/geom_types
+import ../tkbrep/toptools/toptools_types
 ##  Created on: 1999-01-13
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1999 Matra Datavision

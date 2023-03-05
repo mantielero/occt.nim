@@ -1,11 +1,11 @@
 import brepoffset_types
-import ../../tkbrep/topods/topods_types
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
-import ../../tkgeomalgo/law/law_types
-import ../../tktopalgo/brepbuilderapi/brepbuilderapi_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkernel/message/message_types
+import ../tkbrep/topods/topods_types
+import ../tkmath/gp/gp_types
+import ../tkernel/standard/standard_types
+import ../tkgeomalgo/law/law_types
+import ../tktopalgo/brepbuilderapi/brepbuilderapi_types
+import ../tkbrep/toptools/toptools_types
+import ../tkernel/message/message_types
 
 ##  Created on: 1998-04-08
 ##  Created by: Philippe MANGIN

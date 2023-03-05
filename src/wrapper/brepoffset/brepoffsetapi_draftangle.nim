@@ -1,8 +1,8 @@
 import brepoffset_types
-import ../../tkbrep/topods/topods_types
-import ../../tkmath/gp/gp_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkernel/message/message_types
+import ../tkbrep/topods/topods_types
+import ../tkmath/gp/gp_types
+import ../tkbrep/toptools/toptools_types
+import ../tkernel/message/message_types
 ##  Created on: 1995-02-22
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1995-1999 Matra Datavision

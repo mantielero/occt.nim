@@ -126,8 +126,9 @@ iterator getVertex*(body:TopoDS_Shape):TopoDS_Vertex =
   }
 ]#
 
-proc atDistance*[D,PX,PY,PZ: SomeNumber](distance:D;
-        px: PX; py: PY; pz:PZ) =
+iterator getDistancesToFaces*[PX,PY,PZ: SomeNumber](shp: TopoDS_Shape; 
+        px: PX; py: PY; pz:PZ): tuple[distance:float;face:TopoDS_Face] =
+  ## get the distances of all the faces of a shape to a point
   let p = pnt(px,py,pz)
   #let v = vertex(p)
 
@@ -135,43 +136,59 @@ proc atDistance*[D,PX,PY,PZ: SomeNumber](distance:D;
   var distanceBuilder = newBRepExtrema_DistShapeShape()
 
   # - loads the first shape: the vertex
-  distanceBuilder.loadS1(p.vertex)
+  distanceBuilder.loadS1( p.vertex ) 
+
+  for aFace in shp.getFaces():
+    distanceBuilder.loadS2( aFace )
+    if distanceBuilder.perform():
+      yield (distanceBuilder.value.float, aFace)
+
+iterator getFacesWithinDistance*[D,PX,PY,PZ: SomeNumber](shp: TopoDS_Shape; 
+        distance:D;
+        px: PX; py: PY; pz:PZ): tuple[distance:float;face:TopoDS_Face] =
+  ## get the shape's face within a certain distance
+  let p = pnt(px,py,pz)
+  #let v = vertex(p)
+
+  # Calculates minimum distances between shapes
+  var distanceBuilder = newBRepExtrema_DistShapeShape()
+
+  # - loads the first shape: the vertex
+  distanceBuilder.loadS1( p.vertex ) 
+
+  for aFace in shp.getFaces():
+    distanceBuilder.loadS2( aFace )
+    if distanceBuilder.perform():
+      if distance.float >= distanceBuilder.value:
+        yield (distanceBuilder.value.float, aFace)
+
+iterator getFacesContaining*[PX,PY,PZ: SomeNumber](shp: TopoDS_Shape; 
+        px: PX; py: PY; pz:PZ; tolerance: float = 1.0e-7): TopoDS_Face =
+  ## returns faces containing a point
+  for (_,aFace) in shp.getFacesWithinDistance(tolerance, px,py,pz):
+    yield aFace
+
+# =================
+# FILTERS
+# =================
+
+
 #[
   /**
-   * Filter to find elements that are at a specified distance from a point.
+   * Filter to find faces that are of a cetain surface type.
    *
    * @category Filter
    */
-  atDistance(distance: number, point: Point = [0, 0, 0]): this {
-    const pnt = asPnt(point);
-
-    const oc = getOC();
-    const vertexMaker = new oc.BRepBuilderAPI_MakeVertex(pnt);
-    const vertex = vertexMaker.Vertex();
-    vertexMaker.delete();
-
-    const distanceBuilder = new oc.BRepExtrema_DistShapeShape_1();
-    distanceBuilder.LoadS1(vertex);
-
-    const checkPoint = ({ element }: { element: Type }) => {
-      const r = GCWithScope();
-      distanceBuilder.LoadS2(element.wrapped);
-      const progress = r(new oc.Message_ProgressRange_1());
-      distanceBuilder.Perform(progress);
-
-      return Math.abs(distanceBuilder.Value() - distance) < 1e-6;
+  ofSurfaceType(surfaceType: SurfaceType): this {
+    const check = ({ element }: { element: Face }) => {
+      return element.geomType === surfaceType;
     };
-
-    this.filters.push(checkPoint);
-    GCWithObject(checkPoint)(distanceBuilder);
-
+    this.filters.push(check);
     return this;
   }
 ]#
 
 #[ChatGPT
-In this example, we create a point in 3D space and a shape 
-for the point using the BRepBuilderAPI_MakeVertex class. 
 We then create a bounding box around the point using 
 the BRepBndLib::Add function and a shape for the bounding box 
 using the BRepPrimAPI_MakeBox class.
@@ -221,11 +238,6 @@ for (int i = 1; i <= distCalculator.NbSolution(); i++) {
     // do something with the edge, like add it to a list
 }
 ]#
-
-# iterator getFaces*(body:TopoDS_Shape; p: PntObj): TopoDS_Face =
-#   ## get the faces of a shape containing a point
-#   for aFace in body.getFaces():
-#     if isPointOnFace(p, aFace):
 
 
 

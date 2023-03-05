@@ -30,21 +30,21 @@ proc destroyStandardTransient*(this: var StandardTransient) {.cdecl,
 proc delete*(this: StandardTransient) {.noSideEffect, cdecl, importcpp: "Delete",
                                      header: "Standard_Transient.hxx".}
 
-proc getTypeName*(): cstring {.cdecl,
-                            importcpp: "Standard_Transient::get_type_name(@)",
-                            header: "Standard_Transient.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.cdecl,
-    importcpp: "Standard_Transient::get_type_descriptor(@)", header: "Standard_Transient.hxx".}
+
+
 proc dynamicType*(this: StandardTransient): Handle[StandardType] {.noSideEffect,
     cdecl, importcpp: "DynamicType", header: "Standard_Transient.hxx".}
 proc isInstance*(this: StandardTransient; theType: Handle[StandardType]): bool {.
     noSideEffect, cdecl, importcpp: "IsInstance", header: "Standard_Transient.hxx".}
 proc isInstance*(this: StandardTransient; theTypeName: cstring): bool {.noSideEffect,
     cdecl, importcpp: "IsInstance", header: "Standard_Transient.hxx".}
+
 proc isKind*(this: StandardTransient; theType: Handle[StandardType]): bool {.
     noSideEffect, cdecl, importcpp: "IsKind", header: "Standard_Transient.hxx".}
+
 proc isKind*(this: StandardTransient; theTypeName: cstring): bool {.noSideEffect,
     cdecl, importcpp: "IsKind", header: "Standard_Transient.hxx".}
+
 proc this*(this: StandardTransient): ptr StandardTransient {.noSideEffect, cdecl,
     importcpp: "This", header: "Standard_Transient.hxx".}
 proc getRefCount*(this: StandardTransient): cint {.noSideEffect, cdecl,
@@ -63,3 +63,14 @@ proc hashCode*(theTransientObject: ptr StandardTransient; theUpperBound: cint): 
 ## ! Definition of Handle_Standard_Transient as typedef for compatibility
 
 
+
+# NOT USEFUL-----------
+proc getTypeName*(): cstring {.cdecl,
+                            importcpp: "Standard_Transient::get_type_name()",
+                            header: "Standard_Transient.hxx".}
+  # returns the string "Standard_Transient"
+
+proc getTypeDescriptor*(): Handle[StandardType] {.cdecl,
+    importcpp: "Standard_Transient::get_type_descriptor(@)", header: "Standard_Transient.hxx".}
+  # returns the type description -in this case Handle[StandardType]-
+#---------------------

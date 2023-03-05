@@ -3,6 +3,8 @@
 import wrapper/occt_wrapper
 export occt_wrapper
 
+
+
 # Porqué no está accesible `$` desde point.
 import lib/primitives/[point, primitives]
 export point, primitives
@@ -13,8 +15,8 @@ export cartesian_point
 import lib/exporter/[toStep]
 export toStep
 
-import lib/foundation/[iter]
-export iter
+import lib/foundation/[iter, types]
+export iter, types
 
 import lib/gc/[gc]
 export gc

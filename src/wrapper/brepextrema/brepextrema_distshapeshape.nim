@@ -8,7 +8,8 @@ import ../tkernel/standard/standard_types
 ## This class provides tools to compute minimum distance between two Shapes (Compound,CompSolid, Solid, Shell, Face, Wire, Edge, Vertex).
 
 proc newBRepExtrema_DistShapeShape*(): BRepExtrema_DistShapeShape {.cdecl,
-    importcpp: "new BRepExtrema_DistShapeShape(@)",
+    constructor,
+    importcpp: "BRepExtrema_DistShapeShape(@)",
     header: "BRepExtrema_DistShapeShape.hxx".}
 
 proc newBRepExtrema_DistShapeShape*(Shape1: TopoDS_Shape; Shape2: TopoDS_Shape;
@@ -31,17 +32,17 @@ proc loadS1*(this: var BRepExtrema_DistShapeShape; Shape1: TopoDS_Shape) {.cdecl
     importcpp: "LoadS1", header: "BRepExtrema_DistShapeShape.hxx".}
   ## load first shape into extrema
 
-proc LoadS2*(this: var BRepExtrema_DistShapeShape; Shape1: TopoDS_Shape) {.cdecl,
+proc loadS2*(this: var BRepExtrema_DistShapeShape; Shape1: TopoDS_Shape) {.cdecl,
     importcpp: "LoadS2", header: "BRepExtrema_DistShapeShape.hxx".}
 
-proc Perform*(this: var BRepExtrema_DistShapeShape;
+proc perform*(this: var BRepExtrema_DistShapeShape;
              theRange: Message_ProgressRange = Message_ProgressRange()): bool {.
     cdecl, importcpp: "Perform", header: "BRepExtrema_DistShapeShape.hxx".}
 proc IsDone*(this: BRepExtrema_DistShapeShape): bool {.noSideEffect, cdecl,
     importcpp: "IsDone", header: "BRepExtrema_DistShapeShape.hxx".}
 proc NbSolution*(this: BRepExtrema_DistShapeShape): cint {.noSideEffect, cdecl,
     importcpp: "NbSolution", header: "BRepExtrema_DistShapeShape.hxx".}
-proc Value*(this: BRepExtrema_DistShapeShape): cfloat {.noSideEffect, cdecl,
+proc value*(this: BRepExtrema_DistShapeShape): cfloat {.noSideEffect, cdecl,
     importcpp: "Value", header: "BRepExtrema_DistShapeShape.hxx".}
 proc InnerSolution*(this: BRepExtrema_DistShapeShape): bool {.noSideEffect, cdecl,
     importcpp: "InnerSolution", header: "BRepExtrema_DistShapeShape.hxx".}

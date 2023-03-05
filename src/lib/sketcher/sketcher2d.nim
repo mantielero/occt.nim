@@ -3,6 +3,8 @@ OpenCascade provides:
 - tkg2d/geom2d/geom2d_point: The abstract class Point describes the common behavior of geometric points in 2D space. 
 - tkg2d/geom2d/geom2d_cartesianpoint: Describes a point in 2D space 
 
+Some inspiration:
+https://github.com/sgenoud/replicad/blob/d1feafcca65ad45475855fe492b6ec2a6527d421/packages/replicad/src/Sketcher2d.ts
 ]#
 import std/sequtils
 import ../../wrapper/occt_wrapper
@@ -149,6 +151,142 @@ proc closeWithMirror*(skt: Sketch2dRef): TopoDS_Wire {.discardable.} =
 
   return myWireProfile
 
+
+#[
+  ellipseTo(
+    end: Point2D,
+    horizontalRadius: number,
+    verticalRadius: number,
+    rotation = 0,
+    longAxis = false,
+    sweep = false
+  ): this {
+    let rotationAngle = rotation;
+    let majorRadius = horizontalRadius;
+    let minorRadius = verticalRadius;
+
+    if (horizontalRadius < verticalRadius) {
+      rotationAngle = rotation + 90;
+      majorRadius = verticalRadius;
+      minorRadius = horizontalRadius;
+    }
+    const radRotationAngle = rotationAngle * DEG2RAD;
+
+    /*
+     * The complicated part in this function comes from the scaling that we do
+     * between standardised units and UV.  We need to:
+     *   - stretch the length of the  radiuses and take into account the angle they
+     *     make with the X direction
+     *   - modify the angle (as the scaling is not homogenous in the two directions
+     *     the angle can change.
+     */
+
+    const convertAxis = (ax: Point2D) => distance2d(this._convertToUV(ax));
+    const r1 = convertAxis(polarToCartesian(majorRadius, radRotationAngle));
+    const r2 = convertAxis(
+      polarToCartesian(minorRadius, radRotationAngle + Math.PI / 2)
+    );
+
+    const xDir = normalize2d(
+      this._convertToUV(rotate2d([1, 0], radRotationAngle))
+    );
+    const [, newRotationAngle] = cartesianToPolar(xDir);
+
+    const { cx, cy, startAngle, endAngle, clockwise, rx, ry } =
+      convertSvgEllipseParams(
+        this._convertToUV(this.pointer),
+        this._convertToUV(end),
+        r1,
+        r2,
+        newRotationAngle,
+        longAxis,
+        sweep
+      );
+
+    const arc = make2dEllipseArc(
+      rx,
+      ry,
+      clockwise ? startAngle : endAngle,
+      clockwise ? endAngle : startAngle,
+      [cx, cy],
+      xDir
+    );
+
+    if (!clockwise) {
+      arc.reverse();
+    }
+
+    this.saveCurve(arc);
+    this.pointer = end;
+    return this;
+  }
+
+  ellipse(
+    xDist: number,
+    yDist: number,
+    horizontalRadius: number,
+    verticalRadius: number,
+    rotation = 0,
+    longAxis = false,
+    sweep = false
+  ): this {
+    const [x0, y0] = this.pointer;
+    return this.ellipseTo(
+      [xDist + x0, yDist + y0],
+      horizontalRadius,
+      verticalRadius,
+      rotation,
+      longAxis,
+      sweep
+    );
+  }
+
+  halfEllipseTo(end: Point2D, minorRadius: number, sweep = false): this {
+    const angle = polarAngle2d(end, this.pointer);
+    const distance = distance2d(end, this.pointer);
+
+    return this.ellipseTo(
+      end,
+      distance / 2,
+      minorRadius,
+      angle * RAD2DEG,
+      true,
+      sweep
+    );
+  }
+
+  halfEllipseTo(end: Point2D, minorRadius: number, sweep = false): this {
+    const angle = polarAngle2d(end, this.pointer);
+    const distance = distance2d(end, this.pointer);
+
+    return this.ellipseTo(
+      end,
+      distance / 2,
+      minorRadius,
+      angle * RAD2DEG,
+      true,
+      sweep
+    );
+  }
+
+  halfEllipse(
+    xDist: number,
+    yDist: number,
+    minorRadius: number,
+    sweep = false
+  ): this {
+    const [x0, y0] = this.pointer;
+    return this.halfEllipseTo([x0 + xDist, y0 + yDist], minorRadius, sweep);
+  }
+]#
+
+
+#[
+  const baseThreadSketch = draw([0.75, 0.25])
+    .halfEllipse(2, 0.5, 0.1)
+    .close()
+]#
+# ------------------ THE FOLLOWING SHOULDN'T BE HERE -----------------
 
 proc extrude*( aWire: TopoDS_Wire; height: SomeNumber ): TopoDS_Shape {.discardable.} =
   let aFace  = aWire.face.face

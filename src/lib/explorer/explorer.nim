@@ -1,10 +1,10 @@
-#import ../../wrapper/tkbrep/topexp/topexp_explorer
+#import ../../wrapper/topexp/topexp_explorer
 import system
 import ../../wrapper/occt_wrapper
-#import ../../wrapper/tkg3d/tkg3d
+#import ../../wrapper
 import ../geom/geom
 import ../../wrapper/breptools/[breptools_types, breptools_wireexplorer]
-import ../../wrapper/tkg3d/topabs/topabs_types
+import ../../wrapper/topabs/topabs_types
 
 
 #[

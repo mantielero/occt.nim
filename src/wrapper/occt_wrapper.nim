@@ -189,7 +189,7 @@ export topexp_includes
 export standard_package
 export ncollection_package
 export tcolstd_includes
-export message
+export message_includes
 
 # TKFillet
 export brepfilletapi_includes

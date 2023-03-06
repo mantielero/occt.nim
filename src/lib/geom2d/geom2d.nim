@@ -2,9 +2,9 @@
 # 2D
 # ===========
 # https://dev.opencascade.org/content/what-difference-between-classes-geomplane-and-gppln-and-similar-pairs-classes
-import ../../wrapper/tkg2d/tkg2d
-import ../../wrapper/tkmath/tkmath
-import ../../wrapper/tkernel/tkernel
+import ../../wrapper/gp/gp_includes
+import ../../wrapper/standard/standard_includes
+import ../../wrapper/geom2d/geom2d_includes
 
 
 # 2D point

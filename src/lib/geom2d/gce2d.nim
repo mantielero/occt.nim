@@ -1,6 +1,6 @@
-import ../../wrapper/tkgeombase/tkgeombase
-import ../../wrapper/tkg2d/tkg2d
-import ../../wrapper/tkernel/tkernel
+# import ../../wrapper
+# import ../../wrapper
+# import ../../wrapper
 
 # Create segment
 # proc segment*(p1: Pnt2dObj; p2: Pnt2dObj): Handle[GCE2dMakeSegment] {.cdecl,

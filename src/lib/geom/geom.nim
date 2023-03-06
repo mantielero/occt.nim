@@ -1,6 +1,6 @@
-import ../../wrapper/tkg3d/tkg3d
-import ../../wrapper/tkmath/tkmath
-import ../../wrapper/tkernel/tkernel
+import ../../wrapper/gp/gp_includes
+import ../../wrapper/geom/geom_includes
+import ../../wrapper/standard/standard_includes
 
 proc newCylindricalSurface*(a3: Ax3Obj; radius: cfloat): ptr GeomCylindricalSurface {.
     cdecl, constructor, importcpp: "new Geom_CylindricalSurface(@)", 

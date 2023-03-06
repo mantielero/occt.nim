@@ -37,14 +37,37 @@ import message_report
 #import message_status
 #import message_statustype
 
-export message_types, message, message_alert, message_alertextended
-export message_algorithm, message_attribute, message_attributemeter
-export message_attributeobject, message_attributestream
-export message_compositealerts, message_execstatus #  message_consolecolor,
-export message_level # message_gravity, message_harrayofmsg, 
-export message_listiteratoroflistofmsg#, message_listofmsg  # message_listofalert, 
-export message_messenger, message_msg, message_msgfile # message_metrictype,
-export message_printer, message_printerostream, message_printersystemlog
-export message_printertoreport, message_progressindicator, message_progressrange
-export message_progressscope, message_progresssentry, message_report
-#export message_statustype # message_status, message_sequenceofprinters, 
+export message_types
+export message
+export message_alert
+export message_alertextended
+export message_algorithm
+export message_attribute
+export message_attributemeter
+export message_attributeobject
+export message_attributestream
+export message_compositealerts
+export message_execstatus #  message_consolecolor
+
+export message_level # message_gravity
+#export message_harrayofmsg
+
+export message_listiteratoroflistofmsg#
+#export message_listofmsg  # message_listofalert
+
+export message_messenger
+export message_msg
+export message_msgfile # message_metrictype
+
+export message_printer
+export message_printerostream
+export message_printersystemlog
+export message_printertoreport
+export message_progressindicator
+export message_progressrange
+export message_progressscope
+export message_progresssentry
+export message_report
+#export message_statustype # message_status
+#export message_sequenceofprinters
+

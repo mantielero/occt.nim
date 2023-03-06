@@ -1,6 +1,6 @@
-#import ../wrapper/tkmath/tkmath#gp/gp_Pnt
+#import ../wrapper/gp_Pnt
 import std/strformat
-import ../../wrapper/tkmath/gp/[gp_types, gp_pnt, gp_vec, gp_dir, gp_xyz]
+import ../../wrapper/gp/[gp_types, gp_pnt, gp_vec, gp_dir, gp_xyz]
 #export gp_Pnt, gp_XYZ, gp_Dir, gp_Ax1, gp_Trsf, gp_Vec, gp_Ax2
 
 converter toCfloat*[T:SomeNumber](val:T):cfloat =

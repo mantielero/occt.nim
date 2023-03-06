@@ -1,10 +1,10 @@
-import ../../wrapper/tkgeombase/gc/[gc_types,gc_makesegment, gc_makearcofcircle]
-import ../../wrapper/tktopalgo/brepbuilderapi/[brepbuilderapi_types,brepbuilderapi_makeedge]
+import ../../wrapper/gc/[gc_types,gc_makesegment, gc_makearcofcircle]
+import ../../wrapper/brepbuilderapi/[brepbuilderapi_types,brepbuilderapi_makeedge]
 
-import ../../wrapper/tkg3d/geom/[geom_types,geom_circle]
+import ../../wrapper/geom/[geom_types,geom_circle]
 
-#import ../../wrapper/tkgeombase
-#import ../../wrapper/tktopalgo
+#import ../../wrapper
+#import ../../wrapper
 
 #proc edge*(obj:)
 

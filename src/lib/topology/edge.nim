@@ -1,9 +1,10 @@
-import ../../wrapper/tkgeombase/gce2d/gce2d_types
-import ../../wrapper/tkernel/tkernel
-import ../../wrapper/tkg2d/tkg2d
-import ../../wrapper/tkg3d/tkg3d
-import ../../wrapper/tktopalgo/tktopalgo
-import ../../wrapper/tkbrep/tkbrep
+import ../../wrapper/gce2d/gce2d_types
+import ../../wrapper/standard/standard_types
+import ../../wrapper/geom2d/geom2d_includes
+import ../../wrapper/geom/geom_includes
+import ../../wrapper/topods/topods_includes
+# import ../../wrapper
+# import ../../wrapper
 
 # proc edge*[T:Handle[Geom2dTrimmedCurve]|HandleGeom2dTrimmedCurve](L: T; 
 #        s: Handle[GeomCylindricalSurface]): EdgeObj {.

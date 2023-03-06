@@ -1,4 +1,4 @@
-import ../../wrapper/tkprim/tkprim
+import ../../wrapper/brepprimapi/brepprimapi_includes
 
 proc box*[X,Y,Z: SomeNumber](dx: X; dy: Y; dz: Z): BRepPrimAPI_MakeBox =
   box(dx.cfloat, dy.cfloat, dz.cfloat)

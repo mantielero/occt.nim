@@ -1,9 +1,9 @@
 import std/strformat
-import ../../wrapper/tkernel/standard/[standard_types, standard_handle]
-import ../../wrapper/tkg3d/geom/[geom_types,geom_cartesianpoint]
+import ../../wrapper/standard/[standard_types, standard_handle]
+import ../../wrapper/geom/[geom_types,geom_cartesianpoint]
 import ../../wrapper/cnew
 
-import ../../wrapper/tkmath/gp/[gp_types]
+import ../../wrapper/gp/[gp_types]
 
 # ------------------
 # GeomCartesianPoint

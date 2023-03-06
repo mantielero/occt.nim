@@ -1,7 +1,7 @@
 {.passL:"-lTKTopAlgo".}
 {.passC:"-I/usr/include/opencascade/" .}
-import ../../wrapper/tkbrep/tkbrep
-import ../../wrapper/tktopalgo/tktopalgo
+import ../../wrapper/brepbuilderapi/brepbuilderapi_includes
+#import ../../wrapper
 
 type
   BRepLib* {.importcpp: "BRepLib", 

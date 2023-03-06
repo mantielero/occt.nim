@@ -1,7 +1,7 @@
-import ../../wrapper/tkbrep/topods/topods_types
+import ../../wrapper/topods/topods_types
 import ../../wrapper/stepcontrol/[stepcontrol_types, stepcontrol_writer]
-import "../../wrapper/tkxsbase/interface/interface_static"
-import ../../wrapper/tkxsbase/ifselect/ifselect_types
+import "../../wrapper/interface/interface_static"
+import ../../wrapper/ifselect/ifselect_types
 
 proc toSTEP*[T:TopoDS_Shape | TopoDS_Solid | TopoDS_Wire ]( solid:T; fname:string) =
   # Writer

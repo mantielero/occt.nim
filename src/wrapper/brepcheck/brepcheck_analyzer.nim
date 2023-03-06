@@ -1,6 +1,6 @@
 import brepcheck_types
-import ../tkbrep/topods/topods_types
-import ../tkernel/standard/standard_types
+import ../topods/topods_types
+import ../standard/standard_types
 
 ##  Created on: 1995-12-08
 ##  Created by: Jacques GOUSSARD

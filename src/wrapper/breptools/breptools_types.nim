@@ -1,9 +1,9 @@
-import ../tkernel/standard/standard_types
-import ../tkernel/ncollection/ncollection_types
-import ../tkbrep/topods/topods_types
-import ../tkbrep/toptools/toptools_types
-import ../tkmath/gp/gp_types
-#import ../tkernel/tcolgp/tcolgp_types
+import ../standard/standard_types
+import ../ncollection/ncollection_types
+import ../topods/topods_types
+import ../toptools/toptools_types
+import ../gp/gp_types
+#import tcolgp/tcolgp_types
 
 ## ! Defines geometric modifications to a shape, i.e.
 ## ! changes to faces, edges and vertices.

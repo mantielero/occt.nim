@@ -1,6 +1,6 @@
 import topopebrepds_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/tcollection/[tcollection_types, tcollection_asciistring]
+import ../standard/standard_types
+import ../tcollection/[tcollection_types, tcollection_asciistring]
 
 
 

@@ -1,8 +1,8 @@
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
-import ../../tkmath/gp/gp_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
+import ../tcolstd/tcolstd_types
+import ../adaptor3d/adaptor3d_types
+import ../gp/gp_types
 
 type
   ApproxParametrizationType* {.size: sizeof(cint),

@@ -1,6 +1,6 @@
 import brepextrema_types
-import ../tkbrep/topods/topods_types
-import ../tkernel/standard/standard_types
+import ../topods/topods_types
+import ../standard/standard_types
 
 ##  Created on: 2014-10-20
 ##  Created by: Denis BOGOLEPOV

@@ -1,10 +1,10 @@
-import ../../tkbrep/topods/topods_types
-#import ../../tkbrep/brep/brep_types
-import ../../tkmath/bnd/bnd_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
-import ../../tkbrep/topexp/topexp_types
+import ../topods/topods_types
+#import ../brep/brep_types
+import ../bnd/bnd_types
+import ../toptools/toptools_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
+import ../topexp/topexp_types
 
 type
   BRepClass3dSolidClassifier* = object # FIXME

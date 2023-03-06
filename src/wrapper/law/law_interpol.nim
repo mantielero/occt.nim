@@ -1,4 +1,4 @@
-import ../../tkmath/tcolgp/tcolgp_types
+import ../tcolgp/tcolgp_types
 import law_types
 
 

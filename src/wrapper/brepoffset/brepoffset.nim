@@ -1,7 +1,7 @@
 import brepoffset_types
-import ../tkernel/standard/standard_types
-import ../tkg3d/geom/geom_types
-import ../tkbrep/topods/topods_types
+import ../standard/standard_types
+import ../geom/geom_types
+import ../topods/topods_types
 
 
 ##  Created on: 1995-10-12

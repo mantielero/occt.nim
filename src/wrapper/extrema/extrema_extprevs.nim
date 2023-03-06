@@ -1,7 +1,7 @@
 import extrema_types
-import ../tkmath/gp/gp_types
-import ../tkernel/standard/standard_types
-import ../tkg3d/geomadaptor/geomadaptor_types
+import ../gp/gp_types
+import ../standard/standard_types
+import ../geomadaptor/geomadaptor_types
 ##  Created on: 1999-09-21
 ##  Created by: Edward AGAPOV
 ##  Copyright (c) 1999 Matra Datavision

@@ -1,7 +1,7 @@
 import breptools_types
-import ../tkbrep/topods/topods_types
-import ../tkernel/standard/standard_types
-import ../tkernel/message/message_types
+import ../topods/topods_types
+import ../standard/standard_types
+import ../message/message_types
 ##  Created on: 1994-08-25
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1994-1999 Matra Datavision

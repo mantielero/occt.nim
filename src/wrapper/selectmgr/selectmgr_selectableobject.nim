@@ -1,8 +1,8 @@
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import ../prs3d/prs3d_types
 import ../prsmgr/prsmgr_types
 import ../graphic3d/graphic3d_types
-import ../../tkmath/bnd/bnd_types
+import ../bnd/bnd_types
 import selectmgr_types
 
 

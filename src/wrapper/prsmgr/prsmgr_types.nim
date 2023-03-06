@@ -1,6 +1,6 @@
 import ../graphic3d/graphic3d_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
 import ../prs3d/prs3d_types
 
 type

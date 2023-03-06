@@ -1,7 +1,7 @@
 import gc_types
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/geom/geom_types
+import ../gp/gp_types
+import ../standard/standard_types
+import ../geom/geom_types
 
 
 

@@ -1,4 +1,4 @@
-import ../../tkernel/ncollection/ncollection_types
+import ../ncollection/ncollection_types
 type
   AppParCurvesConstraint* {.size: sizeof(cint),
                            importcpp: "AppParCurves_Constraint",

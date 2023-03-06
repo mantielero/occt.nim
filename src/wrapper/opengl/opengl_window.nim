@@ -1,6 +1,6 @@
 import opengl_types
-import ../../tkernel/standard/standard_types
-import ../../tkservice/aspect/aspect_types
+import ../standard/standard_types
+import ../aspect/aspect_types
 ##  Created on: 2011-09-20
 ##  Created by: Sergey ZERCHANINOV
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS

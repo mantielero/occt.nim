@@ -1,6 +1,6 @@
-import ../../tkmath/tcolgp/tcolgp_types
+import ../tcolgp/tcolgp_types
 import appblend_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tcolstd/tcolstd_types
 
 
 

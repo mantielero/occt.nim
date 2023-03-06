@@ -1,7 +1,7 @@
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
-import ../../tkg3d/geom/geom_types
+import ../gp/gp_types
+import ../standard/standard_types
+import ../adaptor3d/adaptor3d_types
+import ../geom/geom_types
 import geomfill_types
 
 

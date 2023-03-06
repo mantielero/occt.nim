@@ -1,7 +1,7 @@
 import ../selectmgr/selectmgr_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import ais_types
-import ../../tkernel/quantity/quantity_types
+import ../quantity/quantity_types
 
 
 

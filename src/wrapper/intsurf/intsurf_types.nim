@@ -1,5 +1,5 @@
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
 type
   IntSurfListOfPntOn2S* {.importcpp:"NCollection_List<IntSurf_PntOn2S>", header:"IntSurf_ListOfPntOn2S.hxx",bycopy.} = object
 

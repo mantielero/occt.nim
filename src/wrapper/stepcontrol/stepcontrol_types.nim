@@ -1,5 +1,5 @@
-import ../tkxsbase/transfer/transfer_types
-import ../tkernel/standard/standard_types
+import ../transfer/transfer_types
+import ../standard/standard_types
 
 type
   StepReprRepresentation* = object  # FIXME

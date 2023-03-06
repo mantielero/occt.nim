@@ -1,6 +1,6 @@
 import topopebrepds_types
-import ../../tkernel/standard/standard_types
-import ../../tkg2d/geom2d/geom2d_types
+import ../standard/standard_types
+import ../geom2d/geom2d_types
 
 
 

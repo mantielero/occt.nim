@@ -1,12 +1,12 @@
-import ../../tkmath/gp/gp_types
-import ../../tkg3d/topabs/topabs_types
-import ../../tkernel/standard/standard_types
+import ../gp/gp_types
+import ../topabs/topabs_types
+import ../standard/standard_types
 import ais_types
 import ../prs3d/prs3d_types
 import ../graphic3d/graphic3d_types
-import ../../tkbrep/topods/topods_types
-import ../../tkernel/quantity/quantity_types
-import ../../tkmath/bnd/bnd_types
+import ../topods/topods_types
+import ../quantity/quantity_types
+import ../bnd/bnd_types
 
 
 

@@ -1,8 +1,8 @@
 import breplib_types
-import ../../tkbrep/topods/topods_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/geom/geom_types
-import ../../tkmath/toploc/toploc_types
+import ../topods/topods_types
+import ../standard/standard_types
+import ../geom/geom_types
+import ../toploc/toploc_types
 ##  Created on: 1994-07-22
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1994-1999 Matra Datavision

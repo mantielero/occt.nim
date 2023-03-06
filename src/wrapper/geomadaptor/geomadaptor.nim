@@ -1,5 +1,5 @@
 import ../adaptor3d/adaptor3d_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import ../geom/geom_types
 
 

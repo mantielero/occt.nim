@@ -1,5 +1,5 @@
 import brepcheck_types
-import ../tkbrep/topods/topods_types
+import ../topods/topods_types
 ##  Created on: 1995-12-12
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1995-1999 Matra Datavision

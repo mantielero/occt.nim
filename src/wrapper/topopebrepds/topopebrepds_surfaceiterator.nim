@@ -1,5 +1,5 @@
 import topopebrepds_types
-import ../../tkg3d/topabs/topabs_types
+import ../topabs/topabs_types
 
 
 

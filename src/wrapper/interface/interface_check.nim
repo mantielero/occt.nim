@@ -1,8 +1,8 @@
 import interface_types
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/message/message_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tcollection/tcollection_types
+import ../standard/standard_types
+import ../message/message_types
+import ../tcolstd/tcolstd_types
 
 
 

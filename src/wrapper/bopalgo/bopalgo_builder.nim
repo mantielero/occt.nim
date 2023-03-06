@@ -1,10 +1,10 @@
-import ../../tkg3d/topabs/topabs_types
-import ../../tkernel/standard/standard_types
+import ../topabs/topabs_types
+import ../standard/standard_types
 import bopalgo_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkbrep/topods/topods_types
-import ../../tkernel/message/message_types
+import ../ncollection/ncollection_types
+import ../toptools/toptools_types
+import ../topods/topods_types
+import ../message/message_types
 
 
 

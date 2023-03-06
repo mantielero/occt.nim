@@ -1,5 +1,5 @@
 import breplib_types
-import ../../tkbrep/topods/topods_types
+import ../topods/topods_types
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##

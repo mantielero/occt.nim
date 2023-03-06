@@ -1,10 +1,10 @@
 import prsdim_types
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
+import ../gp/gp_types
+import ../standard/standard_types
 import ../prs3d/prs3d_types
-import ../../tkbrep/topods/topods_types
-import ../../tkmath/bnd/bnd_types
-import ../../tkg3d/geom/geom_types
+import ../topods/topods_types
+import ../bnd/bnd_types
+import ../geom/geom_types
 import ../selectmgr/selectmgr_types
 
 

@@ -1,5 +1,5 @@
 import prs3d_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import ../graphic3d/graphic3d_types
 
 

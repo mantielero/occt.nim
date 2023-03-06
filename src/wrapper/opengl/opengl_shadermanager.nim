@@ -1,9 +1,9 @@
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkservice/aspect/aspect_types
-import ../../tkernel/standard/standard_types
-import ../../tkv3d/graphic3d/graphic3d_types
+import ../tcollection/tcollection_types
+import ../aspect/aspect_types
+import ../standard/standard_types
+import ../graphic3d/graphic3d_types
 import opengl_types
-import ../../tkmath/gp/gp_types
+import ../gp/gp_types
 
 
 ##  Created on: 2013-09-26

@@ -1,5 +1,5 @@
-import ../../tkernel/standard/standard_types
-import ../../tkernel/ncollection/ncollection_types
+import ../standard/standard_types
+import ../ncollection/ncollection_types
 import graphic3d_types
 
 

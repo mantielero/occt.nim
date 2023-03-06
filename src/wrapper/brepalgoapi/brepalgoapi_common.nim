@@ -1,5 +1,5 @@
 import ../bopalgo/bopalgo_types
-import ../../tkbrep/topods/topods_types
+import ../topods/topods_types
 import brepalgoapi_types
 
 

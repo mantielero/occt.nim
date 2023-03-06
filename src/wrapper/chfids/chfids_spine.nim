@@ -1,8 +1,8 @@
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
-import ../../tkbrep/brepadaptor/brepadaptor_types
-import ../../tkbrep/topods/topods_types
-import ../../tkmath/geomabs/geomabs_types
+import ../gp/gp_types
+import ../standard/standard_types
+import ../brepadaptor/brepadaptor_types
+import ../topods/topods_types
+import ../geomabs/geomabs_types
 import chfids_types
 
 

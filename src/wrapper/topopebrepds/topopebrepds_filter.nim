@@ -1,5 +1,5 @@
 import topopebrepds_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import ../topopebreptool/topopebreptool_types
 
 

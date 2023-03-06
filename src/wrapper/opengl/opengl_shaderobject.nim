@@ -1,6 +1,6 @@
-import ../../tkernel/tcollection/[tcollection_types, tcollection_asciistring]
-import ../../tkernel/standard/standard_types
-import ../../tkv3d/graphic3d/graphic3d_types
+import ../tcollection/[tcollection_types, tcollection_asciistring]
+import ../standard/standard_types
+import ../graphic3d/graphic3d_types
 import opengl_types
 
 

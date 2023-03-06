@@ -1,8 +1,8 @@
 import ../selectmgr/selectmgr_types
-import ../../tkg3d/topabs/topabs_types
-import ../../tkernel/standard/standard_types
+import ../topabs/topabs_types
+import ../standard/standard_types
 import ais_types
-import ../../tkbrep/topods/topods_types
+import ../topods/topods_types
 
 
 

@@ -1,8 +1,8 @@
 import aspect_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkv3d/graphic3d/graphic3d_types
-import ../../tkv3d/selectmgr/selectmgr_types
+import ../standard/standard_types
+import ../ncollection/ncollection_types
+import ../graphic3d/graphic3d_types
+import ../selectmgr/selectmgr_types
 ##  Copyright (c) 2021 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.

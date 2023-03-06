@@ -1,4 +1,4 @@
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 type
   LawLaws* {.importcpp:"NCollection_List<Handle(Law_Function)>", header:"Law_Laws.hxx",bycopy.} = object
 

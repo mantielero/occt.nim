@@ -1,7 +1,7 @@
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import ais_types
 import ../prs3d/prs3d_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tcolstd/tcolstd_types
 
 
 

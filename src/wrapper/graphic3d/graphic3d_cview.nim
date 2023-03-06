@@ -1,11 +1,11 @@
-import ../../tkmath/gp/gp_types
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkservice/aspect/aspect_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/ncollection/ncollection_types
+import ../gp/gp_types
+import ../tcollection/tcollection_types
+import ../aspect/aspect_types
+import ../standard/standard_types
+import ../ncollection/ncollection_types
 import graphic3d_types, graphic3d_zlayerid
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkmath/bnd/bnd_types
+import ../tcolstd/tcolstd_types
+import ../bnd/bnd_types
 import ../selectmgr/selectmgr_types
 
 

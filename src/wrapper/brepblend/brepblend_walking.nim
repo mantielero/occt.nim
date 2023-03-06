@@ -1,9 +1,9 @@
 import brepblend_types
-import ../../tkmath/math/math_types
-import ../../tkg3d/topabs/topabs_types
+import ../math/math_types
+import ../topabs/topabs_types
 import ../blend/blend_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../standard/standard_types
+import ../adaptor3d/adaptor3d_types
 import ../chfids/chfids_types
 
 

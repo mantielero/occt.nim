@@ -1,8 +1,8 @@
 import poly_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 #import ../gp/gp_types
-#import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/tcolstd/tcolstd_types
+#import ../ncollection/ncollection_types
+import ../tcolstd/tcolstd_types
 #import ../tcolgp/tcolgp_types
 ##  Created on: 1996-02-21
 ##  Created by: Laurent PAINNOT

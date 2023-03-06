@@ -1,10 +1,10 @@
-import ../../tkmath/tcolgp/tcolgp_types
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/tcolgeom/tcolgeom_types
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkg3d/geom/geom_types
-import ../../tkmath/geomabs/geomabs_types
+import ../tcolgp/tcolgp_types
+import ../gp/gp_types
+import ../standard/standard_types
+import ../tcolgeom/tcolgeom_types
+import ../tcolstd/tcolstd_types
+import ../geom/geom_types
+import ../geomabs/geomabs_types
 import geomfill_types
 
 

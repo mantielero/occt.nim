@@ -1,5 +1,5 @@
 import breplib_types
-#import ../../tkbrep/topods/topods_types
+#import ../topods/topods_types
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision

@@ -1,7 +1,7 @@
 import topopebreptool_types
-import ../../tkg3d/geomadaptor/geomadaptor_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkbrep/topods/topods_types
+import ../geomadaptor/geomadaptor_types
+import ../toptools/toptools_types
+import ../topods/topods_types
 
 
 

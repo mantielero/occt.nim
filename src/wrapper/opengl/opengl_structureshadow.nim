@@ -1,6 +1,6 @@
 import opengl_types
-import ../../tkernel/standard/standard_types
-import ../../tkv3d/graphic3d/graphic3d_types
+import ../standard/standard_types
+import ../graphic3d/graphic3d_types
 
 ##  Created on: 2014-09-01
 ##  Created by: Ivan SAZONOV

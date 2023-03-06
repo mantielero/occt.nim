@@ -1,6 +1,6 @@
-import ../../tkmath/math/math_types
-import ../../tkernel/standard/standard_types
-import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../math/math_types
+import ../standard/standard_types
+import ../adaptor2d/adaptor2d_types
 import blend_types
 
 

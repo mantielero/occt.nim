@@ -1,7 +1,7 @@
 import extrema_types
-import ../tkmath/math/math_types
-import ../tkg3d/adaptor3d/adaptor3d_types
-import ../tkernel/tcolstd/tcolstd_types
+import ../math/math_types
+import ../adaptor3d/adaptor3d_types
+import ../tcolstd/tcolstd_types
 ##  Created on: 1996-01-22
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1996-1999 Matra Datavision

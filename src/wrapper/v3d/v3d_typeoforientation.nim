@@ -1,5 +1,5 @@
 {.hints:off.}
-#import ../../tkernel/quantity/[quantity_types, quantity_color]
+#import ../quantity/[quantity_types, quantity_color]
 import v3d_types
 
 

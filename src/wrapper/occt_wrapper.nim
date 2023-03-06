@@ -148,22 +148,22 @@ import ifselect/ifselect_includes
 #--------------------------------------------------------
 
 export cnew
-export tkernel
-export tkmath
-export tkgeombase
-export tkg3d
-export tkg2d
-export tkbrep
-export tktopalgo
-export tkprim
-export tkfillet
-export tkbool
-export tkgeomalgo
-export tkbo
-export tkxsbase
-export tkv3d
-export tkservice
-export tkopengl
+# export tkernel
+# export tkmath
+# export tkgeombase
+# export tkg3d
+# export tkg2d
+# export tkbrep
+# export tktopalgo
+# export tkprim
+# export tkfillet
+# export tkbool
+# export tkgeomalgo
+# export tkbo
+# export tkxsbase
+# export tkv3d
+# export tkservice
+# export tkopengl
 
 
 # TKBO
@@ -178,11 +178,11 @@ export topopebreptool_includes
 
 # TKBrep
 export breptools_includes
-export topods/topods_includes
-export toptools/toptools_includes
-export brep/brep_includes
-export brepadaptor/brepadaptor_includes
-export topexp/topexp_includes
+export topods_includes
+export toptools_includes
+export brep_includes
+export brepadaptor_includes
+export topexp_includes
 
 
 # TKernel

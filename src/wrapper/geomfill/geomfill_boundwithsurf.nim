@@ -1,5 +1,5 @@
-import ../../tkmath/gp/gp_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../gp/gp_types
+import ../adaptor3d/adaptor3d_types
 import geomfill_types
 
 

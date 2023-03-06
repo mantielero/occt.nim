@@ -1,5 +1,5 @@
 import extrema_types
-import ../tkg3d/adaptor3d/adaptor3d_types
+import ../adaptor3d/adaptor3d_types
 ##  Created on: 1994-07-06
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1994-1999 Matra Datavision

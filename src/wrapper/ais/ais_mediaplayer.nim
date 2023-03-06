@@ -1,5 +1,5 @@
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkernel/standard/standard_types
+import ../tcollection/tcollection_types
+import ../standard/standard_types
 import ais_types
 import ../graphic3d/graphic3d_types
 import ../selectmgr/selectmgr_types

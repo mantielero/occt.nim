@@ -1,6 +1,6 @@
-import ../../tkernel/standard/standard_types
-import ../../tkv3d/selectmgr/selectmgr_types
-import ../../tkv3d/graphic3d/graphic3d_types
+import ../standard/standard_types
+import ../selectmgr/selectmgr_types
+import ../graphic3d/graphic3d_types
 import opengl_types
 
 

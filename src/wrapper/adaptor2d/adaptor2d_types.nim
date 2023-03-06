@@ -1,4 +1,4 @@
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 type
   Adaptor2dCurve2d* {.importcpp: "Adaptor2d_Curve2d",
                      header: "Adaptor2d_Curve2d.hxx", bycopy.} = object of RootObj

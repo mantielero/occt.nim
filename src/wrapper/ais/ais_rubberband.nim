@@ -1,8 +1,8 @@
-import ../../tkservice/aspect/aspect_types
+import ../aspect/aspect_types
 import ais_types
-import ../../tkernel/ncollection/ncollection_types
+import ../ncollection/ncollection_types
 import ../graphic3d/graphic3d_types
-import ../../tkernel/quantity/quantity_types
+import ../quantity/quantity_types
 
 
 

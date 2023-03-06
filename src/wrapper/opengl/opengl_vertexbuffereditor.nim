@@ -1,5 +1,5 @@
 import opengl_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 
 
 ##  Created by: Kirill GAVRILOV

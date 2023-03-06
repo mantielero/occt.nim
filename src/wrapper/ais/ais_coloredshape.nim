@@ -1,8 +1,8 @@
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import ais_types
 import ../graphic3d/graphic3d_types
-import ../../tkbrep/topods/topods_types
-import ../../tkernel/quantity/quantity_types
+import ../topods/topods_types
+import ../quantity/quantity_types
 
 
 

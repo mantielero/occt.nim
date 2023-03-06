@@ -1,10 +1,10 @@
 import brep_types
-import ../../tkmath/toploc/toploc_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/geom/geom_types
-import ../../tkmath/geomabs/geomabs_types
-import ../../tkmath/poly/poly_types
-import ../../tkg2d/geom2d/geom2d_types
+import ../toploc/toploc_types
+import ../standard/standard_types
+import ../geom/geom_types
+import ../geomabs/geomabs_types
+import ../poly/poly_types
+import ../geom2d/geom2d_types
 
 
 

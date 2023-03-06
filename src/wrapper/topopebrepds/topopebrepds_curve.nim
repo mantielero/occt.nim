@@ -1,8 +1,8 @@
 import topopebrepds_types
-import ../../tkernel/standard/standard_types
-import ../../tkbrep/topods/topods_types
-import ../../tkg3d/geom/geom_types
-import ../../tkg2d/geom2d/geom2d_types
+import ../standard/standard_types
+import ../topods/topods_types
+import ../geom/geom_types
+import ../geom2d/geom2d_types
 
 
 

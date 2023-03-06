@@ -1,14 +1,14 @@
-import ../../tkmath/tcolgp/tcolgp_types
+import ../tcolgp/tcolgp_types
 import brepblend_types
-import ../../tkmath/math/math_types
-import ../../tkmath/gp/gp_types
+import ../math/math_types
+import ../gp/gp_types
 import ../blend/blend_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
-import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../standard/standard_types
+import ../adaptor3d/adaptor3d_types
+import ../adaptor2d/adaptor2d_types
 import ../blendfunc/blendfunc_types
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkmath/geomabs/geomabs_types
+import ../tcolstd/tcolstd_types
+import ../geomabs/geomabs_types
 
 
 

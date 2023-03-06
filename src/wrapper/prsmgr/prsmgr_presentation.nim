@@ -1,4 +1,4 @@
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import ../prs3d/prs3d_types
 import prsmgr_types
 

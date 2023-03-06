@@ -1,6 +1,6 @@
 import brepbuilderapi_types
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkmath/bnd/bnd_types
+import ../tcolstd/tcolstd_types
+import ../bnd/bnd_types
 
 
 

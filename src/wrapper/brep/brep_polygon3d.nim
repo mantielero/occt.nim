@@ -1,7 +1,7 @@
 import brep_types
-import ../../tkmath/toploc/toploc_types
-import ../../tkernel/standard/standard_types
-import ../../tkmath/poly/poly_types
+import ../toploc/toploc_types
+import ../standard/standard_types
+import ../poly/poly_types
 
 
 

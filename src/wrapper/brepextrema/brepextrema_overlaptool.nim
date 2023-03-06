@@ -1,5 +1,5 @@
 import brepextrema_types
-import ../tkernel/standard/standard_types
+import ../standard/standard_types
 ##  Created on: 2015-04-26
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2015 OPEN CASCADE SAS

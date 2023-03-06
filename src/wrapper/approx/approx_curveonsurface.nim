@@ -1,10 +1,10 @@
 import approx_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
-import ../../tkg2d/adaptor2d/adaptor2d_types
-import ../../tkmath/geomabs/geomabs_types
-import ../../tkg3d/geom/geom_types
-import ../../tkg2d/geom2d/geom2d_types
+import ../standard/standard_types
+import ../adaptor3d/adaptor3d_types
+import ../adaptor2d/adaptor2d_types
+import ../geomabs/geomabs_types
+import ../geom/geom_types
+import ../geom2d/geom2d_types
 
 
 

@@ -1,6 +1,6 @@
 import ../bopalgo/bopalgo_types
-#import ../../tkbrep/brep/brep_types
-import ../../tktopalgo/brepbuilderapi/brepbuilderapi_types
+#import ../brep/brep_types
+import ../brepbuilderapi/brepbuilderapi_types
 
 type
   BRepAlgoAPI_Algo* {.importcpp: "BRepAlgoAPI_Algo",

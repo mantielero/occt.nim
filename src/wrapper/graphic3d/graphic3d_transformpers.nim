@@ -1,10 +1,10 @@
-import ../../tkmath/gp/gp_types
-import ../../tkservice/aspect/aspect_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkmath/bvh/bvh_types
+import ../gp/gp_types
+import ../aspect/aspect_types
+import ../standard/standard_types
+import ../ncollection/ncollection_types
+import ../bvh/bvh_types
 import graphic3d_types
-import ../../tkmath/bnd/bnd_types
+import ../bnd/bnd_types
 
 
 

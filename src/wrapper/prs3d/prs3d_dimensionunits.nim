@@ -1,5 +1,5 @@
 import prs3d_types
-import ../../tkernel/tcollection/tcollection_types
+import ../tcollection/tcollection_types
 
 
 

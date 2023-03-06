@@ -1,9 +1,9 @@
-import ../../tkservice/aspect/aspect_types
-import ../../tkernel/standard/standard_types
+import ../aspect/aspect_types
+import ../standard/standard_types
 import ais_types
 import ../prs3d/prs3d_types
 import ../graphic3d/graphic3d_types
-import ../../tkernel/quantity/quantity_types
+import ../quantity/quantity_types
 
 
 

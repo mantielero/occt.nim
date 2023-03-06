@@ -1,5 +1,5 @@
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
+import ../gp/gp_types
+import ../standard/standard_types
 import ../graphic3d/graphic3d_types
 import selectmgr_types
 

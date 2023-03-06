@@ -1,7 +1,7 @@
 import ../topods/topods_types
-import ../../tkg3d/topabs/topabs_types
+import ../topabs/topabs_types
 import toptools_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 
 
 

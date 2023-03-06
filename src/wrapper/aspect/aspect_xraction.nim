@@ -1,4 +1,4 @@
-import ../../tkernel/tcollection/tcollection_types
+import ../tcollection/tcollection_types
 import aspect_types
 
 

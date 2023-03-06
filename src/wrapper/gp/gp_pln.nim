@@ -1,7 +1,7 @@
 {.experimental: "callOperator".}
 import gp_types
-#import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
+#import ../ncollection/ncollection_types
+import ../standard/standard_types
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##

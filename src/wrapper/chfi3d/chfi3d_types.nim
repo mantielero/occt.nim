@@ -1,4 +1,4 @@
-import ../../tkmath/math/math_types
+import ../math/math_types
 
 type
   ChFi3dFilletShape* {.size: sizeof(cint), importcpp: "ChFi3d_FilletShape",

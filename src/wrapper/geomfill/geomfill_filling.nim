@@ -1,5 +1,5 @@
-import ../../tkmath/tcolgp/tcolgp_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tcolgp/tcolgp_types
+import ../tcolstd/tcolstd_types
 import geomfill_types
 
 

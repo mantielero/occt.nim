@@ -1,6 +1,6 @@
 import brepoffset_types
-import ../tkbrep/topods/topods_types
-import ../tkernel/tcollection/tcollection_types
+import ../topods/topods_types
+import ../tcollection/tcollection_types
 
 ##  Created on: 2016-10-13
 ##  Created by: Alexander MALYSHEV

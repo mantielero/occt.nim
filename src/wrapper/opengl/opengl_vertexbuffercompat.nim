@@ -1,6 +1,6 @@
 import opengl_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/ncollection/ncollection_types
+import ../standard/standard_types
+import ../ncollection/ncollection_types
 
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS

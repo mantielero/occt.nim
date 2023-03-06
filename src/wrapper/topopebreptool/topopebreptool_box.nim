@@ -1,7 +1,7 @@
 import topopebreptool_types
-import ../../tkernel/standard/standard_types
-import ../../tkbrep/topods/topods_types
-import ../../tkmath/bnd/bnd_types
+import ../standard/standard_types
+import ../topods/topods_types
+import ../bnd/bnd_types
 
 
 ##  Created on: 1997-04-01

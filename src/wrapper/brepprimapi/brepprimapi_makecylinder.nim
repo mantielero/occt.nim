@@ -1,4 +1,4 @@
-import ../../tkmath/gp/gp_types
+import ../gp/gp_types
 import brepprimapi_types
 import ../brepprim/brepprim_types
 

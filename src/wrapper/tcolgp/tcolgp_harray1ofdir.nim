@@ -16,7 +16,7 @@ import tcolgp_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tcolstd/tcolstd_types
 
 proc newTColgpHArray1OfDir*(theLower: cint; theUpper: cint): TColgpHArray1OfDir {.
     cdecl, constructor, importcpp: "TColgp_HArray1OfDir(@)", header: "TColgp_HArray1OfDir.hxx".}

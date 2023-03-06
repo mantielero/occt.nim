@@ -1,6 +1,6 @@
-import ../../tkmath/tcolgp/tcolgp_types
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
+import ../tcolgp/tcolgp_types
+import ../gp/gp_types
+import ../standard/standard_types
 import ../v3d/v3d_types
 import selectmgr_types
 

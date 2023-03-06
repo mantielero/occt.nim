@@ -1,9 +1,9 @@
 # PROVIDES: ConvertCosAndSinEvalFunction ConvertParameterisationType ConvertSequenceOfArray1OfPoles2d ConvertCompBezierCurves2dToBSplineCurve2d ConvertCompBezierCurvesToBSplineCurve ConvertCompPolynomialToPoles ConvertConicToBSplineCurve ConvertElementarySurfaceToBSplineSurface ConvertGridPolynomialToPoles
 # DEPENDS:  NCollectionSequence[Handle[TColgpHArray1OfPnt]] ConvertConicToBSplineCurve ConvertElementarySurfaceToBSplineSurface ConvertElementarySurfaceToBSplineSurface ConvertConicToBSplineCurve ConvertConicToBSplineCurve ConvertConicToBSplineCurve ConvertElementarySurfaceToBSplineSurface ConvertElementarySurfaceToBSplineSurface
 
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
+import ../tcolstd/tcolstd_types
 import ../tcolgp/tcolgp_types
 
 type

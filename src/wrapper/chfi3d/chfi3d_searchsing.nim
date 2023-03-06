@@ -1,6 +1,6 @@
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import chfi3d_types
-import ../../tkg3d/geom/geom_types
+import ../geom/geom_types
 
 
 

@@ -1,9 +1,9 @@
 import brepblend_types
-import ../../tkmath/math/math_types
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
-import ../../tkgeomalgo/law/law_types
+import ../math/math_types
+import ../gp/gp_types
+import ../standard/standard_types
+import ../adaptor3d/adaptor3d_types
+import ../law/law_types
 
 
 

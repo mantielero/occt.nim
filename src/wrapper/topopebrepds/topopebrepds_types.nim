@@ -1,10 +1,10 @@
-import ../../tkbrep/topods/topods_types
-import ../../tkg3d/topabs/topabs_types
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/geom/geom_types
+import ../topods/topods_types
+import ../topabs/topabs_types
+import ../tcolstd/tcolstd_types
+import ../toptools/toptools_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
+import ../geom/geom_types
 
 type
   TopOpeBRepDS_CheckStatus* {.size: sizeof(cint),

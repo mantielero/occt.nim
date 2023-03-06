@@ -1,5 +1,5 @@
 import ../aspect/aspect_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 #import x11/xlib
 #export xlib
 type

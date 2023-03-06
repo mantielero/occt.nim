@@ -1,7 +1,7 @@
 import brepblend_types
-import ../../tkmath/math/math_types
+import ../math/math_types
 import ../blend/blend_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 
 
 

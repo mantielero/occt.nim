@@ -1,8 +1,8 @@
 # PROVIDES: TopLocMapIteratorOfMapOfLocation TopLocItemLocation TopLocLocation TopLocSListOfItemLocation
 # DEPENDS:  NCollectionIndexedMap[TopLocLocation,  NCollectionDefaultHasher[TopLocLocation]  NCollectionMap[TopLocLocation, TopLocMapLocationHasher]  Handle[TopLocDatum3D] StandardTransient  Handle[TopLocSListNodeOfItemLocation] StandardTransient
 
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
 type
   TopLocMapIteratorOfMapOfLocation* {.importcpp:"NCollection_Map<TopLoc_Location,TopLoc_MapLocationHasher>::Iterator", header: "TopoDS_MapOfLocation.hxx", bycopy.} = object
 

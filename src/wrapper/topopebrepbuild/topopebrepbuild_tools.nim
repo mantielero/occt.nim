@@ -1,9 +1,9 @@
-import ../../tkmath/gp/gp_types
-import ../../tkg3d/topabs/topabs_types
+import ../gp/gp_types
+import ../topabs/topabs_types
 import ../topopebreptool/topopebreptool_types
-import ../../tkbrep/toptools/toptools_types
+import ../toptools/toptools_types
 import ../topopebrepds/topopebrepds_types
-import ../../tkbrep/topods/topods_types
+import ../topods/topods_types
 
 
 

@@ -2,7 +2,7 @@
 # DEPENDS:  BVH_PrimitiveSet[cfloat, 3]  Pair[cuint, cint] BVH_Set BVH_BaseTraverse BVH_BaseTraverse BVH_Traverse BVH_ObjectSet BVH_PairTraverse BVH_PrimitiveSet StandardTransient BVH_BuilderTransient StandardTransient BVH_BoxSet BVH_Builder StandardTransient BVH_ObjectTransient BVH_Object StandardTransient BVH_Properties BVH_Builder BVH_Sorter BVH_Sorter BVH_QueueBuilder StandardTransient BVH_TreeBaseTransient BVH_PrimitiveSet
 
 
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 
 type
     MetricType* = object # FIXME

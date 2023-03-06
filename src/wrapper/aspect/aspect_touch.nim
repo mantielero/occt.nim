@@ -1,5 +1,5 @@
 import aspect_types
-import ../../tkernel/ncollection/ncollection_types
+import ../ncollection/ncollection_types
 
 
 

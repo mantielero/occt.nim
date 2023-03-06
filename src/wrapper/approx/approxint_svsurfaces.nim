@@ -1,6 +1,6 @@
-import ../../tkmath/gp/gp_types
+import ../gp/gp_types
 import approx_types
-import ../../tkgeomalgo/intsurf/intsurf_types
+import ../intsurf/intsurf_types
 
 
 

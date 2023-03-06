@@ -1,11 +1,11 @@
 {.hints:off.}
-import ../../tkmath/tcolgp/tcolgp_types
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/ncollection/ncollection_types
+import ../tcolgp/tcolgp_types
+import ../gp/gp_types
+import ../standard/standard_types
+import ../ncollection/ncollection_types
 import ../graphic3d/[graphic3d_types, graphic3d_worldviewprojstate]
 import selectmgr_types
-import ../../tkernel/ncollection/ncollection_types
+import ../ncollection/ncollection_types
 
 
 

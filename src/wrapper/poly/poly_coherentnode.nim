@@ -1,7 +1,7 @@
 import poly_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import ../gp/gp_types
-import ../../tkernel/ncollection/ncollection_types
+import ../ncollection/ncollection_types
 
 ##  Created on: 2007-12-08
 ##  Created by: Alexander GRIGORIEV

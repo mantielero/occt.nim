@@ -1,8 +1,8 @@
 {.experimental: "callOperator".}
 
-import ../../tkg3d/topabs/topabs_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkbrep/topods/topods_types
+import ../topabs/topabs_types
+import ../toptools/toptools_types
+import ../topods/topods_types
 import chfids_types
 
 

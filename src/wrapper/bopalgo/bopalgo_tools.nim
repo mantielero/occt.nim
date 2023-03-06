@@ -1,7 +1,7 @@
-import ../../tkernel/standard/standard_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkbrep/topods/topods_types
+import ../standard/standard_types
+import ../ncollection/ncollection_types
+import ../toptools/toptools_types
+import ../topods/topods_types
 
 
 

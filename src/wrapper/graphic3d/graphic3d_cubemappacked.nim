@@ -1,5 +1,5 @@
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkernel/standard/standard_types
+import ../tcollection/tcollection_types
+import ../standard/standard_types
 import graphic3d_types, graphic3d_cubemaporder
 import ../selectmgr/selectmgr_types
 

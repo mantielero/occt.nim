@@ -1,13 +1,13 @@
 import breplib_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkg2d/geom2d/geom2d_types
-import ../../tkg3d/geom/geom_types
-import ../../tkbrep/topods/topods_types
-import ../../tkmath/geomabs/geomabs_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkmath/gp/gp_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../standard/standard_types
+import ../ncollection/ncollection_types
+import ../geom2d/geom2d_types
+import ../geom/geom_types
+import ../topods/topods_types
+import ../geomabs/geomabs_types
+import ../toptools/toptools_types
+import ../gp/gp_types
+import ../adaptor3d/adaptor3d_types
 ##  Created on: 1993-12-15
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision

@@ -1,6 +1,6 @@
 {.experimental: "callOperator".}
 
-import ../../tkmath/math/math_types
+import ../math/math_types
 import geomfill_types
 
 

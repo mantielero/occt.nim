@@ -1,8 +1,8 @@
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkernel/standard/standard_types
+import ../tcollection/tcollection_types
+import ../standard/standard_types
 import ../aspect/aspect_types  # x11/xlib exported from here
 import xw_types
-import ../../tkv3d/ais/ais_types
+import ../ais/ais_types
 
 #import x11/xlib
 ##  Created on: 2013-04-06

@@ -1,6 +1,6 @@
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import aspect_types
-import ../../tkernel/quantity/quantity_types
+import ../quantity/quantity_types
 
 
 

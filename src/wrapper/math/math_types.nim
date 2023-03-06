@@ -2,8 +2,8 @@
 # DEPENDS:  NCollectionArray1[MathValueAndWeight]  Handle[MathNotSquare]  Handle[MathSingularMatrix] MathFunctionSet MathFunction MathMultipleVarFunction MathMultipleVarFunctionWithGradient MathFunctionWithDerivative
 
 
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
 
 const
   mathStatusUserAborted*    = -1

@@ -1,6 +1,6 @@
 import breptools_types
-import ../tkbrep/topods/topods_types
-import ../tkbrep/toptools/toptools_types
+import ../topods/topods_types
+import ../toptools/toptools_types
 ##  Created on: 1995-03-28
 ##  Created by: Yves FRICAUD
 ##  Copyright (c) 1995-1999 Matra Datavision

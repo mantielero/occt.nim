@@ -1,8 +1,8 @@
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
+import ../gp/gp_types
+import ../standard/standard_types
 import ../graphic3d/graphic3d_types
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkernel/quantity/quantity_types
+import ../tcolstd/tcolstd_types
+import ../quantity/quantity_types
 import v3d_types
 
 

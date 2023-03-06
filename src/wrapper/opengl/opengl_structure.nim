@@ -1,7 +1,7 @@
 import opengl_types
-import ../../tkernel/standard/standard_types
-import ../../tkv3d/graphic3d/graphic3d_types
-import ../../tkmath/toploc/toploc_types
+import ../standard/standard_types
+import ../graphic3d/graphic3d_types
+import ../toploc/toploc_types
 
 ##  Created on: 2011-08-01
 ##  Created by: Sergey ZERCHANINOV

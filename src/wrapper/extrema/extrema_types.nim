@@ -1,7 +1,7 @@
-import ../tkmath/math/math_types
-import ../tkmath/bnd/bnd_types
-import ../tkernel/ncollection/ncollection_types
-import ../tkernel/standard/standard_types
+import ../math/math_types
+import ../bnd/bnd_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
 
 
 type

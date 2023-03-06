@@ -1,20 +1,20 @@
-import ../../tkmath/tcolgp/tcolgp_types
+import ../tcolgp/tcolgp_types
 import ../selectmgr/selectmgr_types
-import ../../tkmath/toploc/toploc_types
-import ../../tkmath/gp/gp_types
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkernel/standard/standard_types
+import ../toploc/toploc_types
+import ../gp/gp_types
+import ../tcollection/tcollection_types
+import ../standard/standard_types
 import ais_types
 import ../prs3d/prs3d_types
 import ../prsmgr/prsmgr_types
 import ../v3d/v3d_types
 import ../graphic3d/graphic3d_types
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkbrep/topods/topods_types
-import ../../tkernel/quantity/quantity_types
-import ../../tkmath/bnd/bnd_types
-import ../../tkmath/gp/gp_pnt
-import ../../tkservice/aspect/aspect_types
+import ../tcolstd/tcolstd_types
+import ../topods/topods_types
+import ../quantity/quantity_types
+import ../bnd/bnd_types
+import ../gp/gp_pnt
+import ../aspect/aspect_types
 
 
 

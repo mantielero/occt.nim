@@ -1,6 +1,6 @@
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
+import ../tcollection/tcollection_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
 type
   InterfaceArray1OfHAsciiString* = NCollectionArray1[
       Handle[TCollectionHAsciiString]]

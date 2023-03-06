@@ -1,7 +1,7 @@
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import ais_types
-import ../../tkernel/quantity/quantity_types
-import ../../tkg3d/geom/geom_types
+import ../quantity/quantity_types
+import ../geom/geom_types
 
 
 

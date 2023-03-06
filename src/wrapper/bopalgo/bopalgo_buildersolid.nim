@@ -1,7 +1,7 @@
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import bopalgo_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkbrep/toptools/toptools_types
+import ../ncollection/ncollection_types
+import ../toptools/toptools_types
 
 
 

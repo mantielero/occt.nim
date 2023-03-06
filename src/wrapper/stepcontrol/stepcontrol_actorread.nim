@@ -1,8 +1,8 @@
-import ../tkmath/gp/gp_types
-import ../tkxsbase/transfer/transfer_types
-import ../tkernel/standard/standard_types
+import ../gp/gp_types
+import ../transfer/transfer_types
+import ../standard/standard_types
 import stepcontrol_types
-import ../tkernel/message/[message_types, message_progressrange]
+import ../message/[message_types, message_progressrange]
 
 
 

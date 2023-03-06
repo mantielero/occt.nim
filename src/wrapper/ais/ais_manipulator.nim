@@ -1,8 +1,8 @@
 import ../selectmgr/selectmgr_types
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
+import ../gp/gp_types
+import ../standard/standard_types
 import ais_types
-import ../../tkernel/ncollection/ncollection_types
+import ../ncollection/ncollection_types
 import ../prs3d/prs3d_types
 import ../prsmgr/prsmgr_types
 import ../v3d/v3d_types

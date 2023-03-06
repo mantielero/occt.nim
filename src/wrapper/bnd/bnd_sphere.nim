@@ -1,7 +1,7 @@
 import bnd_types
-#import ../../tkernel/standard/standard_types
-#import ../../tkernel/tcolstd/tcolstd_types
-#import ../../tkernel/ncollection/ncollection_types
+#import ../standard/standard_types
+#import ../tcolstd/tcolstd_types
+#import ../ncollection/ncollection_types
 import ../gp/gp_types
 #import ../tcolgp/tcolgp_types
 ##  Created on: 2010-12-03

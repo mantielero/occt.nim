@@ -1,7 +1,7 @@
-import ../../tkmath/bvh/bvh_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
-import ../../tkservice/aspect/aspect_types
+import ../bvh/bvh_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
+import ../aspect/aspect_types
 
 type
   Graphic3dMapOfAspectsToAspects* = object # FIXME

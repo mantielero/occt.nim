@@ -1,8 +1,8 @@
-import ../../tkmath/gp/gp_types
-import ../../tkservice/aspect/aspect_types
-import ../../tkernel/standard/standard_types
+import ../gp/gp_types
+import ../aspect/aspect_types
+import ../standard/standard_types
 import ais_types
-import ../../tkernel/ncollection/ncollection_types
+import ../ncollection/ncollection_types
 import ../v3d/v3d_types
 import ../graphic3d/graphic3d_types
 import ../selectmgr/selectmgr_types

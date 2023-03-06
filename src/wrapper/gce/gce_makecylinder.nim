@@ -1,5 +1,5 @@
 import gce_types
-import ../../tkmath/gp/gp_types
+import ../gp/gp_types
 
 
 

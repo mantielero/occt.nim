@@ -1,10 +1,10 @@
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkservice/aspect/aspect_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/message/message_types
-import ../../tkv3d/selectmgr/selectmgr_types
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkv3d/graphic3d/graphic3d_types
+import ../tcollection/tcollection_types
+import ../aspect/aspect_types
+import ../standard/standard_types
+import ../message/message_types
+import ../selectmgr/selectmgr_types
+import ../tcolstd/tcolstd_types
+import ../graphic3d/graphic3d_types
 import opengl_types
 
 

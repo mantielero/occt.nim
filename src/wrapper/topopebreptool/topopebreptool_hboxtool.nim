@@ -1,7 +1,7 @@
-import ../../tkg3d/topabs/topabs_types
+import ../topabs/topabs_types
 import topopebreptool_types
-import ../../tkbrep/topods/topods_types
-import ../../tkmath/bnd/bnd_types
+import ../topods/topods_types
+import ../bnd/bnd_types
 
 
 

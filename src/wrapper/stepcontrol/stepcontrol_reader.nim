@@ -1,7 +1,7 @@
-import ../tkernel/standard/standard_types
-import ../tkernel/tcolstd/tcolstd_types
+import ../standard/standard_types
+import ../tcolstd/tcolstd_types
 import stepcontrol_types
-import ../tkernel/message/[message_types, message_progressrange]
+import ../message/[message_types, message_progressrange]
 
 
 

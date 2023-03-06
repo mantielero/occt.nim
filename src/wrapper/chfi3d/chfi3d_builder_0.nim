@@ -1,20 +1,20 @@
-import ../../tkbool/topopebrepds/topopebrepds_types
-import ../../tkmath/gp/gp_types
-import ../../tkg3d/topabs/topabs_types
-import ../../tkgeomalgo/intsurf/intsurf_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
-import ../../tkbrep/brepadaptor/brepadaptor_types
-import ../../tkg3d/geomadaptor/geomadaptor_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkgeomalgo/geomfill/geomfill_types
-import ../../tkbrep/topods/topods_types
+import ../topopebrepds/topopebrepds_types
+import ../gp/gp_types
+import ../topabs/topabs_types
+import ../intsurf/intsurf_types
+import ../standard/standard_types
+import ../adaptor3d/adaptor3d_types
+import ../brepadaptor/brepadaptor_types
+import ../geomadaptor/geomadaptor_types
+import ../toptools/toptools_types
+import ../tcolstd/tcolstd_types
+import ../geomfill/geomfill_types
+import ../topods/topods_types
 import ../chfids/chfids_types
-import ../../tkmath/bnd/bnd_types
-import ../../tkg3d/geom/geom_types
-import ../../tkmath/geomabs/geomabs_types
-import ../../tkg2d/geom2d/geom2d_types
+import ../bnd/bnd_types
+import ../geom/geom_types
+import ../geomabs/geomabs_types
+import ../geom2d/geom2d_types
 import ../brepblend/brepblend_types
 
 

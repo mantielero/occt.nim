@@ -1,5 +1,5 @@
 import extrema_types
-import ../tkmath/gp/gp_types
+import ../gp/gp_types
 
 ##  Created on: 1993-12-13
 ##  Created by: Christophe MARION

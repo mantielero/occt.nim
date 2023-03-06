@@ -1,7 +1,7 @@
 import brepextrema_types
-import ../tkbrep/topods/topods_types
-import ../tkernel/standard/standard_types
-import ../tkmath/bvh/bvh_types
+import ../topods/topods_types
+import ../standard/standard_types
+import ../bvh/bvh_types
 ##  Created on: 2015-04-26
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2015 OPEN CASCADE SAS

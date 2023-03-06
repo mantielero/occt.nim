@@ -1,10 +1,10 @@
 import ../prsmgr/prsmgr_types
-import ../../tkmath/bvh/bvh_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
-import ../../tkmath/gp/gp_types
-import ../../tkv3d/graphic3d/graphic3d_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../bvh/bvh_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
+import ../gp/gp_types
+import ../graphic3d/graphic3d_types
+import ../tcolstd/tcolstd_types
 
 type
   Select3D_SensitiveEntity* = object # FIXME

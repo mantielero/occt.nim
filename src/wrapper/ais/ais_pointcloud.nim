@@ -1,12 +1,12 @@
-import ../../tkmath/tcolgp/tcolgp_types
-import ../../tkernel/standard/standard_types
+import ../tcolgp/tcolgp_types
+import ../standard/standard_types
 import ais_types
 import ../prs3d/prs3d_types
 import ../prsmgr/prsmgr_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tcolstd/tcolstd_types
 import ../graphic3d/graphic3d_types
-import ../../tkernel/quantity/quantity_types
-import ../../tkmath/bnd/bnd_types
+import ../quantity/quantity_types
+import ../bnd/bnd_types
 
 
 

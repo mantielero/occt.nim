@@ -1,5 +1,5 @@
 import geomadaptor_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import ../geom/geom_types
 
 

@@ -1,5 +1,5 @@
-import ../../tkmath/math/math_types
-import ../../tkernel/standard/standard_types
+import ../math/math_types
+import ../standard/standard_types
 type
   Adaptor3dCurveOnSurfacePtr* = ptr Adaptor3dCurveOnSurface
 

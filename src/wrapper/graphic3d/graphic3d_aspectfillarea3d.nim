@@ -1,6 +1,6 @@
-import ../../tkservice/aspect/aspect_types
+import ../aspect/aspect_types
 import graphic3d_types
-import ../../tkernel/quantity/quantity_types
+import ../quantity/quantity_types
 
 
 

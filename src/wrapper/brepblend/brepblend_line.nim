@@ -1,5 +1,5 @@
 import brepblend_types
-import ../../tkgeomalgo/intsurf/intsurf_types
+import ../intsurf/intsurf_types
 import ../blend/blend_types
 
 

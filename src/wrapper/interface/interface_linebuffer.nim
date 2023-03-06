@@ -1,6 +1,6 @@
 import interface_types
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkernel/standard/standard_types
+import ../tcollection/tcollection_types
+import ../standard/standard_types
 
 
 

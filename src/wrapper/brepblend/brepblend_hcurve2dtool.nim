@@ -1,9 +1,9 @@
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
-import ../../tkg2d/adaptor2d/adaptor2d_types
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkmath/geomabs/geomabs_types
-import ../../tkg2d/geom2d/geom2d_types
+import ../gp/gp_types
+import ../standard/standard_types
+import ../adaptor2d/adaptor2d_types
+import ../tcolstd/tcolstd_types
+import ../geomabs/geomabs_types
+import ../geom2d/geom2d_types
 
 
 

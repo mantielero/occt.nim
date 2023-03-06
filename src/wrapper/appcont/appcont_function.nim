@@ -1,6 +1,6 @@
 import appcont_types
-import ../../tkmath/gp/gp_types
-import ../../tkernel/ncollection/ncollection_types
+import ../gp/gp_types
+import ../ncollection/ncollection_types
 
 
 

@@ -1,5 +1,5 @@
 import gp_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 ##  Created on: 1993-08-02
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1993-1999 Matra Datavision

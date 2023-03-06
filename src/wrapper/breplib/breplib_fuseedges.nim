@@ -1,6 +1,6 @@
 import breplib_types
-import ../../tkbrep/topods/topods_types
-import ../../tkbrep/toptools/toptools_types
+import ../topods/topods_types
+import ../toptools/toptools_types
 ##  Created on: 2007-09-10
 ##  Created by: Igor FEOKTISTOV
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS

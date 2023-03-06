@@ -1,6 +1,6 @@
-import ../../tkmath/tcolgp/tcolgp_types
-import ../../tkmath/math/math_types
-import ../../tkernel/ncollection/ncollection_types
+import ../tcolgp/tcolgp_types
+import ../math/math_types
+import ../ncollection/ncollection_types
 
 
 

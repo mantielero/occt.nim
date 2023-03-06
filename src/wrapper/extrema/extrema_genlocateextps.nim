@@ -1,7 +1,7 @@
 import extrema_types
-import ../tkmath/gp/gp_types
-import ../tkg3d/adaptor3d/adaptor3d_types
-import ../tkmath/precision/precision
+import ../gp/gp_types
+import ../adaptor3d/adaptor3d_types
+import ../precision/precision
 ##  Created on: 1995-07-18
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision

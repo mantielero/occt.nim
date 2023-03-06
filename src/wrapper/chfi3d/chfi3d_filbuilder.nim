@@ -1,9 +1,9 @@
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
+import ../gp/gp_types
+import ../standard/standard_types
 import chfi3d_types
-import ../../tkbrep/topods/topods_types
+import ../topods/topods_types
 import ../chfids/chfids_types
-import ../../tkgeomalgo/law/law_types
+import ../law/law_types
 
 
 

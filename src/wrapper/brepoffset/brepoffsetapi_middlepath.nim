@@ -1,6 +1,6 @@
 import brepoffset_types
-import ../tkbrep/topods/topods_types
-import ../tkernel/message/message_types
+import ../topods/topods_types
+import ../message/message_types
 ##  Created on: 2012-08-06
 ##  Created by: jgv@ROLEX
 ##  Copyright (c) 2012-2014 OPEN CASCADE SAS

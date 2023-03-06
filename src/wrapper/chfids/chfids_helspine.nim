@@ -1,4 +1,4 @@
-import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../adaptor3d/adaptor3d_types
 import chfids_types
 
 

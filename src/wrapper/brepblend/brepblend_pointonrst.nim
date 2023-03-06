@@ -1,7 +1,7 @@
 import brepblend_types
-import ../../tkgeomalgo/intsurf/intsurf_types
-import ../../tkernel/standard/standard_types
-import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../intsurf/intsurf_types
+import ../standard/standard_types
+import ../adaptor2d/adaptor2d_types
 
 
 

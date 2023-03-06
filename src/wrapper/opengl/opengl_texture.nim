@@ -1,8 +1,8 @@
 import opengl_types
-#import ../../tkernel/tcollection/[tcollection_types, tcollection_asciistring]
-import ../../tkernel/standard/standard_types
-import ../../tkv3d/graphic3d/graphic3d_types
-import ../../tkv3d/selectmgr/selectmgr_types
+#import ../tcollection/[tcollection_types, tcollection_asciistring]
+import ../standard/standard_types
+import ../graphic3d/graphic3d_types
+import ../selectmgr/selectmgr_types
 
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS

@@ -1,6 +1,6 @@
 import extrema_types
-import ../tkmath/gp/gp_types
-import ../tkg2d/adaptor2d/adaptor2d_types
+import ../gp/gp_types
+import ../adaptor2d/adaptor2d_types
 
 ##  Created on: 1994-07-06
 ##  Created by: Laurent PAINNOT

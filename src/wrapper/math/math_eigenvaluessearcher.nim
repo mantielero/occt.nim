@@ -1,5 +1,5 @@
 import math_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tcolstd/tcolstd_types
 ##  Created on: 2005-12-15
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS

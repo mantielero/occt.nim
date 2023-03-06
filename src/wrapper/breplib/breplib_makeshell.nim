@@ -1,7 +1,7 @@
 import breplib_types
-import ../../tkbrep/topods/topods_types
-import ../../tkg3d/geom/geom_types
-import ../../tkernel/standard/standard_types
+import ../topods/topods_types
+import ../geom/geom_types
+import ../standard/standard_types
 
 ##  Created on: 1995-01-04
 ##  Created by: Bruno DUMORTIER

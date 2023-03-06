@@ -1,5 +1,5 @@
 import brepcheck_types
-import ../tkbrep/topods/topods_types
+import ../topods/topods_types
 
 ##  Created on: 1995-12-11
 ##  Created by: Jacques GOUSSARD

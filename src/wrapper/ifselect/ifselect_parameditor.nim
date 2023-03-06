@@ -1,7 +1,7 @@
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkernel/standard/standard_types
+import ../tcollection/tcollection_types
+import ../standard/standard_types
 import ifselect_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tcolstd/tcolstd_types
 import "../interface/interface_types"
 
 

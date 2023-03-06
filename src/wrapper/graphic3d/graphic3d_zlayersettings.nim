@@ -1,8 +1,8 @@
-import ../../tkmath/toploc/toploc_types
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkernel/standard/standard_types
+import ../toploc/toploc_types
+import ../tcollection/tcollection_types
+import ../standard/standard_types
 import graphic3d_types
-import ../../tkmath/gp/gp_types
+import ../gp/gp_types
 
 
 

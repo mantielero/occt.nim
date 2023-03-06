@@ -1,8 +1,8 @@
-import ../../tkbrep/brep/brep_types
-import ../../tkmath/bnd/bnd_types
-import ../../tkmath/gp/gp_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
+import ../brep/brep_types
+import ../bnd/bnd_types
+import ../gp/gp_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
 
 type
   #BndBox* = object

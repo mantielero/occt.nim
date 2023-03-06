@@ -1,7 +1,7 @@
-import ../../tkmath/gp/gp_types
+import ../gp/gp_types
 import brepprimapi_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkbrep/topods/topods_types
+import ../toptools/toptools_types
+import ../topods/topods_types
 import ../brepprim/brepprim_types
 
 

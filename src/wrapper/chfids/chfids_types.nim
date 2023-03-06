@@ -1,8 +1,8 @@
-import ../../tkbrep/topods/topods_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
+import ../topods/topods_types
+import ../adaptor3d/adaptor3d_types
+import ../toptools/toptools_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
 type
   ChFiDS_ChamfMethod* {.size: sizeof(cint), importcpp: "ChFiDS_ChamfMethod",
                        header: "ChFiDS_ChamfMethod.hxx".} = enum

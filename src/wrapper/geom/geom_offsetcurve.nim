@@ -1,7 +1,7 @@
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
+import ../gp/gp_types
+import ../standard/standard_types
 import geom_types
-import ../../tkmath/geomabs/geomabs_types
+import ../geomabs/geomabs_types
 
 
 

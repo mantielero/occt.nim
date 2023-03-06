@@ -1,4 +1,4 @@
-import ../../tkernel/ncollection/ncollection_types
+import ../ncollection/ncollection_types
 type
   BOPAlgoCheckStatus* {.size: sizeof(cint), importcpp: "BOPAlgo_CheckStatus",
                        header: "BOPAlgo_CheckStatus.hxx".} = enum

@@ -1,5 +1,5 @@
 import bvh_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 ##  Created by: Eugeny MALTCHIKOV
 ##  Created on: 2019-04-17
 ##  Copyright (c) 2019 OPEN CASCADE SAS

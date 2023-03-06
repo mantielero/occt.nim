@@ -1,5 +1,5 @@
 import brepcheck_types
-import ../tkbrep/topods/topods_types
+import ../topods/topods_types
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##

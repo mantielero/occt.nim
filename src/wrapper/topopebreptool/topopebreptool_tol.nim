@@ -1,6 +1,6 @@
-import ../../tkbrep/brepadaptor/brepadaptor_types
-import ../../tkbrep/topods/topods_types
-import ../../tkmath/bnd/bnd_types
+import ../brepadaptor/brepadaptor_types
+import ../topods/topods_types
+import ../bnd/bnd_types
 
 
 

@@ -1,5 +1,5 @@
-import ../../tkmath/math/math_types
-import ../../tkmath/gp/gp_types
+import ../math/math_types
+import ../gp/gp_types
 import blend_types
 
 

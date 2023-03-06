@@ -1,11 +1,11 @@
 import ../appblend/appblend_types
-import ../../tkgeombase/approx/approx_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
-import ../../tkmath/math/math_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkg3d/geom/geom_types
-import ../../tkernel/standard/standard_types
-import ../../tkmath/gp/gp_types
+import ../approx/approx_types
+import ../adaptor3d/adaptor3d_types
+import ../math/math_types
+import ../ncollection/ncollection_types
+import ../geom/geom_types
+import ../standard/standard_types
+import ../gp/gp_types
 
 type
   GeomFillApproxStyle* {.size: sizeof(cint), importcpp: "GeomFill_ApproxStyle",

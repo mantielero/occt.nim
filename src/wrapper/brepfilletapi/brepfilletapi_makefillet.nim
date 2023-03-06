@@ -1,14 +1,14 @@
-import ../../tkmath/tcolgp/tcolgp_types
-import ../../tkbool/topopebrepbuild/topopebrepbuild_types
+import ../tcolgp/tcolgp_types
+import ../topopebrepbuild/topopebrepbuild_types
 import ../chfi3d/chfi3d_types
-import ../../tkernel/standard/standard_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkbrep/topods/topods_types
+import ../standard/standard_types
+import ../toptools/toptools_types
+import ../topods/topods_types
 import ../chfids/chfids_types
 import brepfilletapi_types
-import ../../tkg3d/geom/geom_types
-import ../../tkmath/geomabs/geomabs_types
-import ../../tkgeomalgo/law/law_types
+import ../geom/geom_types
+import ../geomabs/geomabs_types
+import ../law/law_types
 
 
 

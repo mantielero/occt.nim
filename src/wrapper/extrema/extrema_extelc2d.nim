@@ -1,5 +1,5 @@
 import extrema_types
-import ../tkmath/gp/gp_types
+import ../gp/gp_types
 ##  Created on: 1994-01-04
 ##  Created by: Christophe MARION
 ##  Copyright (c) 1994-1999 Matra Datavision

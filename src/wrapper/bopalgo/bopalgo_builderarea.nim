@@ -1,5 +1,5 @@
 import bopalgo_types
-import ../../tkbrep/toptools/toptools_types
+import ../toptools/toptools_types
 
 
 

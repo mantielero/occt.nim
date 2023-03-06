@@ -1,5 +1,5 @@
 import chfi2d_types
-import ../../tkbrep/topods/topods_types
+import ../topods/topods_types
 
 
 

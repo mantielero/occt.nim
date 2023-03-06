@@ -1,4 +1,4 @@
-import ../../tkbrep/topods/topods_types
+import ../topods/topods_types
 import topopebrepbuild_types
 
 

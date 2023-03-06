@@ -1,5 +1,5 @@
-import ../../tkernel/standard/standard_types
-import ../../tkmath/bvh/bvh_types
+import ../standard/standard_types
+import ../bvh/bvh_types
 import opengl_types
 
 

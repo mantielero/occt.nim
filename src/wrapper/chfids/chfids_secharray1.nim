@@ -1,4 +1,4 @@
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tcolstd/tcolstd_types
 import chfids_types
 
 

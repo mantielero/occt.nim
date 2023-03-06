@@ -1,5 +1,5 @@
 import ../selectmgr/selectmgr_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import ais_types
 
 

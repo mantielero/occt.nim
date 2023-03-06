@@ -1,9 +1,9 @@
 import ../topods/topods_types
-import ../../tkg3d/topabs/topabs_types
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkernel/standard/standard_types
+import ../topabs/topabs_types
+import ../tcollection/tcollection_types
+import ../standard/standard_types
 import toptools_types
-import ../../tkernel/message/[message_types, message_progressrange]
+import ../message/[message_types, message_progressrange]
 
 
 

@@ -1,5 +1,5 @@
-import ../../tkbrep/brep/brep_types
-import ../../tktopalgo/brepbuilderapi/brepbuilderapi_types
+import ../brep/brep_types
+import ../brepbuilderapi/brepbuilderapi_types
 type
   BRepFilletAPI_LocalOperation* {.importcpp: "BRepFilletAPI_LocalOperation",
                                  header: "BRepFilletAPI_LocalOperation.hxx",

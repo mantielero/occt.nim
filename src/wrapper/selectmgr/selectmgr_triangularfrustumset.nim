@@ -1,7 +1,7 @@
-import ../../tkmath/tcolgp/tcolgp_types
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/ncollection/ncollection_types
+import ../tcolgp/tcolgp_types
+import ../gp/gp_types
+import ../standard/standard_types
+import ../ncollection/ncollection_types
 import selectmgr_types
 
 

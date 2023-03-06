@@ -1,6 +1,6 @@
 import math_types
-import ../../tkernel/message/message_types
-import ../../tkernel/message/message_progressrange
+import ../message/message_types
+import ../message/message_progressrange
 ##  Copyright (c) 1997-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##

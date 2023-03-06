@@ -1,6 +1,6 @@
-import ../../tkservice/aspect/aspect_types
-import ../../tkernel/quantity/quantity_types
-import ../../tkv3d/graphic3d/graphic3d_types
+import ../aspect/aspect_types
+import ../quantity/quantity_types
+import ../graphic3d/graphic3d_types
 import opengl_types
 
 

@@ -1,6 +1,6 @@
 import intsurf_types
-import ../../tkmath/gp/gp_types
-import ../../tkmath/geomabs/geomabs_types
+import ../gp/gp_types
+import ../geomabs/geomabs_types
 
 
 

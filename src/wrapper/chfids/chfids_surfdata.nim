@@ -1,6 +1,6 @@
-import ../../tkmath/gp/gp_types
-import ../../tkg3d/topabs/topabs_types
-import ../../tkernel/standard/standard_types
+import ../gp/gp_types
+import ../topabs/topabs_types
+import ../standard/standard_types
 import chfids_types
 
 

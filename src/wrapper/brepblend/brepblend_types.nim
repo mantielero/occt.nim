@@ -1,10 +1,10 @@
-import ../../tkgeomalgo/appblend/appblend_types
+import ../appblend/appblend_types
 import ../blend/blend_types
-import ../../tkgeombase/approx/approx_types
-import ../../tkbrep/brep/brep_types
+import ../approx/approx_types
+import ../brep/brep_types
 import ../blendfunc/blendfunc_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
 
 
 type

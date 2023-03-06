@@ -1,5 +1,5 @@
 import extrema_types
-import ../tkg3d/adaptor3d/adaptor3d_types
+import ../adaptor3d/adaptor3d_types
 import ../extrema/extrema_genlocateextps
 ##  Created on: 1996-01-25
 ##  Created by: Laurent PAINNOT

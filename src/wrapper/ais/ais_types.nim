@@ -1,14 +1,14 @@
 import ../selectmgr/selectmgr_types
-import ../../tkbrep/topods/topods_types
-import ../../tkservice/aspect/aspect_types
+import ../topods/topods_types
+import ../aspect/aspect_types
 import ../prs3d/prs3d_types
 import ../prsdim/[prsdim_types, prsdim_ais_types]
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tcolstd/tcolstd_types
 import ../graphic3d/graphic3d_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
 import ../v3d/v3d_types
-import ../../tkbrep/toptools/toptools_types
+import ../toptools/toptools_types
 
 export prsdim_ais_types
 

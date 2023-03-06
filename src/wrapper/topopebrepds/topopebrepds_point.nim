@@ -1,6 +1,6 @@
 import topopebrepds_types
-import ../../tkmath/gp/gp_types
-import ../../tkbrep/topods/topods_types
+import ../gp/gp_types
+import ../topods/topods_types
 
 
 

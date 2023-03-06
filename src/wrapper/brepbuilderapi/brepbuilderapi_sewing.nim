@@ -1,8 +1,8 @@
 import brepbuilderapi_types
-import ../../tkernel/standard/standard_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkbrep/topods/topods_types
-import ../../tkernel/message/[message_types, message_progressrange]
+import ../standard/standard_types
+import ../toptools/toptools_types
+import ../topods/topods_types
+import ../message/[message_types, message_progressrange]
 
 
 

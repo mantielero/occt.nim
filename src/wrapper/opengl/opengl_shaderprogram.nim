@@ -1,10 +1,10 @@
 {.experimental: "callOperator".}
 
 import opengl_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/tcollection/[tcollection_types, tcollection_asciistring]
-import ../../tkv3d/graphic3d/graphic3d_types
-#import ../../tkernel/ncollection/ncollection_types
+import ../standard/standard_types
+import ../tcollection/[tcollection_types, tcollection_asciistring]
+import ../graphic3d/graphic3d_types
+#import ../ncollection/ncollection_types
 
 ##  Created on: 2013-09-19
 ##  Created by: Denis BOGOLEPOV

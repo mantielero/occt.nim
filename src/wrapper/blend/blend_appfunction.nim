@@ -1,9 +1,9 @@
-import ../../tkmath/tcolgp/tcolgp_types
-import ../../tkmath/math/math_types
-import ../../tkmath/gp/gp_types
+import ../tcolgp/tcolgp_types
+import ../math/math_types
+import ../gp/gp_types
 import blend_types
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkmath/geomabs/geomabs_types
+import ../tcolstd/tcolstd_types
+import ../geomabs/geomabs_types
 
 
 

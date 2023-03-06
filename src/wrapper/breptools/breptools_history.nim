@@ -1,7 +1,7 @@
 import breptools_types
-import ../tkbrep/toptools/toptools_types
-import ../tkbrep/topods/topods_types
-import ../tkernel/standard/standard_types
+import ../toptools/toptools_types
+import ../topods/topods_types
+import ../standard/standard_types
 ##  Created on: 2017-04-21
 ##  Created by: Alexander Bobkov
 ##  Copyright (c) 2017 OPEN CASCADE SAS

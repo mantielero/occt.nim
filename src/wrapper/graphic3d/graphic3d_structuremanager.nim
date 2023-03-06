@@ -1,5 +1,5 @@
-import ../../tkmath/toploc/toploc_types
-import ../../tkernel/standard/standard_types
+import ../toploc/toploc_types
+import ../standard/standard_types
 import graphic3d_types, graphic3d_zlayerid
 
 

@@ -1,8 +1,8 @@
-import ../../tkg3d/topabs/topabs_types
-import ../../tkernel/tcollection/[tcollection_types, tcollection_asciistring]
-import ../../tkernel/standard/standard_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkbrep/topods/topods_types
+import ../topabs/topabs_types
+import ../tcollection/[tcollection_types, tcollection_asciistring]
+import ../standard/standard_types
+import ../toptools/toptools_types
+import ../topods/topods_types
 import topopebrepbuild_types
 
 

@@ -1,11 +1,11 @@
-import ../../tkmath/gp/gp_types
-import ../../tkg3d/topabs/topabs_types
+import ../gp/gp_types
+import ../topabs/topabs_types
 import topopebreptool_types
-import ../../tkernel/standard/standard_types
-import ../../tkbrep/brepadaptor/brepadaptor_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkbrep/topods/topods_types
-import ../../tkg2d/geom2d/geom2d_types
+import ../standard/standard_types
+import ../brepadaptor/brepadaptor_types
+import ../toptools/toptools_types
+import ../topods/topods_types
+import ../geom2d/geom2d_types
 
 
 

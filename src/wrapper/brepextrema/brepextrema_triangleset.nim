@@ -1,6 +1,6 @@
 import brepextrema_types
-import ../tkmath/bvh/bvh_types
-import ../tkernel/standard/standard_types
+import ../bvh/bvh_types
+import ../standard/standard_types
 ##  Created on: 2014-10-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS

@@ -1,7 +1,7 @@
-import ../../tkmath/tcolgp/tcolgp_types
-import ../../tkmath/gp/gp_types
+import ../tcolgp/tcolgp_types
+import ../gp/gp_types
 import blend_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tcolstd/tcolstd_types
 
 
 

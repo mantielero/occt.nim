@@ -1,6 +1,6 @@
 import brep_types
 import ../topods/topods_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 
 
 

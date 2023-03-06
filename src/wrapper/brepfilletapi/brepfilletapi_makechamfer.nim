@@ -1,7 +1,7 @@
-import ../../tkbool/topopebrepbuild/topopebrepbuild_types
-import ../../tkernel/standard/standard_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkbrep/topods/topods_types
+import ../topopebrepbuild/topopebrepbuild_types
+import ../standard/standard_types
+import ../toptools/toptools_types
+import ../topods/topods_types
 import ../chfids/chfids_types
 import brepfilletapi_types
 

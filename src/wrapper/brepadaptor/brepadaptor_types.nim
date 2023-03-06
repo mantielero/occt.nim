@@ -1,11 +1,11 @@
-import ../../tkg2d/adaptor2d/adaptor2d_types
-import ../../tkg2d/geom2dadaptor/geom2dadaptor_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../adaptor2d/adaptor2d_types
+import ../geom2dadaptor/geom2dadaptor_types
+import ../adaptor3d/adaptor3d_types
 import ../brep/brep_types
-import ../../tkg2d/geom2d/geom2d_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkg3d/geom/geom_types
-import ../../tkernel/standard/standard_types
+import ../geom2d/geom2d_types
+import ../ncollection/ncollection_types
+import ../geom/geom_types
+import ../standard/standard_types
 type
   BRepAdaptorCompCurve* {.importcpp: "BRepAdaptor_CompCurve",
                          header: "BRepAdaptor_CompCurve.hxx", bycopy.} = object of Adaptor3dCurve 

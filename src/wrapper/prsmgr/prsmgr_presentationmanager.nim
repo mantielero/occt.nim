@@ -1,5 +1,5 @@
-import ../../tkmath/toploc/toploc_types
-import ../../tkernel/standard/standard_types
+import ../toploc/toploc_types
+import ../standard/standard_types
 import ../prs3d/prs3d_types
 import prsmgr_types
 import ../v3d/v3d_types

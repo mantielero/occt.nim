@@ -1,14 +1,14 @@
 import breptools_types
-import ../tkbrep/topods/topods_types
-import ../tkmath/bnd/bnd_types
-import ../tkernel/standard/standard_types
-import ../tkbrep/toptools/toptools_types
-import ../tkernel/message/message_types
-import ../tkbrep/toptools/toptools_types
-import ../tkbrep/brep/brep_types
-import ../tkg3d/geom/geom_types
-import ../tkg2d/geom2d/geom2d_types
-import ../tkg3d/topabs/topabs_types
+import ../topods/topods_types
+import ../bnd/bnd_types
+import ../standard/standard_types
+import ../toptools/toptools_types
+import ../message/message_types
+import ../toptools/toptools_types
+import ../brep/brep_types
+import ../geom/geom_types
+import ../geom2d/geom2d_types
+import ../topabs/topabs_types
 ##  Created on: 1992-08-28
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision

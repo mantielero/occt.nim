@@ -1,6 +1,6 @@
 import ../topods/topods_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
 type
   BRepListIteratorOfListOfCurveRepresentation* {.importcpp:"NCollection_List<Handle(BRep_CurveRepresentation)>::Iterator", header:"BRep_ListOfCurveRepresentation.hxx", bycopy.} = object
 

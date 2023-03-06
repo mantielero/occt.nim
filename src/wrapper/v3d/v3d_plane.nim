@@ -1,7 +1,7 @@
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import ../graphic3d/graphic3d_types
 import v3d_types
-import ../../tkernel/quantity/[quantity_types, quantity_color]
+import ../quantity/[quantity_types, quantity_color]
 
 
 

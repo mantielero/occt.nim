@@ -1,9 +1,9 @@
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkernel/standard/standard_types
+import ../tcollection/tcollection_types
+import ../standard/standard_types
 import graphic3d_types
-import ../../tkernel/quantity/quantity_types
-import ../../tkernel/tcollection/tcollection_extendedstring
-import ../../tkernel/quantity/quantity_color
+import ../quantity/quantity_types
+import ../tcollection/tcollection_extendedstring
+import ../quantity/quantity_color
 import ../selectmgr/selectmgr_types
 
 

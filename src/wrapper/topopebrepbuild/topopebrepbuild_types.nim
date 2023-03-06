@@ -1,7 +1,7 @@
-import ../../tkbrep/topods/topods_types
-import ../../tkbrep/toptools/toptools_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
+import ../topods/topods_types
+import ../toptools/toptools_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
 type
   TopOpeBRepBuildDataMapIteratorOfDataMapOfShapeListOfShapeListOfShape* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopOpeBRepBuild_ListOfShapeListOfShape,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepBuild_DataMapOfShapeListOfShapeListOfShape.hxx", bycopy.} = object
 

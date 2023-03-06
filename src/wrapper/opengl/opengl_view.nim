@@ -1,13 +1,13 @@
 import opengl_types
-import ../../tkernel/standard/standard_types
-import ../../tkv3d/graphic3d/graphic3d_types
-import ../../tkservice/aspect/aspect_types
-import ../../tkernel/ncollection/ncollection_types
-#import ../../tkmath/bnd/bnd_box
-import ../../tkmath/gp/gp_types
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkernel/quantity/quantity_types
+import ../standard/standard_types
+import ../graphic3d/graphic3d_types
+import ../aspect/aspect_types
+import ../ncollection/ncollection_types
+#import ../bnd/bnd_box
+import ../gp/gp_types
+import ../tcolstd/tcolstd_types
+import ../tcollection/tcollection_types
+import ../quantity/quantity_types
 
 ##  Created on: 2011-09-20
 ##  Created by: Sergey ZERCHANINOV

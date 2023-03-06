@@ -1,6 +1,5 @@
-import ../../tkmath/gp/gp_types
-import ../../tkg2d/geom2d/geom2d_types
-import ../../tkernel/tkernel
+import ../gp/gp_types
+import ../geom2d/geom2d_types
 import gce2d_types
 
 

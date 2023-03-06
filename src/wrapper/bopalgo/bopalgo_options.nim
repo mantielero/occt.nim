@@ -1,7 +1,7 @@
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import bopalgo_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/message/message_types
+import ../ncollection/ncollection_types
+import ../message/message_types
 
 
 

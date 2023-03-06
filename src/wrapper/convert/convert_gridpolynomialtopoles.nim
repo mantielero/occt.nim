@@ -1,7 +1,7 @@
 import convert_types
 import ../tcolgp/tcolgp_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../standard/standard_types
+import ../tcolstd/tcolstd_types
 ##  Created on: 1996-07-08
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1996-1999 Matra Datavision

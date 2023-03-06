@@ -1,9 +1,9 @@
 import brepextrema_types
-import ../tkbrep/topods/topods_types
+import ../topods/topods_types
 import ../extrema/extrema_types
-import ../tkernel/message/message_types
-import ../tkmath/gp/gp_types
-import ../tkernel/standard/standard_types
+import ../message/message_types
+import ../gp/gp_types
+import ../standard/standard_types
 
 ## This class provides tools to compute minimum distance between two Shapes (Compound,CompSolid, Solid, Shell, Face, Wire, Edge, Vertex).
 

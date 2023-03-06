@@ -1,8 +1,8 @@
 # PROVIDES: Poly PolyCoherentLink PolyCoherentTriangle PolyBaseIteratorOfCoherentTriangle PolyBaseIteratorOfCoherentNode PolyBaseIteratorOfCoherentLink PolyCoherentTriangulationTwoIntegers PolyCoherentTriPtr PolyCoherentTriPtrIterator PolyConnect PolyMakeLoopsLink PolyMakeLoopsLoop PolyMakeLoopsHelper PolyMakeLoopsHeapOfInteger PolyMakeLoopsResultCode PolyTriangle PolyMakeLoopsLinkFlag PolyMakeLoops
 # DEPENDS:  NCollectionArray1[PolyTriangle]  NCollectionList[Handle[PolyTriangulation]]  Handle[PolyCoherentTriangulation]  NCollectionList[PolyMakeLoopsLink]  Handle[PolyPolygon2D]  Handle[PolyPolygon3D]  Handle[PolyPolygonOnTriangulation]  Handle[PolyTriangulation] PolyBaseIteratorOfCoherentLink PolyMakeLoops PolyMakeLoopsHelper PolyMakeLoops PolyMakeLoopsHelper XyzObj StandardTransient PolyBaseIteratorOfCoherentTriangle PolyBaseIteratorOfCoherentNode PolyArray1OfTriangle StandardTransient StandardTransient StandardTransient StandardTransient
 
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
 import ../gp/gp_types
 type
   Link* = object # FIXME  

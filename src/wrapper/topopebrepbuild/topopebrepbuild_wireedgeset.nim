@@ -1,6 +1,6 @@
-import ../../tkernel/tcollection/[tcollection_types, tcollection_asciistring]
-import ../../tkbrep/toptools/toptools_types
-import ../../tkbrep/topods/topods_types
+import ../tcollection/[tcollection_types, tcollection_asciistring]
+import ../toptools/toptools_types
+import ../topods/topods_types
 import topopebrepbuild_types
 
 

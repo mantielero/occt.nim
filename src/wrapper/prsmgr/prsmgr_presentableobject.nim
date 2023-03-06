@@ -1,14 +1,14 @@
-import ../../tkmath/toploc/toploc_types
-import ../../tkmath/gp/gp_types
-import ../../tkservice/aspect/aspect_types
-import ../../tkernel/standard/standard_types
+import ../toploc/toploc_types
+import ../gp/gp_types
+import ../aspect/aspect_types
+import ../standard/standard_types
 import ../prs3d/prs3d_types
 import prsmgr_types
 import ../graphic3d/graphic3d_types
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkernel/quantity/quantity_types
-import ../../tkmath/bnd/bnd_types
-import ../../tkmath/gp/gp_pnt
+import ../tcolstd/tcolstd_types
+import ../quantity/quantity_types
+import ../bnd/bnd_types
+import ../gp/gp_pnt
 
 
 

@@ -1,6 +1,6 @@
 #import ../gp/gp_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../standard/standard_types
+import ../tcolstd/tcolstd_types
 ##  Created on: 1995-10-10
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1995-1999 Matra Datavision

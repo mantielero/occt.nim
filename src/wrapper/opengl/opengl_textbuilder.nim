@@ -1,7 +1,7 @@
 import opengl_types
-import ../../tkernel/standard/standard_types
-import ../../tkv3d/selectmgr/selectmgr_types
-import ../../tkernel/ncollection/ncollection_types
+import ../standard/standard_types
+import ../selectmgr/selectmgr_types
+import ../ncollection/ncollection_types
 
 ##  Created on: 2015-06-18
 ##  Created by: Ilya SEVRIKOV

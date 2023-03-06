@@ -1,7 +1,7 @@
-import ../../tkmath/gp/gp_types
+import ../gp/gp_types
 import brepbuilderapi_types
-import ../../tkbrep/topods/topods_types
-import ../../tkg2d/geom2d/geom2d_types
+import ../topods/topods_types
+import ../geom2d/geom2d_types
 
 
 

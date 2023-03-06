@@ -1,8 +1,8 @@
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
-import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../gp/gp_types
+import ../standard/standard_types
+import ../adaptor2d/adaptor2d_types
 import ../topabs/topabs_types
-import ../../tkernel/tcolstd/tcolstd_types
+import ../tcolstd/tcolstd_types
 import adaptor3d_types
 
 

@@ -1,8 +1,8 @@
 import ../topods/topods_types
-import ../../tkernel/tcolstd/tcolstd_types
-import ../../tkmath/bnd/bnd_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/message/message_types
+import ../tcolstd/tcolstd_types
+import ../bnd/bnd_types
+import ../ncollection/ncollection_types
+import ../message/message_types
 
 type
   TopTools_FormatVersion* = object # FIXME

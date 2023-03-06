@@ -1,6 +1,6 @@
 import extrema_types
-import ../tkmath/math/math_types
-import ../tkg3d/adaptor3d/adaptor3d_types
+import ../math/math_types
+import ../adaptor3d/adaptor3d_types
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.

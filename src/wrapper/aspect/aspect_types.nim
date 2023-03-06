@@ -1,9 +1,9 @@
-import ../../tkernel/quantity/quantity_types
-import ../../tkernel/ncollection/ncollection_types
-import ../../tkernel/standard/standard_types
-import ../../tkmath/gp/gp_types
-import ../../tkernel/tcollection/tcollection_types
-#import ../../tkv3d/ais/ais_types
+import ../quantity/quantity_types
+import ../ncollection/ncollection_types
+import ../standard/standard_types
+import ../gp/gp_types
+import ../tcollection/tcollection_types
+#import ../ais/ais_types
 
 when defined(linux):
   import x11/[xlib,x]

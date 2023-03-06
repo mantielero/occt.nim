@@ -1,8 +1,8 @@
-import ../tkernel/ncollection/ncollection_types
-import ../tkernel/tcolstd/tcolstd_types
-import ../tkernel/standard/standard_types
-import ../tkmath/bvh/bvh_types
-import ../tkbrep/topods/topods_types
+import ../ncollection/ncollection_types
+import ../tcolstd/tcolstd_types
+import ../standard/standard_types
+import ../bvh/bvh_types
+import ../topods/topods_types
 
 type
   BRepExtrema_UnCompatibleShape* = object  # FIXME

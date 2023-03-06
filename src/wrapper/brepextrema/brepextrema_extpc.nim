@@ -1,6 +1,6 @@
 import brepextrema_types
-import ../tkbrep/topods/topods_types
-import ../tkmath/gp/gp_types
+import ../topods/topods_types
+import ../gp/gp_types
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.

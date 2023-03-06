@@ -1,7 +1,7 @@
 {.experimental: "callOperator".}
 import bvh_types
-import ../../tkernel/standard/standard_types
-import ../../tkernel/ncollection/ncollection_types
+import ../standard/standard_types
+import ../ncollection/ncollection_types
 ##  Created on: 2016-04-13
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2016 OPEN CASCADE SAS

@@ -1,8 +1,8 @@
-import ../../tkernel/tcollection/tcollection_types
-import ../../tkservice/aspect/aspect_types
-import ../../tkernel/standard/standard_types
+import ../tcollection/tcollection_types
+import ../aspect/aspect_types
+import ../standard/standard_types
 import graphic3d_types
-import ../../tkernel/quantity/quantity_types
+import ../quantity/quantity_types
 import ../selectmgr/selectmgr_types
 
 

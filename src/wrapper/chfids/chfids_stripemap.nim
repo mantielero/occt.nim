@@ -1,7 +1,7 @@
 {.experimental: "callOperator".}
 
-import ../../tkernel/standard/standard_types
-import ../../tkbrep/topods/topods_types
+import ../standard/standard_types
+import ../topods/topods_types
 import chfids_types
 
 

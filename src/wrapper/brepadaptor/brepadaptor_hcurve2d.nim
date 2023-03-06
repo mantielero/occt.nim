@@ -1,5 +1,5 @@
 import brepadaptor_types
-import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../adaptor2d/adaptor2d_types
 
 
 

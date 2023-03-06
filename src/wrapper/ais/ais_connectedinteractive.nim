@@ -1,6 +1,6 @@
-import ../../tkmath/toploc/toploc_types
-import ../../tkmath/gp/gp_types
-import ../../tkernel/standard/standard_types
+import ../toploc/toploc_types
+import ../gp/gp_types
+import ../standard/standard_types
 import ais_types
 import ../prsmgr/prsmgr_types
 

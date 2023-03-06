@@ -1,7 +1,7 @@
 import ../topopebreptool/topopebreptool_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 import ../topopebrepds/topopebrepds_types
-import ../../tkbrep/topods/topods_types
+import ../topods/topods_types
 import topopebrepbuild_types
 
 

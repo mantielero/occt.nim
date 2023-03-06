@@ -1,5 +1,5 @@
-import ../../tkmath/math/math_types
-import ../../tkernel/ncollection/ncollection_types
+import ../math/math_types
+import ../ncollection/ncollection_types
 type
   BlendDecrochStatus* {.size: sizeof(cint), importcpp: "Blend_DecrochStatus",
                        header: "Blend_DecrochStatus.hxx".} = enum

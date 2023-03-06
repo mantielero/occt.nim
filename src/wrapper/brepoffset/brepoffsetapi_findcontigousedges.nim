@@ -1,6 +1,6 @@
 import brepoffset_types
-import ../tkbrep/topods/topods_types
-import ../tkbrep/toptools/toptools_types
+import ../topods/topods_types
+import ../toptools/toptools_types
 
 ##  Created on: 1995-05-02
 ##  Created by: Jing Cheng MEI

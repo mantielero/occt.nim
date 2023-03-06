@@ -1,11 +1,11 @@
-import ../../tkmath/gp/gp_types
-import ../../tkg3d/topabs/topabs_types
-import ../../tkernel/tcollection/[tcollection_types, tcollection_asciistring]
+import ../gp/gp_types
+import ../topabs/topabs_types
+import ../tcollection/[tcollection_types, tcollection_asciistring]
 import ../topopebreptool/topopebreptool_types
-import ../../tkernel/standard/standard_types
-import ../../tkbrep/toptools/toptools_types
+import ../standard/standard_types
+import ../toptools/toptools_types
 import ../topopebrepds/topopebrepds_types
-import ../../tkbrep/topods/topods_types
+import ../topods/topods_types
 import topopebrepbuild_types
 
 

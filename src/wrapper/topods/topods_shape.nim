@@ -1,7 +1,7 @@
-import ../../tkmath/toploc/toploc_types
-import ../../tkg3d/topabs/topabs_types
+import ../toploc/toploc_types
+import ../topabs/topabs_types
 import topods_types
-import ../../tkernel/standard/standard_types
+import ../standard/standard_types
 
 
 

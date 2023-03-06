@@ -1,7 +1,7 @@
 import brep_types
-import ../../tkmath/toploc/toploc_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/geom/geom_types
+import ../toploc/toploc_types
+import ../standard/standard_types
+import ../geom/geom_types
 
 
 

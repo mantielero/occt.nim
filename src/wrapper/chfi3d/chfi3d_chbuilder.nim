@@ -1,10 +1,10 @@
-import ../../tkmath/math/math_types
-import ../../tkg3d/topabs/topabs_types
-import ../../tkernel/standard/standard_types
-import ../../tkg3d/adaptor3d/adaptor3d_types
-import ../../tkbrep/brepadaptor/brepadaptor_types
+import ../math/math_types
+import ../topabs/topabs_types
+import ../standard/standard_types
+import ../adaptor3d/adaptor3d_types
+import ../brepadaptor/brepadaptor_types
 import chfi3d_types
-import ../../tkbrep/topods/topods_types
+import ../topods/topods_types
 import ../chfids/chfids_types
 
 

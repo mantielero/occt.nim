@@ -1,0 +1,169 @@
+{.passL:"-lTKernel".}
+{.passC:"-I/usr/include/opencascade/" .}
+#{.experimental: "codeReordering".}
+
+# import tcolstd_array1ofasciistring
+# import tcolstd_array1ofboolean
+# import tcolstd_array1ofbyte
+# import tcolstd_array1ofcharacter
+# import tcolstd_array1ofextendedstring
+# import tcolstd_array1ofinteger
+# import tcolstd_array1oflistofinteger
+# import tcolstd_array1ofreal
+# import tcolstd_array1oftransient
+# import tcolstd_array2ofboolean
+# import tcolstd_array2ofcharacter
+# import tcolstd_array2ofinteger
+# import tcolstd_array2ofreal
+# import tcolstd_array2oftransient
+# import tcolstd_datamapiteratorofdatamapofasciistringinteger
+# import tcolstd_datamapiteratorofdatamapofintegerinteger
+# import tcolstd_datamapiteratorofdatamapofintegerlistofinteger
+# import tcolstd_datamapiteratorofdatamapofintegerreal
+# import tcolstd_datamapiteratorofdatamapofintegertransient
+# import tcolstd_datamapiteratorofdatamapofstringinteger
+# import tcolstd_datamapiteratorofdatamapoftransienttransient
+# import tcolstd_datamapofasciistringinteger
+# import tcolstd_datamapofintegerinteger
+# import tcolstd_datamapofintegerlistofinteger
+# import tcolstd_datamapofintegerreal
+# import tcolstd_datamapofintegertransient
+# import tcolstd_datamapofstringinteger
+# import tcolstd_datamapoftransienttransient
+import tcolstd_harray1ofasciistring
+import tcolstd_harray1ofboolean
+import tcolstd_harray1ofbyte
+import tcolstd_harray1ofcharacter
+import tcolstd_harray1ofextendedstring
+import tcolstd_harray1ofinteger
+import tcolstd_harray1oflistofinteger
+import tcolstd_harray1ofreal
+import tcolstd_harray1oftransient
+import tcolstd_harray2ofboolean
+import tcolstd_harray2ofcharacter
+import tcolstd_harray2ofinteger
+import tcolstd_harray2ofreal
+import tcolstd_harray2oftransient
+import tcolstd_hpackedmapofinteger
+import tcolstd_hsequenceofasciistring
+import tcolstd_hsequenceofextendedstring
+import tcolstd_hsequenceofhasciistring
+import tcolstd_hsequenceofhextendedstring
+import tcolstd_hsequenceofinteger
+import tcolstd_hsequenceofreal
+import tcolstd_hsequenceoftransient
+# import tcolstd_indexeddatamapofstringstring
+# import tcolstd_indexeddatamapoftransienttransient
+# import tcolstd_indexedmapofinteger
+# import tcolstd_indexedmapofreal
+# import tcolstd_indexedmapoftransient
+# import tcolstd_listiteratoroflistofasciistring
+# import tcolstd_listiteratoroflistofinteger
+# import tcolstd_listiteratoroflistofreal
+# import tcolstd_listiteratoroflistoftransient
+# import tcolstd_listofasciistring
+# import tcolstd_listofinteger
+# import tcolstd_listofreal
+# import tcolstd_listoftransient
+# import tcolstd_mapintegerhasher
+# import tcolstd_mapiteratorofmapofasciistring
+# import tcolstd_mapiteratorofmapofinteger
+# import tcolstd_mapiteratorofmapofreal
+# import tcolstd_mapiteratorofmapoftransient
+# import tcolstd_mapiteratorofpackedmapofinteger
+# import tcolstd_mapofasciistring
+# import tcolstd_mapofinteger
+# import tcolstd_mapofreal
+# import tcolstd_mapoftransient
+# import tcolstd_maprealhasher
+# import tcolstd_maptransienthasher
+import tcolstd_packedmapofinteger
+# import tcolstd_sequenceofaddress
+# import tcolstd_sequenceofasciistring
+# import tcolstd_sequenceofboolean
+# import tcolstd_sequenceofextendedstring
+# import tcolstd_sequenceofhasciistring
+# import tcolstd_sequenceofhextendedstring
+# import tcolstd_sequenceofinteger
+# import tcolstd_sequenceofreal
+# import tcolstd_sequenceoftransient
+
+# export tcolstd_array1ofasciistring
+# export tcolstd_array1ofboolean
+# export tcolstd_array1ofbyte, tcolstd_array1ofcharacter
+# export tcolstd_array1ofextendedstring, tcolstd_array1ofinteger
+# export tcolstd_array1oflistofinteger, tcolstd_array1ofreal
+# export tcolstd_array1oftransient, tcolstd_array2ofboolean
+# export tcolstd_array2ofcharacter, tcolstd_array2ofinteger
+# export tcolstd_array2ofreal, tcolstd_array2oftransient
+# export tcolstd_datamapiteratorofdatamapofasciistringinteger
+# export tcolstd_datamapiteratorofdatamapofintegerinteger
+# export tcolstd_datamapiteratorofdatamapofintegerlistofinteger
+# export tcolstd_datamapiteratorofdatamapofintegerreal
+# export tcolstd_datamapiteratorofdatamapofintegertransient
+# export tcolstd_datamapiteratorofdatamapofstringinteger
+# export tcolstd_datamapiteratorofdatamapoftransienttransient
+# export tcolstd_datamapofasciistringinteger
+# export tcolstd_datamapofintegerinteger
+# export tcolstd_datamapofintegerlistofinteger
+# export tcolstd_datamapofintegerreal
+# export tcolstd_datamapofintegertransient
+# export tcolstd_datamapofstringinteger
+# export tcolstd_datamapoftransienttransient
+export tcolstd_harray1ofasciistring
+export tcolstd_harray1ofboolean
+export tcolstd_harray1ofbyte
+export tcolstd_harray1ofcharacter
+export tcolstd_harray1ofextendedstring
+export tcolstd_harray1ofinteger
+export tcolstd_harray1oflistofinteger
+export tcolstd_harray1ofreal
+export tcolstd_harray1oftransient
+export tcolstd_harray2ofboolean
+export tcolstd_harray2ofcharacter
+export tcolstd_harray2ofinteger
+export tcolstd_harray2ofreal
+export tcolstd_harray2oftransient
+export tcolstd_hpackedmapofinteger
+export tcolstd_hsequenceofasciistring
+export tcolstd_hsequenceofextendedstring
+export tcolstd_hsequenceofhasciistring
+export tcolstd_hsequenceofhextendedstring
+export tcolstd_hsequenceofinteger
+export tcolstd_hsequenceofreal
+export tcolstd_hsequenceoftransient
+# export tcolstd_indexeddatamapofstringstring
+# export tcolstd_indexeddatamapoftransienttransient
+# export tcolstd_indexedmapofinteger
+# export tcolstd_indexedmapofreal
+# export tcolstd_indexedmapoftransient
+# export tcolstd_listiteratoroflistofasciistring
+# export tcolstd_listiteratoroflistofinteger
+# export tcolstd_listiteratoroflistofreal
+# export tcolstd_listiteratoroflistoftransient
+# export tcolstd_listofasciistring
+# export tcolstd_listofinteger
+# export tcolstd_listofreal
+# export tcolstd_listoftransient
+# export tcolstd_mapintegerhasher
+# export tcolstd_mapiteratorofmapofasciistring
+# export tcolstd_mapiteratorofmapofinteger
+# export tcolstd_mapiteratorofmapofreal
+# export tcolstd_mapiteratorofmapoftransient
+# export tcolstd_mapiteratorofpackedmapofinteger
+# export tcolstd_mapofasciistring
+# export tcolstd_mapofinteger
+# export tcolstd_mapofreal
+# export tcolstd_mapoftransient
+# export tcolstd_maprealhasher
+# export tcolstd_maptransienthasher
+export tcolstd_packedmapofinteger
+# export tcolstd_sequenceofaddress
+# export tcolstd_sequenceofasciistring
+# export tcolstd_sequenceofboolean
+# export tcolstd_sequenceofextendedstring
+# export tcolstd_sequenceofhasciistring
+# export tcolstd_sequenceofhextendedstring
+# export tcolstd_sequenceofinteger
+# export tcolstd_sequenceofreal
+# export tcolstd_sequenceoftransient

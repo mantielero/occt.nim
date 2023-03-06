@@ -1,0 +1,47 @@
+{.passL:"-lTKV3d".}
+{.passC:"-I/usr/include/opencascade/" .}
+
+
+import prs3d
+import prs3d_arrow
+import prs3d_arrowaspect
+import prs3d_basicaspect
+import prs3d_bndbox
+import prs3d_datumaspect
+import prs3d_datumattribute
+import prs3d_datumaxes
+import prs3d_datummode
+import prs3d_datumparts
+import prs3d_dimensionarroworientation
+import prs3d_dimensionaspect
+import prs3d_dimensiontexthorizontalposition
+import prs3d_dimensiontextverticalposition
+import prs3d_dimensionunits
+import prs3d_drawer
+import prs3d_invalidangle
+import prs3d_isoaspect
+import prs3d_lineaspect
+import prs3d_nlistiteratoroflistofsequenceofpnt
+import prs3d_nlistofsequenceofpnt
+import prs3d_planeaspect
+import prs3d_point
+import prs3d_pointaspect
+import prs3d_presentation
+import prs3d_presentationshadow
+import prs3d_root
+import prs3d_shadingaspect
+import prs3d_shapetool
+import prs3d_text
+import prs3d_textaspect
+import prs3d_toolcylinder
+import prs3d_tooldisk
+import prs3d_toolquadric
+import prs3d_toolsector
+import prs3d_toolsphere
+import prs3d_tooltorus
+import prs3d_typeofhighlight
+import prs3d_typeofhlr
+import prs3d_typeoflinepicking
+import prs3d_vertexdrawmode
+
+export prs3d, prs3d_arrow, prs3d_arrowaspect, prs3d_basicaspect, prs3d_bndbox, prs3d_datumaspect, prs3d_datumattribute, prs3d_datumaxes, prs3d_datummode, prs3d_datumparts, prs3d_dimensionarroworientation, prs3d_dimensionaspect, prs3d_dimensiontexthorizontalposition, prs3d_dimensiontextverticalposition, prs3d_dimensionunits, prs3d_drawer, prs3d_invalidangle, prs3d_isoaspect, prs3d_lineaspect, prs3d_nlistiteratoroflistofsequenceofpnt, prs3d_nlistofsequenceofpnt, prs3d_planeaspect, prs3d_point, prs3d_pointaspect, prs3d_presentation, prs3d_presentationshadow, prs3d_root, prs3d_shadingaspect, prs3d_shapetool, prs3d_text, prs3d_textaspect, prs3d_toolcylinder, prs3d_tooldisk, prs3d_toolquadric, prs3d_toolsector, prs3d_toolsphere, prs3d_tooltorus, prs3d_typeofhighlight, prs3d_typeofhlr, prs3d_typeoflinepicking, prs3d_vertexdrawmode

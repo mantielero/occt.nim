@@ -24,6 +24,8 @@ Preliminar status. Some of the examples currently compiles and run. But the cove
 
     Some examples are: `breptools` and `brepcheck`. 
 ```
+sed -i 's/\.\.\/\.\.\/tk/\.\.\/tk/g' *.nim
+
 find ./ -name "*.nim" -exec sed -i 's/\.\.\/tkgeombase\/extrema\/extrema_genlocateextps/\.\.\/extrema\/extrema_genlocateextps/g' {} \;
 ```
 

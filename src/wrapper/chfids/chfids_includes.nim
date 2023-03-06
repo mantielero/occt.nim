@@ -1,0 +1,36 @@
+{.passL:"-lTKFillet".}
+{.passC:"-I/usr/include/opencascade/" .}
+
+import chfids_chamfmethod
+import chfids_chamfmode
+import chfids_chamfspine
+import chfids_circsection
+import chfids_commonpoint
+import chfids_elspine
+import chfids_errorstatus
+import chfids_faceinterference
+import chfids_filspine
+import chfids_hdata
+import chfids_helspine
+import chfids_indexeddatamapofvertexlistofstripe
+import chfids_listiteratoroflistofhelspine
+import chfids_listiteratoroflistofstripe
+import chfids_listiteratorofregularities
+import chfids_listofhelspine
+import chfids_listofstripe
+import chfids_map
+import chfids_regul
+import chfids_regularities
+import chfids_secarray1
+import chfids_secharray1
+import chfids_sequenceofspine
+import chfids_sequenceofsurfdata
+import chfids_spine
+import chfids_state
+import chfids_stripe
+import chfids_stripearray1
+import chfids_stripemap
+import chfids_surfdata
+import chfids_typeofconcavity
+
+export chfids_chamfmethod, chfids_chamfmode, chfids_chamfspine, chfids_circsection, chfids_commonpoint, chfids_elspine, chfids_errorstatus, chfids_faceinterference, chfids_filspine, chfids_hdata, chfids_helspine, chfids_indexeddatamapofvertexlistofstripe, chfids_listiteratoroflistofhelspine, chfids_listiteratoroflistofstripe, chfids_listiteratorofregularities, chfids_listofhelspine, chfids_listofstripe, chfids_map, chfids_regul, chfids_regularities, chfids_secarray1, chfids_secharray1, chfids_sequenceofspine, chfids_sequenceofsurfdata, chfids_spine, chfids_state, chfids_stripe, chfids_stripearray1, chfids_stripemap, chfids_surfdata, chfids_typeofconcavity

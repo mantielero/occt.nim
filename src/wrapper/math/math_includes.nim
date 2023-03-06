@@ -1,0 +1,60 @@
+{.passL:"-lTKMath".}
+{.passC:"-I/usr/include/opencascade/" .}
+
+
+import math
+import math_array1ofvalueandweight
+import math_bfgs
+import math_bissecnewton
+import math_bracketedroot
+import math_bracketminimum
+import math_brentminimum
+import math_bullardgenerator
+import math_computegausspointsandweights
+import math_computekronrodpointsandweights
+import math_crout
+import math_directpolynomialroots
+import math_doubletab
+import math_eigenvaluessearcher
+import math_frpr
+import math_function
+import math_functionallroots
+import math_functionroot
+import math_functionroots
+import math_functionsample
+import math_functionset
+import math_functionsetroot
+import math_functionsetwithderivatives
+import math_functionwithderivative
+import math_gauss
+import math_gaussleastsquare
+import math_gaussmultipleintegration
+import math_gausssetintegration
+import math_gausssingleintegration
+import math_globoptmin
+import math_householder
+import math_integervector
+import math_jacobi
+import math_kronrodsingleintegration
+import math_matrix
+import math_multiplevarfunction
+import math_multiplevarfunctionwithgradient
+import math_multiplevarfunctionwithhessian
+import math_newtonfunctionroot
+import math_newtonfunctionsetroot
+import math_newtonminimum
+import math_notsquare
+import math_powell
+import math_pso
+import math_psoparticlespool
+import math_recipes
+import math_singularmatrix
+import math_status
+import math_svd
+import math_trigonometricequationfunction
+import math_trigonometricfunctionroots
+import math_uzawa
+import math_valueandweight
+import math_vector
+
+export math, math_array1ofvalueandweight, math_bfgs, math_bissecnewton, math_bracketedroot, math_bracketminimum, math_brentminimum, math_bullardgenerator, math_computegausspointsandweights, math_computekronrodpointsandweights, math_crout, math_directpolynomialroots, math_doubletab, math_eigenvaluessearcher, math_frpr, math_function, math_functionallroots, math_functionroot, math_functionroots, math_functionsample, math_functionset, math_functionsetroot, math_functionsetwithderivatives, math_functionwithderivative, math_gauss, math_gaussleastsquare, math_gaussmultipleintegration, math_gausssetintegration, math_gausssingleintegration, math_globoptmin, math_householder, math_integervector, math_jacobi, math_kronrodsingleintegration, math_matrix, math_multiplevarfunction, math_multiplevarfunctionwithgradient, math_multiplevarfunctionwithhessian, math_newtonfunctionroot, math_newtonfunctionsetroot, math_newtonminimum, math_notsquare, math_powell, math_pso, math_psoparticlespool, math_recipes, math_singularmatrix, math_status, math_svd, math_trigonometricequationfunction, math_trigonometricfunctionroots, math_uzawa, math_valueandweight, math_vector

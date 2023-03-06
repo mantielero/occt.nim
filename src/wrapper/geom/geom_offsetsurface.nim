@@ -88,11 +88,11 @@ proc d3*(this: GeomOffsetSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var 
                                     header: "Geom_OffsetSurface.hxx".}
 proc dn*(this: GeomOffsetSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): gp_Vec {.
     noSideEffect, cdecl, importcpp: "DN", header: "Geom_OffsetSurface.hxx".}
-proc transform*(this: var GeomOffsetSurface; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomOffsetSurface; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_OffsetSurface.hxx".}
-proc transformParameters*(this: GeomOffsetSurface; u: var cfloat; v: var cfloat; t: TrsfObj) {.
+proc transformParameters*(this: GeomOffsetSurface; u: var cfloat; v: var cfloat; t: gp_Trsf) {.
     noSideEffect, cdecl, importcpp: "TransformParameters", header: "Geom_OffsetSurface.hxx".}
-proc parametricTransformation*(this: GeomOffsetSurface; t: TrsfObj): GTrsf2d {.
+proc parametricTransformation*(this: GeomOffsetSurface; t: gp_Trsf): GTrsf2d {.
     noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_OffsetSurface.hxx".}
 proc copy*(this: GeomOffsetSurface): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_OffsetSurface.hxx".}

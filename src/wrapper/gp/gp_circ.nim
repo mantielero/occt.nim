@@ -65,8 +65,8 @@ proc rotated*(this: gp_Circ; a1: Ax1Obj; ang: cfloat): gp_Circ {.noSideEffect, c
 proc scale*(this: var gp_Circ; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Circ.hxx".}
 proc scaled*(this: gp_Circ; p: gp_Pnt; s: cfloat): gp_Circ {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Circ.hxx".}
-proc transform*(this: var gp_Circ; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Circ.hxx".}
-proc transformed*(this: gp_Circ; t: TrsfObj): gp_Circ {.noSideEffect, cdecl,
+proc transform*(this: var gp_Circ; t: gp_Trsf) {.cdecl, importcpp: "Transform", header: "gp_Circ.hxx".}
+proc transformed*(this: gp_Circ; t: gp_Trsf): gp_Circ {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Circ.hxx".}
 proc translate*(this: var gp_Circ; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Circ.hxx".}
 proc translated*(this: gp_Circ; v: gp_Vec): gp_Circ {.noSideEffect, cdecl,

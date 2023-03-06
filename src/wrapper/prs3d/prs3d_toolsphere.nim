@@ -26,7 +26,7 @@ import ../graphic3d/graphic3d_types
 
 
 
-proc toolSphereCreate*(theRadius: cfloat; theNbSlices: cint; theNbStacks: cint; theTrsf: TrsfObj): Handle[
+proc toolSphereCreate*(theRadius: cfloat; theNbSlices: cint; theNbStacks: cint; theTrsf: gp_Trsf): Handle[
     Graphic3dArrayOfTriangles] {.cdecl, importcpp: "Prs3d_ToolSphere::Create(@)",
                                 header: "Prs3d_ToolSphere.hxx".}
 proc newPrs3dToolSphere*(theRadius: cfloat; theNbSlices: cint; theNbStacks: cint): Prs3dToolSphere {.

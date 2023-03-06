@@ -74,8 +74,8 @@ proc rotated*(this: gp_Torus; a1: Ax1Obj; ang: cfloat): gp_Torus {.noSideEffect,
 proc scale*(this: var gp_Torus; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Torus.hxx".}
 proc scaled*(this: gp_Torus; p: gp_Pnt; s: cfloat): gp_Torus {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Torus.hxx".}
-proc transform*(this: var gp_Torus; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Torus.hxx".}
-proc transformed*(this: gp_Torus; t: TrsfObj): gp_Torus {.noSideEffect, cdecl,
+proc transform*(this: var gp_Torus; t: gp_Trsf) {.cdecl, importcpp: "Transform", header: "gp_Torus.hxx".}
+proc transformed*(this: gp_Torus; t: gp_Trsf): gp_Torus {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Torus.hxx".}
 proc translate*(this: var gp_Torus; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Torus.hxx".}
 proc translated*(this: gp_Torus; v: gp_Vec): gp_Torus {.noSideEffect, cdecl,

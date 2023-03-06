@@ -178,7 +178,7 @@ proc weights*(this: GeomBSplineCurve; w: var TColStdArray1OfReal) {.noSideEffect
     cdecl, importcpp: "Weights", header: "Geom_BSplineCurve.hxx".}
 proc weights*(this: GeomBSplineCurve): ptr TColStdArray1OfReal {.noSideEffect, cdecl,
     importcpp: "Weights", header: "Geom_BSplineCurve.hxx".}
-proc transform*(this: var GeomBSplineCurve; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomBSplineCurve; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_BSplineCurve.hxx".}
 proc maxDegreeBSplineCurve*(): cint {.cdecl, importcpp: "Geom_BSplineCurve::MaxDegree(@)",
                        header: "Geom_BSplineCurve.hxx".}

@@ -70,7 +70,7 @@ proc intersectVertices*(theVertices: TopToolsIndexedDataMapOfShapeReal;
 #                   theImages: TopToolsDataMapOfShapeListOfShape;
 #                   theContext: Handle[IntToolsContext]) {.cdecl,
 #    importcpp: "BOPAlgo_Tools::FillInternals(@)", header: "BOPAlgo_Tools.hxx".}
-#proc trsfToPoint*(theBox1: BndBox; theBox2: BndBox; theTrsf: var TrsfObj;
+#proc trsfToPoint*(theBox1: BndBox; theBox2: BndBox; theTrsf: var gp_Trsf;
 #                 thePoint: gp_Pnt = pnt(0.0, 0.0, 0.0); theCriteria: cfloat = 1.e+5): bool {.
 #    cdecl, importcpp: "BOPAlgo_Tools::TrsfToPoint(@)", header: "BOPAlgo_Tools.hxx".}
 

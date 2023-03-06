@@ -44,7 +44,7 @@ proc displaySensitive*(this: var SelectMgrViewerSelector3d; theView: Handle[V3dV
 proc clearSensitive*(this: var SelectMgrViewerSelector3d; theView: Handle[V3dView]) {.
     cdecl, importcpp: "ClearSensitive", header: "SelectMgr_ViewerSelector3d.hxx".}
 proc displaySensitive*(this: var SelectMgrViewerSelector3d;
-                      theSel: Handle[SelectMgrSelection]; theTrsf: TrsfObj;
+                      theSel: Handle[SelectMgrSelection]; theTrsf: gp_Trsf;
                       theView: Handle[V3dView]; theToClearOthers: bool = true) {.
     cdecl, importcpp: "DisplaySensitive", header: "SelectMgr_ViewerSelector3d.hxx".}
 proc dumpJson*(this: SelectMgrViewerSelector3d; theOStream: var StandardOStream;

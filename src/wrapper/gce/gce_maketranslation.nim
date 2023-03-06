@@ -27,11 +27,11 @@ proc newGceMakeTranslation*(vect: gp_Vec): GceMakeTranslation {.cdecl, construct
     importcpp: "gce_MakeTranslation(@)", header: "gce_MakeTranslation.hxx".}
 proc newGceMakeTranslation*(point1: gp_Pnt; point2: gp_Pnt): GceMakeTranslation {.cdecl,
     constructor, importcpp: "gce_MakeTranslation(@)", header: "gce_MakeTranslation.hxx".}
-proc value*(this: GceMakeTranslation): TrsfObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeTranslation): gp_Trsf {.noSideEffect, cdecl, importcpp: "Value",
     header: "gce_MakeTranslation.hxx".}
-proc operator*(this: GceMakeTranslation): TrsfObj {.noSideEffect, cdecl,
+proc operator*(this: GceMakeTranslation): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeTranslation.hxx".}
-converter `trsf`*(this: GceMakeTranslation): TrsfObj {.noSideEffect, cdecl,
+converter `trsf`*(this: GceMakeTranslation): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "gce_MakeTranslation::operator gp_Trsf", header: "gce_MakeTranslation.hxx".}
 
 

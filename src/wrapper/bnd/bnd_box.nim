@@ -81,7 +81,7 @@ proc isZThin*(this: BndBox; tol: cfloat): bool {.noSideEffect, cdecl,
     importcpp: "IsZThin", header: "Bnd_Box.hxx".}
 proc isThin*(this: BndBox; tol: cfloat): bool {.noSideEffect, cdecl,
     importcpp: "IsThin", header: "Bnd_Box.hxx".}
-proc transformed*(this: BndBox; t: TrsfObj): BndBox {.noSideEffect, cdecl,
+proc transformed*(this: BndBox; t: gp_Trsf): BndBox {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "Bnd_Box.hxx".}
 proc add*(this: var BndBox; other: BndBox) {.cdecl, importcpp: "Add", header: "Bnd_Box.hxx".}
 proc add*(this: var BndBox; p: gp_Pnt) {.cdecl, importcpp: "Add", header: "Bnd_Box.hxx".}
@@ -95,9 +95,9 @@ proc isOut*(this: BndBox; p: PlnObj): bool {.noSideEffect, cdecl, importcpp: "Is
                                     header: "Bnd_Box.hxx".}
 proc isOut*(this: BndBox; other: BndBox): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_Box.hxx".}
-proc isOut*(this: BndBox; other: BndBox; t: TrsfObj): bool {.noSideEffect, cdecl,
+proc isOut*(this: BndBox; other: BndBox; t: gp_Trsf): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_Box.hxx".}
-proc isOut*(this: BndBox; t1: TrsfObj; other: BndBox; t2: TrsfObj): bool {.noSideEffect, cdecl,
+proc isOut*(this: BndBox; t1: gp_Trsf; other: BndBox; t2: gp_Trsf): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_Box.hxx".}
 proc isOut*(this: BndBox; p1: gp_Pnt; p2: gp_Pnt; d: DirObj): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_Box.hxx".}

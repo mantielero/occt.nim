@@ -19,7 +19,7 @@ import selectmgr_types
 ##  commercial license or contractual agreement.
 
 
-proc transform*(theTrsf: TrsfObj; theVec: SelectMgrVec3): SelectMgrVec3 {.cdecl.} =
+proc transform*(theTrsf: gp_Trsf; theVec: SelectMgrVec3): SelectMgrVec3 {.cdecl.} =
   discard
 
 

@@ -46,7 +46,7 @@ proc addPrimitivesGroup*(thePrs: Handle[Prs3dPresentation];
                         thePolylines: var Prs3dNListOfSequenceOfPnt) {.cdecl,
     importcpp: "Prs3d::AddPrimitivesGroup(@)", header: "Prs3d.hxx".}
 proc addFreeEdges*(theSegments: var TColgpSequenceOfPnt;
-                  thePolyTri: Handle[PolyTriangulation]; theLocation: TrsfObj) {.cdecl,
+                  thePolyTri: Handle[PolyTriangulation]; theLocation: gp_Trsf) {.cdecl,
     importcpp: "Prs3d::AddFreeEdges(@)", header: "Prs3d.hxx".}
 
 

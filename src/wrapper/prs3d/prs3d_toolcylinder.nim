@@ -27,7 +27,7 @@ import ../graphic3d/graphic3d_types
 
 
 proc create*(theBottomRad: cfloat; theTopRad: cfloat; theHeight: cfloat;
-            theNbSlices: cint; theNbStacks: cint; theTrsf: TrsfObj): Handle[
+            theNbSlices: cint; theNbStacks: cint; theTrsf: gp_Trsf): Handle[
     Graphic3dArrayOfTriangles] {.cdecl,
                                 importcpp: "Prs3d_ToolCylinder::Create(@)",
                                 header: "Prs3d_ToolCylinder.hxx".}

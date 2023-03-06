@@ -148,8 +148,8 @@ proc rotated*(this: gp_Vec; a1: Ax1Obj; ang: cfloat): gp_Vec {.noSideEffect, cde
 proc scale*(this: var gp_Vec; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Vec.hxx".}
 proc scaled*(this: gp_Vec; s: cfloat): gp_Vec {.noSideEffect, cdecl, importcpp: "Scaled",
                                     header: "gp_Vec.hxx".}
-proc transform*(this: var gp_Vec; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Vec.hxx".}
-proc transformed*(this: gp_Vec; t: TrsfObj): gp_Vec {.noSideEffect, cdecl,
+proc transform*(this: var gp_Vec; t: gp_Trsf) {.cdecl, importcpp: "Transform", header: "gp_Vec.hxx".}
+proc transformed*(this: gp_Vec; t: gp_Trsf): gp_Vec {.noSideEffect, cdecl,
                                        importcpp: "Transformed", header: "gp_Vec.hxx".}
 proc dumpJson*(this: gp_Vec; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "gp_Vec.hxx".}

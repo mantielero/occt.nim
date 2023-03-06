@@ -41,7 +41,7 @@ proc initialize*(this: var BRepAdaptorCurve; e: TopoDS_Edge) {.cdecl,
     importcpp: "Initialize", header: "BRepAdaptor_Curve.hxx".}
 proc initialize*(this: var BRepAdaptorCurve; e: TopoDS_Edge; f: TopoDS_Face) {.cdecl,
     importcpp: "Initialize", header: "BRepAdaptor_Curve.hxx".}
-proc trsf*(this: BRepAdaptorCurve): TrsfObj {.noSideEffect, cdecl, importcpp: "Trsf",
+proc trsf*(this: BRepAdaptorCurve): gp_Trsf {.noSideEffect, cdecl, importcpp: "Trsf",
                                        header: "BRepAdaptor_Curve.hxx".}
 proc is3DCurve*(this: BRepAdaptorCurve): bool {.noSideEffect, cdecl,
     importcpp: "Is3DCurve", header: "BRepAdaptor_Curve.hxx".}

@@ -34,7 +34,7 @@ proc kindOfDimension*(this: PrsDimOffsetDimension): PrsDimKindOfDimension {.
     noSideEffect, cdecl, importcpp: "KindOfDimension", header: "PrsDim_OffsetDimension.hxx".}
 proc isMovable*(this: PrsDimOffsetDimension): bool {.noSideEffect, cdecl,
     importcpp: "IsMovable", header: "PrsDim_OffsetDimension.hxx".}
-proc setRelativePos*(this: var PrsDimOffsetDimension; aTrsf: TrsfObj) {.cdecl,
+proc setRelativePos*(this: var PrsDimOffsetDimension; aTrsf: gp_Trsf) {.cdecl,
     importcpp: "SetRelativePos", header: "PrsDim_OffsetDimension.hxx".}
 
 

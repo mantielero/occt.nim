@@ -88,7 +88,7 @@ proc d3*(this: GeomHyperbola; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var 
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_Hyperbola.hxx".}
 proc dn*(this: GeomHyperbola; u: cfloat; n: cint): gp_Vec {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom_Hyperbola.hxx".}
-proc transform*(this: var GeomHyperbola; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomHyperbola; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_Hyperbola.hxx".}
 proc copy*(this: GeomHyperbola): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Hyperbola.hxx".}

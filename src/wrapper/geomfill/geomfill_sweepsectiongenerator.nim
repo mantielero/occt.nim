@@ -87,7 +87,7 @@ proc section*(this: GeomFillSweepSectionGenerator; p: cint;
              poles: var TColgpArray1OfPnt; poles2d: var TColgpArray1OfPnt2d;
              weigths: var TColStdArray1OfReal) {.noSideEffect, cdecl,
     importcpp: "Section", header: "GeomFill_SweepSectionGenerator.hxx".}
-proc transformation*(this: GeomFillSweepSectionGenerator; index: cint): TrsfObj {.
+proc transformation*(this: GeomFillSweepSectionGenerator; index: cint): gp_Trsf {.
     noSideEffect, cdecl, importcpp: "Transformation", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc parameter*(this: GeomFillSweepSectionGenerator; p: cint): cfloat {.noSideEffect,
     cdecl, importcpp: "Parameter", header: "GeomFill_SweepSectionGenerator.hxx".}

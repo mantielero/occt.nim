@@ -70,8 +70,8 @@ proc rotated*(this: gp_Cone; a1: Ax1Obj; ang: cfloat): gp_Cone {.noSideEffect, c
 proc scale*(this: var gp_Cone; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Cone.hxx".}
 proc scaled*(this: gp_Cone; p: gp_Pnt; s: cfloat): gp_Cone {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Cone.hxx".}
-proc transform*(this: var gp_Cone; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Cone.hxx".}
-proc transformed*(this: gp_Cone; t: TrsfObj): gp_Cone {.noSideEffect, cdecl,
+proc transform*(this: var gp_Cone; t: gp_Trsf) {.cdecl, importcpp: "Transform", header: "gp_Cone.hxx".}
+proc transformed*(this: gp_Cone; t: gp_Trsf): gp_Cone {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Cone.hxx".}
 proc translate*(this: var gp_Cone; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Cone.hxx".}
 proc translated*(this: gp_Cone; v: gp_Vec): gp_Cone {.noSideEffect, cdecl,

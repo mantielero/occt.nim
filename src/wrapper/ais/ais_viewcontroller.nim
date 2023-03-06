@@ -356,7 +356,7 @@ proc handleXRPresentations*(this: var AIS_ViewController;
     importcpp: "handleXRPresentations", header: "AIS_ViewController.hxx".}
 proc handleXRMoveTo*(this: var AIS_ViewController;
                     theCtx: Handle[AIS_InteractiveContext];
-                    theView: Handle[V3dView]; thePose: TrsfObj; theToHighlight: bool): cint {.
+                    theView: Handle[V3dView]; thePose: gp_Trsf; theToHighlight: bool): cint {.
     cdecl, importcpp: "handleXRMoveTo", header: "AIS_ViewController.hxx".}
 
 

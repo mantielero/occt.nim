@@ -74,12 +74,12 @@ proc d3*(this: GeomSurfaceOfLinearExtrusion; u: cfloat; v: cfloat; p: var gp_Pnt
     importcpp: "D3", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
 proc dn*(this: GeomSurfaceOfLinearExtrusion; u: cfloat; v: cfloat; nu: cint; nv: cint): gp_Vec {.
     noSideEffect, cdecl, importcpp: "DN", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc transform*(this: var GeomSurfaceOfLinearExtrusion; t: TrsfObj) {.cdecl,
+proc transform*(this: var GeomSurfaceOfLinearExtrusion; t: gp_Trsf) {.cdecl,
     importcpp: "Transform", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
 proc transformParameters*(this: GeomSurfaceOfLinearExtrusion; u: var cfloat;
-                         v: var cfloat; t: TrsfObj) {.noSideEffect, cdecl,
+                         v: var cfloat; t: gp_Trsf) {.noSideEffect, cdecl,
     importcpp: "TransformParameters", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc parametricTransformation*(this: GeomSurfaceOfLinearExtrusion; t: TrsfObj): GTrsf2d {.
+proc parametricTransformation*(this: GeomSurfaceOfLinearExtrusion; t: gp_Trsf): GTrsf2d {.
     noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
 proc copy*(this: GeomSurfaceOfLinearExtrusion): Handle[GeomGeometry] {.noSideEffect,
     cdecl, importcpp: "Copy", header: "Geom_SurfaceOfLinearExtrusion.hxx".}

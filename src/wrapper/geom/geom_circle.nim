@@ -61,7 +61,7 @@ proc d3*(this: GeomCircle; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_Circle.hxx".}
 proc dn*(this: GeomCircle; u: cfloat; n: cint): gp_Vec {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom_Circle.hxx".}
-proc transform*(this: var GeomCircle; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomCircle; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_Circle.hxx".}
 proc copy*(this: GeomCircle): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Circle.hxx".}

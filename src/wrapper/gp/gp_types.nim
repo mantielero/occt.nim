@@ -1,4 +1,4 @@
-# PROVIDES: Gp Ax1Obj Ax2Obj Ax22dObj Ax2dObj Ax3Obj gp_Circ gp_Circ2d gp_Cone gp_Cylinder DirObj Dir2dObj gp_Elips gp_Elips2d EulerSequenceObj GTrsf GTrsf2d gp_Hypr gp_Hypr2d gp_Lin gp_Lin2d MatObj Mat2dObj gp_Parab gp_Parab2d PlnObj gp_Pnt gp_Pnt2d QuaternionObj QuaternionNLerp QuaternionSLerp gp_Sphere gp_Torus TrsfObj Trsf2dObj TrsfFormObj gp_Vec XyObj XyzObj gp_Vec2d
+# PROVIDES: Gp Ax1Obj Ax2Obj Ax22dObj Ax2dObj Ax3Obj gp_Circ gp_Circ2d gp_Cone gp_Cylinder DirObj Dir2dObj gp_Elips gp_Elips2d EulerSequenceObj GTrsf GTrsf2d gp_Hypr gp_Hypr2d gp_Lin gp_Lin2d MatObj Mat2dObj gp_Parab gp_Parab2d PlnObj gp_Pnt gp_Pnt2d QuaternionObj QuaternionNLerp QuaternionSLerp gp_Sphere gp_Torus gp_Trsf Trsf2dObj TrsfFormObj gp_Vec XyObj XyzObj gp_Vec2d
 # DEPENDS:
 
 type
@@ -79,7 +79,7 @@ type
 
   gp_Torus* {.importcpp: "gp_Torus", header: "gp_Torus.hxx", bycopy.} = object 
 
-  TrsfObj* {.importcpp: "gp_Trsf", header: "gp_Trsf.hxx", bycopy.} = object 
+  gp_Trsf* {.importcpp: "gp_Trsf", header: "gp_Trsf.hxx", bycopy.} = object 
 
   Trsf2dObj* {.importcpp: "gp_Trsf2d", header: "gp_Trsf2d.hxx", bycopy.} = object 
 

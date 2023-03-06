@@ -10,7 +10,7 @@ import ../gp/gp_types
 type
   gp_GTrsf* = GTrsf
   #gp_Pnt*   = gp_Pnt
-  gp_Trsf*  = TrsfObj
+  #gp_Trsf*  = gp_Trsf
 
 type
   TopLoc_Location* = object # FIXME

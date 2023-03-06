@@ -68,11 +68,11 @@ proc d3*(this: GeomTrimmedCurve; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: v
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_TrimmedCurve.hxx".}
 proc dn*(this: GeomTrimmedCurve; u: cfloat; n: cint): gp_Vec {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom_TrimmedCurve.hxx".}
-proc transform*(this: var GeomTrimmedCurve; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomTrimmedCurve; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_TrimmedCurve.hxx".}
-proc transformedParameter*(this: GeomTrimmedCurve; u: cfloat; t: TrsfObj): cfloat {.
+proc transformedParameter*(this: GeomTrimmedCurve; u: cfloat; t: gp_Trsf): cfloat {.
     noSideEffect, cdecl, importcpp: "TransformedParameter", header: "Geom_TrimmedCurve.hxx".}
-proc parametricTransformation*(this: GeomTrimmedCurve; t: TrsfObj): cfloat {.
+proc parametricTransformation*(this: GeomTrimmedCurve; t: gp_Trsf): cfloat {.
     noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_TrimmedCurve.hxx".}
 proc copy*(this: GeomTrimmedCurve): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_TrimmedCurve.hxx".}

@@ -49,7 +49,7 @@ proc distance*(this: GeomFillSectionPlacement): cfloat {.noSideEffect, cdecl,
 proc angle*(this: GeomFillSectionPlacement): cfloat {.noSideEffect, cdecl,
     importcpp: "Angle", header: "GeomFill_SectionPlacement.hxx".}
 proc transformation*(this: GeomFillSectionPlacement; withTranslation: bool;
-                    withCorrection: bool = false): TrsfObj {.noSideEffect, cdecl,
+                    withCorrection: bool = false): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "Transformation", header: "GeomFill_SectionPlacement.hxx".}
 proc section*(this: GeomFillSectionPlacement; withTranslation: bool): Handle[
     GeomCurve] {.noSideEffect, cdecl, importcpp: "Section", header: "GeomFill_SectionPlacement.hxx".}

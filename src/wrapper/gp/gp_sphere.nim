@@ -69,9 +69,9 @@ proc scale*(this: var gp_Sphere; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scal
     header: "gp_Sphere.hxx".}
 proc scaled*(this: gp_Sphere; p: gp_Pnt; s: cfloat): gp_Sphere {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Sphere.hxx".}
-proc transform*(this: var gp_Sphere; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var gp_Sphere; t: gp_Trsf) {.cdecl, importcpp: "Transform",
                                        header: "gp_Sphere.hxx".}
-proc transformed*(this: gp_Sphere; t: TrsfObj): gp_Sphere {.noSideEffect, cdecl,
+proc transformed*(this: gp_Sphere; t: gp_Trsf): gp_Sphere {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Sphere.hxx".}
 proc translate*(this: var gp_Sphere; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Sphere.hxx".}
 proc translated*(this: gp_Sphere; v: gp_Vec): gp_Sphere {.noSideEffect, cdecl,

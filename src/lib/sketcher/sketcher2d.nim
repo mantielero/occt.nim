@@ -139,7 +139,7 @@ proc closeWithMirror*(skt: Sketch2dRef): TopoDS_Wire {.discardable.} =
   #var newWireReversed = newWire.reversed.wire
 
   #var xAxis = ox()
-  #var aTrsf:TrsfObj
+  #var aTrsf:gp_Trsf
   #aTrsf.setMirror(xAxis)
   #var aB = w.transform(aTrsf)
   #var aMirroredShape = aB.shape

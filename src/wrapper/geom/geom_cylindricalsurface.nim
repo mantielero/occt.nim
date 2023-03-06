@@ -44,9 +44,9 @@ proc uReversedParameter*(this: GeomCylindricalSurface; u: cfloat): cfloat {.
 proc vReversedParameter*(this: GeomCylindricalSurface; v: cfloat): cfloat {.
     noSideEffect, cdecl, importcpp: "VReversedParameter", header: "Geom_CylindricalSurface.hxx".}
 proc transformParameters*(this: GeomCylindricalSurface; u: var cfloat; v: var cfloat;
-                         t: TrsfObj) {.noSideEffect, cdecl,
+                         t: gp_Trsf) {.noSideEffect, cdecl,
                                   importcpp: "TransformParameters", header: "Geom_CylindricalSurface.hxx".}
-proc parametricTransformation*(this: GeomCylindricalSurface; t: TrsfObj): GTrsf2d {.
+proc parametricTransformation*(this: GeomCylindricalSurface; t: gp_Trsf): GTrsf2d {.
     noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_CylindricalSurface.hxx".}
 proc bounds*(this: GeomCylindricalSurface; u1: var cfloat; u2: var cfloat;
             v1: var cfloat; v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds",
@@ -82,7 +82,7 @@ proc d3*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u:
                                     header: "Geom_CylindricalSurface.hxx".}
 proc dn*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): gp_Vec {.
     noSideEffect, cdecl, importcpp: "DN", header: "Geom_CylindricalSurface.hxx".}
-proc transform*(this: var GeomCylindricalSurface; t: TrsfObj) {.cdecl,
+proc transform*(this: var GeomCylindricalSurface; t: gp_Trsf) {.cdecl,
     importcpp: "Transform", header: "Geom_CylindricalSurface.hxx".}
 proc copy*(this: GeomCylindricalSurface): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_CylindricalSurface.hxx".}

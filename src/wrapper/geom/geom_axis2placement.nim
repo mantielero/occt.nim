@@ -62,7 +62,7 @@ proc xDirection*(this: GeomAxis2Placement): DirObj {.noSideEffect, cdecl,
     importcpp: "XDirection", header: "Geom_Axis2Placement.hxx".}
 proc yDirection*(this: GeomAxis2Placement): DirObj {.noSideEffect, cdecl,
     importcpp: "YDirection", header: "Geom_Axis2Placement.hxx".}
-proc transform*(this: var GeomAxis2Placement; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomAxis2Placement; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_Axis2Placement.hxx".}
 proc copy*(this: GeomAxis2Placement): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Axis2Placement.hxx".}

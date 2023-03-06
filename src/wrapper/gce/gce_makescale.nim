@@ -25,11 +25,11 @@ import ../gp/gp_types
 
 proc newGceMakeScale*(point: gp_Pnt; scale: cfloat): GceMakeScale {.cdecl, constructor,
     importcpp: "gce_MakeScale(@)", header: "gce_MakeScale.hxx".}
-proc value*(this: GceMakeScale): TrsfObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeScale): gp_Trsf {.noSideEffect, cdecl, importcpp: "Value",
                                     header: "gce_MakeScale.hxx".}
-proc operator*(this: GceMakeScale): TrsfObj {.noSideEffect, cdecl, importcpp: "Operator",
+proc operator*(this: GceMakeScale): gp_Trsf {.noSideEffect, cdecl, importcpp: "Operator",
                                        header: "gce_MakeScale.hxx".}
-converter `trsf`*(this: GceMakeScale): TrsfObj {.noSideEffect, cdecl,
+converter `trsf`*(this: GceMakeScale): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "gce_MakeScale::operator gp_Trsf", header: "gce_MakeScale.hxx".}
 
 

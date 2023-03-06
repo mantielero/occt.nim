@@ -290,7 +290,7 @@ proc uIso*(this: GeomBSplineSurface; u: cfloat; checkRational: bool): Handle[Geo
     noSideEffect, cdecl, importcpp: "UIso", header: "Geom_BSplineSurface.hxx".}
 proc vIso*(this: GeomBSplineSurface; v: cfloat; checkRational: bool): Handle[GeomCurve] {.
     noSideEffect, cdecl, importcpp: "VIso", header: "Geom_BSplineSurface.hxx".}
-proc transform*(this: var GeomBSplineSurface; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomBSplineSurface; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_BSplineSurface.hxx".}
 proc maxDegreeBSplineSurface*(): cint {.cdecl, importcpp: "Geom_BSplineSurface::MaxDegree(@)",
                        header: "Geom_BSplineSurface.hxx".}

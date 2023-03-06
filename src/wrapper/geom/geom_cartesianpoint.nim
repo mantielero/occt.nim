@@ -50,7 +50,7 @@ proc y*(this: GeomCartesianPoint): cfloat {.noSideEffect, cdecl, importcpp: "Y",
                                         header: "Geom_CartesianPoint.hxx".}
 proc z*(this: GeomCartesianPoint): cfloat {.noSideEffect, cdecl, importcpp: "Z",
                                         header: "Geom_CartesianPoint.hxx".}
-proc transform*(this: var GeomCartesianPoint; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomCartesianPoint; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_CartesianPoint.hxx".}
 proc copy*(this: GeomCartesianPoint): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_CartesianPoint.hxx".}

@@ -35,11 +35,11 @@ proc newGceMakeMirror*(plane: PlnObj): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
 proc newGceMakeMirror*(plane: Ax2Obj): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc value*(this: GceMakeMirror): TrsfObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeMirror): gp_Trsf {.noSideEffect, cdecl, importcpp: "Value",
                                      header: "gce_MakeMirror.hxx".}
-proc operator*(this: GceMakeMirror): TrsfObj {.noSideEffect, cdecl,
+proc operator*(this: GceMakeMirror): gp_Trsf {.noSideEffect, cdecl,
                                         importcpp: "Operator", header: "gce_MakeMirror.hxx".}
-converter `trsf`*(this: GceMakeMirror): TrsfObj {.noSideEffect, cdecl,
+converter `trsf`*(this: GceMakeMirror): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "gce_MakeMirror::operator gp_Trsf", header: "gce_MakeMirror.hxx".}
 
 

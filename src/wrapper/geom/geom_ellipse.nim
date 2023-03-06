@@ -78,7 +78,7 @@ proc d3*(this: GeomEllipse; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_Ellipse.hxx".}
 proc dn*(this: GeomEllipse; u: cfloat; n: cint): gp_Vec {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom_Ellipse.hxx".}
-proc transform*(this: var GeomEllipse; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomEllipse; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_Ellipse.hxx".}
 proc copy*(this: GeomEllipse): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Ellipse.hxx".}

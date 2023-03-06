@@ -42,7 +42,7 @@ proc enlarge*(this: var BndB3f; theDiff: cfloat) {.cdecl, importcpp: "Enlarge",
     header: "Bnd_B3f.hxx".}
 proc limit*(this: var BndB3f; theOtherBox: BndB3f): bool {.cdecl, importcpp: "Limit",
     header: "Bnd_B3f.hxx".}
-proc transformed*(this: BndB3f; theTrsf: TrsfObj): BndB3f {.noSideEffect, cdecl,
+proc transformed*(this: BndB3f; theTrsf: gp_Trsf): BndB3f {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "Bnd_B3f.hxx".}
 proc isOut*(this: BndB3f; thePnt: XyzObj): bool {.noSideEffect, cdecl, importcpp: "IsOut",
     header: "Bnd_B3f.hxx".}
@@ -51,7 +51,7 @@ proc isOut*(this: BndB3f; theCenter: XyzObj; theRadius: cfloat;
     importcpp: "IsOut", header: "Bnd_B3f.hxx".}
 proc isOut*(this: BndB3f; theOtherBox: BndB3f): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_B3f.hxx".}
-proc isOut*(this: BndB3f; theOtherBox: BndB3f; theTrsf: TrsfObj): bool {.noSideEffect,
+proc isOut*(this: BndB3f; theOtherBox: BndB3f; theTrsf: gp_Trsf): bool {.noSideEffect,
     cdecl, importcpp: "IsOut", header: "Bnd_B3f.hxx".}
 proc isOut*(this: BndB3f; theLine: Ax1Obj; isRay: bool = false;
            theOverthickness: cfloat = 0.0): bool {.noSideEffect, cdecl,
@@ -60,7 +60,7 @@ proc isOut*(this: BndB3f; thePlane: Ax3Obj): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_B3f.hxx".}
 proc isIn*(this: BndB3f; theBox: BndB3f): bool {.noSideEffect, cdecl, importcpp: "IsIn",
     header: "Bnd_B3f.hxx".}
-proc isIn*(this: BndB3f; theBox: BndB3f; theTrsf: TrsfObj): bool {.noSideEffect, cdecl,
+proc isIn*(this: BndB3f; theBox: BndB3f; theTrsf: gp_Trsf): bool {.noSideEffect, cdecl,
     importcpp: "IsIn", header: "Bnd_B3f.hxx".}
 proc setCenter*(this: var BndB3f; theCenter: XyzObj) {.cdecl, importcpp: "SetCenter",
     header: "Bnd_B3f.hxx".}

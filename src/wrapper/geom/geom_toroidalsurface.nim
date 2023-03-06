@@ -82,7 +82,7 @@ proc d3*(this: GeomToroidalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: va
                                     header: "Geom_ToroidalSurface.hxx".}
 proc dn*(this: GeomToroidalSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): gp_Vec {.
     noSideEffect, cdecl, importcpp: "DN", header: "Geom_ToroidalSurface.hxx".}
-proc transform*(this: var GeomToroidalSurface; t: TrsfObj) {.cdecl,
+proc transform*(this: var GeomToroidalSurface; t: gp_Trsf) {.cdecl,
     importcpp: "Transform", header: "Geom_ToroidalSurface.hxx".}
 proc copy*(this: GeomToroidalSurface): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_ToroidalSurface.hxx".}

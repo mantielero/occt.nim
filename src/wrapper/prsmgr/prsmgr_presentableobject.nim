@@ -105,7 +105,7 @@ proc setTransformPersistence*(this: var PrsMgrPresentableObject;
     importcpp: "SetTransformPersistence", header: "PrsMgr_PresentableObject.hxx".}
 proc localTransformationGeom*(this: PrsMgrPresentableObject): Handle[TopLocDatum3D] {.
     noSideEffect, cdecl, importcpp: "LocalTransformationGeom", header: "PrsMgr_PresentableObject.hxx".}
-proc setLocalTransformation*(this: var PrsMgrPresentableObject; theTrsf: TrsfObj) {.
+proc setLocalTransformation*(this: var PrsMgrPresentableObject; theTrsf: gp_Trsf) {.
     cdecl, importcpp: "SetLocalTransformation", header: "PrsMgr_PresentableObject.hxx".}
 proc setLocalTransformation*(this: var PrsMgrPresentableObject;
                             theTrsf: Handle[TopLocDatum3D]) {.cdecl,
@@ -114,9 +114,9 @@ proc hasTransformation*(this: PrsMgrPresentableObject): bool {.noSideEffect, cde
     importcpp: "HasTransformation", header: "PrsMgr_PresentableObject.hxx".}
 proc transformationGeom*(this: PrsMgrPresentableObject): Handle[TopLocDatum3D] {.
     noSideEffect, cdecl, importcpp: "TransformationGeom", header: "PrsMgr_PresentableObject.hxx".}
-proc localTransformation*(this: PrsMgrPresentableObject): TrsfObj {.noSideEffect, cdecl,
+proc localTransformation*(this: PrsMgrPresentableObject): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "LocalTransformation", header: "PrsMgr_PresentableObject.hxx".}
-proc transformation*(this: PrsMgrPresentableObject): TrsfObj {.noSideEffect, cdecl,
+proc transformation*(this: PrsMgrPresentableObject): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "Transformation", header: "PrsMgr_PresentableObject.hxx".}
 proc inversedTransformation*(this: PrsMgrPresentableObject): GTrsf {.noSideEffect,
     cdecl, importcpp: "InversedTransformation", header: "PrsMgr_PresentableObject.hxx".}

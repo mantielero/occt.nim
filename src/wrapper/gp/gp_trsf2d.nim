@@ -26,7 +26,7 @@ discard "forward decl of gp_Mat2d"
 
 proc trsf2d*(): Trsf2dObj {.cdecl, constructor, importcpp: "gp_Trsf2d(@)",
                          header: "gp_Trsf2d.hxx".}
-proc trsf2d*(t: TrsfObj): Trsf2dObj {.cdecl, constructor, importcpp: "gp_Trsf2d(@)",
+proc trsf2d*(t: gp_Trsf): Trsf2dObj {.cdecl, constructor, importcpp: "gp_Trsf2d(@)",
                                header: "gp_Trsf2d.hxx".}
 proc setMirror*(this: var Trsf2dObj; p: gp_Pnt2d) {.cdecl, importcpp: "SetMirror",
                                         header: "gp_Trsf2d.hxx".}

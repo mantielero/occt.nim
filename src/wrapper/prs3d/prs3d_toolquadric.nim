@@ -31,18 +31,18 @@ proc trianglesNb*(theSlicesNb: cint; theStacksNb: cint): cint {.cdecl,
     importcpp: "Prs3d_ToolQuadric::TrianglesNb(@)", header: "Prs3d_ToolQuadric.hxx".}
 proc verticesNb*(theSlicesNb: cint; theStacksNb: cint; theIsIndexed: bool = true): cint {.
     cdecl, importcpp: "Prs3d_ToolQuadric::VerticesNb(@)", header: "Prs3d_ToolQuadric.hxx".}
-proc createTriangulation*(this: Prs3dToolQuadric; theTrsf: TrsfObj): Handle[
+proc createTriangulation*(this: Prs3dToolQuadric; theTrsf: gp_Trsf): Handle[
     Graphic3dArrayOfTriangles] {.noSideEffect, cdecl,
                                 importcpp: "CreateTriangulation", header: "Prs3d_ToolQuadric.hxx".}
-proc createPolyTriangulation*(this: Prs3dToolQuadric; theTrsf: TrsfObj): Handle[
+proc createPolyTriangulation*(this: Prs3dToolQuadric; theTrsf: gp_Trsf): Handle[
     PolyTriangulation] {.noSideEffect, cdecl, importcpp: "CreatePolyTriangulation",
                         header: "Prs3d_ToolQuadric.hxx".}
 proc fillArray*(this: Prs3dToolQuadric;
-               theArray: var Handle[Graphic3dArrayOfTriangles]; theTrsf: TrsfObj) {.
+               theArray: var Handle[Graphic3dArrayOfTriangles]; theTrsf: gp_Trsf) {.
     noSideEffect, cdecl, importcpp: "FillArray", header: "Prs3d_ToolQuadric.hxx".}
 proc fillArray*(this: Prs3dToolQuadric;
                theArray: var Handle[Graphic3dArrayOfTriangles];
-               theTriangulation: var Handle[PolyTriangulation]; theTrsf: TrsfObj) {.
+               theTriangulation: var Handle[PolyTriangulation]; theTrsf: gp_Trsf) {.
     noSideEffect, cdecl, importcpp: "FillArray", header: "Prs3d_ToolQuadric.hxx".}
 
 

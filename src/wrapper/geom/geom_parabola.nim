@@ -70,11 +70,11 @@ proc d3*(this: GeomParabola; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var g
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_Parabola.hxx".}
 proc dn*(this: GeomParabola; u: cfloat; n: cint): gp_Vec {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom_Parabola.hxx".}
-proc transform*(this: var GeomParabola; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomParabola; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_Parabola.hxx".}
-proc transformedParameter*(this: GeomParabola; u: cfloat; t: TrsfObj): cfloat {.
+proc transformedParameter*(this: GeomParabola; u: cfloat; t: gp_Trsf): cfloat {.
     noSideEffect, cdecl, importcpp: "TransformedParameter", header: "Geom_Parabola.hxx".}
-proc parametricTransformation*(this: GeomParabola; t: TrsfObj): cfloat {.noSideEffect,
+proc parametricTransformation*(this: GeomParabola; t: gp_Trsf): cfloat {.noSideEffect,
     cdecl, importcpp: "ParametricTransformation", header: "Geom_Parabola.hxx".}
 proc copy*(this: GeomParabola): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Parabola.hxx".}

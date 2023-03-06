@@ -72,11 +72,11 @@ proc isPeriodic*(this: GeomOffsetCurve): bool {.noSideEffect, cdecl,
     importcpp: "IsPeriodic", header: "Geom_OffsetCurve.hxx".}
 proc period*(this: GeomOffsetCurve): cfloat {.noSideEffect, cdecl,
     importcpp: "Period", header: "Geom_OffsetCurve.hxx".}
-proc transform*(this: var GeomOffsetCurve; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomOffsetCurve; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_OffsetCurve.hxx".}
-proc transformedParameter*(this: GeomOffsetCurve; u: cfloat; t: TrsfObj): cfloat {.
+proc transformedParameter*(this: GeomOffsetCurve; u: cfloat; t: gp_Trsf): cfloat {.
     noSideEffect, cdecl, importcpp: "TransformedParameter", header: "Geom_OffsetCurve.hxx".}
-proc parametricTransformation*(this: GeomOffsetCurve; t: TrsfObj): cfloat {.noSideEffect,
+proc parametricTransformation*(this: GeomOffsetCurve; t: gp_Trsf): cfloat {.noSideEffect,
     cdecl, importcpp: "ParametricTransformation", header: "Geom_OffsetCurve.hxx".}
 proc copy*(this: GeomOffsetCurve): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_OffsetCurve.hxx".}

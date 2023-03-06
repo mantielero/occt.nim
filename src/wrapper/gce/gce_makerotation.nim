@@ -29,11 +29,11 @@ proc newGceMakeRotation*(axis: Ax1Obj; angle: cfloat): GceMakeRotation {.cdecl,
     constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
 proc newGceMakeRotation*(point: gp_Pnt; direc: DirObj; angle: cfloat): GceMakeRotation {.
     cdecl, constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
-proc value*(this: GceMakeRotation): TrsfObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeRotation): gp_Trsf {.noSideEffect, cdecl, importcpp: "Value",
                                        header: "gce_MakeRotation.hxx".}
-proc operator*(this: GceMakeRotation): TrsfObj {.noSideEffect, cdecl,
+proc operator*(this: GceMakeRotation): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeRotation.hxx".}
-converter `trsf`*(this: GceMakeRotation): TrsfObj {.noSideEffect, cdecl,
+converter `trsf`*(this: GceMakeRotation): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "gce_MakeRotation::operator gp_Trsf", header: "gce_MakeRotation.hxx".}
 
 

@@ -58,7 +58,7 @@ proc reversed*(this: GeomAxis1Placement): Handle[GeomAxis1Placement] {.noSideEff
     cdecl, importcpp: "Reversed", header: "Geom_Axis1Placement.hxx".}
 proc setDirection*(this: var GeomAxis1Placement; v: DirObj) {.cdecl,
     importcpp: "SetDirection", header: "Geom_Axis1Placement.hxx".}
-proc transform*(this: var GeomAxis1Placement; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomAxis1Placement; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_Axis1Placement.hxx".}
 proc copy*(this: GeomAxis1Placement): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Axis1Placement.hxx".}

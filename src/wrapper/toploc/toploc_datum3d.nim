@@ -26,11 +26,11 @@ discard "forward decl of TopLoc_Datum3D"
 proc newTopLocDatum3D*(): TopLocDatum3D {.cdecl, constructor,
                                        importcpp: "TopLoc_Datum3D(@)",
                                        header: "TopLoc_Datum3D.hxx".}
-proc newTopLocDatum3D*(t: TrsfObj): TopLocDatum3D {.cdecl, constructor,
+proc newTopLocDatum3D*(t: gp_Trsf): TopLocDatum3D {.cdecl, constructor,
     importcpp: "TopLoc_Datum3D(@)", header: "TopLoc_Datum3D.hxx".}
-proc transformation*(this: TopLocDatum3D): TrsfObj {.noSideEffect, cdecl,
+proc transformation*(this: TopLocDatum3D): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "Transformation", header: "TopLoc_Datum3D.hxx".}
-proc trsf*(this: TopLocDatum3D): TrsfObj {.noSideEffect, cdecl, importcpp: "Trsf",
+proc trsf*(this: TopLocDatum3D): gp_Trsf {.noSideEffect, cdecl, importcpp: "Trsf",
                                     header: "TopLoc_Datum3D.hxx".}
 proc form*(this: TopLocDatum3D): TrsfFormObj {.noSideEffect, cdecl, importcpp: "Form",
                                         header: "TopLoc_Datum3D.hxx".}

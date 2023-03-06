@@ -78,7 +78,7 @@ type
 
   GeomFillSequenceOfAx2* = NCollectionSequence[Ax2Obj]
 
-  GeomFillSequenceOfTrsf* = NCollectionSequence[TrsfObj]
+  GeomFillSequenceOfTrsf* = NCollectionSequence[gp_Trsf]
 
   GeomFillCoons* {.importcpp: "GeomFill_Coons", header: "GeomFill_Coons.hxx", bycopy.} = object of GeomFillFilling
 

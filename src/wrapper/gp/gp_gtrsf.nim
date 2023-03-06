@@ -58,7 +58,7 @@ when defined(SetForm):
 
 
 proc newGTrsf*(): GTrsf {.cdecl, constructor, importcpp: "gp_GTrsf(@)", header: "gp_GTrsf.hxx".}
-proc newGTrsf*(t: TrsfObj): GTrsf {.cdecl, constructor, importcpp: "gp_GTrsf(@)",
+proc newGTrsf*(t: gp_Trsf): GTrsf {.cdecl, constructor, importcpp: "gp_GTrsf(@)",
                              header: "gp_GTrsf.hxx".}
 proc newGTrsf*(m: MatObj; v: XyzObj): GTrsf {.cdecl, constructor, importcpp: "gp_GTrsf(@)",
                                   header: "gp_GTrsf.hxx".}
@@ -72,7 +72,7 @@ proc setVectorialPart*(this: var GTrsf; matrix: MatObj) {.cdecl,
     importcpp: "SetVectorialPart", header: "gp_GTrsf.hxx".}
 proc setTranslationPart*(this: var GTrsf; coord: XyzObj) {.cdecl,
     importcpp: "SetTranslationPart", header: "gp_GTrsf.hxx".}
-proc setTrsf*(this: var GTrsf; t: TrsfObj) {.cdecl, importcpp: "SetTrsf", header: "gp_GTrsf.hxx".}
+proc setTrsf*(this: var GTrsf; t: gp_Trsf) {.cdecl, importcpp: "SetTrsf", header: "gp_GTrsf.hxx".}
 proc isNegative*(this: GTrsf): bool {.noSideEffect, cdecl, importcpp: "IsNegative",
                                   header: "gp_GTrsf.hxx".}
 proc isSingular*(this: GTrsf): bool {.noSideEffect, cdecl, importcpp: "IsSingular",
@@ -106,7 +106,7 @@ proc transforms*(this: GTrsf; coord: var XyzObj) {.noSideEffect, cdecl,
     importcpp: "Transforms", header: "gp_GTrsf.hxx".}
 proc transforms*(this: GTrsf; x: var cfloat; y: var cfloat; z: var cfloat) {.noSideEffect,
     cdecl, importcpp: "Transforms", header: "gp_GTrsf.hxx".}
-proc trsf*(this: GTrsf): TrsfObj {.noSideEffect, cdecl, importcpp: "Trsf", header: "gp_GTrsf.hxx".}
+proc trsf*(this: GTrsf): gp_Trsf {.noSideEffect, cdecl, importcpp: "Trsf", header: "gp_GTrsf.hxx".}
 proc getMat4*[T](this: GTrsf; theMat: var NCollectionMat4[T]) {.noSideEffect, cdecl,
     importcpp: "GetMat4", header: "gp_GTrsf.hxx".}
 proc dumpJson*(this: GTrsf; theOStream: var StandardOStream; theDepth: cint = -1) {.

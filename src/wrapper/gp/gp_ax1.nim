@@ -61,8 +61,8 @@ proc rotated*(this: Ax1Obj; a1: Ax1Obj; ang: cfloat): Ax1Obj {.noSideEffect, cde
 proc scale*(this: var Ax1Obj; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Ax1.hxx".}
 proc scaled*(this: Ax1Obj; p: gp_Pnt; s: cfloat): Ax1Obj {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Ax1.hxx".}
-proc transform*(this: var Ax1Obj; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Ax1.hxx".}
-proc transformed*(this: Ax1Obj; t: TrsfObj): Ax1Obj {.noSideEffect, cdecl,
+proc transform*(this: var Ax1Obj; t: gp_Trsf) {.cdecl, importcpp: "Transform", header: "gp_Ax1.hxx".}
+proc transformed*(this: Ax1Obj; t: gp_Trsf): Ax1Obj {.noSideEffect, cdecl,
                                        importcpp: "Transformed", header: "gp_Ax1.hxx".}
 proc translate*(this: var Ax1Obj; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Ax1.hxx".}
 proc translated*(this: Ax1Obj; v: gp_Vec): Ax1Obj {.noSideEffect, cdecl, importcpp: "Translated",

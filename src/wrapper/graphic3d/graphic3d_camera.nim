@@ -134,7 +134,7 @@ proc tile*(this: Graphic3dCamera): Graphic3dCameraTile {.noSideEffect, cdecl,
     importcpp: "Tile", header: "Graphic3d_Camera.hxx".}
 proc setTile*(this: var Graphic3dCamera; theTile: Graphic3dCameraTile) {.cdecl,
     importcpp: "SetTile", header: "Graphic3d_Camera.hxx".}
-proc transform*(this: var Graphic3dCamera; theTrsf: TrsfObj) {.cdecl,
+proc transform*(this: var Graphic3dCamera; theTrsf: gp_Trsf) {.cdecl,
     importcpp: "Transform", header: "Graphic3d_Camera.hxx".}
 proc viewDimensions*(this: Graphic3dCamera): XyzObj {.noSideEffect, cdecl,
     importcpp: "ViewDimensions", header: "Graphic3d_Camera.hxx".}

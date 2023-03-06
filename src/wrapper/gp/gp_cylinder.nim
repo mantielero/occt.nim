@@ -69,9 +69,9 @@ proc scale*(this: var gp_Cylinder; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Sc
     header: "gp_Cylinder.hxx".}
 proc scaled*(this: gp_Cylinder; p: gp_Pnt; s: cfloat): gp_Cylinder {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Cylinder.hxx".}
-proc transform*(this: var gp_Cylinder; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var gp_Cylinder; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "gp_Cylinder.hxx".}
-proc transformed*(this: gp_Cylinder; t: TrsfObj): gp_Cylinder {.noSideEffect, cdecl,
+proc transformed*(this: gp_Cylinder; t: gp_Trsf): gp_Cylinder {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Cylinder.hxx".}
 proc translate*(this: var gp_Cylinder; v: gp_Vec) {.cdecl, importcpp: "Translate",
                                         header: "gp_Cylinder.hxx".}

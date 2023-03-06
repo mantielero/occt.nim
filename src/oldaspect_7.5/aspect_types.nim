@@ -199,7 +199,7 @@ type
 
   AspectTrackedDevicePose* {.importcpp: "Aspect_TrackedDevicePose",
                             header: "Aspect_TrackedDevicePose.hxx", bycopy.} = object
-    orientation* {.importc: "Orientation".}: TrsfObj 
+    orientation* {.importc: "Orientation".}: gp_Trsf 
     velocity* {.importc: "Velocity".}: gp_Vec 
     angularVelocity* {.importc: "AngularVelocity".}: gp_Vec 
     isValidPose* {.importc: "IsValidPose".}: bool 

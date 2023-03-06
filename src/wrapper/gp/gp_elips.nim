@@ -75,8 +75,8 @@ proc rotated*(this: gp_Elips; a1: Ax1Obj; ang: cfloat): gp_Elips {.noSideEffect,
 proc scale*(this: var gp_Elips; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Elips.hxx".}
 proc scaled*(this: gp_Elips; p: gp_Pnt; s: cfloat): gp_Elips {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Elips.hxx".}
-proc transform*(this: var gp_Elips; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Elips.hxx".}
-proc transformed*(this: gp_Elips; t: TrsfObj): gp_Elips {.noSideEffect, cdecl,
+proc transform*(this: var gp_Elips; t: gp_Trsf) {.cdecl, importcpp: "Transform", header: "gp_Elips.hxx".}
+proc transformed*(this: gp_Elips; t: gp_Trsf): gp_Elips {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Elips.hxx".}
 proc translate*(this: var gp_Elips; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Elips.hxx".}
 proc translated*(this: gp_Elips; v: gp_Vec): gp_Elips {.noSideEffect, cdecl,

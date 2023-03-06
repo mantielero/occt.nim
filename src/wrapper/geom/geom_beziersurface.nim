@@ -165,7 +165,7 @@ proc isURational*(this: GeomBezierSurface): bool {.noSideEffect, cdecl,
     importcpp: "IsURational", header: "Geom_BezierSurface.hxx".}
 proc isVRational*(this: GeomBezierSurface): bool {.noSideEffect, cdecl,
     importcpp: "IsVRational", header: "Geom_BezierSurface.hxx".}
-proc transform*(this: var GeomBezierSurface; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomBezierSurface; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_BezierSurface.hxx".}
 proc maxDegreeBezierSurface*(): cint {.cdecl, importcpp: "Geom_BezierSurface::MaxDegree(@)",
                        header: "Geom_BezierSurface.hxx".}

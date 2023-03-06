@@ -81,7 +81,7 @@ proc subtract*(this: var GeomVectorWithMagnitude; other: Handle[GeomVector]) {.c
 proc subtracted*(this: GeomVectorWithMagnitude; other: Handle[GeomVector]): Handle[
     GeomVectorWithMagnitude] {.noSideEffect, cdecl, importcpp: "Subtracted",
                               header: "Geom_VectorWithMagnitude.hxx".}
-proc transform*(this: var GeomVectorWithMagnitude; t: TrsfObj) {.cdecl,
+proc transform*(this: var GeomVectorWithMagnitude; t: gp_Trsf) {.cdecl,
     importcpp: "Transform", header: "Geom_VectorWithMagnitude.hxx".}
 proc copy*(this: GeomVectorWithMagnitude): Handle[GeomGeometry] {.noSideEffect,
     cdecl, importcpp: "Copy", header: "Geom_VectorWithMagnitude.hxx".}

@@ -79,7 +79,7 @@ proc d3*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: v
                                     header: "Geom_SphericalSurface.hxx".}
 proc dn*(this: GeomSphericalSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): gp_Vec {.
     noSideEffect, cdecl, importcpp: "DN", header: "Geom_SphericalSurface.hxx".}
-proc transform*(this: var GeomSphericalSurface; t: TrsfObj) {.cdecl,
+proc transform*(this: var GeomSphericalSurface; t: gp_Trsf) {.cdecl,
     importcpp: "Transform", header: "Geom_SphericalSurface.hxx".}
 proc copy*(this: GeomSphericalSurface): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_SphericalSurface.hxx".}

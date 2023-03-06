@@ -30,7 +30,7 @@ import geom_types
 
 proc newGeomTransformation*(): GeomTransformation {.cdecl, constructor,
     importcpp: "Geom_Transformation(@)", header: "Geom_Transformation.hxx".}
-proc newGeomTransformation*(t: TrsfObj): GeomTransformation {.cdecl, constructor,
+proc newGeomTransformation*(t: gp_Trsf): GeomTransformation {.cdecl, constructor,
     importcpp: "Geom_Transformation(@)", header: "Geom_Transformation.hxx".}
 proc setMirror*(this: var GeomTransformation; thePnt: gp_Pnt) {.cdecl,
     importcpp: "SetMirror", header: "Geom_Transformation.hxx".}
@@ -51,7 +51,7 @@ proc setTranslation*(this: var GeomTransformation; theVec: gp_Vec) {.cdecl,
     importcpp: "SetTranslation", header: "Geom_Transformation.hxx".}
 proc setTranslation*(this: var GeomTransformation; p1: gp_Pnt; p2: gp_Pnt) {.cdecl,
     importcpp: "SetTranslation", header: "Geom_Transformation.hxx".}
-proc setTrsf*(this: var GeomTransformation; theTrsf: TrsfObj) {.cdecl,
+proc setTrsf*(this: var GeomTransformation; theTrsf: gp_Trsf) {.cdecl,
     importcpp: "SetTrsf", header: "Geom_Transformation.hxx".}
 proc isNegative*(this: GeomTransformation): bool {.noSideEffect, cdecl,
     importcpp: "IsNegative", header: "Geom_Transformation.hxx".}
@@ -59,7 +59,7 @@ proc form*(this: GeomTransformation): TrsfFormObj {.noSideEffect, cdecl,
     importcpp: "Form", header: "Geom_Transformation.hxx".}
 proc scaleFactor*(this: GeomTransformation): cfloat {.noSideEffect, cdecl,
     importcpp: "ScaleFactor", header: "Geom_Transformation.hxx".}
-proc trsf*(this: GeomTransformation): TrsfObj {.noSideEffect, cdecl, importcpp: "Trsf",
+proc trsf*(this: GeomTransformation): gp_Trsf {.noSideEffect, cdecl, importcpp: "Trsf",
     header: "Geom_Transformation.hxx".}
 proc value*(this: GeomTransformation; theRow: cint; theCol: cint): cfloat {.
     noSideEffect, cdecl, importcpp: "Value", header: "Geom_Transformation.hxx".}

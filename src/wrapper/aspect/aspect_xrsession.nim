@@ -65,11 +65,11 @@ proc displayFrequency*(this: AspectXRSession): StandardShortReal {.noSideEffect,
     cdecl, importcpp: "DisplayFrequency".}
 proc projectionFrustum*(this: AspectXRSession; theEye: AspectEye): AspectFrustumLRBT[
     cdouble] {.noSideEffect, cdecl, importcpp: "ProjectionFrustum".}
-proc headPose*(this: AspectXRSession): TrsfObj {.noSideEffect, cdecl,
+proc headPose*(this: AspectXRSession): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "HeadPose".}
-proc leftHandPose*(this: AspectXRSession): TrsfObj {.noSideEffect, cdecl,
+proc leftHandPose*(this: AspectXRSession): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "LeftHandPose".}
-proc rightHandPose*(this: AspectXRSession): TrsfObj {.noSideEffect, cdecl,
+proc rightHandPose*(this: AspectXRSession): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "RightHandPose".}
 proc trackedPoses*(this: AspectXRSession): AspectTrackedDevicePoseArray {.
     noSideEffect, cdecl, importcpp: "TrackedPoses".}

@@ -58,11 +58,11 @@ proc computeTransformation*(this: var STEPControlActorRead;
                            target: Handle[StepGeomAxis2Placement3d];
                            origContext: Handle[StepReprRepresentation];
                            targContext: Handle[StepReprRepresentation];
-                           tp: Handle[TransferTransientProcess]; trsf: var TrsfObj): bool {.
+                           tp: Handle[TransferTransientProcess]; trsf: var gp_Trsf): bool {.
     cdecl, importcpp: "ComputeTransformation", header: "STEPControl_ActorRead.hxx".}
 proc computeSRRWT*(this: var STEPControlActorRead;
                   srr: Handle[StepReprRepresentationRelationship];
-                  tp: Handle[TransferTransientProcess]; trsf: var TrsfObj): bool {.cdecl,
+                  tp: Handle[TransferTransientProcess]; trsf: var gp_Trsf): bool {.cdecl,
     importcpp: "ComputeSRRWT", header: "STEPControl_ActorRead.hxx".}
 
 

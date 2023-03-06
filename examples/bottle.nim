@@ -36,7 +36,7 @@ proc main() =
     # gp_Ax1 xAxis = gp::OX();
 
   # Complete Profile
-  var aTrsf:TrsfObj
+  var aTrsf:gp_Trsf
   aTrsf.setMirror(xAxis)
 
   # apply the transformation 

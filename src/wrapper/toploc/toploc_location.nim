@@ -26,7 +26,7 @@ discard "forward decl of TopLoc_Datum3D"
 
 proc newTopLocLocation*(): TopLocLocation {.cdecl, constructor,
     importcpp: "TopLoc_Location(@)", header: "TopLoc_Location.hxx".}
-proc newTopLocLocation*(t: TrsfObj): TopLocLocation {.cdecl, constructor,
+proc newTopLocLocation*(t: gp_Trsf): TopLocLocation {.cdecl, constructor,
     importcpp: "TopLoc_Location(@)", header: "TopLoc_Location.hxx".}
 proc newTopLocLocation*(d: Handle[TopLocDatum3D]): TopLocLocation {.cdecl,
     constructor, importcpp: "TopLoc_Location(@)", header: "TopLoc_Location.hxx".}
@@ -39,9 +39,9 @@ proc firstPower*(this: TopLocLocation): cint {.noSideEffect, cdecl,
     importcpp: "FirstPower", header: "TopLoc_Location.hxx".}
 proc nextLocation*(this: TopLocLocation): TopLocLocation {.noSideEffect, cdecl,
     importcpp: "NextLocation", header: "TopLoc_Location.hxx".}
-proc transformation*(this: TopLocLocation): TrsfObj {.noSideEffect, cdecl,
+proc transformation*(this: TopLocLocation): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "Transformation", header: "TopLoc_Location.hxx".}
-converter `trsf`*(this: TopLocLocation): TrsfObj {.noSideEffect, cdecl,
+converter `trsf`*(this: TopLocLocation): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "TopLoc_Location::operator gp_Trsf", header: "TopLoc_Location.hxx".}
 proc inverted*(this: TopLocLocation): TopLocLocation {.noSideEffect, cdecl,
     importcpp: "Inverted", header: "TopLoc_Location.hxx".}

@@ -25,10 +25,10 @@ import ../topods/topods_types
 
 
 
-proc transform*(t: TrsfObj): BRepBuilderAPI_Transform {.cdecl,
+proc transform*(t: gp_Trsf): BRepBuilderAPI_Transform {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_Transform(@)", header: "BRepBuilderAPI_Transform.hxx".}
 
-proc transform*(s: TopoDS_Shape; t: TrsfObj; copy: bool = false): BRepBuilderAPI_Transform {.
+proc transform*(s: TopoDS_Shape; t: gp_Trsf; copy: bool = false): BRepBuilderAPI_Transform {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_Transform(@)", header: "BRepBuilderAPI_Transform.hxx".}
 proc perform*(this: var BRepBuilderAPI_Transform; s: TopoDS_Shape; copy: bool = false) {.
     cdecl, importcpp: "Perform", header: "BRepBuilderAPI_Transform.hxx".}

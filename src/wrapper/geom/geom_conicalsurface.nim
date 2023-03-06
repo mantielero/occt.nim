@@ -46,9 +46,9 @@ proc vReversedParameter*(this: GeomConicalSurface; v: cfloat): cfloat {.noSideEf
     cdecl, importcpp: "VReversedParameter", header: "Geom_ConicalSurface.hxx".}
 proc vReverse*(this: var GeomConicalSurface) {.cdecl, importcpp: "VReverse",
     header: "Geom_ConicalSurface.hxx".}
-proc transformParameters*(this: GeomConicalSurface; u: var cfloat; v: var cfloat; t: TrsfObj) {.
+proc transformParameters*(this: GeomConicalSurface; u: var cfloat; v: var cfloat; t: gp_Trsf) {.
     noSideEffect, cdecl, importcpp: "TransformParameters", header: "Geom_ConicalSurface.hxx".}
-proc parametricTransformation*(this: GeomConicalSurface; t: TrsfObj): GTrsf2d {.
+proc parametricTransformation*(this: GeomConicalSurface; t: gp_Trsf): GTrsf2d {.
     noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_ConicalSurface.hxx".}
 proc apex*(this: GeomConicalSurface): gp_Pnt {.noSideEffect, cdecl, importcpp: "Apex",
                                         header: "Geom_ConicalSurface.hxx".}
@@ -87,7 +87,7 @@ proc d3*(this: GeomConicalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var
                                     header: "Geom_ConicalSurface.hxx".}
 proc dn*(this: GeomConicalSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): gp_Vec {.
     noSideEffect, cdecl, importcpp: "DN", header: "Geom_ConicalSurface.hxx".}
-proc transform*(this: var GeomConicalSurface; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomConicalSurface; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_ConicalSurface.hxx".}
 proc copy*(this: GeomConicalSurface): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_ConicalSurface.hxx".}

@@ -90,8 +90,8 @@ proc rotate*(this: var DirObj; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rot
     header: "gp_Dir.hxx".}
 proc rotated*(this: DirObj; a1: Ax1Obj; ang: cfloat): DirObj {.noSideEffect, cdecl,
     importcpp: "Rotated", header: "gp_Dir.hxx".}
-proc transform*(this: var DirObj; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Dir.hxx".}
-proc transformed*(this: DirObj; t: TrsfObj): DirObj {.noSideEffect, cdecl,
+proc transform*(this: var DirObj; t: gp_Trsf) {.cdecl, importcpp: "Transform", header: "gp_Dir.hxx".}
+proc transformed*(this: DirObj; t: gp_Trsf): DirObj {.noSideEffect, cdecl,
                                        importcpp: "Transformed", header: "gp_Dir.hxx".}
 proc dumpJson*(this: DirObj; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "gp_Dir.hxx".}

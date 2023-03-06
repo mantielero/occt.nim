@@ -41,7 +41,7 @@ proc surface*(this: BRepAdaptorSurface): GeomAdaptorSurface {.noSideEffect, cdec
     importcpp: "Surface", header: "BRepAdaptor_Surface.hxx".}
 proc changeSurface*(this: var BRepAdaptorSurface): var GeomAdaptorSurface {.cdecl,
     importcpp: "ChangeSurface", header: "BRepAdaptor_Surface.hxx".}
-proc trsf*(this: BRepAdaptorSurface): TrsfObj {.noSideEffect, cdecl, importcpp: "Trsf",
+proc trsf*(this: BRepAdaptorSurface): gp_Trsf {.noSideEffect, cdecl, importcpp: "Trsf",
     header: "BRepAdaptor_Surface.hxx".}
 proc face*(this: BRepAdaptorSurface): TopoDS_Face {.noSideEffect, cdecl,
     importcpp: "Face", header: "BRepAdaptor_Surface.hxx".}

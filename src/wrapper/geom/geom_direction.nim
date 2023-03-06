@@ -54,7 +54,7 @@ proc crossed*(this: GeomDirection; other: Handle[GeomVector]): Handle[GeomVector
 proc crossCrossed*(this: GeomDirection; v1: Handle[GeomVector];
                   v2: Handle[GeomVector]): Handle[GeomVector] {.noSideEffect, cdecl,
     importcpp: "CrossCrossed", header: "Geom_Direction.hxx".}
-proc transform*(this: var GeomDirection; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomDirection; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_Direction.hxx".}
 proc copy*(this: GeomDirection): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Direction.hxx".}

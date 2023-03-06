@@ -28,7 +28,7 @@ import ais_types
 proc newAIS_AnimationObject*(theAnimationName: TCollectionAsciiString;
                             theContext: Handle[AIS_InteractiveContext];
                             theObject: Handle[AIS_InteractiveObject];
-                            theTrsfStart: TrsfObj; theTrsfEnd: TrsfObj): AIS_AnimationObject {.
+                            theTrsfStart: gp_Trsf; theTrsfEnd: gp_Trsf): AIS_AnimationObject {.
     cdecl, constructor, importcpp: "AIS_AnimationObject(@)", header: "AIS_AnimationObject.hxx".}
 
 

@@ -67,14 +67,14 @@ proc connect*(this: var AIS_MultipleConnectedInteractive;
              theAnotherObj: Handle[AIS_InteractiveObject]): Handle[
     AIS_InteractiveObject] {.cdecl, importcpp: "Connect", header: "AIS_MultipleConnectedInteractive.hxx".}
 proc connect*(this: var AIS_MultipleConnectedInteractive;
-             theAnotherObj: Handle[AIS_InteractiveObject]; theLocation: TrsfObj): Handle[
+             theAnotherObj: Handle[AIS_InteractiveObject]; theLocation: gp_Trsf): Handle[
     AIS_InteractiveObject] {.cdecl, importcpp: "Connect", header: "AIS_MultipleConnectedInteractive.hxx".}
 proc connect*(this: var AIS_MultipleConnectedInteractive;
-             theAnotherObj: Handle[AIS_InteractiveObject]; theLocation: TrsfObj;
+             theAnotherObj: Handle[AIS_InteractiveObject]; theLocation: gp_Trsf;
              theTrsfPers: Handle[Graphic3dTransformPers]): Handle[
     AIS_InteractiveObject] {.cdecl, importcpp: "Connect", header: "AIS_MultipleConnectedInteractive.hxx".}
 proc connect*(this: var AIS_MultipleConnectedInteractive;
-             theInteractive: Handle[AIS_InteractiveObject]; theLocation: TrsfObj;
+             theInteractive: Handle[AIS_InteractiveObject]; theLocation: gp_Trsf;
              theTrsfPersFlag: Graphic3dTransModeFlags; theTrsfPersPoint: gp_Pnt): Handle[
     AIS_InteractiveObject] {.cdecl, importcpp: "Connect", header: "AIS_MultipleConnectedInteractive.hxx".}
 

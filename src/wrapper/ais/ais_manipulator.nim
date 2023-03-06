@@ -93,15 +93,15 @@ proc processDragging*(this: var AIS_Manipulator;
 proc startTransform*(this: var AIS_Manipulator; theX: cint; theY: cint;
                     theView: Handle[V3dView]) {.cdecl, importcpp: "StartTransform",
     header: "AIS_Manipulator.hxx".}
-proc transform*(this: var AIS_Manipulator; aTrsf: TrsfObj) {.cdecl,
+proc transform*(this: var AIS_Manipulator; aTrsf: gp_Trsf) {.cdecl,
     importcpp: "Transform", header: "AIS_Manipulator.hxx".}
 proc stopTransform*(this: var AIS_Manipulator; theToApply: bool = true) {.cdecl,
     importcpp: "StopTransform", header: "AIS_Manipulator.hxx".}
 proc transform*(this: var AIS_Manipulator; theX: cint; theY: cint;
-               theView: Handle[V3dView]): TrsfObj {.cdecl, importcpp: "Transform",
+               theView: Handle[V3dView]): gp_Trsf {.cdecl, importcpp: "Transform",
     header: "AIS_Manipulator.hxx".}
 proc objectTransformation*(this: var AIS_Manipulator; theX: cint; theY: cint;
-                          theView: Handle[V3dView]; theTrsf: var TrsfObj): bool {.cdecl,
+                          theView: Handle[V3dView]; theTrsf: var gp_Trsf): bool {.cdecl,
     importcpp: "ObjectTransformation", header: "AIS_Manipulator.hxx".}
 proc deactivateCurrentMode*(this: var AIS_Manipulator) {.cdecl,
     importcpp: "DeactivateCurrentMode", header: "AIS_Manipulator.hxx".}
@@ -118,9 +118,9 @@ proc hasActiveMode*(this: AIS_Manipulator): bool {.noSideEffect, cdecl,
     importcpp: "HasActiveMode", header: "AIS_Manipulator.hxx".}
 proc hasActiveTransformation*(this: var AIS_Manipulator): bool {.cdecl,
     importcpp: "HasActiveTransformation", header: "AIS_Manipulator.hxx".}
-proc startTransformation*(this: AIS_Manipulator): TrsfObj {.noSideEffect, cdecl,
+proc startTransformation*(this: AIS_Manipulator): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "StartTransformation", header: "AIS_Manipulator.hxx".}
-proc startTransformation*(this: AIS_Manipulator; theIndex: cint): TrsfObj {.noSideEffect,
+proc startTransformation*(this: AIS_Manipulator; theIndex: cint): gp_Trsf {.noSideEffect,
     cdecl, importcpp: "StartTransformation", header: "AIS_Manipulator.hxx".}
 proc setZoomPersistence*(this: var AIS_Manipulator; theToEnable: bool) {.cdecl,
     importcpp: "SetZoomPersistence", header: "AIS_Manipulator.hxx".}

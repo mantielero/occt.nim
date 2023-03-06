@@ -48,7 +48,7 @@ proc connect*(this: var AIS_ConnectedInteractive;
              theAnotherObj: Handle[AIS_InteractiveObject]) {.cdecl,
     importcpp: "Connect", header: "AIS_ConnectedInteractive.hxx".}
 proc connect*(this: var AIS_ConnectedInteractive;
-             theAnotherObj: Handle[AIS_InteractiveObject]; theLocation: TrsfObj) {.
+             theAnotherObj: Handle[AIS_InteractiveObject]; theLocation: gp_Trsf) {.
     cdecl, importcpp: "Connect", header: "AIS_ConnectedInteractive.hxx".}
 proc connect*(this: var AIS_ConnectedInteractive;
              theAnotherObj: Handle[AIS_InteractiveObject];

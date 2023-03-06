@@ -45,9 +45,9 @@ proc uReversedParameter*(this: GeomPlane; u: cfloat): cfloat {.noSideEffect, cde
 proc vReverse*(this: var GeomPlane) {.cdecl, importcpp: "VReverse", header: "Geom_Plane.hxx".}
 proc vReversedParameter*(this: GeomPlane; v: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "VReversedParameter", header: "Geom_Plane.hxx".}
-proc transformParameters*(this: GeomPlane; u: var cfloat; v: var cfloat; t: TrsfObj) {.
+proc transformParameters*(this: GeomPlane; u: var cfloat; v: var cfloat; t: gp_Trsf) {.
     noSideEffect, cdecl, importcpp: "TransformParameters", header: "Geom_Plane.hxx".}
-proc parametricTransformation*(this: GeomPlane; t: TrsfObj): GTrsf2d {.noSideEffect,
+proc parametricTransformation*(this: GeomPlane; t: gp_Trsf): GTrsf2d {.noSideEffect,
     cdecl, importcpp: "ParametricTransformation", header: "Geom_Plane.hxx".}
 proc bounds*(this: GeomPlane; u1: var cfloat; u2: var cfloat; v1: var cfloat; v2: var cfloat) {.
     noSideEffect, cdecl, importcpp: "Bounds", header: "Geom_Plane.hxx".}
@@ -78,7 +78,7 @@ proc d3*(this: GeomPlane; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var gp_Vec; 
         d3uvv: var gp_Vec) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom_Plane.hxx".}
 proc dn*(this: GeomPlane; u: cfloat; v: cfloat; nu: cint; nv: cint): gp_Vec {.noSideEffect,
     cdecl, importcpp: "DN", header: "Geom_Plane.hxx".}
-proc transform*(this: var GeomPlane; t: TrsfObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomPlane; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_Plane.hxx".}
 proc copy*(this: GeomPlane): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Plane.hxx".}

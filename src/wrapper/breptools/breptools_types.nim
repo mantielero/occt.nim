@@ -7,10 +7,7 @@ import ../gp/gp_types
 
 ## ! Defines geometric modifications to a shape, i.e.
 ## ! changes to faces, edges and vertices.
-type
-  gp_GTrsf* = GTrsf
-  #gp_Pnt*   = gp_Pnt
-  #gp_Trsf*  = gp_Trsf
+
 
 type
   TopLoc_Location* = object # FIXME

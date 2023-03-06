@@ -92,7 +92,7 @@ proc transform*(this: var GeomOffsetSurface; t: gp_Trsf) {.cdecl, importcpp: "Tr
     header: "Geom_OffsetSurface.hxx".}
 proc transformParameters*(this: GeomOffsetSurface; u: var cfloat; v: var cfloat; t: gp_Trsf) {.
     noSideEffect, cdecl, importcpp: "TransformParameters", header: "Geom_OffsetSurface.hxx".}
-proc parametricTransformation*(this: GeomOffsetSurface; t: gp_Trsf): GTrsf2d {.
+proc parametricTransformation*(this: GeomOffsetSurface; t: gp_Trsf): gp_GTrsf2d {.
     noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_OffsetSurface.hxx".}
 proc copy*(this: GeomOffsetSurface): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_OffsetSurface.hxx".}

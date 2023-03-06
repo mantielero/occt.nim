@@ -57,57 +57,57 @@ when defined(SetForm):
 ## ! objects of this class respect the nature of geometric objects.
 
 
-proc newGTrsf*(): GTrsf {.cdecl, constructor, importcpp: "gp_GTrsf(@)", header: "gp_GTrsf.hxx".}
-proc newGTrsf*(t: gp_Trsf): GTrsf {.cdecl, constructor, importcpp: "gp_GTrsf(@)",
+proc newGTrsf*(): gp_GTrsf {.cdecl, constructor, importcpp: "gp_GTrsf(@)", header: "gp_GTrsf.hxx".}
+proc newGTrsf*(t: gp_Trsf): gp_GTrsf {.cdecl, constructor, importcpp: "gp_GTrsf(@)",
                              header: "gp_GTrsf.hxx".}
-proc newGTrsf*(m: MatObj; v: XyzObj): GTrsf {.cdecl, constructor, importcpp: "gp_GTrsf(@)",
+proc newGTrsf*(m: MatObj; v: XyzObj): gp_GTrsf {.cdecl, constructor, importcpp: "gp_GTrsf(@)",
                                   header: "gp_GTrsf.hxx".}
-proc setAffinity*(this: var GTrsf; a1: Ax1Obj; ratio: cfloat) {.cdecl,
+proc setAffinity*(this: var gp_GTrsf; a1: Ax1Obj; ratio: cfloat) {.cdecl,
     importcpp: "SetAffinity", header: "gp_GTrsf.hxx".}
-proc setAffinity*(this: var GTrsf; a2: Ax2Obj; ratio: cfloat) {.cdecl,
+proc setAffinity*(this: var gp_GTrsf; a2: Ax2Obj; ratio: cfloat) {.cdecl,
     importcpp: "SetAffinity", header: "gp_GTrsf.hxx".}
-proc setValue*(this: var GTrsf; row: cint; col: cint; value: cfloat) {.cdecl,
+proc setValue*(this: var gp_GTrsf; row: cint; col: cint; value: cfloat) {.cdecl,
     importcpp: "SetValue", header: "gp_GTrsf.hxx".}
-proc setVectorialPart*(this: var GTrsf; matrix: MatObj) {.cdecl,
+proc setVectorialPart*(this: var gp_GTrsf; matrix: MatObj) {.cdecl,
     importcpp: "SetVectorialPart", header: "gp_GTrsf.hxx".}
-proc setTranslationPart*(this: var GTrsf; coord: XyzObj) {.cdecl,
+proc setTranslationPart*(this: var gp_GTrsf; coord: XyzObj) {.cdecl,
     importcpp: "SetTranslationPart", header: "gp_GTrsf.hxx".}
-proc setTrsf*(this: var GTrsf; t: gp_Trsf) {.cdecl, importcpp: "SetTrsf", header: "gp_GTrsf.hxx".}
-proc isNegative*(this: GTrsf): bool {.noSideEffect, cdecl, importcpp: "IsNegative",
+proc setTrsf*(this: var gp_GTrsf; t: gp_Trsf) {.cdecl, importcpp: "SetTrsf", header: "gp_GTrsf.hxx".}
+proc isNegative*(this: gp_GTrsf): bool {.noSideEffect, cdecl, importcpp: "IsNegative",
                                   header: "gp_GTrsf.hxx".}
-proc isSingular*(this: GTrsf): bool {.noSideEffect, cdecl, importcpp: "IsSingular",
+proc isSingular*(this: gp_GTrsf): bool {.noSideEffect, cdecl, importcpp: "IsSingular",
                                   header: "gp_GTrsf.hxx".}
-proc form*(this: GTrsf): TrsfFormObj {.noSideEffect, cdecl, importcpp: "Form",
+proc form*(this: gp_GTrsf): TrsfFormObj {.noSideEffect, cdecl, importcpp: "Form",
                                 header: "gp_GTrsf.hxx".}
-proc setForm*(this: var GTrsf) {.cdecl, importcpp: "SetForm", header: "gp_GTrsf.hxx".}
-proc translationPart*(this: GTrsf): XyzObj {.noSideEffect, cdecl,
+proc setForm*(this: var gp_GTrsf) {.cdecl, importcpp: "SetForm", header: "gp_GTrsf.hxx".}
+proc translationPart*(this: gp_GTrsf): XyzObj {.noSideEffect, cdecl,
                                       importcpp: "TranslationPart", header: "gp_GTrsf.hxx".}
-proc vectorialPart*(this: GTrsf): MatObj {.noSideEffect, cdecl,
+proc vectorialPart*(this: gp_GTrsf): MatObj {.noSideEffect, cdecl,
                                     importcpp: "VectorialPart", header: "gp_GTrsf.hxx".}
-proc value*(this: GTrsf; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
+proc value*(this: gp_GTrsf; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "Value", header: "gp_GTrsf.hxx".}
-proc `()`*(this: GTrsf; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
+proc `()`*(this: gp_GTrsf; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "#(@)", header: "gp_GTrsf.hxx".}
-proc invert*(this: var GTrsf) {.cdecl, importcpp: "Invert", header: "gp_GTrsf.hxx".}
-proc inverted*(this: GTrsf): GTrsf {.noSideEffect, cdecl, importcpp: "Inverted",
+proc invert*(this: var gp_GTrsf) {.cdecl, importcpp: "Invert", header: "gp_GTrsf.hxx".}
+proc inverted*(this: gp_GTrsf): gp_GTrsf {.noSideEffect, cdecl, importcpp: "Inverted",
                                  header: "gp_GTrsf.hxx".}
-proc multiplied*(this: GTrsf; t: GTrsf): GTrsf {.noSideEffect, cdecl,
+proc multiplied*(this: gp_GTrsf; t: gp_GTrsf): gp_GTrsf {.noSideEffect, cdecl,
     importcpp: "Multiplied", header: "gp_GTrsf.hxx".}
-proc `*`*(this: GTrsf; t: GTrsf): GTrsf {.noSideEffect, cdecl, importcpp: "(# * #)",
+proc `*`*(this: gp_GTrsf; t: gp_GTrsf): gp_GTrsf {.noSideEffect, cdecl, importcpp: "(# * #)",
                                     header: "gp_GTrsf.hxx".}
-proc multiply*(this: var GTrsf; t: GTrsf) {.cdecl, importcpp: "Multiply", header: "gp_GTrsf.hxx".}
-proc `*=`*(this: var GTrsf; t: GTrsf) {.cdecl, importcpp: "(# *= #)", header: "gp_GTrsf.hxx".}
-proc preMultiply*(this: var GTrsf; t: GTrsf) {.cdecl, importcpp: "PreMultiply",
+proc multiply*(this: var gp_GTrsf; t: gp_GTrsf) {.cdecl, importcpp: "Multiply", header: "gp_GTrsf.hxx".}
+proc `*=`*(this: var gp_GTrsf; t: gp_GTrsf) {.cdecl, importcpp: "(# *= #)", header: "gp_GTrsf.hxx".}
+proc preMultiply*(this: var gp_GTrsf; t: gp_GTrsf) {.cdecl, importcpp: "PreMultiply",
     header: "gp_GTrsf.hxx".}
-proc power*(this: var GTrsf; n: cint) {.cdecl, importcpp: "Power", header: "gp_GTrsf.hxx".}
-proc powered*(this: GTrsf; n: cint): GTrsf {.noSideEffect, cdecl, importcpp: "Powered",
+proc power*(this: var gp_GTrsf; n: cint) {.cdecl, importcpp: "Power", header: "gp_GTrsf.hxx".}
+proc powered*(this: gp_GTrsf; n: cint): gp_GTrsf {.noSideEffect, cdecl, importcpp: "Powered",
                                        header: "gp_GTrsf.hxx".}
-proc transforms*(this: GTrsf; coord: var XyzObj) {.noSideEffect, cdecl,
+proc transforms*(this: gp_GTrsf; coord: var XyzObj) {.noSideEffect, cdecl,
     importcpp: "Transforms", header: "gp_GTrsf.hxx".}
-proc transforms*(this: GTrsf; x: var cfloat; y: var cfloat; z: var cfloat) {.noSideEffect,
+proc transforms*(this: gp_GTrsf; x: var cfloat; y: var cfloat; z: var cfloat) {.noSideEffect,
     cdecl, importcpp: "Transforms", header: "gp_GTrsf.hxx".}
-proc trsf*(this: GTrsf): gp_Trsf {.noSideEffect, cdecl, importcpp: "Trsf", header: "gp_GTrsf.hxx".}
-proc getMat4*[T](this: GTrsf; theMat: var NCollectionMat4[T]) {.noSideEffect, cdecl,
+proc trsf*(this: gp_GTrsf): gp_Trsf {.noSideEffect, cdecl, importcpp: "Trsf", header: "gp_GTrsf.hxx".}
+proc getMat4*[T](this: gp_GTrsf; theMat: var NCollectionMat4[T]) {.noSideEffect, cdecl,
     importcpp: "GetMat4", header: "gp_GTrsf.hxx".}
-proc dumpJson*(this: GTrsf; theOStream: var StandardOStream; theDepth: cint = -1) {.
+proc dumpJson*(this: gp_GTrsf; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "gp_GTrsf.hxx".}

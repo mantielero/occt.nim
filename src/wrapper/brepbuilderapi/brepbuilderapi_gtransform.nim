@@ -25,9 +25,9 @@ import ../topods/topods_types
 
 
 
-proc gTransform*(t: GTrsf): BRepBuilderAPI_GTransform {.cdecl,
+proc gTransform*(t: gp_GTrsf): BRepBuilderAPI_GTransform {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_GTransform(@)", header: "BRepBuilderAPI_GTransform.hxx".}
-proc gTransform*(s: TopoDS_Shape; t: GTrsf; copy: bool = false): BRepBuilderAPI_GTransform {.
+proc gTransform*(s: TopoDS_Shape; t: gp_GTrsf; copy: bool = false): BRepBuilderAPI_GTransform {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_GTransform(@)", header: "BRepBuilderAPI_GTransform.hxx".}
 proc perform*(this: var BRepBuilderAPI_GTransform; s: TopoDS_Shape; copy: bool = false) {.
     cdecl, importcpp: "Perform", header: "BRepBuilderAPI_GTransform.hxx".}

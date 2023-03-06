@@ -49,7 +49,7 @@ type
 
   ApproxArray1OfAdHSurface* = NCollectionArray1[Handle[Adaptor3dHSurface]]
 
-  ApproxArray1OfGTrsf2d* = NCollectionArray1[GTrsf2d]
+  ApproxArray1OfGTrsf2d* = NCollectionArray1[gp_GTrsf2d]
 
   ApproxSequenceOfHArray1OfReal* = NCollectionSequence[
       Handle[TColStdHArray1OfReal]]

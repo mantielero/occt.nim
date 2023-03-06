@@ -74,7 +74,7 @@ proc build*(this: var SelectMgrBaseFrustum; a2: gp_Pnt2d; ## theP1
 proc build*(this: var SelectMgrBaseFrustum; a2: TColgpArray1OfPnt2d) {.cdecl,
     importcpp: "Build", header: "SelectMgr_BaseFrustum.hxx".}
   ## thePoints
-proc scaleAndTransform*(this: SelectMgrBaseFrustum; a2: cint; a3: GTrsf): Handle[
+proc scaleAndTransform*(this: SelectMgrBaseFrustum; a2: cint; a3: gp_GTrsf): Handle[
     SelectMgrBaseFrustum] {.noSideEffect, cdecl, importcpp: "ScaleAndTransform",
                            header: "SelectMgr_BaseFrustum.hxx".}
   ## theTrsf

@@ -38,7 +38,7 @@ proc destroySelectMgrTriangularFrustum*(this: var SelectMgrTriangularFrustum) {.
 proc build*(this: var SelectMgrTriangularFrustum; theP1: gp_Pnt2d; theP2: gp_Pnt2d;
            theP3: gp_Pnt2d) {.cdecl, importcpp: "Build", header: "SelectMgr_TriangularFrustum.hxx".}
 proc scaleAndTransform*(this: SelectMgrTriangularFrustum; theScale: cint;
-                       theTrsf: GTrsf): Handle[SelectMgrBaseFrustum] {.
+                       theTrsf: gp_GTrsf): Handle[SelectMgrBaseFrustum] {.
     noSideEffect, cdecl, importcpp: "ScaleAndTransform", header: "SelectMgr_TriangularFrustum.hxx".}
 proc overlaps*(this: SelectMgrTriangularFrustum; theMinPnt: SelectMgrVec3;
               theMaxPnt: SelectMgrVec3; theClipRange: SelectMgrViewClipRange;

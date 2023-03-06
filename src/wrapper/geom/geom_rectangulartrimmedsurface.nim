@@ -98,7 +98,7 @@ proc transform*(this: var GeomRectangularTrimmedSurface; t: gp_Trsf) {.cdecl,
 proc transformParameters*(this: GeomRectangularTrimmedSurface; u: var cfloat;
                          v: var cfloat; t: gp_Trsf) {.noSideEffect, cdecl,
     importcpp: "TransformParameters", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc parametricTransformation*(this: GeomRectangularTrimmedSurface; t: gp_Trsf): GTrsf2d {.
+proc parametricTransformation*(this: GeomRectangularTrimmedSurface; t: gp_Trsf): gp_GTrsf2d {.
     noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc copy*(this: GeomRectangularTrimmedSurface): Handle[GeomGeometry] {.
     noSideEffect, cdecl, importcpp: "Copy", header: "Geom_RectangularTrimmedSurface.hxx".}

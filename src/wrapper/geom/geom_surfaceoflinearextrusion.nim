@@ -79,7 +79,7 @@ proc transform*(this: var GeomSurfaceOfLinearExtrusion; t: gp_Trsf) {.cdecl,
 proc transformParameters*(this: GeomSurfaceOfLinearExtrusion; u: var cfloat;
                          v: var cfloat; t: gp_Trsf) {.noSideEffect, cdecl,
     importcpp: "TransformParameters", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc parametricTransformation*(this: GeomSurfaceOfLinearExtrusion; t: gp_Trsf): GTrsf2d {.
+proc parametricTransformation*(this: GeomSurfaceOfLinearExtrusion; t: gp_Trsf): gp_GTrsf2d {.
     noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
 proc copy*(this: GeomSurfaceOfLinearExtrusion): Handle[GeomGeometry] {.noSideEffect,
     cdecl, importcpp: "Copy", header: "Geom_SurfaceOfLinearExtrusion.hxx".}

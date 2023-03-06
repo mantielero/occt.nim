@@ -48,7 +48,7 @@ proc vReverse*(this: var GeomConicalSurface) {.cdecl, importcpp: "VReverse",
     header: "Geom_ConicalSurface.hxx".}
 proc transformParameters*(this: GeomConicalSurface; u: var cfloat; v: var cfloat; t: gp_Trsf) {.
     noSideEffect, cdecl, importcpp: "TransformParameters", header: "Geom_ConicalSurface.hxx".}
-proc parametricTransformation*(this: GeomConicalSurface; t: gp_Trsf): GTrsf2d {.
+proc parametricTransformation*(this: GeomConicalSurface; t: gp_Trsf): gp_GTrsf2d {.
     noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_ConicalSurface.hxx".}
 proc apex*(this: GeomConicalSurface): gp_Pnt {.noSideEffect, cdecl, importcpp: "Apex",
                                         header: "Geom_ConicalSurface.hxx".}

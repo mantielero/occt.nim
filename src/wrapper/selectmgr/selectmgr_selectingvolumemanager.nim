@@ -36,7 +36,7 @@ proc destroySelectMgrSelectingVolumeManager*(
     this: var SelectMgrSelectingVolumeManager) {.cdecl,
     importcpp: "#.~SelectMgr_SelectingVolumeManager()", header: "SelectMgr_SelectingVolumeManager.hxx".}
 proc scaleAndTransform*(this: SelectMgrSelectingVolumeManager;
-                       theScaleFactor: cint; theTrsf: GTrsf;
+                       theScaleFactor: cint; theTrsf: gp_GTrsf;
                        theBuilder: Handle[SelectMgrFrustumBuilder] = cast[Handle[SelectMgrFrustumBuilder]](nil)): SelectMgrSelectingVolumeManager {.
     noSideEffect, cdecl, importcpp: "ScaleAndTransform", header: "SelectMgr_SelectingVolumeManager.hxx".}
 proc getActiveSelectionType*(this: SelectMgrSelectingVolumeManager): cint {.

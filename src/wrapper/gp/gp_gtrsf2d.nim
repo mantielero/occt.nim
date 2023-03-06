@@ -24,57 +24,57 @@ discard "forward decl of gp_Mat2d"
 discard "forward decl of gp_XY"
 discard "forward decl of gp_Ax2d"
 
-proc newGTrsf2d*(): GTrsf2d {.cdecl, constructor, importcpp: "gp_GTrsf2d(@)",
+proc newGTrsf2d*(): gp_GTrsf2d {.cdecl, constructor, importcpp: "gp_GTrsf2d(@)",
                            header: "gp_GTrsf2d.hxx".}
-proc newGTrsf2d*(t: Trsf2dObj): GTrsf2d {.cdecl, constructor, importcpp: "gp_GTrsf2d(@)",
+proc newGTrsf2d*(t: Trsf2dObj): gp_GTrsf2d {.cdecl, constructor, importcpp: "gp_GTrsf2d(@)",
                                    header: "gp_GTrsf2d.hxx".}
-proc newGTrsf2d*(m: Mat2dObj; v: XyObj): GTrsf2d {.cdecl, constructor,
+proc newGTrsf2d*(m: Mat2dObj; v: XyObj): gp_GTrsf2d {.cdecl, constructor,
                                        importcpp: "gp_GTrsf2d(@)", header: "gp_GTrsf2d.hxx".}
-proc setAffinity*(this: var GTrsf2d; a: Ax2dObj; ratio: cfloat) {.cdecl,
+proc setAffinity*(this: var gp_GTrsf2d; a: Ax2dObj; ratio: cfloat) {.cdecl,
     importcpp: "SetAffinity", header: "gp_GTrsf2d.hxx".}
-proc setValue*(this: var GTrsf2d; row: cint; col: cint; value: cfloat) {.cdecl,
+proc setValue*(this: var gp_GTrsf2d; row: cint; col: cint; value: cfloat) {.cdecl,
     importcpp: "SetValue", header: "gp_GTrsf2d.hxx".}
-proc setTranslationPart*(this: var GTrsf2d; coord: XyObj) {.cdecl,
+proc setTranslationPart*(this: var gp_GTrsf2d; coord: XyObj) {.cdecl,
     importcpp: "SetTranslationPart", header: "gp_GTrsf2d.hxx".}
-proc setTrsf2d*(this: var GTrsf2d; t: Trsf2dObj) {.cdecl, importcpp: "SetTrsf2d",
+proc setTrsf2d*(this: var gp_GTrsf2d; t: Trsf2dObj) {.cdecl, importcpp: "SetTrsf2d",
     header: "gp_GTrsf2d.hxx".}
-proc setVectorialPart*(this: var GTrsf2d; matrix: Mat2dObj) {.cdecl,
+proc setVectorialPart*(this: var gp_GTrsf2d; matrix: Mat2dObj) {.cdecl,
     importcpp: "SetVectorialPart", header: "gp_GTrsf2d.hxx".}
-proc isNegative*(this: GTrsf2d): bool {.noSideEffect, cdecl, importcpp: "IsNegative",
+proc isNegative*(this: gp_GTrsf2d): bool {.noSideEffect, cdecl, importcpp: "IsNegative",
                                     header: "gp_GTrsf2d.hxx".}
-proc isSingular*(this: GTrsf2d): bool {.noSideEffect, cdecl, importcpp: "IsSingular",
+proc isSingular*(this: gp_GTrsf2d): bool {.noSideEffect, cdecl, importcpp: "IsSingular",
                                     header: "gp_GTrsf2d.hxx".}
-proc form*(this: GTrsf2d): TrsfFormObj {.noSideEffect, cdecl, importcpp: "Form",
+proc form*(this: gp_GTrsf2d): TrsfFormObj {.noSideEffect, cdecl, importcpp: "Form",
                                   header: "gp_GTrsf2d.hxx".}
-proc translationPart*(this: GTrsf2d): XyObj {.noSideEffect, cdecl,
+proc translationPart*(this: gp_GTrsf2d): XyObj {.noSideEffect, cdecl,
                                        importcpp: "TranslationPart",
                                        header: "gp_GTrsf2d.hxx".}
-proc vectorialPart*(this: GTrsf2d): Mat2dObj {.noSideEffect, cdecl,
+proc vectorialPart*(this: gp_GTrsf2d): Mat2dObj {.noSideEffect, cdecl,
                                         importcpp: "VectorialPart", header: "gp_GTrsf2d.hxx".}
-proc value*(this: GTrsf2d; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
+proc value*(this: gp_GTrsf2d; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "Value", header: "gp_GTrsf2d.hxx".}
-proc `()`*(this: GTrsf2d; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
+proc `()`*(this: gp_GTrsf2d; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "#(@)", header: "gp_GTrsf2d.hxx".}
-proc invert*(this: var GTrsf2d) {.cdecl, importcpp: "Invert", header: "gp_GTrsf2d.hxx".}
-proc inverted*(this: GTrsf2d): GTrsf2d {.noSideEffect, cdecl, importcpp: "Inverted",
+proc invert*(this: var gp_GTrsf2d) {.cdecl, importcpp: "Invert", header: "gp_GTrsf2d.hxx".}
+proc inverted*(this: gp_GTrsf2d): gp_GTrsf2d {.noSideEffect, cdecl, importcpp: "Inverted",
                                      header: "gp_GTrsf2d.hxx".}
-proc multiplied*(this: GTrsf2d; t: GTrsf2d): GTrsf2d {.noSideEffect, cdecl,
+proc multiplied*(this: gp_GTrsf2d; t: gp_GTrsf2d): gp_GTrsf2d {.noSideEffect, cdecl,
     importcpp: "Multiplied", header: "gp_GTrsf2d.hxx".}
-proc `*`*(this: GTrsf2d; t: GTrsf2d): GTrsf2d {.noSideEffect, cdecl,
+proc `*`*(this: gp_GTrsf2d; t: gp_GTrsf2d): gp_GTrsf2d {.noSideEffect, cdecl,
     importcpp: "(# * #)", header: "gp_GTrsf2d.hxx".}
-proc multiply*(this: var GTrsf2d; t: GTrsf2d) {.cdecl, importcpp: "Multiply",
+proc multiply*(this: var gp_GTrsf2d; t: gp_GTrsf2d) {.cdecl, importcpp: "Multiply",
     header: "gp_GTrsf2d.hxx".}
-proc `*=`*(this: var GTrsf2d; t: GTrsf2d) {.cdecl, importcpp: "(# *= #)", header: "gp_GTrsf2d.hxx".}
-proc preMultiply*(this: var GTrsf2d; t: GTrsf2d) {.cdecl, importcpp: "PreMultiply",
+proc `*=`*(this: var gp_GTrsf2d; t: gp_GTrsf2d) {.cdecl, importcpp: "(# *= #)", header: "gp_GTrsf2d.hxx".}
+proc preMultiply*(this: var gp_GTrsf2d; t: gp_GTrsf2d) {.cdecl, importcpp: "PreMultiply",
     header: "gp_GTrsf2d.hxx".}
-proc power*(this: var GTrsf2d; n: cint) {.cdecl, importcpp: "Power", header: "gp_GTrsf2d.hxx".}
-proc powered*(this: GTrsf2d; n: cint): GTrsf2d {.noSideEffect, cdecl,
+proc power*(this: var gp_GTrsf2d; n: cint) {.cdecl, importcpp: "Power", header: "gp_GTrsf2d.hxx".}
+proc powered*(this: gp_GTrsf2d; n: cint): gp_GTrsf2d {.noSideEffect, cdecl,
     importcpp: "Powered", header: "gp_GTrsf2d.hxx".}
-proc transforms*(this: GTrsf2d; coord: var XyObj) {.noSideEffect, cdecl,
+proc transforms*(this: gp_GTrsf2d; coord: var XyObj) {.noSideEffect, cdecl,
     importcpp: "Transforms", header: "gp_GTrsf2d.hxx".}
-proc transformed*(this: GTrsf2d; coord: XyObj): XyObj {.noSideEffect, cdecl,
+proc transformed*(this: gp_GTrsf2d; coord: XyObj): XyObj {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_GTrsf2d.hxx".}
-proc transforms*(this: GTrsf2d; x: var cfloat; y: var cfloat) {.noSideEffect, cdecl,
+proc transforms*(this: gp_GTrsf2d; x: var cfloat; y: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Transforms", header: "gp_GTrsf2d.hxx".}
-proc trsf2d*(this: GTrsf2d): Trsf2dObj {.noSideEffect, cdecl, importcpp: "Trsf2d",
+proc trsf2d*(this: gp_GTrsf2d): Trsf2dObj {.noSideEffect, cdecl, importcpp: "Trsf2d",
                                   header: "gp_GTrsf2d.hxx".}

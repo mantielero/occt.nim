@@ -41,9 +41,9 @@ type
     ExtrinsicZXZ, IntrinsicXYX, IntrinsicXZX, IntrinsicYZY, IntrinsicYXY,
     IntrinsicZXZ, IntrinsicZYZ
 
-  GTrsf* {.importcpp: "gp_GTrsf", header: "gp_GTrsf.hxx", bycopy.} = object 
+  gp_GTrsf* {.importcpp: "gp_GTrsf", header: "gp_GTrsf.hxx", bycopy.} = object 
 
-  GTrsf2d* {.importcpp: "gp_GTrsf2d", header: "gp_GTrsf2d.hxx", bycopy.} = object 
+  gp_GTrsf2d* {.importcpp: "gp_GTrsf2d", header: "gp_GTrsf2d.hxx", bycopy.} = object 
 
   gp_Hypr* {.importcpp: "gp_Hypr", header: "gp_Hypr.hxx", bycopy.} = object 
 

@@ -44,7 +44,7 @@ proc build*(this: var SelectMgrRectangularFrustum; thePoint: gp_Pnt2d) {.cdecl,
 proc build*(this: var SelectMgrRectangularFrustum; theMinPnt: gp_Pnt2d; theMaxPnt: gp_Pnt2d) {.
     cdecl, importcpp: "Build", header: "SelectMgr_RectangularFrustum.hxx".}
 proc scaleAndTransform*(this: SelectMgrRectangularFrustum; theScaleFactor: cint;
-                       theTrsf: GTrsf): Handle[SelectMgrBaseFrustum] {.
+                       theTrsf: gp_GTrsf): Handle[SelectMgrBaseFrustum] {.
     noSideEffect, cdecl, importcpp: "ScaleAndTransform", header: "SelectMgr_RectangularFrustum.hxx".}
 proc overlaps*(this: SelectMgrRectangularFrustum; theBoxMin: SelectMgrVec3;
               theBoxMax: SelectMgrVec3; theClipRange: SelectMgrViewClipRange;

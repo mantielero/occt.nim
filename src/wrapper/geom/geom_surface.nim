@@ -41,7 +41,7 @@ proc vReversedParameter*(this: GeomSurface; v: cfloat): cfloat {.noSideEffect, c
     importcpp: "VReversedParameter", header: "Geom_Surface.hxx".}
 proc transformParameters*(this: GeomSurface; u: var cfloat; v: var cfloat; t: gp_Trsf) {.
     noSideEffect, cdecl, importcpp: "TransformParameters", header: "Geom_Surface.hxx".}
-proc parametricTransformation*(this: GeomSurface; t: gp_Trsf): GTrsf2d {.noSideEffect,
+proc parametricTransformation*(this: GeomSurface; t: gp_Trsf): gp_GTrsf2d {.noSideEffect,
     cdecl, importcpp: "ParametricTransformation", header: "Geom_Surface.hxx".}
 proc bounds*(this: GeomSurface; u1: var cfloat; u2: var cfloat; v1: var cfloat;
             v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds", header: "Geom_Surface.hxx".}

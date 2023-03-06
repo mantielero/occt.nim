@@ -118,7 +118,7 @@ proc localTransformation*(this: PrsMgrPresentableObject): gp_Trsf {.noSideEffect
     importcpp: "LocalTransformation", header: "PrsMgr_PresentableObject.hxx".}
 proc transformation*(this: PrsMgrPresentableObject): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "Transformation", header: "PrsMgr_PresentableObject.hxx".}
-proc inversedTransformation*(this: PrsMgrPresentableObject): GTrsf {.noSideEffect,
+proc inversedTransformation*(this: PrsMgrPresentableObject): gp_GTrsf {.noSideEffect,
     cdecl, importcpp: "InversedTransformation", header: "PrsMgr_PresentableObject.hxx".}
 proc combinedParentTransformation*(this: PrsMgrPresentableObject): Handle[
     TopLocDatum3D] {.noSideEffect, cdecl,

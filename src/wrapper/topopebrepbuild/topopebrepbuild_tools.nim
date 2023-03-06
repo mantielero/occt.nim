@@ -66,15 +66,15 @@ proc getAdjacentFace*(aFaceObj: TopoDS_Shape; anEObj: TopoDS_Shape;
                      anAdjFaceObj: var TopoDS_Shape): bool {.cdecl,
     importcpp: "TopOpeBRepBuild_Tools::GetAdjacentFace(@)", header: "TopOpeBRepBuild_Tools.hxx".}
 proc getNormalToFaceOnEdge*(aFObj: TopoDS_Face; anEdgeObj: TopoDS_Edge;
-                           aDirNormal: var VecObj) {.cdecl,
+                           aDirNormal: var gp_Vec) {.cdecl,
     importcpp: "TopOpeBRepBuild_Tools::GetNormalToFaceOnEdge(@)", header: "TopOpeBRepBuild_Tools.hxx".}
 proc getNormalInNearestPoint*(aFace: TopoDS_Face; anEdge: TopoDS_Edge;
-                             aNormal: var VecObj) {.cdecl,
+                             aNormal: var gp_Vec) {.cdecl,
     importcpp: "TopOpeBRepBuild_Tools::GetNormalInNearestPoint(@)", header: "TopOpeBRepBuild_Tools.hxx".}
 proc getTangentToEdgeEdge*(aFObj: TopoDS_Face; anEdgeObj: TopoDS_Edge;
-                          aOriEObj: TopoDS_Edge; aTangent: var VecObj): bool {.cdecl,
+                          aOriEObj: TopoDS_Edge; aTangent: var gp_Vec): bool {.cdecl,
     importcpp: "TopOpeBRepBuild_Tools::GetTangentToEdgeEdge(@)", header: "TopOpeBRepBuild_Tools.hxx".}
-proc getTangentToEdge*(anEdgeObj: TopoDS_Edge; aTangent: var VecObj): bool {.cdecl,
+proc getTangentToEdge*(anEdgeObj: TopoDS_Edge; aTangent: var gp_Vec): bool {.cdecl,
     importcpp: "TopOpeBRepBuild_Tools::GetTangentToEdge(@)", header: "TopOpeBRepBuild_Tools.hxx".}
 proc updatePCurves*(aWire: TopoDS_Wire; fromFace: TopoDS_Face; toFace: TopoDS_Face) {.
     cdecl, importcpp: "TopOpeBRepBuild_Tools::UpdatePCurves(@)", header: "TopOpeBRepBuild_Tools.hxx".}

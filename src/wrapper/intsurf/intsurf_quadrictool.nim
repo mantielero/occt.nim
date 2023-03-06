@@ -25,10 +25,10 @@ import ../gp/gp_types
 
 proc value*(quad: IntSurfQuadric; x: cfloat; y: cfloat; z: cfloat): cfloat {.cdecl,
     importcpp: "IntSurf_QuadricTool::Value(@)", header: "IntSurf_QuadricTool.hxx".}
-proc gradient*(quad: IntSurfQuadric; x: cfloat; y: cfloat; z: cfloat; v: var VecObj) {.cdecl,
+proc gradient*(quad: IntSurfQuadric; x: cfloat; y: cfloat; z: cfloat; v: var gp_Vec) {.cdecl,
     importcpp: "IntSurf_QuadricTool::Gradient(@)", header: "IntSurf_QuadricTool.hxx".}
 proc valueAndGradient*(quad: IntSurfQuadric; x: cfloat; y: cfloat; z: cfloat;
-                      val: var cfloat; grad: var VecObj) {.cdecl,
+                      val: var cfloat; grad: var gp_Vec) {.cdecl,
     importcpp: "IntSurf_QuadricTool::ValueAndGradient(@)", header: "IntSurf_QuadricTool.hxx".}
 proc tolerance*(quad: IntSurfQuadric): cfloat {.cdecl,
     importcpp: "IntSurf_QuadricTool::Tolerance(@)", header: "IntSurf_QuadricTool.hxx".}

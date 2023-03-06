@@ -109,9 +109,9 @@ proc value*(this: var ChFiDS_Spine; absC: cfloat): gp_Pnt {.cdecl, importcpp: "V
     header: "ChFiDS_Spine.hxx".}
 proc d0*(this: var ChFiDS_Spine; absC: cfloat; p: var gp_Pnt) {.cdecl, importcpp: "D0",
     header: "ChFiDS_Spine.hxx".}
-proc d1*(this: var ChFiDS_Spine; absC: cfloat; p: var gp_Pnt; v1: var VecObj) {.cdecl,
+proc d1*(this: var ChFiDS_Spine; absC: cfloat; p: var gp_Pnt; v1: var gp_Vec) {.cdecl,
     importcpp: "D1", header: "ChFiDS_Spine.hxx".}
-proc d2*(this: var ChFiDS_Spine; absC: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.cdecl,
+proc d2*(this: var ChFiDS_Spine; absC: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec) {.cdecl,
     importcpp: "D2", header: "ChFiDS_Spine.hxx".}
 proc setCurrent*(this: var ChFiDS_Spine; index: cint) {.cdecl, importcpp: "SetCurrent",
     header: "ChFiDS_Spine.hxx".}

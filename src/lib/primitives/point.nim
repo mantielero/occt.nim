@@ -15,7 +15,7 @@ type
 
 
 type
-  Point* = gp_Pnt | XyzObj | DirObj  | VecObj  
+  Point* = gp_Pnt | XyzObj | DirObj  | gp_Vec  
 
 
 proc x*[T:Point](p:T):float =
@@ -41,7 +41,7 @@ proc `z=`*[T:Point, V:SomeNumber](pnt:var T,val:V) =
 proc `$`*(pnt:gp_Pnt):string =
   &"Pnt(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 
-proc `$`*(pnt:VecObj):string =
+proc `$`*(pnt:gp_Vec):string =
   &"Vec(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 
 proc `$`*(pnt:XyzObj):string =

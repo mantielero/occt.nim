@@ -88,8 +88,8 @@ proc scaled*(this: HyprObj; p: gp_Pnt; s: cfloat): HyprObj {.noSideEffect, cdecl
 proc transform*(this: var HyprObj; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Hypr.hxx".}
 proc transformed*(this: HyprObj; t: TrsfObj): HyprObj {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Hypr.hxx".}
-proc translate*(this: var HyprObj; v: VecObj) {.cdecl, importcpp: "Translate", header: "gp_Hypr.hxx".}
-proc translated*(this: HyprObj; v: VecObj): HyprObj {.noSideEffect, cdecl,
+proc translate*(this: var HyprObj; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Hypr.hxx".}
+proc translated*(this: HyprObj; v: gp_Vec): HyprObj {.noSideEffect, cdecl,
                                        importcpp: "Translated", header: "gp_Hypr.hxx".}
 proc translate*(this: var HyprObj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Hypr.hxx".}

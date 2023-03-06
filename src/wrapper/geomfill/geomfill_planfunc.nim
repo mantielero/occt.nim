@@ -25,7 +25,7 @@ import geomfill_types
 
 
 
-proc newGeomFillPlanFunc*(p: gp_Pnt; v: VecObj; c: Handle[Adaptor3dHCurve]): GeomFillPlanFunc {.
+proc newGeomFillPlanFunc*(p: gp_Pnt; v: gp_Vec; c: Handle[Adaptor3dHCurve]): GeomFillPlanFunc {.
     cdecl, constructor, importcpp: "GeomFill_PlanFunc(@)", header: "GeomFill_PlanFunc.hxx".}
 proc value*(this: var GeomFillPlanFunc; x: cfloat; f: var cfloat): bool {.cdecl,
     importcpp: "Value", header: "GeomFill_PlanFunc.hxx".}
@@ -35,9 +35,9 @@ proc values*(this: var GeomFillPlanFunc; x: cfloat; f: var cfloat; d: var cfloat
     cdecl, importcpp: "Values", header: "GeomFill_PlanFunc.hxx".}
 proc d2*(this: var GeomFillPlanFunc; x: cfloat; f: var cfloat; d1: var cfloat;
         d2: var cfloat) {.cdecl, importcpp: "D2", header: "GeomFill_PlanFunc.hxx".}
-proc dedt*(this: var GeomFillPlanFunc; x: cfloat; dp: VecObj; dv: VecObj; df: var cfloat) {.cdecl,
+proc dedt*(this: var GeomFillPlanFunc; x: cfloat; dp: gp_Vec; dv: gp_Vec; df: var cfloat) {.cdecl,
     importcpp: "DEDT", header: "GeomFill_PlanFunc.hxx".}
-proc d2e*(this: var GeomFillPlanFunc; x: cfloat; dp: VecObj; d2p: VecObj; dv: VecObj; d2v: VecObj;
+proc d2e*(this: var GeomFillPlanFunc; x: cfloat; dp: gp_Vec; d2p: gp_Vec; dv: gp_Vec; d2v: gp_Vec;
          dfdt: var cfloat; d2fdt2: var cfloat; d2fdtdx: var cfloat) {.cdecl,
     importcpp: "D2E", header: "GeomFill_PlanFunc.hxx".}
 

@@ -23,7 +23,7 @@ import ../gp/gp_types
 
 
 
-proc newGceMakeDir*(v: VecObj): GceMakeDir {.cdecl, constructor,
+proc newGceMakeDir*(v: gp_Vec): GceMakeDir {.cdecl, constructor,
                                       importcpp: "gce_MakeDir(@)",
                                       header: "gce_MakeDir.hxx".}
 proc newGceMakeDir*(coord: XyzObj): GceMakeDir {.cdecl, constructor,

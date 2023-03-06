@@ -25,7 +25,7 @@ discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Extrema_CurveTool"
 discard "forward decl of Extrema_POnCurv"
 discard "forward decl of gp_Pnt"
-discard "forward decl of VecObj"
+discard "forward decl of gp_Vec"
 discard "forward decl of Extrema_PCFOfEPCOfELPCOfLocateExtPC"
 
 proc newExtrema_EPCOfELPCOfLocateExtPC*(): Extrema_EPCOfELPCOfLocateExtPC {.cdecl,

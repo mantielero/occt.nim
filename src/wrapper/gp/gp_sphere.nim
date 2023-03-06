@@ -73,8 +73,8 @@ proc transform*(this: var SphereObj; t: TrsfObj) {.cdecl, importcpp: "Transform"
                                        header: "gp_Sphere.hxx".}
 proc transformed*(this: SphereObj; t: TrsfObj): SphereObj {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Sphere.hxx".}
-proc translate*(this: var SphereObj; v: VecObj) {.cdecl, importcpp: "Translate", header: "gp_Sphere.hxx".}
-proc translated*(this: SphereObj; v: VecObj): SphereObj {.noSideEffect, cdecl,
+proc translate*(this: var SphereObj; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Sphere.hxx".}
+proc translated*(this: SphereObj; v: gp_Vec): SphereObj {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Sphere.hxx".}
 proc translate*(this: var SphereObj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Sphere.hxx".}

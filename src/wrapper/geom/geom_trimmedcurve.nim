@@ -60,13 +60,13 @@ proc startPoint*(this: GeomTrimmedCurve): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "StartPoint", header: "Geom_TrimmedCurve.hxx".}
 proc d0*(this: GeomTrimmedCurve; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom_TrimmedCurve.hxx".}
-proc d1*(this: GeomTrimmedCurve; u: cfloat; p: var gp_Pnt; v1: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: GeomTrimmedCurve; u: cfloat; p: var gp_Pnt; v1: var gp_Vec) {.noSideEffect, cdecl,
     importcpp: "D1", header: "Geom_TrimmedCurve.hxx".}
-proc d2*(this: GeomTrimmedCurve; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.
+proc d2*(this: GeomTrimmedCurve; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "D2", header: "Geom_TrimmedCurve.hxx".}
-proc d3*(this: GeomTrimmedCurve; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
+proc d3*(this: GeomTrimmedCurve; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec; v3: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_TrimmedCurve.hxx".}
-proc dn*(this: GeomTrimmedCurve; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
+proc dn*(this: GeomTrimmedCurve; u: cfloat; n: cint): gp_Vec {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom_TrimmedCurve.hxx".}
 proc transform*(this: var GeomTrimmedCurve; t: TrsfObj) {.cdecl, importcpp: "Transform",
     header: "Geom_TrimmedCurve.hxx".}

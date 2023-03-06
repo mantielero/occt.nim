@@ -31,7 +31,7 @@ proc newGeomFillDegeneratedBound*(point: gp_Pnt; first: cfloat; last: cfloat;
     header: "GeomFill_DegeneratedBound.hxx".}
 proc value*(this: GeomFillDegeneratedBound; u: cfloat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Value", header: "GeomFill_DegeneratedBound.hxx".}
-proc d1*(this: GeomFillDegeneratedBound; u: cfloat; p: var gp_Pnt; v: var VecObj) {.noSideEffect,
+proc d1*(this: GeomFillDegeneratedBound; u: cfloat; p: var gp_Pnt; v: var gp_Vec) {.noSideEffect,
     cdecl, importcpp: "D1", header: "GeomFill_DegeneratedBound.hxx".}
 proc reparametrize*(this: var GeomFillDegeneratedBound; first: cfloat; last: cfloat;
                    hasDF: bool; hasDL: bool; df: cfloat; dl: cfloat; rev: bool) {.cdecl,

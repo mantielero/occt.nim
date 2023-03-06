@@ -71,16 +71,16 @@ proc vIso*(this: GeomCylindricalSurface; v: cfloat): Handle[GeomCurve] {.noSideE
     cdecl, importcpp: "VIso", header: "Geom_CylindricalSurface.hxx".}
 proc d0*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; p: var gp_Pnt) {.noSideEffect,
     cdecl, importcpp: "D0", header: "Geom_CylindricalSurface.hxx".}
-proc d1*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
-        d1v: var VecObj) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_CylindricalSurface.hxx".}
-proc d2*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
-        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var gp_Vec;
+        d1v: var gp_Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_CylindricalSurface.hxx".}
+proc d2*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var gp_Vec;
+        d1v: var gp_Vec; d2u: var gp_Vec; d2v: var gp_Vec; d2uv: var gp_Vec) {.noSideEffect, cdecl,
     importcpp: "D2", header: "Geom_CylindricalSurface.hxx".}
-proc d3*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
-        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj;
-        d3uuv: var VecObj; d3uvv: var VecObj) {.noSideEffect, cdecl, importcpp: "D3",
+proc d3*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var gp_Vec;
+        d1v: var gp_Vec; d2u: var gp_Vec; d2v: var gp_Vec; d2uv: var gp_Vec; d3u: var gp_Vec; d3v: var gp_Vec;
+        d3uuv: var gp_Vec; d3uvv: var gp_Vec) {.noSideEffect, cdecl, importcpp: "D3",
                                     header: "Geom_CylindricalSurface.hxx".}
-proc dn*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): VecObj {.
+proc dn*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): gp_Vec {.
     noSideEffect, cdecl, importcpp: "DN", header: "Geom_CylindricalSurface.hxx".}
 proc transform*(this: var GeomCylindricalSurface; t: TrsfObj) {.cdecl,
     importcpp: "Transform", header: "Geom_CylindricalSurface.hxx".}

@@ -87,11 +87,11 @@ proc fUN_toolEboundF*(e: TopoDS_Edge; f: TopoDS_Face): bool {.cdecl,
 ##   derivatives :
 ##  ----------------------------------------------------------------------
 
-proc fUN_toolNggeomF*(p2d: Pnt2dObj; f: TopoDS_Face): VecObj {.cdecl,
+proc fUN_toolNggeomF*(p2d: Pnt2dObj; f: TopoDS_Face): gp_Vec {.cdecl,
     importcpp: "FUN_tool_nggeomF(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolNggeomF*(paronE: cfloat; e: TopoDS_Edge; f: TopoDS_Face; nggeomF: var VecObj): bool {.
+proc fUN_toolNggeomF*(paronE: cfloat; e: TopoDS_Edge; f: TopoDS_Face; nggeomF: var gp_Vec): bool {.
     cdecl, importcpp: "FUN_tool_nggeomF(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolNggeomF*(paronE: cfloat; e: TopoDS_Edge; f: TopoDS_Face; nggeomF: var VecObj;
+proc fUN_toolNggeomF*(paronE: cfloat; e: TopoDS_Edge; f: TopoDS_Face; nggeomF: var gp_Vec;
                      tol: cfloat): bool {.cdecl, importcpp: "FUN_tool_nggeomF(@)",
                                        header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 proc fUN_toolEtgF*(paronE: cfloat; e: TopoDS_Edge; p2d: Pnt2dObj; f: TopoDS_Face;
@@ -104,9 +104,9 @@ proc fUN_toolEtgOOE*(paronE: cfloat; e: TopoDS_Edge; paronOOE: cfloat;
 ##  oriented vectors :
 ##  ----------------------------------------------------------------------
 
-proc fUN_toolGetgeomxx*(fi: TopoDS_Face; ei: TopoDS_Edge; parOnEi: cfloat; ngFi: DirObj): VecObj {.
+proc fUN_toolGetgeomxx*(fi: TopoDS_Face; ei: TopoDS_Edge; parOnEi: cfloat; ngFi: DirObj): gp_Vec {.
     cdecl, importcpp: "FUN_tool_getgeomxx(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolGetgeomxx*(fi: TopoDS_Face; ei: TopoDS_Edge; parOnEi: cfloat): VecObj {.cdecl,
+proc fUN_toolGetgeomxx*(fi: TopoDS_Face; ei: TopoDS_Edge; parOnEi: cfloat): gp_Vec {.cdecl,
     importcpp: "FUN_tool_getgeomxx(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 proc fUN_nearestISO*(f: TopoDS_Face; xpar: cfloat; isoU: bool; xinf: var cfloat;
                     xsup: var cfloat): bool {.cdecl, importcpp: "FUN_nearestISO(@)",
@@ -176,7 +176,7 @@ proc fUN_toolParF*(e: TopoDS_Edge; par: cfloat; f: TopoDS_Face; uv: var Pnt2dObj
     cdecl, importcpp: "FUN_tool_parF(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 proc fUN_toolDirC*(par: cfloat; bac: BRepAdaptorCurve): DirObj {.cdecl,
     importcpp: "FUN_tool_dirC(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolTggeomE*(paronE: cfloat; e: TopoDS_Edge): VecObj {.cdecl,
+proc fUN_toolTggeomE*(paronE: cfloat; e: TopoDS_Edge): gp_Vec {.cdecl,
     importcpp: "FUN_tool_tggeomE(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 proc fUN_toolLine*(bac: BRepAdaptorCurve): bool {.cdecl,
     importcpp: "FUN_tool_line(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}

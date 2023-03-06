@@ -73,9 +73,9 @@ proc transform*(this: var CylinderObj; t: TrsfObj) {.cdecl, importcpp: "Transfor
     header: "gp_Cylinder.hxx".}
 proc transformed*(this: CylinderObj; t: TrsfObj): CylinderObj {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Cylinder.hxx".}
-proc translate*(this: var CylinderObj; v: VecObj) {.cdecl, importcpp: "Translate",
+proc translate*(this: var CylinderObj; v: gp_Vec) {.cdecl, importcpp: "Translate",
                                         header: "gp_Cylinder.hxx".}
-proc translated*(this: CylinderObj; v: VecObj): CylinderObj {.noSideEffect, cdecl,
+proc translated*(this: CylinderObj; v: gp_Vec): CylinderObj {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Cylinder.hxx".}
 proc translate*(this: var CylinderObj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Cylinder.hxx".}

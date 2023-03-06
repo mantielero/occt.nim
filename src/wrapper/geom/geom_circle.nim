@@ -53,13 +53,13 @@ proc isPeriodic*(this: GeomCircle): bool {.noSideEffect, cdecl,
                                        importcpp: "IsPeriodic", header: "Geom_Circle.hxx".}
 proc d0*(this: GeomCircle; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl, importcpp: "D0",
     header: "Geom_Circle.hxx".}
-proc d1*(this: GeomCircle; u: cfloat; p: var gp_Pnt; v1: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: GeomCircle; u: cfloat; p: var gp_Pnt; v1: var gp_Vec) {.noSideEffect, cdecl,
     importcpp: "D1", header: "Geom_Circle.hxx".}
-proc d2*(this: GeomCircle; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.noSideEffect,
+proc d2*(this: GeomCircle; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec) {.noSideEffect,
     cdecl, importcpp: "D2", header: "Geom_Circle.hxx".}
-proc d3*(this: GeomCircle; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
+proc d3*(this: GeomCircle; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec; v3: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_Circle.hxx".}
-proc dn*(this: GeomCircle; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
+proc dn*(this: GeomCircle; u: cfloat; n: cint): gp_Vec {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom_Circle.hxx".}
 proc transform*(this: var GeomCircle; t: TrsfObj) {.cdecl, importcpp: "Transform",
     header: "Geom_Circle.hxx".}

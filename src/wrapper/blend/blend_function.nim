@@ -37,16 +37,16 @@ proc pointOnS2*(this: BlendFunction): gp_Pnt {.noSideEffect, cdecl,
                                         importcpp: "PointOnS2", header: "Blend_Function.hxx".}
 proc isTangencyPoint*(this: BlendFunction): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "Blend_Function.hxx".}
-proc tangentOnS1*(this: BlendFunction): VecObj {.noSideEffect, cdecl,
+proc tangentOnS1*(this: BlendFunction): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnS1", header: "Blend_Function.hxx".}
 proc tangent2dOnS1*(this: BlendFunction): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS1", header: "Blend_Function.hxx".}
-proc tangentOnS2*(this: BlendFunction): VecObj {.noSideEffect, cdecl,
+proc tangentOnS2*(this: BlendFunction): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnS2", header: "Blend_Function.hxx".}
 proc tangent2dOnS2*(this: BlendFunction): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS2", header: "Blend_Function.hxx".}
 proc tangent*(this: BlendFunction; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
-             tgFirst: var VecObj; tgLast: var VecObj; normFirst: var VecObj; normLast: var VecObj) {.
+             tgFirst: var gp_Vec; tgLast: var gp_Vec; normFirst: var gp_Vec; normLast: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "Tangent", header: "Blend_Function.hxx".}
 proc twistOnS1*(this: BlendFunction): bool {.noSideEffect, cdecl,
     importcpp: "TwistOnS1", header: "Blend_Function.hxx".}

@@ -31,7 +31,7 @@ proc arcCircle*(circ: CircObj; p1: gp_Pnt; p2: gp_Pnt; sense: bool): MakeArcOfCi
     cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
 proc arcCircle*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): MakeArcOfCircle {.cdecl,
     constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
-proc arcCircle*(p1: gp_Pnt; v: VecObj; p2: gp_Pnt): MakeArcOfCircle {.cdecl, constructor,
+proc arcCircle*(p1: gp_Pnt; v: gp_Vec; p2: gp_Pnt): MakeArcOfCircle {.cdecl, constructor,
     importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
 
 proc value*(this: MakeArcOfCircle): HandleGeomTrimmedCurve {.noSideEffect, cdecl,

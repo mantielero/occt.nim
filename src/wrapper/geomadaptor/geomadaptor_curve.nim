@@ -63,13 +63,13 @@ proc value*(this: GeomAdaptorCurve; u: cfloat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Value", header: "GeomAdaptor_Curve.hxx".}
 proc d0*(this: GeomAdaptorCurve; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "GeomAdaptor_Curve.hxx".}
-proc d1*(this: GeomAdaptorCurve; u: cfloat; p: var gp_Pnt; v: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: GeomAdaptorCurve; u: cfloat; p: var gp_Pnt; v: var gp_Vec) {.noSideEffect, cdecl,
     importcpp: "D1", header: "GeomAdaptor_Curve.hxx".}
-proc d2*(this: GeomAdaptorCurve; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.
+proc d2*(this: GeomAdaptorCurve; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "D2", header: "GeomAdaptor_Curve.hxx".}
-proc d3*(this: GeomAdaptorCurve; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
+proc d3*(this: GeomAdaptorCurve; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec; v3: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "D3", header: "GeomAdaptor_Curve.hxx".}
-proc dn*(this: GeomAdaptorCurve; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
+proc dn*(this: GeomAdaptorCurve; u: cfloat; n: cint): gp_Vec {.noSideEffect, cdecl,
     importcpp: "DN", header: "GeomAdaptor_Curve.hxx".}
 proc resolution*(this: GeomAdaptorCurve; r3d: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "Resolution", header: "GeomAdaptor_Curve.hxx".}

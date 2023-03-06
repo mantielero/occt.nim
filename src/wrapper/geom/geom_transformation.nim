@@ -47,7 +47,7 @@ proc setTransformation*(this: var GeomTransformation; theFromSystem1: Ax3Obj;
     header: "Geom_Transformation.hxx".}
 proc setTransformation*(this: var GeomTransformation; theToSystem: Ax3Obj) {.cdecl,
     importcpp: "SetTransformation", header: "Geom_Transformation.hxx".}
-proc setTranslation*(this: var GeomTransformation; theVec: VecObj) {.cdecl,
+proc setTranslation*(this: var GeomTransformation; theVec: gp_Vec) {.cdecl,
     importcpp: "SetTranslation", header: "Geom_Transformation.hxx".}
 proc setTranslation*(this: var GeomTransformation; p1: gp_Pnt; p2: gp_Pnt) {.cdecl,
     importcpp: "SetTranslation", header: "Geom_Transformation.hxx".}

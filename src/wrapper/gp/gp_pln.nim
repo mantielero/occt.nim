@@ -84,8 +84,8 @@ proc scaled*(this: PlnObj; p: gp_Pnt; s: cfloat): PlnObj {.noSideEffect, cdecl,
 proc transform*(this: var PlnObj; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Pln.hxx".}
 proc transformed*(this: PlnObj; t: TrsfObj): PlnObj {.noSideEffect, cdecl,
                                        importcpp: "Transformed", header: "gp_Pln.hxx".}
-proc translate*(this: var PlnObj; v: VecObj) {.cdecl, importcpp: "Translate", header: "gp_Pln.hxx".}
-proc translated*(this: PlnObj; v: VecObj): PlnObj {.noSideEffect, cdecl, importcpp: "Translated",
+proc translate*(this: var PlnObj; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Pln.hxx".}
+proc translated*(this: PlnObj; v: gp_Vec): PlnObj {.noSideEffect, cdecl, importcpp: "Translated",
                                      header: "gp_Pln.hxx".}
 proc translate*(this: var PlnObj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Pln.hxx".}

@@ -45,11 +45,11 @@ proc setValue*(this: var BRepBlendExtremity; p: gp_Pnt; w: cfloat; param: cfloat
     cdecl, importcpp: "SetValue", header: "BRepBlend_Extremity.hxx".}
 proc value*(this: BRepBlendExtremity): gp_Pnt {.noSideEffect, cdecl, importcpp: "Value",
     header: "BRepBlend_Extremity.hxx".}
-proc setTangent*(this: var BRepBlendExtremity; tangent: VecObj) {.cdecl,
+proc setTangent*(this: var BRepBlendExtremity; tangent: gp_Vec) {.cdecl,
     importcpp: "SetTangent", header: "BRepBlend_Extremity.hxx".}
 proc hasTangent*(this: BRepBlendExtremity): bool {.noSideEffect, cdecl,
     importcpp: "HasTangent", header: "BRepBlend_Extremity.hxx".}
-proc tangent*(this: BRepBlendExtremity): VecObj {.noSideEffect, cdecl,
+proc tangent*(this: BRepBlendExtremity): gp_Vec {.noSideEffect, cdecl,
     importcpp: "Tangent", header: "BRepBlend_Extremity.hxx".}
 proc tolerance*(this: BRepBlendExtremity): cfloat {.noSideEffect, cdecl,
     importcpp: "Tolerance", header: "BRepBlend_Extremity.hxx".}

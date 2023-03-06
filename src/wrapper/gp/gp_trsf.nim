@@ -68,13 +68,13 @@ proc setTransformation*(this: var TrsfObj; fromSystem1: Ax3Obj; toSystem2: Ax3Ob
     importcpp: "SetTransformation", header: "gp_Trsf.hxx".}
 proc setTransformation*(this: var TrsfObj; toSystem: Ax3Obj) {.cdecl,
     importcpp: "SetTransformation", header: "gp_Trsf.hxx".}
-proc setTransformation*(this: var TrsfObj; r: QuaternionObj; t: VecObj) {.cdecl,
+proc setTransformation*(this: var TrsfObj; r: QuaternionObj; t: gp_Vec) {.cdecl,
     importcpp: "SetTransformation", header: "gp_Trsf.hxx".}
-proc setTranslation*(this: var TrsfObj; v: VecObj) {.cdecl, importcpp: "SetTranslation",
+proc setTranslation*(this: var TrsfObj; v: gp_Vec) {.cdecl, importcpp: "SetTranslation",
     header: "gp_Trsf.hxx".}
 proc setTranslation*(this: var TrsfObj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl,
     importcpp: "SetTranslation", header: "gp_Trsf.hxx".}
-proc setTranslationPart*(this: var TrsfObj; v: VecObj) {.cdecl,
+proc setTranslationPart*(this: var TrsfObj; v: gp_Vec) {.cdecl,
     importcpp: "SetTranslationPart", header: "gp_Trsf.hxx".}
 proc setScaleFactor*(this: var TrsfObj; s: cfloat) {.cdecl, importcpp: "SetScaleFactor",
     header: "gp_Trsf.hxx".}

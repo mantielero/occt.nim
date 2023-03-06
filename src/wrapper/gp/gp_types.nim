@@ -1,4 +1,4 @@
-# PROVIDES: Gp Ax1Obj Ax2Obj Ax22dObj Ax2dObj Ax3Obj CircObj Circ2dObj ConeObj CylinderObj DirObj Dir2dObj ElipsObj Elips2dObj EulerSequenceObj GTrsf GTrsf2d HyprObj Hypr2dObj LinObj Lin2dObj MatObj Mat2dObj ParabObj Parab2dObj PlnObj gp_Pnt Pnt2dObj QuaternionObj QuaternionNLerp QuaternionSLerp SphereObj TorusObj TrsfObj Trsf2dObj TrsfFormObj VecObj XyObj XyzObj Vec2dObj
+# PROVIDES: Gp Ax1Obj Ax2Obj Ax22dObj Ax2dObj Ax3Obj CircObj Circ2dObj ConeObj CylinderObj DirObj Dir2dObj ElipsObj Elips2dObj EulerSequenceObj GTrsf GTrsf2d HyprObj Hypr2dObj LinObj Lin2dObj MatObj Mat2dObj ParabObj Parab2dObj PlnObj gp_Pnt Pnt2dObj QuaternionObj QuaternionNLerp QuaternionSLerp SphereObj TorusObj TrsfObj Trsf2dObj TrsfFormObj gp_Vec XyObj XyzObj Vec2dObj
 # DEPENDS:
 
 type
@@ -94,7 +94,7 @@ type
     CompoundTrsf,             
     Other                     
 
-  VecObj* {.importcpp: "gp_Vec", header: "gp_Vec.hxx", bycopy.} = object 
+  gp_Vec* {.importcpp: "gp_Vec", header: "gp_Vec.hxx", bycopy.} = object 
 
   XyObj* {.importcpp: "gp_XY", header: "gp_XY.hxx", bycopy.} = object 
 

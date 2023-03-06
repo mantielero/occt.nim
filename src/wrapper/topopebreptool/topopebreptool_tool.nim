@@ -56,7 +56,7 @@ proc parISO*(p2d: Pnt2dObj; e: TopoDS_Edge; f: TopoDS_Face; pare: var cfloat): b
     importcpp: "TopOpeBRepTool_TOOL::ParISO(@)", header: "TopOpeBRepTool_TOOL.hxx".}
 proc parE2d*(p2d: Pnt2dObj; e: TopoDS_Edge; f: TopoDS_Face; par: var cfloat; dist: var cfloat): bool {.
     cdecl, importcpp: "TopOpeBRepTool_TOOL::ParE2d(@)", header: "TopOpeBRepTool_TOOL.hxx".}
-proc getduv*(f: TopoDS_Face; uv: Pnt2dObj; dir: VecObj; factor: cfloat; duv: var Dir2dObj): bool {.
+proc getduv*(f: TopoDS_Face; uv: Pnt2dObj; dir: gp_Vec; factor: cfloat; duv: var Dir2dObj): bool {.
     cdecl, importcpp: "TopOpeBRepTool_TOOL::Getduv(@)", header: "TopOpeBRepTool_TOOL.hxx".}
 proc uvApp*(f: TopoDS_Face; e: TopoDS_Edge; par: cfloat; eps: cfloat; uvapp: var Pnt2dObj): bool {.
     cdecl, importcpp: "TopOpeBRepTool_TOOL::uvApp(@)", header: "TopOpeBRepTool_TOOL.hxx".}
@@ -71,11 +71,11 @@ proc outUVbounds*(uv: Pnt2dObj; f: TopoDS_Face): bool {.cdecl,
     importcpp: "TopOpeBRepTool_TOOL::outUVbounds(@)", header: "TopOpeBRepTool_TOOL.hxx".}
 proc stuvF*(uv: Pnt2dObj; f: TopoDS_Face; onU: var cint; onV: var cint) {.cdecl,
     importcpp: "TopOpeBRepTool_TOOL::stuvF(@)", header: "TopOpeBRepTool_TOOL.hxx".}
-proc tggeomE*(par: cfloat; bc: BRepAdaptorCurve; tg: var VecObj): bool {.cdecl,
+proc tggeomE*(par: cfloat; bc: BRepAdaptorCurve; tg: var gp_Vec): bool {.cdecl,
     importcpp: "TopOpeBRepTool_TOOL::TggeomE(@)", header: "TopOpeBRepTool_TOOL.hxx".}
-proc tggeomE*(par: cfloat; e: TopoDS_Edge; tg: var VecObj): bool {.cdecl,
+proc tggeomE*(par: cfloat; e: TopoDS_Edge; tg: var gp_Vec): bool {.cdecl,
     importcpp: "TopOpeBRepTool_TOOL::TggeomE(@)", header: "TopOpeBRepTool_TOOL.hxx".}
-proc tgINSIDE*(v: TopoDS_Vertex; e: TopoDS_Edge; tg: var VecObj; ovinE: var cint): bool {.
+proc tgINSIDE*(v: TopoDS_Vertex; e: TopoDS_Edge; tg: var gp_Vec; ovinE: var cint): bool {.
     cdecl, importcpp: "TopOpeBRepTool_TOOL::TgINSIDE(@)", header: "TopOpeBRepTool_TOOL.hxx".}
 proc tg2d*(iv: cint; e: TopoDS_Edge; c2df: TopOpeBRepToolC2DF): Vec2dObj {.cdecl,
     importcpp: "TopOpeBRepTool_TOOL::Tg2d(@)", header: "TopOpeBRepTool_TOOL.hxx".}
@@ -87,7 +87,7 @@ proc xx*(uv: Pnt2dObj; f: TopoDS_Face; par: cfloat; e: TopoDS_Edge; xx: var DirO
     importcpp: "TopOpeBRepTool_TOOL::XX(@)", header: "TopOpeBRepTool_TOOL.hxx".}
 proc nt*(uv: Pnt2dObj; f: TopoDS_Face; normt: var DirObj): bool {.cdecl,
     importcpp: "TopOpeBRepTool_TOOL::Nt(@)", header: "TopOpeBRepTool_TOOL.hxx".}
-proc nggeomF*(uv: Pnt2dObj; f: TopoDS_Face; ng: var VecObj): bool {.cdecl,
+proc nggeomF*(uv: Pnt2dObj; f: TopoDS_Face; ng: var gp_Vec): bool {.cdecl,
     importcpp: "TopOpeBRepTool_TOOL::NggeomF(@)", header: "TopOpeBRepTool_TOOL.hxx".}
 proc ngApp*(par: cfloat; e: TopoDS_Edge; f: TopoDS_Face; tola: cfloat; ngApp: var DirObj): bool {.
     cdecl, importcpp: "TopOpeBRepTool_TOOL::NgApp(@)", header: "TopOpeBRepTool_TOOL.hxx".}
@@ -126,7 +126,7 @@ proc trslUV*(t2d: Vec2dObj; c2df: var TopOpeBRepToolC2DF) {.cdecl,
     importcpp: "TopOpeBRepTool_TOOL::TrslUV(@)", header: "TopOpeBRepTool_TOOL.hxx".}
 proc trslUVModifE*(t2d: Vec2dObj; f: TopoDS_Face; e: var TopoDS_Edge): bool {.cdecl,
     importcpp: "TopOpeBRepTool_TOOL::TrslUVModifE(@)", header: "TopOpeBRepTool_TOOL.hxx".}
-proc matter*(d1: VecObj; d2: VecObj; `ref`: VecObj): cfloat {.cdecl,
+proc matter*(d1: gp_Vec; d2: gp_Vec; `ref`: gp_Vec): cfloat {.cdecl,
     importcpp: "TopOpeBRepTool_TOOL::Matter(@)", header: "TopOpeBRepTool_TOOL.hxx".}
 proc matter*(d1: Vec2dObj; d2: Vec2dObj): cfloat {.cdecl, importcpp: "TopOpeBRepTool_TOOL::Matter(@)",
                                        header: "TopOpeBRepTool_TOOL.hxx".}

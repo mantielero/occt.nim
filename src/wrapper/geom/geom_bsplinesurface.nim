@@ -250,34 +250,34 @@ proc weights*(this: GeomBSplineSurface): ptr TColStdArray2OfReal {.noSideEffect,
     cdecl, importcpp: "Weights", header: "Geom_BSplineSurface.hxx".}
 proc d0*(this: GeomBSplineSurface; u: cfloat; v: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom_BSplineSurface.hxx".}
-proc d1*(this: GeomBSplineSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
-        d1v: var VecObj) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_BSplineSurface.hxx".}
-proc d2*(this: GeomBSplineSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
-        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: GeomBSplineSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var gp_Vec;
+        d1v: var gp_Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_BSplineSurface.hxx".}
+proc d2*(this: GeomBSplineSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var gp_Vec;
+        d1v: var gp_Vec; d2u: var gp_Vec; d2v: var gp_Vec; d2uv: var gp_Vec) {.noSideEffect, cdecl,
     importcpp: "D2", header: "Geom_BSplineSurface.hxx".}
-proc d3*(this: GeomBSplineSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
-        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj;
-        d3uuv: var VecObj; d3uvv: var VecObj) {.noSideEffect, cdecl, importcpp: "D3",
+proc d3*(this: GeomBSplineSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var gp_Vec;
+        d1v: var gp_Vec; d2u: var gp_Vec; d2v: var gp_Vec; d2uv: var gp_Vec; d3u: var gp_Vec; d3v: var gp_Vec;
+        d3uuv: var gp_Vec; d3uvv: var gp_Vec) {.noSideEffect, cdecl, importcpp: "D3",
                                     header: "Geom_BSplineSurface.hxx".}
-proc dn*(this: GeomBSplineSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): VecObj {.
+proc dn*(this: GeomBSplineSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): gp_Vec {.
     noSideEffect, cdecl, importcpp: "DN", header: "Geom_BSplineSurface.hxx".}
 proc localD0*(this: GeomBSplineSurface; u: cfloat; v: cfloat; fromUK1: cint; toUK2: cint;
              fromVK1: cint; toVK2: cint; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "LocalD0", header: "Geom_BSplineSurface.hxx".}
 proc localD1*(this: GeomBSplineSurface; u: cfloat; v: cfloat; fromUK1: cint; toUK2: cint;
-             fromVK1: cint; toVK2: cint; p: var gp_Pnt; d1u: var VecObj; d1v: var VecObj) {.
+             fromVK1: cint; toVK2: cint; p: var gp_Pnt; d1u: var gp_Vec; d1v: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "LocalD1", header: "Geom_BSplineSurface.hxx".}
 proc localD2*(this: GeomBSplineSurface; u: cfloat; v: cfloat; fromUK1: cint; toUK2: cint;
-             fromVK1: cint; toVK2: cint; p: var gp_Pnt; d1u: var VecObj; d1v: var VecObj;
-             d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.noSideEffect, cdecl,
+             fromVK1: cint; toVK2: cint; p: var gp_Pnt; d1u: var gp_Vec; d1v: var gp_Vec;
+             d2u: var gp_Vec; d2v: var gp_Vec; d2uv: var gp_Vec) {.noSideEffect, cdecl,
     importcpp: "LocalD2", header: "Geom_BSplineSurface.hxx".}
 proc localD3*(this: GeomBSplineSurface; u: cfloat; v: cfloat; fromUK1: cint; toUK2: cint;
-             fromVK1: cint; toVK2: cint; p: var gp_Pnt; d1u: var VecObj; d1v: var VecObj;
-             d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj;
-             d3uuv: var VecObj; d3uvv: var VecObj) {.noSideEffect, cdecl,
+             fromVK1: cint; toVK2: cint; p: var gp_Pnt; d1u: var gp_Vec; d1v: var gp_Vec;
+             d2u: var gp_Vec; d2v: var gp_Vec; d2uv: var gp_Vec; d3u: var gp_Vec; d3v: var gp_Vec;
+             d3uuv: var gp_Vec; d3uvv: var gp_Vec) {.noSideEffect, cdecl,
     importcpp: "LocalD3", header: "Geom_BSplineSurface.hxx".}
 proc localDN*(this: GeomBSplineSurface; u: cfloat; v: cfloat; fromUK1: cint; toUK2: cint;
-             fromVK1: cint; toVK2: cint; nu: cint; nv: cint): VecObj {.noSideEffect, cdecl,
+             fromVK1: cint; toVK2: cint; nu: cint; nv: cint): gp_Vec {.noSideEffect, cdecl,
     importcpp: "LocalDN", header: "Geom_BSplineSurface.hxx".}
 proc localValue*(this: GeomBSplineSurface; u: cfloat; v: cfloat; fromUK1: cint;
                 toUK2: cint; fromVK1: cint; toVK2: cint): gp_Pnt {.noSideEffect, cdecl,

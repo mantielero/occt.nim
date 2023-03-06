@@ -67,18 +67,18 @@ proc value*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat): gp_Pnt {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Value(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc d0*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var gp_Pnt) {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::D0(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc d1*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
-        d1v: var VecObj) {.cdecl, importcpp: "Adaptor3d_HSurfaceTool::D1(@)",
+proc d1*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var gp_Vec;
+        d1v: var gp_Vec) {.cdecl, importcpp: "Adaptor3d_HSurfaceTool::D1(@)",
                      header: "Adaptor3d_HSurfaceTool.hxx".}
-proc d2*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
-        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.cdecl,
+proc d2*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var gp_Vec;
+        d1v: var gp_Vec; d2u: var gp_Vec; d2v: var gp_Vec; d2uv: var gp_Vec) {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::D2(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc d3*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
-        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj;
-        d3uuv: var VecObj; d3uvv: var VecObj) {.cdecl,
+proc d3*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var gp_Vec;
+        d1v: var gp_Vec; d2u: var gp_Vec; d2v: var gp_Vec; d2uv: var gp_Vec; d3u: var gp_Vec; d3v: var gp_Vec;
+        d3uuv: var gp_Vec; d3uvv: var gp_Vec) {.cdecl,
                                     importcpp: "Adaptor3d_HSurfaceTool::D3(@)",
                                     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc dn*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; nu: cint; nv: cint): VecObj {.
+proc dn*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; nu: cint; nv: cint): gp_Vec {.
     cdecl, importcpp: "Adaptor3d_HSurfaceTool::DN(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc uResolution*(s: Handle[Adaptor3dHSurface]; r3d: cfloat): cfloat {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::UResolution(@)", header: "Adaptor3d_HSurfaceTool.hxx".}

@@ -31,7 +31,7 @@ proc isPassingPnt*(pStart: IntSurfPathPoint): bool {.cdecl,
     importcpp: "IntSurf_PathPointTool::IsPassingPnt(@)", header: "IntSurf_PathPointTool.hxx".}
 proc isTangent*(pStart: IntSurfPathPoint): bool {.cdecl,
     importcpp: "IntSurf_PathPointTool::IsTangent(@)", header: "IntSurf_PathPointTool.hxx".}
-proc direction3d*(pStart: IntSurfPathPoint): VecObj {.cdecl,
+proc direction3d*(pStart: IntSurfPathPoint): gp_Vec {.cdecl,
     importcpp: "IntSurf_PathPointTool::Direction3d(@)", header: "IntSurf_PathPointTool.hxx".}
 proc direction2d*(pStart: IntSurfPathPoint): Dir2dObj {.cdecl,
     importcpp: "IntSurf_PathPointTool::Direction2d(@)", header: "IntSurf_PathPointTool.hxx".}

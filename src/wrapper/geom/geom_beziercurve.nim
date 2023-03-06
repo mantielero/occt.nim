@@ -77,13 +77,13 @@ proc degree*(this: GeomBezierCurve): cint {.noSideEffect, cdecl, importcpp: "Deg
                                         header: "Geom_BezierCurve.hxx".}
 proc d0*(this: GeomBezierCurve; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom_BezierCurve.hxx".}
-proc d1*(this: GeomBezierCurve; u: cfloat; p: var gp_Pnt; v1: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: GeomBezierCurve; u: cfloat; p: var gp_Pnt; v1: var gp_Vec) {.noSideEffect, cdecl,
     importcpp: "D1", header: "Geom_BezierCurve.hxx".}
-proc d2*(this: GeomBezierCurve; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.
+proc d2*(this: GeomBezierCurve; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "D2", header: "Geom_BezierCurve.hxx".}
-proc d3*(this: GeomBezierCurve; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
+proc d3*(this: GeomBezierCurve; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec; v3: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_BezierCurve.hxx".}
-proc dn*(this: GeomBezierCurve; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
+proc dn*(this: GeomBezierCurve; u: cfloat; n: cint): gp_Vec {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom_BezierCurve.hxx".}
 proc startPoint*(this: GeomBezierCurve): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "StartPoint", header: "Geom_BezierCurve.hxx".}

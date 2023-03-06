@@ -24,7 +24,7 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Trsf"
 
 proc dir*(): DirObj {.cdecl, constructor, importcpp: "gp_Dir(@)", header: "gp_Dir.hxx".}
-proc dir*(v: VecObj): DirObj {.cdecl, constructor, importcpp: "gp_Dir(@)", header: "gp_Dir.hxx".}
+proc dir*(v: gp_Vec): DirObj {.cdecl, constructor, importcpp: "gp_Dir(@)", header: "gp_Dir.hxx".}
 proc dir*(coord: XyzObj): DirObj {.cdecl, constructor, importcpp: "gp_Dir(@)",
                             header: "gp_Dir.hxx".}
 proc dir*(xv: cfloat; yv: cfloat; zv: cfloat): DirObj {.cdecl, constructor,

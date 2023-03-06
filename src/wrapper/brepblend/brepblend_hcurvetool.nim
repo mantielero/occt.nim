@@ -48,14 +48,14 @@ proc value*(c: Handle[Adaptor3dHCurve]; u: cfloat): gp_Pnt {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Value(@)", header: "BRepBlend_HCurveTool.hxx".}
 proc d0*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var gp_Pnt) {.cdecl,
     importcpp: "BRepBlend_HCurveTool::D0(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc d1*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var gp_Pnt; v: var VecObj) {.cdecl,
+proc d1*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var gp_Pnt; v: var gp_Vec) {.cdecl,
     importcpp: "BRepBlend_HCurveTool::D1(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc d2*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.cdecl,
+proc d2*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec) {.cdecl,
     importcpp: "BRepBlend_HCurveTool::D2(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc d3*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj;
-        v3: var VecObj) {.cdecl, importcpp: "BRepBlend_HCurveTool::D3(@)",
+proc d3*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec;
+        v3: var gp_Vec) {.cdecl, importcpp: "BRepBlend_HCurveTool::D3(@)",
                     header: "BRepBlend_HCurveTool.hxx".}
-proc dn*(c: Handle[Adaptor3dHCurve]; u: cfloat; n: cint): VecObj {.cdecl,
+proc dn*(c: Handle[Adaptor3dHCurve]; u: cfloat; n: cint): gp_Vec {.cdecl,
     importcpp: "BRepBlend_HCurveTool::DN(@)", header: "BRepBlend_HCurveTool.hxx".}
 proc resolution*(c: Handle[Adaptor3dHCurve]; r3d: cfloat): cfloat {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Resolution(@)", header: "BRepBlend_HCurveTool.hxx".}

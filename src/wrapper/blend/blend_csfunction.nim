@@ -63,13 +63,13 @@ proc parameterOnC*(this: BlendCSFunction): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnC", header: "Blend_CSFunction.hxx".}
 proc isTangencyPoint*(this: BlendCSFunction): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "Blend_CSFunction.hxx".}
-proc tangentOnS*(this: BlendCSFunction): VecObj {.noSideEffect, cdecl,
+proc tangentOnS*(this: BlendCSFunction): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnS", header: "Blend_CSFunction.hxx".}
 proc tangent2d*(this: BlendCSFunction): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2d", header: "Blend_CSFunction.hxx".}
-proc tangentOnC*(this: BlendCSFunction): VecObj {.noSideEffect, cdecl,
+proc tangentOnC*(this: BlendCSFunction): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnC", header: "Blend_CSFunction.hxx".}
-proc tangent*(this: BlendCSFunction; u: cfloat; v: cfloat; tgS: var VecObj; normS: var VecObj) {.
+proc tangent*(this: BlendCSFunction; u: cfloat; v: cfloat; tgS: var gp_Vec; normS: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "Tangent", header: "Blend_CSFunction.hxx".}
 proc getShape*(this: var BlendCSFunction; nbPoles: var cint; nbKnots: var cint;
               degree: var cint; nbPoles2d: var cint) {.cdecl, importcpp: "GetShape",

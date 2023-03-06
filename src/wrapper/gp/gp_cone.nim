@@ -73,8 +73,8 @@ proc scaled*(this: ConeObj; p: gp_Pnt; s: cfloat): ConeObj {.noSideEffect, cdecl
 proc transform*(this: var ConeObj; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Cone.hxx".}
 proc transformed*(this: ConeObj; t: TrsfObj): ConeObj {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Cone.hxx".}
-proc translate*(this: var ConeObj; v: VecObj) {.cdecl, importcpp: "Translate", header: "gp_Cone.hxx".}
-proc translated*(this: ConeObj; v: VecObj): ConeObj {.noSideEffect, cdecl,
+proc translate*(this: var ConeObj; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Cone.hxx".}
+proc translated*(this: ConeObj; v: gp_Vec): ConeObj {.noSideEffect, cdecl,
                                        importcpp: "Translated", header: "gp_Cone.hxx".}
 proc translate*(this: var ConeObj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Cone.hxx".}

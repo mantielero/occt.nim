@@ -32,7 +32,7 @@ proc newGeomFillSimpleBound*(curve: Handle[Adaptor3dHCurve]; tol3d: cfloat;
     constructor, importcpp: "GeomFill_SimpleBound(@)", header: "GeomFill_SimpleBound.hxx".}
 proc value*(this: GeomFillSimpleBound; u: cfloat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Value", header: "GeomFill_SimpleBound.hxx".}
-proc d1*(this: GeomFillSimpleBound; u: cfloat; p: var gp_Pnt; v: var VecObj) {.noSideEffect,
+proc d1*(this: GeomFillSimpleBound; u: cfloat; p: var gp_Pnt; v: var gp_Vec) {.noSideEffect,
     cdecl, importcpp: "D1", header: "GeomFill_SimpleBound.hxx".}
 proc reparametrize*(this: var GeomFillSimpleBound; first: cfloat; last: cfloat;
                    hasDF: bool; hasDL: bool; df: cfloat; dl: cfloat; rev: bool) {.cdecl,

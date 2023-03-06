@@ -23,7 +23,7 @@ import ../geomabs/geomabs_types
 
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of gp_Pnt"
-discard "forward decl of VecObj"
+discard "forward decl of gp_Vec"
 discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
 
@@ -56,14 +56,14 @@ proc Value*(C: Adaptor3d_Curve; U: cfloat): gp_Pnt {.cdecl,
     importcpp: "Extrema_CurveTool::Value(@)", header: "Extrema_CurveTool.hxx".}
 proc D0*(C: Adaptor3d_Curve; U: cfloat; P: var gp_Pnt) {.cdecl,
     importcpp: "Extrema_CurveTool::D0(@)", header: "Extrema_CurveTool.hxx".}
-proc D1*(C: Adaptor3d_Curve; U: cfloat; P: var gp_Pnt; V: var VecObj) {.cdecl,
+proc D1*(C: Adaptor3d_Curve; U: cfloat; P: var gp_Pnt; V: var gp_Vec) {.cdecl,
     importcpp: "Extrema_CurveTool::D1(@)", header: "Extrema_CurveTool.hxx".}
-proc D2*(C: Adaptor3d_Curve; U: cfloat; P: var gp_Pnt; V1: var VecObj; V2: var VecObj) {.
+proc D2*(C: Adaptor3d_Curve; U: cfloat; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec) {.
     cdecl, importcpp: "Extrema_CurveTool::D2(@)", header: "Extrema_CurveTool.hxx".}
-proc D3*(C: Adaptor3d_Curve; U: cfloat; P: var gp_Pnt; V1: var VecObj; V2: var VecObj;
-        V3: var VecObj) {.cdecl, importcpp: "Extrema_CurveTool::D3(@)",
+proc D3*(C: Adaptor3d_Curve; U: cfloat; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec;
+        V3: var gp_Vec) {.cdecl, importcpp: "Extrema_CurveTool::D3(@)",
                        header: "Extrema_CurveTool.hxx".}
-proc DN*(C: Adaptor3d_Curve; U: cfloat; N: cint): VecObj {.cdecl,
+proc DN*(C: Adaptor3d_Curve; U: cfloat; N: cint): gp_Vec {.cdecl,
     importcpp: "Extrema_CurveTool::DN(@)", header: "Extrema_CurveTool.hxx".}
 proc Line*(C: Adaptor3d_Curve): LinObj {.cdecl,
                                      importcpp: "Extrema_CurveTool::Line(@)",

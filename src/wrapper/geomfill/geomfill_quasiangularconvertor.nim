@@ -32,18 +32,18 @@ proc initialized*(this: GeomFillQuasiAngularConvertor): bool {.noSideEffect, cde
 proc init*(this: var GeomFillQuasiAngularConvertor) {.cdecl, importcpp: "Init",
     header: "GeomFill_QuasiAngularConvertor.hxx".}
 proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: gp_Pnt; center: gp_Pnt;
-             dir: VecObj; angle: cfloat; poles: var TColgpArray1OfPnt;
+             dir: gp_Vec; angle: cfloat; poles: var TColgpArray1OfPnt;
              weights: var TColStdArray1OfReal) {.cdecl, importcpp: "Section",
     header: "GeomFill_QuasiAngularConvertor.hxx".}
-proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: gp_Pnt; dFirstPnt: VecObj;
-             center: gp_Pnt; dCenter: VecObj; dir: VecObj; dDir: VecObj; angle: cfloat;
+proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: gp_Pnt; dFirstPnt: gp_Vec;
+             center: gp_Pnt; dCenter: gp_Vec; dir: gp_Vec; dDir: gp_Vec; angle: cfloat;
              dAngle: cfloat; poles: var TColgpArray1OfPnt;
              dPoles: var TColgpArray1OfVec; weights: var TColStdArray1OfReal;
              dWeights: var TColStdArray1OfReal) {.cdecl, importcpp: "Section",
     header: "GeomFill_QuasiAngularConvertor.hxx".}
-proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: gp_Pnt; dFirstPnt: VecObj;
-             d2FirstPnt: VecObj; center: gp_Pnt; dCenter: VecObj; d2Center: VecObj; dir: VecObj;
-             dDir: VecObj; d2Dir: VecObj; angle: cfloat; dAngle: cfloat; d2Angle: cfloat;
+proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: gp_Pnt; dFirstPnt: gp_Vec;
+             d2FirstPnt: gp_Vec; center: gp_Pnt; dCenter: gp_Vec; d2Center: gp_Vec; dir: gp_Vec;
+             dDir: gp_Vec; d2Dir: gp_Vec; angle: cfloat; dAngle: cfloat; d2Angle: cfloat;
              poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
              d2Poles: var TColgpArray1OfVec; weights: var TColStdArray1OfReal;
              dWeights: var TColStdArray1OfReal; d2Weights: var TColStdArray1OfReal) {.

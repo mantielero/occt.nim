@@ -42,16 +42,16 @@ proc pointOnS2*(this: BlendFuncConstThroat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS2", header: "BlendFunc_ConstThroat.hxx".}
 proc isTangencyPoint*(this: BlendFuncConstThroat): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_ConstThroat.hxx".}
-proc tangentOnS1*(this: BlendFuncConstThroat): VecObj {.noSideEffect, cdecl,
+proc tangentOnS1*(this: BlendFuncConstThroat): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnS1", header: "BlendFunc_ConstThroat.hxx".}
 proc tangent2dOnS1*(this: BlendFuncConstThroat): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS1", header: "BlendFunc_ConstThroat.hxx".}
-proc tangentOnS2*(this: BlendFuncConstThroat): VecObj {.noSideEffect, cdecl,
+proc tangentOnS2*(this: BlendFuncConstThroat): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnS2", header: "BlendFunc_ConstThroat.hxx".}
 proc tangent2dOnS2*(this: BlendFuncConstThroat): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS2", header: "BlendFunc_ConstThroat.hxx".}
 proc tangent*(this: BlendFuncConstThroat; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
-             tgFirst: var VecObj; tgLast: var VecObj; normFirst: var VecObj; normLast: var VecObj) {.
+             tgFirst: var gp_Vec; tgLast: var gp_Vec; normFirst: var gp_Vec; normLast: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "Tangent", header: "BlendFunc_ConstThroat.hxx".}
 proc set*(this: var BlendFuncConstThroat; aThroat: cfloat; a3: cfloat; choix: cint) {.
     cdecl, importcpp: "Set", header: "BlendFunc_ConstThroat.hxx".}

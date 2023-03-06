@@ -72,13 +72,13 @@ proc value*(this: Adaptor3dCurveOnSurface; u: cfloat): gp_Pnt {.noSideEffect, cd
     importcpp: "Value", header: "Adaptor3d_CurveOnSurface.hxx".}
 proc d0*(this: Adaptor3dCurveOnSurface; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc d1*(this: Adaptor3dCurveOnSurface; u: cfloat; p: var gp_Pnt; v: var VecObj) {.noSideEffect,
+proc d1*(this: Adaptor3dCurveOnSurface; u: cfloat; p: var gp_Pnt; v: var gp_Vec) {.noSideEffect,
     cdecl, importcpp: "D1", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc d2*(this: Adaptor3dCurveOnSurface; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.
+proc d2*(this: Adaptor3dCurveOnSurface; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "D2", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc d3*(this: Adaptor3dCurveOnSurface; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj;
-        v3: var VecObj) {.noSideEffect, cdecl, importcpp: "D3", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc dn*(this: Adaptor3dCurveOnSurface; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
+proc d3*(this: Adaptor3dCurveOnSurface; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec;
+        v3: var gp_Vec) {.noSideEffect, cdecl, importcpp: "D3", header: "Adaptor3d_CurveOnSurface.hxx".}
+proc dn*(this: Adaptor3dCurveOnSurface; u: cfloat; n: cint): gp_Vec {.noSideEffect, cdecl,
     importcpp: "DN", header: "Adaptor3d_CurveOnSurface.hxx".}
 proc resolution*(this: Adaptor3dCurveOnSurface; r3d: cfloat): cfloat {.noSideEffect,
     cdecl, importcpp: "Resolution", header: "Adaptor3d_CurveOnSurface.hxx".}

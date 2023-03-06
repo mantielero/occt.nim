@@ -65,15 +65,15 @@ proc parameterOnRst*(this: BlendSurfRstFunction): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnRst", header: "Blend_SurfRstFunction.hxx".}
 proc isTangencyPoint*(this: BlendSurfRstFunction): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "Blend_SurfRstFunction.hxx".}
-proc tangentOnS*(this: BlendSurfRstFunction): VecObj {.noSideEffect, cdecl,
+proc tangentOnS*(this: BlendSurfRstFunction): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnS", header: "Blend_SurfRstFunction.hxx".}
 proc tangent2dOnS*(this: BlendSurfRstFunction): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS", header: "Blend_SurfRstFunction.hxx".}
-proc tangentOnRst*(this: BlendSurfRstFunction): VecObj {.noSideEffect, cdecl,
+proc tangentOnRst*(this: BlendSurfRstFunction): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnRst", header: "Blend_SurfRstFunction.hxx".}
 proc tangent2dOnRst*(this: BlendSurfRstFunction): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnRst", header: "Blend_SurfRstFunction.hxx".}
-proc decroch*(this: BlendSurfRstFunction; sol: MathVector; ns: var VecObj; tgS: var VecObj): bool {.
+proc decroch*(this: BlendSurfRstFunction; sol: MathVector; ns: var gp_Vec; tgS: var gp_Vec): bool {.
     noSideEffect, cdecl, importcpp: "Decroch", header: "Blend_SurfRstFunction.hxx".}
 proc isRational*(this: BlendSurfRstFunction): bool {.noSideEffect, cdecl,
     importcpp: "IsRational", header: "Blend_SurfRstFunction.hxx".}

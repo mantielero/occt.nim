@@ -41,15 +41,15 @@ proc errorStatus*(this: GeomFillGuideTrihedronPlan): GeomFillPipeError {.
     noSideEffect, cdecl, importcpp: "ErrorStatus", header: "GeomFill_GuideTrihedronPlan.hxx".}
 proc guide*(this: GeomFillGuideTrihedronPlan): Handle[Adaptor3dHCurve] {.
     noSideEffect, cdecl, importcpp: "Guide", header: "GeomFill_GuideTrihedronPlan.hxx".}
-proc d0*(this: var GeomFillGuideTrihedronPlan; param: cfloat; tangent: var VecObj;
-        normal: var VecObj; biNormal: var VecObj): bool {.cdecl, importcpp: "D0",
+proc d0*(this: var GeomFillGuideTrihedronPlan; param: cfloat; tangent: var gp_Vec;
+        normal: var gp_Vec; biNormal: var gp_Vec): bool {.cdecl, importcpp: "D0",
     header: "GeomFill_GuideTrihedronPlan.hxx".}
-proc d1*(this: var GeomFillGuideTrihedronPlan; param: cfloat; tangent: var VecObj;
-        dTangent: var VecObj; normal: var VecObj; dNormal: var VecObj; biNormal: var VecObj;
-        dBiNormal: var VecObj): bool {.cdecl, importcpp: "D1", header: "GeomFill_GuideTrihedronPlan.hxx".}
-proc d2*(this: var GeomFillGuideTrihedronPlan; param: cfloat; tangent: var VecObj;
-        dTangent: var VecObj; d2Tangent: var VecObj; normal: var VecObj; dNormal: var VecObj;
-        d2Normal: var VecObj; biNormal: var VecObj; dBiNormal: var VecObj; d2BiNormal: var VecObj): bool {.
+proc d1*(this: var GeomFillGuideTrihedronPlan; param: cfloat; tangent: var gp_Vec;
+        dTangent: var gp_Vec; normal: var gp_Vec; dNormal: var gp_Vec; biNormal: var gp_Vec;
+        dBiNormal: var gp_Vec): bool {.cdecl, importcpp: "D1", header: "GeomFill_GuideTrihedronPlan.hxx".}
+proc d2*(this: var GeomFillGuideTrihedronPlan; param: cfloat; tangent: var gp_Vec;
+        dTangent: var gp_Vec; d2Tangent: var gp_Vec; normal: var gp_Vec; dNormal: var gp_Vec;
+        d2Normal: var gp_Vec; biNormal: var gp_Vec; dBiNormal: var gp_Vec; d2BiNormal: var gp_Vec): bool {.
     cdecl, importcpp: "D2", header: "GeomFill_GuideTrihedronPlan.hxx".}
 proc setInterval*(this: var GeomFillGuideTrihedronPlan; first: cfloat; last: cfloat) {.
     cdecl, importcpp: "SetInterval", header: "GeomFill_GuideTrihedronPlan.hxx".}
@@ -58,8 +58,8 @@ proc nbIntervals*(this: GeomFillGuideTrihedronPlan; s: GeomAbsShape): cint {.
 proc intervals*(this: GeomFillGuideTrihedronPlan; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Intervals",
                                 header: "GeomFill_GuideTrihedronPlan.hxx".}
-proc getAverageLaw*(this: var GeomFillGuideTrihedronPlan; aTangent: var VecObj;
-                   aNormal: var VecObj; aBiNormal: var VecObj) {.cdecl,
+proc getAverageLaw*(this: var GeomFillGuideTrihedronPlan; aTangent: var gp_Vec;
+                   aNormal: var gp_Vec; aBiNormal: var gp_Vec) {.cdecl,
     importcpp: "GetAverageLaw", header: "GeomFill_GuideTrihedronPlan.hxx".}
 proc isConstant*(this: GeomFillGuideTrihedronPlan): bool {.noSideEffect, cdecl,
     importcpp: "IsConstant", header: "GeomFill_GuideTrihedronPlan.hxx".}

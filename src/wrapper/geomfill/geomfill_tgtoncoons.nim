@@ -28,11 +28,11 @@ import geomfill_types
 
 proc newGeomFillTgtOnCoons*(k: Handle[GeomFillCoonsAlgPatch]; i: cint): GeomFillTgtOnCoons {.
     cdecl, constructor, importcpp: "GeomFill_TgtOnCoons(@)", header: "GeomFill_TgtOnCoons.hxx".}
-proc value*(this: GeomFillTgtOnCoons; w: cfloat): VecObj {.noSideEffect, cdecl,
+proc value*(this: GeomFillTgtOnCoons; w: cfloat): gp_Vec {.noSideEffect, cdecl,
     importcpp: "Value", header: "GeomFill_TgtOnCoons.hxx".}
-proc d1*(this: GeomFillTgtOnCoons; w: cfloat): VecObj {.noSideEffect, cdecl,
+proc d1*(this: GeomFillTgtOnCoons; w: cfloat): gp_Vec {.noSideEffect, cdecl,
     importcpp: "D1", header: "GeomFill_TgtOnCoons.hxx".}
-proc d1*(this: GeomFillTgtOnCoons; w: cfloat; t: var VecObj; dt: var VecObj) {.noSideEffect,
+proc d1*(this: GeomFillTgtOnCoons; w: cfloat; t: var gp_Vec; dt: var gp_Vec) {.noSideEffect,
     cdecl, importcpp: "D1", header: "GeomFill_TgtOnCoons.hxx".}
 
 

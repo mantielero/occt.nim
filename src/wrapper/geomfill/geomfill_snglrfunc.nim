@@ -47,13 +47,13 @@ proc period*(this: GeomFillSnglrFunc): cfloat {.noSideEffect, cdecl,
     importcpp: "Period", header: "GeomFill_SnglrFunc.hxx".}
 proc d0*(this: GeomFillSnglrFunc; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "GeomFill_SnglrFunc.hxx".}
-proc d1*(this: GeomFillSnglrFunc; u: cfloat; p: var gp_Pnt; v: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: GeomFillSnglrFunc; u: cfloat; p: var gp_Pnt; v: var gp_Vec) {.noSideEffect, cdecl,
     importcpp: "D1", header: "GeomFill_SnglrFunc.hxx".}
-proc d2*(this: GeomFillSnglrFunc; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.
+proc d2*(this: GeomFillSnglrFunc; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "D2", header: "GeomFill_SnglrFunc.hxx".}
-proc d3*(this: GeomFillSnglrFunc; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
+proc d3*(this: GeomFillSnglrFunc; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec; v3: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "D3", header: "GeomFill_SnglrFunc.hxx".}
-proc dn*(this: GeomFillSnglrFunc; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
+proc dn*(this: GeomFillSnglrFunc; u: cfloat; n: cint): gp_Vec {.noSideEffect, cdecl,
     importcpp: "DN", header: "GeomFill_SnglrFunc.hxx".}
 proc resolution*(this: GeomFillSnglrFunc; r3d: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "Resolution", header: "GeomFill_SnglrFunc.hxx".}

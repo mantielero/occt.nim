@@ -45,7 +45,7 @@ proc value*(this: AppContFunction; theU: cfloat;
            thePnt: var NCollectionArray1[gp_Pnt]): bool {.noSideEffect, cdecl,
     importcpp: "Value", header: "AppCont_Function.hxx".}
 proc d1*(this: AppContFunction; theU: cfloat; theVec2d: var NCollectionArray1[Vec2dObj];
-        theVec: var NCollectionArray1[VecObj]): bool {.noSideEffect, cdecl,
+        theVec: var NCollectionArray1[gp_Vec]): bool {.noSideEffect, cdecl,
     importcpp: "D1", header: "AppCont_Function.hxx".}
 proc periodInformation*(this: AppContFunction; a2: cint; isPeriodic: var bool;
                        thePeriod: var cfloat) {.noSideEffect, cdecl,

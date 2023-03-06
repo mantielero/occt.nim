@@ -23,7 +23,7 @@ import ../gp/gp_types
 
 
 
-proc newGceMakeTranslation*(vect: VecObj): GceMakeTranslation {.cdecl, constructor,
+proc newGceMakeTranslation*(vect: gp_Vec): GceMakeTranslation {.cdecl, constructor,
     importcpp: "gce_MakeTranslation(@)", header: "gce_MakeTranslation.hxx".}
 proc newGceMakeTranslation*(point1: gp_Pnt; point2: gp_Pnt): GceMakeTranslation {.cdecl,
     constructor, importcpp: "gce_MakeTranslation(@)", header: "gce_MakeTranslation.hxx".}

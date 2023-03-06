@@ -36,7 +36,7 @@ proc setParameter*(this: var ChFiDS_CommonPoint; param: cfloat) {.cdecl,
     importcpp: "SetParameter", header: "ChFiDS_CommonPoint.hxx".}
 proc setPoint*(this: var ChFiDS_CommonPoint; thePoint: gp_Pnt) {.cdecl,
     importcpp: "SetPoint", header: "ChFiDS_CommonPoint.hxx".}
-proc setVector*(this: var ChFiDS_CommonPoint; theVector: VecObj) {.cdecl,
+proc setVector*(this: var ChFiDS_CommonPoint; theVector: gp_Vec) {.cdecl,
     importcpp: "SetVector", header: "ChFiDS_CommonPoint.hxx".}
 proc setTolerance*(this: var ChFiDS_CommonPoint; tol: cfloat) {.cdecl,
     importcpp: "SetTolerance", header: "ChFiDS_CommonPoint.hxx".}
@@ -60,7 +60,7 @@ proc point*(this: ChFiDS_CommonPoint): gp_Pnt {.noSideEffect, cdecl, importcpp: 
     header: "ChFiDS_CommonPoint.hxx".}
 proc hasVector*(this: ChFiDS_CommonPoint): bool {.noSideEffect, cdecl,
     importcpp: "HasVector", header: "ChFiDS_CommonPoint.hxx".}
-proc vector*(this: ChFiDS_CommonPoint): VecObj {.noSideEffect, cdecl,
+proc vector*(this: ChFiDS_CommonPoint): gp_Vec {.noSideEffect, cdecl,
     importcpp: "Vector", header: "ChFiDS_CommonPoint.hxx".}
 
 

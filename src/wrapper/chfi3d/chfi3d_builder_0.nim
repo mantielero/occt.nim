@@ -88,20 +88,20 @@ proc chFi3dInterPlaneEdge*(plan: Handle[Adaptor3dHSurface];
     importcpp: "ChFi3d_InterPlaneEdge(@)", header: "ChFi3d_Builder_0.hxx".}
 proc chFi3dExtrSpineCarac*(dStr: TopOpeBRepDS_DataStructure;
                           cd: Handle[ChFiDS_Stripe]; i: cint; p: cfloat; jf: cint;
-                          sens: cint; p2: var gp_Pnt; v: var VecObj; r: var cfloat) {.cdecl,
+                          sens: cint; p2: var gp_Pnt; v: var gp_Vec; r: var cfloat) {.cdecl,
     importcpp: "ChFi3d_ExtrSpineCarac(@)", header: "ChFi3d_Builder_0.hxx".}
-proc chFi3dCircularSpine*(wFirst: var cfloat; wLast: var cfloat; pdeb: gp_Pnt; vdeb: VecObj;
-                         pfin: gp_Pnt; vfin: VecObj; rad: cfloat): Handle[GeomCircle] {.
+proc chFi3dCircularSpine*(wFirst: var cfloat; wLast: var cfloat; pdeb: gp_Pnt; vdeb: gp_Vec;
+                         pfin: gp_Pnt; vfin: gp_Vec; rad: cfloat): Handle[GeomCircle] {.
     cdecl, importcpp: "ChFi3d_CircularSpine(@)", header: "ChFi3d_Builder_0.hxx".}
-proc chFi3dSpine*(pd: gp_Pnt; vd: var VecObj; pf: gp_Pnt; vf: var VecObj; r: cfloat): Handle[
+proc chFi3dSpine*(pd: gp_Pnt; vd: var gp_Vec; pf: gp_Pnt; vf: var gp_Vec; r: cfloat): Handle[
     GeomBezierCurve] {.cdecl, importcpp: "ChFi3d_Spine(@)", header: "ChFi3d_Builder_0.hxx".}
 proc chFi3dMkbound*(fac: Handle[Adaptor3dHSurface]; curv: var Handle[Geom2dCurve];
                    sens1: cint; pfac1: Pnt2dObj; vfac1: Vec2dObj; sens2: cint; pfac2: Pnt2dObj;
                    vfac2: Vec2dObj; t3d: cfloat; ta: cfloat): Handle[GeomFillBoundary] {.
     cdecl, importcpp: "ChFi3d_mkbound(@)", header: "ChFi3d_Builder_0.hxx".}
 proc chFi3dMkbound*(surf: Handle[Adaptor3dHSurface]; curv: var Handle[Geom2dCurve];
-                   sens1: cint; p1: Pnt2dObj; v1: var VecObj; sens2: cint; p2: Pnt2dObj;
-                   v2: var VecObj; t3d: cfloat; ta: cfloat): Handle[GeomFillBoundary] {.
+                   sens1: cint; p1: Pnt2dObj; v1: var gp_Vec; sens2: cint; p2: Pnt2dObj;
+                   v2: var gp_Vec; t3d: cfloat; ta: cfloat): Handle[GeomFillBoundary] {.
     cdecl, importcpp: "ChFi3d_mkbound(@)", header: "ChFi3d_Builder_0.hxx".}
 proc chFi3dMkbound*(s: Handle[GeomSurface]; p1: Pnt2dObj; p2: Pnt2dObj; t3d: cfloat;
                    ta: cfloat; isfreeboundary: bool = false): Handle[GeomFillBoundary] {.
@@ -116,13 +116,13 @@ proc chFi3dMkbound*(fac: Handle[Adaptor3dHSurface]; curv: var Handle[Geom2dCurve
                    p1: Pnt2dObj; p2: Pnt2dObj; t3d: cfloat; ta: cfloat;
                    isfreeboundary: bool = false): Handle[GeomFillBoundary] {.cdecl,
     importcpp: "ChFi3d_mkbound(@)", header: "ChFi3d_Builder_0.hxx".}
-proc chFi3dCoefficient*(v3d: VecObj; d1u: VecObj; d1v: VecObj; du: var cfloat; dv: var cfloat) {.
+proc chFi3dCoefficient*(v3d: gp_Vec; d1u: gp_Vec; d1v: gp_Vec; du: var cfloat; dv: var cfloat) {.
     cdecl, importcpp: "ChFi3d_Coefficient(@)", header: "ChFi3d_Builder_0.hxx".}
 proc chFi3dBuildPCurve*(p1: Pnt2dObj; d1: var Dir2dObj; p2: Pnt2dObj; d2: var Dir2dObj;
                        redresse: bool = true): Handle[Geom2dCurve] {.cdecl,
     importcpp: "ChFi3d_BuildPCurve(@)", header: "ChFi3d_Builder_0.hxx".}
-proc chFi3dBuildPCurve*(surf: Handle[Adaptor3dHSurface]; p1: Pnt2dObj; v1: VecObj; p2: Pnt2dObj;
-                       v2: VecObj; redresse: bool = false): Handle[Geom2dCurve] {.cdecl,
+proc chFi3dBuildPCurve*(surf: Handle[Adaptor3dHSurface]; p1: Pnt2dObj; v1: gp_Vec; p2: Pnt2dObj;
+                       v2: gp_Vec; redresse: bool = false): Handle[Geom2dCurve] {.cdecl,
     importcpp: "ChFi3d_BuildPCurve(@)", header: "ChFi3d_Builder_0.hxx".}
 proc chFi3dBuildPCurve*(surf: Handle[Adaptor3dHSurface]; p1: Pnt2dObj; v1: Vec2dObj;
                        p2: Pnt2dObj; v2: Vec2dObj; redresse: bool = false): Handle[Geom2dCurve] {.

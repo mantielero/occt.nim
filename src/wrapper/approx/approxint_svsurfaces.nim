@@ -25,7 +25,7 @@ import ../intsurf/intsurf_types
 
 
 proc compute*(this: var ApproxIntSvSurfaces; u1: var cfloat; v1: var cfloat;
-             u2: var cfloat; v2: var cfloat; pt: var gp_Pnt; tg: var VecObj; tguv1: var Vec2dObj;
+             u2: var cfloat; v2: var cfloat; pt: var gp_Pnt; tg: var gp_Vec; tguv1: var Vec2dObj;
              tguv2: var Vec2dObj): bool {.cdecl, importcpp: "Compute", header: "ApproxInt_SvSurfaces.hxx".}
 proc pnt*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
          p: var gp_Pnt) {.cdecl, importcpp: "Pnt", header: "ApproxInt_SvSurfaces.hxx".}
@@ -33,7 +33,7 @@ proc seekPoint*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2: cfloa
                v2: cfloat; point: var IntSurfPntOn2S): bool {.cdecl,
     importcpp: "SeekPoint", header: "ApproxInt_SvSurfaces.hxx".}
 proc tangency*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2: cfloat;
-              v2: cfloat; tg: var VecObj): bool {.cdecl, importcpp: "Tangency",
+              v2: cfloat; tg: var gp_Vec): bool {.cdecl, importcpp: "Tangency",
     header: "ApproxInt_SvSurfaces.hxx".}
 proc tangencyOnSurf1*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2: cfloat;
                      v2: cfloat; tg: var Vec2dObj): bool {.cdecl,

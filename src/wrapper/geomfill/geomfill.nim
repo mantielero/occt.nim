@@ -29,21 +29,21 @@ import ../geom/geom_types
 
 proc surface*(curve1: Handle[GeomCurve]; curve2: Handle[GeomCurve]): Handle[
     GeomSurface] {.cdecl, importcpp: "GeomFill::Surface(@)", header: "GeomFill.hxx".}
-proc getCircle*(tConv: ConvertParameterisationType; ns1: VecObj; ns2: VecObj; nplan: VecObj;
+proc getCircle*(tConv: ConvertParameterisationType; ns1: gp_Vec; ns2: gp_Vec; nplan: gp_Vec;
                pt1: gp_Pnt; pt2: gp_Pnt; rayon: cfloat; center: gp_Pnt;
                poles: var TColgpArray1OfPnt; weigths: var TColStdArray1OfReal) {.
     cdecl, importcpp: "GeomFill::GetCircle(@)", header: "GeomFill.hxx".}
-proc getCircle*(tConv: ConvertParameterisationType; ns1: VecObj; ns2: VecObj; dn1w: VecObj;
-               dn2w: VecObj; nplan: VecObj; dnplan: VecObj; pts1: gp_Pnt; pts2: gp_Pnt; tang1: VecObj;
-               tang2: VecObj; rayon: cfloat; dRayon: cfloat; center: gp_Pnt; dCenter: VecObj;
+proc getCircle*(tConv: ConvertParameterisationType; ns1: gp_Vec; ns2: gp_Vec; dn1w: gp_Vec;
+               dn2w: gp_Vec; nplan: gp_Vec; dnplan: gp_Vec; pts1: gp_Pnt; pts2: gp_Pnt; tang1: gp_Vec;
+               tang2: gp_Vec; rayon: cfloat; dRayon: cfloat; center: gp_Pnt; dCenter: gp_Vec;
                poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
                weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): bool {.
     cdecl, importcpp: "GeomFill::GetCircle(@)", header: "GeomFill.hxx".}
-proc getCircle*(tConv: ConvertParameterisationType; ns1: VecObj; ns2: VecObj; dn1w: VecObj;
-               dn2w: VecObj; d2n1w: VecObj; d2n2w: VecObj; nplan: VecObj; dnplan: VecObj; d2nplan: VecObj;
-               pts1: gp_Pnt; pts2: gp_Pnt; tang1: VecObj; tang2: VecObj; dtang1: VecObj; dtang2: VecObj;
+proc getCircle*(tConv: ConvertParameterisationType; ns1: gp_Vec; ns2: gp_Vec; dn1w: gp_Vec;
+               dn2w: gp_Vec; d2n1w: gp_Vec; d2n2w: gp_Vec; nplan: gp_Vec; dnplan: gp_Vec; d2nplan: gp_Vec;
+               pts1: gp_Pnt; pts2: gp_Pnt; tang1: gp_Vec; tang2: gp_Vec; dtang1: gp_Vec; dtang2: gp_Vec;
                rayon: cfloat; dRayon: cfloat; d2Rayon: cfloat; center: gp_Pnt;
-               dCenter: VecObj; d2Center: VecObj; poles: var TColgpArray1OfPnt;
+               dCenter: gp_Vec; d2Center: gp_Vec; poles: var TColgpArray1OfPnt;
                dPoles: var TColgpArray1OfVec; d2Poles: var TColgpArray1OfVec;
                weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
                d2Weigths: var TColStdArray1OfReal): bool {.cdecl,

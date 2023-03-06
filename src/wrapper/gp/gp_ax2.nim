@@ -70,8 +70,8 @@ proc scaled*(this: Ax2Obj; p: gp_Pnt; s: cfloat): Ax2Obj {.noSideEffect, cdecl,
 proc transform*(this: var Ax2Obj; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Ax2.hxx".}
 proc transformed*(this: Ax2Obj; t: TrsfObj): Ax2Obj {.noSideEffect, cdecl,
                                        importcpp: "Transformed", header: "gp_Ax2.hxx".}
-proc translate*(this: var Ax2Obj; v: VecObj) {.cdecl, importcpp: "Translate", header: "gp_Ax2.hxx".}
-proc translated*(this: Ax2Obj; v: VecObj): Ax2Obj {.noSideEffect, cdecl, importcpp: "Translated",
+proc translate*(this: var Ax2Obj; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Ax2.hxx".}
+proc translated*(this: Ax2Obj; v: gp_Vec): Ax2Obj {.noSideEffect, cdecl, importcpp: "Translated",
                                      header: "gp_Ax2.hxx".}
 proc translate*(this: var Ax2Obj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Ax2.hxx".}

@@ -41,11 +41,11 @@ proc pointOnS*(this: BlendFuncCorde): gp_Pnt {.noSideEffect, cdecl,
                                         importcpp: "PointOnS", header: "BlendFunc_Corde.hxx".}
 proc pointOnGuide*(this: BlendFuncCorde): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnGuide", header: "BlendFunc_Corde.hxx".}
-proc nPlan*(this: BlendFuncCorde): VecObj {.noSideEffect, cdecl, importcpp: "NPlan",
+proc nPlan*(this: BlendFuncCorde): gp_Vec {.noSideEffect, cdecl, importcpp: "NPlan",
                                      header: "BlendFunc_Corde.hxx".}
 proc isTangencyPoint*(this: BlendFuncCorde): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_Corde.hxx".}
-proc tangentOnS*(this: BlendFuncCorde): VecObj {.noSideEffect, cdecl,
+proc tangentOnS*(this: BlendFuncCorde): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnS", header: "BlendFunc_Corde.hxx".}
 proc tangent2dOnS*(this: BlendFuncCorde): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS", header: "BlendFunc_Corde.hxx".}

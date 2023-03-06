@@ -69,15 +69,15 @@ proc isCNv*(this: GeomSurface; n: cint): bool {.noSideEffect, cdecl, importcpp: 
     header: "Geom_Surface.hxx".}
 proc d0*(this: GeomSurface; u: cfloat; v: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom_Surface.hxx".}
-proc d1*(this: GeomSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj; d1v: var VecObj) {.
+proc d1*(this: GeomSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var gp_Vec; d1v: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "D1", header: "Geom_Surface.hxx".}
-proc d2*(this: GeomSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj; d1v: var VecObj;
-        d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.noSideEffect, cdecl, importcpp: "D2",
+proc d2*(this: GeomSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var gp_Vec; d1v: var gp_Vec;
+        d2u: var gp_Vec; d2v: var gp_Vec; d2uv: var gp_Vec) {.noSideEffect, cdecl, importcpp: "D2",
     header: "Geom_Surface.hxx".}
-proc d3*(this: GeomSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj; d1v: var VecObj;
-        d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj; d3uuv: var VecObj;
-        d3uvv: var VecObj) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom_Surface.hxx".}
-proc dn*(this: GeomSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): VecObj {.noSideEffect,
+proc d3*(this: GeomSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var gp_Vec; d1v: var gp_Vec;
+        d2u: var gp_Vec; d2v: var gp_Vec; d2uv: var gp_Vec; d3u: var gp_Vec; d3v: var gp_Vec; d3uuv: var gp_Vec;
+        d3uvv: var gp_Vec) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom_Surface.hxx".}
+proc dn*(this: GeomSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): gp_Vec {.noSideEffect,
     cdecl, importcpp: "DN", header: "Geom_Surface.hxx".}
 proc value*(this: GeomSurface; u: cfloat; v: cfloat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Value", header: "Geom_Surface.hxx".}

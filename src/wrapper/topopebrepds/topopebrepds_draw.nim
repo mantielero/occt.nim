@@ -25,7 +25,7 @@ when defined(DRAW):
   proc fUN_draw*(c: Handle[Geom2dCurve]; dpar: cfloat) {.cdecl,
       importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_draw*(p: gp_Pnt; v: DirObj) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
-  proc fUN_draw*(p: gp_Pnt; v: VecObj) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
+  proc fUN_draw*(p: gp_Pnt; v: gp_Vec) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_brepDraw*(aa: TCollectionAsciiString; p: gp_Pnt) {.cdecl,
       importcpp: "FUN_brep_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_brepDraw*(aa: TCollectionAsciiString; p: gp_Pnt; d: DirObj) {.cdecl,

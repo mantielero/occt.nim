@@ -53,8 +53,8 @@ proc scale*(this: var gp_Pnt; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale".
 proc scaled*(this: gp_Pnt; p: gp_Pnt; s: cfloat): gp_Pnt {.noSideEffect, cdecl,importcpp: "Scaled".}
 proc transform*(this: var gp_Pnt; t: TrsfObj) {.cdecl, importcpp: "Transform".}
 proc transformed*(this: gp_Pnt; t: TrsfObj): gp_Pnt {.noSideEffect, cdecl,importcpp: "Transformed".}
-proc translate*(this: var gp_Pnt; v: VecObj) {.cdecl, importcpp: "Translate".}
-proc translated*(this: gp_Pnt; v: VecObj): gp_Pnt {.noSideEffect, cdecl, importcpp: "Translated".}
+proc translate*(this: var gp_Pnt; v: gp_Vec) {.cdecl, importcpp: "Translate".}
+proc translated*(this: gp_Pnt; v: gp_Vec): gp_Pnt {.noSideEffect, cdecl, importcpp: "Translated".}
 proc translate*(this: var gp_Pnt; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate".}
 proc translated*(this: gp_Pnt; p1: gp_Pnt; p2: gp_Pnt): gp_Pnt {.noSideEffect, cdecl, importcpp: "Translated".}
 proc dumpJson*(this: gp_Pnt; theOStream: var StandardOStream; theDepth: cint = -1) {.

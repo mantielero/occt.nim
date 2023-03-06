@@ -77,8 +77,8 @@ proc scaled*(this: TorusObj; p: gp_Pnt; s: cfloat): TorusObj {.noSideEffect, cde
 proc transform*(this: var TorusObj; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Torus.hxx".}
 proc transformed*(this: TorusObj; t: TrsfObj): TorusObj {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Torus.hxx".}
-proc translate*(this: var TorusObj; v: VecObj) {.cdecl, importcpp: "Translate", header: "gp_Torus.hxx".}
-proc translated*(this: TorusObj; v: VecObj): TorusObj {.noSideEffect, cdecl,
+proc translate*(this: var TorusObj; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Torus.hxx".}
+proc translated*(this: TorusObj; v: gp_Vec): TorusObj {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Torus.hxx".}
 proc translate*(this: var TorusObj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Torus.hxx".}

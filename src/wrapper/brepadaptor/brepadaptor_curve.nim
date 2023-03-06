@@ -78,13 +78,13 @@ proc value*(this: BRepAdaptorCurve; u: cfloat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Value", header: "BRepAdaptor_Curve.hxx".}
 proc d0*(this: BRepAdaptorCurve; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "BRepAdaptor_Curve.hxx".}
-proc d1*(this: BRepAdaptorCurve; u: cfloat; p: var gp_Pnt; v: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: BRepAdaptorCurve; u: cfloat; p: var gp_Pnt; v: var gp_Vec) {.noSideEffect, cdecl,
     importcpp: "D1", header: "BRepAdaptor_Curve.hxx".}
-proc d2*(this: BRepAdaptorCurve; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.
+proc d2*(this: BRepAdaptorCurve; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "D2", header: "BRepAdaptor_Curve.hxx".}
-proc d3*(this: BRepAdaptorCurve; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
+proc d3*(this: BRepAdaptorCurve; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec; v3: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "D3", header: "BRepAdaptor_Curve.hxx".}
-proc dn*(this: BRepAdaptorCurve; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
+proc dn*(this: BRepAdaptorCurve; u: cfloat; n: cint): gp_Vec {.noSideEffect, cdecl,
     importcpp: "DN", header: "BRepAdaptor_Curve.hxx".}
 proc resolution*(this: BRepAdaptorCurve; r3d: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "Resolution", header: "BRepAdaptor_Curve.hxx".}

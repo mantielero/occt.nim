@@ -31,13 +31,13 @@ proc newGeomFillBoundWithSurf*(curveOnSurf: Adaptor3dCurveOnSurface; tol3d: cflo
     constructor, importcpp: "GeomFill_BoundWithSurf(@)", header: "GeomFill_BoundWithSurf.hxx".}
 proc value*(this: GeomFillBoundWithSurf; u: cfloat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Value", header: "GeomFill_BoundWithSurf.hxx".}
-proc d1*(this: GeomFillBoundWithSurf; u: cfloat; p: var gp_Pnt; v: var VecObj) {.noSideEffect,
+proc d1*(this: GeomFillBoundWithSurf; u: cfloat; p: var gp_Pnt; v: var gp_Vec) {.noSideEffect,
     cdecl, importcpp: "D1", header: "GeomFill_BoundWithSurf.hxx".}
 proc hasNormals*(this: GeomFillBoundWithSurf): bool {.noSideEffect, cdecl,
     importcpp: "HasNormals", header: "GeomFill_BoundWithSurf.hxx".}
-proc norm*(this: GeomFillBoundWithSurf; u: cfloat): VecObj {.noSideEffect, cdecl,
+proc norm*(this: GeomFillBoundWithSurf; u: cfloat): gp_Vec {.noSideEffect, cdecl,
     importcpp: "Norm", header: "GeomFill_BoundWithSurf.hxx".}
-proc d1Norm*(this: GeomFillBoundWithSurf; u: cfloat; n: var VecObj; dn: var VecObj) {.
+proc d1Norm*(this: GeomFillBoundWithSurf; u: cfloat; n: var gp_Vec; dn: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "D1Norm", header: "GeomFill_BoundWithSurf.hxx".}
 proc reparametrize*(this: var GeomFillBoundWithSurf; first: cfloat; last: cfloat;
                    hasDF: bool; hasDL: bool; df: cfloat; dl: cfloat; rev: bool) {.cdecl,

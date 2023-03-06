@@ -62,13 +62,13 @@ proc isCN*(this: GeomLine; n: cint): bool {.noSideEffect, cdecl, importcpp: "IsC
                                       header: "Geom_Line.hxx".}
 proc d0*(this: GeomLine; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl, importcpp: "D0",
     header: "Geom_Line.hxx".}
-proc d1*(this: GeomLine; u: cfloat; p: var gp_Pnt; v1: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: GeomLine; u: cfloat; p: var gp_Pnt; v1: var gp_Vec) {.noSideEffect, cdecl,
     importcpp: "D1", header: "Geom_Line.hxx".}
-proc d2*(this: GeomLine; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.noSideEffect,
+proc d2*(this: GeomLine; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec) {.noSideEffect,
     cdecl, importcpp: "D2", header: "Geom_Line.hxx".}
-proc d3*(this: GeomLine; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
+proc d3*(this: GeomLine; u: cfloat; p: var gp_Pnt; v1: var gp_Vec; v2: var gp_Vec; v3: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_Line.hxx".}
-proc dn*(this: GeomLine; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl, importcpp: "DN",
+proc dn*(this: GeomLine; u: cfloat; n: cint): gp_Vec {.noSideEffect, cdecl, importcpp: "DN",
     header: "Geom_Line.hxx".}
 proc transform*(this: var GeomLine; t: TrsfObj) {.cdecl, importcpp: "Transform",
     header: "Geom_Line.hxx".}

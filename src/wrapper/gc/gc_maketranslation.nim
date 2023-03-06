@@ -25,7 +25,7 @@ import ../geom/geom_types
 
 
 
-proc translation*(vect: VecObj): MakeTranslation {.cdecl, constructor,
+proc translation*(vect: gp_Vec): MakeTranslation {.cdecl, constructor,
     importcpp: "GC_MakeTranslation(@)", header: "GC_MakeTranslation.hxx".}
 proc translation*(point1: gp_Pnt; point2: gp_Pnt): MakeTranslation {.cdecl,
     constructor, importcpp: "GC_MakeTranslation(@)", header: "GC_MakeTranslation.hxx".}

@@ -66,8 +66,8 @@ proc scaled*(this: ParabObj; p: gp_Pnt; s: cfloat): ParabObj {.noSideEffect, cde
 proc transform*(this: var ParabObj; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Parab.hxx".}
 proc transformed*(this: ParabObj; t: TrsfObj): ParabObj {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Parab.hxx".}
-proc translate*(this: var ParabObj; v: VecObj) {.cdecl, importcpp: "Translate", header: "gp_Parab.hxx".}
-proc translated*(this: ParabObj; v: VecObj): ParabObj {.noSideEffect, cdecl,
+proc translate*(this: var ParabObj; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Parab.hxx".}
+proc translated*(this: ParabObj; v: gp_Vec): ParabObj {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Parab.hxx".}
 proc translate*(this: var ParabObj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Parab.hxx".}

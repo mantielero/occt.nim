@@ -17,19 +17,6 @@ Preliminar status. Some of the examples currently compiles and run. But the cove
 # TODO
 - [ ] To fix some decissions taken early in the project
 
-  - [ ] Make the wrapper folder "flatter" 
-   
-    The idea is to remove the nesting of the packages within the toolkits. It 
-    is difficult to find the packages as it is.
-
-    Some examples are: `breptools` and `brepcheck`. 
-```
-sed -i 's/\.\.\/\.\.\/tk/\.\.\/tk/g' *.nim
-
-find ./ -name "*.nim" -exec sed -i 's/\.\.\/tkgeombase\/extrema\/extrema_genlocateextps/\.\.\/extrema\/extrema_genlocateextps/g' {} \;
-```
-
-
   - [ ] To revert the original names of some classes. 
     
     In particular, within the package `gp`. For example, to go back from `PntObj`

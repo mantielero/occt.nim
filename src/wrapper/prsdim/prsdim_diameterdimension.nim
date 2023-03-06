@@ -27,11 +27,11 @@ import ../topods/topods_types
 
 proc newPrsDimDiameterDimension*(theCircle: gp_Circ): PrsDimDiameterDimension {.cdecl,
     constructor, importcpp: "PrsDim_DiameterDimension(@)", header: "PrsDim_DiameterDimension.hxx".}
-proc newPrsDimDiameterDimension*(theCircle: gp_Circ; thePlane: PlnObj): PrsDimDiameterDimension {.
+proc newPrsDimDiameterDimension*(theCircle: gp_Circ; thePlane: gp_Pln): PrsDimDiameterDimension {.
     cdecl, constructor, importcpp: "PrsDim_DiameterDimension(@)", header: "PrsDim_DiameterDimension.hxx".}
 proc newPrsDimDiameterDimension*(theShape: TopoDS_Shape): PrsDimDiameterDimension {.
     cdecl, constructor, importcpp: "PrsDim_DiameterDimension(@)", header: "PrsDim_DiameterDimension.hxx".}
-proc newPrsDimDiameterDimension*(theShape: TopoDS_Shape; thePlane: PlnObj): PrsDimDiameterDimension {.
+proc newPrsDimDiameterDimension*(theShape: TopoDS_Shape; thePlane: gp_Pln): PrsDimDiameterDimension {.
     cdecl, constructor, importcpp: "PrsDim_DiameterDimension(@)", header: "PrsDim_DiameterDimension.hxx".}
 proc circle*(this: PrsDimDiameterDimension): gp_Circ {.noSideEffect, cdecl,
     importcpp: "Circle", header: "PrsDim_DiameterDimension.hxx".}

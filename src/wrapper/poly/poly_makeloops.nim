@@ -115,11 +115,11 @@ discard "forward decl of gp_Dir"
 
 
 
-proc getFirstTangent*(this: PolyMakeLoops3DHelper; theLink: Link; theDir: var DirObj): bool {.
+proc getFirstTangent*(this: PolyMakeLoops3DHelper; theLink: Link; theDir: var gp_Dir): bool {.
     noSideEffect, cdecl, importcpp: "GetFirstTangent", header: "Poly_MakeLoops.hxx".}
-proc getLastTangent*(this: PolyMakeLoops3DHelper; theLink: Link; theDir: var DirObj): bool {.
+proc getLastTangent*(this: PolyMakeLoops3DHelper; theLink: Link; theDir: var gp_Dir): bool {.
     noSideEffect, cdecl, importcpp: "GetLastTangent", header: "Poly_MakeLoops.hxx".}
-proc getNormal*(this: PolyMakeLoops3DHelper; theNode: cint; theDir: var DirObj): bool {.
+proc getNormal*(this: PolyMakeLoops3DHelper; theNode: cint; theDir: var gp_Dir): bool {.
     noSideEffect, cdecl, importcpp: "GetNormal", header: "Poly_MakeLoops.hxx".}
 proc newPolyMakeLoops3D*(theHelper: ptr PolyMakeLoops3DHelper;
                         theAlloc: Handle[NCollectionBaseAllocator]): PolyMakeLoops3D {.
@@ -132,9 +132,9 @@ discard "forward decl of gp_Dir2d"
 
 
 
-proc getFirstTangent*(this: PolyMakeLoops2DHelper; theLink: Link; theDir: var Dir2dObj): bool {.
+proc getFirstTangent*(this: PolyMakeLoops2DHelper; theLink: Link; theDir: var gp_Dir2d): bool {.
     noSideEffect, cdecl, importcpp: "GetFirstTangent", header: "Poly_MakeLoops.hxx".}
-proc getLastTangent*(this: PolyMakeLoops2DHelper; theLink: Link; theDir: var Dir2dObj): bool {.
+proc getLastTangent*(this: PolyMakeLoops2DHelper; theLink: Link; theDir: var gp_Dir2d): bool {.
     noSideEffect, cdecl, importcpp: "GetLastTangent", header: "Poly_MakeLoops.hxx".}
 proc newPolyMakeLoops2D*(theLeftWay: bool; theHelper: ptr PolyMakeLoops2DHelper;
                         theAlloc: Handle[NCollectionBaseAllocator]): PolyMakeLoops2D {.

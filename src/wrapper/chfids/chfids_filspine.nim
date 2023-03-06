@@ -42,7 +42,7 @@ proc setRadius*(this: var ChFiDS_FilSpine; radius: cfloat; v: TopoDS_Vertex) {.c
     importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
 proc unSetRadius*(this: var ChFiDS_FilSpine; v: TopoDS_Vertex) {.cdecl,
     importcpp: "UnSetRadius", header: "ChFiDS_FilSpine.hxx".}
-proc setRadius*(this: var ChFiDS_FilSpine; uandR: XyObj; iinC: cint) {.cdecl,
+proc setRadius*(this: var ChFiDS_FilSpine; uandR: gp_Xy; iinC: cint) {.cdecl,
     importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
 proc setRadius*(this: var ChFiDS_FilSpine; radius: cfloat) {.cdecl,
     importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}

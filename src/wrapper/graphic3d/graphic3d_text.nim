@@ -53,11 +53,11 @@ proc position*(this: Graphic3dText): gp_Pnt {.noSideEffect, cdecl, importcpp: "P
                                        header: "Graphic3d_Text.hxx".}
 proc setPosition*(this: var Graphic3dText; thePoint: gp_Pnt) {.cdecl,
     importcpp: "SetPosition", header: "Graphic3d_Text.hxx".}
-proc orientation*(this: Graphic3dText): Ax2Obj {.noSideEffect, cdecl,
+proc orientation*(this: Graphic3dText): gp_Ax2 {.noSideEffect, cdecl,
     importcpp: "Orientation", header: "Graphic3d_Text.hxx".}
 proc hasPlane*(this: Graphic3dText): bool {.noSideEffect, cdecl,
                                         importcpp: "HasPlane", header: "Graphic3d_Text.hxx".}
-proc setOrientation*(this: var Graphic3dText; theOrientation: Ax2Obj) {.cdecl,
+proc setOrientation*(this: var Graphic3dText; theOrientation: gp_Ax2) {.cdecl,
     importcpp: "SetOrientation", header: "Graphic3d_Text.hxx".}
 proc resetOrientation*(this: var Graphic3dText) {.cdecl,
     importcpp: "ResetOrientation", header: "Graphic3d_Text.hxx".}

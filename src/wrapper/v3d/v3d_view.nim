@@ -342,7 +342,7 @@ proc windowFitAll*(this: var V3dView; xmin: cint; ymin: cint; xmax: cint; ymax: 
 #               theMargin: cfloat; theResolution: cfloat = 0.0;
 #               theToEnlargeIfLine: bool = true): bool {.noSideEffect, cdecl,
 #    importcpp: "FitMinMax", header: "V3d_View.hxx".}
-#proc setGrid*(this: var V3dView; aPlane: Ax3Obj; aGrid: Handle[AspectGrid]) {.cdecl,
+#proc setGrid*(this: var V3dView; aPlane: gp_Ax3; aGrid: Handle[AspectGrid]) {.cdecl,
 #    importcpp: "SetGrid", header: "V3d_View.hxx".}
 #proc setGridActivity*(this: var V3dView; aFlag: bool) {.cdecl,
 #    importcpp: "SetGridActivity", header: "V3d_View.hxx".}

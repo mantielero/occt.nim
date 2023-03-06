@@ -28,8 +28,8 @@ import ../tcolgp/tcolgp_types
 
 
 proc newBndOBB*(): BndOBB {.cdecl, constructor, importcpp: "Bnd_OBB(@)", header: "Bnd_OBB.hxx".}
-proc newBndOBB*(theCenter: gp_Pnt; theXDirection: DirObj; theYDirection: DirObj;
-               theZDirection: DirObj; theHXSize: cfloat; theHYSize: cfloat;
+proc newBndOBB*(theCenter: gp_Pnt; theXDirection: gp_Dir; theYDirection: gp_Dir;
+               theZDirection: gp_Dir; theHXSize: cfloat; theHYSize: cfloat;
                theHZSize: cfloat): BndOBB {.cdecl, constructor,
     importcpp: "Bnd_OBB(@)", header: "Bnd_OBB.hxx".}
 proc newBndOBB*(theBox: BndBox): BndOBB {.cdecl, constructor, importcpp: "Bnd_OBB(@)",
@@ -39,21 +39,21 @@ proc reBuild*(this: var BndOBB; theListOfPoints: TColgpArray1OfPnt;
              theIsOptimal: bool = false) {.cdecl, importcpp: "ReBuild", header: "Bnd_OBB.hxx".}
 proc setCenter*(this: var BndOBB; theCenter: gp_Pnt) {.cdecl, importcpp: "SetCenter",
     header: "Bnd_OBB.hxx".}
-proc setXComponent*(this: var BndOBB; theXDirection: DirObj; theHXSize: cfloat) {.cdecl,
+proc setXComponent*(this: var BndOBB; theXDirection: gp_Dir; theHXSize: cfloat) {.cdecl,
     importcpp: "SetXComponent", header: "Bnd_OBB.hxx".}
-proc setYComponent*(this: var BndOBB; theYDirection: DirObj; theHYSize: cfloat) {.cdecl,
+proc setYComponent*(this: var BndOBB; theYDirection: gp_Dir; theHYSize: cfloat) {.cdecl,
     importcpp: "SetYComponent", header: "Bnd_OBB.hxx".}
-proc setZComponent*(this: var BndOBB; theZDirection: DirObj; theHZSize: cfloat) {.cdecl,
+proc setZComponent*(this: var BndOBB; theZDirection: gp_Dir; theHZSize: cfloat) {.cdecl,
     importcpp: "SetZComponent", header: "Bnd_OBB.hxx".}
-proc position*(this: BndOBB): Ax3Obj {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: BndOBB): gp_Ax3 {.noSideEffect, cdecl, importcpp: "Position",
                                 header: "Bnd_OBB.hxx".}
-proc center*(this: BndOBB): XyzObj {.noSideEffect, cdecl, importcpp: "Center",
+proc center*(this: BndOBB): gp_Xyz {.noSideEffect, cdecl, importcpp: "Center",
                               header: "Bnd_OBB.hxx".}
-proc xDirection*(this: BndOBB): XyzObj {.noSideEffect, cdecl, importcpp: "XDirection",
+proc xDirection*(this: BndOBB): gp_Xyz {.noSideEffect, cdecl, importcpp: "XDirection",
                                   header: "Bnd_OBB.hxx".}
-proc yDirection*(this: BndOBB): XyzObj {.noSideEffect, cdecl, importcpp: "YDirection",
+proc yDirection*(this: BndOBB): gp_Xyz {.noSideEffect, cdecl, importcpp: "YDirection",
                                   header: "Bnd_OBB.hxx".}
-proc zDirection*(this: BndOBB): XyzObj {.noSideEffect, cdecl, importcpp: "ZDirection",
+proc zDirection*(this: BndOBB): gp_Xyz {.noSideEffect, cdecl, importcpp: "ZDirection",
                                   header: "Bnd_OBB.hxx".}
 proc xHSize*(this: BndOBB): cfloat {.noSideEffect, cdecl, importcpp: "XHSize",
                                  header: "Bnd_OBB.hxx".}

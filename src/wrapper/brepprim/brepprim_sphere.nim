@@ -28,7 +28,7 @@ proc newBRepPrimSphere*(radius: cfloat): BRepPrimSphere {.cdecl, constructor,
     importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
 proc newBRepPrimSphere*(center: gp_Pnt; radius: cfloat): BRepPrimSphere {.cdecl,
     constructor, importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
-proc newBRepPrimSphere*(axes: Ax2Obj; radius: cfloat): BRepPrimSphere {.cdecl,
+proc newBRepPrimSphere*(axes: gp_Ax2; radius: cfloat): BRepPrimSphere {.cdecl,
     constructor, importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimSphere): TopoDS_Face {.noSideEffect, cdecl,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Sphere.hxx".}

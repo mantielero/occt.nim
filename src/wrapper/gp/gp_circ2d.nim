@@ -23,15 +23,15 @@ discard "forward decl of gp_Vec2d"
 
 proc circ2d*(): gp_Circ2d {.cdecl, constructor, importcpp: "gp_Circ2d(@)",
                          header: "gp_Circ2d.hxx".}
-proc circ2d*(xAxis: Ax2dObj; radius: cfloat; sense: bool = true): gp_Circ2d {.cdecl,
+proc circ2d*(xAxis: gp_Ax2d; radius: cfloat; sense: bool = true): gp_Circ2d {.cdecl,
     constructor, importcpp: "gp_Circ2d(@)", header: "gp_Circ2d.hxx".}
-proc circ2d*(axis: Ax22dObj; radius: cfloat): gp_Circ2d {.cdecl, constructor,
+proc circ2d*(axis: gp_Ax22d; radius: cfloat): gp_Circ2d {.cdecl, constructor,
     importcpp: "gp_Circ2d(@)", header: "gp_Circ2d.hxx".}
 proc setLocation*(this: var gp_Circ2d; p: gp_Pnt2d) {.cdecl, importcpp: "SetLocation",
     header: "gp_Circ2d.hxx".}
-proc setXAxis*(this: var gp_Circ2d; a: Ax2dObj) {.cdecl, importcpp: "SetXAxis", header: "gp_Circ2d.hxx".}
-proc setAxis*(this: var gp_Circ2d; a: Ax22dObj) {.cdecl, importcpp: "SetAxis", header: "gp_Circ2d.hxx".}
-proc setYAxis*(this: var gp_Circ2d; a: Ax2dObj) {.cdecl, importcpp: "SetYAxis", header: "gp_Circ2d.hxx".}
+proc setXAxis*(this: var gp_Circ2d; a: gp_Ax2d) {.cdecl, importcpp: "SetXAxis", header: "gp_Circ2d.hxx".}
+proc setAxis*(this: var gp_Circ2d; a: gp_Ax22d) {.cdecl, importcpp: "SetAxis", header: "gp_Circ2d.hxx".}
+proc setYAxis*(this: var gp_Circ2d; a: gp_Ax2d) {.cdecl, importcpp: "SetYAxis", header: "gp_Circ2d.hxx".}
 proc setRadius*(this: var gp_Circ2d; radius: cfloat) {.cdecl, importcpp: "SetRadius",
     header: "gp_Circ2d.hxx".}
 proc area*(this: gp_Circ2d): cfloat {.noSideEffect, cdecl, importcpp: "Area",
@@ -51,12 +51,12 @@ proc location*(this: gp_Circ2d): gp_Pnt2d {.noSideEffect, cdecl, importcpp: "Loc
                                   header: "gp_Circ2d.hxx".}
 proc radius*(this: gp_Circ2d): cfloat {.noSideEffect, cdecl, importcpp: "Radius",
                                  header: "gp_Circ2d.hxx".}
-proc axis*(this: gp_Circ2d): Ax22dObj {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Circ2d.hxx".}
-proc position*(this: gp_Circ2d): Ax22dObj {.noSideEffect, cdecl, importcpp: "Position",
+proc axis*(this: gp_Circ2d): gp_Ax22d {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Circ2d.hxx".}
+proc position*(this: gp_Circ2d): gp_Ax22d {.noSideEffect, cdecl, importcpp: "Position",
                                   header: "gp_Circ2d.hxx".}
-proc xAxis*(this: gp_Circ2d): Ax2dObj {.noSideEffect, cdecl, importcpp: "XAxis",
+proc xAxis*(this: gp_Circ2d): gp_Ax2d {.noSideEffect, cdecl, importcpp: "XAxis",
                               header: "gp_Circ2d.hxx".}
-proc yAxis*(this: gp_Circ2d): Ax2dObj {.noSideEffect, cdecl, importcpp: "YAxis",
+proc yAxis*(this: gp_Circ2d): gp_Ax2d {.noSideEffect, cdecl, importcpp: "YAxis",
                               header: "gp_Circ2d.hxx".}
 proc reverse*(this: var gp_Circ2d) {.cdecl, importcpp: "Reverse", header: "gp_Circ2d.hxx".}
 proc reversed*(this: gp_Circ2d): gp_Circ2d {.noSideEffect, cdecl, importcpp: "Reversed",
@@ -66,8 +66,8 @@ proc isDirect*(this: gp_Circ2d): bool {.noSideEffect, cdecl, importcpp: "IsDirec
 proc mirror*(this: var gp_Circ2d; p: gp_Pnt2d) {.cdecl, importcpp: "Mirror", header: "gp_Circ2d.hxx".}
 proc mirrored*(this: gp_Circ2d; p: gp_Pnt2d): gp_Circ2d {.noSideEffect, cdecl,
     importcpp: "Mirrored", header: "gp_Circ2d.hxx".}
-proc mirror*(this: var gp_Circ2d; a: Ax2dObj) {.cdecl, importcpp: "Mirror", header: "gp_Circ2d.hxx".}
-proc mirrored*(this: gp_Circ2d; a: Ax2dObj): gp_Circ2d {.noSideEffect, cdecl,
+proc mirror*(this: var gp_Circ2d; a: gp_Ax2d) {.cdecl, importcpp: "Mirror", header: "gp_Circ2d.hxx".}
+proc mirrored*(this: gp_Circ2d; a: gp_Ax2d): gp_Circ2d {.noSideEffect, cdecl,
     importcpp: "Mirrored", header: "gp_Circ2d.hxx".}
 proc rotate*(this: var gp_Circ2d; p: gp_Pnt2d; ang: cfloat) {.cdecl, importcpp: "Rotate",
     header: "gp_Circ2d.hxx".}
@@ -77,9 +77,9 @@ proc scale*(this: var gp_Circ2d; p: gp_Pnt2d; s: cfloat) {.cdecl, importcpp: "Sc
     header: "gp_Circ2d.hxx".}
 proc scaled*(this: gp_Circ2d; p: gp_Pnt2d; s: cfloat): gp_Circ2d {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Circ2d.hxx".}
-proc transform*(this: var gp_Circ2d; t: Trsf2dObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var gp_Circ2d; t: gp_Trsf2d) {.cdecl, importcpp: "Transform",
     header: "gp_Circ2d.hxx".}
-proc transformed*(this: gp_Circ2d; t: Trsf2dObj): gp_Circ2d {.noSideEffect, cdecl,
+proc transformed*(this: gp_Circ2d; t: gp_Trsf2d): gp_Circ2d {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Circ2d.hxx".}
 proc translate*(this: var gp_Circ2d; v: gp_Vec2d) {.cdecl, importcpp: "Translate",
                                         header: "gp_Circ2d.hxx".}

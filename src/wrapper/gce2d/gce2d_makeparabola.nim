@@ -27,11 +27,11 @@ import gce2d_types
 
 proc newGCE2dMakeParabola*(prb: gp_Parab2d): GCE2dMakeParabola {.cdecl, constructor,
     importcpp: "GCE2d_MakeParabola(@)", header: "GCE2d_MakeParabola.hxx".}
-proc newGCE2dMakeParabola*(axis: Ax22dObj; focal: cfloat): GCE2dMakeParabola {.cdecl,
+proc newGCE2dMakeParabola*(axis: gp_Ax22d; focal: cfloat): GCE2dMakeParabola {.cdecl,
     constructor, importcpp: "GCE2d_MakeParabola(@)", header: "GCE2d_MakeParabola.hxx".}
-proc newGCE2dMakeParabola*(mirrorAxis: Ax2dObj; focal: cfloat; sense: bool): GCE2dMakeParabola {.
+proc newGCE2dMakeParabola*(mirrorAxis: gp_Ax2d; focal: cfloat; sense: bool): GCE2dMakeParabola {.
     cdecl, constructor, importcpp: "GCE2d_MakeParabola(@)", header: "GCE2d_MakeParabola.hxx".}
-proc newGCE2dMakeParabola*(d: Ax2dObj; f: gp_Pnt2d; sense: bool = true): GCE2dMakeParabola {.
+proc newGCE2dMakeParabola*(d: gp_Ax2d; f: gp_Pnt2d; sense: bool = true): GCE2dMakeParabola {.
     cdecl, constructor, importcpp: "GCE2d_MakeParabola(@)", header: "GCE2d_MakeParabola.hxx".}
 proc newGCE2dMakeParabola*(s1: gp_Pnt2d; o: gp_Pnt2d): GCE2dMakeParabola {.cdecl,
     constructor, importcpp: "GCE2d_MakeParabola(@)", header: "GCE2d_MakeParabola.hxx".}

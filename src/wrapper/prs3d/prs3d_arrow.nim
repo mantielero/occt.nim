@@ -25,17 +25,17 @@ import ../graphic3d/graphic3d_types
 
 
 
-proc drawShaded*(theAxis: Ax1Obj; theTubeRadius: cfloat; theAxisLength: cfloat;
+proc drawShaded*(theAxis: gp_Ax1; theTubeRadius: cfloat; theAxisLength: cfloat;
                 theConeRadius: cfloat; theConeLength: cfloat; theNbFacettes: cint): Handle[
     Graphic3dArrayOfTriangles] {.cdecl, importcpp: "Prs3d_Arrow::DrawShaded(@)",
                                 header: "Prs3d_Arrow.hxx".}
-proc drawSegments*(theLocation: gp_Pnt; theDir: DirObj; theAngle: cfloat; theLength: cfloat;
+proc drawSegments*(theLocation: gp_Pnt; theDir: gp_Dir; theAngle: cfloat; theLength: cfloat;
                   theNbSegments: cint): Handle[Graphic3dArrayOfSegments] {.cdecl,
     importcpp: "Prs3d_Arrow::DrawSegments(@)", header: "Prs3d_Arrow.hxx".}
-proc draw*(theGroup: Handle[Graphic3dGroup]; theLocation: gp_Pnt; theDirection: DirObj;
+proc draw*(theGroup: Handle[Graphic3dGroup]; theLocation: gp_Pnt; theDirection: gp_Dir;
           theAngle: cfloat; theLength: cfloat) {.cdecl,
     importcpp: "Prs3d_Arrow::Draw(@)", header: "Prs3d_Arrow.hxx".}
-proc draw*(thePrs: Handle[Prs3dPresentation]; theLocation: gp_Pnt; theDirection: DirObj;
+proc draw*(thePrs: Handle[Prs3dPresentation]; theLocation: gp_Pnt; theDirection: gp_Dir;
           theAngle: cfloat; theLength: cfloat) {.cdecl,
     importcpp: "Prs3d_Arrow::Draw(@)", header: "Prs3d_Arrow.hxx".}
 

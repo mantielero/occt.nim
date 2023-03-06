@@ -23,12 +23,12 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 
 proc cone*(): gp_Cone {.cdecl, constructor, importcpp: "gp_Cone(@)", header: "gp_Cone.hxx".}
-proc cone*(a3: Ax3Obj; ang: cfloat; radius: cfloat): gp_Cone {.cdecl, constructor,
+proc cone*(a3: gp_Ax3; ang: cfloat; radius: cfloat): gp_Cone {.cdecl, constructor,
     importcpp: "gp_Cone(@)", header: "gp_Cone.hxx".}
-proc setAxis*(this: var gp_Cone; a1: Ax1Obj) {.cdecl, importcpp: "SetAxis", header: "gp_Cone.hxx".}
+proc setAxis*(this: var gp_Cone; a1: gp_Ax1) {.cdecl, importcpp: "SetAxis", header: "gp_Cone.hxx".}
 proc setLocation*(this: var gp_Cone; loc: gp_Pnt) {.cdecl, importcpp: "SetLocation",
                                         header: "gp_Cone.hxx".}
-proc setPosition*(this: var gp_Cone; a3: Ax3Obj) {.cdecl, importcpp: "SetPosition",
+proc setPosition*(this: var gp_Cone; a3: gp_Ax3) {.cdecl, importcpp: "SetPosition",
                                        header: "gp_Cone.hxx".}
 proc setRadius*(this: var gp_Cone; r: cfloat) {.cdecl, importcpp: "SetRadius",
                                        header: "gp_Cone.hxx".}
@@ -39,33 +39,33 @@ proc uReverse*(this: var gp_Cone) {.cdecl, importcpp: "UReverse", header: "gp_Co
 proc vReverse*(this: var gp_Cone) {.cdecl, importcpp: "VReverse", header: "gp_Cone.hxx".}
 proc direct*(this: gp_Cone): bool {.noSideEffect, cdecl, importcpp: "Direct",
                              header: "gp_Cone.hxx".}
-proc axis*(this: gp_Cone): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Cone.hxx".}
+proc axis*(this: gp_Cone): gp_Ax1 {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Cone.hxx".}
 proc coefficients*(this: gp_Cone; a1: var cfloat; a2: var cfloat; a3: var cfloat;
                   b1: var cfloat; b2: var cfloat; b3: var cfloat; c1: var cfloat;
                   c2: var cfloat; c3: var cfloat; d: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Coefficients", header: "gp_Cone.hxx".}
 proc location*(this: gp_Cone): gp_Pnt {.noSideEffect, cdecl, importcpp: "Location",
                               header: "gp_Cone.hxx".}
-proc position*(this: gp_Cone): Ax3Obj {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: gp_Cone): gp_Ax3 {.noSideEffect, cdecl, importcpp: "Position",
                               header: "gp_Cone.hxx".}
 proc refRadius*(this: gp_Cone): cfloat {.noSideEffect, cdecl, importcpp: "RefRadius",
                                   header: "gp_Cone.hxx".}
 proc semiAngle*(this: gp_Cone): cfloat {.noSideEffect, cdecl, importcpp: "SemiAngle",
                                   header: "gp_Cone.hxx".}
-proc xAxis*(this: gp_Cone): Ax1Obj {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Cone.hxx".}
-proc yAxis*(this: gp_Cone): Ax1Obj {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Cone.hxx".}
+proc xAxis*(this: gp_Cone): gp_Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Cone.hxx".}
+proc yAxis*(this: gp_Cone): gp_Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Cone.hxx".}
 proc mirror*(this: var gp_Cone; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Cone.hxx".}
 proc mirrored*(this: gp_Cone; p: gp_Pnt): gp_Cone {.noSideEffect, cdecl, importcpp: "Mirrored",
                                      header: "gp_Cone.hxx".}
-proc mirror*(this: var gp_Cone; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Cone.hxx".}
-proc mirrored*(this: gp_Cone; a1: Ax1Obj): gp_Cone {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var gp_Cone; a1: gp_Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Cone.hxx".}
+proc mirrored*(this: gp_Cone; a1: gp_Ax1): gp_Cone {.noSideEffect, cdecl, importcpp: "Mirrored",
                                       header: "gp_Cone.hxx".}
-proc mirror*(this: var gp_Cone; a2: Ax2Obj) {.cdecl, importcpp: "Mirror", header: "gp_Cone.hxx".}
-proc mirrored*(this: gp_Cone; a2: Ax2Obj): gp_Cone {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var gp_Cone; a2: gp_Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Cone.hxx".}
+proc mirrored*(this: gp_Cone; a2: gp_Ax2): gp_Cone {.noSideEffect, cdecl, importcpp: "Mirrored",
                                       header: "gp_Cone.hxx".}
-proc rotate*(this: var gp_Cone; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rotate",
+proc rotate*(this: var gp_Cone; a1: gp_Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
     header: "gp_Cone.hxx".}
-proc rotated*(this: gp_Cone; a1: Ax1Obj; ang: cfloat): gp_Cone {.noSideEffect, cdecl,
+proc rotated*(this: gp_Cone; a1: gp_Ax1; ang: cfloat): gp_Cone {.noSideEffect, cdecl,
     importcpp: "Rotated", header: "gp_Cone.hxx".}
 proc scale*(this: var gp_Cone; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Cone.hxx".}
 proc scaled*(this: gp_Cone; p: gp_Pnt; s: cfloat): gp_Cone {.noSideEffect, cdecl,

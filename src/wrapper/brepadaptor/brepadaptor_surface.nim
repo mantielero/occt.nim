@@ -104,7 +104,7 @@ proc vResolution*(this: BRepAdaptorSurface; r3d: cfloat): cfloat {.noSideEffect,
     importcpp: "VResolution", header: "BRepAdaptor_Surface.hxx".}
 proc getType*(this: BRepAdaptorSurface): GeomAbsSurfaceType {.noSideEffect, cdecl,
     importcpp: "GetType", header: "BRepAdaptor_Surface.hxx".}
-proc plane*(this: BRepAdaptorSurface): PlnObj {.noSideEffect, cdecl, importcpp: "Plane",
+proc plane*(this: BRepAdaptorSurface): gp_Pln {.noSideEffect, cdecl, importcpp: "Plane",
     header: "BRepAdaptor_Surface.hxx".}
 proc cylinder*(this: BRepAdaptorSurface): gp_Cylinder {.noSideEffect, cdecl,
     importcpp: "Cylinder", header: "BRepAdaptor_Surface.hxx".}
@@ -134,9 +134,9 @@ proc bezier*(this: BRepAdaptorSurface): Handle[GeomBezierSurface] {.noSideEffect
     cdecl, importcpp: "Bezier", header: "BRepAdaptor_Surface.hxx".}
 proc bSpline*(this: BRepAdaptorSurface): Handle[GeomBSplineSurface] {.noSideEffect,
     cdecl, importcpp: "BSpline", header: "BRepAdaptor_Surface.hxx".}
-proc axeOfRevolution*(this: BRepAdaptorSurface): Ax1Obj {.noSideEffect, cdecl,
+proc axeOfRevolution*(this: BRepAdaptorSurface): gp_Ax1 {.noSideEffect, cdecl,
     importcpp: "AxeOfRevolution", header: "BRepAdaptor_Surface.hxx".}
-proc direction*(this: BRepAdaptorSurface): DirObj {.noSideEffect, cdecl,
+proc direction*(this: BRepAdaptorSurface): gp_Dir {.noSideEffect, cdecl,
     importcpp: "Direction", header: "BRepAdaptor_Surface.hxx".}
 proc basisCurve*(this: BRepAdaptorSurface): Handle[Adaptor3dHCurve] {.noSideEffect,
     cdecl, importcpp: "BasisCurve", header: "BRepAdaptor_Surface.hxx".}

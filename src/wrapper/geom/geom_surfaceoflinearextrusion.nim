@@ -28,9 +28,9 @@ import geom_types
 
 
 
-proc newGeomSurfaceOfLinearExtrusion*(c: Handle[GeomCurve]; v: DirObj): GeomSurfaceOfLinearExtrusion {.
+proc newGeomSurfaceOfLinearExtrusion*(c: Handle[GeomCurve]; v: gp_Dir): GeomSurfaceOfLinearExtrusion {.
     cdecl, constructor, importcpp: "Geom_SurfaceOfLinearExtrusion(@)", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc setDirection*(this: var GeomSurfaceOfLinearExtrusion; v: DirObj) {.cdecl,
+proc setDirection*(this: var GeomSurfaceOfLinearExtrusion; v: gp_Dir) {.cdecl,
     importcpp: "SetDirection", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
 proc setBasisCurve*(this: var GeomSurfaceOfLinearExtrusion; c: Handle[GeomCurve]) {.
     cdecl, importcpp: "SetBasisCurve", header: "Geom_SurfaceOfLinearExtrusion.hxx".}

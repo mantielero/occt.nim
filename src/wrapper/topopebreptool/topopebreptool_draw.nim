@@ -40,9 +40,9 @@ when defined(DRAW):
   proc fdraw_Dinloe*(pref: TCollectionAsciiString; loe: TopToolsListOfShape;
                     str1: TCollectionAsciiString; str2: TCollectionAsciiString) {.
       cdecl, importcpp: "FDRAW_DINLOE(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc fUN_toolDraw*(aa: TCollectionAsciiString; p: gp_Pnt; d: DirObj) {.cdecl,
+  proc fUN_toolDraw*(aa: TCollectionAsciiString; p: gp_Pnt; d: gp_Dir) {.cdecl,
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc fUN_toolDraw*(aa: TCollectionAsciiString; p: gp_Pnt2d; d: Dir2dObj; i: cint) {.cdecl,
+  proc fUN_toolDraw*(aa: TCollectionAsciiString; p: gp_Pnt2d; d: gp_Dir2d; i: cint) {.cdecl,
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc fUN_toolDraw*(aa: TCollectionAsciiString; p2d: gp_Pnt2d) {.cdecl,
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}

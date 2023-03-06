@@ -2,11 +2,11 @@ import ../../wrapper/gp/gp_includes
 import ../../wrapper/geom/geom_includes
 import ../../wrapper/standard/standard_includes
 
-proc newCylindricalSurface*(a3: Ax3Obj; radius: cfloat): ptr GeomCylindricalSurface {.
+proc newCylindricalSurface*(a3: gp_Ax3; radius: cfloat): ptr GeomCylindricalSurface {.
     cdecl, constructor, importcpp: "new Geom_CylindricalSurface(@)", 
     header: "Geom_CylindricalSurface.hxx".}
 
-proc cylindricalSurface*(a3: Ax3Obj; radius: cfloat): Handle[GeomCylindricalSurface] =
+proc cylindricalSurface*(a3: gp_Ax3; radius: cfloat): Handle[GeomCylindricalSurface] =
   newHandle( newCylindricalSurface(a3, radius) )
 
 

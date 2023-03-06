@@ -39,7 +39,7 @@ proc newBRepAlgoAPI_Section*(s1: TopoDS_Shape; s2: TopoDS_Shape;
 proc newBRepAlgoAPI_Section*(s1: TopoDS_Shape; s2: TopoDS_Shape;
                             aDSF: BOPAlgoPaveFiller; performNow: bool = true): BRepAlgoAPI_Section {.
     cdecl, constructor, importcpp: "BRepAlgoAPI_Section(@)", header: "BRepAlgoAPI_Section.hxx".}
-proc newBRepAlgoAPI_Section*(s1: TopoDS_Shape; pl: PlnObj; performNow: bool = true): BRepAlgoAPI_Section {.
+proc newBRepAlgoAPI_Section*(s1: TopoDS_Shape; pl: gp_Pln; performNow: bool = true): BRepAlgoAPI_Section {.
     cdecl, constructor, importcpp: "BRepAlgoAPI_Section(@)", header: "BRepAlgoAPI_Section.hxx".}
 proc newBRepAlgoAPI_Section*(s1: TopoDS_Shape; sf: Handle[GeomSurface];
                             performNow: bool = true): BRepAlgoAPI_Section {.cdecl,
@@ -52,13 +52,13 @@ proc newBRepAlgoAPI_Section*(sf1: Handle[GeomSurface]; sf2: Handle[GeomSurface];
     constructor, importcpp: "BRepAlgoAPI_Section(@)", header: "BRepAlgoAPI_Section.hxx".}
 proc init1*(this: var BRepAlgoAPI_Section; s1: TopoDS_Shape) {.cdecl,
     importcpp: "Init1", header: "BRepAlgoAPI_Section.hxx".}
-proc init1*(this: var BRepAlgoAPI_Section; pl: PlnObj) {.cdecl, importcpp: "Init1",
+proc init1*(this: var BRepAlgoAPI_Section; pl: gp_Pln) {.cdecl, importcpp: "Init1",
     header: "BRepAlgoAPI_Section.hxx".}
 proc init1*(this: var BRepAlgoAPI_Section; sf: Handle[GeomSurface]) {.cdecl,
     importcpp: "Init1", header: "BRepAlgoAPI_Section.hxx".}
 proc init2*(this: var BRepAlgoAPI_Section; s2: TopoDS_Shape) {.cdecl,
     importcpp: "Init2", header: "BRepAlgoAPI_Section.hxx".}
-proc init2*(this: var BRepAlgoAPI_Section; pl: PlnObj) {.cdecl, importcpp: "Init2",
+proc init2*(this: var BRepAlgoAPI_Section; pl: gp_Pln) {.cdecl, importcpp: "Init2",
     header: "BRepAlgoAPI_Section.hxx".}
 proc init2*(this: var BRepAlgoAPI_Section; sf: Handle[GeomSurface]) {.cdecl,
     importcpp: "Init2", header: "BRepAlgoAPI_Section.hxx".}

@@ -27,7 +27,7 @@ import ../geom2d/geom2d_types
 
 
 
-proc newBRepPrimRevolution*(a: Ax2Obj; vMin: cfloat; vMax: cfloat; m: Handle[GeomCurve];
+proc newBRepPrimRevolution*(a: gp_Ax2; vMin: cfloat; vMax: cfloat; m: Handle[GeomCurve];
                            pm: Handle[Geom2dCurve]): BRepPrimRevolution {.cdecl,
     constructor, importcpp: "BRepPrim_Revolution(@)", header: "BRepPrim_Revolution.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimRevolution): TopoDS_Face {.noSideEffect,

@@ -28,9 +28,9 @@ import ../standard/standard_types
 
 proc newGeom2dCircle*(c: gp_Circ2d): Geom2dCircle {.cdecl, constructor,
     importcpp: "Geom2d_Circle(@)", header: "Geom2d_Circle.hxx".}
-proc newGeom2dCircle*(a: Ax2dObj; radius: cfloat; sense: bool = true): Geom2dCircle {.cdecl,
+proc newGeom2dCircle*(a: gp_Ax2d; radius: cfloat; sense: bool = true): Geom2dCircle {.cdecl,
     constructor, importcpp: "Geom2d_Circle(@)", header: "Geom2d_Circle.hxx".}
-proc newGeom2dCircle*(a: Ax22dObj; radius: cfloat): Geom2dCircle {.cdecl, constructor,
+proc newGeom2dCircle*(a: gp_Ax22d; radius: cfloat): Geom2dCircle {.cdecl, constructor,
     importcpp: "Geom2d_Circle(@)", header: "Geom2d_Circle.hxx".}
 proc setCirc2d*(this: var Geom2dCircle; c: gp_Circ2d) {.cdecl, importcpp: "SetCirc2d",
     header: "Geom2d_Circle.hxx".}
@@ -62,7 +62,7 @@ proc d3*(this: Geom2dCircle; u: cfloat; p: var gp_Pnt2d; v1: var gp_Vec2d; v2: v
         v3: var gp_Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_Circle.hxx".}
 proc dn*(this: Geom2dCircle; u: cfloat; n: cint): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom2d_Circle.hxx".}
-proc transform*(this: var Geom2dCircle; t: Trsf2dObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var Geom2dCircle; t: gp_Trsf2d) {.cdecl, importcpp: "Transform",
     header: "Geom2d_Circle.hxx".}
 proc copy*(this: Geom2dCircle): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom2d_Circle.hxx".}

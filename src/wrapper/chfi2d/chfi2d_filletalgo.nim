@@ -25,14 +25,14 @@ import ../topods/topods_types
 
 proc newChFi2dFilletAlgo*(): ChFi2dFilletAlgo {.cdecl, constructor,
     importcpp: "ChFi2d_FilletAlgo(@)", header: "ChFi2d_FilletAlgo.hxx".}
-proc newChFi2dFilletAlgo*(theWire: TopoDS_Wire; thePlane: PlnObj): ChFi2dFilletAlgo {.
+proc newChFi2dFilletAlgo*(theWire: TopoDS_Wire; thePlane: gp_Pln): ChFi2dFilletAlgo {.
     cdecl, constructor, importcpp: "ChFi2d_FilletAlgo(@)", header: "ChFi2d_FilletAlgo.hxx".}
-proc newChFi2dFilletAlgo*(theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge; thePlane: PlnObj): ChFi2dFilletAlgo {.
+proc newChFi2dFilletAlgo*(theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge; thePlane: gp_Pln): ChFi2dFilletAlgo {.
     cdecl, constructor, importcpp: "ChFi2d_FilletAlgo(@)", header: "ChFi2d_FilletAlgo.hxx".}
-proc init*(this: var ChFi2dFilletAlgo; theWire: TopoDS_Wire; thePlane: PlnObj) {.cdecl,
+proc init*(this: var ChFi2dFilletAlgo; theWire: TopoDS_Wire; thePlane: gp_Pln) {.cdecl,
     importcpp: "Init", header: "ChFi2d_FilletAlgo.hxx".}
 proc init*(this: var ChFi2dFilletAlgo; theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge;
-          thePlane: PlnObj) {.cdecl, importcpp: "Init", header: "ChFi2d_FilletAlgo.hxx".}
+          thePlane: gp_Pln) {.cdecl, importcpp: "Init", header: "ChFi2d_FilletAlgo.hxx".}
 proc perform*(this: var ChFi2dFilletAlgo; theRadius: cfloat): bool {.cdecl,
     importcpp: "Perform", header: "ChFi2d_FilletAlgo.hxx".}
 proc nbResults*(this: var ChFi2dFilletAlgo; thePoint: gp_Pnt): cint {.cdecl,

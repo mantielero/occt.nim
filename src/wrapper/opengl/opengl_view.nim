@@ -135,9 +135,9 @@ proc backfacingModel*(this: OpenGlView): Graphic3dTypeOfBackfacingModel {.
 proc setBackfacingModel*(this: var OpenGlView;
                         theModel: Graphic3dTypeOfBackfacingModel) {.cdecl,
     importcpp: "SetBackfacingModel", header: "OpenGl_View.hxx".}
-proc localOrigin*(this: OpenGlView): XyzObj {.noSideEffect, cdecl,
+proc localOrigin*(this: OpenGlView): gp_Xyz {.noSideEffect, cdecl,
                                        importcpp: "LocalOrigin", header: "OpenGl_View.hxx".}
-proc setLocalOrigin*(this: var OpenGlView; theOrigin: XyzObj) {.cdecl,
+proc setLocalOrigin*(this: var OpenGlView; theOrigin: gp_Xyz) {.cdecl,
     importcpp: "SetLocalOrigin", header: "OpenGl_View.hxx".}
 proc lights*(this: OpenGlView): Handle[Graphic3dLightSet] {.noSideEffect, cdecl,
     importcpp: "Lights", header: "OpenGl_View.hxx".}

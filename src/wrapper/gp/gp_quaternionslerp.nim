@@ -17,16 +17,16 @@ import gp_types
 ## ! return unit length quaternion.
 
 
-proc interpolateSlerp*(theQStart: QuaternionObj; theQEnd: QuaternionObj; theT: cfloat): QuaternionObj {.
+proc interpolateSlerp*(theQStart: gp_Quaternion; theQEnd: gp_Quaternion; theT: cfloat): gp_Quaternion {.
     cdecl, importcpp: "gp_QuaternionSLerp::Interpolate(@)", header: "gp_QuaternionSLerp.hxx".}
 proc newQuaternionSLerp*(): QuaternionSLerp {.cdecl, constructor,
     importcpp: "gp_QuaternionSLerp(@)", header: "gp_QuaternionSLerp.hxx".}
-proc newQuaternionSLerp*(theQStart: QuaternionObj; theQEnd: QuaternionObj): QuaternionSLerp {.
+proc newQuaternionSLerp*(theQStart: gp_Quaternion; theQEnd: gp_Quaternion): QuaternionSLerp {.
     cdecl, constructor, importcpp: "gp_QuaternionSLerp(@)", header: "gp_QuaternionSLerp.hxx".}
-proc init*(this: var QuaternionSLerp; theQStart: QuaternionObj; theQEnd: QuaternionObj) {.
+proc init*(this: var QuaternionSLerp; theQStart: gp_Quaternion; theQEnd: gp_Quaternion) {.
     cdecl, importcpp: "Init", header: "gp_QuaternionSLerp.hxx".}
-proc initFromUnit*(this: var QuaternionSLerp; theQStart: QuaternionObj;
-                  theQEnd: QuaternionObj) {.cdecl, importcpp: "InitFromUnit",
+proc initFromUnit*(this: var QuaternionSLerp; theQStart: gp_Quaternion;
+                  theQEnd: gp_Quaternion) {.cdecl, importcpp: "InitFromUnit",
                                        header: "gp_QuaternionSLerp.hxx".}
-proc interpolateSlerp*(this: QuaternionSLerp; theT: cfloat; theResultQ: var QuaternionObj) {.
+proc interpolateSlerp*(this: QuaternionSLerp; theT: cfloat; theResultQ: var gp_Quaternion) {.
     noSideEffect, cdecl, importcpp: "Interpolate", header: "gp_QuaternionSLerp.hxx".}

@@ -29,7 +29,7 @@ proc trimmedCylinder*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): MakeTrimmedCylinder {
     constructor, importcpp: "GC_MakeTrimmedCylinder(@)", header: "GC_MakeTrimmedCylinder.hxx".}
 proc trimmedCylinder*(circ: gp_Circ; height: cfloat): MakeTrimmedCylinder {.cdecl,
     constructor, importcpp: "GC_MakeTrimmedCylinder(@)", header: "GC_MakeTrimmedCylinder.hxx".}
-proc trimmedCylinder*(a1: Ax1Obj; radius: cfloat; height: cfloat): MakeTrimmedCylinder {.
+proc trimmedCylinder*(a1: gp_Ax1; radius: cfloat; height: cfloat): MakeTrimmedCylinder {.
     cdecl, constructor, importcpp: "GC_MakeTrimmedCylinder(@)", header: "GC_MakeTrimmedCylinder.hxx".}
 proc value*(this: MakeTrimmedCylinder): Handle[GeomRectangularTrimmedSurface] {.
     noSideEffect, cdecl, importcpp: "Value", header: "GC_MakeTrimmedCylinder.hxx".}

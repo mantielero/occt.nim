@@ -25,11 +25,11 @@ import ../geom/geom_types
 
 
 
-proc line*(a1: Ax1Obj): MakeLine {.cdecl, constructor,
+proc line*(a1: gp_Ax1): MakeLine {.cdecl, constructor,
                                    importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
 proc line*(L: gp_Lin): MakeLine {.cdecl, constructor, importcpp: "GC_MakeLine(@)",
                                   header: "GC_MakeLine.hxx".}
-proc line*(p: gp_Pnt; v: DirObj): MakeLine {.cdecl, constructor,
+proc line*(p: gp_Pnt; v: gp_Dir): MakeLine {.cdecl, constructor,
                                         importcpp: "GC_MakeLine(@)",
                                         header: "GC_MakeLine.hxx".}
 proc line*(lin: gp_Lin; point: gp_Pnt): MakeLine {.cdecl, constructor,

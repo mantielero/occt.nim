@@ -27,7 +27,7 @@ import gce2d_types
 proc segment*(p1: gp_Pnt2d; p2: gp_Pnt2d): GCE2dMakeSegment {.cdecl,
     importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
 
-proc segment*(p1: gp_Pnt2d; v: Dir2dObj; p2: gp_Pnt2d): GCE2dMakeSegment {.cdecl,
+proc segment*(p1: gp_Pnt2d; v: gp_Dir2d; p2: gp_Pnt2d): GCE2dMakeSegment {.cdecl,
     constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
 proc segment*(line: gp_Lin2d; u1: cfloat; u2: cfloat): GCE2dMakeSegment {.
     cdecl, constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}

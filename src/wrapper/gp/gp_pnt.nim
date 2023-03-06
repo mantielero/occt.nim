@@ -19,7 +19,7 @@ import ../standard/standard_types
 
 # Constructors
 proc pnt*(): gp_Pnt {.cdecl, constructor, importcpp: "gp_Pnt()".}
-proc pnt*(coord: XyzObj): gp_Pnt {.cdecl, constructor, importcpp: "gp_Pnt(@)".}
+proc pnt*(coord: gp_Xyz): gp_Pnt {.cdecl, constructor, importcpp: "gp_Pnt(@)".}
 proc pnt*(xp: cfloat; yp: cfloat; zp: cfloat): gp_Pnt {.cdecl, constructor,
     importcpp: "gp_Pnt(@)".}
 
@@ -28,27 +28,27 @@ proc setCoord*(this: var gp_Pnt; xp: cfloat; yp: cfloat; zp: cfloat) {.cdecl, im
 proc setX*(this: var gp_Pnt; x: cfloat) {.cdecl, importcpp: "SetX".}
 proc setY*(this: var gp_Pnt; y: cfloat) {.cdecl, importcpp: "SetY".}
 proc setZ*(this: var gp_Pnt; z: cfloat) {.cdecl, importcpp: "SetZ".}
-proc setXYZ*(this: var gp_Pnt; coord: XyzObj) {.cdecl, importcpp: "SetXYZ".}
+proc setXYZ*(this: var gp_Pnt; coord: gp_Xyz) {.cdecl, importcpp: "SetXYZ".}
 proc coord*(this: gp_Pnt; index: cint): cfloat {.noSideEffect, cdecl, importcpp: "Coord".}
 proc coord*(this: gp_Pnt; xp: var cfloat; yp: var cfloat; zp: var cfloat) {.noSideEffect, cdecl,importcpp: "Coord".}
 proc x*(this: gp_Pnt): cfloat {.noSideEffect, cdecl, importcpp: "X".}
 proc y*(this: gp_Pnt): cfloat {.noSideEffect, cdecl, importcpp: "Y".}
 proc z*(this: gp_Pnt): cfloat {.noSideEffect, cdecl, importcpp: "Z".}
-proc xyz*(this: gp_Pnt): XyzObj {.noSideEffect, cdecl, importcpp: "XYZ".}
-proc coord*(this: gp_Pnt): XyzObj {.noSideEffect, cdecl, importcpp: "Coord".}
-proc changeCoord*(this: var gp_Pnt): var XyzObj {.cdecl, importcpp: "ChangeCoord".}
+proc xyz*(this: gp_Pnt): gp_Xyz {.noSideEffect, cdecl, importcpp: "XYZ".}
+proc coord*(this: gp_Pnt): gp_Xyz {.noSideEffect, cdecl, importcpp: "Coord".}
+proc changeCoord*(this: var gp_Pnt): var gp_Xyz {.cdecl, importcpp: "ChangeCoord".}
 proc baryCenter*(this: var gp_Pnt; alpha: cfloat; p: gp_Pnt; beta: cfloat) {.cdecl,importcpp: "BaryCenter".}
 proc isEqual*(this: gp_Pnt; other: gp_Pnt; linearTolerance: cfloat): bool {.noSideEffect,cdecl, importcpp: "IsEqual".}
 proc distance*(this: gp_Pnt; other: gp_Pnt): cfloat {.noSideEffect, cdecl,importcpp: "Distance".}
 proc squareDistance*(this: gp_Pnt; other: gp_Pnt): cfloat {.noSideEffect, cdecl, importcpp: "SquareDistance".}
 proc mirror*(this: var gp_Pnt; p: gp_Pnt) {.cdecl, importcpp: "Mirror".}
 proc mirrored*(this: gp_Pnt; p: gp_Pnt): gp_Pnt {.noSideEffect, cdecl, importcpp: "Mirrored".}
-proc mirror*(this: var gp_Pnt; a1: Ax1Obj) {.cdecl, importcpp: "Mirror".}
-proc mirrored*(this: gp_Pnt; a1: Ax1Obj): gp_Pnt {.noSideEffect, cdecl, importcpp: "Mirrored".}
-proc mirror*(this: var gp_Pnt; a2: Ax2Obj) {.cdecl, importcpp: "Mirror".}
-proc mirrored*(this: gp_Pnt; a2: Ax2Obj): gp_Pnt {.noSideEffect, cdecl, importcpp: "Mirrored".}
-proc rotate*(this: var gp_Pnt; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rotate".}
-proc rotated*(this: gp_Pnt; a1: Ax1Obj; ang: cfloat): gp_Pnt {.noSideEffect, cdecl,importcpp: "Rotated".}
+proc mirror*(this: var gp_Pnt; a1: gp_Ax1) {.cdecl, importcpp: "Mirror".}
+proc mirrored*(this: gp_Pnt; a1: gp_Ax1): gp_Pnt {.noSideEffect, cdecl, importcpp: "Mirrored".}
+proc mirror*(this: var gp_Pnt; a2: gp_Ax2) {.cdecl, importcpp: "Mirror".}
+proc mirrored*(this: gp_Pnt; a2: gp_Ax2): gp_Pnt {.noSideEffect, cdecl, importcpp: "Mirrored".}
+proc rotate*(this: var gp_Pnt; a1: gp_Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate".}
+proc rotated*(this: gp_Pnt; a1: gp_Ax1; ang: cfloat): gp_Pnt {.noSideEffect, cdecl,importcpp: "Rotated".}
 proc scale*(this: var gp_Pnt; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale".}
 proc scaled*(this: gp_Pnt; p: gp_Pnt; s: cfloat): gp_Pnt {.noSideEffect, cdecl,importcpp: "Scaled".}
 proc transform*(this: var gp_Pnt; t: gp_Trsf) {.cdecl, importcpp: "Transform".}

@@ -28,18 +28,18 @@ import ../standard/standard_types
 
 proc newGeom2dDirection*(x: cfloat; y: cfloat): Geom2dDirection {.cdecl, constructor,
     importcpp: "Geom2d_Direction(@)", header: "Geom2d_Direction.hxx".}
-proc newGeom2dDirection*(v: Dir2dObj): Geom2dDirection {.cdecl, constructor,
+proc newGeom2dDirection*(v: gp_Dir2d): Geom2dDirection {.cdecl, constructor,
     importcpp: "Geom2d_Direction(@)", header: "Geom2d_Direction.hxx".}
     
 proc setCoord*(this: var Geom2dDirection; x: cfloat; y: cfloat) {.cdecl,
     importcpp: "SetCoord", header: "Geom2d_Direction.hxx".}
-proc setDir2d*(this: var Geom2dDirection; v: Dir2dObj) {.cdecl, importcpp: "SetDir2d",
+proc setDir2d*(this: var Geom2dDirection; v: gp_Dir2d) {.cdecl, importcpp: "SetDir2d",
     header: "Geom2d_Direction.hxx".}
 proc setX*(this: var Geom2dDirection; x: cfloat) {.cdecl, importcpp: "SetX",
     header: "Geom2d_Direction.hxx".}
 proc setY*(this: var Geom2dDirection; y: cfloat) {.cdecl, importcpp: "SetY",
     header: "Geom2d_Direction.hxx".}
-proc dir2d*(this: Geom2dDirection): Dir2dObj {.noSideEffect, cdecl, importcpp: "Dir2d",
+proc dir2d*(this: Geom2dDirection): gp_Dir2d {.noSideEffect, cdecl, importcpp: "Dir2d",
                                         header: "Geom2d_Direction.hxx".}
 proc magnitude*(this: Geom2dDirection): cfloat {.noSideEffect, cdecl,
     importcpp: "Magnitude", header: "Geom2d_Direction.hxx".}
@@ -49,7 +49,7 @@ proc crossed*(this: Geom2dDirection; other: Handle[Geom2dVector]): cfloat {.
     noSideEffect, cdecl, importcpp: "Crossed", header: "Geom2d_Direction.hxx".}
 proc `^`*(this: Geom2dDirection; other: Handle[Geom2dVector]): cfloat {.noSideEffect,
     cdecl, importcpp: "(# ^ #)", header: "Geom2d_Direction.hxx".}
-proc transform*(this: var Geom2dDirection; t: Trsf2dObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var Geom2dDirection; t: gp_Trsf2d) {.cdecl, importcpp: "Transform",
     header: "Geom2d_Direction.hxx".}
 proc copy*(this: Geom2dDirection): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom2d_Direction.hxx".}

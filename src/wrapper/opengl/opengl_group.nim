@@ -48,7 +48,7 @@ proc addPrimitiveArray*(this: var OpenGlGroup;
     importcpp: "AddPrimitiveArray", header: "OpenGl_Group.hxx".}
 proc addText*(this: var OpenGlGroup; theTextParams: Handle[Graphic3dText];
              theToEvalMinMax: bool) {.cdecl, importcpp: "AddText", header: "OpenGl_Group.hxx".}
-proc setFlippingOptions*(this: var OpenGlGroup; theIsEnabled: bool; theRefPlane: Ax2Obj) {.
+proc setFlippingOptions*(this: var OpenGlGroup; theIsEnabled: bool; theRefPlane: gp_Ax2) {.
     cdecl, importcpp: "SetFlippingOptions", header: "OpenGl_Group.hxx".}
 proc setStencilTestOptions*(this: var OpenGlGroup; theIsEnabled: bool) {.cdecl,
     importcpp: "SetStencilTestOptions", header: "OpenGl_Group.hxx".}

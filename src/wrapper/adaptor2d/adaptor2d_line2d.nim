@@ -29,7 +29,7 @@ import ../geomabs/geomabs_types
 
 proc newAdaptor2dLine2d*(): Adaptor2dLine2d {.cdecl, constructor,
     importcpp: "Adaptor2d_Line2d(@)", header: "Adaptor2d_Line2d.hxx".}
-proc newAdaptor2dLine2d*(p: gp_Pnt2d; d: Dir2dObj; uFirst: cfloat; uLast: cfloat): Adaptor2dLine2d {.
+proc newAdaptor2dLine2d*(p: gp_Pnt2d; d: gp_Dir2d; uFirst: cfloat; uLast: cfloat): Adaptor2dLine2d {.
     cdecl, constructor, importcpp: "Adaptor2d_Line2d(@)", header: "Adaptor2d_Line2d.hxx".}
 proc load*(this: var Adaptor2dLine2d; L: gp_Lin2d) {.cdecl, importcpp: "Load", header: "Adaptor2d_Line2d.hxx".}
 proc load*(this: var Adaptor2dLine2d; L: gp_Lin2d; uFirst: cfloat; uLast: cfloat) {.cdecl,

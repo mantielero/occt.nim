@@ -30,7 +30,7 @@ import geom_types
 
 proc newGeomHyperbola*(h: gp_Hypr): GeomHyperbola {.cdecl, constructor,
     importcpp: "Geom_Hyperbola(@)", header: "Geom_Hyperbola.hxx".}
-proc newGeomHyperbola*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): GeomHyperbola {.
+proc newGeomHyperbola*(a2: gp_Ax2; majorRadius: cfloat; minorRadius: cfloat): GeomHyperbola {.
     cdecl, constructor, importcpp: "Geom_Hyperbola(@)", header: "Geom_Hyperbola.hxx".}
 proc setHypr*(this: var GeomHyperbola; h: gp_Hypr) {.cdecl, importcpp: "SetHypr",
     header: "Geom_Hyperbola.hxx".}
@@ -50,17 +50,17 @@ proc isClosed*(this: GeomHyperbola): bool {.noSideEffect, cdecl,
                                         importcpp: "IsClosed", header: "Geom_Hyperbola.hxx".}
 proc isPeriodic*(this: GeomHyperbola): bool {.noSideEffect, cdecl,
     importcpp: "IsPeriodic", header: "Geom_Hyperbola.hxx".}
-proc asymptote1*(this: GeomHyperbola): Ax1Obj {.noSideEffect, cdecl,
+proc asymptote1*(this: GeomHyperbola): gp_Ax1 {.noSideEffect, cdecl,
     importcpp: "Asymptote1", header: "Geom_Hyperbola.hxx".}
-proc asymptote2*(this: GeomHyperbola): Ax1Obj {.noSideEffect, cdecl,
+proc asymptote2*(this: GeomHyperbola): gp_Ax1 {.noSideEffect, cdecl,
     importcpp: "Asymptote2", header: "Geom_Hyperbola.hxx".}
 proc conjugateBranch1*(this: GeomHyperbola): gp_Hypr {.noSideEffect, cdecl,
     importcpp: "ConjugateBranch1", header: "Geom_Hyperbola.hxx".}
 proc conjugateBranch2*(this: GeomHyperbola): gp_Hypr {.noSideEffect, cdecl,
     importcpp: "ConjugateBranch2", header: "Geom_Hyperbola.hxx".}
-proc directrix1*(this: GeomHyperbola): Ax1Obj {.noSideEffect, cdecl,
+proc directrix1*(this: GeomHyperbola): gp_Ax1 {.noSideEffect, cdecl,
     importcpp: "Directrix1", header: "Geom_Hyperbola.hxx".}
-proc directrix2*(this: GeomHyperbola): Ax1Obj {.noSideEffect, cdecl,
+proc directrix2*(this: GeomHyperbola): gp_Ax1 {.noSideEffect, cdecl,
     importcpp: "Directrix2", header: "Geom_Hyperbola.hxx".}
 proc eccentricity*(this: GeomHyperbola): cfloat {.noSideEffect, cdecl,
     importcpp: "Eccentricity", header: "Geom_Hyperbola.hxx".}

@@ -23,9 +23,9 @@ import ../gp/gp_types
 
 
 
-proc newGceMakeParab*(a2: Ax2Obj; focal: cfloat): GceMakeParab {.cdecl, constructor,
+proc newGceMakeParab*(a2: gp_Ax2; focal: cfloat): GceMakeParab {.cdecl, constructor,
     importcpp: "gce_MakeParab(@)", header: "gce_MakeParab.hxx".}
-proc newGceMakeParab*(d: Ax1Obj; f: gp_Pnt): GceMakeParab {.cdecl, constructor,
+proc newGceMakeParab*(d: gp_Ax1; f: gp_Pnt): GceMakeParab {.cdecl, constructor,
     importcpp: "gce_MakeParab(@)", header: "gce_MakeParab.hxx".}
 proc value*(this: GceMakeParab): gp_Parab {.noSideEffect, cdecl, importcpp: "Value",
                                      header: "gce_MakeParab.hxx".}

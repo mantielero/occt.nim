@@ -23,31 +23,31 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 
 proc hypr*(): gp_Hypr {.cdecl, constructor, importcpp: "gp_Hypr(@)", header: "gp_Hypr.hxx".}
-proc hypr*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): gp_Hypr {.cdecl,
+proc hypr*(a2: gp_Ax2; majorRadius: cfloat; minorRadius: cfloat): gp_Hypr {.cdecl,
     constructor, importcpp: "gp_Hypr(@)", header: "gp_Hypr.hxx".}
-proc setAxis*(this: var gp_Hypr; a1: Ax1Obj) {.cdecl, importcpp: "SetAxis", header: "gp_Hypr.hxx".}
+proc setAxis*(this: var gp_Hypr; a1: gp_Ax1) {.cdecl, importcpp: "SetAxis", header: "gp_Hypr.hxx".}
 proc setLocation*(this: var gp_Hypr; p: gp_Pnt) {.cdecl, importcpp: "SetLocation",
                                       header: "gp_Hypr.hxx".}
 proc setMajorRadius*(this: var gp_Hypr; majorRadius: cfloat) {.cdecl,
     importcpp: "SetMajorRadius", header: "gp_Hypr.hxx".}
 proc setMinorRadius*(this: var gp_Hypr; minorRadius: cfloat) {.cdecl,
     importcpp: "SetMinorRadius", header: "gp_Hypr.hxx".}
-proc setPosition*(this: var gp_Hypr; a2: Ax2Obj) {.cdecl, importcpp: "SetPosition",
+proc setPosition*(this: var gp_Hypr; a2: gp_Ax2) {.cdecl, importcpp: "SetPosition",
                                        header: "gp_Hypr.hxx".}
-proc asymptote1*(this: gp_Hypr): Ax1Obj {.noSideEffect, cdecl, importcpp: "Asymptote1",
+proc asymptote1*(this: gp_Hypr): gp_Ax1 {.noSideEffect, cdecl, importcpp: "Asymptote1",
                                 header: "gp_Hypr.hxx".}
-proc asymptote2*(this: gp_Hypr): Ax1Obj {.noSideEffect, cdecl, importcpp: "Asymptote2",
+proc asymptote2*(this: gp_Hypr): gp_Ax1 {.noSideEffect, cdecl, importcpp: "Asymptote2",
                                 header: "gp_Hypr.hxx".}
-proc axis*(this: gp_Hypr): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Hypr.hxx".}
+proc axis*(this: gp_Hypr): gp_Ax1 {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Hypr.hxx".}
 proc conjugateBranch1*(this: gp_Hypr): gp_Hypr {.noSideEffect, cdecl,
                                        importcpp: "ConjugateBranch1",
                                        header: "gp_Hypr.hxx".}
 proc conjugateBranch2*(this: gp_Hypr): gp_Hypr {.noSideEffect, cdecl,
                                        importcpp: "ConjugateBranch2",
                                        header: "gp_Hypr.hxx".}
-proc directrix1*(this: gp_Hypr): Ax1Obj {.noSideEffect, cdecl, importcpp: "Directrix1",
+proc directrix1*(this: gp_Hypr): gp_Ax1 {.noSideEffect, cdecl, importcpp: "Directrix1",
                                 header: "gp_Hypr.hxx".}
-proc directrix2*(this: gp_Hypr): Ax1Obj {.noSideEffect, cdecl, importcpp: "Directrix2",
+proc directrix2*(this: gp_Hypr): gp_Ax1 {.noSideEffect, cdecl, importcpp: "Directrix2",
                                 header: "gp_Hypr.hxx".}
 proc eccentricity*(this: gp_Hypr): cfloat {.noSideEffect, cdecl,
                                      importcpp: "Eccentricity", header: "gp_Hypr.hxx".}
@@ -65,22 +65,22 @@ proc otherBranch*(this: gp_Hypr): gp_Hypr {.noSideEffect, cdecl, importcpp: "Oth
                                   header: "gp_Hypr.hxx".}
 proc parameter*(this: gp_Hypr): cfloat {.noSideEffect, cdecl, importcpp: "Parameter",
                                   header: "gp_Hypr.hxx".}
-proc position*(this: gp_Hypr): Ax2Obj {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: gp_Hypr): gp_Ax2 {.noSideEffect, cdecl, importcpp: "Position",
                               header: "gp_Hypr.hxx".}
-proc xAxis*(this: gp_Hypr): Ax1Obj {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Hypr.hxx".}
-proc yAxis*(this: gp_Hypr): Ax1Obj {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Hypr.hxx".}
+proc xAxis*(this: gp_Hypr): gp_Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Hypr.hxx".}
+proc yAxis*(this: gp_Hypr): gp_Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Hypr.hxx".}
 proc mirror*(this: var gp_Hypr; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Hypr.hxx".}
 proc mirrored*(this: gp_Hypr; p: gp_Pnt): gp_Hypr {.noSideEffect, cdecl, importcpp: "Mirrored",
                                      header: "gp_Hypr.hxx".}
-proc mirror*(this: var gp_Hypr; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Hypr.hxx".}
-proc mirrored*(this: gp_Hypr; a1: Ax1Obj): gp_Hypr {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var gp_Hypr; a1: gp_Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Hypr.hxx".}
+proc mirrored*(this: gp_Hypr; a1: gp_Ax1): gp_Hypr {.noSideEffect, cdecl, importcpp: "Mirrored",
                                       header: "gp_Hypr.hxx".}
-proc mirror*(this: var gp_Hypr; a2: Ax2Obj) {.cdecl, importcpp: "Mirror", header: "gp_Hypr.hxx".}
-proc mirrored*(this: gp_Hypr; a2: Ax2Obj): gp_Hypr {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var gp_Hypr; a2: gp_Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Hypr.hxx".}
+proc mirrored*(this: gp_Hypr; a2: gp_Ax2): gp_Hypr {.noSideEffect, cdecl, importcpp: "Mirrored",
                                       header: "gp_Hypr.hxx".}
-proc rotate*(this: var gp_Hypr; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rotate",
+proc rotate*(this: var gp_Hypr; a1: gp_Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
     header: "gp_Hypr.hxx".}
-proc rotated*(this: gp_Hypr; a1: Ax1Obj; ang: cfloat): gp_Hypr {.noSideEffect, cdecl,
+proc rotated*(this: gp_Hypr; a1: gp_Ax1; ang: cfloat): gp_Hypr {.noSideEffect, cdecl,
     importcpp: "Rotated", header: "gp_Hypr.hxx".}
 proc scale*(this: var gp_Hypr; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Hypr.hxx".}
 proc scaled*(this: gp_Hypr; p: gp_Pnt; s: cfloat): gp_Hypr {.noSideEffect, cdecl,

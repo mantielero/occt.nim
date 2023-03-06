@@ -25,11 +25,11 @@ import ../gp/gp_types
 
 proc newGceMakeRotation2d*(point: gp_Pnt2d; angle: cfloat): GceMakeRotation2d {.cdecl,
     constructor, importcpp: "gce_MakeRotation2d(@)", header: "gce_MakeRotation2d.hxx".}
-proc value*(this: GceMakeRotation2d): Trsf2dObj {.noSideEffect, cdecl,
+proc value*(this: GceMakeRotation2d): gp_Trsf2d {.noSideEffect, cdecl,
     importcpp: "Value", header: "gce_MakeRotation2d.hxx".}
-proc operator*(this: GceMakeRotation2d): Trsf2dObj {.noSideEffect, cdecl,
+proc operator*(this: GceMakeRotation2d): gp_Trsf2d {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeRotation2d.hxx".}
-converter `trsf2d`*(this: GceMakeRotation2d): Trsf2dObj {.noSideEffect, cdecl,
+converter `trsf2d`*(this: GceMakeRotation2d): gp_Trsf2d {.noSideEffect, cdecl,
     importcpp: "gce_MakeRotation2d::operator gp_Trsf2d", header: "gce_MakeRotation2d.hxx".}
 
 

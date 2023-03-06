@@ -24,7 +24,7 @@ import ../topods/topods_types
 
 
 
-proc newBRepPrimTorus*(position: Ax2Obj; major: cfloat; minor: cfloat): BRepPrimTorus {.
+proc newBRepPrimTorus*(position: gp_Ax2; major: cfloat; minor: cfloat): BRepPrimTorus {.
     cdecl, constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
 proc newBRepPrimTorus*(major: cfloat; minor: cfloat): BRepPrimTorus {.cdecl,
     constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}

@@ -26,9 +26,9 @@ import ../topods/topods_types
 
 proc setMeridianOffset*(this: var BRepPrimOneAxis; meridianOffset: cfloat = 0) {.cdecl,
     importcpp: "SetMeridianOffset", header: "BRepPrim_OneAxis.hxx".}
-proc axes*(this: BRepPrimOneAxis): Ax2Obj {.noSideEffect, cdecl, importcpp: "Axes",
+proc axes*(this: BRepPrimOneAxis): gp_Ax2 {.noSideEffect, cdecl, importcpp: "Axes",
                                      header: "BRepPrim_OneAxis.hxx".}
-proc axes*(this: var BRepPrimOneAxis; a: Ax2Obj) {.cdecl, importcpp: "Axes", header: "BRepPrim_OneAxis.hxx".}
+proc axes*(this: var BRepPrimOneAxis; a: gp_Ax2) {.cdecl, importcpp: "Axes", header: "BRepPrim_OneAxis.hxx".}
 proc angle*(this: BRepPrimOneAxis): cfloat {.noSideEffect, cdecl, importcpp: "Angle",
     header: "BRepPrim_OneAxis.hxx".}
 proc angle*(this: var BRepPrimOneAxis; a: cfloat) {.cdecl, importcpp: "Angle",

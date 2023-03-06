@@ -23,9 +23,9 @@ import ../gp/gp_types
 
 
 
-proc newGceMakeLin2d*(a: Ax2dObj): GceMakeLin2d {.cdecl, constructor,
+proc newGceMakeLin2d*(a: gp_Ax2d): GceMakeLin2d {.cdecl, constructor,
     importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
-proc newGceMakeLin2d*(p: gp_Pnt2d; v: Dir2dObj): GceMakeLin2d {.cdecl, constructor,
+proc newGceMakeLin2d*(p: gp_Pnt2d; v: gp_Dir2d): GceMakeLin2d {.cdecl, constructor,
     importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
 proc newGceMakeLin2d*(a: cfloat; b: cfloat; c: cfloat): GceMakeLin2d {.cdecl,
     constructor, importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}

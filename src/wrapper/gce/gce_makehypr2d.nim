@@ -25,10 +25,10 @@ import ../gp/gp_types
 
 proc newGceMakeHypr2d*(s1: gp_Pnt2d; s2: gp_Pnt2d; center: gp_Pnt2d): GceMakeHypr2d {.cdecl,
     constructor, importcpp: "gce_MakeHypr2d(@)", header: "gce_MakeHypr2d.hxx".}
-proc newGceMakeHypr2d*(majorAxis: Ax2dObj; majorRadius: cfloat; minorRadius: cfloat;
+proc newGceMakeHypr2d*(majorAxis: gp_Ax2d; majorRadius: cfloat; minorRadius: cfloat;
                       sense: bool): GceMakeHypr2d {.cdecl, constructor,
     importcpp: "gce_MakeHypr2d(@)", header: "gce_MakeHypr2d.hxx".}
-proc newGceMakeHypr2d*(a: Ax22dObj; majorRadius: cfloat; minorRadius: cfloat): GceMakeHypr2d {.
+proc newGceMakeHypr2d*(a: gp_Ax22d; majorRadius: cfloat; minorRadius: cfloat): GceMakeHypr2d {.
     cdecl, constructor, importcpp: "gce_MakeHypr2d(@)", header: "gce_MakeHypr2d.hxx".}
 proc value*(this: GceMakeHypr2d): gp_Hypr2d {.noSideEffect, cdecl, importcpp: "Value",
                                        header: "gce_MakeHypr2d.hxx".}

@@ -25,9 +25,9 @@ import ../gp/gp_types
 
 proc newGceMakeRotation*(line: gp_Lin; angle: cfloat): GceMakeRotation {.cdecl,
     constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
-proc newGceMakeRotation*(axis: Ax1Obj; angle: cfloat): GceMakeRotation {.cdecl,
+proc newGceMakeRotation*(axis: gp_Ax1; angle: cfloat): GceMakeRotation {.cdecl,
     constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
-proc newGceMakeRotation*(point: gp_Pnt; direc: DirObj; angle: cfloat): GceMakeRotation {.
+proc newGceMakeRotation*(point: gp_Pnt; direc: gp_Dir; angle: cfloat): GceMakeRotation {.
     cdecl, constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
 proc value*(this: GceMakeRotation): gp_Trsf {.noSideEffect, cdecl, importcpp: "Value",
                                        header: "gce_MakeRotation.hxx".}

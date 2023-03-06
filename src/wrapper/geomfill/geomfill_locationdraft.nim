@@ -28,7 +28,7 @@ import geomfill_types
 
 
 
-proc newGeomFillLocationDraft*(direction: DirObj; angle: cfloat): GeomFillLocationDraft {.
+proc newGeomFillLocationDraft*(direction: gp_Dir; angle: cfloat): GeomFillLocationDraft {.
     cdecl, constructor, importcpp: "GeomFill_LocationDraft(@)", header: "GeomFill_LocationDraft.hxx".}
 proc setStopSurf*(this: var GeomFillLocationDraft; surf: Handle[Adaptor3dHSurface]) {.
     cdecl, importcpp: "SetStopSurf", header: "GeomFill_LocationDraft.hxx".}
@@ -38,21 +38,21 @@ proc setCurve*(this: var GeomFillLocationDraft; c: Handle[Adaptor3dHCurve]) {.cd
     importcpp: "SetCurve", header: "GeomFill_LocationDraft.hxx".}
 proc getCurve*(this: GeomFillLocationDraft): Handle[Adaptor3dHCurve] {.noSideEffect,
     cdecl, importcpp: "GetCurve", header: "GeomFill_LocationDraft.hxx".}
-proc setTrsf*(this: var GeomFillLocationDraft; transfo: MatObj) {.cdecl,
+proc setTrsf*(this: var GeomFillLocationDraft; transfo: gp_Mat) {.cdecl,
     importcpp: "SetTrsf", header: "GeomFill_LocationDraft.hxx".}
 proc copy*(this: GeomFillLocationDraft): Handle[GeomFillLocationLaw] {.noSideEffect,
     cdecl, importcpp: "Copy", header: "GeomFill_LocationDraft.hxx".}
-proc d0*(this: var GeomFillLocationDraft; param: cfloat; m: var MatObj; v: var gp_Vec): bool {.
+proc d0*(this: var GeomFillLocationDraft; param: cfloat; m: var gp_Mat; v: var gp_Vec): bool {.
     cdecl, importcpp: "D0", header: "GeomFill_LocationDraft.hxx".}
-proc d0*(this: var GeomFillLocationDraft; param: cfloat; m: var MatObj; v: var gp_Vec;
+proc d0*(this: var GeomFillLocationDraft; param: cfloat; m: var gp_Mat; v: var gp_Vec;
         poles2d: var TColgpArray1OfPnt2d): bool {.cdecl, importcpp: "D0",
     header: "GeomFill_LocationDraft.hxx".}
-proc d1*(this: var GeomFillLocationDraft; param: cfloat; m: var MatObj; v: var gp_Vec;
-        dm: var MatObj; dv: var gp_Vec; poles2d: var TColgpArray1OfPnt2d;
+proc d1*(this: var GeomFillLocationDraft; param: cfloat; m: var gp_Mat; v: var gp_Vec;
+        dm: var gp_Mat; dv: var gp_Vec; poles2d: var TColgpArray1OfPnt2d;
         dPoles2d: var TColgpArray1OfVec2d): bool {.cdecl, importcpp: "D1",
     header: "GeomFill_LocationDraft.hxx".}
-proc d2*(this: var GeomFillLocationDraft; param: cfloat; m: var MatObj; v: var gp_Vec;
-        dm: var MatObj; dv: var gp_Vec; d2m: var MatObj; d2v: var gp_Vec;
+proc d2*(this: var GeomFillLocationDraft; param: cfloat; m: var gp_Mat; v: var gp_Vec;
+        dm: var gp_Mat; dv: var gp_Vec; d2m: var gp_Mat; d2v: var gp_Vec;
         poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
         d2Poles2d: var TColgpArray1OfVec2d): bool {.cdecl, importcpp: "D2",
     header: "GeomFill_LocationDraft.hxx".}
@@ -78,7 +78,7 @@ proc resolution*(this: GeomFillLocationDraft; index: cint; tol: cfloat;
     importcpp: "Resolution", header: "GeomFill_LocationDraft.hxx".}
 proc getMaximalNorm*(this: var GeomFillLocationDraft): cfloat {.cdecl,
     importcpp: "GetMaximalNorm", header: "GeomFill_LocationDraft.hxx".}
-proc getAverageLaw*(this: var GeomFillLocationDraft; am: var MatObj; av: var gp_Vec) {.cdecl,
+proc getAverageLaw*(this: var GeomFillLocationDraft; am: var gp_Mat; av: var gp_Vec) {.cdecl,
     importcpp: "GetAverageLaw", header: "GeomFill_LocationDraft.hxx".}
 proc isTranslation*(this: GeomFillLocationDraft; error: var cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsTranslation", header: "GeomFill_LocationDraft.hxx".}
@@ -88,7 +88,7 @@ proc rotation*(this: GeomFillLocationDraft; center: var gp_Pnt) {.noSideEffect, 
     importcpp: "Rotation", header: "GeomFill_LocationDraft.hxx".}
 proc isIntersec*(this: GeomFillLocationDraft): bool {.noSideEffect, cdecl,
     importcpp: "IsIntersec", header: "GeomFill_LocationDraft.hxx".}
-proc direction*(this: GeomFillLocationDraft): DirObj {.noSideEffect, cdecl,
+proc direction*(this: GeomFillLocationDraft): gp_Dir {.noSideEffect, cdecl,
     importcpp: "Direction", header: "GeomFill_LocationDraft.hxx".}
 
 

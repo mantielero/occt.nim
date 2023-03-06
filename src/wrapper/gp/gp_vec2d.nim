@@ -24,9 +24,9 @@ discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Trsf2d"
 
 proc vec2d*(): gp_Vec2d {.cdecl, constructor, importcpp: "gp_Vec2d(@)", header: "gp_Vec2d.hxx".}
-proc vec2d*(v: Dir2dObj): gp_Vec2d {.cdecl, constructor, importcpp: "gp_Vec2d(@)",
+proc vec2d*(v: gp_Dir2d): gp_Vec2d {.cdecl, constructor, importcpp: "gp_Vec2d(@)",
                               header: "gp_Vec2d.hxx".}
-proc vec2d*(coord: XyObj): gp_Vec2d {.cdecl, constructor, importcpp: "gp_Vec2d(@)",
+proc vec2d*(coord: gp_Xy): gp_Vec2d {.cdecl, constructor, importcpp: "gp_Vec2d(@)",
                                header: "gp_Vec2d.hxx".}
 proc vec2d*(xv: cfloat; yv: cfloat): gp_Vec2d {.cdecl, constructor,
     importcpp: "gp_Vec2d(@)", header: "gp_Vec2d.hxx".}
@@ -38,14 +38,14 @@ proc setCoord*(this: var gp_Vec2d; xv: cfloat; yv: cfloat) {.cdecl, importcpp: "
     header: "gp_Vec2d.hxx".}
 proc setX*(this: var gp_Vec2d; x: cfloat) {.cdecl, importcpp: "SetX", header: "gp_Vec2d.hxx".}
 proc setY*(this: var gp_Vec2d; y: cfloat) {.cdecl, importcpp: "SetY", header: "gp_Vec2d.hxx".}
-proc setXY*(this: var gp_Vec2d; coord: XyObj) {.cdecl, importcpp: "SetXY", header: "gp_Vec2d.hxx".}
+proc setXY*(this: var gp_Vec2d; coord: gp_Xy) {.cdecl, importcpp: "SetXY", header: "gp_Vec2d.hxx".}
 proc coord*(this: gp_Vec2d; index: cint): cfloat {.noSideEffect, cdecl, importcpp: "Coord",
     header: "gp_Vec2d.hxx".}
 proc coord*(this: gp_Vec2d; xv: var cfloat; yv: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Coord", header: "gp_Vec2d.hxx".}
 proc x*(this: gp_Vec2d): cfloat {.noSideEffect, cdecl, importcpp: "X", header: "gp_Vec2d.hxx".}
 proc y*(this: gp_Vec2d): cfloat {.noSideEffect, cdecl, importcpp: "Y", header: "gp_Vec2d.hxx".}
-proc xy*(this: gp_Vec2d): XyObj {.noSideEffect, cdecl, importcpp: "XY", header: "gp_Vec2d.hxx".}
+proc xy*(this: gp_Vec2d): gp_Xy {.noSideEffect, cdecl, importcpp: "XY", header: "gp_Vec2d.hxx".}
 proc isEqual*(this: gp_Vec2d; other: gp_Vec2d; linearTolerance: cfloat;
              angularTolerance: cfloat): bool {.noSideEffect, cdecl,
     importcpp: "IsEqual", header: "gp_Vec2d.hxx".}
@@ -122,8 +122,8 @@ proc setLinearForm*(this: var gp_Vec2d; left: gp_Vec2d; right: gp_Vec2d) {.cdecl
 proc mirror*(this: var gp_Vec2d; v: gp_Vec2d) {.cdecl, importcpp: "Mirror", header: "gp_Vec2d.hxx".}
 proc mirrored*(this: gp_Vec2d; v: gp_Vec2d): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "Mirrored", header: "gp_Vec2d.hxx".}
-proc mirror*(this: var gp_Vec2d; a1: Ax2dObj) {.cdecl, importcpp: "Mirror", header: "gp_Vec2d.hxx".}
-proc mirrored*(this: gp_Vec2d; a1: Ax2dObj): gp_Vec2d {.noSideEffect, cdecl,
+proc mirror*(this: var gp_Vec2d; a1: gp_Ax2d) {.cdecl, importcpp: "Mirror", header: "gp_Vec2d.hxx".}
+proc mirrored*(this: gp_Vec2d; a1: gp_Ax2d): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "Mirrored", header: "gp_Vec2d.hxx".}
 proc rotate*(this: var gp_Vec2d; ang: cfloat) {.cdecl, importcpp: "Rotate", header: "gp_Vec2d.hxx".}
 proc rotated*(this: gp_Vec2d; ang: cfloat): gp_Vec2d {.noSideEffect, cdecl,
@@ -131,7 +131,7 @@ proc rotated*(this: gp_Vec2d; ang: cfloat): gp_Vec2d {.noSideEffect, cdecl,
 proc scale*(this: var gp_Vec2d; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Vec2d.hxx".}
 proc scaled*(this: gp_Vec2d; s: cfloat): gp_Vec2d {.noSideEffect, cdecl, importcpp: "Scaled",
                                         header: "gp_Vec2d.hxx".}
-proc transform*(this: var gp_Vec2d; t: Trsf2dObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var gp_Vec2d; t: gp_Trsf2d) {.cdecl, importcpp: "Transform",
                                         header: "gp_Vec2d.hxx".}
-proc transformed*(this: gp_Vec2d; t: Trsf2dObj): gp_Vec2d {.noSideEffect, cdecl,
+proc transformed*(this: gp_Vec2d; t: gp_Trsf2d): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Vec2d.hxx".}

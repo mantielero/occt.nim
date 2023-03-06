@@ -34,12 +34,12 @@ proc newGeomAdaptorSurfaceOfLinearExtrusion*(): GeomAdaptorSurfaceOfLinearExtrus
 proc newGeomAdaptorSurfaceOfLinearExtrusion*(c: Handle[Adaptor3dHCurve]): GeomAdaptorSurfaceOfLinearExtrusion {.
     cdecl, constructor, importcpp: "GeomAdaptor_SurfaceOfLinearExtrusion(@)",
     header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc newGeomAdaptorSurfaceOfLinearExtrusion*(c: Handle[Adaptor3dHCurve]; v: DirObj): GeomAdaptorSurfaceOfLinearExtrusion {.
+proc newGeomAdaptorSurfaceOfLinearExtrusion*(c: Handle[Adaptor3dHCurve]; v: gp_Dir): GeomAdaptorSurfaceOfLinearExtrusion {.
     cdecl, constructor, importcpp: "GeomAdaptor_SurfaceOfLinearExtrusion(@)",
     header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc load*(this: var GeomAdaptorSurfaceOfLinearExtrusion; c: Handle[Adaptor3dHCurve]) {.
     cdecl, importcpp: "Load", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc load*(this: var GeomAdaptorSurfaceOfLinearExtrusion; v: DirObj) {.cdecl,
+proc load*(this: var GeomAdaptorSurfaceOfLinearExtrusion; v: gp_Dir) {.cdecl,
     importcpp: "Load", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc firstUParameter*(this: GeomAdaptorSurfaceOfLinearExtrusion): cfloat {.
     noSideEffect, cdecl, importcpp: "FirstUParameter", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
@@ -87,7 +87,7 @@ proc vResolution*(this: GeomAdaptorSurfaceOfLinearExtrusion; r3d: cfloat): cfloa
     noSideEffect, cdecl, importcpp: "VResolution", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc getType*(this: GeomAdaptorSurfaceOfLinearExtrusion): GeomAbsSurfaceType {.
     noSideEffect, cdecl, importcpp: "GetType", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc plane*(this: GeomAdaptorSurfaceOfLinearExtrusion): PlnObj {.noSideEffect, cdecl,
+proc plane*(this: GeomAdaptorSurfaceOfLinearExtrusion): gp_Pln {.noSideEffect, cdecl,
     importcpp: "Plane", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc cylinder*(this: GeomAdaptorSurfaceOfLinearExtrusion): gp_Cylinder {.noSideEffect,
     cdecl, importcpp: "Cylinder", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
@@ -109,9 +109,9 @@ proc bezier*(this: GeomAdaptorSurfaceOfLinearExtrusion): Handle[GeomBezierSurfac
     noSideEffect, cdecl, importcpp: "Bezier", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc bSpline*(this: GeomAdaptorSurfaceOfLinearExtrusion): Handle[GeomBSplineSurface] {.
     noSideEffect, cdecl, importcpp: "BSpline", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc axeOfRevolution*(this: GeomAdaptorSurfaceOfLinearExtrusion): Ax1Obj {.
+proc axeOfRevolution*(this: GeomAdaptorSurfaceOfLinearExtrusion): gp_Ax1 {.
     noSideEffect, cdecl, importcpp: "AxeOfRevolution", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc direction*(this: GeomAdaptorSurfaceOfLinearExtrusion): DirObj {.noSideEffect,
+proc direction*(this: GeomAdaptorSurfaceOfLinearExtrusion): gp_Dir {.noSideEffect,
     cdecl, importcpp: "Direction", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc basisCurve*(this: GeomAdaptorSurfaceOfLinearExtrusion): Handle[Adaptor3dHCurve] {.
     noSideEffect, cdecl, importcpp: "BasisCurve", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}

@@ -25,7 +25,7 @@ import ../geom/geom_types
 
 
 
-proc cylindricalSurface*(a2: Ax2Obj; radius: cfloat): MakeCylindricalSurface {.
+proc cylindricalSurface*(a2: gp_Ax2; radius: cfloat): MakeCylindricalSurface {.
     cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
 proc cylindricalSurface*(c: gp_Cylinder): MakeCylindricalSurface {.cdecl,
@@ -39,7 +39,7 @@ proc cylindricalSurface*(cyl: gp_Cylinder; dist: cfloat): MakeCylindricalSurface
 proc cylindricalSurface*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): MakeCylindricalSurface {.
     cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc cylindricalSurface*(axis: Ax1Obj; radius: cfloat): MakeCylindricalSurface {.
+proc cylindricalSurface*(axis: gp_Ax1; radius: cfloat): MakeCylindricalSurface {.
     cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
 proc cylindricalSurface*(circ: gp_Circ): MakeCylindricalSurface {.cdecl,

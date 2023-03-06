@@ -1,18 +1,18 @@
-# PROVIDES: Gp Ax1Obj Ax2Obj Ax22dObj Ax2dObj Ax3Obj gp_Circ gp_Circ2d gp_Cone gp_Cylinder DirObj Dir2dObj gp_Elips gp_Elips2d EulerSequenceObj GTrsf GTrsf2d gp_Hypr gp_Hypr2d gp_Lin gp_Lin2d MatObj Mat2dObj gp_Parab gp_Parab2d PlnObj gp_Pnt gp_Pnt2d QuaternionObj QuaternionNLerp QuaternionSLerp gp_Sphere gp_Torus gp_Trsf Trsf2dObj TrsfFormObj gp_Vec XyObj XyzObj gp_Vec2d
+# PROVIDES: Gp gp_Ax1 gp_Ax2 gp_Ax22d gp_Ax2d gp_Ax3 gp_Circ gp_Circ2d gp_Cone gp_Cylinder gp_Dir gp_Dir2d gp_Elips gp_Elips2d gp_EulerSequence GTrsf GTrsf2d gp_Hypr gp_Hypr2d gp_Lin gp_Lin2d gp_Mat gp_Mat2d gp_Parab gp_Parab2d gp_Pln gp_Pnt gp_Pnt2d gp_Quaternion QuaternionNLerp QuaternionSLerp gp_Sphere gp_Torus gp_Trsf gp_Trsf2d gp_TrsfForm gp_Vec gp_Xy gp_Xyz gp_Vec2d
 # DEPENDS:
 
 type
   Gp* {.importcpp: "gp", header: "gp.hxx", bycopy.} = object 
 
-  Ax1Obj* {.importcpp: "gp_Ax1", header: "gp_Ax1.hxx", bycopy.} = object 
+  gp_Ax1* {.importcpp: "gp_Ax1", header: "gp_Ax1.hxx", bycopy.} = object 
 
-  Ax2Obj* {.importcpp: "gp_Ax2", header: "gp_Ax2.hxx", bycopy.} = object 
+  gp_Ax2* {.importcpp: "gp_Ax2", header: "gp_Ax2.hxx", bycopy.} = object 
 
-  Ax22dObj* {.importcpp: "gp_Ax22d", header: "gp_Ax22d.hxx", bycopy.} = object 
+  gp_Ax22d* {.importcpp: "gp_Ax22d", header: "gp_Ax22d.hxx", bycopy.} = object 
 
-  Ax2dObj* {.importcpp: "gp_Ax2d", header: "gp_Ax2d.hxx", bycopy.} = object 
+  gp_Ax2d* {.importcpp: "gp_Ax2d", header: "gp_Ax2d.hxx", bycopy.} = object 
 
-  Ax3Obj* {.importcpp: "gp_Ax3", header: "gp_Ax3.hxx", bycopy.} = object 
+  gp_Ax3* {.importcpp: "gp_Ax3", header: "gp_Ax3.hxx", bycopy.} = object 
 
   gp_Circ* {.importcpp: "gp_Circ", header: "gp_Circ.hxx", bycopy.} = object 
 
@@ -22,15 +22,15 @@ type
 
   gp_Cylinder* {.importcpp: "gp_Cylinder", header: "gp_Cylinder.hxx", bycopy.} = object 
 
-  DirObj* {.importcpp: "gp_Dir", header: "gp_Dir.hxx", bycopy.} = object 
+  gp_Dir* {.importcpp: "gp_Dir", header: "gp_Dir.hxx", bycopy.} = object 
 
-  Dir2dObj* {.importcpp: "gp_Dir2d", header: "gp_Dir2d.hxx", bycopy.} = object 
+  gp_Dir2d* {.importcpp: "gp_Dir2d", header: "gp_Dir2d.hxx", bycopy.} = object 
 
   gp_Elips* {.importcpp: "gp_Elips", header: "gp_Elips.hxx", bycopy.} = object 
 
   gp_Elips2d* {.importcpp: "gp_Elips2d", header: "gp_Elips2d.hxx", bycopy.} = object 
 
-  EulerSequenceObj* {.size: sizeof(cint), importcpp: "gp_EulerSequence",
+  gp_EulerSequence* {.size: sizeof(cint), importcpp: "gp_EulerSequence",
                   header: "gp_EulerSequence.hxx".} = enum 
     EulerAngles,              
     YawPitchRoll,             
@@ -53,21 +53,21 @@ type
 
   gp_Lin2d* {.importcpp: "gp_Lin2d", header: "gp_Lin2d.hxx", bycopy.} = object 
 
-  MatObj* {.importcpp: "gp_Mat", header: "gp_Mat.hxx", bycopy.} = object 
+  gp_Mat* {.importcpp: "gp_Mat", header: "gp_Mat.hxx", bycopy.} = object 
 
-  Mat2dObj* {.importcpp: "gp_Mat2d", header: "gp_Mat2d.hxx", bycopy.} = object 
+  gp_Mat2d* {.importcpp: "gp_Mat2d", header: "gp_Mat2d.hxx", bycopy.} = object 
 
   gp_Parab* {.importcpp: "gp_Parab", header: "gp_Parab.hxx", bycopy.} = object 
 
   gp_Parab2d* {.importcpp: "gp_Parab2d", header: "gp_Parab2d.hxx", bycopy.} = object 
 
-  PlnObj* {.importcpp: "gp_Pln", header: "gp_Pln.hxx", bycopy.} = object 
+  gp_Pln* {.importcpp: "gp_Pln", header: "gp_Pln.hxx", bycopy.} = object 
 
   gp_Pnt* {.importcpp: "gp_Pnt", header: "gp_Pnt.hxx", bycopy.} = object 
 
   gp_Pnt2d* {.importcpp: "gp_Pnt2d", header: "gp_Pnt2d.hxx", bycopy.} = object 
 
-  QuaternionObj* {.importcpp: "gp_Quaternion", header: "gp_Quaternion.hxx", bycopy.} = object 
+  gp_Quaternion* {.importcpp: "gp_Quaternion", header: "gp_Quaternion.hxx", bycopy.} = object 
 
   QuaternionNLerp* {.importcpp: "gp_QuaternionNLerp",
                     header: "gp_QuaternionNLerp.hxx", bycopy.} = object 
@@ -81,9 +81,9 @@ type
 
   gp_Trsf* {.importcpp: "gp_Trsf", header: "gp_Trsf.hxx", bycopy.} = object 
 
-  Trsf2dObj* {.importcpp: "gp_Trsf2d", header: "gp_Trsf2d.hxx", bycopy.} = object 
+  gp_Trsf2d* {.importcpp: "gp_Trsf2d", header: "gp_Trsf2d.hxx", bycopy.} = object 
 
-  TrsfFormObj* {.size: sizeof(cint), importcpp: "gp_TrsfForm", header: "gp_TrsfForm.hxx".} = enum
+  gp_TrsfForm* {.size: sizeof(cint), importcpp: "gp_TrsfForm", header: "gp_TrsfForm.hxx".} = enum
     Identity,                 
     Rotation,                 
     Translation,              
@@ -96,10 +96,10 @@ type
 
   gp_Vec* {.importcpp: "gp_Vec", header: "gp_Vec.hxx", bycopy.} = object 
 
-  XyObj* {.importcpp: "gp_XY", header: "gp_XY.hxx", bycopy.} = object 
+  gp_Xy* {.importcpp: "gp_XY", header: "gp_XY.hxx", bycopy.} = object 
 
-  XyzObj* {.importcpp: "gp_XYZ", header: "gp_XYZ.hxx", bycopy, pure, inheritable.} = object 
+  gp_Xyz* {.importcpp: "gp_XYZ", header: "gp_XYZ.hxx", bycopy, pure, inheritable.} = object 
 
-  #XyzObj* {.importcpp: "gp_XYZ", header: "gp_XYZ.hxx", bycopy, pure, inheritable.} = object 
+  #gp_Xyz* {.importcpp: "gp_XYZ", header: "gp_XYZ.hxx", bycopy, pure, inheritable.} = object 
   gp_Vec2d* {.importcpp: "gp_Vec2d", header: "gp_Vec2d.hxx", bycopy.} = object 
 

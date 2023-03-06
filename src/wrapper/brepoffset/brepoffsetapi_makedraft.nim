@@ -22,7 +22,7 @@ import ../toptools/toptools_types
 ##  commercial license or contractual agreement.
 
 # discard "forward decl of TopoDS_Shape"
-# discard "forward decl of DirObj"
+# discard "forward decl of gp_Dir"
 # discard "forward decl of Geom_Surface"
 # discard "forward decl of TopoDS_Shell"
 #                                                                                                   ## draft
@@ -79,7 +79,7 @@ import ../toptools/toptools_types
 #                                                                                                           ## boundaries.
 
 
-proc newBRepOffsetAPI_MakeDraft*(Shape: TopoDS_Shape; Dir: DirObj; Angle: cfloat): BRepOffsetAPI_MakeDraft {.
+proc newBRepOffsetAPI_MakeDraft*(Shape: TopoDS_Shape; Dir: gp_Dir; Angle: cfloat): BRepOffsetAPI_MakeDraft {.
     cdecl, constructor, importcpp: "BRepOffsetAPI_MakeDraft(@)".}
 proc SetOptions*(this: var BRepOffsetAPI_MakeDraft; Style: BRepBuilderAPI_TransitionMode = BRepBuilderAPI_RightCorner;
                 AngleMin: cfloat = 0.01; AngleMax: cfloat = 3.0) {.cdecl,

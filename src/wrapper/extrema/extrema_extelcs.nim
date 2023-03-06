@@ -18,7 +18,7 @@ import ../gp/gp_types
 ##  commercial license or contractual agreement.
 
 discard "forward decl of gp_Lin"
-discard "forward decl of PlnObj"
+discard "forward decl of gp_Pln"
 discard "forward decl of gp_Cylinder"
 discard "forward decl of gp_Cone"
 discard "forward decl of gp_Sphere"
@@ -30,9 +30,9 @@ discard "forward decl of Extrema_POnSurf"
 
 proc newExtrema_ExtElCS*(): Extrema_ExtElCS {.cdecl, constructor,
     importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
-proc newExtrema_ExtElCS*(C: gp_Lin; S: PlnObj): Extrema_ExtElCS {.cdecl, constructor,
+proc newExtrema_ExtElCS*(C: gp_Lin; S: gp_Pln): Extrema_ExtElCS {.cdecl, constructor,
     importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
-proc Perform*(this: var Extrema_ExtElCS; C: gp_Lin; S: PlnObj) {.cdecl,
+proc Perform*(this: var Extrema_ExtElCS; C: gp_Lin; S: gp_Pln) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtElCS.hxx".}
 proc newExtrema_ExtElCS*(C: gp_Lin; S: gp_Cylinder): Extrema_ExtElCS {.cdecl,
     constructor, importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
@@ -50,9 +50,9 @@ proc newExtrema_ExtElCS*(C: gp_Lin; S: gp_Torus): Extrema_ExtElCS {.cdecl, const
     importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
 proc Perform*(this: var Extrema_ExtElCS; C: gp_Lin; S: gp_Torus) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtElCS.hxx".}
-proc newExtrema_ExtElCS*(C: gp_Circ; S: PlnObj): Extrema_ExtElCS {.cdecl, constructor,
+proc newExtrema_ExtElCS*(C: gp_Circ; S: gp_Pln): Extrema_ExtElCS {.cdecl, constructor,
     importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
-proc Perform*(this: var Extrema_ExtElCS; C: gp_Circ; S: PlnObj) {.cdecl,
+proc Perform*(this: var Extrema_ExtElCS; C: gp_Circ; S: gp_Pln) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtElCS.hxx".}
 proc newExtrema_ExtElCS*(C: gp_Circ; S: gp_Cylinder): Extrema_ExtElCS {.cdecl,
     constructor, importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
@@ -70,9 +70,9 @@ proc newExtrema_ExtElCS*(C: gp_Circ; S: gp_Torus): Extrema_ExtElCS {.cdecl,
     constructor, importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
 proc Perform*(this: var Extrema_ExtElCS; C: gp_Circ; S: gp_Torus) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtElCS.hxx".}
-proc newExtrema_ExtElCS*(C: gp_Hypr; S: PlnObj): Extrema_ExtElCS {.cdecl, constructor,
+proc newExtrema_ExtElCS*(C: gp_Hypr; S: gp_Pln): Extrema_ExtElCS {.cdecl, constructor,
     importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
-proc Perform*(this: var Extrema_ExtElCS; C: gp_Hypr; S: PlnObj) {.cdecl,
+proc Perform*(this: var Extrema_ExtElCS; C: gp_Hypr; S: gp_Pln) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtElCS.hxx".}
 proc IsDone*(this: Extrema_ExtElCS): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                         header: "Extrema_ExtElCS.hxx".}

@@ -33,7 +33,7 @@ proc builder*(this: BRepPrimBuilder): BRepBuilder {.noSideEffect, cdecl,
     importcpp: "Builder", header: "BRepPrim_Builder.hxx".}
 proc makeShell*(this: BRepPrimBuilder; s: var TopoDS_Shell) {.noSideEffect, cdecl,
     importcpp: "MakeShell", header: "BRepPrim_Builder.hxx".}
-proc makeFace*(this: BRepPrimBuilder; f: var TopoDS_Face; p: PlnObj) {.noSideEffect, cdecl,
+proc makeFace*(this: BRepPrimBuilder; f: var TopoDS_Face; p: gp_Pln) {.noSideEffect, cdecl,
     importcpp: "MakeFace", header: "BRepPrim_Builder.hxx".}
 proc makeWire*(this: BRepPrimBuilder; w: var TopoDS_Wire) {.noSideEffect, cdecl,
     importcpp: "MakeWire", header: "BRepPrim_Builder.hxx".}

@@ -89,7 +89,7 @@ proc subtracted*(this: Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]): 
 proc `-`*(this: Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]): Handle[
     Geom2dVectorWithMagnitude] {.noSideEffect, cdecl, importcpp: "(# - #)",
                                 header: "Geom2d_VectorWithMagnitude.hxx".}
-proc transform*(this: var Geom2dVectorWithMagnitude; t: Trsf2dObj) {.cdecl,
+proc transform*(this: var Geom2dVectorWithMagnitude; t: gp_Trsf2d) {.cdecl,
     importcpp: "Transform", header: "Geom2d_VectorWithMagnitude.hxx".}
 proc copy*(this: Geom2dVectorWithMagnitude): Handle[Geom2dGeometry] {.noSideEffect,
     cdecl, importcpp: "Copy", header: "Geom2d_VectorWithMagnitude.hxx".}

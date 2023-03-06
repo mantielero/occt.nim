@@ -29,17 +29,17 @@ import ../geomabs/geomabs_types
 
 
 
-proc setAxis*(this: var GeomElementarySurface; theA1: Ax1Obj) {.cdecl,
+proc setAxis*(this: var GeomElementarySurface; theA1: gp_Ax1) {.cdecl,
     importcpp: "SetAxis", header: "Geom_ElementarySurface.hxx".}
 proc setLocation*(this: var GeomElementarySurface; theLoc: gp_Pnt) {.cdecl,
     importcpp: "SetLocation", header: "Geom_ElementarySurface.hxx".}
-proc setPosition*(this: var GeomElementarySurface; theAx3: Ax3Obj) {.cdecl,
+proc setPosition*(this: var GeomElementarySurface; theAx3: gp_Ax3) {.cdecl,
     importcpp: "SetPosition", header: "Geom_ElementarySurface.hxx".}
-proc axis*(this: GeomElementarySurface): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis",
+proc axis*(this: GeomElementarySurface): gp_Ax1 {.noSideEffect, cdecl, importcpp: "Axis",
     header: "Geom_ElementarySurface.hxx".}
 proc location*(this: GeomElementarySurface): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Location", header: "Geom_ElementarySurface.hxx".}
-proc position*(this: GeomElementarySurface): Ax3Obj {.noSideEffect, cdecl,
+proc position*(this: GeomElementarySurface): gp_Ax3 {.noSideEffect, cdecl,
     importcpp: "Position", header: "Geom_ElementarySurface.hxx".}
 proc uReverse*(this: var GeomElementarySurface) {.cdecl, importcpp: "UReverse",
     header: "Geom_ElementarySurface.hxx".}

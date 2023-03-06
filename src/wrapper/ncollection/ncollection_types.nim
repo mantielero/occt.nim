@@ -83,12 +83,12 @@ type
 
   NCollectionCellFilterPoint* {.importcpp:"typename Inspector::Point".} = object
 
-  NCollectionCellFilterInspectorXYZPoint* = XyzObj
+  NCollectionCellFilterInspectorXYZPoint* = gp_Xyz
 
   NCollectionCellFilterInspectorXY* {.importcpp: "NCollection_CellFilter_InspectorXY",
                                      header: "NCollection_CellFilter.hxx", bycopy.} = object 
 
-  NCollectionCellFilterInspectorXYPoint* = XyObj
+  NCollectionCellFilterInspectorXYPoint* = gp_Xy
 
   NCollectionDoubleMapIterator*[TheKey1Type; TheKey2Type; Hasher1; Hasher2] {.
       importcpp: "NCollection_DoubleMap<\'0,\'1,\'2,\'3>::Iterator",

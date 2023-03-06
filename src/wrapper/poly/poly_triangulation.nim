@@ -84,9 +84,9 @@ proc changeNormals*(this: var PolyTriangulation): var TShortArray1OfShortReal {.
     importcpp: "ChangeNormals", header: "Poly_Triangulation.hxx".}
 proc hasNormals*(this: PolyTriangulation): bool {.noSideEffect, cdecl,
     importcpp: "HasNormals", header: "Poly_Triangulation.hxx".}
-proc normal*(this: PolyTriangulation; theIndex: cint): DirObj {.noSideEffect, cdecl,
+proc normal*(this: PolyTriangulation; theIndex: cint): gp_Dir {.noSideEffect, cdecl,
     importcpp: "Normal", header: "Poly_Triangulation.hxx".}
-proc setNormal*(this: var PolyTriangulation; theIndex: cint; theNormal: DirObj) {.cdecl,
+proc setNormal*(this: var PolyTriangulation; theIndex: cint; theNormal: gp_Dir) {.cdecl,
     importcpp: "SetNormal", header: "Poly_Triangulation.hxx".}
 proc dumpJson*(this: PolyTriangulation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",

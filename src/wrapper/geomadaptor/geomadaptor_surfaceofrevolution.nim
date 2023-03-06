@@ -33,14 +33,14 @@ proc newGeomAdaptorSurfaceOfRevolution*(): GeomAdaptorSurfaceOfRevolution {.cdec
 proc newGeomAdaptorSurfaceOfRevolution*(c: Handle[Adaptor3dHCurve]): GeomAdaptorSurfaceOfRevolution {.
     cdecl, constructor, importcpp: "GeomAdaptor_SurfaceOfRevolution(@)",
     header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc newGeomAdaptorSurfaceOfRevolution*(c: Handle[Adaptor3dHCurve]; v: Ax1Obj): GeomAdaptorSurfaceOfRevolution {.
+proc newGeomAdaptorSurfaceOfRevolution*(c: Handle[Adaptor3dHCurve]; v: gp_Ax1): GeomAdaptorSurfaceOfRevolution {.
     cdecl, constructor, importcpp: "GeomAdaptor_SurfaceOfRevolution(@)",
     header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
 proc load*(this: var GeomAdaptorSurfaceOfRevolution; c: Handle[Adaptor3dHCurve]) {.
     cdecl, importcpp: "Load", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc load*(this: var GeomAdaptorSurfaceOfRevolution; v: Ax1Obj) {.cdecl,
+proc load*(this: var GeomAdaptorSurfaceOfRevolution; v: gp_Ax1) {.cdecl,
     importcpp: "Load", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc axeOfRevolution*(this: GeomAdaptorSurfaceOfRevolution): Ax1Obj {.noSideEffect,
+proc axeOfRevolution*(this: GeomAdaptorSurfaceOfRevolution): gp_Ax1 {.noSideEffect,
     cdecl, importcpp: "AxeOfRevolution", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
 proc firstUParameter*(this: GeomAdaptorSurfaceOfRevolution): cfloat {.noSideEffect,
     cdecl, importcpp: "FirstUParameter", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
@@ -88,7 +88,7 @@ proc vResolution*(this: GeomAdaptorSurfaceOfRevolution; r3d: cfloat): cfloat {.
     noSideEffect, cdecl, importcpp: "VResolution", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
 proc getType*(this: GeomAdaptorSurfaceOfRevolution): GeomAbsSurfaceType {.
     noSideEffect, cdecl, importcpp: "GetType", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc plane*(this: GeomAdaptorSurfaceOfRevolution): PlnObj {.noSideEffect, cdecl,
+proc plane*(this: GeomAdaptorSurfaceOfRevolution): gp_Pln {.noSideEffect, cdecl,
     importcpp: "Plane", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
 proc cylinder*(this: GeomAdaptorSurfaceOfRevolution): gp_Cylinder {.noSideEffect, cdecl,
     importcpp: "Cylinder", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
@@ -112,7 +112,7 @@ proc bezier*(this: GeomAdaptorSurfaceOfRevolution): Handle[GeomBezierSurface] {.
     noSideEffect, cdecl, importcpp: "Bezier", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
 proc bSpline*(this: GeomAdaptorSurfaceOfRevolution): Handle[GeomBSplineSurface] {.
     noSideEffect, cdecl, importcpp: "BSpline", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc axis*(this: GeomAdaptorSurfaceOfRevolution): Ax3Obj {.noSideEffect, cdecl,
+proc axis*(this: GeomAdaptorSurfaceOfRevolution): gp_Ax3 {.noSideEffect, cdecl,
     importcpp: "Axis", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
 proc basisCurve*(this: GeomAdaptorSurfaceOfRevolution): Handle[Adaptor3dHCurve] {.
     noSideEffect, cdecl, importcpp: "BasisCurve", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}

@@ -18,89 +18,89 @@ discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Mat2d"
 
-proc xy*(): XyObj {.cdecl, constructor, importcpp: "gp_XY(@)", header: "gp_XY.hxx".}
-proc xy*(x: cfloat; y: cfloat): XyObj {.cdecl, constructor, importcpp: "gp_XY(@)",
+proc xy*(): gp_Xy {.cdecl, constructor, importcpp: "gp_XY(@)", header: "gp_XY.hxx".}
+proc xy*(x: cfloat; y: cfloat): gp_Xy {.cdecl, constructor, importcpp: "gp_XY(@)",
                                   header: "gp_XY.hxx".}
-proc setCoord*(this: var XyObj; index: cint; xi: cfloat) {.cdecl, importcpp: "SetCoord",
+proc setCoord*(this: var gp_Xy; index: cint; xi: cfloat) {.cdecl, importcpp: "SetCoord",
     header: "gp_XY.hxx".}
-proc setCoord*(this: var XyObj; x: cfloat; y: cfloat) {.cdecl, importcpp: "SetCoord",
+proc setCoord*(this: var gp_Xy; x: cfloat; y: cfloat) {.cdecl, importcpp: "SetCoord",
     header: "gp_XY.hxx".}
-proc setX*(this: var XyObj; x: cfloat) {.cdecl, importcpp: "SetX", header: "gp_XY.hxx".}
-proc setY*(this: var XyObj; y: cfloat) {.cdecl, importcpp: "SetY", header: "gp_XY.hxx".}
-proc coord*(this: XyObj; index: cint): cfloat {.noSideEffect, cdecl, importcpp: "Coord",
+proc setX*(this: var gp_Xy; x: cfloat) {.cdecl, importcpp: "SetX", header: "gp_XY.hxx".}
+proc setY*(this: var gp_Xy; y: cfloat) {.cdecl, importcpp: "SetY", header: "gp_XY.hxx".}
+proc coord*(this: gp_Xy; index: cint): cfloat {.noSideEffect, cdecl, importcpp: "Coord",
                                        header: "gp_XY.hxx".}
-proc changeCoord*(this: var XyObj; theIndex: cint): var cfloat {.cdecl,
+proc changeCoord*(this: var gp_Xy; theIndex: cint): var cfloat {.cdecl,
     importcpp: "ChangeCoord", header: "gp_XY.hxx".}
-proc coord*(this: XyObj; x: var cfloat; y: var cfloat) {.noSideEffect, cdecl,
+proc coord*(this: gp_Xy; x: var cfloat; y: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Coord", header: "gp_XY.hxx".}
-proc x*(this: XyObj): cfloat {.noSideEffect, cdecl, importcpp: "X", header: "gp_XY.hxx".}
-proc y*(this: XyObj): cfloat {.noSideEffect, cdecl, importcpp: "Y", header: "gp_XY.hxx".}
-proc modulus*(this: XyObj): cfloat {.noSideEffect, cdecl, importcpp: "Modulus",
+proc x*(this: gp_Xy): cfloat {.noSideEffect, cdecl, importcpp: "X", header: "gp_XY.hxx".}
+proc y*(this: gp_Xy): cfloat {.noSideEffect, cdecl, importcpp: "Y", header: "gp_XY.hxx".}
+proc modulus*(this: gp_Xy): cfloat {.noSideEffect, cdecl, importcpp: "Modulus",
                               header: "gp_XY.hxx".}
-proc squareModulus*(this: XyObj): cfloat {.noSideEffect, cdecl,
+proc squareModulus*(this: gp_Xy): cfloat {.noSideEffect, cdecl,
                                     importcpp: "SquareModulus", header: "gp_XY.hxx".}
-proc isEqual*(this: XyObj; other: XyObj; tolerance: cfloat): bool {.noSideEffect, cdecl,
+proc isEqual*(this: gp_Xy; other: gp_Xy; tolerance: cfloat): bool {.noSideEffect, cdecl,
     importcpp: "IsEqual", header: "gp_XY.hxx".}
-proc add*(this: var XyObj; other: XyObj) {.cdecl, importcpp: "Add", header: "gp_XY.hxx".}
-proc `+=`*(this: var XyObj; other: XyObj) {.cdecl, importcpp: "(# += #)", header: "gp_XY.hxx".}
-proc added*(this: XyObj; other: XyObj): XyObj {.noSideEffect, cdecl, importcpp: "Added",
+proc add*(this: var gp_Xy; other: gp_Xy) {.cdecl, importcpp: "Add", header: "gp_XY.hxx".}
+proc `+=`*(this: var gp_Xy; other: gp_Xy) {.cdecl, importcpp: "(# += #)", header: "gp_XY.hxx".}
+proc added*(this: gp_Xy; other: gp_Xy): gp_Xy {.noSideEffect, cdecl, importcpp: "Added",
                                  header: "gp_XY.hxx".}
-proc `+`*(this: XyObj; other: XyObj): XyObj {.noSideEffect, cdecl, importcpp: "(# + #)",
+proc `+`*(this: gp_Xy; other: gp_Xy): gp_Xy {.noSideEffect, cdecl, importcpp: "(# + #)",
                                header: "gp_XY.hxx".}
-proc crossed*(this: XyObj; right: XyObj): cfloat {.noSideEffect, cdecl, importcpp: "Crossed",
+proc crossed*(this: gp_Xy; right: gp_Xy): cfloat {.noSideEffect, cdecl, importcpp: "Crossed",
                                        header: "gp_XY.hxx".}
-proc `^`*(this: XyObj; right: XyObj): cfloat {.noSideEffect, cdecl, importcpp: "(# ^ #)",
+proc `^`*(this: gp_Xy; right: gp_Xy): cfloat {.noSideEffect, cdecl, importcpp: "(# ^ #)",
                                    header: "gp_XY.hxx".}
-proc crossMagnitude*(this: XyObj; right: XyObj): cfloat {.noSideEffect, cdecl,
+proc crossMagnitude*(this: gp_Xy; right: gp_Xy): cfloat {.noSideEffect, cdecl,
     importcpp: "CrossMagnitude", header: "gp_XY.hxx".}
-proc crossSquareMagnitude*(this: XyObj; right: XyObj): cfloat {.noSideEffect, cdecl,
+proc crossSquareMagnitude*(this: gp_Xy; right: gp_Xy): cfloat {.noSideEffect, cdecl,
     importcpp: "CrossSquareMagnitude", header: "gp_XY.hxx".}
-proc divide*(this: var XyObj; scalar: cfloat) {.cdecl, importcpp: "Divide", header: "gp_XY.hxx".}
-proc `/=`*(this: var XyObj; scalar: cfloat) {.cdecl, importcpp: "(# /= #)", header: "gp_XY.hxx".}
-proc divided*(this: XyObj; scalar: cfloat): XyObj {.noSideEffect, cdecl, importcpp: "Divided",
+proc divide*(this: var gp_Xy; scalar: cfloat) {.cdecl, importcpp: "Divide", header: "gp_XY.hxx".}
+proc `/=`*(this: var gp_Xy; scalar: cfloat) {.cdecl, importcpp: "(# /= #)", header: "gp_XY.hxx".}
+proc divided*(this: gp_Xy; scalar: cfloat): gp_Xy {.noSideEffect, cdecl, importcpp: "Divided",
                                         header: "gp_XY.hxx".}
-proc `/`*(this: XyObj; scalar: cfloat): XyObj {.noSideEffect, cdecl, importcpp: "(# / #)",
+proc `/`*(this: gp_Xy; scalar: cfloat): gp_Xy {.noSideEffect, cdecl, importcpp: "(# / #)",
                                     header: "gp_XY.hxx".}
-proc dot*(this: XyObj; other: XyObj): cfloat {.noSideEffect, cdecl, importcpp: "Dot",
+proc dot*(this: gp_Xy; other: gp_Xy): cfloat {.noSideEffect, cdecl, importcpp: "Dot",
                                    header: "gp_XY.hxx".}
-proc `*`*(this: XyObj; other: XyObj): cfloat {.noSideEffect, cdecl, importcpp: "(# * #)",
+proc `*`*(this: gp_Xy; other: gp_Xy): cfloat {.noSideEffect, cdecl, importcpp: "(# * #)",
                                    header: "gp_XY.hxx".}
-proc multiply*(this: var XyObj; scalar: cfloat) {.cdecl, importcpp: "Multiply",
+proc multiply*(this: var gp_Xy; scalar: cfloat) {.cdecl, importcpp: "Multiply",
     header: "gp_XY.hxx".}
-proc `*=`*(this: var XyObj; scalar: cfloat) {.cdecl, importcpp: "(# *= #)", header: "gp_XY.hxx".}
-proc multiply*(this: var XyObj; other: XyObj) {.cdecl, importcpp: "Multiply", header: "gp_XY.hxx".}
-proc `*=`*(this: var XyObj; other: XyObj) {.cdecl, importcpp: "(# *= #)", header: "gp_XY.hxx".}
-proc multiply*(this: var XyObj; matrix: Mat2dObj) {.cdecl, importcpp: "Multiply",
+proc `*=`*(this: var gp_Xy; scalar: cfloat) {.cdecl, importcpp: "(# *= #)", header: "gp_XY.hxx".}
+proc multiply*(this: var gp_Xy; other: gp_Xy) {.cdecl, importcpp: "Multiply", header: "gp_XY.hxx".}
+proc `*=`*(this: var gp_Xy; other: gp_Xy) {.cdecl, importcpp: "(# *= #)", header: "gp_XY.hxx".}
+proc multiply*(this: var gp_Xy; matrix: gp_Mat2d) {.cdecl, importcpp: "Multiply",
                                         header: "gp_XY.hxx".}
-proc `*=`*(this: var XyObj; matrix: Mat2dObj) {.cdecl, importcpp: "(# *= #)", header: "gp_XY.hxx".}
-proc multiplied*(this: XyObj; scalar: cfloat): XyObj {.noSideEffect, cdecl,
+proc `*=`*(this: var gp_Xy; matrix: gp_Mat2d) {.cdecl, importcpp: "(# *= #)", header: "gp_XY.hxx".}
+proc multiplied*(this: gp_Xy; scalar: cfloat): gp_Xy {.noSideEffect, cdecl,
     importcpp: "Multiplied", header: "gp_XY.hxx".}
-proc `*`*(this: XyObj; scalar: cfloat): XyObj {.noSideEffect, cdecl, importcpp: "(# * #)",
+proc `*`*(this: gp_Xy; scalar: cfloat): gp_Xy {.noSideEffect, cdecl, importcpp: "(# * #)",
                                     header: "gp_XY.hxx".}
-proc multiplied*(this: XyObj; other: XyObj): XyObj {.noSideEffect, cdecl,
+proc multiplied*(this: gp_Xy; other: gp_Xy): gp_Xy {.noSideEffect, cdecl,
                                       importcpp: "Multiplied", header: "gp_XY.hxx".}
-proc multiplied*(this: XyObj; matrix: Mat2dObj): XyObj {.noSideEffect, cdecl,
+proc multiplied*(this: gp_Xy; matrix: gp_Mat2d): gp_Xy {.noSideEffect, cdecl,
     importcpp: "Multiplied", header: "gp_XY.hxx".}
-proc `*`*(this: XyObj; matrix: Mat2dObj): XyObj {.noSideEffect, cdecl, importcpp: "(# * #)",
+proc `*`*(this: gp_Xy; matrix: gp_Mat2d): gp_Xy {.noSideEffect, cdecl, importcpp: "(# * #)",
                                    header: "gp_XY.hxx".}
-proc normalize*(this: var XyObj) {.cdecl, importcpp: "Normalize", header: "gp_XY.hxx".}
-proc normalized*(this: XyObj): XyObj {.noSideEffect, cdecl, importcpp: "Normalized",
+proc normalize*(this: var gp_Xy) {.cdecl, importcpp: "Normalize", header: "gp_XY.hxx".}
+proc normalized*(this: gp_Xy): gp_Xy {.noSideEffect, cdecl, importcpp: "Normalized",
                              header: "gp_XY.hxx".}
-proc reverse*(this: var XyObj) {.cdecl, importcpp: "Reverse", header: "gp_XY.hxx".}
-proc reversed*(this: XyObj): XyObj {.noSideEffect, cdecl, importcpp: "Reversed",
+proc reverse*(this: var gp_Xy) {.cdecl, importcpp: "Reverse", header: "gp_XY.hxx".}
+proc reversed*(this: gp_Xy): gp_Xy {.noSideEffect, cdecl, importcpp: "Reversed",
                            header: "gp_XY.hxx".}
-proc `-`*(this: XyObj): XyObj {.noSideEffect, cdecl, importcpp: "(- #)", header: "gp_XY.hxx".}
-proc setLinearForm*(this: var XyObj; a1: cfloat; xy1: XyObj; a2: cfloat; xy2: XyObj) {.cdecl,
+proc `-`*(this: gp_Xy): gp_Xy {.noSideEffect, cdecl, importcpp: "(- #)", header: "gp_XY.hxx".}
+proc setLinearForm*(this: var gp_Xy; a1: cfloat; xy1: gp_Xy; a2: cfloat; xy2: gp_Xy) {.cdecl,
     importcpp: "SetLinearForm", header: "gp_XY.hxx".}
-proc setLinearForm*(this: var XyObj; a1: cfloat; xy1: XyObj; a2: cfloat; xy2: XyObj; xy3: XyObj) {.cdecl,
+proc setLinearForm*(this: var gp_Xy; a1: cfloat; xy1: gp_Xy; a2: cfloat; xy2: gp_Xy; xy3: gp_Xy) {.cdecl,
     importcpp: "SetLinearForm", header: "gp_XY.hxx".}
-proc setLinearForm*(this: var XyObj; a1: cfloat; xy1: XyObj; xy2: XyObj) {.cdecl,
+proc setLinearForm*(this: var gp_Xy; a1: cfloat; xy1: gp_Xy; xy2: gp_Xy) {.cdecl,
     importcpp: "SetLinearForm", header: "gp_XY.hxx".}
-proc setLinearForm*(this: var XyObj; xy1: XyObj; xy2: XyObj) {.cdecl, importcpp: "SetLinearForm",
+proc setLinearForm*(this: var gp_Xy; xy1: gp_Xy; xy2: gp_Xy) {.cdecl, importcpp: "SetLinearForm",
     header: "gp_XY.hxx".}
-proc subtract*(this: var XyObj; right: XyObj) {.cdecl, importcpp: "Subtract", header: "gp_XY.hxx".}
-proc `-=`*(this: var XyObj; right: XyObj) {.cdecl, importcpp: "(# -= #)", header: "gp_XY.hxx".}
-proc subtracted*(this: XyObj; right: XyObj): XyObj {.noSideEffect, cdecl,
+proc subtract*(this: var gp_Xy; right: gp_Xy) {.cdecl, importcpp: "Subtract", header: "gp_XY.hxx".}
+proc `-=`*(this: var gp_Xy; right: gp_Xy) {.cdecl, importcpp: "(# -= #)", header: "gp_XY.hxx".}
+proc subtracted*(this: gp_Xy; right: gp_Xy): gp_Xy {.noSideEffect, cdecl,
                                       importcpp: "Subtracted", header: "gp_XY.hxx".}
-proc `-`*(this: XyObj; right: XyObj): XyObj {.noSideEffect, cdecl, importcpp: "(# - #)",
+proc `-`*(this: gp_Xy; right: gp_Xy): gp_Xy {.noSideEffect, cdecl, importcpp: "(# - #)",
                                header: "gp_XY.hxx".}

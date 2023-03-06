@@ -23,7 +23,7 @@ import ../gp/gp_types
 
 
 
-proc newGceMakeHypr*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): GceMakeHypr {.
+proc newGceMakeHypr*(a2: gp_Ax2; majorRadius: cfloat; minorRadius: cfloat): GceMakeHypr {.
     cdecl, constructor, importcpp: "gce_MakeHypr(@)", header: "gce_MakeHypr.hxx".}
 proc newGceMakeHypr*(s1: gp_Pnt; s2: gp_Pnt; center: gp_Pnt): GceMakeHypr {.cdecl, constructor,
     importcpp: "gce_MakeHypr(@)", header: "gce_MakeHypr.hxx".}

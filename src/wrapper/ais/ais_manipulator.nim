@@ -52,7 +52,7 @@ proc changeSequence*(this: var AIS_ManipulatorObjectSequence): var NCollectionSe
 
 proc newAIS_Manipulator*(): AIS_Manipulator {.cdecl, constructor,
     importcpp: "AIS_Manipulator(@)", header: "AIS_Manipulator.hxx".}
-proc newAIS_Manipulator*(thePosition: Ax2Obj): AIS_Manipulator {.cdecl, constructor,
+proc newAIS_Manipulator*(thePosition: gp_Ax2): AIS_Manipulator {.cdecl, constructor,
     importcpp: "AIS_Manipulator(@)", header: "AIS_Manipulator.hxx".}
 proc setPart*(this: var AIS_Manipulator; theAxisIndex: cint;
              theMode: AIS_ManipulatorMode; theIsEnabled: bool) {.cdecl,
@@ -133,9 +133,9 @@ proc activeMode*(this: AIS_Manipulator): AIS_ManipulatorMode {.noSideEffect, cde
     importcpp: "ActiveMode", header: "AIS_Manipulator.hxx".}
 proc activeAxisIndex*(this: AIS_Manipulator): cint {.noSideEffect, cdecl,
     importcpp: "ActiveAxisIndex", header: "AIS_Manipulator.hxx".}
-proc position*(this: AIS_Manipulator): Ax2Obj {.noSideEffect, cdecl,
+proc position*(this: AIS_Manipulator): gp_Ax2 {.noSideEffect, cdecl,
     importcpp: "Position", header: "AIS_Manipulator.hxx".}
-proc setPosition*(this: var AIS_Manipulator; thePosition: Ax2Obj) {.cdecl,
+proc setPosition*(this: var AIS_Manipulator; thePosition: gp_Ax2) {.cdecl,
     importcpp: "SetPosition", header: "AIS_Manipulator.hxx".}
 proc size*(this: AIS_Manipulator): StandardShortReal {.noSideEffect, cdecl,
     importcpp: "Size", header: "AIS_Manipulator.hxx".}

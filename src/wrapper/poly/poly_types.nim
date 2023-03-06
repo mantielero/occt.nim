@@ -1,5 +1,5 @@
 # PROVIDES: Poly PolyCoherentLink PolyCoherentTriangle PolyBaseIteratorOfCoherentTriangle PolyBaseIteratorOfCoherentNode PolyBaseIteratorOfCoherentLink PolyCoherentTriangulationTwoIntegers PolyCoherentTriPtr PolyCoherentTriPtrIterator PolyConnect PolyMakeLoopsLink PolyMakeLoopsLoop PolyMakeLoopsHelper PolyMakeLoopsHeapOfInteger PolyMakeLoopsResultCode PolyTriangle PolyMakeLoopsLinkFlag PolyMakeLoops
-# DEPENDS:  NCollectionArray1[PolyTriangle]  NCollectionList[Handle[PolyTriangulation]]  Handle[PolyCoherentTriangulation]  NCollectionList[PolyMakeLoopsLink]  Handle[PolyPolygon2D]  Handle[PolyPolygon3D]  Handle[PolyPolygonOnTriangulation]  Handle[PolyTriangulation] PolyBaseIteratorOfCoherentLink PolyMakeLoops PolyMakeLoopsHelper PolyMakeLoops PolyMakeLoopsHelper XyzObj StandardTransient PolyBaseIteratorOfCoherentTriangle PolyBaseIteratorOfCoherentNode PolyArray1OfTriangle StandardTransient StandardTransient StandardTransient StandardTransient
+# DEPENDS:  NCollectionArray1[PolyTriangle]  NCollectionList[Handle[PolyTriangulation]]  Handle[PolyCoherentTriangulation]  NCollectionList[PolyMakeLoopsLink]  Handle[PolyPolygon2D]  Handle[PolyPolygon3D]  Handle[PolyPolygonOnTriangulation]  Handle[PolyTriangulation] PolyBaseIteratorOfCoherentLink PolyMakeLoops PolyMakeLoopsHelper PolyMakeLoops PolyMakeLoopsHelper gp_Xyz StandardTransient PolyBaseIteratorOfCoherentTriangle PolyBaseIteratorOfCoherentNode PolyArray1OfTriangle StandardTransient StandardTransient StandardTransient StandardTransient
 
 import ../ncollection/ncollection_types
 import ../standard/standard_types
@@ -99,7 +99,7 @@ type
                           header: "Poly_MakeLoops.hxx", bycopy.} = object of PolyMakeLoopsHelper 
 
   PolyCoherentNode* {.importcpp: "Poly_CoherentNode",
-                     header: "Poly_CoherentNode.hxx", bycopy.} = object of XyzObj 
+                     header: "Poly_CoherentNode.hxx", bycopy.} = object of gp_Xyz 
 
   PolyCoherentTriangulation* {.importcpp: "Poly_CoherentTriangulation",
                               header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of StandardTransient 

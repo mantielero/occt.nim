@@ -24,8 +24,8 @@ import ../message/message_types
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Wire"
-discard "forward decl of Ax2Obj"
-discard "forward decl of DirObj"
+discard "forward decl of gp_Ax2"
+discard "forward decl of gp_Dir"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of Law_Function"
@@ -38,9 +38,9 @@ proc SetMode*(this: var BRepOffsetAPI_MakePipeShell; IsFrenet: bool = false) {.c
     importcpp: "SetMode".}
 proc SetDiscreteMode*(this: var BRepOffsetAPI_MakePipeShell) {.cdecl,
     importcpp: "SetDiscreteMode".}
-proc SetMode*(this: var BRepOffsetAPI_MakePipeShell; Axe: Ax2Obj) {.cdecl,
+proc SetMode*(this: var BRepOffsetAPI_MakePipeShell; Axe: gp_Ax2) {.cdecl,
     importcpp: "SetMode".}
-proc SetMode*(this: var BRepOffsetAPI_MakePipeShell; BiNormal: DirObj) {.cdecl,
+proc SetMode*(this: var BRepOffsetAPI_MakePipeShell; BiNormal: gp_Dir) {.cdecl,
     importcpp: "SetMode".}
 proc SetMode*(this: var BRepOffsetAPI_MakePipeShell; SpineSupport: TopoDS_Shape): bool {.
     cdecl, importcpp: "SetMode".}

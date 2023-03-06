@@ -37,7 +37,7 @@ proc add*(this: var BndBoundSortBox; theBox: BndBox; boxIndex: cint) {.cdecl,
     importcpp: "Add", header: "Bnd_BoundSortBox.hxx".}
 proc compare*(this: var BndBoundSortBox; theBox: BndBox): TColStdListOfInteger {.cdecl,
     importcpp: "Compare", header: "Bnd_BoundSortBox.hxx".}
-proc compare*(this: var BndBoundSortBox; p: PlnObj): TColStdListOfInteger {.cdecl,
+proc compare*(this: var BndBoundSortBox; p: gp_Pln): TColStdListOfInteger {.cdecl,
     importcpp: "Compare", header: "Bnd_BoundSortBox.hxx".}
 proc dump*(this: BndBoundSortBox) {.noSideEffect, cdecl, importcpp: "Dump",
                                  header: "Bnd_BoundSortBox.hxx".}

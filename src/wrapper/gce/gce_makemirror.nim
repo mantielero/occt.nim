@@ -25,15 +25,15 @@ import ../gp/gp_types
 
 proc newGceMakeMirror*(point: gp_Pnt): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc newGceMakeMirror*(axis: Ax1Obj): GceMakeMirror {.cdecl, constructor,
+proc newGceMakeMirror*(axis: gp_Ax1): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
 proc newGceMakeMirror*(line: gp_Lin): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc newGceMakeMirror*(point: gp_Pnt; direc: DirObj): GceMakeMirror {.cdecl, constructor,
+proc newGceMakeMirror*(point: gp_Pnt; direc: gp_Dir): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc newGceMakeMirror*(plane: PlnObj): GceMakeMirror {.cdecl, constructor,
+proc newGceMakeMirror*(plane: gp_Pln): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc newGceMakeMirror*(plane: Ax2Obj): GceMakeMirror {.cdecl, constructor,
+proc newGceMakeMirror*(plane: gp_Ax2): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
 proc value*(this: GceMakeMirror): gp_Trsf {.noSideEffect, cdecl, importcpp: "Value",
                                      header: "gce_MakeMirror.hxx".}

@@ -25,7 +25,7 @@ import ../geom/geom_types
 
 
 
-proc conicalSurface*(a2: Ax2Obj; ang: cfloat; radius: cfloat): MakeConicalSurface {.
+proc conicalSurface*(a2: gp_Ax2; ang: cfloat; radius: cfloat): MakeConicalSurface {.
     cdecl, constructor, importcpp: "GC_MakeConicalSurface(@)", header: "GC_MakeConicalSurface.hxx".}
 proc conicalSurface*(c: gp_Cone): MakeConicalSurface {.cdecl, constructor,
     importcpp: "GC_MakeConicalSurface(@)", header: "GC_MakeConicalSurface.hxx".}

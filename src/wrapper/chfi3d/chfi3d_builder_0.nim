@@ -118,7 +118,7 @@ proc chFi3dMkbound*(fac: Handle[Adaptor3dHSurface]; curv: var Handle[Geom2dCurve
     importcpp: "ChFi3d_mkbound(@)", header: "ChFi3d_Builder_0.hxx".}
 proc chFi3dCoefficient*(v3d: gp_Vec; d1u: gp_Vec; d1v: gp_Vec; du: var cfloat; dv: var cfloat) {.
     cdecl, importcpp: "ChFi3d_Coefficient(@)", header: "ChFi3d_Builder_0.hxx".}
-proc chFi3dBuildPCurve*(p1: gp_Pnt2d; d1: var Dir2dObj; p2: gp_Pnt2d; d2: var Dir2dObj;
+proc chFi3dBuildPCurve*(p1: gp_Pnt2d; d1: var gp_Dir2d; p2: gp_Pnt2d; d2: var gp_Dir2d;
                        redresse: bool = true): Handle[Geom2dCurve] {.cdecl,
     importcpp: "ChFi3d_BuildPCurve(@)", header: "ChFi3d_Builder_0.hxx".}
 proc chFi3dBuildPCurve*(surf: Handle[Adaptor3dHSurface]; p1: gp_Pnt2d; v1: gp_Vec; p2: gp_Pnt2d;

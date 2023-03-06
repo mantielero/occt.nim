@@ -24,13 +24,13 @@ import ../topods/topods_types
 
 
 
-proc newBRepPrimCylinder*(position: Ax2Obj; radius: cfloat; height: cfloat): BRepPrimCylinder {.
+proc newBRepPrimCylinder*(position: gp_Ax2; radius: cfloat; height: cfloat): BRepPrimCylinder {.
     cdecl, constructor, importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
 proc newBRepPrimCylinder*(radius: cfloat): BRepPrimCylinder {.cdecl, constructor,
     importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
 proc newBRepPrimCylinder*(center: gp_Pnt; radius: cfloat): BRepPrimCylinder {.cdecl,
     constructor, importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
-proc newBRepPrimCylinder*(axes: Ax2Obj; radius: cfloat): BRepPrimCylinder {.cdecl,
+proc newBRepPrimCylinder*(axes: gp_Ax2; radius: cfloat): BRepPrimCylinder {.cdecl,
     constructor, importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
 
 proc newBRepPrimCylinder*(r: cfloat; h: cfloat): BRepPrimCylinder {.cdecl, constructor,

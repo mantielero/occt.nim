@@ -21,8 +21,8 @@ import ../message/message_types
 
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
-discard "forward decl of DirObj"
-discard "forward decl of PlnObj"
+discard "forward decl of gp_Dir"
+discard "forward decl of gp_Pln"
 when defined(Status):
   discard
 ## ! Taper-adding transformations on a shape.
@@ -80,8 +80,8 @@ proc Clear*(this: var BRepOffsetAPI_DraftAngle) {.cdecl, importcpp: "Clear",
     .}
 proc Init*(this: var BRepOffsetAPI_DraftAngle; S: TopoDS_Shape) {.cdecl,
     importcpp: "Init".}
-proc Add*(this: var BRepOffsetAPI_DraftAngle; F: TopoDS_Face; Direction: DirObj;
-         Angle: cfloat; NeutralPlane: PlnObj; Flag: bool = true) {.cdecl,
+proc Add*(this: var BRepOffsetAPI_DraftAngle; F: TopoDS_Face; Direction: gp_Dir;
+         Angle: cfloat; NeutralPlane: gp_Pln; Flag: bool = true) {.cdecl,
     importcpp: "Add".}
 proc AddDone*(this: BRepOffsetAPI_DraftAngle): bool {.noSideEffect, cdecl,
     importcpp: "AddDone".}

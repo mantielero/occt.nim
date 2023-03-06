@@ -30,9 +30,9 @@ import ../geomabs/geomabs_types
 proc reverse*(this: var Geom2dCurve) {.cdecl, importcpp: "Reverse", header: "Geom2d_Curve.hxx".}
 proc reversedParameter*(this: Geom2dCurve; u: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "ReversedParameter", header: "Geom2d_Curve.hxx".}
-proc transformedParameter*(this: Geom2dCurve; u: cfloat; t: Trsf2dObj): cfloat {.
+proc transformedParameter*(this: Geom2dCurve; u: cfloat; t: gp_Trsf2d): cfloat {.
     noSideEffect, cdecl, importcpp: "TransformedParameter", header: "Geom2d_Curve.hxx".}
-proc parametricTransformation*(this: Geom2dCurve; t: Trsf2dObj): cfloat {.noSideEffect,
+proc parametricTransformation*(this: Geom2dCurve; t: gp_Trsf2d): cfloat {.noSideEffect,
     cdecl, importcpp: "ParametricTransformation", header: "Geom2d_Curve.hxx".}
 proc reversed*(this: Geom2dCurve): Handle[Geom2dCurve] {.noSideEffect, cdecl,
     importcpp: "Reversed", header: "Geom2d_Curve.hxx".}

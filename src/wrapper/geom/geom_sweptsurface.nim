@@ -31,7 +31,7 @@ import ../geomabs/geomabs_types
 
 proc continuity*(this: GeomSweptSurface): GeomAbsShape {.noSideEffect, cdecl,
     importcpp: "Continuity", header: "Geom_SweptSurface.hxx".}
-proc direction*(this: GeomSweptSurface): DirObj {.noSideEffect, cdecl,
+proc direction*(this: GeomSweptSurface): gp_Dir {.noSideEffect, cdecl,
     importcpp: "Direction", header: "Geom_SweptSurface.hxx".}
 proc basisCurve*(this: GeomSweptSurface): Handle[GeomCurve] {.noSideEffect, cdecl,
     importcpp: "BasisCurve", header: "Geom_SweptSurface.hxx".}

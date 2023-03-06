@@ -70,9 +70,9 @@ proc setAttenuation*(this: var Graphic3dCLight;
                     theConstAttenuation: StandardShortReal;
                     theLinearAttenuation: StandardShortReal) {.cdecl,
     importcpp: "SetAttenuation", header: "Graphic3d_CLight.hxx".}
-proc direction*(this: Graphic3dCLight): DirObj {.noSideEffect, cdecl,
+proc direction*(this: Graphic3dCLight): gp_Dir {.noSideEffect, cdecl,
     importcpp: "Direction", header: "Graphic3d_CLight.hxx".}
-proc setDirection*(this: var Graphic3dCLight; theDir: DirObj) {.cdecl,
+proc setDirection*(this: var Graphic3dCLight; theDir: gp_Dir) {.cdecl,
     importcpp: "SetDirection", header: "Graphic3d_CLight.hxx".}
 proc direction*(this: Graphic3dCLight; theVx: var cfloat; theVy: var cfloat;
                theVz: var cfloat) {.noSideEffect, cdecl, importcpp: "Direction",

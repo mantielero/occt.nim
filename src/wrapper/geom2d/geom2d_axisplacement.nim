@@ -26,29 +26,29 @@ import ../standard/standard_types
 
 
 
-proc newGeom2dAxisPlacement*(a: Ax2dObj): Geom2dAxisPlacement {.cdecl, constructor,
+proc newGeom2dAxisPlacement*(a: gp_Ax2d): Geom2dAxisPlacement {.cdecl, constructor,
     importcpp: "Geom2d_AxisPlacement(@)", header: "Geom2d_AxisPlacement.hxx".}
-proc newGeom2dAxisPlacement*(p: gp_Pnt2d; v: Dir2dObj): Geom2dAxisPlacement {.cdecl,
+proc newGeom2dAxisPlacement*(p: gp_Pnt2d; v: gp_Dir2d): Geom2dAxisPlacement {.cdecl,
     constructor, importcpp: "Geom2d_AxisPlacement(@)", header: "Geom2d_AxisPlacement.hxx".}
 proc reverse*(this: var Geom2dAxisPlacement) {.cdecl, importcpp: "Reverse",
     header: "Geom2d_AxisPlacement.hxx".}
 proc reversed*(this: Geom2dAxisPlacement): Handle[Geom2dAxisPlacement] {.
     noSideEffect, cdecl, importcpp: "Reversed", header: "Geom2d_AxisPlacement.hxx".}
-proc setAxis*(this: var Geom2dAxisPlacement; a: Ax2dObj) {.cdecl, importcpp: "SetAxis",
+proc setAxis*(this: var Geom2dAxisPlacement; a: gp_Ax2d) {.cdecl, importcpp: "SetAxis",
     header: "Geom2d_AxisPlacement.hxx".}
-proc setDirection*(this: var Geom2dAxisPlacement; v: Dir2dObj) {.cdecl,
+proc setDirection*(this: var Geom2dAxisPlacement; v: gp_Dir2d) {.cdecl,
     importcpp: "SetDirection", header: "Geom2d_AxisPlacement.hxx".}
 proc setLocation*(this: var Geom2dAxisPlacement; p: gp_Pnt2d) {.cdecl,
     importcpp: "SetLocation", header: "Geom2d_AxisPlacement.hxx".}
 proc angle*(this: Geom2dAxisPlacement; other: Handle[Geom2dAxisPlacement]): cfloat {.
     noSideEffect, cdecl, importcpp: "Angle", header: "Geom2d_AxisPlacement.hxx".}
-proc ax2d*(this: Geom2dAxisPlacement): Ax2dObj {.noSideEffect, cdecl, importcpp: "Ax2d",
+proc ax2d*(this: Geom2dAxisPlacement): gp_Ax2d {.noSideEffect, cdecl, importcpp: "Ax2d",
     header: "Geom2d_AxisPlacement.hxx".}
-proc direction*(this: Geom2dAxisPlacement): Dir2dObj {.noSideEffect, cdecl,
+proc direction*(this: Geom2dAxisPlacement): gp_Dir2d {.noSideEffect, cdecl,
     importcpp: "Direction", header: "Geom2d_AxisPlacement.hxx".}
 proc location*(this: Geom2dAxisPlacement): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "Location", header: "Geom2d_AxisPlacement.hxx".}
-proc transform*(this: var Geom2dAxisPlacement; t: Trsf2dObj) {.cdecl,
+proc transform*(this: var Geom2dAxisPlacement; t: gp_Trsf2d) {.cdecl,
     importcpp: "Transform", header: "Geom2d_AxisPlacement.hxx".}
 proc copy*(this: Geom2dAxisPlacement): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom2d_AxisPlacement.hxx".}

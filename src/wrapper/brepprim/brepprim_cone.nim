@@ -24,19 +24,19 @@ import ../topods/topods_types
 
 
 
-proc newBRepPrimCone*(angle: cfloat; position: Ax2Obj; height: cfloat; radius: cfloat = 0): BRepPrimCone {.
+proc newBRepPrimCone*(angle: cfloat; position: gp_Ax2; height: cfloat; radius: cfloat = 0): BRepPrimCone {.
     cdecl, constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc newBRepPrimCone*(angle: cfloat): BRepPrimCone {.cdecl, constructor,
     importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc newBRepPrimCone*(angle: cfloat; apex: gp_Pnt): BRepPrimCone {.cdecl, constructor,
     importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc newBRepPrimCone*(angle: cfloat; axes: Ax2Obj): BRepPrimCone {.cdecl, constructor,
+proc newBRepPrimCone*(angle: cfloat; axes: gp_Ax2): BRepPrimCone {.cdecl, constructor,
     importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc newBRepPrimCone*(r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.cdecl,
     constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc newBRepPrimCone*(center: gp_Pnt; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.
     cdecl, constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc newBRepPrimCone*(axes: Ax2Obj; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.cdecl,
+proc newBRepPrimCone*(axes: gp_Ax2; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.cdecl,
     constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimCone): TopoDS_Face {.noSideEffect, cdecl,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Cone.hxx".}

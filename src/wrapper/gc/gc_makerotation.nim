@@ -27,9 +27,9 @@ import ../geom/geom_types
 
 proc rotation*(line: gp_Lin; angle: cfloat): MakeRotation {.cdecl, constructor,
     importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
-proc rotation*(axis: Ax1Obj; angle: cfloat): MakeRotation {.cdecl, constructor,
+proc rotation*(axis: gp_Ax1; angle: cfloat): MakeRotation {.cdecl, constructor,
     importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
-proc rotation*(point: gp_Pnt; direc: DirObj; angle: cfloat): MakeRotation {.cdecl,
+proc rotation*(point: gp_Pnt; direc: gp_Dir; angle: cfloat): MakeRotation {.cdecl,
     constructor, importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
 proc value*(this: MakeRotation): Handle[GeomTransformation] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeRotation.hxx".}

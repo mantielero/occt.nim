@@ -25,7 +25,7 @@ import v3d_types
 
 
 
-proc getProjAxis*(theOrientation: V3dTypeOfOrientation): DirObj {.cdecl,
+proc getProjAxis*(theOrientation: V3dTypeOfOrientation): gp_Dir {.cdecl,
     importcpp: "V3d::GetProjAxis(@)", header: "V3d.hxx".}
 proc arrowOfRadius*(garrow: Handle[Graphic3dGroup]; x0: cfloat; y0: cfloat; z0: cfloat;
                    dx: cfloat; dy: cfloat; dz: cfloat; alpha: cfloat; lng: cfloat) {.

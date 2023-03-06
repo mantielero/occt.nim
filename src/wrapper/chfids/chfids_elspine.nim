@@ -82,13 +82,13 @@ proc lastPointAndTgt*(this: ChFiDS_ElSpine; p: var gp_Pnt; t: var gp_Vec) {.noSi
     importcpp: "LastPointAndTgt", header: "ChFiDS_ElSpine.hxx".}
 proc nbVertices*(this: ChFiDS_ElSpine): cint {.noSideEffect, cdecl,
     importcpp: "NbVertices", header: "ChFiDS_ElSpine.hxx".}
-proc vertexWithTangent*(this: ChFiDS_ElSpine; index: cint): Ax1Obj {.noSideEffect, cdecl,
+proc vertexWithTangent*(this: ChFiDS_ElSpine; index: cint): gp_Ax1 {.noSideEffect, cdecl,
     importcpp: "VertexWithTangent", header: "ChFiDS_ElSpine.hxx".}
 proc setFirstPointAndTgt*(this: var ChFiDS_ElSpine; p: gp_Pnt; t: gp_Vec) {.cdecl,
     importcpp: "SetFirstPointAndTgt", header: "ChFiDS_ElSpine.hxx".}
 proc setLastPointAndTgt*(this: var ChFiDS_ElSpine; p: gp_Pnt; t: gp_Vec) {.cdecl,
     importcpp: "SetLastPointAndTgt", header: "ChFiDS_ElSpine.hxx".}
-proc addVertexWithTangent*(this: var ChFiDS_ElSpine; anAx1: Ax1Obj) {.cdecl,
+proc addVertexWithTangent*(this: var ChFiDS_ElSpine; anAx1: gp_Ax1) {.cdecl,
     importcpp: "AddVertexWithTangent", header: "ChFiDS_ElSpine.hxx".}
 proc setCurve*(this: var ChFiDS_ElSpine; c: Handle[GeomCurve]) {.cdecl,
     importcpp: "SetCurve", header: "ChFiDS_ElSpine.hxx".}

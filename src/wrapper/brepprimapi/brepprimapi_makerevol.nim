@@ -25,9 +25,9 @@ import ../brepprim/brepprim_types
 
 
 
-proc revol*(s: TopoDS_Shape; a: Ax1Obj; d: cfloat; copy: bool = false): BRepPrimAPI_MakeRevol {.
+proc revol*(s: TopoDS_Shape; a: gp_Ax1; d: cfloat; copy: bool = false): BRepPrimAPI_MakeRevol {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevol(@)", header: "BRepPrimAPI_MakeRevol.hxx".}
-proc revol*(s: TopoDS_Shape; a: Ax1Obj; copy: bool = false): BRepPrimAPI_MakeRevol {.
+proc revol*(s: TopoDS_Shape; a: gp_Ax1; copy: bool = false): BRepPrimAPI_MakeRevol {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevol(@)", header: "BRepPrimAPI_MakeRevol.hxx".}
 proc revol*(this: BRepPrimAPI_MakeRevol): BRepSweepRevol {.noSideEffect, cdecl,
     importcpp: "Revol", header: "BRepPrimAPI_MakeRevol.hxx".}

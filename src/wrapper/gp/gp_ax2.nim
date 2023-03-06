@@ -21,63 +21,63 @@ discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 
-proc ax2*(): Ax2Obj {.cdecl, constructor, importcpp: "gp_Ax2(@)", header: "gp_Ax2.hxx".}
-proc ax2*(p: gp_Pnt; n: DirObj; vx: DirObj): Ax2Obj {.cdecl, constructor, importcpp: "gp_Ax2(@)",
+proc ax2*(): gp_Ax2 {.cdecl, constructor, importcpp: "gp_Ax2(@)", header: "gp_Ax2.hxx".}
+proc ax2*(p: gp_Pnt; n: gp_Dir; vx: gp_Dir): gp_Ax2 {.cdecl, constructor, importcpp: "gp_Ax2(@)",
                                      header: "gp_Ax2.hxx".}
-proc ax2*(p: gp_Pnt; v: DirObj): Ax2Obj {.cdecl, constructor, importcpp: "gp_Ax2(@)",
+proc ax2*(p: gp_Pnt; v: gp_Dir): gp_Ax2 {.cdecl, constructor, importcpp: "gp_Ax2(@)",
                               header: "gp_Ax2.hxx".}
-proc setAxis*(this: var Ax2Obj; a1: Ax1Obj) {.cdecl, importcpp: "SetAxis", header: "gp_Ax2.hxx".}
-proc setDirection*(this: var Ax2Obj; v: DirObj) {.cdecl, importcpp: "SetDirection",
+proc setAxis*(this: var gp_Ax2; a1: gp_Ax1) {.cdecl, importcpp: "SetAxis", header: "gp_Ax2.hxx".}
+proc setDirection*(this: var gp_Ax2; v: gp_Dir) {.cdecl, importcpp: "SetDirection",
                                       header: "gp_Ax2.hxx".}
-proc setLocation*(this: var Ax2Obj; p: gp_Pnt) {.cdecl, importcpp: "SetLocation",
+proc setLocation*(this: var gp_Ax2; p: gp_Pnt) {.cdecl, importcpp: "SetLocation",
                                      header: "gp_Ax2.hxx".}
-proc setXDirection*(this: var Ax2Obj; vx: DirObj) {.cdecl, importcpp: "SetXDirection",
+proc setXDirection*(this: var gp_Ax2; vx: gp_Dir) {.cdecl, importcpp: "SetXDirection",
                                         header: "gp_Ax2.hxx".}
-proc setYDirection*(this: var Ax2Obj; vy: DirObj) {.cdecl, importcpp: "SetYDirection",
+proc setYDirection*(this: var gp_Ax2; vy: gp_Dir) {.cdecl, importcpp: "SetYDirection",
                                         header: "gp_Ax2.hxx".}
-proc angle*(this: Ax2Obj; other: Ax2Obj): cfloat {.noSideEffect, cdecl, importcpp: "Angle",
+proc angle*(this: gp_Ax2; other: gp_Ax2): cfloat {.noSideEffect, cdecl, importcpp: "Angle",
                                        header: "gp_Ax2.hxx".}
-proc axis*(this: Ax2Obj): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Ax2.hxx".}
-proc direction*(this: Ax2Obj): DirObj {.noSideEffect, cdecl, importcpp: "Direction",
+proc axis*(this: gp_Ax2): gp_Ax1 {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Ax2.hxx".}
+proc direction*(this: gp_Ax2): gp_Dir {.noSideEffect, cdecl, importcpp: "Direction",
                               header: "gp_Ax2.hxx".}
-proc location*(this: Ax2Obj): gp_Pnt {.noSideEffect, cdecl, importcpp: "Location",
+proc location*(this: gp_Ax2): gp_Pnt {.noSideEffect, cdecl, importcpp: "Location",
                              header: "gp_Ax2.hxx".}
-proc xDirection*(this: Ax2Obj): DirObj {.noSideEffect, cdecl, importcpp: "XDirection",
+proc xDirection*(this: gp_Ax2): gp_Dir {.noSideEffect, cdecl, importcpp: "XDirection",
                                header: "gp_Ax2.hxx".}
-proc yDirection*(this: Ax2Obj): DirObj {.noSideEffect, cdecl, importcpp: "YDirection",
+proc yDirection*(this: gp_Ax2): gp_Dir {.noSideEffect, cdecl, importcpp: "YDirection",
                                header: "gp_Ax2.hxx".}
-proc isCoplanar*(this: Ax2Obj; other: Ax2Obj; linearTolerance: cfloat;
+proc isCoplanar*(this: gp_Ax2; other: gp_Ax2; linearTolerance: cfloat;
                 angularTolerance: cfloat): bool {.noSideEffect, cdecl,
     importcpp: "IsCoplanar", header: "gp_Ax2.hxx".}
-proc isCoplanar*(this: Ax2Obj; a1: Ax1Obj; linearTolerance: cfloat; angularTolerance: cfloat): bool {.
+proc isCoplanar*(this: gp_Ax2; a1: gp_Ax1; linearTolerance: cfloat; angularTolerance: cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsCoplanar", header: "gp_Ax2.hxx".}
-proc mirror*(this: var Ax2Obj; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Ax2.hxx".}
-proc mirrored*(this: Ax2Obj; p: gp_Pnt): Ax2Obj {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var gp_Ax2; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Ax2.hxx".}
+proc mirrored*(this: gp_Ax2; p: gp_Pnt): gp_Ax2 {.noSideEffect, cdecl, importcpp: "Mirrored",
                                    header: "gp_Ax2.hxx".}
-proc mirror*(this: var Ax2Obj; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Ax2.hxx".}
-proc mirrored*(this: Ax2Obj; a1: Ax1Obj): Ax2Obj {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var gp_Ax2; a1: gp_Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Ax2.hxx".}
+proc mirrored*(this: gp_Ax2; a1: gp_Ax1): gp_Ax2 {.noSideEffect, cdecl, importcpp: "Mirrored",
                                     header: "gp_Ax2.hxx".}
-proc mirror*(this: var Ax2Obj; a2: Ax2Obj) {.cdecl, importcpp: "Mirror", header: "gp_Ax2.hxx".}
-proc mirrored*(this: Ax2Obj; a2: Ax2Obj): Ax2Obj {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var gp_Ax2; a2: gp_Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Ax2.hxx".}
+proc mirrored*(this: gp_Ax2; a2: gp_Ax2): gp_Ax2 {.noSideEffect, cdecl, importcpp: "Mirrored",
                                     header: "gp_Ax2.hxx".}
-proc rotate*(this: var Ax2Obj; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rotate",
+proc rotate*(this: var gp_Ax2; a1: gp_Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
     header: "gp_Ax2.hxx".}
-proc rotated*(this: Ax2Obj; a1: Ax1Obj; ang: cfloat): Ax2Obj {.noSideEffect, cdecl,
+proc rotated*(this: gp_Ax2; a1: gp_Ax1; ang: cfloat): gp_Ax2 {.noSideEffect, cdecl,
     importcpp: "Rotated", header: "gp_Ax2.hxx".}
-proc scale*(this: var Ax2Obj; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Ax2.hxx".}
-proc scaled*(this: Ax2Obj; p: gp_Pnt; s: cfloat): Ax2Obj {.noSideEffect, cdecl,
+proc scale*(this: var gp_Ax2; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Ax2.hxx".}
+proc scaled*(this: gp_Ax2; p: gp_Pnt; s: cfloat): gp_Ax2 {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Ax2.hxx".}
-proc transform*(this: var Ax2Obj; t: gp_Trsf) {.cdecl, importcpp: "Transform", header: "gp_Ax2.hxx".}
-proc transformed*(this: Ax2Obj; t: gp_Trsf): Ax2Obj {.noSideEffect, cdecl,
+proc transform*(this: var gp_Ax2; t: gp_Trsf) {.cdecl, importcpp: "Transform", header: "gp_Ax2.hxx".}
+proc transformed*(this: gp_Ax2; t: gp_Trsf): gp_Ax2 {.noSideEffect, cdecl,
                                        importcpp: "Transformed", header: "gp_Ax2.hxx".}
-proc translate*(this: var Ax2Obj; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Ax2.hxx".}
-proc translated*(this: Ax2Obj; v: gp_Vec): Ax2Obj {.noSideEffect, cdecl, importcpp: "Translated",
+proc translate*(this: var gp_Ax2; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Ax2.hxx".}
+proc translated*(this: gp_Ax2; v: gp_Vec): gp_Ax2 {.noSideEffect, cdecl, importcpp: "Translated",
                                      header: "gp_Ax2.hxx".}
-proc translate*(this: var Ax2Obj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
+proc translate*(this: var gp_Ax2; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Ax2.hxx".}
-proc translated*(this: Ax2Obj; p1: gp_Pnt; p2: gp_Pnt): Ax2Obj {.noSideEffect, cdecl,
+proc translated*(this: gp_Ax2; p1: gp_Pnt; p2: gp_Pnt): gp_Ax2 {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Ax2.hxx".}
-proc dumpJson*(this: Ax2Obj; theOStream: var StandardOStream; theDepth: cint = -1) {.
+proc dumpJson*(this: gp_Ax2; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "gp_Ax2.hxx".}
-proc initFromJson*(this: var Ax2Obj; theSStream: StandardSStream; theStreamPos: var cint): bool {.
+proc initFromJson*(this: var gp_Ax2; theSStream: StandardSStream; theStreamPos: var cint): bool {.
     cdecl, importcpp: "InitFromJson", header: "gp_Ax2.hxx".}

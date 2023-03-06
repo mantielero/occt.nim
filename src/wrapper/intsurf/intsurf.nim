@@ -25,7 +25,7 @@ import ../adaptor3d/adaptor3d_types
 
 
 
-proc makeTransition*(tgFirst: gp_Vec; tgSecond: gp_Vec; normal: DirObj;
+proc makeTransition*(tgFirst: gp_Vec; tgSecond: gp_Vec; normal: gp_Dir;
                     tFirst: var IntSurfTransition; tSecond: var IntSurfTransition) {.
     cdecl, importcpp: "IntSurf::MakeTransition(@)", header: "IntSurf.hxx".}
 proc setPeriod*(theFirstSurf: Handle[Adaptor3dHSurface];

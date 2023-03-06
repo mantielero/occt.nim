@@ -1,5 +1,5 @@
 # PROVIDES:
-# DEPENDS:  NCollectionArray1[gp_Circ2d]  NCollectionArray1[DirObj]  NCollectionArray1[Dir2dObj]  NCollectionArray1[gp_Lin2d]  NCollectionArray1[gp_Pnt]  NCollectionArray1[gp_Pnt2d]  NCollectionArray1[gp_Vec]  NCollectionArray1[gp_Vec2d]  NCollectionArray1[XyObj]  NCollectionArray1[XyzObj]  NCollectionArray2[gp_Circ2d]  NCollectionArray2[DirObj]  NCollectionArray2[Dir2dObj]  NCollectionArray2[gp_Lin2d]  NCollectionArray2[gp_Pnt]  NCollectionArray2[gp_Pnt2d]  NCollectionArray2[gp_Vec]  NCollectionArray2[gp_Vec2d]  NCollectionArray2[XyObj]  NCollectionArray2[XyzObj]  NCollectionSequence[  NCollectionSequence[Ax1Obj]  NCollectionSequence[DirObj]  NCollectionSequence[Dir2dObj]  NCollectionSequence[gp_Pnt]  NCollectionSequence[gp_Pnt2d]  NCollectionSequence[gp_Vec]  NCollectionSequence[gp_Vec2d]  NCollectionSequence[XyObj]  NCollectionSequence[XyzObj] TColgpArray1OfCirc2d TColgpArray1OfDir TColgpArray1OfDir2d TColgpArray1OfLin2d TColgpArray1OfPnt TColgpArray1OfPnt2d TColgpArray1OfVec TColgpArray1OfVec2d TColgpArray1OfXY TColgpArray1OfXYZ TColgpArray2OfCirc2d TColgpArray2OfDir TColgpArray2OfDir2d TColgpArray2OfLin2d TColgpArray2OfPnt TColgpArray2OfPnt2d TColgpArray2OfVec TColgpArray2OfVec2d TColgpArray2OfXY TColgpArray2OfXYZ TColgpSequenceOfDir TColgpSequenceOfDir2d TColgpSequenceOfPnt TColgpSequenceOfPnt2d TColgpSequenceOfVec TColgpSequenceOfVec2d TColgpSequenceOfXY TColgpSequenceOfXYZ
+# DEPENDS:  NCollectionArray1[gp_Circ2d]  NCollectionArray1[gp_Dir]  NCollectionArray1[gp_Dir2d]  NCollectionArray1[gp_Lin2d]  NCollectionArray1[gp_Pnt]  NCollectionArray1[gp_Pnt2d]  NCollectionArray1[gp_Vec]  NCollectionArray1[gp_Vec2d]  NCollectionArray1[gp_Xy]  NCollectionArray1[gp_Xyz]  NCollectionArray2[gp_Circ2d]  NCollectionArray2[gp_Dir]  NCollectionArray2[gp_Dir2d]  NCollectionArray2[gp_Lin2d]  NCollectionArray2[gp_Pnt]  NCollectionArray2[gp_Pnt2d]  NCollectionArray2[gp_Vec]  NCollectionArray2[gp_Vec2d]  NCollectionArray2[gp_Xy]  NCollectionArray2[gp_Xyz]  NCollectionSequence[  NCollectionSequence[gp_Ax1]  NCollectionSequence[gp_Dir]  NCollectionSequence[gp_Dir2d]  NCollectionSequence[gp_Pnt]  NCollectionSequence[gp_Pnt2d]  NCollectionSequence[gp_Vec]  NCollectionSequence[gp_Vec2d]  NCollectionSequence[gp_Xy]  NCollectionSequence[gp_Xyz] TColgpArray1OfCirc2d TColgpArray1OfDir TColgpArray1OfDir2d TColgpArray1OfLin2d TColgpArray1OfPnt TColgpArray1OfPnt2d TColgpArray1OfVec TColgpArray1OfVec2d TColgpArray1OfXY TColgpArray1OfXYZ TColgpArray2OfCirc2d TColgpArray2OfDir TColgpArray2OfDir2d TColgpArray2OfLin2d TColgpArray2OfPnt TColgpArray2OfPnt2d TColgpArray2OfVec TColgpArray2OfVec2d TColgpArray2OfXY TColgpArray2OfXYZ TColgpSequenceOfDir TColgpSequenceOfDir2d TColgpSequenceOfPnt TColgpSequenceOfPnt2d TColgpSequenceOfVec TColgpSequenceOfVec2d TColgpSequenceOfXY TColgpSequenceOfXYZ
 
 import ../gp/gp_types
 #import ../tcolstd/tcolstd_types
@@ -8,9 +8,9 @@ import ../standard/standard_types
 type
   TColgpArray1OfCirc2d* = NCollectionArray1[gp_Circ2d]
 
-  TColgpArray1OfDir* = NCollectionArray1[DirObj]
+  TColgpArray1OfDir* = NCollectionArray1[gp_Dir]
 
-  TColgpArray1OfDir2d* = NCollectionArray1[Dir2dObj]
+  TColgpArray1OfDir2d* = NCollectionArray1[gp_Dir2d]
 
   TColgpArray1OfLin2d* = NCollectionArray1[gp_Lin2d]
 
@@ -22,15 +22,15 @@ type
 
   TColgpArray1OfVec2d* = NCollectionArray1[gp_Vec2d]
 
-  TColgpArray1OfXY* = NCollectionArray1[XyObj]
+  TColgpArray1OfXY* = NCollectionArray1[gp_Xy]
 
-  TColgpArray1OfXYZ* = NCollectionArray1[XyzObj]
+  TColgpArray1OfXYZ* = NCollectionArray1[gp_Xyz]
 
   TColgpArray2OfCirc2d* = NCollectionArray2[gp_Circ2d]
 
-  TColgpArray2OfDir* = NCollectionArray2[DirObj]
+  TColgpArray2OfDir* = NCollectionArray2[gp_Dir]
 
-  TColgpArray2OfDir2d* = NCollectionArray2[Dir2dObj]
+  TColgpArray2OfDir2d* = NCollectionArray2[gp_Dir2d]
 
   TColgpArray2OfLin2d* = NCollectionArray2[gp_Lin2d]
 
@@ -42,18 +42,18 @@ type
 
   TColgpArray2OfVec2d* = NCollectionArray2[gp_Vec2d]
 
-  TColgpArray2OfXY* = NCollectionArray2[XyObj]
+  TColgpArray2OfXY* = NCollectionArray2[gp_Xy]
 
-  TColgpArray2OfXYZ* = NCollectionArray2[XyzObj]
+  TColgpArray2OfXYZ* = NCollectionArray2[gp_Xyz]
 
   TColgpSequenceOfArray1OfPnt2d* = NCollectionSequence[
       Handle[TColgpHArray1OfPnt2d]]
 
-  TColgpSequenceOfAx1* = NCollectionSequence[Ax1Obj]
+  TColgpSequenceOfAx1* = NCollectionSequence[gp_Ax1]
 
-  TColgpSequenceOfDir* = NCollectionSequence[DirObj]
+  TColgpSequenceOfDir* = NCollectionSequence[gp_Dir]
 
-  TColgpSequenceOfDir2d* = NCollectionSequence[Dir2dObj]
+  TColgpSequenceOfDir2d* = NCollectionSequence[gp_Dir2d]
 
   TColgpSequenceOfPnt* = NCollectionSequence[gp_Pnt]
 
@@ -63,9 +63,9 @@ type
 
   TColgpSequenceOfVec2d* = NCollectionSequence[gp_Vec2d]
 
-  TColgpSequenceOfXY* = NCollectionSequence[XyObj]
+  TColgpSequenceOfXY* = NCollectionSequence[gp_Xy]
 
-  TColgpSequenceOfXYZ* = NCollectionSequence[XyzObj]
+  TColgpSequenceOfXYZ* = NCollectionSequence[gp_Xyz]
 
   TColgpHArray1OfCirc2d* {.importcpp: "TColgp_HArray1OfCirc2d",
                           header: "TColgp_HArray1OfCirc2d.hxx", bycopy.} = object of TColgpArray1OfCirc2d

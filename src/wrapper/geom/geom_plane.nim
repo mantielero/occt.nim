@@ -28,17 +28,17 @@ import geom_types
 
 
 
-proc newGeomPlane*(a3: Ax3Obj): GeomPlane {.cdecl, constructor,
+proc newGeomPlane*(a3: gp_Ax3): GeomPlane {.cdecl, constructor,
                                      importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
-proc newGeomPlane*(pl: PlnObj): GeomPlane {.cdecl, constructor,
+proc newGeomPlane*(pl: gp_Pln): GeomPlane {.cdecl, constructor,
                                      importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
-proc newGeomPlane*(p: gp_Pnt; v: DirObj): GeomPlane {.cdecl, constructor,
+proc newGeomPlane*(p: gp_Pnt; v: gp_Dir): GeomPlane {.cdecl, constructor,
     importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
     
 proc newGeomPlane*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): GeomPlane {.cdecl,
     constructor, importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
-proc setPln*(this: var GeomPlane; pl: PlnObj) {.cdecl, importcpp: "SetPln", header: "Geom_Plane.hxx".}
-proc pln*(this: GeomPlane): PlnObj {.noSideEffect, cdecl, importcpp: "Pln", header: "Geom_Plane.hxx".}
+proc setPln*(this: var GeomPlane; pl: gp_Pln) {.cdecl, importcpp: "SetPln", header: "Geom_Plane.hxx".}
+proc pln*(this: GeomPlane): gp_Pln {.noSideEffect, cdecl, importcpp: "Pln", header: "Geom_Plane.hxx".}
 proc uReverse*(this: var GeomPlane) {.cdecl, importcpp: "UReverse", header: "Geom_Plane.hxx".}
 proc uReversedParameter*(this: GeomPlane; u: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "UReversedParameter", header: "Geom_Plane.hxx".}

@@ -185,7 +185,7 @@ proc weights*(this: Geom2dBSplineCurve; w: var TColStdArray1OfReal) {.noSideEffe
     cdecl, importcpp: "Weights", header: "Geom2d_BSplineCurve.hxx".}
 proc weights*(this: Geom2dBSplineCurve): ptr TColStdArray1OfReal {.noSideEffect,
     cdecl, importcpp: "Weights", header: "Geom2d_BSplineCurve.hxx".}
-proc transform*(this: var Geom2dBSplineCurve; t: Trsf2dObj) {.cdecl,
+proc transform*(this: var Geom2dBSplineCurve; t: gp_Trsf2d) {.cdecl,
     importcpp: "Transform", header: "Geom2d_BSplineCurve.hxx".}
 proc maxDegreeBSplineCurve2d*(): cint {.cdecl, importcpp: "Geom2d_BSplineCurve::MaxDegree(@)",
                        header: "Geom2d_BSplineCurve.hxx".}

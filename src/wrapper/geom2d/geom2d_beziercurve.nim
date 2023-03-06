@@ -99,7 +99,7 @@ proc weights*(this: Geom2dBezierCurve; w: var TColStdArray1OfReal) {.noSideEffec
     cdecl, importcpp: "Weights", header: "Geom2d_BezierCurve.hxx".}
 proc weights*(this: Geom2dBezierCurve): ptr TColStdArray1OfReal {.noSideEffect, cdecl,
     importcpp: "Weights", header: "Geom2d_BezierCurve.hxx".}
-proc transform*(this: var Geom2dBezierCurve; t: Trsf2dObj) {.cdecl,
+proc transform*(this: var Geom2dBezierCurve; t: gp_Trsf2d) {.cdecl,
     importcpp: "Transform", header: "Geom2d_BezierCurve.hxx".}
 proc maxDegree*(): cint {.cdecl, importcpp: "Geom2d_BezierCurve::MaxDegree(@)",
                        header: "Geom2d_BezierCurve.hxx".}

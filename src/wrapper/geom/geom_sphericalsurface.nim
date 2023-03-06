@@ -28,7 +28,7 @@ import geom_types
 
 
 
-proc newGeomSphericalSurface*(a3: Ax3Obj; radius: cfloat): GeomSphericalSurface {.cdecl,
+proc newGeomSphericalSurface*(a3: gp_Ax3; radius: cfloat): GeomSphericalSurface {.cdecl,
     constructor, importcpp: "Geom_SphericalSurface(@)", header: "Geom_SphericalSurface.hxx".}
 proc newGeomSphericalSurface*(s: gp_Sphere): GeomSphericalSurface {.cdecl, constructor,
     importcpp: "Geom_SphericalSurface(@)", header: "Geom_SphericalSurface.hxx".}

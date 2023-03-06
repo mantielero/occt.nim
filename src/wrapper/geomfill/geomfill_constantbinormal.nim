@@ -29,7 +29,7 @@ import geomfill_types
 
 
 
-proc newGeomFillConstantBiNormal*(biNormal: DirObj): GeomFillConstantBiNormal {.cdecl,
+proc newGeomFillConstantBiNormal*(biNormal: gp_Dir): GeomFillConstantBiNormal {.cdecl,
     constructor, importcpp: "GeomFill_ConstantBiNormal(@)", header: "GeomFill_ConstantBiNormal.hxx".}
 proc copy*(this: GeomFillConstantBiNormal): Handle[GeomFillTrihedronLaw] {.
     noSideEffect, cdecl, importcpp: "Copy", header: "GeomFill_ConstantBiNormal.hxx".}

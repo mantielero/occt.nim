@@ -28,10 +28,10 @@ import ../standard/standard_types
 
 proc newGeom2dHyperbola*(h: gp_Hypr2d): Geom2dHyperbola {.cdecl, constructor,
     importcpp: "Geom2d_Hyperbola(@)", header: "Geom2d_Hyperbola.hxx".}
-proc newGeom2dHyperbola*(majorAxis: Ax2dObj; majorRadius: cfloat; minorRadius: cfloat;
+proc newGeom2dHyperbola*(majorAxis: gp_Ax2d; majorRadius: cfloat; minorRadius: cfloat;
                         sense: bool = true): Geom2dHyperbola {.cdecl, constructor,
     importcpp: "Geom2d_Hyperbola(@)", header: "Geom2d_Hyperbola.hxx".}
-proc newGeom2dHyperbola*(axis: Ax22dObj; majorRadius: cfloat; minorRadius: cfloat): Geom2dHyperbola {.
+proc newGeom2dHyperbola*(axis: gp_Ax22d; majorRadius: cfloat; minorRadius: cfloat): Geom2dHyperbola {.
     cdecl, constructor, importcpp: "Geom2d_Hyperbola(@)", header: "Geom2d_Hyperbola.hxx".}
 proc setHypr2d*(this: var Geom2dHyperbola; h: gp_Hypr2d) {.cdecl, importcpp: "SetHypr2d",
     header: "Geom2d_Hyperbola.hxx".}
@@ -51,17 +51,17 @@ proc isClosed*(this: Geom2dHyperbola): bool {.noSideEffect, cdecl,
     importcpp: "IsClosed", header: "Geom2d_Hyperbola.hxx".}
 proc isPeriodic*(this: Geom2dHyperbola): bool {.noSideEffect, cdecl,
     importcpp: "IsPeriodic", header: "Geom2d_Hyperbola.hxx".}
-proc asymptote1*(this: Geom2dHyperbola): Ax2dObj {.noSideEffect, cdecl,
+proc asymptote1*(this: Geom2dHyperbola): gp_Ax2d {.noSideEffect, cdecl,
     importcpp: "Asymptote1", header: "Geom2d_Hyperbola.hxx".}
-proc asymptote2*(this: Geom2dHyperbola): Ax2dObj {.noSideEffect, cdecl,
+proc asymptote2*(this: Geom2dHyperbola): gp_Ax2d {.noSideEffect, cdecl,
     importcpp: "Asymptote2", header: "Geom2d_Hyperbola.hxx".}
 proc conjugateBranch1*(this: Geom2dHyperbola): gp_Hypr2d {.noSideEffect, cdecl,
     importcpp: "ConjugateBranch1", header: "Geom2d_Hyperbola.hxx".}
 proc conjugateBranch2*(this: Geom2dHyperbola): gp_Hypr2d {.noSideEffect, cdecl,
     importcpp: "ConjugateBranch2", header: "Geom2d_Hyperbola.hxx".}
-proc directrix1*(this: Geom2dHyperbola): Ax2dObj {.noSideEffect, cdecl,
+proc directrix1*(this: Geom2dHyperbola): gp_Ax2d {.noSideEffect, cdecl,
     importcpp: "Directrix1", header: "Geom2d_Hyperbola.hxx".}
-proc directrix2*(this: Geom2dHyperbola): Ax2dObj {.noSideEffect, cdecl,
+proc directrix2*(this: Geom2dHyperbola): gp_Ax2d {.noSideEffect, cdecl,
     importcpp: "Directrix2", header: "Geom2d_Hyperbola.hxx".}
 proc eccentricity*(this: Geom2dHyperbola): cfloat {.noSideEffect, cdecl,
     importcpp: "Eccentricity", header: "Geom2d_Hyperbola.hxx".}
@@ -89,7 +89,7 @@ proc d3*(this: Geom2dHyperbola; u: cfloat; p: var gp_Pnt2d; v1: var gp_Vec2d; v2
         v3: var gp_Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_Hyperbola.hxx".}
 proc dn*(this: Geom2dHyperbola; u: cfloat; n: cint): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom2d_Hyperbola.hxx".}
-proc transform*(this: var Geom2dHyperbola; t: Trsf2dObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var Geom2dHyperbola; t: gp_Trsf2d) {.cdecl, importcpp: "Transform",
     header: "Geom2d_Hyperbola.hxx".}
 proc copy*(this: Geom2dHyperbola): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom2d_Hyperbola.hxx".}

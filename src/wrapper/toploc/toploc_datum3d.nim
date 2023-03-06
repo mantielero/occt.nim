@@ -32,7 +32,7 @@ proc transformation*(this: TopLocDatum3D): gp_Trsf {.noSideEffect, cdecl,
     importcpp: "Transformation", header: "TopLoc_Datum3D.hxx".}
 proc trsf*(this: TopLocDatum3D): gp_Trsf {.noSideEffect, cdecl, importcpp: "Trsf",
                                     header: "TopLoc_Datum3D.hxx".}
-proc form*(this: TopLocDatum3D): TrsfFormObj {.noSideEffect, cdecl, importcpp: "Form",
+proc form*(this: TopLocDatum3D): gp_TrsfForm {.noSideEffect, cdecl, importcpp: "Form",
                                         header: "TopLoc_Datum3D.hxx".}
 proc dumpJson*(this: TopLocDatum3D; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",

@@ -23,7 +23,7 @@ import ../gp/gp_types
 
 
 
-proc cylinder*(a2: Ax2Obj; radius: cfloat): GceMakeCylinder {.cdecl,
+proc cylinder*(a2: gp_Ax2; radius: cfloat): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
 proc cylinder*(cyl: gp_Cylinder; point: gp_Pnt): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
@@ -31,7 +31,7 @@ proc cylinder*(cyl: gp_Cylinder; dist: cfloat): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
 proc cylinder*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
-proc cylinder*(axis: Ax1Obj; radius: cfloat): GceMakeCylinder {.cdecl,
+proc cylinder*(axis: gp_Ax1; radius: cfloat): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
 proc cylinder*(circ: gp_Circ): GceMakeCylinder {.cdecl, constructor,
     importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}

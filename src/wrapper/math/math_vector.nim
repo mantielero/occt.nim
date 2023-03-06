@@ -30,9 +30,9 @@ proc newMathVector*(theLower: cint; theUpper: cint; theInitialValue: cfloat): Ma
     cdecl, constructor, importcpp: "math_Vector(@)", header: "math_Vector.hxx".}
 proc newMathVector*(theTab: ptr cfloat; theLower: cint; theUpper: cint): MathVector {.
     cdecl, constructor, importcpp: "math_Vector(@)", header: "math_Vector.hxx".}
-proc newMathVector*(other: XyObj): MathVector {.cdecl, constructor,
+proc newMathVector*(other: gp_Xy): MathVector {.cdecl, constructor,
     importcpp: "math_Vector(@)", header: "math_Vector.hxx".}
-proc newMathVector*(other: XyzObj): MathVector {.cdecl, constructor,
+proc newMathVector*(other: gp_Xyz): MathVector {.cdecl, constructor,
     importcpp: "math_Vector(@)", header: "math_Vector.hxx".}
 proc init*(this: var MathVector; theInitialValue: cfloat) {.cdecl, importcpp: "Init",
     header: "math_Vector.hxx".}

@@ -49,26 +49,26 @@ when defined(SetForm):
 
 
 proc trsf*(): gp_Trsf {.cdecl, constructor, importcpp: "gp_Trsf(@)", header: "gp_Trsf.hxx".}
-proc trsf*(t: Trsf2dObj): gp_Trsf {.cdecl, constructor, importcpp: "gp_Trsf(@)",
+proc trsf*(t: gp_Trsf2d): gp_Trsf {.cdecl, constructor, importcpp: "gp_Trsf(@)",
                              header: "gp_Trsf.hxx".}
 proc setMirror*(this: var gp_Trsf; p: gp_Pnt) {.cdecl, importcpp: "SetMirror", header: "gp_Trsf.hxx".}
-proc setMirror*(this: var gp_Trsf; a1: Ax1Obj) {.cdecl, importcpp: "SetMirror", header: "gp_Trsf.hxx".}
-proc setMirror*(this: var gp_Trsf; a2: Ax2Obj) {.cdecl, importcpp: "SetMirror", header: "gp_Trsf.hxx".}
-proc setRotation*(this: var gp_Trsf; a1: Ax1Obj; ang: cfloat) {.cdecl,
+proc setMirror*(this: var gp_Trsf; a1: gp_Ax1) {.cdecl, importcpp: "SetMirror", header: "gp_Trsf.hxx".}
+proc setMirror*(this: var gp_Trsf; a2: gp_Ax2) {.cdecl, importcpp: "SetMirror", header: "gp_Trsf.hxx".}
+proc setRotation*(this: var gp_Trsf; a1: gp_Ax1; ang: cfloat) {.cdecl,
     importcpp: "SetRotation", header: "gp_Trsf.hxx".}
-proc setRotation*(this: var gp_Trsf; r: QuaternionObj) {.cdecl, importcpp: "SetRotation",
+proc setRotation*(this: var gp_Trsf; r: gp_Quaternion) {.cdecl, importcpp: "SetRotation",
     header: "gp_Trsf.hxx".}
-proc setRotationPart*(this: var gp_Trsf; r: QuaternionObj) {.cdecl,
+proc setRotationPart*(this: var gp_Trsf; r: gp_Quaternion) {.cdecl,
     importcpp: "SetRotationPart", header: "gp_Trsf.hxx".}
 proc setScale*(this: var gp_Trsf; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "SetScale",
     header: "gp_Trsf.hxx".}
-proc setDisplacement*(this: var gp_Trsf; fromSystem1: Ax3Obj; toSystem2: Ax3Obj) {.cdecl,
+proc setDisplacement*(this: var gp_Trsf; fromSystem1: gp_Ax3; toSystem2: gp_Ax3) {.cdecl,
     importcpp: "SetDisplacement", header: "gp_Trsf.hxx".}
-proc setTransformation*(this: var gp_Trsf; fromSystem1: Ax3Obj; toSystem2: Ax3Obj) {.cdecl,
+proc setTransformation*(this: var gp_Trsf; fromSystem1: gp_Ax3; toSystem2: gp_Ax3) {.cdecl,
     importcpp: "SetTransformation", header: "gp_Trsf.hxx".}
-proc setTransformation*(this: var gp_Trsf; toSystem: Ax3Obj) {.cdecl,
+proc setTransformation*(this: var gp_Trsf; toSystem: gp_Ax3) {.cdecl,
     importcpp: "SetTransformation", header: "gp_Trsf.hxx".}
-proc setTransformation*(this: var gp_Trsf; r: QuaternionObj; t: gp_Vec) {.cdecl,
+proc setTransformation*(this: var gp_Trsf; r: gp_Quaternion; t: gp_Vec) {.cdecl,
     importcpp: "SetTransformation", header: "gp_Trsf.hxx".}
 proc setTranslation*(this: var gp_Trsf; v: gp_Vec) {.cdecl, importcpp: "SetTranslation",
     header: "gp_Trsf.hxx".}
@@ -78,26 +78,26 @@ proc setTranslationPart*(this: var gp_Trsf; v: gp_Vec) {.cdecl,
     importcpp: "SetTranslationPart", header: "gp_Trsf.hxx".}
 proc setScaleFactor*(this: var gp_Trsf; s: cfloat) {.cdecl, importcpp: "SetScaleFactor",
     header: "gp_Trsf.hxx".}
-proc setForm*(this: var gp_Trsf; p: TrsfFormObj) {.cdecl, importcpp: "SetForm", header: "gp_Trsf.hxx".}
+proc setForm*(this: var gp_Trsf; p: gp_TrsfForm) {.cdecl, importcpp: "SetForm", header: "gp_Trsf.hxx".}
 proc setValues*(this: var gp_Trsf; a11: cfloat; a12: cfloat; a13: cfloat; a14: cfloat;
                a21: cfloat; a22: cfloat; a23: cfloat; a24: cfloat; a31: cfloat;
                a32: cfloat; a33: cfloat; a34: cfloat) {.cdecl, importcpp: "SetValues",
     header: "gp_Trsf.hxx".}
 proc isNegative*(this: gp_Trsf): bool {.noSideEffect, cdecl, importcpp: "IsNegative",
                                  header: "gp_Trsf.hxx".}
-proc form*(this: gp_Trsf): TrsfFormObj {.noSideEffect, cdecl, importcpp: "Form",
+proc form*(this: gp_Trsf): gp_TrsfForm {.noSideEffect, cdecl, importcpp: "Form",
                                header: "gp_Trsf.hxx".}
 proc scaleFactor*(this: gp_Trsf): cfloat {.noSideEffect, cdecl, importcpp: "ScaleFactor",
                                     header: "gp_Trsf.hxx".}
-proc translationPart*(this: gp_Trsf): XyzObj {.noSideEffect, cdecl,
+proc translationPart*(this: gp_Trsf): gp_Xyz {.noSideEffect, cdecl,
                                      importcpp: "TranslationPart", header: "gp_Trsf.hxx".}
-proc getRotation*(this: gp_Trsf; theAxis: var XyzObj; theAngle: var cfloat): bool {.
+proc getRotation*(this: gp_Trsf; theAxis: var gp_Xyz; theAngle: var cfloat): bool {.
     noSideEffect, cdecl, importcpp: "GetRotation", header: "gp_Trsf.hxx".}
-proc getRotation*(this: gp_Trsf): QuaternionObj {.noSideEffect, cdecl,
+proc getRotation*(this: gp_Trsf): gp_Quaternion {.noSideEffect, cdecl,
                                         importcpp: "GetRotation", header: "gp_Trsf.hxx".}
-proc vectorialPart*(this: gp_Trsf): MatObj {.noSideEffect, cdecl,
+proc vectorialPart*(this: gp_Trsf): gp_Mat {.noSideEffect, cdecl,
                                    importcpp: "VectorialPart", header: "gp_Trsf.hxx".}
-proc hVectorialPart*(this: gp_Trsf): MatObj {.noSideEffect, cdecl,
+proc hVectorialPart*(this: gp_Trsf): gp_Mat {.noSideEffect, cdecl,
                                     importcpp: "HVectorialPart", header: "gp_Trsf.hxx".}
 proc value*(this: gp_Trsf; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "Value", header: "gp_Trsf.hxx".}
@@ -117,7 +117,7 @@ proc powered*(this: gp_Trsf; n: cint): gp_Trsf {.noSideEffect, cdecl, importcpp:
                                      header: "gp_Trsf.hxx".}
 proc transforms*(this: gp_Trsf; x: var cfloat; y: var cfloat; z: var cfloat) {.noSideEffect,
     cdecl, importcpp: "Transforms", header: "gp_Trsf.hxx".}
-proc transforms*(this: gp_Trsf; coord: var XyzObj) {.noSideEffect, cdecl,
+proc transforms*(this: gp_Trsf; coord: var gp_Xyz) {.noSideEffect, cdecl,
     importcpp: "Transforms", header: "gp_Trsf.hxx".}
 proc getMat4*[T](this: gp_Trsf; theMat: var NCollectionMat4[T]) {.noSideEffect, cdecl,
     importcpp: "GetMat4", header: "gp_Trsf.hxx".}

@@ -18,7 +18,7 @@ import ../gp/gp_types
 
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Cylinder"
-discard "forward decl of PlnObj"
+discard "forward decl of gp_Pln"
 discard "forward decl of gp_Cone"
 discard "forward decl of gp_Torus"
 discard "forward decl of gp_Sphere"
@@ -30,9 +30,9 @@ proc newExtrema_ExtPElS*(P: gp_Pnt; S: gp_Cylinder; Tol: cfloat): Extrema_ExtPEl
     header: "Extrema_ExtPElS.hxx".}
 proc Perform*(this: var Extrema_ExtPElS; P: gp_Pnt; S: gp_Cylinder; Tol: cfloat) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtPElS.hxx".}
-proc newExtrema_ExtPElS*(P: gp_Pnt; S: PlnObj; Tol: cfloat): Extrema_ExtPElS {.cdecl,
+proc newExtrema_ExtPElS*(P: gp_Pnt; S: gp_Pln; Tol: cfloat): Extrema_ExtPElS {.cdecl,
     constructor, importcpp: "Extrema_ExtPElS(@)", header: "Extrema_ExtPElS.hxx".}
-proc Perform*(this: var Extrema_ExtPElS; P: gp_Pnt; S: PlnObj; Tol: cfloat) {.cdecl,
+proc Perform*(this: var Extrema_ExtPElS; P: gp_Pnt; S: gp_Pln; Tol: cfloat) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtPElS.hxx".}
 proc newExtrema_ExtPElS*(P: gp_Pnt; S: gp_Cone; Tol: cfloat): Extrema_ExtPElS {.cdecl,
     constructor, importcpp: "Extrema_ExtPElS(@)", header: "Extrema_ExtPElS.hxx".}

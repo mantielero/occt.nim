@@ -30,9 +30,9 @@ import geom_types
 
 proc newGeomParabola*(prb: gp_Parab): GeomParabola {.cdecl, constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
-proc newGeomParabola*(a2: Ax2Obj; focal: cfloat): GeomParabola {.cdecl, constructor,
+proc newGeomParabola*(a2: gp_Ax2; focal: cfloat): GeomParabola {.cdecl, constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
-proc newGeomParabola*(d: Ax1Obj; f: gp_Pnt): GeomParabola {.cdecl, constructor,
+proc newGeomParabola*(d: gp_Ax1; f: gp_Pnt): GeomParabola {.cdecl, constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
 proc setFocal*(this: var GeomParabola; focal: cfloat) {.cdecl, importcpp: "SetFocal",
     header: "Geom_Parabola.hxx".}
@@ -50,7 +50,7 @@ proc isClosed*(this: GeomParabola): bool {.noSideEffect, cdecl, importcpp: "IsCl
                                        header: "Geom_Parabola.hxx".}
 proc isPeriodic*(this: GeomParabola): bool {.noSideEffect, cdecl,
     importcpp: "IsPeriodic", header: "Geom_Parabola.hxx".}
-proc directrix*(this: GeomParabola): Ax1Obj {.noSideEffect, cdecl,
+proc directrix*(this: GeomParabola): gp_Ax1 {.noSideEffect, cdecl,
                                        importcpp: "Directrix", header: "Geom_Parabola.hxx".}
 proc eccentricity*(this: GeomParabola): cfloat {.noSideEffect, cdecl,
     importcpp: "Eccentricity", header: "Geom_Parabola.hxx".}

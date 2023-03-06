@@ -73,7 +73,7 @@ proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt; theColo
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt;
                theColor: Graphic3dVec4ub): cint {.cdecl, importcpp: "AddVertex",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt; theNormal: DirObj): cint {.
+proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt; theNormal: gp_Dir): cint {.
     cdecl, importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: cfloat; theY: cfloat;
                theZ: cfloat; theNX: cfloat; theNY: cfloat; theNZ: cfloat): cint {.cdecl,
@@ -83,10 +83,10 @@ proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: cfloat; theY: cfloat
 #               theNX: StandardShortReal; theNY: StandardShortReal;
 #               theNZ: StandardShortReal): cint {.cdecl, importcpp: "AddVertex",
 #    header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt; theNormal: DirObj;
+proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt; theNormal: gp_Dir;
                theColor: QuantityColor): cint {.cdecl, importcpp: "AddVertex",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt; theNormal: DirObj;
+proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt; theNormal: gp_Dir;
                theColor32: cint): cint {.cdecl, importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt; theTexel: gp_Pnt2d): cint {.
     cdecl, importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
@@ -97,7 +97,7 @@ proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: cfloat; theY: cfloat
 #               theY: StandardShortReal; theZ: StandardShortReal;
 #               theTX: StandardShortReal; theTY: StandardShortReal): cint {.cdecl,
 #    importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt; theNormal: DirObj;
+proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt; theNormal: gp_Dir;
                theTexel: gp_Pnt2d): cint {.cdecl, importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: cfloat; theY: cfloat;
                theZ: cfloat; theNX: cfloat; theNY: cfloat; theNZ: cfloat; theTX: cfloat;
@@ -127,7 +127,7 @@ proc setVertexColor*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
                     theColor32: cint) {.cdecl, importcpp: "SetVertexColor",
                                       header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc setVertexNormal*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
-                     theNormal: DirObj) {.cdecl, importcpp: "SetVertexNormal",
+                     theNormal: gp_Dir) {.cdecl, importcpp: "SetVertexNormal",
                                      header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc setVertexNormal*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
                      theNX: cfloat; theNY: cfloat; theNZ: cfloat) {.cdecl,
@@ -153,7 +153,7 @@ proc vertexColor*(this: Graphic3dArrayOfPrimitives; theRank: cint; theR: var cfl
     importcpp: "VertexColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc vertexColor*(this: Graphic3dArrayOfPrimitives; theRank: cint; theColor: var cint) {.
     noSideEffect, cdecl, importcpp: "VertexColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexNormal*(this: Graphic3dArrayOfPrimitives; theRank: cint): DirObj {.
+proc vertexNormal*(this: Graphic3dArrayOfPrimitives; theRank: cint): gp_Dir {.
     noSideEffect, cdecl, importcpp: "VertexNormal", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc vertexNormal*(this: Graphic3dArrayOfPrimitives; theRank: cint;
                   theNX: var cfloat; theNY: var cfloat; theNZ: var cfloat) {.

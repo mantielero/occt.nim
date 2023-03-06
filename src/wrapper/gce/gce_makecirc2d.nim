@@ -23,9 +23,9 @@ import ../gp/gp_types
 
 
 
-proc newGceMakeCirc2d*(xAxis: Ax2dObj; radius: cfloat; sense: bool = true): GceMakeCirc2d {.
+proc newGceMakeCirc2d*(xAxis: gp_Ax2d; radius: cfloat; sense: bool = true): GceMakeCirc2d {.
     cdecl, constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
-proc newGceMakeCirc2d*(axis: Ax22dObj; radius: cfloat): GceMakeCirc2d {.cdecl,
+proc newGceMakeCirc2d*(axis: gp_Ax22d; radius: cfloat): GceMakeCirc2d {.cdecl,
     constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
 proc newGceMakeCirc2d*(circ: gp_Circ2d; dist: cfloat): GceMakeCirc2d {.cdecl, constructor,
     importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}

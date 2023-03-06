@@ -23,28 +23,28 @@ import ../gp/gp_types
 
 
 
-proc newGceMakePln*(a2: Ax2Obj): GceMakePln {.cdecl, constructor,
+proc newGceMakePln*(a2: gp_Ax2): GceMakePln {.cdecl, constructor,
                                        importcpp: "gce_MakePln(@)",
                                        header: "gce_MakePln.hxx".}
-proc newGceMakePln*(p: gp_Pnt; v: DirObj): GceMakePln {.cdecl, constructor,
+proc newGceMakePln*(p: gp_Pnt; v: gp_Dir): GceMakePln {.cdecl, constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc newGceMakePln*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): GceMakePln {.cdecl,
     constructor, importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
-proc newGceMakePln*(pln: PlnObj; point: gp_Pnt): GceMakePln {.cdecl, constructor,
+proc newGceMakePln*(pln: gp_Pln; point: gp_Pnt): GceMakePln {.cdecl, constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
-proc newGceMakePln*(pln: PlnObj; dist: cfloat): GceMakePln {.cdecl, constructor,
+proc newGceMakePln*(pln: gp_Pln; dist: cfloat): GceMakePln {.cdecl, constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc newGceMakePln*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): GceMakePln {.cdecl, constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc newGceMakePln*(p1: gp_Pnt; p2: gp_Pnt): GceMakePln {.cdecl, constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
-proc newGceMakePln*(axis: Ax1Obj): GceMakePln {.cdecl, constructor,
+proc newGceMakePln*(axis: gp_Ax1): GceMakePln {.cdecl, constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
-proc value*(this: GceMakePln): PlnObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakePln): gp_Pln {.noSideEffect, cdecl, importcpp: "Value",
                                  header: "gce_MakePln.hxx".}
-proc operator*(this: GceMakePln): PlnObj {.noSideEffect, cdecl, importcpp: "Operator",
+proc operator*(this: GceMakePln): gp_Pln {.noSideEffect, cdecl, importcpp: "Operator",
                                     header: "gce_MakePln.hxx".}
-converter `pln`*(this: GceMakePln): PlnObj {.noSideEffect, cdecl, importcpp: "gce_MakePln::operator gp_Pln",
+converter `pln`*(this: GceMakePln): gp_Pln {.noSideEffect, cdecl, importcpp: "gce_MakePln::operator gp_Pln",
                                       header: "gce_MakePln.hxx".}
 
 

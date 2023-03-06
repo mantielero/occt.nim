@@ -29,7 +29,7 @@ import ../brepprim/brepprim_types
 proc prism*(s: TopoDS_Shape; v: gp_Vec; copy: bool = false;
                               canonize: bool = true): BRepPrimAPI_MakePrism {.cdecl,
     constructor, importcpp: "BRepPrimAPI_MakePrism(@)", header: "BRepPrimAPI_MakePrism.hxx".}
-proc prism*(s: TopoDS_Shape; d: DirObj; inf: bool = true;
+proc prism*(s: TopoDS_Shape; d: gp_Dir; inf: bool = true;
                               copy: bool = false; canonize: bool = true): BRepPrimAPI_MakePrism {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakePrism(@)", header: "BRepPrimAPI_MakePrism.hxx".}
 proc prism*(this: BRepPrimAPI_MakePrism): BRepSweepPrism {.noSideEffect, cdecl,

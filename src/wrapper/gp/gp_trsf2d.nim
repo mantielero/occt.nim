@@ -24,66 +24,66 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_XY"
 discard "forward decl of gp_Mat2d"
 
-proc trsf2d*(): Trsf2dObj {.cdecl, constructor, importcpp: "gp_Trsf2d(@)",
+proc trsf2d*(): gp_Trsf2d {.cdecl, constructor, importcpp: "gp_Trsf2d(@)",
                          header: "gp_Trsf2d.hxx".}
-proc trsf2d*(t: gp_Trsf): Trsf2dObj {.cdecl, constructor, importcpp: "gp_Trsf2d(@)",
+proc trsf2d*(t: gp_Trsf): gp_Trsf2d {.cdecl, constructor, importcpp: "gp_Trsf2d(@)",
                                header: "gp_Trsf2d.hxx".}
-proc setMirror*(this: var Trsf2dObj; p: gp_Pnt2d) {.cdecl, importcpp: "SetMirror",
+proc setMirror*(this: var gp_Trsf2d; p: gp_Pnt2d) {.cdecl, importcpp: "SetMirror",
                                         header: "gp_Trsf2d.hxx".}
-proc setMirror*(this: var Trsf2dObj; a: Ax2dObj) {.cdecl, importcpp: "SetMirror",
+proc setMirror*(this: var gp_Trsf2d; a: gp_Ax2d) {.cdecl, importcpp: "SetMirror",
                                        header: "gp_Trsf2d.hxx".}
-proc setRotation*(this: var Trsf2dObj; p: gp_Pnt2d; ang: cfloat) {.cdecl,
+proc setRotation*(this: var gp_Trsf2d; p: gp_Pnt2d; ang: cfloat) {.cdecl,
     importcpp: "SetRotation", header: "gp_Trsf2d.hxx".}
-proc setScale*(this: var Trsf2dObj; p: gp_Pnt2d; s: cfloat) {.cdecl, importcpp: "SetScale",
+proc setScale*(this: var gp_Trsf2d; p: gp_Pnt2d; s: cfloat) {.cdecl, importcpp: "SetScale",
     header: "gp_Trsf2d.hxx".}
-proc setTransformation*(this: var Trsf2dObj; fromSystem1: Ax2dObj; toSystem2: Ax2dObj) {.cdecl,
+proc setTransformation*(this: var gp_Trsf2d; fromSystem1: gp_Ax2d; toSystem2: gp_Ax2d) {.cdecl,
     importcpp: "SetTransformation", header: "gp_Trsf2d.hxx".}
-proc setTransformation*(this: var Trsf2dObj; toSystem: Ax2dObj) {.cdecl,
+proc setTransformation*(this: var gp_Trsf2d; toSystem: gp_Ax2d) {.cdecl,
     importcpp: "SetTransformation", header: "gp_Trsf2d.hxx".}
-proc setTranslation*(this: var Trsf2dObj; v: gp_Vec2d) {.cdecl, importcpp: "SetTranslation",
+proc setTranslation*(this: var gp_Trsf2d; v: gp_Vec2d) {.cdecl, importcpp: "SetTranslation",
     header: "gp_Trsf2d.hxx".}
-proc setTranslation*(this: var Trsf2dObj; p1: gp_Pnt2d; p2: gp_Pnt2d) {.cdecl,
+proc setTranslation*(this: var gp_Trsf2d; p1: gp_Pnt2d; p2: gp_Pnt2d) {.cdecl,
     importcpp: "SetTranslation", header: "gp_Trsf2d.hxx".}
-proc setTranslationPart*(this: var Trsf2dObj; v: gp_Vec2d) {.cdecl,
+proc setTranslationPart*(this: var gp_Trsf2d; v: gp_Vec2d) {.cdecl,
     importcpp: "SetTranslationPart", header: "gp_Trsf2d.hxx".}
-proc setScaleFactor*(this: var Trsf2dObj; s: cfloat) {.cdecl, importcpp: "SetScaleFactor",
+proc setScaleFactor*(this: var gp_Trsf2d; s: cfloat) {.cdecl, importcpp: "SetScaleFactor",
     header: "gp_Trsf2d.hxx".}
-proc isNegative*(this: Trsf2dObj): bool {.noSideEffect, cdecl, importcpp: "IsNegative",
+proc isNegative*(this: gp_Trsf2d): bool {.noSideEffect, cdecl, importcpp: "IsNegative",
                                    header: "gp_Trsf2d.hxx".}
-proc form*(this: Trsf2dObj): TrsfFormObj {.noSideEffect, cdecl, importcpp: "Form",
+proc form*(this: gp_Trsf2d): gp_TrsfForm {.noSideEffect, cdecl, importcpp: "Form",
                                  header: "gp_Trsf2d.hxx".}
-proc scaleFactor*(this: Trsf2dObj): cfloat {.noSideEffect, cdecl,
+proc scaleFactor*(this: gp_Trsf2d): cfloat {.noSideEffect, cdecl,
                                       importcpp: "ScaleFactor", header: "gp_Trsf2d.hxx".}
-proc translationPart*(this: Trsf2dObj): XyObj {.noSideEffect, cdecl,
+proc translationPart*(this: gp_Trsf2d): gp_Xy {.noSideEffect, cdecl,
                                       importcpp: "TranslationPart", header: "gp_Trsf2d.hxx".}
-proc vectorialPart*(this: Trsf2dObj): Mat2dObj {.noSideEffect, cdecl,
+proc vectorialPart*(this: gp_Trsf2d): gp_Mat2d {.noSideEffect, cdecl,
                                        importcpp: "VectorialPart", header: "gp_Trsf2d.hxx".}
-proc hVectorialPart*(this: Trsf2dObj): Mat2dObj {.noSideEffect, cdecl,
+proc hVectorialPart*(this: gp_Trsf2d): gp_Mat2d {.noSideEffect, cdecl,
                                         importcpp: "HVectorialPart",
                                         header: "gp_Trsf2d.hxx".}
-proc rotationPart*(this: Trsf2dObj): cfloat {.noSideEffect, cdecl,
+proc rotationPart*(this: gp_Trsf2d): cfloat {.noSideEffect, cdecl,
                                        importcpp: "RotationPart", header: "gp_Trsf2d.hxx".}
-proc value*(this: Trsf2dObj; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
+proc value*(this: gp_Trsf2d; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "Value", header: "gp_Trsf2d.hxx".}
-proc invert*(this: var Trsf2dObj) {.cdecl, importcpp: "Invert", header: "gp_Trsf2d.hxx".}
-proc inverted*(this: Trsf2dObj): Trsf2dObj {.noSideEffect, cdecl, importcpp: "Inverted",
+proc invert*(this: var gp_Trsf2d) {.cdecl, importcpp: "Invert", header: "gp_Trsf2d.hxx".}
+proc inverted*(this: gp_Trsf2d): gp_Trsf2d {.noSideEffect, cdecl, importcpp: "Inverted",
                                    header: "gp_Trsf2d.hxx".}
-proc multiplied*(this: Trsf2dObj; t: Trsf2dObj): Trsf2dObj {.noSideEffect, cdecl,
+proc multiplied*(this: gp_Trsf2d; t: gp_Trsf2d): gp_Trsf2d {.noSideEffect, cdecl,
     importcpp: "Multiplied", header: "gp_Trsf2d.hxx".}
-proc `*`*(this: Trsf2dObj; t: Trsf2dObj): Trsf2dObj {.noSideEffect, cdecl, importcpp: "(# * #)",
+proc `*`*(this: gp_Trsf2d; t: gp_Trsf2d): gp_Trsf2d {.noSideEffect, cdecl, importcpp: "(# * #)",
                                        header: "gp_Trsf2d.hxx".}
-proc multiply*(this: var Trsf2dObj; t: Trsf2dObj) {.cdecl, importcpp: "Multiply",
+proc multiply*(this: var gp_Trsf2d; t: gp_Trsf2d) {.cdecl, importcpp: "Multiply",
                                         header: "gp_Trsf2d.hxx".}
-proc `*=`*(this: var Trsf2dObj; t: Trsf2dObj) {.cdecl, importcpp: "(# *= #)", header: "gp_Trsf2d.hxx".}
-proc preMultiply*(this: var Trsf2dObj; t: Trsf2dObj) {.cdecl, importcpp: "PreMultiply",
+proc `*=`*(this: var gp_Trsf2d; t: gp_Trsf2d) {.cdecl, importcpp: "(# *= #)", header: "gp_Trsf2d.hxx".}
+proc preMultiply*(this: var gp_Trsf2d; t: gp_Trsf2d) {.cdecl, importcpp: "PreMultiply",
     header: "gp_Trsf2d.hxx".}
-proc power*(this: var Trsf2dObj; n: cint) {.cdecl, importcpp: "Power", header: "gp_Trsf2d.hxx".}
-proc powered*(this: var Trsf2dObj; n: cint): Trsf2dObj {.cdecl, importcpp: "Powered",
+proc power*(this: var gp_Trsf2d; n: cint) {.cdecl, importcpp: "Power", header: "gp_Trsf2d.hxx".}
+proc powered*(this: var gp_Trsf2d; n: cint): gp_Trsf2d {.cdecl, importcpp: "Powered",
     header: "gp_Trsf2d.hxx".}
-proc transforms*(this: Trsf2dObj; x: var cfloat; y: var cfloat) {.noSideEffect, cdecl,
+proc transforms*(this: gp_Trsf2d; x: var cfloat; y: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Transforms", header: "gp_Trsf2d.hxx".}
-proc transforms*(this: Trsf2dObj; coord: var XyObj) {.noSideEffect, cdecl,
+proc transforms*(this: gp_Trsf2d; coord: var gp_Xy) {.noSideEffect, cdecl,
     importcpp: "Transforms", header: "gp_Trsf2d.hxx".}
-proc setValues*(this: var Trsf2dObj; a11: cfloat; a12: cfloat; a13: cfloat; a21: cfloat;
+proc setValues*(this: var gp_Trsf2d; a11: cfloat; a12: cfloat; a13: cfloat; a21: cfloat;
                a22: cfloat; a23: cfloat) {.cdecl, importcpp: "SetValues",
                                        header: "gp_Trsf2d.hxx".}

@@ -84,7 +84,7 @@ proc getNearPnt*(this: SelectMgrRectangularFrustum): gp_Pnt {.noSideEffect, cdec
     importcpp: "GetNearPnt", header: "SelectMgr_RectangularFrustum.hxx".}
 proc getFarPnt*(this: SelectMgrRectangularFrustum): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "GetFarPnt", header: "SelectMgr_RectangularFrustum.hxx".}
-proc getViewRayDirection*(this: SelectMgrRectangularFrustum): DirObj {.noSideEffect,
+proc getViewRayDirection*(this: SelectMgrRectangularFrustum): gp_Dir {.noSideEffect,
     cdecl, importcpp: "GetViewRayDirection", header: "SelectMgr_RectangularFrustum.hxx".}
 proc getMousePosition*(this: SelectMgrRectangularFrustum): gp_Pnt2d {.noSideEffect,
     cdecl, importcpp: "GetMousePosition", header: "SelectMgr_RectangularFrustum.hxx".}

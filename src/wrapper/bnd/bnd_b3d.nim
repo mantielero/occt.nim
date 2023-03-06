@@ -24,17 +24,17 @@ discard "forward decl of gp_Ax3"
 
 
 proc newBndB3d*(): BndB3d {.cdecl, constructor, importcpp: "Bnd_B3d(@)", header: "Bnd_B3d.hxx".}
-proc newBndB3d*(theCenter: XyzObj; theHSize: XyzObj): BndB3d {.cdecl, constructor,
+proc newBndB3d*(theCenter: gp_Xyz; theHSize: gp_Xyz): BndB3d {.cdecl, constructor,
     importcpp: "Bnd_B3d(@)", header: "Bnd_B3d.hxx".}
 proc isVoid*(this: BndB3d): bool {.noSideEffect, cdecl, importcpp: "IsVoid",
                                header: "Bnd_B3d.hxx".}
 proc clear*(this: var BndB3d) {.cdecl, importcpp: "Clear", header: "Bnd_B3d.hxx".}
-proc add*(this: var BndB3d; thePnt: XyzObj) {.cdecl, importcpp: "Add", header: "Bnd_B3d.hxx".}
+proc add*(this: var BndB3d; thePnt: gp_Xyz) {.cdecl, importcpp: "Add", header: "Bnd_B3d.hxx".}
 proc add*(this: var BndB3d; thePnt: gp_Pnt) {.cdecl, importcpp: "Add", header: "Bnd_B3d.hxx".}
 proc add*(this: var BndB3d; theBox: BndB3d) {.cdecl, importcpp: "Add", header: "Bnd_B3d.hxx".}
-proc cornerMin*(this: BndB3d): XyzObj {.noSideEffect, cdecl, importcpp: "CornerMin",
+proc cornerMin*(this: BndB3d): gp_Xyz {.noSideEffect, cdecl, importcpp: "CornerMin",
                                  header: "Bnd_B3d.hxx".}
-proc cornerMax*(this: BndB3d): XyzObj {.noSideEffect, cdecl, importcpp: "CornerMax",
+proc cornerMax*(this: BndB3d): gp_Xyz {.noSideEffect, cdecl, importcpp: "CornerMax",
                                  header: "Bnd_B3d.hxx".}
 proc squareExtent*(this: BndB3d): cfloat {.noSideEffect, cdecl,
                                        importcpp: "SquareExtent", header: "Bnd_B3d.hxx".}
@@ -44,27 +44,27 @@ proc limit*(this: var BndB3d; theOtherBox: BndB3d): bool {.cdecl, importcpp: "Li
     header: "Bnd_B3d.hxx".}
 proc transformed*(this: BndB3d; theTrsf: gp_Trsf): BndB3d {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "Bnd_B3d.hxx".}
-proc isOut*(this: BndB3d; thePnt: XyzObj): bool {.noSideEffect, cdecl, importcpp: "IsOut",
+proc isOut*(this: BndB3d; thePnt: gp_Xyz): bool {.noSideEffect, cdecl, importcpp: "IsOut",
     header: "Bnd_B3d.hxx".}
-proc isOut*(this: BndB3d; theCenter: XyzObj; theRadius: cfloat;
+proc isOut*(this: BndB3d; theCenter: gp_Xyz; theRadius: cfloat;
            isSphereHollow: bool = false): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_B3d.hxx".}
 proc isOut*(this: BndB3d; theOtherBox: BndB3d): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_B3d.hxx".}
 proc isOut*(this: BndB3d; theOtherBox: BndB3d; theTrsf: gp_Trsf): bool {.noSideEffect,
     cdecl, importcpp: "IsOut", header: "Bnd_B3d.hxx".}
-proc isOut*(this: BndB3d; theLine: Ax1Obj; isRay: bool = false;
+proc isOut*(this: BndB3d; theLine: gp_Ax1; isRay: bool = false;
            theOverthickness: cfloat = 0.0): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_B3d.hxx".}
-proc isOut*(this: BndB3d; thePlane: Ax3Obj): bool {.noSideEffect, cdecl,
+proc isOut*(this: BndB3d; thePlane: gp_Ax3): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_B3d.hxx".}
 proc isIn*(this: BndB3d; theBox: BndB3d): bool {.noSideEffect, cdecl, importcpp: "IsIn",
     header: "Bnd_B3d.hxx".}
 proc isIn*(this: BndB3d; theBox: BndB3d; theTrsf: gp_Trsf): bool {.noSideEffect, cdecl,
     importcpp: "IsIn", header: "Bnd_B3d.hxx".}
-proc setCenter*(this: var BndB3d; theCenter: XyzObj) {.cdecl, importcpp: "SetCenter",
+proc setCenter*(this: var BndB3d; theCenter: gp_Xyz) {.cdecl, importcpp: "SetCenter",
     header: "Bnd_B3d.hxx".}
-proc setHSize*(this: var BndB3d; theHSize: XyzObj) {.cdecl, importcpp: "SetHSize",
+proc setHSize*(this: var BndB3d; theHSize: gp_Xyz) {.cdecl, importcpp: "SetHSize",
     header: "Bnd_B3d.hxx".}
 ##  #define RealType Standard_Real
 ##  #define RealType_hxx <Standard_Real.hxx>

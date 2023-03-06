@@ -36,7 +36,7 @@ proc box*(p: gp_Pnt; dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimAPI_MakeBox {.
 proc box*(p1: gp_Pnt; p2: gp_Pnt): BRepPrimAPI_MakeBox {.cdecl,
     constructor, importcpp: "BRepPrimAPI_MakeBox(@)", header: "BRepPrimAPI_MakeBox.hxx".}
 
-proc box*(axes: Ax2Obj; dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimAPI_MakeBox {.
+proc box*(axes: gp_Ax2; dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimAPI_MakeBox {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeBox(@)", header: "BRepPrimAPI_MakeBox.hxx".}
 
 # Init
@@ -49,7 +49,7 @@ proc init*(this: var BRepPrimAPI_MakeBox; thePnt: gp_Pnt; theDX: cfloat; theDY: 
 proc init*(this: var BRepPrimAPI_MakeBox; thePnt1: gp_Pnt; thePnt2: gp_Pnt) {.cdecl,
     importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
 
-proc init*(this: var BRepPrimAPI_MakeBox; theAxes: Ax2Obj; theDX: cfloat; theDY: cfloat;
+proc init*(this: var BRepPrimAPI_MakeBox; theAxes: gp_Ax2; theDX: cfloat; theDY: cfloat;
           theDZ: cfloat) {.cdecl, importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
 
 # Other

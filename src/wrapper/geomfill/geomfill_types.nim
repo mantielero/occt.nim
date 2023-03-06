@@ -76,7 +76,7 @@ type
 
   GeomFillArray1OfSectionLaw* = NCollectionArray1[Handle[GeomFillSectionLaw]]
 
-  GeomFillSequenceOfAx2* = NCollectionSequence[Ax2Obj]
+  GeomFillSequenceOfAx2* = NCollectionSequence[gp_Ax2]
 
   GeomFillSequenceOfTrsf* = NCollectionSequence[gp_Trsf]
 

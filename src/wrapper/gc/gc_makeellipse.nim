@@ -27,7 +27,7 @@ import ../geom/geom_types
 
 proc ellipse*(e: gp_Elips): MakeEllipse {.cdecl, constructor,
     importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
-proc ellipse*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): MakeEllipse {.
+proc ellipse*(a2: gp_Ax2; majorRadius: cfloat; minorRadius: cfloat): MakeEllipse {.
     cdecl, constructor, importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
 proc ellipse*(s1: gp_Pnt; s2: gp_Pnt; center: gp_Pnt): MakeEllipse {.cdecl, constructor,
     importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}

@@ -29,22 +29,22 @@ import ../geomabs/geomabs_types
 
 
 
-proc setAxis*(this: var GeomConic; theA1: Ax1Obj) {.cdecl, importcpp: "SetAxis",
+proc setAxis*(this: var GeomConic; theA1: gp_Ax1) {.cdecl, importcpp: "SetAxis",
     header: "Geom_Conic.hxx".}
 proc setLocation*(this: var GeomConic; theP: gp_Pnt) {.cdecl, importcpp: "SetLocation",
     header: "Geom_Conic.hxx".}
-proc setPosition*(this: var GeomConic; theA2: Ax2Obj) {.cdecl, importcpp: "SetPosition",
+proc setPosition*(this: var GeomConic; theA2: gp_Ax2) {.cdecl, importcpp: "SetPosition",
     header: "Geom_Conic.hxx".}
-proc axis*(this: GeomConic): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis", header: "Geom_Conic.hxx".}
+proc axis*(this: GeomConic): gp_Ax1 {.noSideEffect, cdecl, importcpp: "Axis", header: "Geom_Conic.hxx".}
 proc location*(this: GeomConic): gp_Pnt {.noSideEffect, cdecl, importcpp: "Location",
                                    header: "Geom_Conic.hxx".}
-proc position*(this: GeomConic): Ax2Obj {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: GeomConic): gp_Ax2 {.noSideEffect, cdecl, importcpp: "Position",
                                    header: "Geom_Conic.hxx".}
 proc eccentricity*(this: GeomConic): cfloat {.noSideEffect, cdecl,
     importcpp: "Eccentricity", header: "Geom_Conic.hxx".}
-proc xAxis*(this: GeomConic): Ax1Obj {.noSideEffect, cdecl, importcpp: "XAxis",
+proc xAxis*(this: GeomConic): gp_Ax1 {.noSideEffect, cdecl, importcpp: "XAxis",
                                 header: "Geom_Conic.hxx".}
-proc yAxis*(this: GeomConic): Ax1Obj {.noSideEffect, cdecl, importcpp: "YAxis",
+proc yAxis*(this: GeomConic): gp_Ax1 {.noSideEffect, cdecl, importcpp: "YAxis",
                                 header: "Geom_Conic.hxx".}
 proc reverse*(this: var GeomConic) {.cdecl, importcpp: "Reverse", header: "Geom_Conic.hxx".}
 proc reversedParameter*(this: GeomConic; u: cfloat): cfloat {.noSideEffect, cdecl,

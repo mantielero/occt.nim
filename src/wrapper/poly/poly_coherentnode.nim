@@ -23,7 +23,7 @@ discard "forward decl of NCollection_BaseAllocator"
 
 proc newPolyCoherentNode*(): PolyCoherentNode {.cdecl, constructor,
     importcpp: "Poly_CoherentNode(@)", header: "Poly_CoherentNode.hxx".}
-proc newPolyCoherentNode*(thePnt: XyzObj): PolyCoherentNode {.cdecl, constructor,
+proc newPolyCoherentNode*(thePnt: gp_Xyz): PolyCoherentNode {.cdecl, constructor,
     importcpp: "Poly_CoherentNode(@)", header: "Poly_CoherentNode.hxx".}
 proc setUV*(this: var PolyCoherentNode; theU: cfloat; theV: cfloat) {.cdecl,
     importcpp: "SetUV", header: "Poly_CoherentNode.hxx".}
@@ -31,11 +31,11 @@ proc getU*(this: PolyCoherentNode): cfloat {.noSideEffect, cdecl, importcpp: "Ge
     header: "Poly_CoherentNode.hxx".}
 proc getV*(this: PolyCoherentNode): cfloat {.noSideEffect, cdecl, importcpp: "GetV",
     header: "Poly_CoherentNode.hxx".}
-proc setNormal*(this: var PolyCoherentNode; theVector: XyzObj) {.cdecl,
+proc setNormal*(this: var PolyCoherentNode; theVector: gp_Xyz) {.cdecl,
     importcpp: "SetNormal", header: "Poly_CoherentNode.hxx".}
 proc hasNormal*(this: PolyCoherentNode): bool {.noSideEffect, cdecl,
     importcpp: "HasNormal", header: "Poly_CoherentNode.hxx".}
-proc getNormal*(this: PolyCoherentNode): XyzObj {.noSideEffect, cdecl,
+proc getNormal*(this: PolyCoherentNode): gp_Xyz {.noSideEffect, cdecl,
     importcpp: "GetNormal", header: "Poly_CoherentNode.hxx".}
 proc setIndex*(this: var PolyCoherentNode; theIndex: cint) {.cdecl,
     importcpp: "SetIndex", header: "Poly_CoherentNode.hxx".}

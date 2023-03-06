@@ -27,9 +27,9 @@ import gce2d_types
 
 proc newGCE2dMakeCircle*(c: gp_Circ2d): GCE2dMakeCircle {.cdecl, constructor,
     importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc newGCE2dMakeCircle*(a: Ax2dObj; radius: cfloat; sense: bool = true): GCE2dMakeCircle {.
+proc newGCE2dMakeCircle*(a: gp_Ax2d; radius: cfloat; sense: bool = true): GCE2dMakeCircle {.
     cdecl, constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc newGCE2dMakeCircle*(a: Ax22dObj; radius: cfloat): GCE2dMakeCircle {.cdecl,
+proc newGCE2dMakeCircle*(a: gp_Ax22d; radius: cfloat): GCE2dMakeCircle {.cdecl,
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
 proc newGCE2dMakeCircle*(circ: gp_Circ2d; dist: cfloat): GCE2dMakeCircle {.cdecl,
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}

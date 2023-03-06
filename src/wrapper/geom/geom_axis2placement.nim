@@ -44,23 +44,23 @@ import geom_types
 
 
 
-proc newGeomAxis2Placement*(a2: Ax2Obj): GeomAxis2Placement {.cdecl, constructor,
+proc newGeomAxis2Placement*(a2: gp_Ax2): GeomAxis2Placement {.cdecl, constructor,
     importcpp: "Geom_Axis2Placement(@)", header: "Geom_Axis2Placement.hxx".}
-proc newGeomAxis2Placement*(p: gp_Pnt; n: DirObj; vx: DirObj): GeomAxis2Placement {.cdecl,
+proc newGeomAxis2Placement*(p: gp_Pnt; n: gp_Dir; vx: gp_Dir): GeomAxis2Placement {.cdecl,
     constructor, importcpp: "Geom_Axis2Placement(@)", header: "Geom_Axis2Placement.hxx".}
-proc setAx2*(this: var GeomAxis2Placement; a2: Ax2Obj) {.cdecl, importcpp: "SetAx2",
+proc setAx2*(this: var GeomAxis2Placement; a2: gp_Ax2) {.cdecl, importcpp: "SetAx2",
     header: "Geom_Axis2Placement.hxx".}
-proc setDirection*(this: var GeomAxis2Placement; v: DirObj) {.cdecl,
+proc setDirection*(this: var GeomAxis2Placement; v: gp_Dir) {.cdecl,
     importcpp: "SetDirection", header: "Geom_Axis2Placement.hxx".}
-proc setXDirection*(this: var GeomAxis2Placement; vx: DirObj) {.cdecl,
+proc setXDirection*(this: var GeomAxis2Placement; vx: gp_Dir) {.cdecl,
     importcpp: "SetXDirection", header: "Geom_Axis2Placement.hxx".}
-proc setYDirection*(this: var GeomAxis2Placement; vy: DirObj) {.cdecl,
+proc setYDirection*(this: var GeomAxis2Placement; vy: gp_Dir) {.cdecl,
     importcpp: "SetYDirection", header: "Geom_Axis2Placement.hxx".}
-proc ax2*(this: GeomAxis2Placement): Ax2Obj {.noSideEffect, cdecl, importcpp: "Ax2",
+proc ax2*(this: GeomAxis2Placement): gp_Ax2 {.noSideEffect, cdecl, importcpp: "Ax2",
                                        header: "Geom_Axis2Placement.hxx".}
-proc xDirection*(this: GeomAxis2Placement): DirObj {.noSideEffect, cdecl,
+proc xDirection*(this: GeomAxis2Placement): gp_Dir {.noSideEffect, cdecl,
     importcpp: "XDirection", header: "Geom_Axis2Placement.hxx".}
-proc yDirection*(this: GeomAxis2Placement): DirObj {.noSideEffect, cdecl,
+proc yDirection*(this: GeomAxis2Placement): gp_Dir {.noSideEffect, cdecl,
     importcpp: "YDirection", header: "Geom_Axis2Placement.hxx".}
 proc transform*(this: var GeomAxis2Placement; t: gp_Trsf) {.cdecl, importcpp: "Transform",
     header: "Geom_Axis2Placement.hxx".}

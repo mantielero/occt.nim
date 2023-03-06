@@ -29,9 +29,9 @@ import geom_types
 
 
 proc mirror*(this: var GeomGeometry; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "Geom_Geometry.hxx".}
-proc mirror*(this: var GeomGeometry; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "Geom_Geometry.hxx".}
-proc mirror*(this: var GeomGeometry; a2: Ax2Obj) {.cdecl, importcpp: "Mirror", header: "Geom_Geometry.hxx".}
-proc rotate*(this: var GeomGeometry; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rotate",
+proc mirror*(this: var GeomGeometry; a1: gp_Ax1) {.cdecl, importcpp: "Mirror", header: "Geom_Geometry.hxx".}
+proc mirror*(this: var GeomGeometry; a2: gp_Ax2) {.cdecl, importcpp: "Mirror", header: "Geom_Geometry.hxx".}
+proc rotate*(this: var GeomGeometry; a1: gp_Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
     header: "Geom_Geometry.hxx".}
 proc scale*(this: var GeomGeometry; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale",
     header: "Geom_Geometry.hxx".}
@@ -43,11 +43,11 @@ proc transform*(this: var GeomGeometry; t: gp_Trsf) {.cdecl, importcpp: "Transfo
     header: "Geom_Geometry.hxx".}
 proc mirrored*(this: GeomGeometry; p: gp_Pnt): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Mirrored", header: "Geom_Geometry.hxx".}
-proc mirrored*(this: GeomGeometry; a1: Ax1Obj): Handle[GeomGeometry] {.noSideEffect,
+proc mirrored*(this: GeomGeometry; a1: gp_Ax1): Handle[GeomGeometry] {.noSideEffect,
     cdecl, importcpp: "Mirrored", header: "Geom_Geometry.hxx".}
-proc mirrored*(this: GeomGeometry; a2: Ax2Obj): Handle[GeomGeometry] {.noSideEffect,
+proc mirrored*(this: GeomGeometry; a2: gp_Ax2): Handle[GeomGeometry] {.noSideEffect,
     cdecl, importcpp: "Mirrored", header: "Geom_Geometry.hxx".}
-proc rotated*(this: GeomGeometry; a1: Ax1Obj; ang: cfloat): Handle[GeomGeometry] {.
+proc rotated*(this: GeomGeometry; a1: gp_Ax1; ang: cfloat): Handle[GeomGeometry] {.
     noSideEffect, cdecl, importcpp: "Rotated", header: "Geom_Geometry.hxx".}
 proc scaled*(this: GeomGeometry; p: gp_Pnt; s: cfloat): Handle[GeomGeometry] {.
     noSideEffect, cdecl, importcpp: "Scaled", header: "Geom_Geometry.hxx".}

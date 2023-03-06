@@ -27,10 +27,10 @@ import gce2d_types
 
 proc newGCE2dMakeEllipse*(e: gp_Elips2d): GCE2dMakeEllipse {.cdecl, constructor,
     importcpp: "GCE2d_MakeEllipse(@)", header: "GCE2d_MakeEllipse.hxx".}
-proc newGCE2dMakeEllipse*(majorAxis: Ax2dObj; majorRadius: cfloat; minorRadius: cfloat;
+proc newGCE2dMakeEllipse*(majorAxis: gp_Ax2d; majorRadius: cfloat; minorRadius: cfloat;
                          sense: bool = true): GCE2dMakeEllipse {.cdecl, constructor,
     importcpp: "GCE2d_MakeEllipse(@)", header: "GCE2d_MakeEllipse.hxx".}
-proc newGCE2dMakeEllipse*(axis: Ax22dObj; majorRadius: cfloat; minorRadius: cfloat): GCE2dMakeEllipse {.
+proc newGCE2dMakeEllipse*(axis: gp_Ax22d; majorRadius: cfloat; minorRadius: cfloat): GCE2dMakeEllipse {.
     cdecl, constructor, importcpp: "GCE2d_MakeEllipse(@)", header: "GCE2d_MakeEllipse.hxx".}
 proc newGCE2dMakeEllipse*(s1: gp_Pnt2d; s2: gp_Pnt2d; center: gp_Pnt2d): GCE2dMakeEllipse {.
     cdecl, constructor, importcpp: "GCE2d_MakeEllipse(@)", header: "GCE2d_MakeEllipse.hxx".}

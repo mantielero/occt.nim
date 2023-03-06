@@ -24,10 +24,10 @@ discard "forward decl of gp_Vec2d"
 
 proc hypr2d*(): gp_Hypr2d {.cdecl, constructor, importcpp: "gp_Hypr2d(@)",
                          header: "gp_Hypr2d.hxx".}
-proc hypr2d*(majorAxis: Ax2dObj; majorRadius: cfloat; minorRadius: cfloat;
+proc hypr2d*(majorAxis: gp_Ax2d; majorRadius: cfloat; minorRadius: cfloat;
                sense: bool = true): gp_Hypr2d {.cdecl, constructor,
                                         importcpp: "gp_Hypr2d(@)", header: "gp_Hypr2d.hxx".}
-proc hypr2d*(a: Ax22dObj; majorRadius: cfloat; minorRadius: cfloat): gp_Hypr2d {.cdecl,
+proc hypr2d*(a: gp_Ax22d; majorRadius: cfloat; minorRadius: cfloat): gp_Hypr2d {.cdecl,
     constructor, importcpp: "gp_Hypr2d(@)", header: "gp_Hypr2d.hxx".}
 proc setLocation*(this: var gp_Hypr2d; p: gp_Pnt2d) {.cdecl, importcpp: "SetLocation",
     header: "gp_Hypr2d.hxx".}
@@ -35,12 +35,12 @@ proc setMajorRadius*(this: var gp_Hypr2d; majorRadius: cfloat) {.cdecl,
     importcpp: "SetMajorRadius", header: "gp_Hypr2d.hxx".}
 proc setMinorRadius*(this: var gp_Hypr2d; minorRadius: cfloat) {.cdecl,
     importcpp: "SetMinorRadius", header: "gp_Hypr2d.hxx".}
-proc setAxis*(this: var gp_Hypr2d; a: Ax22dObj) {.cdecl, importcpp: "SetAxis", header: "gp_Hypr2d.hxx".}
-proc setXAxis*(this: var gp_Hypr2d; a: Ax2dObj) {.cdecl, importcpp: "SetXAxis", header: "gp_Hypr2d.hxx".}
-proc setYAxis*(this: var gp_Hypr2d; a: Ax2dObj) {.cdecl, importcpp: "SetYAxis", header: "gp_Hypr2d.hxx".}
-proc asymptote1*(this: gp_Hypr2d): Ax2dObj {.noSideEffect, cdecl, importcpp: "Asymptote1",
+proc setAxis*(this: var gp_Hypr2d; a: gp_Ax22d) {.cdecl, importcpp: "SetAxis", header: "gp_Hypr2d.hxx".}
+proc setXAxis*(this: var gp_Hypr2d; a: gp_Ax2d) {.cdecl, importcpp: "SetXAxis", header: "gp_Hypr2d.hxx".}
+proc setYAxis*(this: var gp_Hypr2d; a: gp_Ax2d) {.cdecl, importcpp: "SetYAxis", header: "gp_Hypr2d.hxx".}
+proc asymptote1*(this: gp_Hypr2d): gp_Ax2d {.noSideEffect, cdecl, importcpp: "Asymptote1",
                                    header: "gp_Hypr2d.hxx".}
-proc asymptote2*(this: gp_Hypr2d): Ax2dObj {.noSideEffect, cdecl, importcpp: "Asymptote2",
+proc asymptote2*(this: gp_Hypr2d): gp_Ax2d {.noSideEffect, cdecl, importcpp: "Asymptote2",
                                    header: "gp_Hypr2d.hxx".}
 proc coefficients*(this: gp_Hypr2d; a: var cfloat; b: var cfloat; c: var cfloat; d: var cfloat;
                   e: var cfloat; f: var cfloat) {.noSideEffect, cdecl,
@@ -49,9 +49,9 @@ proc conjugateBranch1*(this: gp_Hypr2d): gp_Hypr2d {.noSideEffect, cdecl,
     importcpp: "ConjugateBranch1", header: "gp_Hypr2d.hxx".}
 proc conjugateBranch2*(this: gp_Hypr2d): gp_Hypr2d {.noSideEffect, cdecl,
     importcpp: "ConjugateBranch2", header: "gp_Hypr2d.hxx".}
-proc directrix1*(this: gp_Hypr2d): Ax2dObj {.noSideEffect, cdecl, importcpp: "Directrix1",
+proc directrix1*(this: gp_Hypr2d): gp_Ax2d {.noSideEffect, cdecl, importcpp: "Directrix1",
                                    header: "gp_Hypr2d.hxx".}
-proc directrix2*(this: gp_Hypr2d): Ax2dObj {.noSideEffect, cdecl, importcpp: "Directrix2",
+proc directrix2*(this: gp_Hypr2d): gp_Ax2d {.noSideEffect, cdecl, importcpp: "Directrix2",
                                    header: "gp_Hypr2d.hxx".}
 proc eccentricity*(this: gp_Hypr2d): cfloat {.noSideEffect, cdecl,
                                        importcpp: "Eccentricity", header: "gp_Hypr2d.hxx".}
@@ -71,10 +71,10 @@ proc otherBranch*(this: gp_Hypr2d): gp_Hypr2d {.noSideEffect, cdecl,
                                       importcpp: "OtherBranch", header: "gp_Hypr2d.hxx".}
 proc parameter*(this: gp_Hypr2d): cfloat {.noSideEffect, cdecl, importcpp: "Parameter",
                                     header: "gp_Hypr2d.hxx".}
-proc axis*(this: gp_Hypr2d): Ax22dObj {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Hypr2d.hxx".}
-proc xAxis*(this: gp_Hypr2d): Ax2dObj {.noSideEffect, cdecl, importcpp: "XAxis",
+proc axis*(this: gp_Hypr2d): gp_Ax22d {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Hypr2d.hxx".}
+proc xAxis*(this: gp_Hypr2d): gp_Ax2d {.noSideEffect, cdecl, importcpp: "XAxis",
                               header: "gp_Hypr2d.hxx".}
-proc yAxis*(this: gp_Hypr2d): Ax2dObj {.noSideEffect, cdecl, importcpp: "YAxis",
+proc yAxis*(this: gp_Hypr2d): gp_Ax2d {.noSideEffect, cdecl, importcpp: "YAxis",
                               header: "gp_Hypr2d.hxx".}
 proc reverse*(this: var gp_Hypr2d) {.cdecl, importcpp: "Reverse", header: "gp_Hypr2d.hxx".}
 proc reversed*(this: gp_Hypr2d): gp_Hypr2d {.noSideEffect, cdecl, importcpp: "Reversed",
@@ -84,8 +84,8 @@ proc isDirect*(this: gp_Hypr2d): bool {.noSideEffect, cdecl, importcpp: "IsDirec
 proc mirror*(this: var gp_Hypr2d; p: gp_Pnt2d) {.cdecl, importcpp: "Mirror", header: "gp_Hypr2d.hxx".}
 proc mirrored*(this: gp_Hypr2d; p: gp_Pnt2d): gp_Hypr2d {.noSideEffect, cdecl,
     importcpp: "Mirrored", header: "gp_Hypr2d.hxx".}
-proc mirror*(this: var gp_Hypr2d; a: Ax2dObj) {.cdecl, importcpp: "Mirror", header: "gp_Hypr2d.hxx".}
-proc mirrored*(this: gp_Hypr2d; a: Ax2dObj): gp_Hypr2d {.noSideEffect, cdecl,
+proc mirror*(this: var gp_Hypr2d; a: gp_Ax2d) {.cdecl, importcpp: "Mirror", header: "gp_Hypr2d.hxx".}
+proc mirrored*(this: gp_Hypr2d; a: gp_Ax2d): gp_Hypr2d {.noSideEffect, cdecl,
     importcpp: "Mirrored", header: "gp_Hypr2d.hxx".}
 proc rotate*(this: var gp_Hypr2d; p: gp_Pnt2d; ang: cfloat) {.cdecl, importcpp: "Rotate",
     header: "gp_Hypr2d.hxx".}
@@ -95,9 +95,9 @@ proc scale*(this: var gp_Hypr2d; p: gp_Pnt2d; s: cfloat) {.cdecl, importcpp: "Sc
     header: "gp_Hypr2d.hxx".}
 proc scaled*(this: gp_Hypr2d; p: gp_Pnt2d; s: cfloat): gp_Hypr2d {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Hypr2d.hxx".}
-proc transform*(this: var gp_Hypr2d; t: Trsf2dObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var gp_Hypr2d; t: gp_Trsf2d) {.cdecl, importcpp: "Transform",
     header: "gp_Hypr2d.hxx".}
-proc transformed*(this: gp_Hypr2d; t: Trsf2dObj): gp_Hypr2d {.noSideEffect, cdecl,
+proc transformed*(this: gp_Hypr2d; t: gp_Trsf2d): gp_Hypr2d {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Hypr2d.hxx".}
 proc translate*(this: var gp_Hypr2d; v: gp_Vec2d) {.cdecl, importcpp: "Translate",
                                         header: "gp_Hypr2d.hxx".}

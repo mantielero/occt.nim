@@ -81,7 +81,7 @@ proc setDeflection*(this: var PolyCoherentTriangulation; theDefl: cfloat) {.cdec
     importcpp: "SetDeflection", header: "Poly_CoherentTriangulation.hxx".}
 proc deflection*(this: PolyCoherentTriangulation): cfloat {.noSideEffect, cdecl,
     importcpp: "Deflection", header: "Poly_CoherentTriangulation.hxx".}
-proc setNode*(this: var PolyCoherentTriangulation; thePnt: XyzObj; `iN`: cint = -1): cint {.
+proc setNode*(this: var PolyCoherentTriangulation; thePnt: gp_Xyz; `iN`: cint = -1): cint {.
     cdecl, importcpp: "SetNode", header: "Poly_CoherentTriangulation.hxx".}
 proc node*(this: PolyCoherentTriangulation; i: cint): PolyCoherentNode {.noSideEffect,
     cdecl, importcpp: "Node", header: "Poly_CoherentTriangulation.hxx".}

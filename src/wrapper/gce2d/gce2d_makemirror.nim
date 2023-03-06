@@ -27,11 +27,11 @@ import gce2d_types
 
 proc newGCE2dMakeMirror*(point: gp_Pnt2d): GCE2dMakeMirror {.cdecl, constructor,
     importcpp: "GCE2d_MakeMirror(@)", header: "GCE2d_MakeMirror.hxx".}
-proc newGCE2dMakeMirror*(axis: Ax2dObj): GCE2dMakeMirror {.cdecl, constructor,
+proc newGCE2dMakeMirror*(axis: gp_Ax2d): GCE2dMakeMirror {.cdecl, constructor,
     importcpp: "GCE2d_MakeMirror(@)", header: "GCE2d_MakeMirror.hxx".}
 proc newGCE2dMakeMirror*(line: gp_Lin2d): GCE2dMakeMirror {.cdecl, constructor,
     importcpp: "GCE2d_MakeMirror(@)", header: "GCE2d_MakeMirror.hxx".}
-proc newGCE2dMakeMirror*(point: gp_Pnt2d; direc: Dir2dObj): GCE2dMakeMirror {.cdecl,
+proc newGCE2dMakeMirror*(point: gp_Pnt2d; direc: gp_Dir2d): GCE2dMakeMirror {.cdecl,
     constructor, importcpp: "GCE2d_MakeMirror(@)", header: "GCE2d_MakeMirror.hxx".}
 proc value*(this: GCE2dMakeMirror): Handle[Geom2dTransformation] {.noSideEffect,
     cdecl, importcpp: "Value", header: "GCE2d_MakeMirror.hxx".}

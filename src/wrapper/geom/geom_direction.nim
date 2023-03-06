@@ -30,15 +30,15 @@ import geom_types
 
 proc newGeomDirection*(x: cfloat; y: cfloat; z: cfloat): GeomDirection {.cdecl,
     constructor, importcpp: "Geom_Direction(@)", header: "Geom_Direction.hxx".}
-proc newGeomDirection*(v: DirObj): GeomDirection {.cdecl, constructor,
+proc newGeomDirection*(v: gp_Dir): GeomDirection {.cdecl, constructor,
     importcpp: "Geom_Direction(@)", header: "Geom_Direction.hxx".}
 proc setCoord*(this: var GeomDirection; x: cfloat; y: cfloat; z: cfloat) {.cdecl,
     importcpp: "SetCoord", header: "Geom_Direction.hxx".}
-proc setDir*(this: var GeomDirection; v: DirObj) {.cdecl, importcpp: "SetDir", header: "Geom_Direction.hxx".}
+proc setDir*(this: var GeomDirection; v: gp_Dir) {.cdecl, importcpp: "SetDir", header: "Geom_Direction.hxx".}
 proc setX*(this: var GeomDirection; x: cfloat) {.cdecl, importcpp: "SetX", header: "Geom_Direction.hxx".}
 proc setY*(this: var GeomDirection; y: cfloat) {.cdecl, importcpp: "SetY", header: "Geom_Direction.hxx".}
 proc setZ*(this: var GeomDirection; z: cfloat) {.cdecl, importcpp: "SetZ", header: "Geom_Direction.hxx".}
-proc dir*(this: GeomDirection): DirObj {.noSideEffect, cdecl, importcpp: "Dir",
+proc dir*(this: GeomDirection): gp_Dir {.noSideEffect, cdecl, importcpp: "Dir",
                                   header: "Geom_Direction.hxx".}
 proc magnitude*(this: GeomDirection): cfloat {.noSideEffect, cdecl,
     importcpp: "Magnitude", header: "Geom_Direction.hxx".}

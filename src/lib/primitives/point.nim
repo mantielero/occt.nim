@@ -15,7 +15,7 @@ type
 
 
 type
-  Point* = gp_Pnt | XyzObj | DirObj  | gp_Vec  
+  Point* = gp_Pnt | gp_Xyz | gp_Dir  | gp_Vec  
 
 
 proc x*[T:Point](p:T):float =
@@ -44,7 +44,7 @@ proc `$`*(pnt:gp_Pnt):string =
 proc `$`*(pnt:gp_Vec):string =
   &"Vec(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 
-proc `$`*(pnt:XyzObj):string =
+proc `$`*(pnt:gp_Xyz):string =
   &"Xyz(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 
 proc `[]`*[P:Point, I:SomeInteger](pnt:P, idx:I):float =
@@ -63,7 +63,7 @@ proc set*[P:Point, X,Y,Z:SomeNumber](pnt:var P, x:X, y:Y, z:Z) =
   pnt.setCoord(x.cfloat, y.cfloat, z.cfloat)
 
 #------
-proc dir*[A,B,C:SomeNumber](x:A,y:B,z:C):DirObj = 
+proc dir*[A,B,C:SomeNumber](x:A,y:B,z:C):gp_Dir = 
   dir(x.cfloat, y.cfloat, z.cfloat)
 
 

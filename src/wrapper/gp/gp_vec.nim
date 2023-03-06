@@ -27,8 +27,8 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Trsf"
 
 proc vec*(): gp_Vec {.cdecl, constructor, importcpp: "gp_Vec(@)", header: "gp_Vec.hxx".}
-proc vec*(v: DirObj): gp_Vec {.cdecl, constructor, importcpp: "gp_Vec(@)", header: "gp_Vec.hxx".}
-proc vec*(coord: XyzObj): gp_Vec {.cdecl, constructor, importcpp: "gp_Vec(@)",
+proc vec*(v: gp_Dir): gp_Vec {.cdecl, constructor, importcpp: "gp_Vec(@)", header: "gp_Vec.hxx".}
+proc vec*(coord: gp_Xyz): gp_Vec {.cdecl, constructor, importcpp: "gp_Vec(@)",
                             header: "gp_Vec.hxx".}
 proc vec*(xv: cfloat; yv: cfloat; zv: cfloat): gp_Vec {.cdecl, constructor,
     importcpp: "gp_Vec(@)", header: "gp_Vec.hxx".}
@@ -41,7 +41,7 @@ proc setCoord*(this: var gp_Vec; xv: cfloat; yv: cfloat; zv: cfloat) {.cdecl,
 proc setX*(this: var gp_Vec; x: cfloat) {.cdecl, importcpp: "SetX", header: "gp_Vec.hxx".}
 proc setY*(this: var gp_Vec; y: cfloat) {.cdecl, importcpp: "SetY", header: "gp_Vec.hxx".}
 proc setZ*(this: var gp_Vec; z: cfloat) {.cdecl, importcpp: "SetZ", header: "gp_Vec.hxx".}
-proc setXYZ*(this: var gp_Vec; coord: XyzObj) {.cdecl, importcpp: "SetXYZ", header: "gp_Vec.hxx".}
+proc setXYZ*(this: var gp_Vec; coord: gp_Xyz) {.cdecl, importcpp: "SetXYZ", header: "gp_Vec.hxx".}
 proc coord*(this: gp_Vec; index: cint): cfloat {.noSideEffect, cdecl, importcpp: "Coord",
                                         header: "gp_Vec.hxx".}
 proc coord*(this: gp_Vec; xv: var cfloat; yv: var cfloat; zv: var cfloat) {.noSideEffect, cdecl,
@@ -49,7 +49,7 @@ proc coord*(this: gp_Vec; xv: var cfloat; yv: var cfloat; zv: var cfloat) {.noSi
 proc x*(this: gp_Vec): cfloat {.noSideEffect, cdecl, importcpp: "X", header: "gp_Vec.hxx".}
 proc y*(this: gp_Vec): cfloat {.noSideEffect, cdecl, importcpp: "Y", header: "gp_Vec.hxx".}
 proc z*(this: gp_Vec): cfloat {.noSideEffect, cdecl, importcpp: "Z", header: "gp_Vec.hxx".}
-proc xyz*(this: gp_Vec): XyzObj {.noSideEffect, cdecl, importcpp: "XYZ", header: "gp_Vec.hxx".}
+proc xyz*(this: gp_Vec): gp_Xyz {.noSideEffect, cdecl, importcpp: "XYZ", header: "gp_Vec.hxx".}
 proc isEqual*(this: gp_Vec; other: gp_Vec; linearTolerance: cfloat; angularTolerance: cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsEqual", header: "gp_Vec.hxx".}
 proc isNormal*(this: gp_Vec; other: gp_Vec; angularTolerance: cfloat): bool {.noSideEffect,
@@ -135,15 +135,15 @@ proc setLinearForm*(this: var gp_Vec; v1: gp_Vec; v2: gp_Vec) {.cdecl, importcpp
 proc mirror*(this: var gp_Vec; v: gp_Vec) {.cdecl, importcpp: "Mirror", header: "gp_Vec.hxx".}
 proc mirrored*(this: gp_Vec; v: gp_Vec): gp_Vec {.noSideEffect, cdecl, importcpp: "Mirrored",
                                    header: "gp_Vec.hxx".}
-proc mirror*(this: var gp_Vec; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Vec.hxx".}
-proc mirrored*(this: gp_Vec; a1: Ax1Obj): gp_Vec {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var gp_Vec; a1: gp_Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Vec.hxx".}
+proc mirrored*(this: gp_Vec; a1: gp_Ax1): gp_Vec {.noSideEffect, cdecl, importcpp: "Mirrored",
                                     header: "gp_Vec.hxx".}
-proc mirror*(this: var gp_Vec; a2: Ax2Obj) {.cdecl, importcpp: "Mirror", header: "gp_Vec.hxx".}
-proc mirrored*(this: gp_Vec; a2: Ax2Obj): gp_Vec {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var gp_Vec; a2: gp_Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Vec.hxx".}
+proc mirrored*(this: gp_Vec; a2: gp_Ax2): gp_Vec {.noSideEffect, cdecl, importcpp: "Mirrored",
                                     header: "gp_Vec.hxx".}
-proc rotate*(this: var gp_Vec; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rotate",
+proc rotate*(this: var gp_Vec; a1: gp_Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
     header: "gp_Vec.hxx".}
-proc rotated*(this: gp_Vec; a1: Ax1Obj; ang: cfloat): gp_Vec {.noSideEffect, cdecl,
+proc rotated*(this: gp_Vec; a1: gp_Ax1; ang: cfloat): gp_Vec {.noSideEffect, cdecl,
     importcpp: "Rotated", header: "gp_Vec.hxx".}
 proc scale*(this: var gp_Vec; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Vec.hxx".}
 proc scaled*(this: gp_Vec; s: cfloat): gp_Vec {.noSideEffect, cdecl, importcpp: "Scaled",

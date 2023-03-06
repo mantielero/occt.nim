@@ -28,10 +28,10 @@ import ../standard/standard_types
 
 proc newGeom2dEllipse*(e: gp_Elips2d): Geom2dEllipse {.cdecl, constructor,
     importcpp: "Geom2d_Ellipse(@)", header: "Geom2d_Ellipse.hxx".}
-proc newGeom2dEllipse*(majorAxis: Ax2dObj; majorRadius: cfloat; minorRadius: cfloat;
+proc newGeom2dEllipse*(majorAxis: gp_Ax2d; majorRadius: cfloat; minorRadius: cfloat;
                       sense: bool = true): Geom2dEllipse {.cdecl, constructor,
     importcpp: "Geom2d_Ellipse(@)", header: "Geom2d_Ellipse.hxx".}
-proc newGeom2dEllipse*(axis: Ax22dObj; majorRadius: cfloat; minorRadius: cfloat): Geom2dEllipse {.
+proc newGeom2dEllipse*(axis: gp_Ax22d; majorRadius: cfloat; minorRadius: cfloat): Geom2dEllipse {.
     cdecl, constructor, importcpp: "Geom2d_Ellipse(@)", header: "Geom2d_Ellipse.hxx".}
     
 proc setElips2d*(this: var Geom2dEllipse; e: gp_Elips2d) {.cdecl, importcpp: "SetElips2d",
@@ -44,9 +44,9 @@ proc elips2d*(this: Geom2dEllipse): gp_Elips2d {.noSideEffect, cdecl,
     importcpp: "Elips2d", header: "Geom2d_Ellipse.hxx".}
 proc reversedParameter*(this: Geom2dEllipse; u: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "ReversedParameter", header: "Geom2d_Ellipse.hxx".}
-proc directrix1*(this: Geom2dEllipse): Ax2dObj {.noSideEffect, cdecl,
+proc directrix1*(this: Geom2dEllipse): gp_Ax2d {.noSideEffect, cdecl,
     importcpp: "Directrix1", header: "Geom2d_Ellipse.hxx".}
-proc directrix2*(this: Geom2dEllipse): Ax2dObj {.noSideEffect, cdecl,
+proc directrix2*(this: Geom2dEllipse): gp_Ax2d {.noSideEffect, cdecl,
     importcpp: "Directrix2", header: "Geom2d_Ellipse.hxx".}
 proc eccentricity*(this: Geom2dEllipse): cfloat {.noSideEffect, cdecl,
     importcpp: "Eccentricity", header: "Geom2d_Ellipse.hxx".}
@@ -80,7 +80,7 @@ proc d3*(this: Geom2dEllipse; u: cfloat; p: var gp_Pnt2d; v1: var gp_Vec2d; v2: 
         v3: var gp_Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_Ellipse.hxx".}
 proc dn*(this: Geom2dEllipse; u: cfloat; n: cint): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom2d_Ellipse.hxx".}
-proc transform*(this: var Geom2dEllipse; t: Trsf2dObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var Geom2dEllipse; t: gp_Trsf2d) {.cdecl, importcpp: "Transform",
     header: "Geom2d_Ellipse.hxx".}
 proc copy*(this: Geom2dEllipse): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom2d_Ellipse.hxx".}

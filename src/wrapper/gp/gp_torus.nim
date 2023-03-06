@@ -27,28 +27,28 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 
 proc torus*(): gp_Torus {.cdecl, constructor, importcpp: "gp_Torus(@)", header: "gp_Torus.hxx".}
-proc torus*(a3: Ax3Obj; majorRadius: cfloat; minorRadius: cfloat): gp_Torus {.cdecl,
+proc torus*(a3: gp_Ax3; majorRadius: cfloat; minorRadius: cfloat): gp_Torus {.cdecl,
     constructor, importcpp: "gp_Torus(@)", header: "gp_Torus.hxx".}
-proc setAxis*(this: var gp_Torus; a1: Ax1Obj) {.cdecl, importcpp: "SetAxis", header: "gp_Torus.hxx".}
+proc setAxis*(this: var gp_Torus; a1: gp_Ax1) {.cdecl, importcpp: "SetAxis", header: "gp_Torus.hxx".}
 proc setLocation*(this: var gp_Torus; loc: gp_Pnt) {.cdecl, importcpp: "SetLocation",
     header: "gp_Torus.hxx".}
 proc setMajorRadius*(this: var gp_Torus; majorRadius: cfloat) {.cdecl,
     importcpp: "SetMajorRadius", header: "gp_Torus.hxx".}
 proc setMinorRadius*(this: var gp_Torus; minorRadius: cfloat) {.cdecl,
     importcpp: "SetMinorRadius", header: "gp_Torus.hxx".}
-proc setPosition*(this: var gp_Torus; a3: Ax3Obj) {.cdecl, importcpp: "SetPosition",
+proc setPosition*(this: var gp_Torus; a3: gp_Ax3) {.cdecl, importcpp: "SetPosition",
                                         header: "gp_Torus.hxx".}
 proc area*(this: gp_Torus): cfloat {.noSideEffect, cdecl, importcpp: "Area", header: "gp_Torus.hxx".}
 proc uReverse*(this: var gp_Torus) {.cdecl, importcpp: "UReverse", header: "gp_Torus.hxx".}
 proc vReverse*(this: var gp_Torus) {.cdecl, importcpp: "VReverse", header: "gp_Torus.hxx".}
 proc direct*(this: gp_Torus): bool {.noSideEffect, cdecl, importcpp: "Direct",
                               header: "gp_Torus.hxx".}
-proc axis*(this: gp_Torus): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Torus.hxx".}
+proc axis*(this: gp_Torus): gp_Ax1 {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Torus.hxx".}
 proc coefficients*(this: gp_Torus; coef: var TColStdArray1OfReal) {.noSideEffect, cdecl,
     importcpp: "Coefficients", header: "gp_Torus.hxx".}
 proc location*(this: gp_Torus): gp_Pnt {.noSideEffect, cdecl, importcpp: "Location",
                                header: "gp_Torus.hxx".}
-proc position*(this: gp_Torus): Ax3Obj {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: gp_Torus): gp_Ax3 {.noSideEffect, cdecl, importcpp: "Position",
                                header: "gp_Torus.hxx".}
 proc majorRadius*(this: gp_Torus): cfloat {.noSideEffect, cdecl,
                                      importcpp: "MajorRadius", header: "gp_Torus.hxx".}
@@ -56,20 +56,20 @@ proc minorRadius*(this: gp_Torus): cfloat {.noSideEffect, cdecl,
                                      importcpp: "MinorRadius", header: "gp_Torus.hxx".}
 proc volume*(this: gp_Torus): cfloat {.noSideEffect, cdecl, importcpp: "Volume",
                                 header: "gp_Torus.hxx".}
-proc xAxis*(this: gp_Torus): Ax1Obj {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Torus.hxx".}
-proc yAxis*(this: gp_Torus): Ax1Obj {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Torus.hxx".}
+proc xAxis*(this: gp_Torus): gp_Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Torus.hxx".}
+proc yAxis*(this: gp_Torus): gp_Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Torus.hxx".}
 proc mirror*(this: var gp_Torus; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Torus.hxx".}
 proc mirrored*(this: gp_Torus; p: gp_Pnt): gp_Torus {.noSideEffect, cdecl, importcpp: "Mirrored",
                                        header: "gp_Torus.hxx".}
-proc mirror*(this: var gp_Torus; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Torus.hxx".}
-proc mirrored*(this: gp_Torus; a1: Ax1Obj): gp_Torus {.noSideEffect, cdecl,
+proc mirror*(this: var gp_Torus; a1: gp_Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Torus.hxx".}
+proc mirrored*(this: gp_Torus; a1: gp_Ax1): gp_Torus {.noSideEffect, cdecl,
                                         importcpp: "Mirrored", header: "gp_Torus.hxx".}
-proc mirror*(this: var gp_Torus; a2: Ax2Obj) {.cdecl, importcpp: "Mirror", header: "gp_Torus.hxx".}
-proc mirrored*(this: gp_Torus; a2: Ax2Obj): gp_Torus {.noSideEffect, cdecl,
+proc mirror*(this: var gp_Torus; a2: gp_Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Torus.hxx".}
+proc mirrored*(this: gp_Torus; a2: gp_Ax2): gp_Torus {.noSideEffect, cdecl,
                                         importcpp: "Mirrored", header: "gp_Torus.hxx".}
-proc rotate*(this: var gp_Torus; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rotate",
+proc rotate*(this: var gp_Torus; a1: gp_Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
     header: "gp_Torus.hxx".}
-proc rotated*(this: gp_Torus; a1: Ax1Obj; ang: cfloat): gp_Torus {.noSideEffect, cdecl,
+proc rotated*(this: gp_Torus; a1: gp_Ax1; ang: cfloat): gp_Torus {.noSideEffect, cdecl,
     importcpp: "Rotated", header: "gp_Torus.hxx".}
 proc scale*(this: var gp_Torus; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Torus.hxx".}
 proc scaled*(this: gp_Torus; p: gp_Pnt; s: cfloat): gp_Torus {.noSideEffect, cdecl,

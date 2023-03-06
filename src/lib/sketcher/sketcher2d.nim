@@ -121,7 +121,7 @@ proc closeWithMirror*(skt: Sketch2dRef): TopoDS_Wire {.discardable.} =
                                         pnt2d(skt.points[skt.points.high]) )
   v.normalize
 
-  #newGCE2dMakeMirror*(axis: Ax2dObj): GCE2dMakeMirror
+  #newGCE2dMakeMirror*(axis: gp_Ax2d): GCE2dMakeMirror
 
 
 
@@ -305,7 +305,7 @@ proc fillet*(aBody: TopoDS_Shape; radius: SomeNumber): TopoDS_Shape {.discardabl
 
 proc cylinder*[R,H: SomeNumber]( radius: R; height: H;
                                  position: gp_Pnt;
-                                 axis: DirObj): TopoDS_Shape =
+                                 axis: gp_Dir): TopoDS_Shape =
   let cylAx2 = ax2(position, axis) 
   return cylinder(cylAx2, radius.float, height.float).shape()
 

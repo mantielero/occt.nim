@@ -119,7 +119,7 @@ proc section*(this: var BlendFuncConstRad; p: BlendPoint;
              poles: var TColgpArray1OfPnt; poles2d: var TColgpArray1OfPnt2d;
              weigths: var TColStdArray1OfReal) {.cdecl, importcpp: "Section",
     header: "BlendFunc_ConstRad.hxx".}
-proc axeRot*(this: var BlendFuncConstRad; prm: cfloat): Ax1Obj {.cdecl,
+proc axeRot*(this: var BlendFuncConstRad; prm: cfloat): gp_Ax1 {.cdecl,
     importcpp: "AxeRot", header: "BlendFunc_ConstRad.hxx".}
 proc resolution*(this: BlendFuncConstRad; iC2d: cint; tol: cfloat; tolU: var cfloat;
                 tolV: var cfloat) {.noSideEffect, cdecl, importcpp: "Resolution",

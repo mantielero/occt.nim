@@ -28,7 +28,7 @@ import ../geom/geom_types
 proc circle*(c: gp_Circ): MakeCircle {.cdecl, constructor,
                                        importcpp: "GC_MakeCircle(@)",
                                        header: "GC_MakeCircle.hxx".}
-proc circle*(a2: Ax2Obj; radius: cfloat): MakeCircle {.cdecl, constructor,
+proc circle*(a2: gp_Ax2; radius: cfloat): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
 proc circle*(circ: gp_Circ; dist: cfloat): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
@@ -36,11 +36,11 @@ proc circle*(circ: gp_Circ; point: gp_Pnt): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
 proc circle*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc circle*(center: gp_Pnt; norm: DirObj; radius: cfloat): MakeCircle {.cdecl,
+proc circle*(center: gp_Pnt; norm: gp_Dir; radius: cfloat): MakeCircle {.cdecl,
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
 proc circle*(center: gp_Pnt; ptAxis: gp_Pnt; radius: cfloat): MakeCircle {.cdecl,
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc circle*(axis: Ax1Obj; radius: cfloat): MakeCircle {.cdecl, constructor,
+proc circle*(axis: gp_Ax1; radius: cfloat): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
 proc value*(this: MakeCircle): Handle[GeomCircle] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeCircle.hxx".}

@@ -29,7 +29,7 @@ import ../tcolstd/tcolstd_types
 
 
 
-proc newGeomToroidalSurface*(a3: Ax3Obj; majorRadius: cfloat; minorRadius: cfloat): GeomToroidalSurface {.
+proc newGeomToroidalSurface*(a3: gp_Ax3; majorRadius: cfloat; minorRadius: cfloat): GeomToroidalSurface {.
     cdecl, constructor, importcpp: "Geom_ToroidalSurface(@)", header: "Geom_ToroidalSurface.hxx".}
 proc newGeomToroidalSurface*(t: gp_Torus): GeomToroidalSurface {.cdecl, constructor,
     importcpp: "Geom_ToroidalSurface(@)", header: "Geom_ToroidalSurface.hxx".}

@@ -36,11 +36,11 @@ proc lights*(this: Graphic3dZLayerSettings): Handle[Graphic3dLightSet] {.
 proc setLights*(this: var Graphic3dZLayerSettings;
                theLights: Handle[Graphic3dLightSet]) {.cdecl,
     importcpp: "SetLights", header: "Graphic3d_ZLayerSettings.hxx".}
-proc origin*(this: Graphic3dZLayerSettings): XyzObj {.noSideEffect, cdecl,
+proc origin*(this: Graphic3dZLayerSettings): gp_Xyz {.noSideEffect, cdecl,
     importcpp: "Origin", header: "Graphic3d_ZLayerSettings.hxx".}
 proc originTransformation*(this: Graphic3dZLayerSettings): Handle[TopLocDatum3D] {.
     noSideEffect, cdecl, importcpp: "OriginTransformation", header: "Graphic3d_ZLayerSettings.hxx".}
-proc setOrigin*(this: var Graphic3dZLayerSettings; theOrigin: XyzObj) {.cdecl,
+proc setOrigin*(this: var Graphic3dZLayerSettings; theOrigin: gp_Xyz) {.cdecl,
     importcpp: "SetOrigin", header: "Graphic3d_ZLayerSettings.hxx".}
 proc hasCullingDistance*(this: Graphic3dZLayerSettings): bool {.noSideEffect, cdecl,
     importcpp: "HasCullingDistance", header: "Graphic3d_ZLayerSettings.hxx".}

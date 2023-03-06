@@ -34,7 +34,7 @@ proc x*(this: Geom2dCartesianPoint): cfloat {.noSideEffect, cdecl, importcpp: "X
 proc y*(this: Geom2dCartesianPoint): cfloat {.noSideEffect, cdecl, importcpp: "Y",
     header: "Geom2d_CartesianPoint.hxx".}
 
-proc transform*(this: var Geom2dCartesianPoint; t: Trsf2dObj) {.cdecl,
+proc transform*(this: var Geom2dCartesianPoint; t: gp_Trsf2d) {.cdecl,
     importcpp: "Transform", header: "Geom2d_CartesianPoint.hxx".}
 
 proc copy*(this: Geom2dCartesianPoint): Handle[Geom2dGeometry] {.noSideEffect, cdecl,

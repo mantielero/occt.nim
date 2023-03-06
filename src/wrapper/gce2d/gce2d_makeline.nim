@@ -25,11 +25,11 @@ import gce2d_types
 
 
 
-proc newGCE2dMakeLine*(a: Ax2dObj): GCE2dMakeLine {.cdecl, constructor,
+proc newGCE2dMakeLine*(a: gp_Ax2d): GCE2dMakeLine {.cdecl, constructor,
     importcpp: "GCE2d_MakeLine(@)", header: "GCE2d_MakeLine.hxx".}
 proc newGCE2dMakeLine*(L: gp_Lin2d): GCE2dMakeLine {.cdecl, constructor,
     importcpp: "GCE2d_MakeLine(@)", header: "GCE2d_MakeLine.hxx".}
-proc newGCE2dMakeLine*(p: gp_Pnt2d; v: Dir2dObj): GCE2dMakeLine {.cdecl, constructor,
+proc newGCE2dMakeLine*(p: gp_Pnt2d; v: gp_Dir2d): GCE2dMakeLine {.cdecl, constructor,
     importcpp: "GCE2d_MakeLine(@)", header: "GCE2d_MakeLine.hxx".}
 proc newGCE2dMakeLine*(lin: gp_Lin2d; point: gp_Pnt2d): GCE2dMakeLine {.cdecl, constructor,
     importcpp: "GCE2d_MakeLine(@)", header: "GCE2d_MakeLine.hxx".}

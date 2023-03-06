@@ -109,7 +109,7 @@ proc section*(this: var BlendFuncRuled; p: BlendPoint; poles: var TColgpArray1Of
 proc section*(this: var BlendFuncRuled; p: BlendPoint; poles: var TColgpArray1OfPnt;
              poles2d: var TColgpArray1OfPnt2d; weigths: var TColStdArray1OfReal) {.
     cdecl, importcpp: "Section", header: "BlendFunc_Ruled.hxx".}
-proc axeRot*(this: var BlendFuncRuled; prm: cfloat): Ax1Obj {.cdecl, importcpp: "AxeRot",
+proc axeRot*(this: var BlendFuncRuled; prm: cfloat): gp_Ax1 {.cdecl, importcpp: "AxeRot",
     header: "BlendFunc_Ruled.hxx".}
 proc resolution*(this: BlendFuncRuled; iC2d: cint; tol: cfloat; tolU: var cfloat;
                 tolV: var cfloat) {.noSideEffect, cdecl, importcpp: "Resolution",

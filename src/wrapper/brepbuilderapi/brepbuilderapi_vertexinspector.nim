@@ -28,11 +28,11 @@ import ../gp/gp_types
 proc vertexInspector*(theTol: cfloat): BRepBuilderAPI_VertexInspector {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_VertexInspector(@)",
     header: "BRepBuilderAPI_VertexInspector.hxx".}
-proc add*(this: var BRepBuilderAPI_VertexInspector; thePnt: XyzObj) {.cdecl,
+proc add*(this: var BRepBuilderAPI_VertexInspector; thePnt: gp_Xyz) {.cdecl,
     importcpp: "Add", header: "BRepBuilderAPI_VertexInspector.hxx".}
 proc clearResList*(this: var BRepBuilderAPI_VertexInspector) {.cdecl,
     importcpp: "ClearResList", header: "BRepBuilderAPI_VertexInspector.hxx".}
-proc setCurrent*(this: var BRepBuilderAPI_VertexInspector; theCurPnt: XyzObj) {.cdecl,
+proc setCurrent*(this: var BRepBuilderAPI_VertexInspector; theCurPnt: gp_Xyz) {.cdecl,
     importcpp: "SetCurrent", header: "BRepBuilderAPI_VertexInspector.hxx".}
 proc resInd*(this: var BRepBuilderAPI_VertexInspector): TColStdListOfInteger {.cdecl,
     importcpp: "ResInd", header: "BRepBuilderAPI_VertexInspector.hxx".}

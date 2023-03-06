@@ -28,7 +28,7 @@ import ../standard/standard_types
 
 proc mirror*(this: var Geom2dGeometry; p: gp_Pnt2d) {.cdecl, importcpp: "Mirror",
     header: "Geom2d_Geometry.hxx".}
-proc mirror*(this: var Geom2dGeometry; a: Ax2dObj) {.cdecl, importcpp: "Mirror",
+proc mirror*(this: var Geom2dGeometry; a: gp_Ax2d) {.cdecl, importcpp: "Mirror",
     header: "Geom2d_Geometry.hxx".}
 proc rotate*(this: var Geom2dGeometry; p: gp_Pnt2d; ang: cfloat) {.cdecl,
     importcpp: "Rotate", header: "Geom2d_Geometry.hxx".}
@@ -38,17 +38,17 @@ proc translate*(this: var Geom2dGeometry; v: gp_Vec2d) {.cdecl, importcpp: "Tran
     header: "Geom2d_Geometry.hxx".}
 proc translate*(this: var Geom2dGeometry; p1: gp_Pnt2d; p2: gp_Pnt2d) {.cdecl,
     importcpp: "Translate", header: "Geom2d_Geometry.hxx".}
-proc transform*(this: var Geom2dGeometry; t: Trsf2dObj) {.cdecl, importcpp: "Transform",
+proc transform*(this: var Geom2dGeometry; t: gp_Trsf2d) {.cdecl, importcpp: "Transform",
     header: "Geom2d_Geometry.hxx".}
 proc mirrored*(this: Geom2dGeometry; p: gp_Pnt2d): Handle[Geom2dGeometry] {.noSideEffect,
     cdecl, importcpp: "Mirrored", header: "Geom2d_Geometry.hxx".}
-proc mirrored*(this: Geom2dGeometry; a: Ax2dObj): Handle[Geom2dGeometry] {.noSideEffect,
+proc mirrored*(this: Geom2dGeometry; a: gp_Ax2d): Handle[Geom2dGeometry] {.noSideEffect,
     cdecl, importcpp: "Mirrored", header: "Geom2d_Geometry.hxx".}
 proc rotated*(this: Geom2dGeometry; p: gp_Pnt2d; ang: cfloat): Handle[Geom2dGeometry] {.
     noSideEffect, cdecl, importcpp: "Rotated", header: "Geom2d_Geometry.hxx".}
 proc scaled*(this: Geom2dGeometry; p: gp_Pnt2d; s: cfloat): Handle[Geom2dGeometry] {.
     noSideEffect, cdecl, importcpp: "Scaled", header: "Geom2d_Geometry.hxx".}
-proc transformed*(this: Geom2dGeometry; t: Trsf2dObj): Handle[Geom2dGeometry] {.
+proc transformed*(this: Geom2dGeometry; t: gp_Trsf2d): Handle[Geom2dGeometry] {.
     noSideEffect, cdecl, importcpp: "Transformed", header: "Geom2d_Geometry.hxx".}
 proc translated*(this: Geom2dGeometry; v: gp_Vec2d): Handle[Geom2dGeometry] {.
     noSideEffect, cdecl, importcpp: "Translated", header: "Geom2d_Geometry.hxx".}

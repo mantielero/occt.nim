@@ -19,7 +19,7 @@ import opengl_types
 
 
 
-proc newOpenGlFlipper*(theReferenceSystem: Ax2Obj): OpenGlFlipper {.cdecl, constructor,
+proc newOpenGlFlipper*(theReferenceSystem: gp_Ax2): OpenGlFlipper {.cdecl, constructor,
     importcpp: "OpenGl_Flipper(@)", header: "OpenGl_Flipper.hxx".}
 proc setOptions*(this: var OpenGlFlipper; theIsEnabled: bool) {.cdecl,
     importcpp: "SetOptions", header: "OpenGl_Flipper.hxx".}

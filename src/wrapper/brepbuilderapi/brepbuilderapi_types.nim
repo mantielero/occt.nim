@@ -79,7 +79,7 @@ type
 
   BRepBuilderAPI_BndBoxTree* = NCollectionUBTree[cint, BndBox]
 
-  VectorOfPoint* = NCollectionVector[XyzObj]
+  VectorOfPoint* = NCollectionVector[gp_Xyz]
 
   BRepBuilderAPI_MakeShape* {.importcpp: "BRepBuilderAPI_MakeShape",
                              header: "BRepBuilderAPI_MakeShape.hxx", bycopy.} = object of BRepBuilderAPI_Command 

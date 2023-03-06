@@ -30,7 +30,7 @@ import geom_types
 
 proc newGeomEllipse*(e: gp_Elips): GeomEllipse {.cdecl, constructor,
     importcpp: "Geom_Ellipse(@)", header: "Geom_Ellipse.hxx".}
-proc newGeomEllipse*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): GeomEllipse {.
+proc newGeomEllipse*(a2: gp_Ax2; majorRadius: cfloat; minorRadius: cfloat): GeomEllipse {.
     cdecl, constructor, importcpp: "Geom_Ellipse(@)", header: "Geom_Ellipse.hxx".}
 proc setElips*(this: var GeomEllipse; e: gp_Elips) {.cdecl, importcpp: "SetElips",
     header: "Geom_Ellipse.hxx".}
@@ -42,9 +42,9 @@ proc elips*(this: GeomEllipse): gp_Elips {.noSideEffect, cdecl, importcpp: "Elip
                                     header: "Geom_Ellipse.hxx".}
 proc reversedParameter*(this: GeomEllipse; u: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "ReversedParameter", header: "Geom_Ellipse.hxx".}
-proc directrix1*(this: GeomEllipse): Ax1Obj {.noSideEffect, cdecl,
+proc directrix1*(this: GeomEllipse): gp_Ax1 {.noSideEffect, cdecl,
                                        importcpp: "Directrix1", header: "Geom_Ellipse.hxx".}
-proc directrix2*(this: GeomEllipse): Ax1Obj {.noSideEffect, cdecl,
+proc directrix2*(this: GeomEllipse): gp_Ax1 {.noSideEffect, cdecl,
                                        importcpp: "Directrix2", header: "Geom_Ellipse.hxx".}
 proc eccentricity*(this: GeomEllipse): cfloat {.noSideEffect, cdecl,
     importcpp: "Eccentricity", header: "Geom_Ellipse.hxx".}

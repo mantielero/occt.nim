@@ -41,11 +41,11 @@ proc setCustomValue*(this: var PrsDimDimension; theValue: TCollectionExtendedStr
     cdecl, importcpp: "SetCustomValue", header: "PrsDim_Dimension.hxx".}
 proc getCustomValue*(this: PrsDimDimension): TCollectionExtendedString {.
     noSideEffect, cdecl, importcpp: "GetCustomValue", header: "PrsDim_Dimension.hxx".}
-proc getPlane*(this: PrsDimDimension): PlnObj {.noSideEffect, cdecl,
+proc getPlane*(this: PrsDimDimension): gp_Pln {.noSideEffect, cdecl,
     importcpp: "GetPlane", header: "PrsDim_Dimension.hxx".}
 proc getGeometryType*(this: PrsDimDimension): cint {.noSideEffect, cdecl,
     importcpp: "GetGeometryType", header: "PrsDim_Dimension.hxx".}
-proc setCustomPlane*(this: var PrsDimDimension; thePlane: PlnObj) {.cdecl,
+proc setCustomPlane*(this: var PrsDimDimension; thePlane: gp_Pln) {.cdecl,
     importcpp: "SetCustomPlane", header: "PrsDim_Dimension.hxx".}
 proc unsetCustomPlane*(this: var PrsDimDimension) {.cdecl,
     importcpp: "UnsetCustomPlane", header: "PrsDim_Dimension.hxx".}

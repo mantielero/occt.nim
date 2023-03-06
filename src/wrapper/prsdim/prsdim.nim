@@ -77,11 +77,11 @@ proc computeGeomCurve*(aCurve: var Handle[GeomCurve]; first1: cfloat; last1: cfl
 proc computeGeometry*(aVertex: TopoDS_Vertex; point: var gp_Pnt;
                      aPlane: Handle[GeomPlane]; isOnPlane: var bool): bool {.cdecl,
     importcpp: "PrsDim::ComputeGeometry(@)", header: "PrsDim.hxx".}
-proc getPlaneFromFace*(aFace: TopoDS_Face; aPlane: var PlnObj;
+proc getPlaneFromFace*(aFace: TopoDS_Face; aPlane: var gp_Pln;
                       aSurf: var Handle[GeomSurface];
                       aSurfType: var PrsDimKindOfSurface; offset: var cfloat): bool {.
     cdecl, importcpp: "PrsDim::GetPlaneFromFace(@)", header: "PrsDim.hxx".}
-proc initFaceLength*(aFace: TopoDS_Face; aPlane: var PlnObj;
+proc initFaceLength*(aFace: TopoDS_Face; aPlane: var gp_Pln;
                     aSurface: var Handle[GeomSurface];
                     aSurfaceType: var PrsDimKindOfSurface; anOffset: var cfloat) {.
     cdecl, importcpp: "PrsDim::InitFaceLength(@)", header: "PrsDim.hxx".}
@@ -91,7 +91,7 @@ proc initLengthBetweenCurvilinearFaces*(theFirstFace: TopoDS_Face;
                                        theSecondSurf: var Handle[GeomSurface];
                                        theFirstAttach: var gp_Pnt;
                                        theSecondAttach: var gp_Pnt;
-                                       theDirOnPlane: var DirObj) {.cdecl,
+                                       theDirOnPlane: var gp_Dir) {.cdecl,
     importcpp: "PrsDim::InitLengthBetweenCurvilinearFaces(@)", header: "PrsDim.hxx".}
 proc initAngleBetweenPlanarFaces*(theFirstFace: TopoDS_Face;
                                  theSecondFace: TopoDS_Face; theCenter: var gp_Pnt;
@@ -106,11 +106,11 @@ proc initAngleBetweenCurvilinearFaces*(theFirstFace: TopoDS_Face;
                                       theSecondAttach: var gp_Pnt;
                                       theIsFirstPointSet: bool = false): bool {.
     cdecl, importcpp: "PrsDim::InitAngleBetweenCurvilinearFaces(@)", header: "PrsDim.hxx".}
-proc projectPointOnPlane*(aPoint: gp_Pnt; aPlane: PlnObj): gp_Pnt {.cdecl,
+proc projectPointOnPlane*(aPoint: gp_Pnt; aPlane: gp_Pln): gp_Pnt {.cdecl,
     importcpp: "PrsDim::ProjectPointOnPlane(@)", header: "PrsDim.hxx".}
 proc projectPointOnLine*(aPoint: gp_Pnt; aLine: gp_Lin): gp_Pnt {.cdecl,
     importcpp: "PrsDim::ProjectPointOnLine(@)", header: "PrsDim.hxx".}
-proc translatePointToBound*(aPoint: gp_Pnt; aDir: DirObj; aBndBox: BndBox): gp_Pnt {.cdecl,
+proc translatePointToBound*(aPoint: gp_Pnt; aDir: gp_Dir; aBndBox: BndBox): gp_Pnt {.cdecl,
     importcpp: "PrsDim::TranslatePointToBound(@)", header: "PrsDim.hxx".}
 proc inDomain*(aFirstPar: cfloat; aLastPar: cfloat; anAttachPar: cfloat): bool {.cdecl,
     importcpp: "PrsDim::InDomain(@)", header: "PrsDim.hxx".}

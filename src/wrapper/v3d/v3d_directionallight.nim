@@ -29,7 +29,7 @@ proc newV3dDirectionalLight*(theDirection: V3dTypeOfOrientation = v3dXposYposZpo
                             theColor: QuantityColor = newQuantityColor(quantityNOC_WHITE);
                             theIsHeadlight: bool = false): V3dDirectionalLight {.
     cdecl, constructor, importcpp: "V3d_DirectionalLight(@)", header: "V3d_DirectionalLight.hxx".}
-proc newV3dDirectionalLight*(theDirection: DirObj;
+proc newV3dDirectionalLight*(theDirection: gp_Dir;
                             theColor: QuantityColor = newQuantityColor(quantityNOC_WHITE);
                             theIsHeadlight: bool = false): V3dDirectionalLight {.
     cdecl, constructor, importcpp: "V3d_DirectionalLight(@)", header: "V3d_DirectionalLight.hxx".}

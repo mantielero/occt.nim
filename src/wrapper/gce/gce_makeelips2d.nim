@@ -23,10 +23,10 @@ import ../gp/gp_types
 
 
 
-proc newGceMakeElips2d*(majorAxis: Ax2dObj; majorRadius: cfloat; minorRadius: cfloat;
+proc newGceMakeElips2d*(majorAxis: gp_Ax2d; majorRadius: cfloat; minorRadius: cfloat;
                        sense: bool = true): GceMakeElips2d {.cdecl, constructor,
     importcpp: "gce_MakeElips2d(@)", header: "gce_MakeElips2d.hxx".}
-proc newGceMakeElips2d*(a: Ax22dObj; majorRadius: cfloat; minorRadius: cfloat): GceMakeElips2d {.
+proc newGceMakeElips2d*(a: gp_Ax22d; majorRadius: cfloat; minorRadius: cfloat): GceMakeElips2d {.
     cdecl, constructor, importcpp: "gce_MakeElips2d(@)", header: "gce_MakeElips2d.hxx".}
 proc newGceMakeElips2d*(s1: gp_Pnt2d; s2: gp_Pnt2d; center: gp_Pnt2d): GceMakeElips2d {.cdecl,
     constructor, importcpp: "gce_MakeElips2d(@)", header: "gce_MakeElips2d.hxx".}

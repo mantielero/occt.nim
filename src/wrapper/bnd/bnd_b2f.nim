@@ -23,17 +23,17 @@ discard "forward decl of gp_Ax2d"
 
 
 proc newBndB2f*(): BndB2f {.cdecl, constructor, importcpp: "Bnd_B2f(@)", header: "Bnd_B2f.hxx".}
-proc newBndB2f*(theCenter: XyObj; theHSize: XyObj): BndB2f {.cdecl, constructor,
+proc newBndB2f*(theCenter: gp_Xy; theHSize: gp_Xy): BndB2f {.cdecl, constructor,
     importcpp: "Bnd_B2f(@)", header: "Bnd_B2f.hxx".}
 proc isVoid*(this: BndB2f): bool {.noSideEffect, cdecl, importcpp: "IsVoid",
                                header: "Bnd_B2f.hxx".}
 proc clear*(this: var BndB2f) {.cdecl, importcpp: "Clear", header: "Bnd_B2f.hxx".}
-proc add*(this: var BndB2f; thePnt: XyObj) {.cdecl, importcpp: "Add", header: "Bnd_B2f.hxx".}
+proc add*(this: var BndB2f; thePnt: gp_Xy) {.cdecl, importcpp: "Add", header: "Bnd_B2f.hxx".}
 proc add*(this: var BndB2f; thePnt: gp_Pnt2d) {.cdecl, importcpp: "Add", header: "Bnd_B2f.hxx".}
 proc add*(this: var BndB2f; theBox: BndB2f) {.cdecl, importcpp: "Add", header: "Bnd_B2f.hxx".}
-proc cornerMin*(this: BndB2f): XyObj {.noSideEffect, cdecl, importcpp: "CornerMin",
+proc cornerMin*(this: BndB2f): gp_Xy {.noSideEffect, cdecl, importcpp: "CornerMin",
                                 header: "Bnd_B2f.hxx".}
-proc cornerMax*(this: BndB2f): XyObj {.noSideEffect, cdecl, importcpp: "CornerMax",
+proc cornerMax*(this: BndB2f): gp_Xy {.noSideEffect, cdecl, importcpp: "CornerMax",
                                 header: "Bnd_B2f.hxx".}
 proc squareExtent*(this: BndB2f): cfloat {.noSideEffect, cdecl,
                                        importcpp: "SquareExtent", header: "Bnd_B2f.hxx".}
@@ -41,28 +41,28 @@ proc enlarge*(this: var BndB2f; theDiff: cfloat) {.cdecl, importcpp: "Enlarge",
     header: "Bnd_B2f.hxx".}
 proc limit*(this: var BndB2f; theOtherBox: BndB2f): bool {.cdecl, importcpp: "Limit",
     header: "Bnd_B2f.hxx".}
-proc transformed*(this: BndB2f; theTrsf: Trsf2dObj): BndB2f {.noSideEffect, cdecl,
+proc transformed*(this: BndB2f; theTrsf: gp_Trsf2d): BndB2f {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "Bnd_B2f.hxx".}
-proc isOut*(this: BndB2f; thePnt: XyObj): bool {.noSideEffect, cdecl, importcpp: "IsOut",
+proc isOut*(this: BndB2f; thePnt: gp_Xy): bool {.noSideEffect, cdecl, importcpp: "IsOut",
                                         header: "Bnd_B2f.hxx".}
-proc isOut*(this: BndB2f; theCenter: XyObj; theRadius: cfloat;
+proc isOut*(this: BndB2f; theCenter: gp_Xy; theRadius: cfloat;
            isCircleHollow: bool = false): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_B2f.hxx".}
 proc isOut*(this: BndB2f; theOtherBox: BndB2f): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_B2f.hxx".}
-proc isOut*(this: BndB2f; theOtherBox: BndB2f; theTrsf: Trsf2dObj): bool {.noSideEffect,
+proc isOut*(this: BndB2f; theOtherBox: BndB2f; theTrsf: gp_Trsf2d): bool {.noSideEffect,
     cdecl, importcpp: "IsOut", header: "Bnd_B2f.hxx".}
-proc isOut*(this: BndB2f; theLine: Ax2dObj): bool {.noSideEffect, cdecl,
+proc isOut*(this: BndB2f; theLine: gp_Ax2d): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_B2f.hxx".}
-proc isOut*(this: BndB2f; theP0: XyObj; theP1: XyObj): bool {.noSideEffect, cdecl,
+proc isOut*(this: BndB2f; theP0: gp_Xy; theP1: gp_Xy): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_B2f.hxx".}
 proc isIn*(this: BndB2f; theBox: BndB2f): bool {.noSideEffect, cdecl, importcpp: "IsIn",
     header: "Bnd_B2f.hxx".}
-proc isIn*(this: BndB2f; theBox: BndB2f; theTrsf: Trsf2dObj): bool {.noSideEffect, cdecl,
+proc isIn*(this: BndB2f; theBox: BndB2f; theTrsf: gp_Trsf2d): bool {.noSideEffect, cdecl,
     importcpp: "IsIn", header: "Bnd_B2f.hxx".}
-proc setCenter*(this: var BndB2f; theCenter: XyObj) {.cdecl, importcpp: "SetCenter",
+proc setCenter*(this: var BndB2f; theCenter: gp_Xy) {.cdecl, importcpp: "SetCenter",
     header: "Bnd_B2f.hxx".}
-proc setHSize*(this: var BndB2f; theHSize: XyObj) {.cdecl, importcpp: "SetHSize",
+proc setHSize*(this: var BndB2f; theHSize: gp_Xy) {.cdecl, importcpp: "SetHSize",
     header: "Bnd_B2f.hxx".}
 ##  #define RealType Standard_ShortReal
 ##  #define RealType_hxx <Standard_ShortReal.hxx>

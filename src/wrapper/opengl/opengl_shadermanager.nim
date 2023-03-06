@@ -33,9 +33,9 @@ proc clear*(this: var OpenGlShaderManager) {.cdecl, importcpp: "clear",
     header: "OpenGl_ShaderManager.hxx".}
 proc updateSRgbState*(this: var OpenGlShaderManager) {.cdecl,
     importcpp: "UpdateSRgbState", header: "OpenGl_ShaderManager.hxx".}
-proc localOrigin*(this: OpenGlShaderManager): XyzObj {.noSideEffect, cdecl,
+proc localOrigin*(this: OpenGlShaderManager): gp_Xyz {.noSideEffect, cdecl,
     importcpp: "LocalOrigin", header: "OpenGl_ShaderManager.hxx".}
-proc setLocalOrigin*(this: var OpenGlShaderManager; theOrigin: XyzObj) {.cdecl,
+proc setLocalOrigin*(this: var OpenGlShaderManager; theOrigin: gp_Xyz) {.cdecl,
     importcpp: "SetLocalOrigin", header: "OpenGl_ShaderManager.hxx".}
 proc localClippingPlaneW*(this: OpenGlShaderManager; thePlane: Graphic3dClipPlane): cfloat {.
     noSideEffect, cdecl, importcpp: "LocalClippingPlaneW", header: "OpenGl_ShaderManager.hxx".}

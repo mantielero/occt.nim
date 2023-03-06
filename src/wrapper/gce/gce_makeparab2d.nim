@@ -23,11 +23,11 @@ import ../gp/gp_types
 
 
 
-proc newGceMakeParab2d*(mirrorAxis: Ax2dObj; focal: cfloat; sense: bool = true): GceMakeParab2d {.
+proc newGceMakeParab2d*(mirrorAxis: gp_Ax2d; focal: cfloat; sense: bool = true): GceMakeParab2d {.
     cdecl, constructor, importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}
-proc newGceMakeParab2d*(a: Ax22dObj; focal: cfloat): GceMakeParab2d {.cdecl, constructor,
+proc newGceMakeParab2d*(a: gp_Ax22d; focal: cfloat): GceMakeParab2d {.cdecl, constructor,
     importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}
-proc newGceMakeParab2d*(d: Ax2dObj; f: gp_Pnt2d; sense: bool = true): GceMakeParab2d {.cdecl,
+proc newGceMakeParab2d*(d: gp_Ax2d; f: gp_Pnt2d; sense: bool = true): GceMakeParab2d {.cdecl,
     constructor, importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}
 proc newGceMakeParab2d*(s1: gp_Pnt2d; center: gp_Pnt2d; sense: bool = true): GceMakeParab2d {.
     cdecl, constructor, importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}

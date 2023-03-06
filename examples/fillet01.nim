@@ -11,7 +11,7 @@ proc main =
     r_cyl2 =   5f
 
     ax2_cyl1 = ax2( pnt(0, -l_cyl1 * 0.5, 0 ), dir(0,1,0) )
-    ax2_cyl2:Ax2Obj
+    ax2_cyl2:gp_Ax2
 
     cyl1 = cylinder( ax2_cyl1, r_cyl1, l_cyl1).shape()
     cyl2 = cylinder( ax2_cyl2, r_cyl2, l_cyl2).shape()

@@ -30,7 +30,7 @@ import geom_types
 
 proc newGeomCircle*(c: gp_Circ): GeomCircle {.cdecl, constructor,
                                        importcpp: "Geom_Circle(@)", header: "Geom_Circle.hxx".}
-proc newGeomCircle*(a2: Ax2Obj; radius: cfloat): GeomCircle {.cdecl, constructor,
+proc newGeomCircle*(a2: gp_Ax2; radius: cfloat): GeomCircle {.cdecl, constructor,
     importcpp: "Geom_Circle(@)", header: "Geom_Circle.hxx".}
 proc setCirc*(this: var GeomCircle; c: gp_Circ) {.cdecl, importcpp: "SetCirc", header: "Geom_Circle.hxx".}
 proc setRadius*(this: var GeomCircle; r: cfloat) {.cdecl, importcpp: "SetRadius",

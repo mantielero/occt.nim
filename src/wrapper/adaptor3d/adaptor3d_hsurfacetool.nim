@@ -86,7 +86,7 @@ proc vResolution*(s: Handle[Adaptor3dHSurface]; r3d: cfloat): cfloat {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::VResolution(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc getType*(s: Handle[Adaptor3dHSurface]): GeomAbsSurfaceType {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::GetType(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc plane*(s: Handle[Adaptor3dHSurface]): PlnObj {.cdecl,
+proc plane*(s: Handle[Adaptor3dHSurface]): gp_Pln {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Plane(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc cylinder*(s: Handle[Adaptor3dHSurface]): gp_Cylinder {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Cylinder(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
@@ -100,9 +100,9 @@ proc bezier*(s: Handle[Adaptor3dHSurface]): Handle[GeomBezierSurface] {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Bezier(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc bSpline*(s: Handle[Adaptor3dHSurface]): Handle[GeomBSplineSurface] {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::BSpline(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc axeOfRevolution*(s: Handle[Adaptor3dHSurface]): Ax1Obj {.cdecl,
+proc axeOfRevolution*(s: Handle[Adaptor3dHSurface]): gp_Ax1 {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::AxeOfRevolution(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc direction*(s: Handle[Adaptor3dHSurface]): DirObj {.cdecl,
+proc direction*(s: Handle[Adaptor3dHSurface]): gp_Dir {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Direction(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc basisCurve*(s: Handle[Adaptor3dHSurface]): Handle[Adaptor3dHCurve] {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::BasisCurve(@)", header: "Adaptor3d_HSurfaceTool.hxx".}

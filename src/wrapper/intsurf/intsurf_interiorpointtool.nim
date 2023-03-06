@@ -29,7 +29,7 @@ proc value2d*(pStart: IntSurfInteriorPoint; u: var cfloat; v: var cfloat) {.cdec
     importcpp: "IntSurf_InteriorPointTool::Value2d(@)", header: "IntSurf_InteriorPointTool.hxx".}
 proc direction3d*(pStart: IntSurfInteriorPoint): gp_Vec {.cdecl,
     importcpp: "IntSurf_InteriorPointTool::Direction3d(@)", header: "IntSurf_InteriorPointTool.hxx".}
-proc direction2d*(pStart: IntSurfInteriorPoint): Dir2dObj {.cdecl,
+proc direction2d*(pStart: IntSurfInteriorPoint): gp_Dir2d {.cdecl,
     importcpp: "IntSurf_InteriorPointTool::Direction2d(@)", header: "IntSurf_InteriorPointTool.hxx".}
 
 

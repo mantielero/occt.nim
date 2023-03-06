@@ -36,7 +36,7 @@ proc last*(this: BRepGCurve): cfloat {.noSideEffect, cdecl, importcpp: "Last",
                                    header: "BRep_GCurve.hxx".}
 proc first*(this: var BRepGCurve; f: cfloat) {.cdecl, importcpp: "First", header: "BRep_GCurve.hxx".}
 proc last*(this: var BRepGCurve; L: cfloat) {.cdecl, importcpp: "Last", header: "BRep_GCurve.hxx".}
-proc d0*(this: BRepGCurve; u: cfloat; p: var PntObj) {.noSideEffect, cdecl, importcpp: "D0",
+proc d0*(this: BRepGCurve; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl, importcpp: "D0",
     header: "BRep_GCurve.hxx".}
 proc update*(this: var BRepGCurve) {.cdecl, importcpp: "Update", header: "BRep_GCurve.hxx".}
 proc dumpJson*(this: BRepGCurve; theOStream: var StandardOStream; theDepth: cint = -1) {.

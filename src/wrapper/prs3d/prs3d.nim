@@ -28,7 +28,7 @@ import ../poly/poly_types
 
 
 
-proc matchSegment*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; p1: PntObj; p2: PntObj;
+proc matchSegment*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; p1: gp_Pnt; p2: gp_Pnt;
                   dist: var cfloat): bool {.cdecl,
                                         importcpp: "Prs3d::MatchSegment(@)",
                                         header: "Prs3d.hxx".}

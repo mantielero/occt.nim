@@ -50,7 +50,7 @@ proc setPCurve*(this: BRepPrimBuilder; e: var TopoDS_Edge; f: TopoDS_Face; l1: L
                           header: "BRepPrim_Builder.hxx".}
 proc setPCurve*(this: BRepPrimBuilder; e: var TopoDS_Edge; f: TopoDS_Face; c: Circ2dObj) {.
     noSideEffect, cdecl, importcpp: "SetPCurve", header: "BRepPrim_Builder.hxx".}
-proc makeVertex*(this: BRepPrimBuilder; v: var TopoDS_Vertex; p: PntObj) {.noSideEffect,
+proc makeVertex*(this: BRepPrimBuilder; v: var TopoDS_Vertex; p: gp_Pnt) {.noSideEffect,
     cdecl, importcpp: "MakeVertex", header: "BRepPrim_Builder.hxx".}
 proc reverseFace*(this: BRepPrimBuilder; f: var TopoDS_Face) {.noSideEffect, cdecl,
     importcpp: "ReverseFace", header: "BRepPrim_Builder.hxx".}

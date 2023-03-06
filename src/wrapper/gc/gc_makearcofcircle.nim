@@ -25,13 +25,13 @@ import ../geom/geom_types
 
 proc arcCircle*(circ: CircObj; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfCircle {.
     cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
-proc arcCircle*(circ: CircObj; p: PntObj; alpha: cfloat; sense: bool): MakeArcOfCircle {.
+proc arcCircle*(circ: CircObj; p: gp_Pnt; alpha: cfloat; sense: bool): MakeArcOfCircle {.
     cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
-proc arcCircle*(circ: CircObj; p1: PntObj; p2: PntObj; sense: bool): MakeArcOfCircle {.
+proc arcCircle*(circ: CircObj; p1: gp_Pnt; p2: gp_Pnt; sense: bool): MakeArcOfCircle {.
     cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
-proc arcCircle*(p1: PntObj; p2: PntObj; p3: PntObj): MakeArcOfCircle {.cdecl,
+proc arcCircle*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): MakeArcOfCircle {.cdecl,
     constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
-proc arcCircle*(p1: PntObj; v: VecObj; p2: PntObj): MakeArcOfCircle {.cdecl, constructor,
+proc arcCircle*(p1: gp_Pnt; v: VecObj; p2: gp_Pnt): MakeArcOfCircle {.cdecl, constructor,
     importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
 
 proc value*(this: MakeArcOfCircle): HandleGeomTrimmedCurve {.noSideEffect, cdecl,

@@ -27,15 +27,15 @@ proc newGceMakeCirc*(a2: Ax2Obj; radius: cfloat): GceMakeCirc {.cdecl, construct
     importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
 proc newGceMakeCirc*(circ: CircObj; dist: cfloat): GceMakeCirc {.cdecl, constructor,
     importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
-proc newGceMakeCirc*(circ: CircObj; point: PntObj): GceMakeCirc {.cdecl, constructor,
+proc newGceMakeCirc*(circ: CircObj; point: gp_Pnt): GceMakeCirc {.cdecl, constructor,
     importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
-proc newGceMakeCirc*(p1: PntObj; p2: PntObj; p3: PntObj): GceMakeCirc {.cdecl, constructor,
+proc newGceMakeCirc*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): GceMakeCirc {.cdecl, constructor,
     importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
-proc newGceMakeCirc*(center: PntObj; norm: DirObj; radius: cfloat): GceMakeCirc {.cdecl,
+proc newGceMakeCirc*(center: gp_Pnt; norm: DirObj; radius: cfloat): GceMakeCirc {.cdecl,
     constructor, importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
-proc newGceMakeCirc*(center: PntObj; plane: PlnObj; radius: cfloat): GceMakeCirc {.cdecl,
+proc newGceMakeCirc*(center: gp_Pnt; plane: PlnObj; radius: cfloat): GceMakeCirc {.cdecl,
     constructor, importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
-proc newGceMakeCirc*(center: PntObj; ptaxis: PntObj; radius: cfloat): GceMakeCirc {.cdecl,
+proc newGceMakeCirc*(center: gp_Pnt; ptaxis: gp_Pnt; radius: cfloat): GceMakeCirc {.cdecl,
     constructor, importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
 proc newGceMakeCirc*(axis: Ax1Obj; radius: cfloat): GceMakeCirc {.cdecl, constructor,
     importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}

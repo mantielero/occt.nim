@@ -26,9 +26,9 @@ import ../geom/geom_types
 
 proc arcParabola*(parab: ParabObj; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfParabola {.
     cdecl, constructor, importcpp: "GC_MakeArcOfParabola(@)", header: "GC_MakeArcOfParabola.hxx".}
-proc arcParabola*(parab: ParabObj; p: PntObj; alpha: cfloat; sense: bool): MakeArcOfParabola {.
+proc arcParabola*(parab: ParabObj; p: gp_Pnt; alpha: cfloat; sense: bool): MakeArcOfParabola {.
     cdecl, constructor, importcpp: "GC_MakeArcOfParabola(@)", header: "GC_MakeArcOfParabola.hxx".}
-proc arcParabola*(parab: ParabObj; p1: PntObj; p2: PntObj; sense: bool): MakeArcOfParabola {.
+proc arcParabola*(parab: ParabObj; p1: gp_Pnt; p2: gp_Pnt; sense: bool): MakeArcOfParabola {.
     cdecl, constructor, importcpp: "GC_MakeArcOfParabola(@)", header: "GC_MakeArcOfParabola.hxx".}
 proc value*(this: MakeArcOfParabola): HandleGeomTrimmedCurve {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeArcOfParabola.hxx".}

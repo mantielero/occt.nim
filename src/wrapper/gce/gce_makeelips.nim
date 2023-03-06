@@ -25,7 +25,7 @@ import ../gp/gp_types
 
 proc newGceMakeElips*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): GceMakeElips {.
     cdecl, constructor, importcpp: "gce_MakeElips(@)", header: "gce_MakeElips.hxx".}
-proc newGceMakeElips*(s1: PntObj; s2: PntObj; center: PntObj): GceMakeElips {.cdecl, constructor,
+proc newGceMakeElips*(s1: gp_Pnt; s2: gp_Pnt; center: gp_Pnt): GceMakeElips {.cdecl, constructor,
     importcpp: "gce_MakeElips(@)", header: "gce_MakeElips.hxx".}
 proc value*(this: GceMakeElips): ElipsObj {.noSideEffect, cdecl, importcpp: "Value",
                                      header: "gce_MakeElips.hxx".}

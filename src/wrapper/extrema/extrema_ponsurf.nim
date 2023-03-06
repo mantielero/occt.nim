@@ -16,17 +16,17 @@ import ../gp/gp_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of PntObj"
+discard "forward decl of gp_Pnt"
 
 
 proc newExtrema_POnSurf*(): Extrema_POnSurf {.cdecl, constructor,
     importcpp: "Extrema_POnSurf(@)", header: "Extrema_POnSurf.hxx".}
-proc newExtrema_POnSurf*(U: cfloat; V: cfloat; P: PntObj): Extrema_POnSurf {.cdecl,
+proc newExtrema_POnSurf*(U: cfloat; V: cfloat; P: gp_Pnt): Extrema_POnSurf {.cdecl,
     constructor, importcpp: "Extrema_POnSurf(@)", header: "Extrema_POnSurf.hxx".}
-proc Value*(this: Extrema_POnSurf): PntObj {.noSideEffect, cdecl, importcpp: "Value",
+proc Value*(this: Extrema_POnSurf): gp_Pnt {.noSideEffect, cdecl, importcpp: "Value",
     header: "Extrema_POnSurf.hxx".}
 proc SetParameters*(this: var Extrema_POnSurf; theU: cfloat; theV: cfloat;
-                   thePnt: PntObj) {.cdecl, importcpp: "SetParameters",
+                   thePnt: gp_Pnt) {.cdecl, importcpp: "SetParameters",
                                    header: "Extrema_POnSurf.hxx".}
 proc Parameter*(this: Extrema_POnSurf; U: var cfloat; V: var cfloat) {.noSideEffect,
     cdecl, importcpp: "Parameter", header: "Extrema_POnSurf.hxx".}

@@ -28,13 +28,13 @@ proc newBRepPrimCone*(angle: cfloat; position: Ax2Obj; height: cfloat; radius: c
     cdecl, constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc newBRepPrimCone*(angle: cfloat): BRepPrimCone {.cdecl, constructor,
     importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc newBRepPrimCone*(angle: cfloat; apex: PntObj): BRepPrimCone {.cdecl, constructor,
+proc newBRepPrimCone*(angle: cfloat; apex: gp_Pnt): BRepPrimCone {.cdecl, constructor,
     importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc newBRepPrimCone*(angle: cfloat; axes: Ax2Obj): BRepPrimCone {.cdecl, constructor,
     importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc newBRepPrimCone*(r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.cdecl,
     constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc newBRepPrimCone*(center: PntObj; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.
+proc newBRepPrimCone*(center: gp_Pnt; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.
     cdecl, constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc newBRepPrimCone*(axes: Ax2Obj; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.cdecl,
     constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}

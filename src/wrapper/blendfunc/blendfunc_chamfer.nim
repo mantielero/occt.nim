@@ -38,9 +38,9 @@ proc set*(this: var BlendFuncChamfer; param: cfloat) {.cdecl, importcpp: "Set",
     header: "BlendFunc_Chamfer.hxx".}
 proc isSolution*(this: var BlendFuncChamfer; sol: MathVector; tol: cfloat): bool {.cdecl,
     importcpp: "IsSolution", header: "BlendFunc_Chamfer.hxx".}
-proc pointOnS1*(this: BlendFuncChamfer): PntObj {.noSideEffect, cdecl,
+proc pointOnS1*(this: BlendFuncChamfer): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS1", header: "BlendFunc_Chamfer.hxx".}
-proc pointOnS2*(this: BlendFuncChamfer): PntObj {.noSideEffect, cdecl,
+proc pointOnS2*(this: BlendFuncChamfer): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS2", header: "BlendFunc_Chamfer.hxx".}
 proc isTangencyPoint*(this: BlendFuncChamfer): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_Chamfer.hxx".}

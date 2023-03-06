@@ -35,7 +35,7 @@ proc newPrsDimDiameterDimension*(theShape: TopoDS_Shape; thePlane: PlnObj): PrsD
     cdecl, constructor, importcpp: "PrsDim_DiameterDimension(@)", header: "PrsDim_DiameterDimension.hxx".}
 proc circle*(this: PrsDimDiameterDimension): CircObj {.noSideEffect, cdecl,
     importcpp: "Circle", header: "PrsDim_DiameterDimension.hxx".}
-proc anchorPoint*(this: var PrsDimDiameterDimension): PntObj {.cdecl,
+proc anchorPoint*(this: var PrsDimDiameterDimension): gp_Pnt {.cdecl,
     importcpp: "AnchorPoint", header: "PrsDim_DiameterDimension.hxx".}
 proc shape*(this: PrsDimDiameterDimension): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "Shape", header: "PrsDim_DiameterDimension.hxx".}
@@ -53,9 +53,9 @@ proc setDisplayUnits*(this: var PrsDimDiameterDimension;
 proc setModelUnits*(this: var PrsDimDiameterDimension;
                    theUnits: TCollectionAsciiString) {.cdecl,
     importcpp: "SetModelUnits", header: "PrsDim_DiameterDimension.hxx".}
-proc setTextPosition*(this: var PrsDimDiameterDimension; theTextPos: PntObj) {.cdecl,
+proc setTextPosition*(this: var PrsDimDiameterDimension; theTextPos: gp_Pnt) {.cdecl,
     importcpp: "SetTextPosition", header: "PrsDim_DiameterDimension.hxx".}
-proc getTextPosition*(this: PrsDimDiameterDimension): PntObj {.noSideEffect, cdecl,
+proc getTextPosition*(this: PrsDimDiameterDimension): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "GetTextPosition", header: "PrsDim_DiameterDimension.hxx".}
 
 

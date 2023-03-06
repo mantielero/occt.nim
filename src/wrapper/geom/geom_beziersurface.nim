@@ -78,9 +78,9 @@ proc removePoleRow*(this: var GeomBezierSurface; uIndex: cint) {.cdecl,
     importcpp: "RemovePoleRow", header: "Geom_BezierSurface.hxx".}
 proc segment*(this: var GeomBezierSurface; u1: cfloat; u2: cfloat; v1: cfloat; v2: cfloat) {.
     cdecl, importcpp: "Segment", header: "Geom_BezierSurface.hxx".}
-proc setPole*(this: var GeomBezierSurface; uIndex: cint; vIndex: cint; p: PntObj) {.cdecl,
+proc setPole*(this: var GeomBezierSurface; uIndex: cint; vIndex: cint; p: gp_Pnt) {.cdecl,
     importcpp: "SetPole", header: "Geom_BezierSurface.hxx".}
-proc setPole*(this: var GeomBezierSurface; uIndex: cint; vIndex: cint; p: PntObj;
+proc setPole*(this: var GeomBezierSurface; uIndex: cint; vIndex: cint; p: gp_Pnt;
              weight: cfloat) {.cdecl, importcpp: "SetPole", header: "Geom_BezierSurface.hxx".}
 proc setPoleCol*(this: var GeomBezierSurface; vIndex: cint; cPoles: TColgpArray1OfPnt) {.
     cdecl, importcpp: "SetPoleCol", header: "Geom_BezierSurface.hxx".}
@@ -112,14 +112,14 @@ proc bounds*(this: GeomBezierSurface; u1: var cfloat; u2: var cfloat; v1: var cf
             v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds", header: "Geom_BezierSurface.hxx".}
 proc continuity*(this: GeomBezierSurface): GeomAbsShape {.noSideEffect, cdecl,
     importcpp: "Continuity", header: "Geom_BezierSurface.hxx".}
-proc d0*(this: GeomBezierSurface; u: cfloat; v: cfloat; p: var PntObj) {.noSideEffect, cdecl,
+proc d0*(this: GeomBezierSurface; u: cfloat; v: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom_BezierSurface.hxx".}
-proc d1*(this: GeomBezierSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d1*(this: GeomBezierSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_BezierSurface.hxx".}
-proc d2*(this: GeomBezierSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d2*(this: GeomBezierSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D2", header: "Geom_BezierSurface.hxx".}
-proc d3*(this: GeomBezierSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d3*(this: GeomBezierSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj;
         d3uuv: var VecObj; d3uvv: var VecObj) {.noSideEffect, cdecl, importcpp: "D3",
                                     header: "Geom_BezierSurface.hxx".}
@@ -129,7 +129,7 @@ proc nbUPoles*(this: GeomBezierSurface): cint {.noSideEffect, cdecl,
     importcpp: "NbUPoles", header: "Geom_BezierSurface.hxx".}
 proc nbVPoles*(this: GeomBezierSurface): cint {.noSideEffect, cdecl,
     importcpp: "NbVPoles", header: "Geom_BezierSurface.hxx".}
-proc pole*(this: GeomBezierSurface; uIndex: cint; vIndex: cint): PntObj {.noSideEffect,
+proc pole*(this: GeomBezierSurface; uIndex: cint; vIndex: cint): gp_Pnt {.noSideEffect,
     cdecl, importcpp: "Pole", header: "Geom_BezierSurface.hxx".}
 proc poles*(this: GeomBezierSurface; p: var TColgpArray2OfPnt) {.noSideEffect, cdecl,
     importcpp: "Poles", header: "Geom_BezierSurface.hxx".}

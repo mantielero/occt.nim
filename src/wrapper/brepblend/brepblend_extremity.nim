@@ -29,21 +29,21 @@ import ../adaptor2d/adaptor2d_types
 
 proc newBRepBlendExtremity*(): BRepBlendExtremity {.cdecl, constructor,
     importcpp: "BRepBlend_Extremity(@)", header: "BRepBlend_Extremity.hxx".}
-proc newBRepBlendExtremity*(p: PntObj; u: cfloat; v: cfloat; param: cfloat; tol: cfloat): BRepBlendExtremity {.
+proc newBRepBlendExtremity*(p: gp_Pnt; u: cfloat; v: cfloat; param: cfloat; tol: cfloat): BRepBlendExtremity {.
     cdecl, constructor, importcpp: "BRepBlend_Extremity(@)", header: "BRepBlend_Extremity.hxx".}
-proc newBRepBlendExtremity*(p: PntObj; u: cfloat; v: cfloat; param: cfloat; tol: cfloat;
+proc newBRepBlendExtremity*(p: gp_Pnt; u: cfloat; v: cfloat; param: cfloat; tol: cfloat;
                            vtx: Handle[Adaptor3dHVertex]): BRepBlendExtremity {.
     cdecl, constructor, importcpp: "BRepBlend_Extremity(@)", header: "BRepBlend_Extremity.hxx".}
-proc newBRepBlendExtremity*(p: PntObj; w: cfloat; param: cfloat; tol: cfloat): BRepBlendExtremity {.
+proc newBRepBlendExtremity*(p: gp_Pnt; w: cfloat; param: cfloat; tol: cfloat): BRepBlendExtremity {.
     cdecl, constructor, importcpp: "BRepBlend_Extremity(@)", header: "BRepBlend_Extremity.hxx".}
-proc setValue*(this: var BRepBlendExtremity; p: PntObj; u: cfloat; v: cfloat; param: cfloat;
+proc setValue*(this: var BRepBlendExtremity; p: gp_Pnt; u: cfloat; v: cfloat; param: cfloat;
               tol: cfloat) {.cdecl, importcpp: "SetValue", header: "BRepBlend_Extremity.hxx".}
-proc setValue*(this: var BRepBlendExtremity; p: PntObj; u: cfloat; v: cfloat; param: cfloat;
+proc setValue*(this: var BRepBlendExtremity; p: gp_Pnt; u: cfloat; v: cfloat; param: cfloat;
               tol: cfloat; vtx: Handle[Adaptor3dHVertex]) {.cdecl,
     importcpp: "SetValue", header: "BRepBlend_Extremity.hxx".}
-proc setValue*(this: var BRepBlendExtremity; p: PntObj; w: cfloat; param: cfloat; tol: cfloat) {.
+proc setValue*(this: var BRepBlendExtremity; p: gp_Pnt; w: cfloat; param: cfloat; tol: cfloat) {.
     cdecl, importcpp: "SetValue", header: "BRepBlend_Extremity.hxx".}
-proc value*(this: BRepBlendExtremity): PntObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: BRepBlendExtremity): gp_Pnt {.noSideEffect, cdecl, importcpp: "Value",
     header: "BRepBlend_Extremity.hxx".}
 proc setTangent*(this: var BRepBlendExtremity; tangent: VecObj) {.cdecl,
     importcpp: "SetTangent", header: "BRepBlend_Extremity.hxx".}

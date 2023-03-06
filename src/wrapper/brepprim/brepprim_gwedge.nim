@@ -88,7 +88,7 @@ proc vertex*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirect
             d3: BRepPrimDirection): TopoDS_Vertex {.cdecl, importcpp: "Vertex",
     header: "BRepPrim_GWedge.hxx".}
 proc point*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection;
-           d3: BRepPrimDirection): PntObj {.cdecl, importcpp: "Point", header: "BRepPrim_GWedge.hxx".}
+           d3: BRepPrimDirection): gp_Pnt {.cdecl, importcpp: "Point", header: "BRepPrim_GWedge.hxx".}
 proc isDegeneratedShape*(this: var BRepPrimGWedge): bool {.cdecl,
     importcpp: "IsDegeneratedShape", header: "BRepPrim_GWedge.hxx".}
 

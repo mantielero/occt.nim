@@ -66,9 +66,9 @@ proc isSolution*(this: var BRepBlendSurfRstEvolRad; sol: MathVector; tol: cfloat
     cdecl, importcpp: "IsSolution", header: "BRepBlend_SurfRstEvolRad.hxx".}
 proc getMinimalDistance*(this: BRepBlendSurfRstEvolRad): cfloat {.noSideEffect,
     cdecl, importcpp: "GetMinimalDistance", header: "BRepBlend_SurfRstEvolRad.hxx".}
-proc pointOnS*(this: BRepBlendSurfRstEvolRad): PntObj {.noSideEffect, cdecl,
+proc pointOnS*(this: BRepBlendSurfRstEvolRad): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS", header: "BRepBlend_SurfRstEvolRad.hxx".}
-proc pointOnRst*(this: BRepBlendSurfRstEvolRad): PntObj {.noSideEffect, cdecl,
+proc pointOnRst*(this: BRepBlendSurfRstEvolRad): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnRst", header: "BRepBlend_SurfRstEvolRad.hxx".}
 proc pnt2dOnS*(this: BRepBlendSurfRstEvolRad): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "Pnt2dOnS", header: "BRepBlend_SurfRstEvolRad.hxx".}

@@ -40,7 +40,7 @@ proc SquareDistance*(this: BRepExtrema_ExtPF; N: cint): cfloat {.noSideEffect, c
     importcpp: "SquareDistance", header: "BRepExtrema_ExtPF.hxx".}
 proc Parameter*(this: BRepExtrema_ExtPF; N: cint; U: var cfloat; V: var cfloat) {.
     noSideEffect, cdecl, importcpp: "Parameter", header: "BRepExtrema_ExtPF.hxx".}
-proc Point*(this: BRepExtrema_ExtPF; N: cint): PntObj {.noSideEffect, cdecl,
+proc Point*(this: BRepExtrema_ExtPF; N: cint): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Point", header: "BRepExtrema_ExtPF.hxx".}
 proc SetFlag*(this: var BRepExtrema_ExtPF; F: Extrema_ExtFlag) {.cdecl,
     importcpp: "SetFlag", header: "BRepExtrema_ExtPF.hxx".}

@@ -28,7 +28,7 @@ import ../tcolgp/tcolgp_types
 
 
 proc newBndOBB*(): BndOBB {.cdecl, constructor, importcpp: "Bnd_OBB(@)", header: "Bnd_OBB.hxx".}
-proc newBndOBB*(theCenter: PntObj; theXDirection: DirObj; theYDirection: DirObj;
+proc newBndOBB*(theCenter: gp_Pnt; theXDirection: DirObj; theYDirection: DirObj;
                theZDirection: DirObj; theHXSize: cfloat; theHYSize: cfloat;
                theHZSize: cfloat): BndOBB {.cdecl, constructor,
     importcpp: "Bnd_OBB(@)", header: "Bnd_OBB.hxx".}
@@ -37,7 +37,7 @@ proc newBndOBB*(theBox: BndBox): BndOBB {.cdecl, constructor, importcpp: "Bnd_OB
 proc reBuild*(this: var BndOBB; theListOfPoints: TColgpArray1OfPnt;
              theListOfTolerances: ptr TColStdArray1OfReal = cast[ptr TColStdArray1OfReal](0);
              theIsOptimal: bool = false) {.cdecl, importcpp: "ReBuild", header: "Bnd_OBB.hxx".}
-proc setCenter*(this: var BndOBB; theCenter: PntObj) {.cdecl, importcpp: "SetCenter",
+proc setCenter*(this: var BndOBB; theCenter: gp_Pnt) {.cdecl, importcpp: "SetCenter",
     header: "Bnd_OBB.hxx".}
 proc setXComponent*(this: var BndOBB; theXDirection: DirObj; theHXSize: cfloat) {.cdecl,
     importcpp: "SetXComponent", header: "Bnd_OBB.hxx".}
@@ -70,17 +70,17 @@ proc isAABox*(this: BndOBB): bool {.noSideEffect, cdecl, importcpp: "IsAABox",
                                 header: "Bnd_OBB.hxx".}
 proc enlarge*(this: var BndOBB; theGapAdd: cfloat) {.cdecl, importcpp: "Enlarge",
     header: "Bnd_OBB.hxx".}
-proc getVertex*(this: BndOBB; theP: array[8, PntObj]): bool {.noSideEffect, cdecl,
+proc getVertex*(this: BndOBB; theP: array[8, gp_Pnt]): bool {.noSideEffect, cdecl,
     importcpp: "GetVertex", header: "Bnd_OBB.hxx".}
 proc squareExtent*(this: BndOBB): cfloat {.noSideEffect, cdecl,
                                        importcpp: "SquareExtent", header: "Bnd_OBB.hxx".}
 proc isOut*(this: BndOBB; theOther: BndOBB): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_OBB.hxx".}
-proc isOut*(this: BndOBB; theP: PntObj): bool {.noSideEffect, cdecl, importcpp: "IsOut",
+proc isOut*(this: BndOBB; theP: gp_Pnt): bool {.noSideEffect, cdecl, importcpp: "IsOut",
                                        header: "Bnd_OBB.hxx".}
 proc isCompletelyInside*(this: BndOBB; theOther: BndOBB): bool {.noSideEffect, cdecl,
     importcpp: "IsCompletelyInside", header: "Bnd_OBB.hxx".}
 proc add*(this: var BndOBB; theOther: BndOBB) {.cdecl, importcpp: "Add", header: "Bnd_OBB.hxx".}
-proc add*(this: var BndOBB; theP: PntObj) {.cdecl, importcpp: "Add", header: "Bnd_OBB.hxx".}
+proc add*(this: var BndOBB; theP: gp_Pnt) {.cdecl, importcpp: "Add", header: "Bnd_OBB.hxx".}
 proc dumpJson*(this: BndOBB; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "Bnd_OBB.hxx".}

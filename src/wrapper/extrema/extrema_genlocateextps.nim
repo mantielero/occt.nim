@@ -18,7 +18,7 @@ import ../precision/precision
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of PntObj"
+discard "forward decl of gp_Pnt"
 discard "forward decl of Adaptor3d_Surface"
 
 proc newExtrema_GenLocateExtPS*(theS: Adaptor3d_Surface;
@@ -26,7 +26,7 @@ proc newExtrema_GenLocateExtPS*(theS: Adaptor3d_Surface;
                                theTolV: cfloat = pConfusion()): Extrema_GenLocateExtPS {.
     cdecl, constructor, importcpp: "Extrema_GenLocateExtPS(@)",
     header: "Extrema_GenLocateExtPS.hxx".}
-proc Perform*(this: var Extrema_GenLocateExtPS; theP: PntObj; theU0: cfloat;
+proc Perform*(this: var Extrema_GenLocateExtPS; theP: gp_Pnt; theU0: cfloat;
              theV0: cfloat; isDistanceCriteria: bool = false) {.cdecl,
     importcpp: "Perform", header: "Extrema_GenLocateExtPS.hxx".}
 proc IsDone*(this: Extrema_GenLocateExtPS): bool {.noSideEffect, cdecl,
@@ -35,6 +35,6 @@ proc SquareDistance*(this: Extrema_GenLocateExtPS): cfloat {.noSideEffect, cdecl
     importcpp: "SquareDistance", header: "Extrema_GenLocateExtPS.hxx".}
 proc Point*(this: Extrema_GenLocateExtPS): Extrema_POnSurf {.noSideEffect, cdecl,
     importcpp: "Point", header: "Extrema_GenLocateExtPS.hxx".}
-proc IsMinDist*(theP: PntObj; theS: Adaptor3d_Surface; theU0: cfloat; theV0: cfloat): bool {.
+proc IsMinDist*(theP: gp_Pnt; theS: Adaptor3d_Surface; theU0: cfloat; theV0: cfloat): bool {.
     cdecl, importcpp: "Extrema_GenLocateExtPS::IsMinDist(@)",
     header: "Extrema_GenLocateExtPS.hxx".}

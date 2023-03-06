@@ -32,7 +32,7 @@ proc newGeomParabola*(prb: ParabObj): GeomParabola {.cdecl, constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
 proc newGeomParabola*(a2: Ax2Obj; focal: cfloat): GeomParabola {.cdecl, constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
-proc newGeomParabola*(d: Ax1Obj; f: PntObj): GeomParabola {.cdecl, constructor,
+proc newGeomParabola*(d: Ax1Obj; f: gp_Pnt): GeomParabola {.cdecl, constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
 proc setFocal*(this: var GeomParabola; focal: cfloat) {.cdecl, importcpp: "SetFocal",
     header: "Geom_Parabola.hxx".}
@@ -54,19 +54,19 @@ proc directrix*(this: GeomParabola): Ax1Obj {.noSideEffect, cdecl,
                                        importcpp: "Directrix", header: "Geom_Parabola.hxx".}
 proc eccentricity*(this: GeomParabola): cfloat {.noSideEffect, cdecl,
     importcpp: "Eccentricity", header: "Geom_Parabola.hxx".}
-proc focus*(this: GeomParabola): PntObj {.noSideEffect, cdecl, importcpp: "Focus",
+proc focus*(this: GeomParabola): gp_Pnt {.noSideEffect, cdecl, importcpp: "Focus",
                                    header: "Geom_Parabola.hxx".}
 proc focal*(this: GeomParabola): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
                                       header: "Geom_Parabola.hxx".}
 proc parameter*(this: GeomParabola): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "Geom_Parabola.hxx".}
-proc d0*(this: GeomParabola; u: cfloat; p: var PntObj) {.noSideEffect, cdecl,
+proc d0*(this: GeomParabola; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom_Parabola.hxx".}
-proc d1*(this: GeomParabola; u: cfloat; p: var PntObj; v1: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: GeomParabola; u: cfloat; p: var gp_Pnt; v1: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "Geom_Parabola.hxx".}
-proc d2*(this: GeomParabola; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.noSideEffect,
+proc d2*(this: GeomParabola; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.noSideEffect,
     cdecl, importcpp: "D2", header: "Geom_Parabola.hxx".}
-proc d3*(this: GeomParabola; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
+proc d3*(this: GeomParabola; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_Parabola.hxx".}
 proc dn*(this: GeomParabola; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom_Parabola.hxx".}

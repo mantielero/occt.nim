@@ -39,19 +39,19 @@ proc nbIntervals*(this: GeomFillSnglrFunc; s: GeomAbsShape): cint {.noSideEffect
     cdecl, importcpp: "NbIntervals", header: "GeomFill_SnglrFunc.hxx".}
 proc intervals*(this: GeomFillSnglrFunc; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, cdecl, importcpp: "Intervals", header: "GeomFill_SnglrFunc.hxx".}
-proc value*(this: GeomFillSnglrFunc; u: cfloat): PntObj {.noSideEffect, cdecl,
+proc value*(this: GeomFillSnglrFunc; u: cfloat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Value", header: "GeomFill_SnglrFunc.hxx".}
 proc isPeriodic*(this: GeomFillSnglrFunc): bool {.noSideEffect, cdecl,
     importcpp: "IsPeriodic", header: "GeomFill_SnglrFunc.hxx".}
 proc period*(this: GeomFillSnglrFunc): cfloat {.noSideEffect, cdecl,
     importcpp: "Period", header: "GeomFill_SnglrFunc.hxx".}
-proc d0*(this: GeomFillSnglrFunc; u: cfloat; p: var PntObj) {.noSideEffect, cdecl,
+proc d0*(this: GeomFillSnglrFunc; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "GeomFill_SnglrFunc.hxx".}
-proc d1*(this: GeomFillSnglrFunc; u: cfloat; p: var PntObj; v: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: GeomFillSnglrFunc; u: cfloat; p: var gp_Pnt; v: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "GeomFill_SnglrFunc.hxx".}
-proc d2*(this: GeomFillSnglrFunc; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.
+proc d2*(this: GeomFillSnglrFunc; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D2", header: "GeomFill_SnglrFunc.hxx".}
-proc d3*(this: GeomFillSnglrFunc; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
+proc d3*(this: GeomFillSnglrFunc; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D3", header: "GeomFill_SnglrFunc.hxx".}
 proc dn*(this: GeomFillSnglrFunc; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
     importcpp: "DN", header: "GeomFill_SnglrFunc.hxx".}

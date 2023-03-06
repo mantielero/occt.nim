@@ -480,9 +480,9 @@ proc gCopyList*(lin: TopToolsListOfShape; lou: var TopToolsListOfShape) {.cdecl,
     importcpp: "TopOpeBRepBuild_Builder::GCopyList(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpLS*(this: TopOpeBRepBuildBuilder; L: TopToolsListOfShape) {.noSideEffect,
     cdecl, importcpp: "GdumpLS", header: "TopOpeBRepBuild_Builder.hxx".}
-proc gdumpPNT*(p: PntObj) {.cdecl, importcpp: "TopOpeBRepBuild_Builder::GdumpPNT(@)",
+proc gdumpPNT*(p: gp_Pnt) {.cdecl, importcpp: "TopOpeBRepBuild_Builder::GdumpPNT(@)",
                       header: "TopOpeBRepBuild_Builder.hxx".}
-proc gdumpORIPARPNT*(o: TopAbsOrientation; p: cfloat; pnt: PntObj) {.cdecl,
+proc gdumpORIPARPNT*(o: TopAbsOrientation; p: cfloat; pnt: gp_Pnt) {.cdecl,
     importcpp: "TopOpeBRepBuild_Builder::GdumpORIPARPNT(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpSHA*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; str: pointer = nil) {.
     noSideEffect, cdecl, importcpp: "GdumpSHA", header: "TopOpeBRepBuild_Builder.hxx".}

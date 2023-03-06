@@ -31,13 +31,13 @@ proc edge*(): EdgeObj {.cdecl, constructor,
     importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(v1: TopoDS_Vertex; v2: TopoDS_Vertex): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc edge*(p1: PntObj; p2: PntObj): EdgeObj {.cdecl,
+proc edge*(p1: gp_Pnt; p2: gp_Pnt): EdgeObj {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: LinObj): EdgeObj {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: LinObj; p1: cfloat; p2: cfloat): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc edge*(L: LinObj; p1: PntObj; p2: PntObj): EdgeObj {.
+proc edge*(L: LinObj; p1: gp_Pnt; p2: gp_Pnt): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: LinObj; v1: TopoDS_Vertex; v2: TopoDS_Vertex): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
@@ -45,7 +45,7 @@ proc edge*(L: CircObj): EdgeObj {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: CircObj; p1: cfloat; p2: cfloat): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc edge*(L: CircObj; p1: PntObj; p2: PntObj): EdgeObj {.
+proc edge*(L: CircObj; p1: gp_Pnt; p2: gp_Pnt): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: CircObj; v1: TopoDS_Vertex; v2: TopoDS_Vertex): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
@@ -53,7 +53,7 @@ proc edge*(L: ElipsObj): EdgeObj {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: ElipsObj; p1: cfloat; p2: cfloat): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc edge*(L: ElipsObj; p1: PntObj; p2: PntObj): EdgeObj {.
+proc edge*(L: ElipsObj; p1: gp_Pnt; p2: gp_Pnt): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: ElipsObj; v1: TopoDS_Vertex; v2: TopoDS_Vertex): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
@@ -61,7 +61,7 @@ proc edge*(L: HyprObj): EdgeObj {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: HyprObj; p1: cfloat; p2: cfloat): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc edge*(L: HyprObj; p1: PntObj; p2: PntObj): EdgeObj {.
+proc edge*(L: HyprObj; p1: gp_Pnt; p2: gp_Pnt): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: HyprObj; v1: TopoDS_Vertex; v2: TopoDS_Vertex): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
@@ -69,7 +69,7 @@ proc edge*(L: ParabObj): EdgeObj {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: ParabObj; p1: cfloat; p2: cfloat): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc edge*(L: ParabObj; p1: PntObj; p2: PntObj): EdgeObj {.
+proc edge*(L: ParabObj; p1: gp_Pnt; p2: gp_Pnt): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: ParabObj; v1: TopoDS_Vertex; v2: TopoDS_Vertex): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
@@ -77,12 +77,12 @@ proc edge*(L: HandleGeomCurve): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: HandleGeomCurve; p1: cfloat; p2: cfloat): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc edge*(L: HandleGeomCurve; p1: PntObj; p2: PntObj): EdgeObj {.
+proc edge*(L: HandleGeomCurve; p1: gp_Pnt; p2: gp_Pnt): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: HandleGeomCurve; v1: TopoDS_Vertex;
                                 v2: TopoDS_Vertex): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc edge*(L: HandleGeomCurve; p1: PntObj; p2: PntObj; p3: cfloat;
+proc edge*(L: HandleGeomCurve; p1: gp_Pnt; p2: gp_Pnt; p3: cfloat;
                                 p4: cfloat): EdgeObj {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: HandleGeomCurve; v1: TopoDS_Vertex;
@@ -94,13 +94,13 @@ proc edge*(L: HandleGeom2dCurve; s: Handle[GeomSurface];
                                 p1: cfloat; p2: cfloat): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: HandleGeom2dCurve; s: Handle[GeomSurface];
-                                p1: PntObj; p2: PntObj): EdgeObj {.cdecl,
+                                p1: gp_Pnt; p2: gp_Pnt): EdgeObj {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: HandleGeom2dCurve; s: Handle[GeomSurface];
                                 v1: TopoDS_Vertex; v2: TopoDS_Vertex): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: HandleGeom2dCurve; s: Handle[GeomSurface];
-                                p1: PntObj; p2: PntObj; p3: cfloat; p4: cfloat): EdgeObj {.
+                                p1: gp_Pnt; p2: gp_Pnt; p3: cfloat; p4: cfloat): EdgeObj {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc edge*(L: HandleGeom2dCurve; s: Handle[GeomSurface];
                                 v1: TopoDS_Vertex; v2: TopoDS_Vertex; p1: cfloat;
@@ -111,11 +111,11 @@ proc init*(this: var EdgeObj; c: HandleGeomCurve) {.cdecl,
     importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc init*(this: var EdgeObj; c: HandleGeomCurve; p1: cfloat;
           p2: cfloat) {.cdecl, importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var EdgeObj; c: HandleGeomCurve; p1: PntObj; p2: PntObj) {.
+proc init*(this: var EdgeObj; c: HandleGeomCurve; p1: gp_Pnt; p2: gp_Pnt) {.
     cdecl, importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc init*(this: var EdgeObj; c: HandleGeomCurve; v1: TopoDS_Vertex;
           v2: TopoDS_Vertex) {.cdecl, importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var EdgeObj; c: HandleGeomCurve; p1: PntObj; p2: PntObj;
+proc init*(this: var EdgeObj; c: HandleGeomCurve; p1: gp_Pnt; p2: gp_Pnt;
           p3: cfloat; p4: cfloat) {.cdecl, importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc init*(this: var EdgeObj; c: HandleGeomCurve; v1: TopoDS_Vertex;
           v2: TopoDS_Vertex; p1: cfloat; p2: cfloat) {.cdecl, importcpp: "Init",
@@ -126,13 +126,13 @@ proc init*(this: var EdgeObj; c: HandleGeom2dCurve;
           s: Handle[GeomSurface]; p1: cfloat; p2: cfloat) {.cdecl, importcpp: "Init",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc init*(this: var EdgeObj; c: HandleGeom2dCurve;
-          s: Handle[GeomSurface]; p1: PntObj; p2: PntObj) {.cdecl, importcpp: "Init",
+          s: Handle[GeomSurface]; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Init",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc init*(this: var EdgeObj; c: HandleGeom2dCurve;
           s: Handle[GeomSurface]; v1: TopoDS_Vertex; v2: TopoDS_Vertex) {.cdecl,
     importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc init*(this: var EdgeObj; c: HandleGeom2dCurve;
-          s: Handle[GeomSurface]; p1: PntObj; p2: PntObj; p3: cfloat; p4: cfloat) {.cdecl,
+          s: Handle[GeomSurface]; p1: gp_Pnt; p2: gp_Pnt; p3: cfloat; p4: cfloat) {.cdecl,
     importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc init*(this: var EdgeObj; c: HandleGeom2dCurve;
           s: Handle[GeomSurface]; v1: TopoDS_Vertex; v2: TopoDS_Vertex; p1: cfloat;

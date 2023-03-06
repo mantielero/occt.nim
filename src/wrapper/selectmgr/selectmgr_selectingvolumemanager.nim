@@ -86,10 +86,10 @@ proc overlaps*(this: SelectMgrSelectingVolumeManager; theBoxMin: SelectMgrVec3;
 proc overlaps*(this: SelectMgrSelectingVolumeManager; theBoxMin: SelectMgrVec3;
               theBoxMax: SelectMgrVec3; theInside: ptr bool = nil): bool {.noSideEffect,
     cdecl, importcpp: "Overlaps", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc overlaps*(this: SelectMgrSelectingVolumeManager; thePnt: PntObj;
+proc overlaps*(this: SelectMgrSelectingVolumeManager; thePnt: gp_Pnt;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc overlaps*(this: SelectMgrSelectingVolumeManager; thePnt: PntObj): bool {.
+proc overlaps*(this: SelectMgrSelectingVolumeManager; thePnt: gp_Pnt): bool {.
     noSideEffect, cdecl, importcpp: "Overlaps", header: "SelectMgr_SelectingVolumeManager.hxx".}
 proc overlaps*(this: SelectMgrSelectingVolumeManager;
               theArrayOfPts: Handle[TColgpHArray1OfPnt]; theSensType: cint;
@@ -99,16 +99,16 @@ proc overlaps*(this: SelectMgrSelectingVolumeManager;
               theArrayOfPts: TColgpArray1OfPnt; theSensType: cint;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc overlaps*(this: SelectMgrSelectingVolumeManager; thePnt1: PntObj; thePnt2: PntObj;
+proc overlaps*(this: SelectMgrSelectingVolumeManager; thePnt1: gp_Pnt; thePnt2: gp_Pnt;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc overlaps*(this: SelectMgrSelectingVolumeManager; thePnt1: PntObj; thePnt2: PntObj;
-              thePnt3: PntObj; theSensType: cint;
+proc overlaps*(this: SelectMgrSelectingVolumeManager; thePnt1: gp_Pnt; thePnt2: gp_Pnt;
+              thePnt3: gp_Pnt; theSensType: cint;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc distToGeometryCenter*(this: SelectMgrSelectingVolumeManager; theCOG: PntObj): cfloat {.
+proc distToGeometryCenter*(this: SelectMgrSelectingVolumeManager; theCOG: gp_Pnt): cfloat {.
     noSideEffect, cdecl, importcpp: "DistToGeometryCenter", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc detectedPoint*(this: SelectMgrSelectingVolumeManager; theDepth: cfloat): PntObj {.
+proc detectedPoint*(this: SelectMgrSelectingVolumeManager; theDepth: cfloat): gp_Pnt {.
     noSideEffect, cdecl, importcpp: "DetectedPoint", header: "SelectMgr_SelectingVolumeManager.hxx".}
 proc allowOverlapDetection*(this: var SelectMgrSelectingVolumeManager;
                            theIsToAllow: bool) {.cdecl,
@@ -134,11 +134,11 @@ proc viewClipRanges*(this: SelectMgrSelectingVolumeManager): SelectMgrViewClipRa
 proc setViewClipRanges*(this: var SelectMgrSelectingVolumeManager;
                        theRange: SelectMgrViewClipRange) {.cdecl,
     importcpp: "SetViewClipRanges", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc getVertices*(this: SelectMgrSelectingVolumeManager): ptr PntObj {.noSideEffect,
+proc getVertices*(this: SelectMgrSelectingVolumeManager): ptr gp_Pnt {.noSideEffect,
     cdecl, importcpp: "GetVertices", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc getNearPickedPnt*(this: SelectMgrSelectingVolumeManager): PntObj {.noSideEffect,
+proc getNearPickedPnt*(this: SelectMgrSelectingVolumeManager): gp_Pnt {.noSideEffect,
     cdecl, importcpp: "GetNearPickedPnt", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc getFarPickedPnt*(this: SelectMgrSelectingVolumeManager): PntObj {.noSideEffect,
+proc getFarPickedPnt*(this: SelectMgrSelectingVolumeManager): gp_Pnt {.noSideEffect,
     cdecl, importcpp: "GetFarPickedPnt", header: "SelectMgr_SelectingVolumeManager.hxx".}
 proc getMousePosition*(this: SelectMgrSelectingVolumeManager): Pnt2dObj {.noSideEffect,
     cdecl, importcpp: "GetMousePosition", header: "SelectMgr_SelectingVolumeManager.hxx".}

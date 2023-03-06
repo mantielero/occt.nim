@@ -20,7 +20,7 @@ import gp_types
 
 
 proc resolution*(): cfloat {.cdecl, importcpp: "gp::Resolution(@)", header: "gp.hxx".}
-proc origin*(): PntObj {.cdecl, importcpp: "gp::Origin(@)", header: "gp.hxx".}
+proc origin*(): gp_Pnt {.cdecl, importcpp: "gp::Origin(@)", header: "gp.hxx".}
 proc dxAsDir*(): DirObj {.cdecl, importcpp: "gp::DX(@)", header: "gp.hxx".}
 proc dyAsDir*(): DirObj {.cdecl, importcpp: "gp::DY(@)", header: "gp.hxx".}
 proc dzAsDir*(): DirObj {.cdecl, importcpp: "gp::DZ(@)", header: "gp.hxx".}

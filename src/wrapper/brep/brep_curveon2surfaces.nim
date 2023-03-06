@@ -37,7 +37,7 @@ proc isRegularity*(this: BRepCurveOn2Surfaces): bool {.noSideEffect, cdecl,
 proc isRegularity*(this: BRepCurveOn2Surfaces; s1: Handle[GeomSurface];
                   s2: Handle[GeomSurface]; l1: TopLocLocation; l2: TopLocLocation): bool {.
     noSideEffect, cdecl, importcpp: "IsRegularity", header: "BRep_CurveOn2Surfaces.hxx".}
-proc d0*(this: BRepCurveOn2Surfaces; u: cfloat; p: var PntObj) {.noSideEffect, cdecl,
+proc d0*(this: BRepCurveOn2Surfaces; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "BRep_CurveOn2Surfaces.hxx".}
 proc surface*(this: BRepCurveOn2Surfaces): Handle[GeomSurface] {.noSideEffect, cdecl,
     importcpp: "Surface", header: "BRep_CurveOn2Surfaces.hxx".}

@@ -23,7 +23,7 @@ import ../gp/gp_types
 
 
 
-proc value3d*(pStart: IntSurfInteriorPoint): PntObj {.cdecl,
+proc value3d*(pStart: IntSurfInteriorPoint): gp_Pnt {.cdecl,
     importcpp: "IntSurf_InteriorPointTool::Value3d(@)", header: "IntSurf_InteriorPointTool.hxx".}
 proc value2d*(pStart: IntSurfInteriorPoint; u: var cfloat; v: var cfloat) {.cdecl,
     importcpp: "IntSurf_InteriorPointTool::Value2d(@)", header: "IntSurf_InteriorPointTool.hxx".}

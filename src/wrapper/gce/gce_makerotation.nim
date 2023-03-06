@@ -27,7 +27,7 @@ proc newGceMakeRotation*(line: LinObj; angle: cfloat): GceMakeRotation {.cdecl,
     constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
 proc newGceMakeRotation*(axis: Ax1Obj; angle: cfloat): GceMakeRotation {.cdecl,
     constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
-proc newGceMakeRotation*(point: PntObj; direc: DirObj; angle: cfloat): GceMakeRotation {.
+proc newGceMakeRotation*(point: gp_Pnt; direc: DirObj; angle: cfloat): GceMakeRotation {.
     cdecl, constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
 proc value*(this: GceMakeRotation): TrsfObj {.noSideEffect, cdecl, importcpp: "Value",
                                        header: "gce_MakeRotation.hxx".}

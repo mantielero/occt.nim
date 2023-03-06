@@ -31,12 +31,12 @@ import ../geomabs/geomabs_types
 
 proc setAxis*(this: var GeomConic; theA1: Ax1Obj) {.cdecl, importcpp: "SetAxis",
     header: "Geom_Conic.hxx".}
-proc setLocation*(this: var GeomConic; theP: PntObj) {.cdecl, importcpp: "SetLocation",
+proc setLocation*(this: var GeomConic; theP: gp_Pnt) {.cdecl, importcpp: "SetLocation",
     header: "Geom_Conic.hxx".}
 proc setPosition*(this: var GeomConic; theA2: Ax2Obj) {.cdecl, importcpp: "SetPosition",
     header: "Geom_Conic.hxx".}
 proc axis*(this: GeomConic): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis", header: "Geom_Conic.hxx".}
-proc location*(this: GeomConic): PntObj {.noSideEffect, cdecl, importcpp: "Location",
+proc location*(this: GeomConic): gp_Pnt {.noSideEffect, cdecl, importcpp: "Location",
                                    header: "Geom_Conic.hxx".}
 proc position*(this: GeomConic): Ax2Obj {.noSideEffect, cdecl, importcpp: "Position",
                                    header: "Geom_Conic.hxx".}

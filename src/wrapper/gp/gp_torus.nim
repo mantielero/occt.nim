@@ -30,7 +30,7 @@ proc torus*(): TorusObj {.cdecl, constructor, importcpp: "gp_Torus(@)", header: 
 proc torus*(a3: Ax3Obj; majorRadius: cfloat; minorRadius: cfloat): TorusObj {.cdecl,
     constructor, importcpp: "gp_Torus(@)", header: "gp_Torus.hxx".}
 proc setAxis*(this: var TorusObj; a1: Ax1Obj) {.cdecl, importcpp: "SetAxis", header: "gp_Torus.hxx".}
-proc setLocation*(this: var TorusObj; loc: PntObj) {.cdecl, importcpp: "SetLocation",
+proc setLocation*(this: var TorusObj; loc: gp_Pnt) {.cdecl, importcpp: "SetLocation",
     header: "gp_Torus.hxx".}
 proc setMajorRadius*(this: var TorusObj; majorRadius: cfloat) {.cdecl,
     importcpp: "SetMajorRadius", header: "gp_Torus.hxx".}
@@ -46,7 +46,7 @@ proc direct*(this: TorusObj): bool {.noSideEffect, cdecl, importcpp: "Direct",
 proc axis*(this: TorusObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Torus.hxx".}
 proc coefficients*(this: TorusObj; coef: var TColStdArray1OfReal) {.noSideEffect, cdecl,
     importcpp: "Coefficients", header: "gp_Torus.hxx".}
-proc location*(this: TorusObj): PntObj {.noSideEffect, cdecl, importcpp: "Location",
+proc location*(this: TorusObj): gp_Pnt {.noSideEffect, cdecl, importcpp: "Location",
                                header: "gp_Torus.hxx".}
 proc position*(this: TorusObj): Ax3Obj {.noSideEffect, cdecl, importcpp: "Position",
                                header: "gp_Torus.hxx".}
@@ -58,8 +58,8 @@ proc volume*(this: TorusObj): cfloat {.noSideEffect, cdecl, importcpp: "Volume",
                                 header: "gp_Torus.hxx".}
 proc xAxis*(this: TorusObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Torus.hxx".}
 proc yAxis*(this: TorusObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Torus.hxx".}
-proc mirror*(this: var TorusObj; p: PntObj) {.cdecl, importcpp: "Mirror", header: "gp_Torus.hxx".}
-proc mirrored*(this: TorusObj; p: PntObj): TorusObj {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var TorusObj; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Torus.hxx".}
+proc mirrored*(this: TorusObj; p: gp_Pnt): TorusObj {.noSideEffect, cdecl, importcpp: "Mirrored",
                                        header: "gp_Torus.hxx".}
 proc mirror*(this: var TorusObj; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Torus.hxx".}
 proc mirrored*(this: TorusObj; a1: Ax1Obj): TorusObj {.noSideEffect, cdecl,
@@ -71,8 +71,8 @@ proc rotate*(this: var TorusObj; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "R
     header: "gp_Torus.hxx".}
 proc rotated*(this: TorusObj; a1: Ax1Obj; ang: cfloat): TorusObj {.noSideEffect, cdecl,
     importcpp: "Rotated", header: "gp_Torus.hxx".}
-proc scale*(this: var TorusObj; p: PntObj; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Torus.hxx".}
-proc scaled*(this: TorusObj; p: PntObj; s: cfloat): TorusObj {.noSideEffect, cdecl,
+proc scale*(this: var TorusObj; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Torus.hxx".}
+proc scaled*(this: TorusObj; p: gp_Pnt; s: cfloat): TorusObj {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Torus.hxx".}
 proc transform*(this: var TorusObj; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Torus.hxx".}
 proc transformed*(this: TorusObj; t: TrsfObj): TorusObj {.noSideEffect, cdecl,
@@ -80,7 +80,7 @@ proc transformed*(this: TorusObj; t: TrsfObj): TorusObj {.noSideEffect, cdecl,
 proc translate*(this: var TorusObj; v: VecObj) {.cdecl, importcpp: "Translate", header: "gp_Torus.hxx".}
 proc translated*(this: TorusObj; v: VecObj): TorusObj {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Torus.hxx".}
-proc translate*(this: var TorusObj; p1: PntObj; p2: PntObj) {.cdecl, importcpp: "Translate",
+proc translate*(this: var TorusObj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Torus.hxx".}
-proc translated*(this: TorusObj; p1: PntObj; p2: PntObj): TorusObj {.noSideEffect, cdecl,
+proc translated*(this: TorusObj; p1: gp_Pnt; p2: gp_Pnt): TorusObj {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Torus.hxx".}

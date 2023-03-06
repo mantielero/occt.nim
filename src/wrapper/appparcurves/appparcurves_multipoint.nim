@@ -38,9 +38,9 @@ proc newAppParCurvesMultiPoint*(tabP: TColgpArray1OfPnt;
     cdecl, constructor, importcpp: "AppParCurves_MultiPoint(@)", header: "AppParCurves_MultiPoint.hxx".}
 proc destroyAppParCurvesMultiPoint*(this: var AppParCurvesMultiPoint) {.cdecl,
     importcpp: "#.~AppParCurves_MultiPoint()", header: "AppParCurves_MultiPoint.hxx".}
-proc setPoint*(this: var AppParCurvesMultiPoint; index: cint; point: PntObj) {.cdecl,
+proc setPoint*(this: var AppParCurvesMultiPoint; index: cint; point: gp_Pnt) {.cdecl,
     importcpp: "SetPoint", header: "AppParCurves_MultiPoint.hxx".}
-proc point*(this: AppParCurvesMultiPoint; index: cint): PntObj {.noSideEffect, cdecl,
+proc point*(this: AppParCurvesMultiPoint; index: cint): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Point", header: "AppParCurves_MultiPoint.hxx".}
 proc setPoint2d*(this: var AppParCurvesMultiPoint; index: cint; point: Pnt2dObj) {.cdecl,
     importcpp: "SetPoint2d", header: "AppParCurves_MultiPoint.hxx".}

@@ -36,9 +36,9 @@ proc set*(this: var BlendFuncConstThroat; param: cfloat) {.cdecl, importcpp: "Se
     header: "BlendFunc_ConstThroat.hxx".}
 proc isSolution*(this: var BlendFuncConstThroat; sol: MathVector; tol: cfloat): bool {.
     cdecl, importcpp: "IsSolution", header: "BlendFunc_ConstThroat.hxx".}
-proc pointOnS1*(this: BlendFuncConstThroat): PntObj {.noSideEffect, cdecl,
+proc pointOnS1*(this: BlendFuncConstThroat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS1", header: "BlendFunc_ConstThroat.hxx".}
-proc pointOnS2*(this: BlendFuncConstThroat): PntObj {.noSideEffect, cdecl,
+proc pointOnS2*(this: BlendFuncConstThroat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS2", header: "BlendFunc_ConstThroat.hxx".}
 proc isTangencyPoint*(this: BlendFuncConstThroat): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_ConstThroat.hxx".}

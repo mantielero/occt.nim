@@ -31,7 +31,7 @@ import ../quantity/[quantity_types, quantity_color]
 
 
 
-proc newV3dPositionalLight*(thePos: PntObj;
+proc newV3dPositionalLight*(thePos: gp_Pnt;
                            theColor: QuantityColor = newQuantityColor(quantityNOC_WHITE)): V3dPositionalLight {.
     cdecl, constructor, importcpp: "V3d_PositionalLight(@)", header: "V3d_PositionalLight.hxx".}
 ## using statement

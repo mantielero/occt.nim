@@ -57,9 +57,9 @@ proc getBounds*(this: BlendFuncCSCircular; infBound: var MathVector;
                                         importcpp: "GetBounds", header: "BlendFunc_CSCircular.hxx".}
 proc isSolution*(this: var BlendFuncCSCircular; sol: MathVector; tol: cfloat): bool {.
     cdecl, importcpp: "IsSolution", header: "BlendFunc_CSCircular.hxx".}
-proc pointOnS*(this: BlendFuncCSCircular): PntObj {.noSideEffect, cdecl,
+proc pointOnS*(this: BlendFuncCSCircular): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS", header: "BlendFunc_CSCircular.hxx".}
-proc pointOnC*(this: BlendFuncCSCircular): PntObj {.noSideEffect, cdecl,
+proc pointOnC*(this: BlendFuncCSCircular): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnC", header: "BlendFunc_CSCircular.hxx".}
 proc pnt2d*(this: BlendFuncCSCircular): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "Pnt2d", header: "BlendFunc_CSCircular.hxx".}

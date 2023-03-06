@@ -18,7 +18,7 @@ converter toPlane*(aSurface:Handle[Geom_Surface]): Handle[GeomPlane] =
   return downcast[Geom_Surface, GeomPlane](aSurface)
 
 
-proc location*(aPlane:Handle[GeomPlane]):PntObj =
+proc location*(aPlane:Handle[GeomPlane]):gp_Pnt =
   `*`(aPlane).location()
 
 

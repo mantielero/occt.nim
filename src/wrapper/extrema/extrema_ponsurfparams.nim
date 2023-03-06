@@ -15,12 +15,12 @@ import ../gp/gp_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of PntObj"
+discard "forward decl of gp_Pnt"
 
 
 proc newExtrema_POnSurfParams*(): Extrema_POnSurfParams {.cdecl, constructor,
     importcpp: "Extrema_POnSurfParams(@)", header: "Extrema_POnSurfParams.hxx".}
-proc newExtrema_POnSurfParams*(theU: cfloat; theV: cfloat; thePnt: PntObj): Extrema_POnSurfParams {.
+proc newExtrema_POnSurfParams*(theU: cfloat; theV: cfloat; thePnt: gp_Pnt): Extrema_POnSurfParams {.
     cdecl, constructor, importcpp: "Extrema_POnSurfParams(@)",
     header: "Extrema_POnSurfParams.hxx".}
 proc SetSqrDistance*(this: var Extrema_POnSurfParams; theSqrDistance: cfloat) {.cdecl,

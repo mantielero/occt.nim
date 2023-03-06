@@ -60,7 +60,7 @@ proc main() =
   #//Distribute the points and write them out to a file
   #PointOnCurveDistribution::distributePointsOnCurve(circle,pointsOnCircle,0.0,2.0*PI,resolution);
   #WriteCoordinatesToFile::writeCoordinatesToFile("chapter3points.txt",pointsOnCircle);  
-  var pointsOnCircle:array[resolution, PntObj]  # A seq would be an option too
+  var pointsOnCircle:array[resolution, gp_Pnt]  # A seq would be an option too
 
   # Template function, small wrapper around the evaluator functions 
   # of ElCLib that we were talking about in the previous tutorial:

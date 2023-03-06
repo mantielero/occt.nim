@@ -46,9 +46,9 @@ proc value*(this: BRepExtrema_DistShapeShape): cfloat {.noSideEffect, cdecl,
     importcpp: "Value", header: "BRepExtrema_DistShapeShape.hxx".}
 proc InnerSolution*(this: BRepExtrema_DistShapeShape): bool {.noSideEffect, cdecl,
     importcpp: "InnerSolution", header: "BRepExtrema_DistShapeShape.hxx".}
-proc PointOnShape1*(this: BRepExtrema_DistShapeShape; N: cint): PntObj {.noSideEffect,
+proc PointOnShape1*(this: BRepExtrema_DistShapeShape; N: cint): gp_Pnt {.noSideEffect,
     cdecl, importcpp: "PointOnShape1", header: "BRepExtrema_DistShapeShape.hxx".}
-proc PointOnShape2*(this: BRepExtrema_DistShapeShape; N: cint): PntObj {.noSideEffect,
+proc PointOnShape2*(this: BRepExtrema_DistShapeShape; N: cint): gp_Pnt {.noSideEffect,
     cdecl, importcpp: "PointOnShape2", header: "BRepExtrema_DistShapeShape.hxx".}
 proc SupportTypeShape1*(this: BRepExtrema_DistShapeShape; N: cint): BRepExtrema_SupportType {.
     noSideEffect, cdecl, importcpp: "SupportTypeShape1",

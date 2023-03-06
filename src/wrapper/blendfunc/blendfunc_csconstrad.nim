@@ -53,9 +53,9 @@ proc getBounds*(this: BlendFuncCSConstRad; infBound: var MathVector;
                                         importcpp: "GetBounds", header: "BlendFunc_CSConstRad.hxx".}
 proc isSolution*(this: var BlendFuncCSConstRad; sol: MathVector; tol: cfloat): bool {.
     cdecl, importcpp: "IsSolution", header: "BlendFunc_CSConstRad.hxx".}
-proc pointOnS*(this: BlendFuncCSConstRad): PntObj {.noSideEffect, cdecl,
+proc pointOnS*(this: BlendFuncCSConstRad): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS", header: "BlendFunc_CSConstRad.hxx".}
-proc pointOnC*(this: BlendFuncCSConstRad): PntObj {.noSideEffect, cdecl,
+proc pointOnC*(this: BlendFuncCSConstRad): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnC", header: "BlendFunc_CSConstRad.hxx".}
 proc pnt2d*(this: BlendFuncCSConstRad): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "Pnt2d", header: "BlendFunc_CSConstRad.hxx".}

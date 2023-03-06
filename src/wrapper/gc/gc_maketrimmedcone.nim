@@ -25,9 +25,9 @@ import ../geom/geom_types
 
 
 
-proc trimmedCone*(p1: PntObj; p2: PntObj; p3: PntObj; p4: PntObj): MakeTrimmedCone {.cdecl,
+proc trimmedCone*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt; p4: gp_Pnt): MakeTrimmedCone {.cdecl,
     constructor, importcpp: "GC_MakeTrimmedCone(@)", header: "GC_MakeTrimmedCone.hxx".}
-proc trimmedCone*(p1: PntObj; p2: PntObj; r1: cfloat; r2: cfloat): MakeTrimmedCone {.
+proc trimmedCone*(p1: gp_Pnt; p2: gp_Pnt; r1: cfloat; r2: cfloat): MakeTrimmedCone {.
     cdecl, constructor, importcpp: "GC_MakeTrimmedCone(@)", header: "GC_MakeTrimmedCone.hxx".}
 proc value*(this: MakeTrimmedCone): Handle[GeomRectangularTrimmedSurface] {.
     noSideEffect, cdecl, importcpp: "Value", header: "GC_MakeTrimmedCone.hxx".}

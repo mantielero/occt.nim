@@ -32,7 +32,7 @@ proc newGeomVectorWithMagnitude*(v: VecObj): GeomVectorWithMagnitude {.cdecl,
     constructor, importcpp: "Geom_VectorWithMagnitude(@)", header: "Geom_VectorWithMagnitude.hxx".}
 proc newGeomVectorWithMagnitude*(x: cfloat; y: cfloat; z: cfloat): GeomVectorWithMagnitude {.
     cdecl, constructor, importcpp: "Geom_VectorWithMagnitude(@)", header: "Geom_VectorWithMagnitude.hxx".}
-proc newGeomVectorWithMagnitude*(p1: PntObj; p2: PntObj): GeomVectorWithMagnitude {.cdecl,
+proc newGeomVectorWithMagnitude*(p1: gp_Pnt; p2: gp_Pnt): GeomVectorWithMagnitude {.cdecl,
     constructor, importcpp: "Geom_VectorWithMagnitude(@)", header: "Geom_VectorWithMagnitude.hxx".}
 proc setCoord*(this: var GeomVectorWithMagnitude; x: cfloat; y: cfloat; z: cfloat) {.
     cdecl, importcpp: "SetCoord", header: "Geom_VectorWithMagnitude.hxx".}

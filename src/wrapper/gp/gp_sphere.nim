@@ -26,7 +26,7 @@ proc sphere*(): SphereObj {.cdecl, constructor, importcpp: "gp_Sphere(@)",
                          header: "gp_Sphere.hxx".}
 proc sphere*(a3: Ax3Obj; radius: cfloat): SphereObj {.cdecl, constructor,
     importcpp: "gp_Sphere(@)", header: "gp_Sphere.hxx".}
-proc setLocation*(this: var SphereObj; loc: PntObj) {.cdecl, importcpp: "SetLocation",
+proc setLocation*(this: var SphereObj; loc: gp_Pnt) {.cdecl, importcpp: "SetLocation",
     header: "gp_Sphere.hxx".}
 proc setPosition*(this: var SphereObj; a3: Ax3Obj) {.cdecl, importcpp: "SetPosition",
     header: "gp_Sphere.hxx".}
@@ -42,7 +42,7 @@ proc uReverse*(this: var SphereObj) {.cdecl, importcpp: "UReverse", header: "gp_
 proc vReverse*(this: var SphereObj) {.cdecl, importcpp: "VReverse", header: "gp_Sphere.hxx".}
 proc direct*(this: SphereObj): bool {.noSideEffect, cdecl, importcpp: "Direct",
                                header: "gp_Sphere.hxx".}
-proc location*(this: SphereObj): PntObj {.noSideEffect, cdecl, importcpp: "Location",
+proc location*(this: SphereObj): gp_Pnt {.noSideEffect, cdecl, importcpp: "Location",
                                 header: "gp_Sphere.hxx".}
 proc position*(this: SphereObj): Ax3Obj {.noSideEffect, cdecl, importcpp: "Position",
                                 header: "gp_Sphere.hxx".}
@@ -52,8 +52,8 @@ proc volume*(this: SphereObj): cfloat {.noSideEffect, cdecl, importcpp: "Volume"
                                  header: "gp_Sphere.hxx".}
 proc xAxis*(this: SphereObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Sphere.hxx".}
 proc yAxis*(this: SphereObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Sphere.hxx".}
-proc mirror*(this: var SphereObj; p: PntObj) {.cdecl, importcpp: "Mirror", header: "gp_Sphere.hxx".}
-proc mirrored*(this: SphereObj; p: PntObj): SphereObj {.noSideEffect, cdecl,
+proc mirror*(this: var SphereObj; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Sphere.hxx".}
+proc mirrored*(this: SphereObj; p: gp_Pnt): SphereObj {.noSideEffect, cdecl,
     importcpp: "Mirrored", header: "gp_Sphere.hxx".}
 proc mirror*(this: var SphereObj; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Sphere.hxx".}
 proc mirrored*(this: SphereObj; a1: Ax1Obj): SphereObj {.noSideEffect, cdecl,
@@ -65,9 +65,9 @@ proc rotate*(this: var SphereObj; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "
     header: "gp_Sphere.hxx".}
 proc rotated*(this: SphereObj; a1: Ax1Obj; ang: cfloat): SphereObj {.noSideEffect, cdecl,
     importcpp: "Rotated", header: "gp_Sphere.hxx".}
-proc scale*(this: var SphereObj; p: PntObj; s: cfloat) {.cdecl, importcpp: "Scale",
+proc scale*(this: var SphereObj; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale",
     header: "gp_Sphere.hxx".}
-proc scaled*(this: SphereObj; p: PntObj; s: cfloat): SphereObj {.noSideEffect, cdecl,
+proc scaled*(this: SphereObj; p: gp_Pnt; s: cfloat): SphereObj {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Sphere.hxx".}
 proc transform*(this: var SphereObj; t: TrsfObj) {.cdecl, importcpp: "Transform",
                                        header: "gp_Sphere.hxx".}
@@ -76,7 +76,7 @@ proc transformed*(this: SphereObj; t: TrsfObj): SphereObj {.noSideEffect, cdecl,
 proc translate*(this: var SphereObj; v: VecObj) {.cdecl, importcpp: "Translate", header: "gp_Sphere.hxx".}
 proc translated*(this: SphereObj; v: VecObj): SphereObj {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Sphere.hxx".}
-proc translate*(this: var SphereObj; p1: PntObj; p2: PntObj) {.cdecl, importcpp: "Translate",
+proc translate*(this: var SphereObj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Sphere.hxx".}
-proc translated*(this: SphereObj; p1: PntObj; p2: PntObj): SphereObj {.noSideEffect, cdecl,
+proc translated*(this: SphereObj; p1: gp_Pnt; p2: gp_Pnt): SphereObj {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Sphere.hxx".}

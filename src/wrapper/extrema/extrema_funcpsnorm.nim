@@ -24,12 +24,12 @@ discard "forward decl of Extrema_POnSurf"
 
 proc newExtrema_FuncPSNorm*(): Extrema_FuncPSNorm {.cdecl, constructor,
     importcpp: "Extrema_FuncPSNorm(@)", header: "Extrema_FuncPSNorm.hxx".}
-proc newExtrema_FuncPSNorm*(P: PntObj; S: Adaptor3d_Surface): Extrema_FuncPSNorm {.
+proc newExtrema_FuncPSNorm*(P: gp_Pnt; S: Adaptor3d_Surface): Extrema_FuncPSNorm {.
     cdecl, constructor, importcpp: "Extrema_FuncPSNorm(@)",
     header: "Extrema_FuncPSNorm.hxx".}
 proc Initialize*(this: var Extrema_FuncPSNorm; S: Adaptor3d_Surface) {.cdecl,
     importcpp: "Initialize", header: "Extrema_FuncPSNorm.hxx".}
-proc SetPoint*(this: var Extrema_FuncPSNorm; P: PntObj) {.cdecl, importcpp: "SetPoint",
+proc SetPoint*(this: var Extrema_FuncPSNorm; P: gp_Pnt) {.cdecl, importcpp: "SetPoint",
     header: "Extrema_FuncPSNorm.hxx".}
 proc NbVariables*(this: Extrema_FuncPSNorm): cint {.noSideEffect, cdecl,
     importcpp: "NbVariables", header: "Extrema_FuncPSNorm.hxx".}

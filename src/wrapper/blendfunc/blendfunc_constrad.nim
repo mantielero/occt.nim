@@ -55,9 +55,9 @@ proc isSolution*(this: var BlendFuncConstRad; sol: MathVector; tol: cfloat): boo
     cdecl, importcpp: "IsSolution", header: "BlendFunc_ConstRad.hxx".}
 proc getMinimalDistance*(this: BlendFuncConstRad): cfloat {.noSideEffect, cdecl,
     importcpp: "GetMinimalDistance", header: "BlendFunc_ConstRad.hxx".}
-proc pointOnS1*(this: BlendFuncConstRad): PntObj {.noSideEffect, cdecl,
+proc pointOnS1*(this: BlendFuncConstRad): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS1", header: "BlendFunc_ConstRad.hxx".}
-proc pointOnS2*(this: BlendFuncConstRad): PntObj {.noSideEffect, cdecl,
+proc pointOnS2*(this: BlendFuncConstRad): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS2", header: "BlendFunc_ConstRad.hxx".}
 proc isTangencyPoint*(this: BlendFuncConstRad): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_ConstRad.hxx".}

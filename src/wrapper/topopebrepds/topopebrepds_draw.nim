@@ -20,15 +20,15 @@
 
 when defined(DRAW):
   proc fUN_draw*(s: TopoDS_Shape) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
-  proc fUN_draw*(p: PntObj) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
+  proc fUN_draw*(p: gp_Pnt) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_draw*(p: Pnt2dObj) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_draw*(c: Handle[Geom2dCurve]; dpar: cfloat) {.cdecl,
       importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
-  proc fUN_draw*(p: PntObj; v: DirObj) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
-  proc fUN_draw*(p: PntObj; v: VecObj) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
-  proc fUN_brepDraw*(aa: TCollectionAsciiString; p: PntObj) {.cdecl,
+  proc fUN_draw*(p: gp_Pnt; v: DirObj) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
+  proc fUN_draw*(p: gp_Pnt; v: VecObj) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
+  proc fUN_brepDraw*(aa: TCollectionAsciiString; p: gp_Pnt) {.cdecl,
       importcpp: "FUN_brep_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
-  proc fUN_brepDraw*(aa: TCollectionAsciiString; p: PntObj; d: DirObj) {.cdecl,
+  proc fUN_brepDraw*(aa: TCollectionAsciiString; p: gp_Pnt; d: DirObj) {.cdecl,
       importcpp: "FUN_brep_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_brepDraw*(aa: TCollectionAsciiString; s: TopoDS_Shape) {.cdecl,
       importcpp: "FUN_brep_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}

@@ -50,7 +50,7 @@ proc transformParameters*(this: GeomConicalSurface; u: var cfloat; v: var cfloat
     noSideEffect, cdecl, importcpp: "TransformParameters", header: "Geom_ConicalSurface.hxx".}
 proc parametricTransformation*(this: GeomConicalSurface; t: TrsfObj): GTrsf2d {.
     noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_ConicalSurface.hxx".}
-proc apex*(this: GeomConicalSurface): PntObj {.noSideEffect, cdecl, importcpp: "Apex",
+proc apex*(this: GeomConicalSurface): gp_Pnt {.noSideEffect, cdecl, importcpp: "Apex",
                                         header: "Geom_ConicalSurface.hxx".}
 proc bounds*(this: GeomConicalSurface; u1: var cfloat; u2: var cfloat; v1: var cfloat;
             v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds", header: "Geom_ConicalSurface.hxx".}
@@ -74,14 +74,14 @@ proc uIso*(this: GeomConicalSurface; u: cfloat): Handle[GeomCurve] {.noSideEffec
     cdecl, importcpp: "UIso", header: "Geom_ConicalSurface.hxx".}
 proc vIso*(this: GeomConicalSurface; v: cfloat): Handle[GeomCurve] {.noSideEffect,
     cdecl, importcpp: "VIso", header: "Geom_ConicalSurface.hxx".}
-proc d0*(this: GeomConicalSurface; u: cfloat; v: cfloat; p: var PntObj) {.noSideEffect, cdecl,
+proc d0*(this: GeomConicalSurface; u: cfloat; v: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom_ConicalSurface.hxx".}
-proc d1*(this: GeomConicalSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d1*(this: GeomConicalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_ConicalSurface.hxx".}
-proc d2*(this: GeomConicalSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d2*(this: GeomConicalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D2", header: "Geom_ConicalSurface.hxx".}
-proc d3*(this: GeomConicalSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d3*(this: GeomConicalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj;
         d3uuv: var VecObj; d3uvv: var VecObj) {.noSideEffect, cdecl, importcpp: "D3",
                                     header: "Geom_ConicalSurface.hxx".}

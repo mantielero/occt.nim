@@ -26,9 +26,9 @@ import ../geom/geom_types
 
 proc arcHyperbola*(hypr: HyprObj; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfHyperbola {.
     cdecl, constructor, importcpp: "GC_MakeArcOfHyperbola(@)", header: "GC_MakeArcOfHyperbola.hxx".}
-proc arcHyperbola*(hypr: HyprObj; p: PntObj; alpha: cfloat; sense: bool): MakeArcOfHyperbola {.
+proc arcHyperbola*(hypr: HyprObj; p: gp_Pnt; alpha: cfloat; sense: bool): MakeArcOfHyperbola {.
     cdecl, constructor, importcpp: "GC_MakeArcOfHyperbola(@)", header: "GC_MakeArcOfHyperbola.hxx".}
-proc arcHyperbola*(hypr: HyprObj; p1: PntObj; p2: PntObj; sense: bool): MakeArcOfHyperbola {.
+proc arcHyperbola*(hypr: HyprObj; p1: gp_Pnt; p2: gp_Pnt; sense: bool): MakeArcOfHyperbola {.
     cdecl, constructor, importcpp: "GC_MakeArcOfHyperbola(@)", header: "GC_MakeArcOfHyperbola.hxx".}
 proc value*(this: MakeArcOfHyperbola): HandleGeomTrimmedCurve {.noSideEffect,
     cdecl, importcpp: "Value", header: "GC_MakeArcOfHyperbola.hxx".}

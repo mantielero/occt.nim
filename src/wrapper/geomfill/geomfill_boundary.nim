@@ -25,9 +25,9 @@ import geomfill_types
 
 
 
-proc value*(this: GeomFillBoundary; u: cfloat): PntObj {.noSideEffect, cdecl,
+proc value*(this: GeomFillBoundary; u: cfloat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Value", header: "GeomFill_Boundary.hxx".}
-proc d1*(this: GeomFillBoundary; u: cfloat; p: var PntObj; v: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: GeomFillBoundary; u: cfloat; p: var gp_Pnt; v: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "GeomFill_Boundary.hxx".}
 proc hasNormals*(this: GeomFillBoundary): bool {.noSideEffect, cdecl,
     importcpp: "HasNormals", header: "GeomFill_Boundary.hxx".}
@@ -38,7 +38,7 @@ proc d1Norm*(this: GeomFillBoundary; u: cfloat; n: var VecObj; dn: var VecObj) {
 proc reparametrize*(this: var GeomFillBoundary; first: cfloat; last: cfloat;
                    hasDF: bool; hasDL: bool; df: cfloat; dl: cfloat; rev: bool) {.cdecl,
     importcpp: "Reparametrize", header: "GeomFill_Boundary.hxx".}
-proc points*(this: GeomFillBoundary; pFirst: var PntObj; pLast: var PntObj) {.noSideEffect,
+proc points*(this: GeomFillBoundary; pFirst: var gp_Pnt; pLast: var gp_Pnt) {.noSideEffect,
     cdecl, importcpp: "Points", header: "GeomFill_Boundary.hxx".}
 proc bounds*(this: GeomFillBoundary; first: var cfloat; last: var cfloat) {.noSideEffect,
     cdecl, importcpp: "Bounds", header: "GeomFill_Boundary.hxx".}

@@ -21,13 +21,13 @@ discard "forward decl of Adaptor3d_Surface"
 
 proc newExtrema_GenExtPS*(): Extrema_GenExtPS {.cdecl, constructor,
     importcpp: "Extrema_GenExtPS(@)", header: "Extrema_GenExtPS.hxx".}
-proc newExtrema_GenExtPS*(P: PntObj; S: Adaptor3d_Surface; NbU: cint; NbV: cint;
+proc newExtrema_GenExtPS*(P: gp_Pnt; S: Adaptor3d_Surface; NbU: cint; NbV: cint;
                          TolU: cfloat; TolV: cfloat;
                          F: Extrema_ExtFlag = extremaExtFlagMINMAX;
                          A: Extrema_ExtAlgo = extremaExtAlgoGrad): Extrema_GenExtPS {.
     cdecl, constructor, importcpp: "Extrema_GenExtPS(@)",
     header: "Extrema_GenExtPS.hxx".}
-proc newExtrema_GenExtPS*(P: PntObj; S: Adaptor3d_Surface; NbU: cint; NbV: cint;
+proc newExtrema_GenExtPS*(P: gp_Pnt; S: Adaptor3d_Surface; NbU: cint; NbV: cint;
                          Umin: cfloat; Usup: cfloat; Vmin: cfloat; Vsup: cfloat;
                          TolU: cfloat; TolV: cfloat;
                          F: Extrema_ExtFlag = extremaExtFlagMINMAX;
@@ -41,7 +41,7 @@ proc Initialize*(this: var Extrema_GenExtPS; S: Adaptor3d_Surface; NbU: cint; Nb
                 Umin: cfloat; Usup: cfloat; Vmin: cfloat; Vsup: cfloat; TolU: cfloat;
                 TolV: cfloat) {.cdecl, importcpp: "Initialize",
                               header: "Extrema_GenExtPS.hxx".}
-proc Perform*(this: var Extrema_GenExtPS; P: PntObj) {.cdecl, importcpp: "Perform",
+proc Perform*(this: var Extrema_GenExtPS; P: gp_Pnt) {.cdecl, importcpp: "Perform",
     header: "Extrema_GenExtPS.hxx".}
 proc SetFlag*(this: var Extrema_GenExtPS; F: Extrema_ExtFlag) {.cdecl,
     importcpp: "SetFlag", header: "Extrema_GenExtPS.hxx".}

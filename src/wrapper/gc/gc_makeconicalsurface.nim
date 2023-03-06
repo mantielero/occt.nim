@@ -29,9 +29,9 @@ proc conicalSurface*(a2: Ax2Obj; ang: cfloat; radius: cfloat): MakeConicalSurfac
     cdecl, constructor, importcpp: "GC_MakeConicalSurface(@)", header: "GC_MakeConicalSurface.hxx".}
 proc conicalSurface*(c: ConeObj): MakeConicalSurface {.cdecl, constructor,
     importcpp: "GC_MakeConicalSurface(@)", header: "GC_MakeConicalSurface.hxx".}
-proc conicalSurface*(p1: PntObj; p2: PntObj; p3: PntObj; p4: PntObj): MakeConicalSurface {.
+proc conicalSurface*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt; p4: gp_Pnt): MakeConicalSurface {.
     cdecl, constructor, importcpp: "GC_MakeConicalSurface(@)", header: "GC_MakeConicalSurface.hxx".}
-proc conicalSurface*(p1: PntObj; p2: PntObj; r1: cfloat; r2: cfloat): MakeConicalSurface {.
+proc conicalSurface*(p1: gp_Pnt; p2: gp_Pnt; r1: cfloat; r2: cfloat): MakeConicalSurface {.
     cdecl, constructor, importcpp: "GC_MakeConicalSurface(@)", header: "GC_MakeConicalSurface.hxx".}
 proc value*(this: MakeConicalSurface): Handle[GeomConicalSurface] {.noSideEffect,
     cdecl, importcpp: "Value", header: "GC_MakeConicalSurface.hxx".}

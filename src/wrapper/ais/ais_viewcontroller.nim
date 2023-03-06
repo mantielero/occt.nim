@@ -270,12 +270,12 @@ proc onObjectDragged*(this: var AIS_ViewController;
                      theCtx: Handle[AIS_InteractiveContext];
                      theView: Handle[V3dView]; theAction: AIS_DragAction) {.cdecl,
     importcpp: "OnObjectDragged", header: "AIS_ViewController.hxx".}
-proc pickPoint*(this: var AIS_ViewController; thePnt: var PntObj;
+proc pickPoint*(this: var AIS_ViewController; thePnt: var gp_Pnt;
                theCtx: Handle[AIS_InteractiveContext]; theView: Handle[V3dView];
                theCursor: Graphic3dVec2i; theToStickToPickRay: bool): bool {.cdecl,
     importcpp: "PickPoint", header: "AIS_ViewController.hxx".}
 proc gravityPoint*(this: var AIS_ViewController;
-                  theCtx: Handle[AIS_InteractiveContext]; theView: Handle[V3dView]): PntObj {.
+                  theCtx: Handle[AIS_InteractiveContext]; theView: Handle[V3dView]): gp_Pnt {.
     cdecl, importcpp: "GravityPoint", header: "AIS_ViewController.hxx".}
 proc fitAllAuto*(this: var AIS_ViewController;
                 theCtx: Handle[AIS_InteractiveContext]; theView: Handle[V3dView]) {.
@@ -301,9 +301,9 @@ proc setAskNextFrame*(this: var AIS_ViewController; theToDraw: bool = true) {.cd
     importcpp: "setAskNextFrame", header: "AIS_ViewController.hxx".}
 proc hasPanningAnchorPoint*(this: AIS_ViewController): bool {.noSideEffect, cdecl,
     importcpp: "hasPanningAnchorPoint", header: "AIS_ViewController.hxx".}
-proc panningAnchorPoint*(this: AIS_ViewController): PntObj {.noSideEffect, cdecl,
+proc panningAnchorPoint*(this: AIS_ViewController): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "panningAnchorPoint", header: "AIS_ViewController.hxx".}
-proc setPanningAnchorPoint*(this: var AIS_ViewController; thePnt: PntObj) {.cdecl,
+proc setPanningAnchorPoint*(this: var AIS_ViewController; thePnt: gp_Pnt) {.cdecl,
     importcpp: "setPanningAnchorPoint", header: "AIS_ViewController.hxx".}
 proc handlePanning*(this: var AIS_ViewController; theView: Handle[V3dView]) {.cdecl,
     importcpp: "handlePanning", header: "AIS_ViewController.hxx".}
@@ -314,13 +314,13 @@ proc minZoomDistance*(this: AIS_ViewController): cdouble {.noSideEffect, cdecl,
 proc setMinZoomDistance*(this: var AIS_ViewController; theDist: cdouble) {.cdecl,
     importcpp: "SetMinZoomDistance", header: "AIS_ViewController.hxx".}
 proc handleZoom*(this: var AIS_ViewController; theView: Handle[V3dView];
-                theParams: AspectScrollDelta; thePnt: ptr PntObj) {.cdecl,
+                theParams: AspectScrollDelta; thePnt: ptr gp_Pnt) {.cdecl,
     importcpp: "handleZoom", header: "AIS_ViewController.hxx".}
 proc handleZFocusScroll*(this: var AIS_ViewController; theView: Handle[V3dView];
                         theParams: AspectScrollDelta) {.cdecl,
     importcpp: "handleZFocusScroll", header: "AIS_ViewController.hxx".}
 proc handleOrbitRotation*(this: var AIS_ViewController; theView: Handle[V3dView];
-                         thePnt: PntObj; theToLockZUp: bool) {.cdecl,
+                         thePnt: gp_Pnt; theToLockZUp: bool) {.cdecl,
     importcpp: "handleOrbitRotation", header: "AIS_ViewController.hxx".}
 proc handleViewRotation*(this: var AIS_ViewController; theView: Handle[V3dView];
                         theYawExtra: cdouble; thePitchExtra: cdouble;

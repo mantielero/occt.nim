@@ -3,7 +3,7 @@ https://forum.nim-lang.org/t/7045
 ]#
 import occt
 
-# Let's create two points `PntObj`
+# Let's create two points `gp_Pnt`
 var p1 = pnt(0,0,0)
 var p2 = pnt(0,20,0)
 

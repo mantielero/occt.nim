@@ -63,17 +63,17 @@ proc isVPeriodic*(s: Handle[Adaptor3dHSurface]): bool {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::IsVPeriodic(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc vPeriod*(s: Handle[Adaptor3dHSurface]): cfloat {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::VPeriod(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc value*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat): PntObj {.cdecl,
+proc value*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat): gp_Pnt {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Value(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc d0*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var PntObj) {.cdecl,
+proc d0*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var gp_Pnt) {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::D0(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc d1*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d1*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj) {.cdecl, importcpp: "Adaptor3d_HSurfaceTool::D1(@)",
                      header: "Adaptor3d_HSurfaceTool.hxx".}
-proc d2*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d2*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::D2(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc d3*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d3*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj;
         d3uuv: var VecObj; d3uvv: var VecObj) {.cdecl,
                                     importcpp: "Adaptor3d_HSurfaceTool::D3(@)",

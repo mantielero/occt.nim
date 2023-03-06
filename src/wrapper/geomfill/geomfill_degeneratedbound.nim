@@ -25,13 +25,13 @@ import geomfill_types
 
 
 
-proc newGeomFillDegeneratedBound*(point: PntObj; first: cfloat; last: cfloat;
+proc newGeomFillDegeneratedBound*(point: gp_Pnt; first: cfloat; last: cfloat;
                                  tol3d: cfloat; tolang: cfloat): GeomFillDegeneratedBound {.
     cdecl, constructor, importcpp: "GeomFill_DegeneratedBound(@)",
     header: "GeomFill_DegeneratedBound.hxx".}
-proc value*(this: GeomFillDegeneratedBound; u: cfloat): PntObj {.noSideEffect, cdecl,
+proc value*(this: GeomFillDegeneratedBound; u: cfloat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Value", header: "GeomFill_DegeneratedBound.hxx".}
-proc d1*(this: GeomFillDegeneratedBound; u: cfloat; p: var PntObj; v: var VecObj) {.noSideEffect,
+proc d1*(this: GeomFillDegeneratedBound; u: cfloat; p: var gp_Pnt; v: var VecObj) {.noSideEffect,
     cdecl, importcpp: "D1", header: "GeomFill_DegeneratedBound.hxx".}
 proc reparametrize*(this: var GeomFillDegeneratedBound; first: cfloat; last: cfloat;
                    hasDF: bool; hasDL: bool; df: cfloat; dl: cfloat; rev: bool) {.cdecl,

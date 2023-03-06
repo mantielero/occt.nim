@@ -25,7 +25,7 @@ import geomfill_types
 
 
 
-proc newGeomFillPlanFunc*(p: PntObj; v: VecObj; c: Handle[Adaptor3dHCurve]): GeomFillPlanFunc {.
+proc newGeomFillPlanFunc*(p: gp_Pnt; v: VecObj; c: Handle[Adaptor3dHCurve]): GeomFillPlanFunc {.
     cdecl, constructor, importcpp: "GeomFill_PlanFunc(@)", header: "GeomFill_PlanFunc.hxx".}
 proc value*(this: var GeomFillPlanFunc; x: cfloat; f: var cfloat): bool {.cdecl,
     importcpp: "Value", header: "GeomFill_PlanFunc.hxx".}

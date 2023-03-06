@@ -23,13 +23,13 @@ import ../gp/gp_types
 
 
 
-proc newGceMakeMirror*(point: PntObj): GceMakeMirror {.cdecl, constructor,
+proc newGceMakeMirror*(point: gp_Pnt): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
 proc newGceMakeMirror*(axis: Ax1Obj): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
 proc newGceMakeMirror*(line: LinObj): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc newGceMakeMirror*(point: PntObj; direc: DirObj): GceMakeMirror {.cdecl, constructor,
+proc newGceMakeMirror*(point: gp_Pnt; direc: DirObj): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
 proc newGceMakeMirror*(plane: PlnObj): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}

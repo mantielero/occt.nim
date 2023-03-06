@@ -75,7 +75,7 @@ proc getTolerance*(this: GeomFillCircularBlendFunc; boundTol: cfloat;
     noSideEffect, cdecl, importcpp: "GetTolerance", header: "GeomFill_CircularBlendFunc.hxx".}
 proc setTolerance*(this: var GeomFillCircularBlendFunc; tol3d: cfloat; tol2d: cfloat) {.
     cdecl, importcpp: "SetTolerance", header: "GeomFill_CircularBlendFunc.hxx".}
-proc barycentreOfSurf*(this: GeomFillCircularBlendFunc): PntObj {.noSideEffect, cdecl,
+proc barycentreOfSurf*(this: GeomFillCircularBlendFunc): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "BarycentreOfSurf", header: "GeomFill_CircularBlendFunc.hxx".}
 proc maximalSection*(this: GeomFillCircularBlendFunc): cfloat {.noSideEffect, cdecl,
     importcpp: "MaximalSection", header: "GeomFill_CircularBlendFunc.hxx".}

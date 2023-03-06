@@ -60,17 +60,17 @@ proc orthogonalizedUp*(this: Graphic3dCamera): DirObj {.noSideEffect, cdecl,
     importcpp: "OrthogonalizedUp", header: "Graphic3d_Camera.hxx".}
 proc sideRight*(this: Graphic3dCamera): DirObj {.noSideEffect, cdecl,
     importcpp: "SideRight", header: "Graphic3d_Camera.hxx".}
-proc eye*(this: Graphic3dCamera): PntObj {.noSideEffect, cdecl, importcpp: "Eye",
+proc eye*(this: Graphic3dCamera): gp_Pnt {.noSideEffect, cdecl, importcpp: "Eye",
                                     header: "Graphic3d_Camera.hxx".}
-proc moveEyeTo*(this: var Graphic3dCamera; theEye: PntObj) {.cdecl,
+proc moveEyeTo*(this: var Graphic3dCamera; theEye: gp_Pnt) {.cdecl,
     importcpp: "MoveEyeTo", header: "Graphic3d_Camera.hxx".}
-proc setEyeAndCenter*(this: var Graphic3dCamera; theEye: PntObj; theCenter: PntObj) {.cdecl,
+proc setEyeAndCenter*(this: var Graphic3dCamera; theEye: gp_Pnt; theCenter: gp_Pnt) {.cdecl,
     importcpp: "SetEyeAndCenter", header: "Graphic3d_Camera.hxx".}
-proc setEye*(this: var Graphic3dCamera; theEye: PntObj) {.cdecl, importcpp: "SetEye",
+proc setEye*(this: var Graphic3dCamera; theEye: gp_Pnt) {.cdecl, importcpp: "SetEye",
     header: "Graphic3d_Camera.hxx".}
-proc center*(this: Graphic3dCamera): PntObj {.noSideEffect, cdecl, importcpp: "Center",
+proc center*(this: Graphic3dCamera): gp_Pnt {.noSideEffect, cdecl, importcpp: "Center",
                                        header: "Graphic3d_Camera.hxx".}
-proc setCenter*(this: var Graphic3dCamera; theCenter: PntObj) {.cdecl,
+proc setCenter*(this: var Graphic3dCamera; theCenter: gp_Pnt) {.cdecl,
     importcpp: "SetCenter", header: "Graphic3d_Camera.hxx".}
 proc distance*(this: Graphic3dCamera): cfloat {.noSideEffect, cdecl,
     importcpp: "Distance", header: "Graphic3d_Camera.hxx".}
@@ -147,17 +147,17 @@ proc nDC2dOffsetY*(this: Graphic3dCamera): cfloat {.noSideEffect, cdecl,
 proc frustum*(this: Graphic3dCamera; theLeft: var PlnObj; theRight: var PlnObj;
              theBottom: var PlnObj; theTop: var PlnObj; theNear: var PlnObj; theFar: var PlnObj) {.
     noSideEffect, cdecl, importcpp: "Frustum", header: "Graphic3d_Camera.hxx".}
-proc project*(this: Graphic3dCamera; thePnt: PntObj): PntObj {.noSideEffect, cdecl,
+proc project*(this: Graphic3dCamera; thePnt: gp_Pnt): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Project", header: "Graphic3d_Camera.hxx".}
-proc unProject*(this: Graphic3dCamera; thePnt: PntObj): PntObj {.noSideEffect, cdecl,
+proc unProject*(this: Graphic3dCamera; thePnt: gp_Pnt): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "UnProject", header: "Graphic3d_Camera.hxx".}
-proc convertView2Proj*(this: Graphic3dCamera; thePnt: PntObj): PntObj {.noSideEffect, cdecl,
+proc convertView2Proj*(this: Graphic3dCamera; thePnt: gp_Pnt): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "ConvertView2Proj", header: "Graphic3d_Camera.hxx".}
-proc convertProj2View*(this: Graphic3dCamera; thePnt: PntObj): PntObj {.noSideEffect, cdecl,
+proc convertProj2View*(this: Graphic3dCamera; thePnt: gp_Pnt): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "ConvertProj2View", header: "Graphic3d_Camera.hxx".}
-proc convertWorld2View*(this: Graphic3dCamera; thePnt: PntObj): PntObj {.noSideEffect, cdecl,
+proc convertWorld2View*(this: Graphic3dCamera; thePnt: gp_Pnt): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "ConvertWorld2View", header: "Graphic3d_Camera.hxx".}
-proc convertView2World*(this: Graphic3dCamera; thePnt: PntObj): PntObj {.noSideEffect, cdecl,
+proc convertView2World*(this: Graphic3dCamera; thePnt: gp_Pnt): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "ConvertView2World", header: "Graphic3d_Camera.hxx".}
 proc worldViewProjState*(this: Graphic3dCamera): Graphic3dWorldViewProjState {.
     noSideEffect, cdecl, importcpp: "WorldViewProjState", header: "Graphic3d_Camera.hxx".}

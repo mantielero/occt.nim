@@ -1,4 +1,4 @@
-# PROVIDES: Gp Ax1Obj Ax2Obj Ax22dObj Ax2dObj Ax3Obj CircObj Circ2dObj ConeObj CylinderObj DirObj Dir2dObj ElipsObj Elips2dObj EulerSequenceObj GTrsf GTrsf2d HyprObj Hypr2dObj LinObj Lin2dObj MatObj Mat2dObj ParabObj Parab2dObj PlnObj PntObj Pnt2dObj QuaternionObj QuaternionNLerp QuaternionSLerp SphereObj TorusObj TrsfObj Trsf2dObj TrsfFormObj VecObj XyObj XyzObj Vec2dObj
+# PROVIDES: Gp Ax1Obj Ax2Obj Ax22dObj Ax2dObj Ax3Obj CircObj Circ2dObj ConeObj CylinderObj DirObj Dir2dObj ElipsObj Elips2dObj EulerSequenceObj GTrsf GTrsf2d HyprObj Hypr2dObj LinObj Lin2dObj MatObj Mat2dObj ParabObj Parab2dObj PlnObj gp_Pnt Pnt2dObj QuaternionObj QuaternionNLerp QuaternionSLerp SphereObj TorusObj TrsfObj Trsf2dObj TrsfFormObj VecObj XyObj XyzObj Vec2dObj
 # DEPENDS:
 
 type
@@ -63,7 +63,7 @@ type
 
   PlnObj* {.importcpp: "gp_Pln", header: "gp_Pln.hxx", bycopy.} = object 
 
-  PntObj* {.importcpp: "gp_Pnt", header: "gp_Pnt.hxx", bycopy.} = object 
+  gp_Pnt* {.importcpp: "gp_Pnt", header: "gp_Pnt.hxx", bycopy.} = object 
 
   Pnt2dObj* {.importcpp: "gp_Pnt2d", header: "gp_Pnt2d.hxx", bycopy.} = object 
 

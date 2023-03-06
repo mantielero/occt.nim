@@ -34,7 +34,7 @@ proc setArc*(this: var ChFiDS_CommonPoint; tol: cfloat; a: TopoDS_Edge; param: c
             tArc: TopAbsOrientation) {.cdecl, importcpp: "SetArc", header: "ChFiDS_CommonPoint.hxx".}
 proc setParameter*(this: var ChFiDS_CommonPoint; param: cfloat) {.cdecl,
     importcpp: "SetParameter", header: "ChFiDS_CommonPoint.hxx".}
-proc setPoint*(this: var ChFiDS_CommonPoint; thePoint: PntObj) {.cdecl,
+proc setPoint*(this: var ChFiDS_CommonPoint; thePoint: gp_Pnt) {.cdecl,
     importcpp: "SetPoint", header: "ChFiDS_CommonPoint.hxx".}
 proc setVector*(this: var ChFiDS_CommonPoint; theVector: VecObj) {.cdecl,
     importcpp: "SetVector", header: "ChFiDS_CommonPoint.hxx".}
@@ -56,7 +56,7 @@ proc parameterOnArc*(this: ChFiDS_CommonPoint): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnArc", header: "ChFiDS_CommonPoint.hxx".}
 proc parameter*(this: ChFiDS_CommonPoint): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "ChFiDS_CommonPoint.hxx".}
-proc point*(this: ChFiDS_CommonPoint): PntObj {.noSideEffect, cdecl, importcpp: "Point",
+proc point*(this: ChFiDS_CommonPoint): gp_Pnt {.noSideEffect, cdecl, importcpp: "Point",
     header: "ChFiDS_CommonPoint.hxx".}
 proc hasVector*(this: ChFiDS_CommonPoint): bool {.noSideEffect, cdecl,
     importcpp: "HasVector", header: "ChFiDS_CommonPoint.hxx".}

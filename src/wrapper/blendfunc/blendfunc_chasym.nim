@@ -56,9 +56,9 @@ proc derivatives*(this: var BlendFuncChAsym; x: MathVector; d: var MathMatrix): 
     cdecl, importcpp: "Derivatives", header: "BlendFunc_ChAsym.hxx".}
 proc values*(this: var BlendFuncChAsym; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BlendFunc_ChAsym.hxx".}
-proc pointOnS1*(this: BlendFuncChAsym): PntObj {.noSideEffect, cdecl,
+proc pointOnS1*(this: BlendFuncChAsym): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS1", header: "BlendFunc_ChAsym.hxx".}
-proc pointOnS2*(this: BlendFuncChAsym): PntObj {.noSideEffect, cdecl,
+proc pointOnS2*(this: BlendFuncChAsym): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS2", header: "BlendFunc_ChAsym.hxx".}
 proc isTangencyPoint*(this: BlendFuncChAsym): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_ChAsym.hxx".}

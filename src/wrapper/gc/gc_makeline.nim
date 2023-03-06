@@ -29,12 +29,12 @@ proc line*(a1: Ax1Obj): MakeLine {.cdecl, constructor,
                                    importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
 proc line*(L: LinObj): MakeLine {.cdecl, constructor, importcpp: "GC_MakeLine(@)",
                                   header: "GC_MakeLine.hxx".}
-proc line*(p: PntObj; v: DirObj): MakeLine {.cdecl, constructor,
+proc line*(p: gp_Pnt; v: DirObj): MakeLine {.cdecl, constructor,
                                         importcpp: "GC_MakeLine(@)",
                                         header: "GC_MakeLine.hxx".}
-proc line*(lin: LinObj; point: PntObj): MakeLine {.cdecl, constructor,
+proc line*(lin: LinObj; point: gp_Pnt): MakeLine {.cdecl, constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc line*(p1: PntObj; p2: PntObj): MakeLine {.cdecl, constructor,
+proc line*(p1: gp_Pnt; p2: gp_Pnt): MakeLine {.cdecl, constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
 proc value*(this: MakeLine): Handle[GeomLine] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeLine.hxx".}

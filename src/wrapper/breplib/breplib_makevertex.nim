@@ -21,7 +21,7 @@ import ../gp/gp_types
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Vertex"
 
-proc newBRepLib_MakeVertex*(P: PntObj): BRepLib_MakeVertex {.cdecl, constructor,
+proc newBRepLib_MakeVertex*(P: gp_Pnt): BRepLib_MakeVertex {.cdecl, constructor,
     importcpp: "BRepLib_MakeVertex(@)".}
 proc Vertex*(this: var BRepLib_MakeVertex): TopoDS_Vertex {.cdecl,
     importcpp: "Vertex".}

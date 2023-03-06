@@ -60,9 +60,9 @@ proc value*(this: PrsDimRelation): cfloat {.noSideEffect, cdecl, importcpp: "Val
                                         header: "PrsDim_Relation.hxx".}
 proc setValue*(this: var PrsDimRelation; theVal: cfloat) {.cdecl,
     importcpp: "SetValue", header: "PrsDim_Relation.hxx".}
-proc position*(this: PrsDimRelation): PntObj {.noSideEffect, cdecl,
+proc position*(this: PrsDimRelation): gp_Pnt {.noSideEffect, cdecl,
                                         importcpp: "Position", header: "PrsDim_Relation.hxx".}
-proc setPosition*(this: var PrsDimRelation; thePosition: PntObj) {.cdecl,
+proc setPosition*(this: var PrsDimRelation; thePosition: gp_Pnt) {.cdecl,
     importcpp: "SetPosition", header: "PrsDim_Relation.hxx".}
 proc text*(this: PrsDimRelation): TCollectionExtendedString {.noSideEffect, cdecl,
     importcpp: "Text", header: "PrsDim_Relation.hxx".}

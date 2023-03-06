@@ -16,7 +16,7 @@ import ../gp/gp_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of PntObj"
+discard "forward decl of gp_Pnt"
 discard "forward decl of LinObj"
 discard "forward decl of CircObj"
 discard "forward decl of ElipsObj"
@@ -26,34 +26,34 @@ discard "forward decl of ParabObj"
 
 proc newExtrema_ExtPElC*(): Extrema_ExtPElC {.cdecl, constructor,
     importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc newExtrema_ExtPElC*(P: PntObj; C: LinObj; Tol: cfloat; Uinf: cfloat; Usup: cfloat): Extrema_ExtPElC {.
+proc newExtrema_ExtPElC*(P: gp_Pnt; C: LinObj; Tol: cfloat; Uinf: cfloat; Usup: cfloat): Extrema_ExtPElC {.
     cdecl, constructor, importcpp: "Extrema_ExtPElC(@)",
     header: "Extrema_ExtPElC.hxx".}
-proc Perform*(this: var Extrema_ExtPElC; P: PntObj; C: LinObj; Tol: cfloat; Uinf: cfloat;
+proc Perform*(this: var Extrema_ExtPElC; P: gp_Pnt; C: LinObj; Tol: cfloat; Uinf: cfloat;
              Usup: cfloat) {.cdecl, importcpp: "Perform",
                            header: "Extrema_ExtPElC.hxx".}
-proc newExtrema_ExtPElC*(P: PntObj; C: CircObj; Tol: cfloat; Uinf: cfloat; Usup: cfloat): Extrema_ExtPElC {.
+proc newExtrema_ExtPElC*(P: gp_Pnt; C: CircObj; Tol: cfloat; Uinf: cfloat; Usup: cfloat): Extrema_ExtPElC {.
     cdecl, constructor, importcpp: "Extrema_ExtPElC(@)",
     header: "Extrema_ExtPElC.hxx".}
-proc Perform*(this: var Extrema_ExtPElC; P: PntObj; C: CircObj; Tol: cfloat; Uinf: cfloat;
+proc Perform*(this: var Extrema_ExtPElC; P: gp_Pnt; C: CircObj; Tol: cfloat; Uinf: cfloat;
              Usup: cfloat) {.cdecl, importcpp: "Perform",
                            header: "Extrema_ExtPElC.hxx".}
-proc newExtrema_ExtPElC*(P: PntObj; C: ElipsObj; Tol: cfloat; Uinf: cfloat; Usup: cfloat): Extrema_ExtPElC {.
+proc newExtrema_ExtPElC*(P: gp_Pnt; C: ElipsObj; Tol: cfloat; Uinf: cfloat; Usup: cfloat): Extrema_ExtPElC {.
     cdecl, constructor, importcpp: "Extrema_ExtPElC(@)",
     header: "Extrema_ExtPElC.hxx".}
-proc Perform*(this: var Extrema_ExtPElC; P: PntObj; C: ElipsObj; Tol: cfloat;
+proc Perform*(this: var Extrema_ExtPElC; P: gp_Pnt; C: ElipsObj; Tol: cfloat;
              Uinf: cfloat; Usup: cfloat) {.cdecl, importcpp: "Perform",
                                        header: "Extrema_ExtPElC.hxx".}
-proc newExtrema_ExtPElC*(P: PntObj; C: HyprObj; Tol: cfloat; Uinf: cfloat; Usup: cfloat): Extrema_ExtPElC {.
+proc newExtrema_ExtPElC*(P: gp_Pnt; C: HyprObj; Tol: cfloat; Uinf: cfloat; Usup: cfloat): Extrema_ExtPElC {.
     cdecl, constructor, importcpp: "Extrema_ExtPElC(@)",
     header: "Extrema_ExtPElC.hxx".}
-proc Perform*(this: var Extrema_ExtPElC; P: PntObj; C: HyprObj; Tol: cfloat; Uinf: cfloat;
+proc Perform*(this: var Extrema_ExtPElC; P: gp_Pnt; C: HyprObj; Tol: cfloat; Uinf: cfloat;
              Usup: cfloat) {.cdecl, importcpp: "Perform",
                            header: "Extrema_ExtPElC.hxx".}
-proc newExtrema_ExtPElC*(P: PntObj; C: ParabObj; Tol: cfloat; Uinf: cfloat; Usup: cfloat): Extrema_ExtPElC {.
+proc newExtrema_ExtPElC*(P: gp_Pnt; C: ParabObj; Tol: cfloat; Uinf: cfloat; Usup: cfloat): Extrema_ExtPElC {.
     cdecl, constructor, importcpp: "Extrema_ExtPElC(@)",
     header: "Extrema_ExtPElC.hxx".}
-proc Perform*(this: var Extrema_ExtPElC; P: PntObj; C: ParabObj; Tol: cfloat;
+proc Perform*(this: var Extrema_ExtPElC; P: gp_Pnt; C: ParabObj; Tol: cfloat;
              Uinf: cfloat; Usup: cfloat) {.cdecl, importcpp: "Perform",
                                        header: "Extrema_ExtPElC.hxx".}
 proc IsDone*(this: Extrema_ExtPElC): bool {.noSideEffect, cdecl, importcpp: "IsDone",

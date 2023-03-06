@@ -157,9 +157,9 @@ proc transfert*(this: BRepBuilder; ein: TopoDS_Edge; eout: TopoDS_Edge) {.noSide
     cdecl, importcpp: "Transfert", header: "BRep_Builder.hxx".}
 proc makeVertex*(this: BRepBuilder; v: var TopoDS_Vertex) {.noSideEffect, cdecl,
     importcpp: "MakeVertex", header: "BRep_Builder.hxx".}
-proc makeVertex*(this: BRepBuilder; v: var TopoDS_Vertex; p: PntObj; tol: cfloat) {.
+proc makeVertex*(this: BRepBuilder; v: var TopoDS_Vertex; p: gp_Pnt; tol: cfloat) {.
     noSideEffect, cdecl, importcpp: "MakeVertex", header: "BRep_Builder.hxx".}
-proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: PntObj; tol: cfloat) {.
+proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: gp_Pnt; tol: cfloat) {.
     noSideEffect, cdecl, importcpp: "UpdateVertex", header: "BRep_Builder.hxx".}
 proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: cfloat; e: TopoDS_Edge;
                   tol: cfloat) {.noSideEffect, cdecl, importcpp: "UpdateVertex",

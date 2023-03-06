@@ -102,7 +102,7 @@ type
   SelectMgrSortCriterion* {.importcpp: "SelectMgr_SortCriterion",
                            header: "SelectMgr_SortCriterion.hxx", bycopy.} = object 
     entity* {.importc: "Entity".}: Handle[Select3D_SensitiveEntity] 
-    point* {.importc: "Point".}: PntObj 
+    point* {.importc: "Point".}: gp_Pnt 
     normal* {.importc: "Normal".}: Graphic3dVec3 
     depth* {.importc: "Depth".}: cfloat 
     minDist* {.importc: "MinDist".}: cfloat 

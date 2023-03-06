@@ -29,7 +29,7 @@ proc ellipse*(e: ElipsObj): MakeEllipse {.cdecl, constructor,
     importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
 proc ellipse*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): MakeEllipse {.
     cdecl, constructor, importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
-proc ellipse*(s1: PntObj; s2: PntObj; center: PntObj): MakeEllipse {.cdecl, constructor,
+proc ellipse*(s1: gp_Pnt; s2: gp_Pnt; center: gp_Pnt): MakeEllipse {.cdecl, constructor,
     importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
 proc value*(this: MakeEllipse): Handle[GeomEllipse] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeEllipse.hxx".}

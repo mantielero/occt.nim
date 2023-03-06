@@ -35,9 +35,9 @@ proc init*(this: var ChFi2dFilletAlgo; theEdge1: TopoDS_Edge; theEdge2: TopoDS_E
           thePlane: PlnObj) {.cdecl, importcpp: "Init", header: "ChFi2d_FilletAlgo.hxx".}
 proc perform*(this: var ChFi2dFilletAlgo; theRadius: cfloat): bool {.cdecl,
     importcpp: "Perform", header: "ChFi2d_FilletAlgo.hxx".}
-proc nbResults*(this: var ChFi2dFilletAlgo; thePoint: PntObj): cint {.cdecl,
+proc nbResults*(this: var ChFi2dFilletAlgo; thePoint: gp_Pnt): cint {.cdecl,
     importcpp: "NbResults", header: "ChFi2d_FilletAlgo.hxx".}
-proc result*(this: var ChFi2dFilletAlgo; thePoint: PntObj; theEdge1: var TopoDS_Edge;
+proc result*(this: var ChFi2dFilletAlgo; thePoint: gp_Pnt; theEdge1: var TopoDS_Edge;
             theEdge2: var TopoDS_Edge; iSolution: cint = -1): TopoDS_Edge {.cdecl,
     importcpp: "Result", header: "ChFi2d_FilletAlgo.hxx".}
 ## ! Private class. Corresponds to the point on the first curve, computed

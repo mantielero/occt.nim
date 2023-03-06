@@ -30,7 +30,7 @@ import ../geom/geom_types
 
 proc newBRepCurve3D*(c: Handle[GeomCurve]; L: TopLocLocation): BRepCurve3D {.cdecl,
     constructor, importcpp: "BRep_Curve3D(@)", header: "BRep_Curve3D.hxx".}
-proc d0*(this: BRepCurve3D; u: cfloat; p: var PntObj) {.noSideEffect, cdecl, importcpp: "D0",
+proc d0*(this: BRepCurve3D; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl, importcpp: "D0",
     header: "BRep_Curve3D.hxx".}
 proc isCurve3D*(this: BRepCurve3D): bool {.noSideEffect, cdecl,
                                        importcpp: "IsCurve3D", header: "BRep_Curve3D.hxx".}

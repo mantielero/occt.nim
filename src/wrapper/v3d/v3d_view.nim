@@ -399,7 +399,7 @@ proc statisticInformation*(this: V3dView): TCollectionAsciiString {.noSideEffect
 proc statisticInformation*(this: V3dView;
                           theDict: var TColStdIndexedDataMapOfStringString) {.
     noSideEffect, cdecl, importcpp: "StatisticInformation", header: "V3d_View.hxx".}
-proc gravityPoint*(this: V3dView): PntObj {.noSideEffect, cdecl,
+proc gravityPoint*(this: V3dView): gp_Pnt {.noSideEffect, cdecl,
                                      importcpp: "GravityPoint", header: "V3d_View.hxx".}
 proc dumpJson*(this: V3dView; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "V3d_View.hxx".}

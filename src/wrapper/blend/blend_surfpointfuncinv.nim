@@ -34,7 +34,7 @@ proc derivatives*(this: var BlendSurfPointFuncInv; x: MathVector; d: var MathMat
     cdecl, importcpp: "Derivatives", header: "Blend_SurfPointFuncInv.hxx".}
 proc values*(this: var BlendSurfPointFuncInv; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "Blend_SurfPointFuncInv.hxx".}
-proc set*(this: var BlendSurfPointFuncInv; p: PntObj) {.cdecl, importcpp: "Set",
+proc set*(this: var BlendSurfPointFuncInv; p: gp_Pnt) {.cdecl, importcpp: "Set",
     header: "Blend_SurfPointFuncInv.hxx".}
 proc getTolerance*(this: BlendSurfPointFuncInv; tolerance: var MathVector; tol: cfloat) {.
     noSideEffect, cdecl, importcpp: "GetTolerance", header: "Blend_SurfPointFuncInv.hxx".}

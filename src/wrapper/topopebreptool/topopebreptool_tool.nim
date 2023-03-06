@@ -137,7 +137,7 @@ proc matter*(f1: TopoDS_Face; f2: TopoDS_Face; e: TopoDS_Edge; pare: cfloat;
     importcpp: "TopOpeBRepTool_TOOL::Matter(@)", header: "TopOpeBRepTool_TOOL.hxx".}
 proc matterKPtg*(f1: TopoDS_Face; f2: TopoDS_Face; e: TopoDS_Edge; ang: var cfloat): bool {.
     cdecl, importcpp: "TopOpeBRepTool_TOOL::MatterKPtg(@)", header: "TopOpeBRepTool_TOOL.hxx".}
-proc getstp3dF*(p: PntObj; f: TopoDS_Face; uv: var Pnt2dObj; st: var TopAbsState): bool {.cdecl,
+proc getstp3dF*(p: gp_Pnt; f: TopoDS_Face; uv: var Pnt2dObj; st: var TopAbsState): bool {.cdecl,
     importcpp: "TopOpeBRepTool_TOOL::Getstp3dF(@)", header: "TopOpeBRepTool_TOOL.hxx".}
 proc splitE*(eanc: TopoDS_Edge; splits: var TopToolsListOfShape): bool {.cdecl,
     importcpp: "TopOpeBRepTool_TOOL::SplitE(@)", header: "TopOpeBRepTool_TOOL.hxx".}

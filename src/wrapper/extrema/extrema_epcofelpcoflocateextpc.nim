@@ -24,18 +24,18 @@ discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Extrema_CurveTool"
 discard "forward decl of Extrema_POnCurv"
-discard "forward decl of PntObj"
+discard "forward decl of gp_Pnt"
 discard "forward decl of VecObj"
 discard "forward decl of Extrema_PCFOfEPCOfELPCOfLocateExtPC"
 
 proc newExtrema_EPCOfELPCOfLocateExtPC*(): Extrema_EPCOfELPCOfLocateExtPC {.cdecl,
     constructor, importcpp: "Extrema_EPCOfELPCOfLocateExtPC(@)",
     header: "Extrema_EPCOfELPCOfLocateExtPC.hxx".}
-proc newExtrema_EPCOfELPCOfLocateExtPC*(P: PntObj; C: Adaptor3d_Curve; NbU: cint;
+proc newExtrema_EPCOfELPCOfLocateExtPC*(P: gp_Pnt; C: Adaptor3d_Curve; NbU: cint;
                                        TolU: cfloat; TolF: cfloat): Extrema_EPCOfELPCOfLocateExtPC {.
     cdecl, constructor, importcpp: "Extrema_EPCOfELPCOfLocateExtPC(@)",
     header: "Extrema_EPCOfELPCOfLocateExtPC.hxx".}
-proc newExtrema_EPCOfELPCOfLocateExtPC*(P: PntObj; C: Adaptor3d_Curve; NbU: cint;
+proc newExtrema_EPCOfELPCOfLocateExtPC*(P: gp_Pnt; C: Adaptor3d_Curve; NbU: cint;
                                        Umin: cfloat; Usup: cfloat; TolU: cfloat;
                                        TolF: cfloat): Extrema_EPCOfELPCOfLocateExtPC {.
     cdecl, constructor, importcpp: "Extrema_EPCOfELPCOfLocateExtPC(@)",
@@ -51,7 +51,7 @@ proc Initialize*(this: var Extrema_EPCOfELPCOfLocateExtPC; C: Adaptor3d_Curve) {
 proc Initialize*(this: var Extrema_EPCOfELPCOfLocateExtPC; NbU: cint; Umin: cfloat;
                 Usup: cfloat; TolU: cfloat; TolF: cfloat) {.cdecl,
     importcpp: "Initialize", header: "Extrema_EPCOfELPCOfLocateExtPC.hxx".}
-proc Perform*(this: var Extrema_EPCOfELPCOfLocateExtPC; P: PntObj) {.cdecl,
+proc Perform*(this: var Extrema_EPCOfELPCOfLocateExtPC; P: gp_Pnt) {.cdecl,
     importcpp: "Perform", header: "Extrema_EPCOfELPCOfLocateExtPC.hxx".}
 proc IsDone*(this: Extrema_EPCOfELPCOfLocateExtPC): bool {.noSideEffect, cdecl,
     importcpp: "IsDone", header: "Extrema_EPCOfELPCOfLocateExtPC.hxx".}

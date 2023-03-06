@@ -23,7 +23,7 @@ import ../gp/gp_types
 
 
 
-proc newGceMakeScale*(point: PntObj; scale: cfloat): GceMakeScale {.cdecl, constructor,
+proc newGceMakeScale*(point: gp_Pnt; scale: cfloat): GceMakeScale {.cdecl, constructor,
     importcpp: "gce_MakeScale(@)", header: "gce_MakeScale.hxx".}
 proc value*(this: GceMakeScale): TrsfObj {.noSideEffect, cdecl, importcpp: "Value",
                                     header: "gce_MakeScale.hxx".}

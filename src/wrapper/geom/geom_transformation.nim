@@ -32,7 +32,7 @@ proc newGeomTransformation*(): GeomTransformation {.cdecl, constructor,
     importcpp: "Geom_Transformation(@)", header: "Geom_Transformation.hxx".}
 proc newGeomTransformation*(t: TrsfObj): GeomTransformation {.cdecl, constructor,
     importcpp: "Geom_Transformation(@)", header: "Geom_Transformation.hxx".}
-proc setMirror*(this: var GeomTransformation; thePnt: PntObj) {.cdecl,
+proc setMirror*(this: var GeomTransformation; thePnt: gp_Pnt) {.cdecl,
     importcpp: "SetMirror", header: "Geom_Transformation.hxx".}
 proc setMirror*(this: var GeomTransformation; theA1: Ax1Obj) {.cdecl,
     importcpp: "SetMirror", header: "Geom_Transformation.hxx".}
@@ -40,7 +40,7 @@ proc setMirror*(this: var GeomTransformation; theA2: Ax2Obj) {.cdecl,
     importcpp: "SetMirror", header: "Geom_Transformation.hxx".}
 proc setRotation*(this: var GeomTransformation; theA1: Ax1Obj; theAng: cfloat) {.cdecl,
     importcpp: "SetRotation", header: "Geom_Transformation.hxx".}
-proc setScale*(this: var GeomTransformation; thePnt: PntObj; theScale: cfloat) {.cdecl,
+proc setScale*(this: var GeomTransformation; thePnt: gp_Pnt; theScale: cfloat) {.cdecl,
     importcpp: "SetScale", header: "Geom_Transformation.hxx".}
 proc setTransformation*(this: var GeomTransformation; theFromSystem1: Ax3Obj;
                        theToSystem2: Ax3Obj) {.cdecl, importcpp: "SetTransformation",
@@ -49,7 +49,7 @@ proc setTransformation*(this: var GeomTransformation; theToSystem: Ax3Obj) {.cde
     importcpp: "SetTransformation", header: "Geom_Transformation.hxx".}
 proc setTranslation*(this: var GeomTransformation; theVec: VecObj) {.cdecl,
     importcpp: "SetTranslation", header: "Geom_Transformation.hxx".}
-proc setTranslation*(this: var GeomTransformation; p1: PntObj; p2: PntObj) {.cdecl,
+proc setTranslation*(this: var GeomTransformation; p1: gp_Pnt; p2: gp_Pnt) {.cdecl,
     importcpp: "SetTranslation", header: "Geom_Transformation.hxx".}
 proc setTrsf*(this: var GeomTransformation; theTrsf: TrsfObj) {.cdecl,
     importcpp: "SetTrsf", header: "Geom_Transformation.hxx".}

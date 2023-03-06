@@ -25,11 +25,11 @@ discard "forward decl of Extrema_POnSurf"
 proc newExtrema_ExtPS*(): Extrema_ExtPS {.cdecl, constructor,
                                        importcpp: "Extrema_ExtPS(@)",
                                        header: "Extrema_ExtPS.hxx".}
-proc newExtrema_ExtPS*(P: PntObj; S: Adaptor3d_Surface; TolU: cfloat; TolV: cfloat;
+proc newExtrema_ExtPS*(P: gp_Pnt; S: Adaptor3d_Surface; TolU: cfloat; TolV: cfloat;
                       F: Extrema_ExtFlag = extremaExtFlagMINMAX;
                       A: Extrema_ExtAlgo = extremaExtAlgoGrad): Extrema_ExtPS {.
     cdecl, constructor, importcpp: "Extrema_ExtPS(@)", header: "Extrema_ExtPS.hxx".}
-proc newExtrema_ExtPS*(P: PntObj; S: Adaptor3d_Surface; Uinf: cfloat; Usup: cfloat;
+proc newExtrema_ExtPS*(P: gp_Pnt; S: Adaptor3d_Surface; Uinf: cfloat; Usup: cfloat;
                       Vinf: cfloat; Vsup: cfloat; TolU: cfloat; TolV: cfloat;
                       F: Extrema_ExtFlag = extremaExtFlagMINMAX;
                       A: Extrema_ExtAlgo = extremaExtAlgoGrad): Extrema_ExtPS {.
@@ -37,7 +37,7 @@ proc newExtrema_ExtPS*(P: PntObj; S: Adaptor3d_Surface; Uinf: cfloat; Usup: cflo
 proc Initialize*(this: var Extrema_ExtPS; S: Adaptor3d_Surface; Uinf: cfloat;
                 Usup: cfloat; Vinf: cfloat; Vsup: cfloat; TolU: cfloat; TolV: cfloat) {.
     cdecl, importcpp: "Initialize", header: "Extrema_ExtPS.hxx".}
-proc Perform*(this: var Extrema_ExtPS; P: PntObj) {.cdecl, importcpp: "Perform",
+proc Perform*(this: var Extrema_ExtPS; P: gp_Pnt) {.cdecl, importcpp: "Perform",
     header: "Extrema_ExtPS.hxx".}
 proc IsDone*(this: Extrema_ExtPS): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                       header: "Extrema_ExtPS.hxx".}
@@ -49,8 +49,8 @@ proc Point*(this: Extrema_ExtPS; N: cint): Extrema_POnSurf {.noSideEffect, cdecl
     importcpp: "Point", header: "Extrema_ExtPS.hxx".}
 proc TrimmedSquareDistances*(this: Extrema_ExtPS; dUfVf: var cfloat;
                             dUfVl: var cfloat; dUlVf: var cfloat; dUlVl: var cfloat;
-                            PUfVf: var PntObj; PUfVl: var PntObj; PUlVf: var PntObj;
-                            PUlVl: var PntObj) {.noSideEffect, cdecl,
+                            PUfVf: var gp_Pnt; PUfVl: var gp_Pnt; PUlVf: var gp_Pnt;
+                            PUlVl: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "TrimmedSquareDistances", header: "Extrema_ExtPS.hxx".}
 proc SetFlag*(this: var Extrema_ExtPS; F: Extrema_ExtFlag) {.cdecl,
     importcpp: "SetFlag", header: "Extrema_ExtPS.hxx".}

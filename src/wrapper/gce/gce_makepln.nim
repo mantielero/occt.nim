@@ -26,17 +26,17 @@ import ../gp/gp_types
 proc newGceMakePln*(a2: Ax2Obj): GceMakePln {.cdecl, constructor,
                                        importcpp: "gce_MakePln(@)",
                                        header: "gce_MakePln.hxx".}
-proc newGceMakePln*(p: PntObj; v: DirObj): GceMakePln {.cdecl, constructor,
+proc newGceMakePln*(p: gp_Pnt; v: DirObj): GceMakePln {.cdecl, constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc newGceMakePln*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): GceMakePln {.cdecl,
     constructor, importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
-proc newGceMakePln*(pln: PlnObj; point: PntObj): GceMakePln {.cdecl, constructor,
+proc newGceMakePln*(pln: PlnObj; point: gp_Pnt): GceMakePln {.cdecl, constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc newGceMakePln*(pln: PlnObj; dist: cfloat): GceMakePln {.cdecl, constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
-proc newGceMakePln*(p1: PntObj; p2: PntObj; p3: PntObj): GceMakePln {.cdecl, constructor,
+proc newGceMakePln*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): GceMakePln {.cdecl, constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
-proc newGceMakePln*(p1: PntObj; p2: PntObj): GceMakePln {.cdecl, constructor,
+proc newGceMakePln*(p1: gp_Pnt; p2: gp_Pnt): GceMakePln {.cdecl, constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc newGceMakePln*(axis: Ax1Obj): GceMakePln {.cdecl, constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}

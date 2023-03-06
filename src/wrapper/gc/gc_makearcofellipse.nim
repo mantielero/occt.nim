@@ -26,9 +26,9 @@ import ../geom/geom_types
 
 proc arcEllipse*(elips: ElipsObj; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfEllipse {.
     cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", header: "GC_MakeArcOfEllipse.hxx".}
-proc arcEllipse*(elips: ElipsObj; p: PntObj; alpha: cfloat; sense: bool): MakeArcOfEllipse {.
+proc arcEllipse*(elips: ElipsObj; p: gp_Pnt; alpha: cfloat; sense: bool): MakeArcOfEllipse {.
     cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", header: "GC_MakeArcOfEllipse.hxx".}
-proc arcEllipse*(elips: ElipsObj; p1: PntObj; p2: PntObj; sense: bool): MakeArcOfEllipse {.
+proc arcEllipse*(elips: ElipsObj; p1: gp_Pnt; p2: gp_Pnt; sense: bool): MakeArcOfEllipse {.
     cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", header: "GC_MakeArcOfEllipse.hxx".}
 proc value*(this: MakeArcOfEllipse): HandleGeomTrimmedCurve {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeArcOfEllipse.hxx".}

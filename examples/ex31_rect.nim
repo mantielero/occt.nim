@@ -1,7 +1,7 @@
 # Create a rectangle (that would be a wire based on 4 edges)
 import occt
 
-proc newSegment(p1,p2:PntObj):EdgeObj = # BRepBuilderAPI_MakeEdge -> EdgeObj
+proc newSegment(p1,p2:gp_Pnt):EdgeObj = # BRepBuilderAPI_MakeEdge -> EdgeObj
   # From gc_makesegment: segment outputs a MakeSegment. There is a converter
   # from MakeSegment to HandleGeomTrimmerCurve
   var l1:HandleGeomTrimmedCurve = segment(p1, p2)  # gc_makesegment.nim
@@ -14,7 +14,7 @@ an object of `HandleGeomCurve`.
 
 ]#
 
-proc rect(p1,p2,p3,p4:PntObj):BRepBuilderAPI_MakeWire =
+proc rect(p1,p2,p3,p4:gp_Pnt):BRepBuilderAPI_MakeWire =
   # https://dev.opencascade.org/doc/refman/html/class_g_c___make_segment.html
   var l1 = newSegment(p1, p2)
   var l2 = newSegment(p2, p3)

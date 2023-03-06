@@ -33,7 +33,7 @@ proc NewSurface*(this: var BRepOffset_SimpleOffset; F: TopoDS_Face;
 proc NewCurve*(this: var BRepOffset_SimpleOffset; E: TopoDS_Edge;
               C: var Handle[Geom_Curve]; L: var TopLoc_Location; Tol: var cfloat): bool {.
     cdecl, importcpp: "NewCurve".}
-proc NewPoint*(this: var BRepOffset_SimpleOffset; V: TopoDS_Vertex; P: var PntObj;
+proc NewPoint*(this: var BRepOffset_SimpleOffset; V: TopoDS_Vertex; P: var gp_Pnt;
               Tol: var cfloat): bool {.cdecl, importcpp: "NewPoint".}
 proc NewCurve2d*(this: var BRepOffset_SimpleOffset; E: TopoDS_Edge; F: TopoDS_Face;
                 NewE: TopoDS_Edge; NewF: TopoDS_Face; C: var Handle[Geom2d_Curve];

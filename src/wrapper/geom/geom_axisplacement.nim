@@ -46,7 +46,7 @@ proc setAxis*(this: var GeomAxisPlacement; a1: Ax1Obj) {.cdecl, importcpp: "SetA
     header: "Geom_AxisPlacement.hxx".}
 proc setDirection*(this: var GeomAxisPlacement; v: DirObj) {.cdecl,
     importcpp: "SetDirection", header: "Geom_AxisPlacement.hxx".}
-proc setLocation*(this: var GeomAxisPlacement; p: PntObj) {.cdecl,
+proc setLocation*(this: var GeomAxisPlacement; p: gp_Pnt) {.cdecl,
     importcpp: "SetLocation", header: "Geom_AxisPlacement.hxx".}
 proc angle*(this: GeomAxisPlacement; other: Handle[GeomAxisPlacement]): cfloat {.
     noSideEffect, cdecl, importcpp: "Angle", header: "Geom_AxisPlacement.hxx".}
@@ -54,7 +54,7 @@ proc axis*(this: GeomAxisPlacement): Ax1Obj {.noSideEffect, cdecl, importcpp: "A
                                        header: "Geom_AxisPlacement.hxx".}
 proc direction*(this: GeomAxisPlacement): DirObj {.noSideEffect, cdecl,
     importcpp: "Direction", header: "Geom_AxisPlacement.hxx".}
-proc location*(this: GeomAxisPlacement): PntObj {.noSideEffect, cdecl,
+proc location*(this: GeomAxisPlacement): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Location", header: "Geom_AxisPlacement.hxx".}
 
 

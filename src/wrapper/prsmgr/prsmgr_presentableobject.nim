@@ -220,11 +220,11 @@ proc setClipPlanes*(this: var PrsMgrPresentableObject;
     importcpp: "SetClipPlanes", header: "PrsMgr_PresentableObject.hxx".}
 proc setTransformPersistence*(this: var PrsMgrPresentableObject;
                              theMode: Graphic3dTransModeFlags;
-                             thePoint: PntObj = pnt(0.0, 0.0, 0.0)) {.cdecl,
+                             thePoint: gp_Pnt = pnt(0.0, 0.0, 0.0)) {.cdecl,
     importcpp: "SetTransformPersistence", header: "PrsMgr_PresentableObject.hxx".}
 proc getTransformPersistenceMode*(this: PrsMgrPresentableObject): Graphic3dTransModeFlags {.
     noSideEffect, cdecl, importcpp: "GetTransformPersistenceMode", header: "PrsMgr_PresentableObject.hxx".}
-proc getTransformPersistencePoint*(this: PrsMgrPresentableObject): PntObj {.
+proc getTransformPersistencePoint*(this: PrsMgrPresentableObject): gp_Pnt {.
     noSideEffect, cdecl, importcpp: "GetTransformPersistencePoint", header: "PrsMgr_PresentableObject.hxx".}
 proc toPropagateVisualState*(this: PrsMgrPresentableObject): bool {.noSideEffect,
     cdecl, importcpp: "ToPropagateVisualState", header: "PrsMgr_PresentableObject.hxx".}

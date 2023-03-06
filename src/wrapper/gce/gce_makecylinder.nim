@@ -25,11 +25,11 @@ import ../gp/gp_types
 
 proc cylinder*(a2: Ax2Obj; radius: cfloat): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
-proc cylinder*(cyl: CylinderObj; point: PntObj): GceMakeCylinder {.cdecl,
+proc cylinder*(cyl: CylinderObj; point: gp_Pnt): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
 proc cylinder*(cyl: CylinderObj; dist: cfloat): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
-proc cylinder*(p1: PntObj; p2: PntObj; p3: PntObj): GceMakeCylinder {.cdecl,
+proc cylinder*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
 proc cylinder*(axis: Ax1Obj; radius: cfloat): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}

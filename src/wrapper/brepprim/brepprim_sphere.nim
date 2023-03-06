@@ -26,7 +26,7 @@ import ../topods/topods_types
 
 proc newBRepPrimSphere*(radius: cfloat): BRepPrimSphere {.cdecl, constructor,
     importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
-proc newBRepPrimSphere*(center: PntObj; radius: cfloat): BRepPrimSphere {.cdecl,
+proc newBRepPrimSphere*(center: gp_Pnt; radius: cfloat): BRepPrimSphere {.cdecl,
     constructor, importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
 proc newBRepPrimSphere*(axes: Ax2Obj; radius: cfloat): BRepPrimSphere {.cdecl,
     constructor, importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}

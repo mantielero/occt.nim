@@ -88,12 +88,12 @@ proc chFi3dInterPlaneEdge*(plan: Handle[Adaptor3dHSurface];
     importcpp: "ChFi3d_InterPlaneEdge(@)", header: "ChFi3d_Builder_0.hxx".}
 proc chFi3dExtrSpineCarac*(dStr: TopOpeBRepDS_DataStructure;
                           cd: Handle[ChFiDS_Stripe]; i: cint; p: cfloat; jf: cint;
-                          sens: cint; p2: var PntObj; v: var VecObj; r: var cfloat) {.cdecl,
+                          sens: cint; p2: var gp_Pnt; v: var VecObj; r: var cfloat) {.cdecl,
     importcpp: "ChFi3d_ExtrSpineCarac(@)", header: "ChFi3d_Builder_0.hxx".}
-proc chFi3dCircularSpine*(wFirst: var cfloat; wLast: var cfloat; pdeb: PntObj; vdeb: VecObj;
-                         pfin: PntObj; vfin: VecObj; rad: cfloat): Handle[GeomCircle] {.
+proc chFi3dCircularSpine*(wFirst: var cfloat; wLast: var cfloat; pdeb: gp_Pnt; vdeb: VecObj;
+                         pfin: gp_Pnt; vfin: VecObj; rad: cfloat): Handle[GeomCircle] {.
     cdecl, importcpp: "ChFi3d_CircularSpine(@)", header: "ChFi3d_Builder_0.hxx".}
-proc chFi3dSpine*(pd: PntObj; vd: var VecObj; pf: PntObj; vf: var VecObj; r: cfloat): Handle[
+proc chFi3dSpine*(pd: gp_Pnt; vd: var VecObj; pf: gp_Pnt; vf: var VecObj; r: cfloat): Handle[
     GeomBezierCurve] {.cdecl, importcpp: "ChFi3d_Spine(@)", header: "ChFi3d_Builder_0.hxx".}
 proc chFi3dMkbound*(fac: Handle[Adaptor3dHSurface]; curv: var Handle[Geom2dCurve];
                    sens1: cint; pfac1: Pnt2dObj; vfac1: Vec2dObj; sens2: cint; pfac2: Pnt2dObj;
@@ -239,7 +239,7 @@ proc chFi3dComputesIntPC*(fi1: ChFiDS_FaceInterference;
                          fi2: ChFiDS_FaceInterference;
                          hs1: Handle[GeomAdaptorHSurface];
                          hs2: Handle[GeomAdaptorHSurface]; uInt1: var cfloat;
-                         uInt2: var cfloat; p: var PntObj) {.cdecl,
+                         uInt2: var cfloat; p: var gp_Pnt) {.cdecl,
     importcpp: "ChFi3d_ComputesIntPC(@)", header: "ChFi3d_Builder_0.hxx".}
 proc chFi3dBoundSurf*(dStr: var TopOpeBRepDS_DataStructure;
                      fd1: Handle[ChFiDS_SurfData]; iFaCo1: cint; iFaArc1: cint): Handle[
@@ -252,9 +252,9 @@ proc chFi3dSearchFD*(dStr: var TopOpeBRepDS_DataStructure;
                     p2: var cfloat; ind1: cint; ind2: cint; face: var TopoDS_Face;
                     sameside: var bool; jf1: var cint; jf2: var cint): bool {.cdecl,
     importcpp: "ChFi3d_SearchFD(@)", header: "ChFi3d_Builder_0.hxx".}
-proc chFi3dParameters*(s: Handle[GeomSurface]; p3d: PntObj; u: var cfloat; v: var cfloat) {.
+proc chFi3dParameters*(s: Handle[GeomSurface]; p3d: gp_Pnt; u: var cfloat; v: var cfloat) {.
     cdecl, importcpp: "ChFi3d_Parameters(@)", header: "ChFi3d_Builder_0.hxx".}
-proc chFi3dTrimCurve*(gc: Handle[GeomCurve]; firstP: PntObj; lastP: PntObj;
+proc chFi3dTrimCurve*(gc: Handle[GeomCurve]; firstP: gp_Pnt; lastP: gp_Pnt;
                      gtc: var Handle[GeomTrimmedCurve]) {.cdecl,
     importcpp: "ChFi3d_TrimCurve(@)", header: "ChFi3d_Builder_0.hxx".}
 proc chFi3dPerformElSpine*(hes: var Handle[ChFiDS_HElSpine];

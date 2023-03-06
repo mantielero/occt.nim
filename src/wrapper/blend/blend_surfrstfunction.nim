@@ -49,13 +49,13 @@ proc isSolution*(this: var BlendSurfRstFunction; sol: MathVector; tol: cfloat): 
     cdecl, importcpp: "IsSolution", header: "Blend_SurfRstFunction.hxx".}
 proc getMinimalDistance*(this: BlendSurfRstFunction): cfloat {.noSideEffect, cdecl,
     importcpp: "GetMinimalDistance", header: "Blend_SurfRstFunction.hxx".}
-proc pnt1*(this: BlendSurfRstFunction): PntObj {.noSideEffect, cdecl, importcpp: "Pnt1",
+proc pnt1*(this: BlendSurfRstFunction): gp_Pnt {.noSideEffect, cdecl, importcpp: "Pnt1",
     header: "Blend_SurfRstFunction.hxx".}
-proc pnt2*(this: BlendSurfRstFunction): PntObj {.noSideEffect, cdecl, importcpp: "Pnt2",
+proc pnt2*(this: BlendSurfRstFunction): gp_Pnt {.noSideEffect, cdecl, importcpp: "Pnt2",
     header: "Blend_SurfRstFunction.hxx".}
-proc pointOnS*(this: BlendSurfRstFunction): PntObj {.noSideEffect, cdecl,
+proc pointOnS*(this: BlendSurfRstFunction): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS", header: "Blend_SurfRstFunction.hxx".}
-proc pointOnRst*(this: BlendSurfRstFunction): PntObj {.noSideEffect, cdecl,
+proc pointOnRst*(this: BlendSurfRstFunction): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnRst", header: "Blend_SurfRstFunction.hxx".}
 proc pnt2dOnS*(this: BlendSurfRstFunction): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "Pnt2dOnS", header: "Blend_SurfRstFunction.hxx".}

@@ -105,13 +105,13 @@ proc parameter*(this: var ChFiDS_Spine; absC: cfloat; u: var cfloat;
                oriented: bool = true) {.cdecl, importcpp: "Parameter", header: "ChFiDS_Spine.hxx".}
 proc parameter*(this: var ChFiDS_Spine; index: cint; absC: cfloat; u: var cfloat;
                oriented: bool = true) {.cdecl, importcpp: "Parameter", header: "ChFiDS_Spine.hxx".}
-proc value*(this: var ChFiDS_Spine; absC: cfloat): PntObj {.cdecl, importcpp: "Value",
+proc value*(this: var ChFiDS_Spine; absC: cfloat): gp_Pnt {.cdecl, importcpp: "Value",
     header: "ChFiDS_Spine.hxx".}
-proc d0*(this: var ChFiDS_Spine; absC: cfloat; p: var PntObj) {.cdecl, importcpp: "D0",
+proc d0*(this: var ChFiDS_Spine; absC: cfloat; p: var gp_Pnt) {.cdecl, importcpp: "D0",
     header: "ChFiDS_Spine.hxx".}
-proc d1*(this: var ChFiDS_Spine; absC: cfloat; p: var PntObj; v1: var VecObj) {.cdecl,
+proc d1*(this: var ChFiDS_Spine; absC: cfloat; p: var gp_Pnt; v1: var VecObj) {.cdecl,
     importcpp: "D1", header: "ChFiDS_Spine.hxx".}
-proc d2*(this: var ChFiDS_Spine; absC: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.cdecl,
+proc d2*(this: var ChFiDS_Spine; absC: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.cdecl,
     importcpp: "D2", header: "ChFiDS_Spine.hxx".}
 proc setCurrent*(this: var ChFiDS_Spine; index: cint) {.cdecl, importcpp: "SetCurrent",
     header: "ChFiDS_Spine.hxx".}

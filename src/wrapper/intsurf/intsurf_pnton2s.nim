@@ -25,17 +25,17 @@ import ../gp/gp_types
 
 proc newIntSurfPntOn2S*(): IntSurfPntOn2S {.cdecl, constructor,
     importcpp: "IntSurf_PntOn2S(@)", header: "IntSurf_PntOn2S.hxx".}
-proc setValue*(this: var IntSurfPntOn2S; pt: PntObj) {.cdecl, importcpp: "SetValue",
+proc setValue*(this: var IntSurfPntOn2S; pt: gp_Pnt) {.cdecl, importcpp: "SetValue",
     header: "IntSurf_PntOn2S.hxx".}
-proc setValue*(this: var IntSurfPntOn2S; pt: PntObj; onFirst: bool; u: cfloat; v: cfloat) {.
+proc setValue*(this: var IntSurfPntOn2S; pt: gp_Pnt; onFirst: bool; u: cfloat; v: cfloat) {.
     cdecl, importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
-proc setValue*(this: var IntSurfPntOn2S; pt: PntObj; u1: cfloat; v1: cfloat; u2: cfloat;
+proc setValue*(this: var IntSurfPntOn2S; pt: gp_Pnt; u1: cfloat; v1: cfloat; u2: cfloat;
               v2: cfloat) {.cdecl, importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
 proc setValue*(this: var IntSurfPntOn2S; onFirst: bool; u: cfloat; v: cfloat) {.cdecl,
     importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
 proc setValue*(this: var IntSurfPntOn2S; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat) {.
     cdecl, importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
-proc value*(this: IntSurfPntOn2S): PntObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: IntSurfPntOn2S): gp_Pnt {.noSideEffect, cdecl, importcpp: "Value",
                                      header: "IntSurf_PntOn2S.hxx".}
 proc valueOnSurface*(this: IntSurfPntOn2S; onFirst: bool): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "ValueOnSurface", header: "IntSurf_PntOn2S.hxx".}

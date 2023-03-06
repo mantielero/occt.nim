@@ -37,9 +37,9 @@ proc value*(this: var BlendFuncCorde; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BlendFunc_Corde.hxx".}
 proc derivatives*(this: var BlendFuncCorde; x: MathVector; d: var MathMatrix): bool {.
     cdecl, importcpp: "Derivatives", header: "BlendFunc_Corde.hxx".}
-proc pointOnS*(this: BlendFuncCorde): PntObj {.noSideEffect, cdecl,
+proc pointOnS*(this: BlendFuncCorde): gp_Pnt {.noSideEffect, cdecl,
                                         importcpp: "PointOnS", header: "BlendFunc_Corde.hxx".}
-proc pointOnGuide*(this: BlendFuncCorde): PntObj {.noSideEffect, cdecl,
+proc pointOnGuide*(this: BlendFuncCorde): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnGuide", header: "BlendFunc_Corde.hxx".}
 proc nPlan*(this: BlendFuncCorde): VecObj {.noSideEffect, cdecl, importcpp: "NPlan",
                                      header: "BlendFunc_Corde.hxx".}

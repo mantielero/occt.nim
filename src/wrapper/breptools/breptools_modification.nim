@@ -5,6 +5,7 @@ import ../geom/geom_types
 import ../poly/poly_types
 import ../geom2d/geom2d_types
 import ../geomabs/geomabs_types
+import ../gp/gp_types
 ##  Created on: 1994-08-25
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1994-1999 Matra Datavision

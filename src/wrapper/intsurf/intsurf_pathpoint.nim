@@ -25,9 +25,9 @@ import ../gp/gp_types
 
 proc newIntSurfPathPoint*(): IntSurfPathPoint {.cdecl, constructor,
     importcpp: "IntSurf_PathPoint(@)", header: "IntSurf_PathPoint.hxx".}
-proc newIntSurfPathPoint*(p: PntObj; u: cfloat; v: cfloat): IntSurfPathPoint {.cdecl,
+proc newIntSurfPathPoint*(p: gp_Pnt; u: cfloat; v: cfloat): IntSurfPathPoint {.cdecl,
     constructor, importcpp: "IntSurf_PathPoint(@)", header: "IntSurf_PathPoint.hxx".}
-proc setValue*(this: var IntSurfPathPoint; p: PntObj; u: cfloat; v: cfloat) {.cdecl,
+proc setValue*(this: var IntSurfPathPoint; p: gp_Pnt; u: cfloat; v: cfloat) {.cdecl,
     importcpp: "SetValue", header: "IntSurf_PathPoint.hxx".}
 proc addUV*(this: var IntSurfPathPoint; u: cfloat; v: cfloat) {.cdecl,
     importcpp: "AddUV", header: "IntSurf_PathPoint.hxx".}
@@ -37,7 +37,7 @@ proc setTangency*(this: var IntSurfPathPoint; tang: bool) {.cdecl,
     importcpp: "SetTangency", header: "IntSurf_PathPoint.hxx".}
 proc setPassing*(this: var IntSurfPathPoint; pass: bool) {.cdecl,
     importcpp: "SetPassing", header: "IntSurf_PathPoint.hxx".}
-proc value*(this: IntSurfPathPoint): PntObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: IntSurfPathPoint): gp_Pnt {.noSideEffect, cdecl, importcpp: "Value",
                                        header: "IntSurf_PathPoint.hxx".}
 proc value2d*(this: IntSurfPathPoint; u: var cfloat; v: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Value2d", header: "IntSurf_PathPoint.hxx".}

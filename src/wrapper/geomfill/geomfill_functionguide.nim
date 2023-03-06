@@ -30,7 +30,7 @@ proc newGeomFillFunctionGuide*(s: Handle[GeomFillSectionLaw];
                               guide: Handle[Adaptor3dHCurve];
                               paramOnLaw: cfloat = 0.0): GeomFillFunctionGuide {.
     cdecl, constructor, importcpp: "GeomFill_FunctionGuide(@)", header: "GeomFill_FunctionGuide.hxx".}
-proc setParam*(this: var GeomFillFunctionGuide; param: cfloat; centre: PntObj; dir: XyzObj;
+proc setParam*(this: var GeomFillFunctionGuide; param: cfloat; centre: gp_Pnt; dir: XyzObj;
               xDir: XyzObj) {.cdecl, importcpp: "SetParam", header: "GeomFill_FunctionGuide.hxx".}
 proc nbVariables*(this: GeomFillFunctionGuide): cint {.noSideEffect, cdecl,
     importcpp: "NbVariables", header: "GeomFill_FunctionGuide.hxx".}

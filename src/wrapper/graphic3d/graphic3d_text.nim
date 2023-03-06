@@ -49,9 +49,9 @@ proc textFormatter*(this: Graphic3dText): Handle[FontTextFormatter] {.noSideEffe
 proc setTextFormatter*(this: var Graphic3dText;
                       theFormatter: Handle[FontTextFormatter]) {.cdecl,
     importcpp: "SetTextFormatter", header: "Graphic3d_Text.hxx".}
-proc position*(this: Graphic3dText): PntObj {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: Graphic3dText): gp_Pnt {.noSideEffect, cdecl, importcpp: "Position",
                                        header: "Graphic3d_Text.hxx".}
-proc setPosition*(this: var Graphic3dText; thePoint: PntObj) {.cdecl,
+proc setPosition*(this: var Graphic3dText; thePoint: gp_Pnt) {.cdecl,
     importcpp: "SetPosition", header: "Graphic3d_Text.hxx".}
 proc orientation*(this: Graphic3dText): Ax2Obj {.noSideEffect, cdecl,
     importcpp: "Orientation", header: "Graphic3d_Text.hxx".}

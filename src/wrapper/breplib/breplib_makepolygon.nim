@@ -17,17 +17,17 @@ import ../gp/gp_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of PntObj"
+discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Wire"
 
 
 proc newBRepLib_MakePolygon*(): BRepLib_MakePolygon {.cdecl, constructor,
     importcpp: "BRepLib_MakePolygon(@)".}
-proc newBRepLib_MakePolygon*(P1: PntObj; P2: PntObj): BRepLib_MakePolygon {.cdecl,
+proc newBRepLib_MakePolygon*(P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakePolygon {.cdecl,
     constructor, importcpp: "BRepLib_MakePolygon(@)".}
-proc newBRepLib_MakePolygon*(P1: PntObj; P2: PntObj; P3: PntObj; Close: bool = false): BRepLib_MakePolygon {.
+proc newBRepLib_MakePolygon*(P1: gp_Pnt; P2: gp_Pnt; P3: gp_Pnt; Close: bool = false): BRepLib_MakePolygon {.
     cdecl, constructor, importcpp: "BRepLib_MakePolygon(@)".}
-proc newBRepLib_MakePolygon*(P1: PntObj; P2: PntObj; P3: PntObj; P4: PntObj;
+proc newBRepLib_MakePolygon*(P1: gp_Pnt; P2: gp_Pnt; P3: gp_Pnt; P4: gp_Pnt;
                             Close: bool = false): BRepLib_MakePolygon {.cdecl,
     constructor, importcpp: "BRepLib_MakePolygon(@)".}
 proc newBRepLib_MakePolygon*(V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakePolygon {.
@@ -38,7 +38,7 @@ proc newBRepLib_MakePolygon*(V1: TopoDS_Vertex; V2: TopoDS_Vertex; V3: TopoDS_Ve
 proc newBRepLib_MakePolygon*(V1: TopoDS_Vertex; V2: TopoDS_Vertex; V3: TopoDS_Vertex;
                             V4: TopoDS_Vertex; Close: bool = false): BRepLib_MakePolygon {.
     cdecl, constructor, importcpp: "BRepLib_MakePolygon(@)".}
-proc Add*(this: var BRepLib_MakePolygon; P: PntObj) {.cdecl, importcpp: "Add",
+proc Add*(this: var BRepLib_MakePolygon; P: gp_Pnt) {.cdecl, importcpp: "Add",
     .}
 proc Add*(this: var BRepLib_MakePolygon; V: TopoDS_Vertex) {.cdecl, importcpp: "Add",
     .}

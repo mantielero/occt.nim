@@ -24,39 +24,39 @@ discard "forward decl of gp_Vec"
 
 proc lin*(): LinObj {.cdecl, constructor, importcpp: "gp_Lin(@)", header: "gp_Lin.hxx".}
 proc lin*(a1: Ax1Obj): LinObj {.cdecl, constructor, importcpp: "gp_Lin(@)", header: "gp_Lin.hxx".}
-proc lin*(p: PntObj; v: DirObj): LinObj {.cdecl, constructor, importcpp: "gp_Lin(@)",
+proc lin*(p: gp_Pnt; v: DirObj): LinObj {.cdecl, constructor, importcpp: "gp_Lin(@)",
                               header: "gp_Lin.hxx".}
 proc reverse*(this: var LinObj) {.cdecl, importcpp: "Reverse", header: "gp_Lin.hxx".}
 proc reversed*(this: LinObj): LinObj {.noSideEffect, cdecl, importcpp: "Reversed",
                              header: "gp_Lin.hxx".}
 proc setDirection*(this: var LinObj; v: DirObj) {.cdecl, importcpp: "SetDirection",
                                       header: "gp_Lin.hxx".}
-proc setLocation*(this: var LinObj; p: PntObj) {.cdecl, importcpp: "SetLocation",
+proc setLocation*(this: var LinObj; p: gp_Pnt) {.cdecl, importcpp: "SetLocation",
                                      header: "gp_Lin.hxx".}
 proc setPosition*(this: var LinObj; a1: Ax1Obj) {.cdecl, importcpp: "SetPosition",
                                       header: "gp_Lin.hxx".}
 proc direction*(this: LinObj): DirObj {.noSideEffect, cdecl, importcpp: "Direction",
                               header: "gp_Lin.hxx".}
-proc location*(this: LinObj): PntObj {.noSideEffect, cdecl, importcpp: "Location",
+proc location*(this: LinObj): gp_Pnt {.noSideEffect, cdecl, importcpp: "Location",
                              header: "gp_Lin.hxx".}
 proc position*(this: LinObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "Position",
                              header: "gp_Lin.hxx".}
 proc angle*(this: LinObj; other: LinObj): cfloat {.noSideEffect, cdecl, importcpp: "Angle",
                                        header: "gp_Lin.hxx".}
-proc contains*(this: LinObj; p: PntObj; linearTolerance: cfloat): bool {.noSideEffect, cdecl,
+proc contains*(this: LinObj; p: gp_Pnt; linearTolerance: cfloat): bool {.noSideEffect, cdecl,
     importcpp: "Contains", header: "gp_Lin.hxx".}
-proc distance*(this: LinObj; p: PntObj): cfloat {.noSideEffect, cdecl, importcpp: "Distance",
+proc distance*(this: LinObj; p: gp_Pnt): cfloat {.noSideEffect, cdecl, importcpp: "Distance",
                                       header: "gp_Lin.hxx".}
 proc distance*(this: LinObj; other: LinObj): cfloat {.noSideEffect, cdecl,
     importcpp: "Distance", header: "gp_Lin.hxx".}
-proc squareDistance*(this: LinObj; p: PntObj): cfloat {.noSideEffect, cdecl,
+proc squareDistance*(this: LinObj; p: gp_Pnt): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareDistance", header: "gp_Lin.hxx".}
 proc squareDistance*(this: LinObj; other: LinObj): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareDistance", header: "gp_Lin.hxx".}
-proc normal*(this: LinObj; p: PntObj): LinObj {.noSideEffect, cdecl, importcpp: "Normal",
+proc normal*(this: LinObj; p: gp_Pnt): LinObj {.noSideEffect, cdecl, importcpp: "Normal",
                                  header: "gp_Lin.hxx".}
-proc mirror*(this: var LinObj; p: PntObj) {.cdecl, importcpp: "Mirror", header: "gp_Lin.hxx".}
-proc mirrored*(this: LinObj; p: PntObj): LinObj {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var LinObj; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Lin.hxx".}
+proc mirrored*(this: LinObj; p: gp_Pnt): LinObj {.noSideEffect, cdecl, importcpp: "Mirrored",
                                    header: "gp_Lin.hxx".}
 proc mirror*(this: var LinObj; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Lin.hxx".}
 proc mirrored*(this: LinObj; a1: Ax1Obj): LinObj {.noSideEffect, cdecl, importcpp: "Mirrored",
@@ -68,8 +68,8 @@ proc rotate*(this: var LinObj; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rot
     header: "gp_Lin.hxx".}
 proc rotated*(this: LinObj; a1: Ax1Obj; ang: cfloat): LinObj {.noSideEffect, cdecl,
     importcpp: "Rotated", header: "gp_Lin.hxx".}
-proc scale*(this: var LinObj; p: PntObj; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Lin.hxx".}
-proc scaled*(this: LinObj; p: PntObj; s: cfloat): LinObj {.noSideEffect, cdecl,
+proc scale*(this: var LinObj; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Lin.hxx".}
+proc scaled*(this: LinObj; p: gp_Pnt; s: cfloat): LinObj {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Lin.hxx".}
 proc transform*(this: var LinObj; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Lin.hxx".}
 proc transformed*(this: LinObj; t: TrsfObj): LinObj {.noSideEffect, cdecl,
@@ -77,7 +77,7 @@ proc transformed*(this: LinObj; t: TrsfObj): LinObj {.noSideEffect, cdecl,
 proc translate*(this: var LinObj; v: VecObj) {.cdecl, importcpp: "Translate", header: "gp_Lin.hxx".}
 proc translated*(this: LinObj; v: VecObj): LinObj {.noSideEffect, cdecl, importcpp: "Translated",
                                      header: "gp_Lin.hxx".}
-proc translate*(this: var LinObj; p1: PntObj; p2: PntObj) {.cdecl, importcpp: "Translate",
+proc translate*(this: var LinObj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Lin.hxx".}
-proc translated*(this: LinObj; p1: PntObj; p2: PntObj): LinObj {.noSideEffect, cdecl,
+proc translated*(this: LinObj; p1: gp_Pnt; p2: gp_Pnt): LinObj {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Lin.hxx".}

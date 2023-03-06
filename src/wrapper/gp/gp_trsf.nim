@@ -51,7 +51,7 @@ when defined(SetForm):
 proc trsf*(): TrsfObj {.cdecl, constructor, importcpp: "gp_Trsf(@)", header: "gp_Trsf.hxx".}
 proc trsf*(t: Trsf2dObj): TrsfObj {.cdecl, constructor, importcpp: "gp_Trsf(@)",
                              header: "gp_Trsf.hxx".}
-proc setMirror*(this: var TrsfObj; p: PntObj) {.cdecl, importcpp: "SetMirror", header: "gp_Trsf.hxx".}
+proc setMirror*(this: var TrsfObj; p: gp_Pnt) {.cdecl, importcpp: "SetMirror", header: "gp_Trsf.hxx".}
 proc setMirror*(this: var TrsfObj; a1: Ax1Obj) {.cdecl, importcpp: "SetMirror", header: "gp_Trsf.hxx".}
 proc setMirror*(this: var TrsfObj; a2: Ax2Obj) {.cdecl, importcpp: "SetMirror", header: "gp_Trsf.hxx".}
 proc setRotation*(this: var TrsfObj; a1: Ax1Obj; ang: cfloat) {.cdecl,
@@ -60,7 +60,7 @@ proc setRotation*(this: var TrsfObj; r: QuaternionObj) {.cdecl, importcpp: "SetR
     header: "gp_Trsf.hxx".}
 proc setRotationPart*(this: var TrsfObj; r: QuaternionObj) {.cdecl,
     importcpp: "SetRotationPart", header: "gp_Trsf.hxx".}
-proc setScale*(this: var TrsfObj; p: PntObj; s: cfloat) {.cdecl, importcpp: "SetScale",
+proc setScale*(this: var TrsfObj; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "SetScale",
     header: "gp_Trsf.hxx".}
 proc setDisplacement*(this: var TrsfObj; fromSystem1: Ax3Obj; toSystem2: Ax3Obj) {.cdecl,
     importcpp: "SetDisplacement", header: "gp_Trsf.hxx".}
@@ -72,7 +72,7 @@ proc setTransformation*(this: var TrsfObj; r: QuaternionObj; t: VecObj) {.cdecl,
     importcpp: "SetTransformation", header: "gp_Trsf.hxx".}
 proc setTranslation*(this: var TrsfObj; v: VecObj) {.cdecl, importcpp: "SetTranslation",
     header: "gp_Trsf.hxx".}
-proc setTranslation*(this: var TrsfObj; p1: PntObj; p2: PntObj) {.cdecl,
+proc setTranslation*(this: var TrsfObj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl,
     importcpp: "SetTranslation", header: "gp_Trsf.hxx".}
 proc setTranslationPart*(this: var TrsfObj; v: VecObj) {.cdecl,
     importcpp: "SetTranslationPart", header: "gp_Trsf.hxx".}

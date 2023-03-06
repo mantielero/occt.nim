@@ -16,7 +16,7 @@ import ../gp/gp_types
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Edge"
-discard "forward decl of PntObj"
+discard "forward decl of gp_Pnt"
 
 proc newBRepExtrema_ExtCC*(): BRepExtrema_ExtCC {.cdecl, constructor,
     importcpp: "BRepExtrema_ExtCC(@)", header: "BRepExtrema_ExtCC.hxx".}
@@ -37,14 +37,14 @@ proc SquareDistance*(this: BRepExtrema_ExtCC; N: cint): cfloat {.noSideEffect, c
     importcpp: "SquareDistance", header: "BRepExtrema_ExtCC.hxx".}
 proc ParameterOnE1*(this: BRepExtrema_ExtCC; N: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnE1", header: "BRepExtrema_ExtCC.hxx".}
-proc PointOnE1*(this: BRepExtrema_ExtCC; N: cint): PntObj {.noSideEffect, cdecl,
+proc PointOnE1*(this: BRepExtrema_ExtCC; N: cint): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnE1", header: "BRepExtrema_ExtCC.hxx".}
 proc ParameterOnE2*(this: BRepExtrema_ExtCC; N: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnE2", header: "BRepExtrema_ExtCC.hxx".}
-proc PointOnE2*(this: BRepExtrema_ExtCC; N: cint): PntObj {.noSideEffect, cdecl,
+proc PointOnE2*(this: BRepExtrema_ExtCC; N: cint): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnE2", header: "BRepExtrema_ExtCC.hxx".}
 proc TrimmedSquareDistances*(this: BRepExtrema_ExtCC; dist11: var cfloat;
                             distP12: var cfloat; distP21: var cfloat;
-                            distP22: var cfloat; P11: var PntObj; P12: var PntObj;
-                            P21: var PntObj; P22: var PntObj) {.noSideEffect, cdecl,
+                            distP22: var cfloat; P11: var gp_Pnt; P12: var gp_Pnt;
+                            P21: var gp_Pnt; P22: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "TrimmedSquareDistances", header: "BRepExtrema_ExtCC.hxx".}

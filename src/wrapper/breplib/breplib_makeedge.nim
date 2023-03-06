@@ -21,7 +21,7 @@ import ../geom2d/geom2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of PntObj"
+discard "forward decl of gp_Pnt"
 discard "forward decl of LinObj"
 discard "forward decl of CircObj"
 discard "forward decl of ElipsObj"
@@ -36,13 +36,13 @@ proc newBRepLib_MakeEdge*(): BRepLib_MakeEdge {.cdecl, constructor,
     importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(P1: PntObj; P2: PntObj): BRepLib_MakeEdge {.cdecl,
+proc newBRepLib_MakeEdge*(P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: LinObj): BRepLib_MakeEdge {.cdecl, constructor,
     importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: LinObj; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: LinObj; P1: PntObj; P2: PntObj): BRepLib_MakeEdge {.cdecl,
+proc newBRepLib_MakeEdge*(L: LinObj; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: LinObj; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
@@ -50,7 +50,7 @@ proc newBRepLib_MakeEdge*(L: CircObj): BRepLib_MakeEdge {.cdecl, constructor,
     importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: CircObj; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: CircObj; P1: PntObj; P2: PntObj): BRepLib_MakeEdge {.cdecl,
+proc newBRepLib_MakeEdge*(L: CircObj; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: CircObj; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
@@ -58,7 +58,7 @@ proc newBRepLib_MakeEdge*(L: ElipsObj): BRepLib_MakeEdge {.cdecl, constructor,
     importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: ElipsObj; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: ElipsObj; P1: PntObj; P2: PntObj): BRepLib_MakeEdge {.
+proc newBRepLib_MakeEdge*(L: ElipsObj; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: ElipsObj; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
@@ -66,7 +66,7 @@ proc newBRepLib_MakeEdge*(L: HyprObj): BRepLib_MakeEdge {.cdecl, constructor,
     importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: HyprObj; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: HyprObj; P1: PntObj; P2: PntObj): BRepLib_MakeEdge {.cdecl,
+proc newBRepLib_MakeEdge*(L: HyprObj; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: HyprObj; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
@@ -74,7 +74,7 @@ proc newBRepLib_MakeEdge*(L: ParabObj): BRepLib_MakeEdge {.cdecl, constructor,
     importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: ParabObj; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: ParabObj; P1: PntObj; P2: PntObj): BRepLib_MakeEdge {.
+proc newBRepLib_MakeEdge*(L: ParabObj; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: ParabObj; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
@@ -82,11 +82,11 @@ proc newBRepLib_MakeEdge*(L: Handle[Geom_Curve]): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: Handle[Geom_Curve]; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: Handle[Geom_Curve]; P1: PntObj; P2: PntObj): BRepLib_MakeEdge {.
+proc newBRepLib_MakeEdge*(L: Handle[Geom_Curve]; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: Handle[Geom_Curve]; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: Handle[Geom_Curve]; P1: PntObj; P2: PntObj; p1: cfloat;
+proc newBRepLib_MakeEdge*(L: Handle[Geom_Curve]; P1: gp_Pnt; P2: gp_Pnt; p1: cfloat;
                          p2: cfloat): BRepLib_MakeEdge {.cdecl, constructor,
     importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: Handle[Geom_Curve]; V1: TopoDS_Vertex;
@@ -98,13 +98,13 @@ proc newBRepLib_MakeEdge*(L: Handle[Geom2d_Curve]; S: Handle[Geom_Surface];
                          p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: Handle[Geom2d_Curve]; S: Handle[Geom_Surface];
-                         P1: PntObj; P2: PntObj): BRepLib_MakeEdge {.cdecl,
+                         P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: Handle[Geom2d_Curve]; S: Handle[Geom_Surface];
                          V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: Handle[Geom2d_Curve]; S: Handle[Geom_Surface];
-                         P1: PntObj; P2: PntObj; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.
+                         P1: gp_Pnt; P2: gp_Pnt; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: Handle[Geom2d_Curve]; S: Handle[Geom_Surface];
                          V1: TopoDS_Vertex; V2: TopoDS_Vertex; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.
@@ -113,11 +113,11 @@ proc Init*(this: var BRepLib_MakeEdge; C: Handle[Geom_Curve]) {.cdecl,
     importcpp: "Init".}
 proc Init*(this: var BRepLib_MakeEdge; C: Handle[Geom_Curve]; p1: cfloat; p2: cfloat) {.
     cdecl, importcpp: "Init".}
-proc Init*(this: var BRepLib_MakeEdge; C: Handle[Geom_Curve]; P1: PntObj; P2: PntObj) {.
+proc Init*(this: var BRepLib_MakeEdge; C: Handle[Geom_Curve]; P1: gp_Pnt; P2: gp_Pnt) {.
     cdecl, importcpp: "Init".}
 proc Init*(this: var BRepLib_MakeEdge; C: Handle[Geom_Curve]; V1: TopoDS_Vertex;
           V2: TopoDS_Vertex) {.cdecl, importcpp: "Init".}
-proc Init*(this: var BRepLib_MakeEdge; C: Handle[Geom_Curve]; P1: PntObj; P2: PntObj;
+proc Init*(this: var BRepLib_MakeEdge; C: Handle[Geom_Curve]; P1: gp_Pnt; P2: gp_Pnt;
           p1: cfloat; p2: cfloat) {.cdecl, importcpp: "Init".}
 proc Init*(this: var BRepLib_MakeEdge; C: Handle[Geom_Curve]; V1: TopoDS_Vertex;
           V2: TopoDS_Vertex; p1: cfloat; p2: cfloat) {.cdecl, importcpp: "Init",
@@ -128,13 +128,13 @@ proc Init*(this: var BRepLib_MakeEdge; C: Handle[Geom2d_Curve];
           S: Handle[Geom_Surface]; p1: cfloat; p2: cfloat) {.cdecl, importcpp: "Init",
     .}
 proc Init*(this: var BRepLib_MakeEdge; C: Handle[Geom2d_Curve];
-          S: Handle[Geom_Surface]; P1: PntObj; P2: PntObj) {.cdecl, importcpp: "Init",
+          S: Handle[Geom_Surface]; P1: gp_Pnt; P2: gp_Pnt) {.cdecl, importcpp: "Init",
     .}
 proc Init*(this: var BRepLib_MakeEdge; C: Handle[Geom2d_Curve];
           S: Handle[Geom_Surface]; V1: TopoDS_Vertex; V2: TopoDS_Vertex) {.cdecl,
     importcpp: "Init".}
 proc Init*(this: var BRepLib_MakeEdge; C: Handle[Geom2d_Curve];
-          S: Handle[Geom_Surface]; P1: PntObj; P2: PntObj; p1: cfloat; p2: cfloat) {.
+          S: Handle[Geom_Surface]; P1: gp_Pnt; P2: gp_Pnt; p1: cfloat; p2: cfloat) {.
     cdecl, importcpp: "Init".}
 proc Init*(this: var BRepLib_MakeEdge; C: Handle[Geom2d_Curve];
           S: Handle[Geom_Surface]; V1: TopoDS_Vertex; V2: TopoDS_Vertex; p1: cfloat;

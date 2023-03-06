@@ -28,7 +28,7 @@ proc newBRepPrimTorus*(position: Ax2Obj; major: cfloat; minor: cfloat): BRepPrim
     cdecl, constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
 proc newBRepPrimTorus*(major: cfloat; minor: cfloat): BRepPrimTorus {.cdecl,
     constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
-proc newBRepPrimTorus*(center: PntObj; major: cfloat; minor: cfloat): BRepPrimTorus {.
+proc newBRepPrimTorus*(center: gp_Pnt; major: cfloat; minor: cfloat): BRepPrimTorus {.
     cdecl, constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimTorus): TopoDS_Face {.noSideEffect, cdecl,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Torus.hxx".}

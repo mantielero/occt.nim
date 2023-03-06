@@ -30,7 +30,7 @@ proc newGceMakeDir*(coord: XyzObj): GceMakeDir {.cdecl, constructor,
     importcpp: "gce_MakeDir(@)", header: "gce_MakeDir.hxx".}
 proc newGceMakeDir*(xv: cfloat; yv: cfloat; zv: cfloat): GceMakeDir {.cdecl, constructor,
     importcpp: "gce_MakeDir(@)", header: "gce_MakeDir.hxx".}
-proc newGceMakeDir*(p1: PntObj; p2: PntObj): GceMakeDir {.cdecl, constructor,
+proc newGceMakeDir*(p1: gp_Pnt; p2: gp_Pnt): GceMakeDir {.cdecl, constructor,
     importcpp: "gce_MakeDir(@)", header: "gce_MakeDir.hxx".}
 proc value*(this: GceMakeDir): DirObj {.noSideEffect, cdecl, importcpp: "Value",
                                  header: "gce_MakeDir.hxx".}

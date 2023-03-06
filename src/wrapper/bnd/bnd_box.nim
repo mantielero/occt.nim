@@ -27,12 +27,12 @@ discard "forward decl of gp_Pln"
 
 
 proc newBndBox*(): BndBox {.cdecl, constructor, importcpp: "Bnd_Box(@)", header: "Bnd_Box.hxx".}
-proc newBndBox*(theMin: PntObj; theMax: PntObj): BndBox {.cdecl, constructor,
+proc newBndBox*(theMin: gp_Pnt; theMax: gp_Pnt): BndBox {.cdecl, constructor,
     importcpp: "Bnd_Box(@)", header: "Bnd_Box.hxx".}
 proc setWhole*(this: var BndBox) {.cdecl, importcpp: "SetWhole", header: "Bnd_Box.hxx".}
 proc setVoid*(this: var BndBox) {.cdecl, importcpp: "SetVoid", header: "Bnd_Box.hxx".}
-proc set*(this: var BndBox; p: PntObj) {.cdecl, importcpp: "Set", header: "Bnd_Box.hxx".}
-proc set*(this: var BndBox; p: PntObj; d: DirObj) {.cdecl, importcpp: "Set", header: "Bnd_Box.hxx".}
+proc set*(this: var BndBox; p: gp_Pnt) {.cdecl, importcpp: "Set", header: "Bnd_Box.hxx".}
+proc set*(this: var BndBox; p: gp_Pnt; d: DirObj) {.cdecl, importcpp: "Set", header: "Bnd_Box.hxx".}
 proc update*(this: var BndBox; aXmin: cfloat; aYmin: cfloat; aZmin: cfloat; aXmax: cfloat;
             aYmax: cfloat; aZmax: cfloat) {.cdecl, importcpp: "Update", header: "Bnd_Box.hxx".}
 proc update*(this: var BndBox; x: cfloat; y: cfloat; z: cfloat) {.cdecl,
@@ -45,9 +45,9 @@ proc enlarge*(this: var BndBox; tol: cfloat) {.cdecl, importcpp: "Enlarge",
 proc get*(this: BndBox; theXmin: var cfloat; theYmin: var cfloat; theZmin: var cfloat;
          theXmax: var cfloat; theYmax: var cfloat; theZmax: var cfloat) {.noSideEffect,
     cdecl, importcpp: "Get", header: "Bnd_Box.hxx".}
-proc cornerMin*(this: BndBox): PntObj {.noSideEffect, cdecl, importcpp: "CornerMin",
+proc cornerMin*(this: BndBox): gp_Pnt {.noSideEffect, cdecl, importcpp: "CornerMin",
                                  header: "Bnd_Box.hxx".}
-proc cornerMax*(this: BndBox): PntObj {.noSideEffect, cdecl, importcpp: "CornerMax",
+proc cornerMax*(this: BndBox): gp_Pnt {.noSideEffect, cdecl, importcpp: "CornerMax",
                                  header: "Bnd_Box.hxx".}
 proc openXmin*(this: var BndBox) {.cdecl, importcpp: "OpenXmin", header: "Bnd_Box.hxx".}
 proc openXmax*(this: var BndBox) {.cdecl, importcpp: "OpenXmax", header: "Bnd_Box.hxx".}
@@ -84,10 +84,10 @@ proc isThin*(this: BndBox; tol: cfloat): bool {.noSideEffect, cdecl,
 proc transformed*(this: BndBox; t: TrsfObj): BndBox {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "Bnd_Box.hxx".}
 proc add*(this: var BndBox; other: BndBox) {.cdecl, importcpp: "Add", header: "Bnd_Box.hxx".}
-proc add*(this: var BndBox; p: PntObj) {.cdecl, importcpp: "Add", header: "Bnd_Box.hxx".}
-proc add*(this: var BndBox; p: PntObj; d: DirObj) {.cdecl, importcpp: "Add", header: "Bnd_Box.hxx".}
+proc add*(this: var BndBox; p: gp_Pnt) {.cdecl, importcpp: "Add", header: "Bnd_Box.hxx".}
+proc add*(this: var BndBox; p: gp_Pnt; d: DirObj) {.cdecl, importcpp: "Add", header: "Bnd_Box.hxx".}
 proc add*(this: var BndBox; d: DirObj) {.cdecl, importcpp: "Add", header: "Bnd_Box.hxx".}
-proc isOut*(this: BndBox; p: PntObj): bool {.noSideEffect, cdecl, importcpp: "IsOut",
+proc isOut*(this: BndBox; p: gp_Pnt): bool {.noSideEffect, cdecl, importcpp: "IsOut",
                                     header: "Bnd_Box.hxx".}
 proc isOut*(this: BndBox; L: LinObj): bool {.noSideEffect, cdecl, importcpp: "IsOut",
                                     header: "Bnd_Box.hxx".}
@@ -99,7 +99,7 @@ proc isOut*(this: BndBox; other: BndBox; t: TrsfObj): bool {.noSideEffect, cdecl
     importcpp: "IsOut", header: "Bnd_Box.hxx".}
 proc isOut*(this: BndBox; t1: TrsfObj; other: BndBox; t2: TrsfObj): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_Box.hxx".}
-proc isOut*(this: BndBox; p1: PntObj; p2: PntObj; d: DirObj): bool {.noSideEffect, cdecl,
+proc isOut*(this: BndBox; p1: gp_Pnt; p2: gp_Pnt; d: DirObj): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_Box.hxx".}
 proc distance*(this: BndBox; other: BndBox): cfloat {.noSideEffect, cdecl,
     importcpp: "Distance", header: "Bnd_Box.hxx".}

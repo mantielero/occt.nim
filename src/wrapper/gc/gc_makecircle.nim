@@ -32,13 +32,13 @@ proc circle*(a2: Ax2Obj; radius: cfloat): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
 proc circle*(circ: CircObj; dist: cfloat): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc circle*(circ: CircObj; point: PntObj): MakeCircle {.cdecl, constructor,
+proc circle*(circ: CircObj; point: gp_Pnt): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc circle*(p1: PntObj; p2: PntObj; p3: PntObj): MakeCircle {.cdecl, constructor,
+proc circle*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc circle*(center: PntObj; norm: DirObj; radius: cfloat): MakeCircle {.cdecl,
+proc circle*(center: gp_Pnt; norm: DirObj; radius: cfloat): MakeCircle {.cdecl,
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc circle*(center: PntObj; ptAxis: PntObj; radius: cfloat): MakeCircle {.cdecl,
+proc circle*(center: gp_Pnt; ptAxis: gp_Pnt; radius: cfloat): MakeCircle {.cdecl,
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
 proc circle*(axis: Ax1Obj; radius: cfloat): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}

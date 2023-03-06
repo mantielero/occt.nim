@@ -84,7 +84,7 @@ proc isTranslation*(this: GeomFillLocationDraft; error: var cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsTranslation", header: "GeomFill_LocationDraft.hxx".}
 proc isRotation*(this: GeomFillLocationDraft; error: var cfloat): bool {.noSideEffect,
     cdecl, importcpp: "IsRotation", header: "GeomFill_LocationDraft.hxx".}
-proc rotation*(this: GeomFillLocationDraft; center: var PntObj) {.noSideEffect, cdecl,
+proc rotation*(this: GeomFillLocationDraft; center: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "Rotation", header: "GeomFill_LocationDraft.hxx".}
 proc isIntersec*(this: GeomFillLocationDraft): bool {.noSideEffect, cdecl,
     importcpp: "IsIntersec", header: "GeomFill_LocationDraft.hxx".}

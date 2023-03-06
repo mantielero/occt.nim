@@ -45,15 +45,15 @@ proc isPeriodic*(this: Adaptor3dCurve): bool {.noSideEffect, cdecl,
     importcpp: "IsPeriodic", header: "Adaptor3d_Curve.hxx".}
 proc period*(this: Adaptor3dCurve): cfloat {.noSideEffect, cdecl, importcpp: "Period",
     header: "Adaptor3d_Curve.hxx".}
-proc value*(this: Adaptor3dCurve; u: cfloat): PntObj {.noSideEffect, cdecl,
+proc value*(this: Adaptor3dCurve; u: cfloat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Value", header: "Adaptor3d_Curve.hxx".}
-proc d0*(this: Adaptor3dCurve; u: cfloat; p: var PntObj) {.noSideEffect, cdecl,
+proc d0*(this: Adaptor3dCurve; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Adaptor3d_Curve.hxx".}
-proc d1*(this: Adaptor3dCurve; u: cfloat; p: var PntObj; v: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: Adaptor3dCurve; u: cfloat; p: var gp_Pnt; v: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "Adaptor3d_Curve.hxx".}
-proc d2*(this: Adaptor3dCurve; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.
+proc d2*(this: Adaptor3dCurve; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D2", header: "Adaptor3d_Curve.hxx".}
-proc d3*(this: Adaptor3dCurve; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
+proc d3*(this: Adaptor3dCurve; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D3", header: "Adaptor3d_Curve.hxx".}
 proc dn*(this: Adaptor3dCurve; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
     importcpp: "DN", header: "Adaptor3d_Curve.hxx".}

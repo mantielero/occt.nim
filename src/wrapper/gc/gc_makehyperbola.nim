@@ -29,7 +29,7 @@ proc hyperbola*(h: HyprObj): MakeHyperbola {.cdecl, constructor,
     importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
 proc hyperbola*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): MakeHyperbola {.
     cdecl, constructor, importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
-proc hyperbola*(s1: PntObj; s2: PntObj; center: PntObj): MakeHyperbola {.cdecl,
+proc hyperbola*(s1: gp_Pnt; s2: gp_Pnt; center: gp_Pnt): MakeHyperbola {.cdecl,
     constructor, importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
 proc value*(this: MakeHyperbola): Handle[GeomHyperbola] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeHyperbola.hxx".}

@@ -54,9 +54,9 @@ proc isSolution*(this: var BlendFuncRuled; sol: MathVector; tol: cfloat): bool {
     importcpp: "IsSolution", header: "BlendFunc_Ruled.hxx".}
 proc getMinimalDistance*(this: BlendFuncRuled): cfloat {.noSideEffect, cdecl,
     importcpp: "GetMinimalDistance", header: "BlendFunc_Ruled.hxx".}
-proc pointOnS1*(this: BlendFuncRuled): PntObj {.noSideEffect, cdecl,
+proc pointOnS1*(this: BlendFuncRuled): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS1", header: "BlendFunc_Ruled.hxx".}
-proc pointOnS2*(this: BlendFuncRuled): PntObj {.noSideEffect, cdecl,
+proc pointOnS2*(this: BlendFuncRuled): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS2", header: "BlendFunc_Ruled.hxx".}
 proc isTangencyPoint*(this: BlendFuncRuled): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_Ruled.hxx".}

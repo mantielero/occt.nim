@@ -25,7 +25,7 @@ import ../geom/geom_types
 
 
 
-proc trimmedCylinder*(p1: PntObj; p2: PntObj; p3: PntObj): MakeTrimmedCylinder {.cdecl,
+proc trimmedCylinder*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): MakeTrimmedCylinder {.cdecl,
     constructor, importcpp: "GC_MakeTrimmedCylinder(@)", header: "GC_MakeTrimmedCylinder.hxx".}
 proc trimmedCylinder*(circ: CircObj; height: cfloat): MakeTrimmedCylinder {.cdecl,
     constructor, importcpp: "GC_MakeTrimmedCylinder(@)", header: "GC_MakeTrimmedCylinder.hxx".}

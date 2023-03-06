@@ -30,7 +30,7 @@ proc isVoid*(this: BndB3f): bool {.noSideEffect, cdecl, importcpp: "IsVoid",
                                header: "Bnd_B3f.hxx".}
 proc clear*(this: var BndB3f) {.cdecl, importcpp: "Clear", header: "Bnd_B3f.hxx".}
 proc add*(this: var BndB3f; thePnt: XyzObj) {.cdecl, importcpp: "Add", header: "Bnd_B3f.hxx".}
-proc add*(this: var BndB3f; thePnt: PntObj) {.cdecl, importcpp: "Add", header: "Bnd_B3f.hxx".}
+proc add*(this: var BndB3f; thePnt: gp_Pnt) {.cdecl, importcpp: "Add", header: "Bnd_B3f.hxx".}
 proc add*(this: var BndB3f; theBox: BndB3f) {.cdecl, importcpp: "Add", header: "Bnd_B3f.hxx".}
 proc cornerMin*(this: BndB3f): XyzObj {.noSideEffect, cdecl, importcpp: "CornerMin",
                                  header: "Bnd_B3f.hxx".}

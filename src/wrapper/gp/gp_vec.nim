@@ -32,7 +32,7 @@ proc vec*(coord: XyzObj): VecObj {.cdecl, constructor, importcpp: "gp_Vec(@)",
                             header: "gp_Vec.hxx".}
 proc vec*(xv: cfloat; yv: cfloat; zv: cfloat): VecObj {.cdecl, constructor,
     importcpp: "gp_Vec(@)", header: "gp_Vec.hxx".}
-proc vec*(p1: PntObj; p2: PntObj): VecObj {.cdecl, constructor, importcpp: "gp_Vec(@)",
+proc vec*(p1: gp_Pnt; p2: gp_Pnt): VecObj {.cdecl, constructor, importcpp: "gp_Vec(@)",
                                 header: "gp_Vec.hxx".}
 proc setCoord*(this: var VecObj; index: cint; xi: cfloat) {.cdecl, importcpp: "SetCoord",
     header: "gp_Vec.hxx".}

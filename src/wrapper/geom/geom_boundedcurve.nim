@@ -32,9 +32,9 @@ import geom_types
 
 
 
-proc endPoint*(this: GeomBoundedCurve): PntObj {.noSideEffect, cdecl,
+proc endPoint*(this: GeomBoundedCurve): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "EndPoint", header: "Geom_BoundedCurve.hxx".}
-proc startPoint*(this: GeomBoundedCurve): PntObj {.noSideEffect, cdecl,
+proc startPoint*(this: GeomBoundedCurve): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "StartPoint", header: "Geom_BoundedCurve.hxx".}
 proc dumpJson*(this: GeomBoundedCurve; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",

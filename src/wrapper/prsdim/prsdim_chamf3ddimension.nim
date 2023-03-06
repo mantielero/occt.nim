@@ -31,7 +31,7 @@ proc newPrsDimChamf3dDimension*(aFShape: TopoDS_Shape; aVal: cfloat;
                                aText: TCollectionExtendedString): PrsDimChamf3dDimension {.
     cdecl, constructor, importcpp: "PrsDim_Chamf3dDimension(@)", header: "PrsDim_Chamf3dDimension.hxx".}
 proc newPrsDimChamf3dDimension*(aFShape: TopoDS_Shape; aVal: cfloat;
-                               aText: TCollectionExtendedString; aPosition: PntObj;
+                               aText: TCollectionExtendedString; aPosition: gp_Pnt;
                                aSymbolPrs: DsgPrsArrowSide;
                                anArrowSize: cfloat = 0.0): PrsDimChamf3dDimension {.
     cdecl, constructor, importcpp: "PrsDim_Chamf3dDimension(@)", header: "PrsDim_Chamf3dDimension.hxx".}

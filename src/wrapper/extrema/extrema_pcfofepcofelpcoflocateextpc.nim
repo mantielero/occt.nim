@@ -22,19 +22,19 @@ discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Extrema_CurveTool"
 discard "forward decl of Extrema_POnCurv"
-discard "forward decl of PntObj"
+discard "forward decl of gp_Pnt"
 discard "forward decl of VecObj"
 
 proc newExtrema_PCFOfEPCOfELPCOfLocateExtPC*(): Extrema_PCFOfEPCOfELPCOfLocateExtPC {.
     cdecl, constructor, importcpp: "Extrema_PCFOfEPCOfELPCOfLocateExtPC(@)",
     header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
-proc newExtrema_PCFOfEPCOfELPCOfLocateExtPC*(P: PntObj; C: Adaptor3d_Curve): Extrema_PCFOfEPCOfELPCOfLocateExtPC {.
+proc newExtrema_PCFOfEPCOfELPCOfLocateExtPC*(P: gp_Pnt; C: Adaptor3d_Curve): Extrema_PCFOfEPCOfELPCOfLocateExtPC {.
     cdecl, constructor, importcpp: "Extrema_PCFOfEPCOfELPCOfLocateExtPC(@)",
     header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
 proc Initialize*(this: var Extrema_PCFOfEPCOfELPCOfLocateExtPC; C: Adaptor3d_Curve) {.
     cdecl, importcpp: "Initialize",
     header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
-proc SetPoint*(this: var Extrema_PCFOfEPCOfELPCOfLocateExtPC; P: PntObj) {.cdecl,
+proc SetPoint*(this: var Extrema_PCFOfEPCOfELPCOfLocateExtPC; P: gp_Pnt) {.cdecl,
     importcpp: "SetPoint", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
 proc Value*(this: var Extrema_PCFOfEPCOfELPCOfLocateExtPC; U: cfloat; F: var cfloat): bool {.
     cdecl, importcpp: "Value", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}

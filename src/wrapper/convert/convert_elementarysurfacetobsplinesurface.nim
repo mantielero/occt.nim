@@ -38,7 +38,7 @@ proc isUPeriodic*(this: ConvertElementarySurfaceToBSplineSurface): bool {.
     noSideEffect, cdecl, importcpp: "IsUPeriodic", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc isVPeriodic*(this: ConvertElementarySurfaceToBSplineSurface): bool {.
     noSideEffect, cdecl, importcpp: "IsVPeriodic", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc pole*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: cint; vIndex: cint): PntObj {.
+proc pole*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: cint; vIndex: cint): gp_Pnt {.
     noSideEffect, cdecl, importcpp: "Pole", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc weight*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: cint;
             vIndex: cint): cfloat {.noSideEffect, cdecl, importcpp: "Weight",

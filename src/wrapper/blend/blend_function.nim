@@ -27,13 +27,13 @@ import ../tcolstd/tcolstd_types
 
 proc nbVariables*(this: BlendFunction): cint {.noSideEffect, cdecl,
     importcpp: "NbVariables", header: "Blend_Function.hxx".}
-proc pnt1*(this: BlendFunction): PntObj {.noSideEffect, cdecl, importcpp: "Pnt1",
+proc pnt1*(this: BlendFunction): gp_Pnt {.noSideEffect, cdecl, importcpp: "Pnt1",
                                    header: "Blend_Function.hxx".}
-proc pnt2*(this: BlendFunction): PntObj {.noSideEffect, cdecl, importcpp: "Pnt2",
+proc pnt2*(this: BlendFunction): gp_Pnt {.noSideEffect, cdecl, importcpp: "Pnt2",
                                    header: "Blend_Function.hxx".}
-proc pointOnS1*(this: BlendFunction): PntObj {.noSideEffect, cdecl,
+proc pointOnS1*(this: BlendFunction): gp_Pnt {.noSideEffect, cdecl,
                                         importcpp: "PointOnS1", header: "Blend_Function.hxx".}
-proc pointOnS2*(this: BlendFunction): PntObj {.noSideEffect, cdecl,
+proc pointOnS2*(this: BlendFunction): gp_Pnt {.noSideEffect, cdecl,
                                         importcpp: "PointOnS2", header: "Blend_Function.hxx".}
 proc isTangencyPoint*(this: BlendFunction): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "Blend_Function.hxx".}

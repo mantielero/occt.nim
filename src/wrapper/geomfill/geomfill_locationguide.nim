@@ -90,7 +90,7 @@ proc isTranslation*(this: GeomFillLocationGuide; error: var cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsTranslation", header: "GeomFill_LocationGuide.hxx".}
 proc isRotation*(this: GeomFillLocationGuide; error: var cfloat): bool {.noSideEffect,
     cdecl, importcpp: "IsRotation", header: "GeomFill_LocationGuide.hxx".}
-proc rotation*(this: GeomFillLocationGuide; center: var PntObj) {.noSideEffect, cdecl,
+proc rotation*(this: GeomFillLocationGuide; center: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "Rotation", header: "GeomFill_LocationGuide.hxx".}
 proc section*(this: GeomFillLocationGuide): Handle[GeomCurve] {.noSideEffect, cdecl,
     importcpp: "Section", header: "GeomFill_LocationGuide.hxx".}

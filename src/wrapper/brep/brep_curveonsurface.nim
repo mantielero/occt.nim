@@ -36,7 +36,7 @@ proc setUVPoints*(this: var BRepCurveOnSurface; p1: Pnt2dObj; p2: Pnt2dObj) {.cd
     importcpp: "SetUVPoints", header: "BRep_CurveOnSurface.hxx".}
 proc uVPoints*(this: BRepCurveOnSurface; p1: var Pnt2dObj; p2: var Pnt2dObj) {.noSideEffect,
     cdecl, importcpp: "UVPoints", header: "BRep_CurveOnSurface.hxx".}
-proc d0*(this: BRepCurveOnSurface; u: cfloat; p: var PntObj) {.noSideEffect, cdecl,
+proc d0*(this: BRepCurveOnSurface; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "BRep_CurveOnSurface.hxx".}
 proc isCurveOnSurface*(this: BRepCurveOnSurface): bool {.noSideEffect, cdecl,
     importcpp: "IsCurveOnSurface", header: "BRep_CurveOnSurface.hxx".}

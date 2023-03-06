@@ -21,15 +21,15 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 
 proc ax1*(): Ax1Obj {.cdecl, constructor, importcpp: "gp_Ax1(@)", header: "gp_Ax1.hxx".}
-proc ax1*(p: PntObj; v: DirObj): Ax1Obj {.cdecl, constructor, importcpp: "gp_Ax1(@)",
+proc ax1*(p: gp_Pnt; v: DirObj): Ax1Obj {.cdecl, constructor, importcpp: "gp_Ax1(@)",
                               header: "gp_Ax1.hxx".}
 proc setDirection*(this: var Ax1Obj; v: DirObj) {.cdecl, importcpp: "SetDirection",
                                       header: "gp_Ax1.hxx".}
-proc setLocation*(this: var Ax1Obj; p: PntObj) {.cdecl, importcpp: "SetLocation",
+proc setLocation*(this: var Ax1Obj; p: gp_Pnt) {.cdecl, importcpp: "SetLocation",
                                      header: "gp_Ax1.hxx".}
 proc direction*(this: Ax1Obj): DirObj {.noSideEffect, cdecl, importcpp: "Direction",
                               header: "gp_Ax1.hxx".}
-proc location*(this: Ax1Obj): PntObj {.noSideEffect, cdecl, importcpp: "Location",
+proc location*(this: Ax1Obj): gp_Pnt {.noSideEffect, cdecl, importcpp: "Location",
                              header: "gp_Ax1.hxx".}
 proc isCoaxial*(this: Ax1Obj; other: Ax1Obj; angularTolerance: cfloat;
                linearTolerance: cfloat): bool {.noSideEffect, cdecl,
@@ -45,8 +45,8 @@ proc angle*(this: Ax1Obj; other: Ax1Obj): cfloat {.noSideEffect, cdecl, importcp
 proc reverse*(this: var Ax1Obj) {.cdecl, importcpp: "Reverse", header: "gp_Ax1.hxx".}
 proc reversed*(this: Ax1Obj): Ax1Obj {.noSideEffect, cdecl, importcpp: "Reversed",
                              header: "gp_Ax1.hxx".}
-proc mirror*(this: var Ax1Obj; p: PntObj) {.cdecl, importcpp: "Mirror", header: "gp_Ax1.hxx".}
-proc mirrored*(this: Ax1Obj; p: PntObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var Ax1Obj; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Ax1.hxx".}
+proc mirrored*(this: Ax1Obj; p: gp_Pnt): Ax1Obj {.noSideEffect, cdecl, importcpp: "Mirrored",
                                    header: "gp_Ax1.hxx".}
 proc mirror*(this: var Ax1Obj; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Ax1.hxx".}
 proc mirrored*(this: Ax1Obj; a1: Ax1Obj): Ax1Obj {.noSideEffect, cdecl, importcpp: "Mirrored",
@@ -58,8 +58,8 @@ proc rotate*(this: var Ax1Obj; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rot
     header: "gp_Ax1.hxx".}
 proc rotated*(this: Ax1Obj; a1: Ax1Obj; ang: cfloat): Ax1Obj {.noSideEffect, cdecl,
     importcpp: "Rotated", header: "gp_Ax1.hxx".}
-proc scale*(this: var Ax1Obj; p: PntObj; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Ax1.hxx".}
-proc scaled*(this: Ax1Obj; p: PntObj; s: cfloat): Ax1Obj {.noSideEffect, cdecl,
+proc scale*(this: var Ax1Obj; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Ax1.hxx".}
+proc scaled*(this: Ax1Obj; p: gp_Pnt; s: cfloat): Ax1Obj {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Ax1.hxx".}
 proc transform*(this: var Ax1Obj; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Ax1.hxx".}
 proc transformed*(this: Ax1Obj; t: TrsfObj): Ax1Obj {.noSideEffect, cdecl,
@@ -67,9 +67,9 @@ proc transformed*(this: Ax1Obj; t: TrsfObj): Ax1Obj {.noSideEffect, cdecl,
 proc translate*(this: var Ax1Obj; v: VecObj) {.cdecl, importcpp: "Translate", header: "gp_Ax1.hxx".}
 proc translated*(this: Ax1Obj; v: VecObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "Translated",
                                      header: "gp_Ax1.hxx".}
-proc translate*(this: var Ax1Obj; p1: PntObj; p2: PntObj) {.cdecl, importcpp: "Translate",
+proc translate*(this: var Ax1Obj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Ax1.hxx".}
-proc translated*(this: Ax1Obj; p1: PntObj; p2: PntObj): Ax1Obj {.noSideEffect, cdecl,
+proc translated*(this: Ax1Obj; p1: gp_Pnt; p2: gp_Pnt): Ax1Obj {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Ax1.hxx".}
 proc dumpJson*(this: Ax1Obj; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "gp_Ax1.hxx".}

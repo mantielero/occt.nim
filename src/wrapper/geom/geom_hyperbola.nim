@@ -66,9 +66,9 @@ proc eccentricity*(this: GeomHyperbola): cfloat {.noSideEffect, cdecl,
     importcpp: "Eccentricity", header: "Geom_Hyperbola.hxx".}
 proc focal*(this: GeomHyperbola): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
                                        header: "Geom_Hyperbola.hxx".}
-proc focus1*(this: GeomHyperbola): PntObj {.noSideEffect, cdecl, importcpp: "Focus1",
+proc focus1*(this: GeomHyperbola): gp_Pnt {.noSideEffect, cdecl, importcpp: "Focus1",
                                      header: "Geom_Hyperbola.hxx".}
-proc focus2*(this: GeomHyperbola): PntObj {.noSideEffect, cdecl, importcpp: "Focus2",
+proc focus2*(this: GeomHyperbola): gp_Pnt {.noSideEffect, cdecl, importcpp: "Focus2",
                                      header: "Geom_Hyperbola.hxx".}
 proc majorRadius*(this: GeomHyperbola): cfloat {.noSideEffect, cdecl,
     importcpp: "MajorRadius", header: "Geom_Hyperbola.hxx".}
@@ -78,13 +78,13 @@ proc otherBranch*(this: GeomHyperbola): HyprObj {.noSideEffect, cdecl,
     importcpp: "OtherBranch", header: "Geom_Hyperbola.hxx".}
 proc parameter*(this: GeomHyperbola): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "Geom_Hyperbola.hxx".}
-proc d0*(this: GeomHyperbola; u: cfloat; p: var PntObj) {.noSideEffect, cdecl,
+proc d0*(this: GeomHyperbola; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom_Hyperbola.hxx".}
-proc d1*(this: GeomHyperbola; u: cfloat; p: var PntObj; v1: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: GeomHyperbola; u: cfloat; p: var gp_Pnt; v1: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "Geom_Hyperbola.hxx".}
-proc d2*(this: GeomHyperbola; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.noSideEffect,
+proc d2*(this: GeomHyperbola; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.noSideEffect,
     cdecl, importcpp: "D2", header: "Geom_Hyperbola.hxx".}
-proc d3*(this: GeomHyperbola; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
+proc d3*(this: GeomHyperbola; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_Hyperbola.hxx".}
 proc dn*(this: GeomHyperbola; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom_Hyperbola.hxx".}

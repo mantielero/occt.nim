@@ -146,7 +146,7 @@ proc hasContinuity*(e: TopoDS_Edge): bool {.cdecl, importcpp: "BRep_Tool::HasCon
                                         header: "BRep_Tool.hxx".}
 proc maxContinuity*(theEdge: TopoDS_Edge): GeomAbsShape {.cdecl,
     importcpp: "BRep_Tool::MaxContinuity(@)", header: "BRep_Tool.hxx".}
-proc pnt*(v: TopoDS_Vertex): PntObj {.cdecl, importcpp: "BRep_Tool::Pnt(@)",
+proc pnt*(v: TopoDS_Vertex): gp_Pnt {.cdecl, importcpp: "BRep_Tool::Pnt(@)",
                                header: "BRep_Tool.hxx".}
 proc tolerance*(v: TopoDS_Vertex): cfloat {.cdecl,
                                         importcpp: "BRep_Tool::Tolerance(@)",

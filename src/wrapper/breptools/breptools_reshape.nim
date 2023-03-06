@@ -3,6 +3,7 @@ import ../topods/topods_types
 import ../topabs/topabs_types
 import ../standard/standard_types
 import ../brep/brep_types
+import ../gp/gp_types
 ##  Created on: 1998-06-03
 ##  Created by: data exchange team
 ##  Copyright (c) 1998-1999 Matra Datavision

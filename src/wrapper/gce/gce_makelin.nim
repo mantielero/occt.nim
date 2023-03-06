@@ -26,11 +26,11 @@ import ../gp/gp_types
 proc newGceMakeLin*(a1: Ax1Obj): GceMakeLin {.cdecl, constructor,
                                        importcpp: "gce_MakeLin(@)",
                                        header: "gce_MakeLin.hxx".}
-proc newGceMakeLin*(p: PntObj; v: DirObj): GceMakeLin {.cdecl, constructor,
+proc newGceMakeLin*(p: gp_Pnt; v: DirObj): GceMakeLin {.cdecl, constructor,
     importcpp: "gce_MakeLin(@)", header: "gce_MakeLin.hxx".}
-proc newGceMakeLin*(lin: LinObj; point: PntObj): GceMakeLin {.cdecl, constructor,
+proc newGceMakeLin*(lin: LinObj; point: gp_Pnt): GceMakeLin {.cdecl, constructor,
     importcpp: "gce_MakeLin(@)", header: "gce_MakeLin.hxx".}
-proc newGceMakeLin*(p1: PntObj; p2: PntObj): GceMakeLin {.cdecl, constructor,
+proc newGceMakeLin*(p1: gp_Pnt; p2: gp_Pnt): GceMakeLin {.cdecl, constructor,
     importcpp: "gce_MakeLin(@)", header: "gce_MakeLin.hxx".}
 proc value*(this: GceMakeLin): LinObj {.noSideEffect, cdecl, importcpp: "Value",
                                  header: "gce_MakeLin.hxx".}

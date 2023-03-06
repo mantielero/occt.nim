@@ -16,19 +16,19 @@ import ../gp/gp_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Extrema_POnCurv_HeaderFile [NewLine] # _Extrema_POnCurv_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < float . hxx > [NewLine] # < PntObj . hxx > [NewLine] class PntObj ;
+## !!!Ignored construct:  # _Extrema_POnCurv_HeaderFile [NewLine] # _Extrema_POnCurv_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < float . hxx > [NewLine] # < gp_Pnt . hxx > [NewLine] class gp_Pnt ;
 ## Error: did not expect <!!!
 
 
 proc newExtrema_POnCurv*(): Extrema_POnCurv {.cdecl, constructor,
     importcpp: "Extrema_POnCurv(@)", header: "Extrema_POnCurv.hxx".}
-proc newExtrema_POnCurv*(U: cfloat; P: PntObj): Extrema_POnCurv {.cdecl, constructor,
+proc newExtrema_POnCurv*(U: cfloat; P: gp_Pnt): Extrema_POnCurv {.cdecl, constructor,
     importcpp: "Extrema_POnCurv(@)", header: "Extrema_POnCurv.hxx".}
-proc SetValues*(this: var Extrema_POnCurv; U: cfloat; P: PntObj) {.cdecl,
+proc SetValues*(this: var Extrema_POnCurv; U: cfloat; P: gp_Pnt) {.cdecl,
     importcpp: "SetValues", header: "Extrema_POnCurv.hxx".}
-proc Value*(this: Extrema_POnCurv): PntObj {.noSideEffect, cdecl, importcpp: "Value",
+proc Value*(this: Extrema_POnCurv): gp_Pnt {.noSideEffect, cdecl, importcpp: "Value",
     header: "Extrema_POnCurv.hxx".}
 proc Parameter*(this: Extrema_POnCurv): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "Extrema_POnCurv.hxx".}
-## !!!Ignored construct:  # Pnt PntObj [NewLine] # Pnt_hxx < PntObj . hxx > [NewLine] # Extrema_Point Extrema_POnCurv [NewLine] # Extrema_Point_hxx < Extrema_POnCurv . hxx > [NewLine] # < Extrema_Point . lxx > [NewLine] # Pnt [NewLine] # Pnt_hxx [NewLine] # Extrema_Point [NewLine] # Extrema_Point_hxx [NewLine] #  _Extrema_POnCurv_HeaderFile
+## !!!Ignored construct:  # Pnt gp_Pnt [NewLine] # Pnt_hxx < gp_Pnt . hxx > [NewLine] # Extrema_Point Extrema_POnCurv [NewLine] # Extrema_Point_hxx < Extrema_POnCurv . hxx > [NewLine] # < Extrema_Point . lxx > [NewLine] # Pnt [NewLine] # Pnt_hxx [NewLine] # Extrema_Point [NewLine] # Extrema_Point_hxx [NewLine] #  _Extrema_POnCurv_HeaderFile
 ## Error: did not expect <!!!

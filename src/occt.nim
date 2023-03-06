@@ -48,7 +48,7 @@ export sketcher2d
 
 import lib/topo2d/topo2d
 export topo2d
-#proc `$`*(pnt:PntObj):string =
+#proc `$`*(pnt:gp_Pnt):string =
 #  &"Pnt(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 
 #include lib/point

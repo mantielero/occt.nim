@@ -36,9 +36,9 @@ proc SquareDistance*(this: BRepExtrema_ExtPC; N: cint): cfloat {.noSideEffect, c
     importcpp: "SquareDistance", header: "BRepExtrema_ExtPC.hxx".}
 proc Parameter*(this: BRepExtrema_ExtPC; N: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "BRepExtrema_ExtPC.hxx".}
-proc Point*(this: BRepExtrema_ExtPC; N: cint): PntObj {.noSideEffect, cdecl,
+proc Point*(this: BRepExtrema_ExtPC; N: cint): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Point", header: "BRepExtrema_ExtPC.hxx".}
 proc TrimmedSquareDistances*(this: BRepExtrema_ExtPC; dist1: var cfloat;
-                            dist2: var cfloat; pnt1: var PntObj; pnt2: var PntObj) {.
+                            dist2: var cfloat; pnt1: var gp_Pnt; pnt2: var gp_Pnt) {.
     noSideEffect, cdecl, importcpp: "TrimmedSquareDistances",
     header: "BRepExtrema_ExtPC.hxx".}

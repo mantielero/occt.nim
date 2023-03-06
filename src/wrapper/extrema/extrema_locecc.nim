@@ -22,7 +22,7 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Extrema_CurveTool"
 discard "forward decl of Extrema_POnCurv"
-discard "forward decl of PntObj"
+discard "forward decl of gp_Pnt"
 discard "forward decl of VecObj"
 discard "forward decl of Extrema_CCLocFOfLocECC"
 

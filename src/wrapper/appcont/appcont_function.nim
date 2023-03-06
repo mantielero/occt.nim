@@ -42,7 +42,7 @@ proc lastParameter*(this: AppContFunction): cfloat {.noSideEffect, cdecl,
     importcpp: "LastParameter", header: "AppCont_Function.hxx".}
 proc value*(this: AppContFunction; theU: cfloat;
            thePnt2d: var NCollectionArray1[Pnt2dObj];
-           thePnt: var NCollectionArray1[PntObj]): bool {.noSideEffect, cdecl,
+           thePnt: var NCollectionArray1[gp_Pnt]): bool {.noSideEffect, cdecl,
     importcpp: "Value", header: "AppCont_Function.hxx".}
 proc d1*(this: AppContFunction; theU: cfloat; theVec2d: var NCollectionArray1[Vec2dObj];
         theVec: var NCollectionArray1[VecObj]): bool {.noSideEffect, cdecl,

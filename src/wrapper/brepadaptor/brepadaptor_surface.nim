@@ -83,16 +83,16 @@ proc isVPeriodic*(this: BRepAdaptorSurface): bool {.noSideEffect, cdecl,
     importcpp: "IsVPeriodic", header: "BRepAdaptor_Surface.hxx".}
 proc vPeriod*(this: BRepAdaptorSurface): cfloat {.noSideEffect, cdecl,
     importcpp: "VPeriod", header: "BRepAdaptor_Surface.hxx".}
-proc value*(this: BRepAdaptorSurface; u: cfloat; v: cfloat): PntObj {.noSideEffect, cdecl,
+proc value*(this: BRepAdaptorSurface; u: cfloat; v: cfloat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Value", header: "BRepAdaptor_Surface.hxx".}
-proc d0*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var PntObj) {.noSideEffect, cdecl,
+proc d0*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "BRepAdaptor_Surface.hxx".}
-proc d1*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d1*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj) {.noSideEffect, cdecl, importcpp: "D1", header: "BRepAdaptor_Surface.hxx".}
-proc d2*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d2*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D2", header: "BRepAdaptor_Surface.hxx".}
-proc d3*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d3*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj;
         d3uuv: var VecObj; d3uvv: var VecObj) {.noSideEffect, cdecl, importcpp: "D3",
                                     header: "BRepAdaptor_Surface.hxx".}

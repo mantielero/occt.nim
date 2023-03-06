@@ -50,9 +50,9 @@ proc headlight*(this: Graphic3dCLight): bool {.noSideEffect, cdecl,
     importcpp: "Headlight", header: "Graphic3d_CLight.hxx".}
 proc setHeadlight*(this: var Graphic3dCLight; theValue: bool) {.cdecl,
     importcpp: "SetHeadlight", header: "Graphic3d_CLight.hxx".}
-proc position*(this: Graphic3dCLight): PntObj {.noSideEffect, cdecl,
+proc position*(this: Graphic3dCLight): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Position", header: "Graphic3d_CLight.hxx".}
-proc setPosition*(this: var Graphic3dCLight; thePosition: PntObj) {.cdecl,
+proc setPosition*(this: var Graphic3dCLight; thePosition: gp_Pnt) {.cdecl,
     importcpp: "SetPosition", header: "Graphic3d_CLight.hxx".}
 proc position*(this: Graphic3dCLight; theX: var cfloat; theY: var cfloat;
               theZ: var cfloat) {.noSideEffect, cdecl, importcpp: "Position",

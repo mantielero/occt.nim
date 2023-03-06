@@ -24,16 +24,16 @@ import ../geom/geom_types
 
 
 
-proc segment*(p1: PntObj; p2: PntObj): MakeSegment {.cdecl, constructor,
+proc segment*(p1: gp_Pnt; p2: gp_Pnt): MakeSegment {.cdecl, constructor,
     importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
 
 proc segment*(line: LinObj; u1: cfloat; u2: cfloat): MakeSegment {.cdecl,
     constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
 
-proc segment*(line: LinObj; point: PntObj; ulast: cfloat): MakeSegment {.cdecl,
+proc segment*(line: LinObj; point: gp_Pnt; ulast: cfloat): MakeSegment {.cdecl,
     constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
 
-proc segment*(line: LinObj; p1: PntObj; p2: PntObj): MakeSegment {.cdecl, constructor,
+proc segment*(line: LinObj; p1: gp_Pnt; p2: gp_Pnt): MakeSegment {.cdecl, constructor,
     importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
 
 proc value*(this: MakeSegment): HandleGeomTrimmedCurve {.noSideEffect, cdecl,

@@ -30,7 +30,7 @@ import geom_types
 
 proc coord*(this: GeomPoint; x: var cfloat; y: var cfloat; z: var cfloat) {.noSideEffect,
     cdecl, importcpp: "Coord", header: "Geom_Point.hxx".}
-proc pnt*(this: GeomPoint): PntObj {.noSideEffect, cdecl, importcpp: "Pnt", header: "Geom_Point.hxx".}
+proc pnt*(this: GeomPoint): gp_Pnt {.noSideEffect, cdecl, importcpp: "Pnt", header: "Geom_Point.hxx".}
 proc x*(this: GeomPoint): cfloat {.noSideEffect, cdecl, importcpp: "X", header: "Geom_Point.hxx".}
 proc y*(this: GeomPoint): cfloat {.noSideEffect, cdecl, importcpp: "Y", header: "Geom_Point.hxx".}
 proc z*(this: GeomPoint): cfloat {.noSideEffect, cdecl, importcpp: "Z", header: "Geom_Point.hxx".}

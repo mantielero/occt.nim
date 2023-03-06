@@ -39,7 +39,7 @@ proc derivatives*(this: var BRepBlendCurvPointRadInv; x: MathVector; d: var Math
     cdecl, importcpp: "Derivatives", header: "BRepBlend_CurvPointRadInv.hxx".}
 proc values*(this: var BRepBlendCurvPointRadInv; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BRepBlend_CurvPointRadInv.hxx".}
-proc set*(this: var BRepBlendCurvPointRadInv; p: PntObj) {.cdecl, importcpp: "Set",
+proc set*(this: var BRepBlendCurvPointRadInv; p: gp_Pnt) {.cdecl, importcpp: "Set",
     header: "BRepBlend_CurvPointRadInv.hxx".}
 proc getTolerance*(this: BRepBlendCurvPointRadInv; tolerance: var MathVector;
                   tol: cfloat) {.noSideEffect, cdecl, importcpp: "GetTolerance",

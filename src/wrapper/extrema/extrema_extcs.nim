@@ -21,7 +21,7 @@ discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of Extrema_POnCurv"
 discard "forward decl of Extrema_POnSurf"
-discard "forward decl of PntObj"
+discard "forward decl of gp_Pnt"
 
 proc newExtrema_ExtCS*(): Extrema_ExtCS {.cdecl, constructor,
                                        importcpp: "Extrema_ExtCS(@)",

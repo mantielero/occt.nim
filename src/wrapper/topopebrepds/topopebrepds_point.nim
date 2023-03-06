@@ -26,15 +26,15 @@ import ../topods/topods_types
 
 proc newTopOpeBRepDS_Point*(): TopOpeBRepDS_Point {.cdecl, constructor,
     importcpp: "TopOpeBRepDS_Point(@)", header: "TopOpeBRepDS_Point.hxx".}
-proc newTopOpeBRepDS_Point*(p: PntObj; t: cfloat): TopOpeBRepDS_Point {.cdecl,
+proc newTopOpeBRepDS_Point*(p: gp_Pnt; t: cfloat): TopOpeBRepDS_Point {.cdecl,
     constructor, importcpp: "TopOpeBRepDS_Point(@)", header: "TopOpeBRepDS_Point.hxx".}
 proc newTopOpeBRepDS_Point*(s: TopoDS_Shape): TopOpeBRepDS_Point {.cdecl,
     constructor, importcpp: "TopOpeBRepDS_Point(@)", header: "TopOpeBRepDS_Point.hxx".}
 proc isEqual*(this: TopOpeBRepDS_Point; other: TopOpeBRepDS_Point): bool {.
     noSideEffect, cdecl, importcpp: "IsEqual", header: "TopOpeBRepDS_Point.hxx".}
-proc point*(this: TopOpeBRepDS_Point): PntObj {.noSideEffect, cdecl, importcpp: "Point",
+proc point*(this: TopOpeBRepDS_Point): gp_Pnt {.noSideEffect, cdecl, importcpp: "Point",
     header: "TopOpeBRepDS_Point.hxx".}
-proc changePoint*(this: var TopOpeBRepDS_Point): var PntObj {.cdecl,
+proc changePoint*(this: var TopOpeBRepDS_Point): var gp_Pnt {.cdecl,
     importcpp: "ChangePoint", header: "TopOpeBRepDS_Point.hxx".}
 proc tolerance*(this: TopOpeBRepDS_Point): cfloat {.noSideEffect, cdecl,
     importcpp: "Tolerance", header: "TopOpeBRepDS_Point.hxx".}

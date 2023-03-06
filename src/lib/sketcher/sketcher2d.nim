@@ -304,7 +304,7 @@ proc fillet*(aBody: TopoDS_Shape; radius: SomeNumber): TopoDS_Shape {.discardabl
 
 
 proc cylinder*[R,H: SomeNumber]( radius: R; height: H;
-                                 position: PntObj;
+                                 position: gp_Pnt;
                                  axis: DirObj): TopoDS_Shape =
   let cylAx2 = ax2(position, axis) 
   return cylinder(cylAx2, radius.float, height.float).shape()

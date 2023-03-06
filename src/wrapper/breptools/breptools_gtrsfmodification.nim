@@ -5,7 +5,7 @@ import ../standard/standard_types
 import ../geom/geom_types
 import ../geom2d/geom2d_types
 import ../geomabs/geomabs_types
-
+import ../gp/gp_types
 ##  Created on: 1996-12-30
 ##  Created by: Stagiaire Mary FABIEN
 ##  Copyright (c) 1996-1999 Matra Datavision

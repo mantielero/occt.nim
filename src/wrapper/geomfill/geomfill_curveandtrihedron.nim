@@ -74,7 +74,7 @@ proc isTranslation*(this: GeomFillCurveAndTrihedron; error: var cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsTranslation", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc isRotation*(this: GeomFillCurveAndTrihedron; error: var cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsRotation", header: "GeomFill_CurveAndTrihedron.hxx".}
-proc rotation*(this: GeomFillCurveAndTrihedron; center: var PntObj) {.noSideEffect, cdecl,
+proc rotation*(this: GeomFillCurveAndTrihedron; center: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "Rotation", header: "GeomFill_CurveAndTrihedron.hxx".}
 
 

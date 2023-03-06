@@ -23,7 +23,7 @@ discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Extrema_CurveTool"
 discard "forward decl of Extrema_ExtPElC"
-discard "forward decl of PntObj"
+discard "forward decl of gp_Pnt"
 discard "forward decl of VecObj"
 discard "forward decl of Extrema_POnCurv"
 discard "forward decl of Extrema_EPCOfExtPC"
@@ -32,15 +32,15 @@ discard "forward decl of Extrema_PCFOfEPCOfExtPC"
 proc newExtrema_ExtPC*(): Extrema_ExtPC {.cdecl, constructor,
                                        importcpp: "Extrema_ExtPC(@)",
                                        header: "Extrema_ExtPC.hxx".}
-proc newExtrema_ExtPC*(P: PntObj; C: Adaptor3d_Curve; Uinf: cfloat; Usup: cfloat;
+proc newExtrema_ExtPC*(P: gp_Pnt; C: Adaptor3d_Curve; Uinf: cfloat; Usup: cfloat;
                       TolF: cfloat = 1.0e-10): Extrema_ExtPC {.cdecl, constructor,
     importcpp: "Extrema_ExtPC(@)", header: "Extrema_ExtPC.hxx".}
-proc newExtrema_ExtPC*(P: PntObj; C: Adaptor3d_Curve; TolF: cfloat = 1.0e-10): Extrema_ExtPC {.
+proc newExtrema_ExtPC*(P: gp_Pnt; C: Adaptor3d_Curve; TolF: cfloat = 1.0e-10): Extrema_ExtPC {.
     cdecl, constructor, importcpp: "Extrema_ExtPC(@)", header: "Extrema_ExtPC.hxx".}
 proc Initialize*(this: var Extrema_ExtPC; C: Adaptor3d_Curve; Uinf: cfloat;
                 Usup: cfloat; TolF: cfloat = 1.0e-10) {.cdecl, importcpp: "Initialize",
     header: "Extrema_ExtPC.hxx".}
-proc Perform*(this: var Extrema_ExtPC; P: PntObj) {.cdecl, importcpp: "Perform",
+proc Perform*(this: var Extrema_ExtPC; P: gp_Pnt) {.cdecl, importcpp: "Perform",
     header: "Extrema_ExtPC.hxx".}
 proc IsDone*(this: Extrema_ExtPC): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                       header: "Extrema_ExtPC.hxx".}
@@ -53,6 +53,6 @@ proc IsMin*(this: Extrema_ExtPC; N: cint): bool {.noSideEffect, cdecl,
 proc Point*(this: Extrema_ExtPC; N: cint): Extrema_POnCurv {.noSideEffect, cdecl,
     importcpp: "Point", header: "Extrema_ExtPC.hxx".}
 proc TrimmedSquareDistances*(this: Extrema_ExtPC; dist1: var cfloat;
-                            dist2: var cfloat; P1: var PntObj; P2: var PntObj) {.
+                            dist2: var cfloat; P1: var gp_Pnt; P2: var gp_Pnt) {.
     noSideEffect, cdecl, importcpp: "TrimmedSquareDistances",
     header: "Extrema_ExtPC.hxx".}

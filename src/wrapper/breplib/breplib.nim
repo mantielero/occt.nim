@@ -119,11 +119,11 @@ proc EnsureNormalConsistency*(S: TopoDS_Shape; theAngTol: cfloat = 0.001;
 proc UpdateDeflection*(S: TopoDS_Shape) {.cdecl, importcpp: "BRepLib::UpdateDeflection(@)",
                                        .}
 proc BoundingVertex*(theLV: NCollection_List[TopoDS_Shape];
-                    theNewCenter: var PntObj; theNewTol: var cfloat) {.cdecl,
+                    theNewCenter: var gp_Pnt; theNewTol: var cfloat) {.cdecl,
     importcpp: "BRepLib::BoundingVertex(@)".}
 proc FindValidRange*(theCurve: Adaptor3d_Curve; theTolE: cfloat; theParV1: cfloat;
-                    thePntV1: PntObj; theTolV1: cfloat; theParV2: cfloat;
-                    thePntV2: PntObj; theTolV2: cfloat; theFirst: var cfloat;
+                    thePntV1: gp_Pnt; theTolV1: cfloat; theParV2: cfloat;
+                    thePntV2: gp_Pnt; theTolV2: cfloat; theFirst: var cfloat;
                     theLast: var cfloat): bool {.cdecl,
     importcpp: "BRepLib::FindValidRange(@)".}
 proc FindValidRange*(theEdge: TopoDS_Edge; theFirst: var cfloat; theLast: var cfloat): bool {.

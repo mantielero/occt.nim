@@ -48,7 +48,7 @@ import geom_types
 
 proc newGeomAxis1Placement*(a1: Ax1Obj): GeomAxis1Placement {.cdecl, constructor,
     importcpp: "Geom_Axis1Placement(@)", header: "Geom_Axis1Placement.hxx".}
-proc newGeomAxis1Placement*(p: PntObj; v: DirObj): GeomAxis1Placement {.cdecl, constructor,
+proc newGeomAxis1Placement*(p: gp_Pnt; v: DirObj): GeomAxis1Placement {.cdecl, constructor,
     importcpp: "Geom_Axis1Placement(@)", header: "Geom_Axis1Placement.hxx".}
 proc ax1*(this: GeomAxis1Placement): Ax1Obj {.noSideEffect, cdecl, importcpp: "Ax1",
                                        header: "Geom_Axis1Placement.hxx".}

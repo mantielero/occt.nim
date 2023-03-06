@@ -31,7 +31,7 @@ proc guide*(this: GeomFillTrihedronWithGuide): Handle[Adaptor3dHCurve] {.
     noSideEffect, cdecl, importcpp: "Guide", header: "GeomFill_TrihedronWithGuide.hxx".}
 proc origine*(this: var GeomFillTrihedronWithGuide; param1: cfloat; param2: cfloat) {.
     cdecl, importcpp: "Origine", header: "GeomFill_TrihedronWithGuide.hxx".}
-proc currentPointOnGuide*(this: GeomFillTrihedronWithGuide): PntObj {.noSideEffect,
+proc currentPointOnGuide*(this: GeomFillTrihedronWithGuide): gp_Pnt {.noSideEffect,
     cdecl, importcpp: "CurrentPointOnGuide", header: "GeomFill_TrihedronWithGuide.hxx".}
 
 

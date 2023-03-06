@@ -51,10 +51,10 @@ proc unsetCustomPlane*(this: var PrsDimDimension) {.cdecl,
     importcpp: "UnsetCustomPlane", header: "PrsDim_Dimension.hxx".}
 proc isTextPositionCustom*(this: PrsDimDimension): bool {.noSideEffect, cdecl,
     importcpp: "IsTextPositionCustom", header: "PrsDim_Dimension.hxx".}
-proc setTextPosition*(this: var PrsDimDimension; a2: PntObj) {.cdecl,
+proc setTextPosition*(this: var PrsDimDimension; a2: gp_Pnt) {.cdecl,
     importcpp: "SetTextPosition", header: "PrsDim_Dimension.hxx".}
   ## theTextPos
-proc getTextPosition*(this: PrsDimDimension): PntObj {.noSideEffect, cdecl,
+proc getTextPosition*(this: PrsDimDimension): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "GetTextPosition", header: "PrsDim_Dimension.hxx".}
 proc dimensionAspect*(this: PrsDimDimension): Handle[Prs3dDimensionAspect] {.
     noSideEffect, cdecl, importcpp: "DimensionAspect", header: "PrsDim_Dimension.hxx".}

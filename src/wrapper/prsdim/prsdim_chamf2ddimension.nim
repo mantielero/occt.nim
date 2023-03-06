@@ -34,7 +34,7 @@ proc newPrsDimChamf2dDimension*(aFShape: TopoDS_Shape; aPlane: Handle[GeomPlane]
     cdecl, constructor, importcpp: "PrsDim_Chamf2dDimension(@)", header: "PrsDim_Chamf2dDimension.hxx".}
 proc newPrsDimChamf2dDimension*(aFShape: TopoDS_Shape; aPlane: Handle[GeomPlane];
                                aVal: cfloat; aText: TCollectionExtendedString;
-                               aPosition: PntObj; aSymbolPrs: DsgPrsArrowSide;
+                               aPosition: gp_Pnt; aSymbolPrs: DsgPrsArrowSide;
                                anArrowSize: cfloat = 0.0): PrsDimChamf2dDimension {.
     cdecl, constructor, importcpp: "PrsDim_Chamf2dDimension(@)", header: "PrsDim_Chamf2dDimension.hxx".}
 proc kindOfDimension*(this: PrsDimChamf2dDimension): PrsDimKindOfDimension {.

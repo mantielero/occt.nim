@@ -6,7 +6,7 @@ import ../../wrapper/gp/[gp_types, gp_pnt, gp_vec, gp_dir, gp_xyz]
 converter toCfloat*[T:SomeNumber](val:T):cfloat =
   val.cfloat
 
-proc pnt*[A,B,C:SomeNumber](x:A,y:B,z:C):PntObj = 
+proc pnt*[A,B,C:SomeNumber](x:A,y:B,z:C):gp_Pnt = 
   gp_pnt.pnt(x.cfloat, y.cfloat, z.cfloat)
 
 type
@@ -15,7 +15,7 @@ type
 
 
 type
-  Point* = PntObj | XyzObj | DirObj  | VecObj  
+  Point* = gp_Pnt | XyzObj | DirObj  | VecObj  
 
 
 proc x*[T:Point](p:T):float =
@@ -38,7 +38,7 @@ proc `z=`*[T:Point, V:SomeNumber](pnt:var T,val:V) =
   pnt.setZ(val.cfloat)
 
 
-proc `$`*(pnt:PntObj):string =
+proc `$`*(pnt:gp_Pnt):string =
   &"Pnt(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 
 proc `$`*(pnt:VecObj):string =

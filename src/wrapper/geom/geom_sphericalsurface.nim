@@ -66,14 +66,14 @@ proc uIso*(this: GeomSphericalSurface; u: cfloat): Handle[GeomCurve] {.noSideEff
     cdecl, importcpp: "UIso", header: "Geom_SphericalSurface.hxx".}
 proc vIso*(this: GeomSphericalSurface; v: cfloat): Handle[GeomCurve] {.noSideEffect,
     cdecl, importcpp: "VIso", header: "Geom_SphericalSurface.hxx".}
-proc d0*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var PntObj) {.noSideEffect,
+proc d0*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var gp_Pnt) {.noSideEffect,
     cdecl, importcpp: "D0", header: "Geom_SphericalSurface.hxx".}
-proc d1*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d1*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_SphericalSurface.hxx".}
-proc d2*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d2*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D2", header: "Geom_SphericalSurface.hxx".}
-proc d3*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d3*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj;
         d3uuv: var VecObj; d3uvv: var VecObj) {.noSideEffect, cdecl, importcpp: "D3",
                                     header: "Geom_SphericalSurface.hxx".}

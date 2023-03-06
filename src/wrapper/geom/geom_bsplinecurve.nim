@@ -78,16 +78,16 @@ proc setOrigin*(this: var GeomBSplineCurve; u: cfloat; tol: cfloat) {.cdecl,
     importcpp: "SetOrigin", header: "Geom_BSplineCurve.hxx".}
 proc setNotPeriodic*(this: var GeomBSplineCurve) {.cdecl,
     importcpp: "SetNotPeriodic", header: "Geom_BSplineCurve.hxx".}
-proc setPole*(this: var GeomBSplineCurve; index: cint; p: PntObj) {.cdecl,
+proc setPole*(this: var GeomBSplineCurve; index: cint; p: gp_Pnt) {.cdecl,
     importcpp: "SetPole", header: "Geom_BSplineCurve.hxx".}
-proc setPole*(this: var GeomBSplineCurve; index: cint; p: PntObj; weight: cfloat) {.cdecl,
+proc setPole*(this: var GeomBSplineCurve; index: cint; p: gp_Pnt; weight: cfloat) {.cdecl,
     importcpp: "SetPole", header: "Geom_BSplineCurve.hxx".}
 proc setWeight*(this: var GeomBSplineCurve; index: cint; weight: cfloat) {.cdecl,
     importcpp: "SetWeight", header: "Geom_BSplineCurve.hxx".}
-proc movePoint*(this: var GeomBSplineCurve; u: cfloat; p: PntObj; index1: cint; index2: cint;
+proc movePoint*(this: var GeomBSplineCurve; u: cfloat; p: gp_Pnt; index1: cint; index2: cint;
                firstModifiedPole: var cint; lastModifiedPole: var cint) {.cdecl,
     importcpp: "MovePoint", header: "Geom_BSplineCurve.hxx".}
-proc movePointAndTangent*(this: var GeomBSplineCurve; u: cfloat; p: PntObj; tangent: VecObj;
+proc movePointAndTangent*(this: var GeomBSplineCurve; u: cfloat; p: gp_Pnt; tangent: VecObj;
                          tolerance: cfloat; startingCondition: cint;
                          endingCondition: cint; errorStatus: var cint) {.cdecl,
     importcpp: "MovePointAndTangent", header: "Geom_BSplineCurve.hxx".}
@@ -105,31 +105,31 @@ proc continuity*(this: GeomBSplineCurve): GeomAbsShape {.noSideEffect, cdecl,
     importcpp: "Continuity", header: "Geom_BSplineCurve.hxx".}
 proc degree*(this: GeomBSplineCurve): cint {.noSideEffect, cdecl, importcpp: "Degree",
     header: "Geom_BSplineCurve.hxx".}
-proc d0*(this: GeomBSplineCurve; u: cfloat; p: var PntObj) {.noSideEffect, cdecl,
+proc d0*(this: GeomBSplineCurve; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom_BSplineCurve.hxx".}
-proc d1*(this: GeomBSplineCurve; u: cfloat; p: var PntObj; v1: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: GeomBSplineCurve; u: cfloat; p: var gp_Pnt; v1: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "Geom_BSplineCurve.hxx".}
-proc d2*(this: GeomBSplineCurve; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.
+proc d2*(this: GeomBSplineCurve; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D2", header: "Geom_BSplineCurve.hxx".}
-proc d3*(this: GeomBSplineCurve; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
+proc d3*(this: GeomBSplineCurve; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_BSplineCurve.hxx".}
 proc dn*(this: GeomBSplineCurve; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom_BSplineCurve.hxx".}
-proc localValue*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint): PntObj {.
+proc localValue*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint): gp_Pnt {.
     noSideEffect, cdecl, importcpp: "LocalValue", header: "Geom_BSplineCurve.hxx".}
-proc localD0*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint; p: var PntObj) {.
+proc localD0*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint; p: var gp_Pnt) {.
     noSideEffect, cdecl, importcpp: "LocalD0", header: "Geom_BSplineCurve.hxx".}
-proc localD1*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint; p: var PntObj;
+proc localD1*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint; p: var gp_Pnt;
              v1: var VecObj) {.noSideEffect, cdecl, importcpp: "LocalD1", header: "Geom_BSplineCurve.hxx".}
-proc localD2*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint; p: var PntObj;
+proc localD2*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint; p: var gp_Pnt;
              v1: var VecObj; v2: var VecObj) {.noSideEffect, cdecl, importcpp: "LocalD2",
                                    header: "Geom_BSplineCurve.hxx".}
-proc localD3*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint; p: var PntObj;
+proc localD3*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint; p: var gp_Pnt;
              v1: var VecObj; v2: var VecObj; v3: var VecObj) {.noSideEffect, cdecl,
     importcpp: "LocalD3", header: "Geom_BSplineCurve.hxx".}
 proc localDN*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint; n: cint): VecObj {.
     noSideEffect, cdecl, importcpp: "LocalDN", header: "Geom_BSplineCurve.hxx".}
-proc endPoint*(this: GeomBSplineCurve): PntObj {.noSideEffect, cdecl,
+proc endPoint*(this: GeomBSplineCurve): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "EndPoint", header: "Geom_BSplineCurve.hxx".}
 proc firstUKnotIndex*(this: GeomBSplineCurve): cint {.noSideEffect, cdecl,
     importcpp: "FirstUKnotIndex", header: "Geom_BSplineCurve.hxx".}
@@ -164,13 +164,13 @@ proc nbKnots*(this: GeomBSplineCurve): cint {.noSideEffect, cdecl,
     importcpp: "NbKnots", header: "Geom_BSplineCurve.hxx".}
 proc nbPoles*(this: GeomBSplineCurve): cint {.noSideEffect, cdecl,
     importcpp: "NbPoles", header: "Geom_BSplineCurve.hxx".}
-proc pole*(this: GeomBSplineCurve; index: cint): PntObj {.noSideEffect, cdecl,
+proc pole*(this: GeomBSplineCurve; index: cint): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Pole", header: "Geom_BSplineCurve.hxx".}
 proc poles*(this: GeomBSplineCurve; p: var TColgpArray1OfPnt) {.noSideEffect, cdecl,
     importcpp: "Poles", header: "Geom_BSplineCurve.hxx".}
 proc poles*(this: GeomBSplineCurve): TColgpArray1OfPnt {.noSideEffect, cdecl,
     importcpp: "Poles", header: "Geom_BSplineCurve.hxx".}
-proc startPoint*(this: GeomBSplineCurve): PntObj {.noSideEffect, cdecl,
+proc startPoint*(this: GeomBSplineCurve): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "StartPoint", header: "Geom_BSplineCurve.hxx".}
 proc weight*(this: GeomBSplineCurve; index: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "Weight", header: "Geom_BSplineCurve.hxx".}

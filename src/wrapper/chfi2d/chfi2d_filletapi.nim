@@ -52,9 +52,9 @@ proc init*(this: var ChFi2dFilletAPI; theEdge1: TopoDS_Edge; theEdge2: TopoDS_Ed
           thePlane: PlnObj) {.cdecl, importcpp: "Init", header: "ChFi2d_FilletAPI.hxx".}
 proc perform*(this: var ChFi2dFilletAPI; theRadius: cfloat): bool {.cdecl,
     importcpp: "Perform", header: "ChFi2d_FilletAPI.hxx".}
-proc nbResults*(this: var ChFi2dFilletAPI; thePoint: PntObj): cint {.cdecl,
+proc nbResults*(this: var ChFi2dFilletAPI; thePoint: gp_Pnt): cint {.cdecl,
     importcpp: "NbResults", header: "ChFi2d_FilletAPI.hxx".}
-proc result*(this: var ChFi2dFilletAPI; thePoint: PntObj; theEdge1: var TopoDS_Edge;
+proc result*(this: var ChFi2dFilletAPI; thePoint: gp_Pnt; theEdge1: var TopoDS_Edge;
             theEdge2: var TopoDS_Edge; iSolution: cint = -1): TopoDS_Edge {.cdecl,
     importcpp: "Result", header: "ChFi2d_FilletAPI.hxx".}
 

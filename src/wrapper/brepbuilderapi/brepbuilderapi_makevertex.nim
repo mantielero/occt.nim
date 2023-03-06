@@ -24,7 +24,7 @@ import ../topods/topods_types
 
 
 
-proc vertex*(p: PntObj): BRepBuilderAPI_MakeVertex {.cdecl,
+proc vertex*(p: gp_Pnt): BRepBuilderAPI_MakeVertex {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakeVertex(@)", header: "BRepBuilderAPI_MakeVertex.hxx".}
 proc vertex*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.cdecl,
     importcpp: "Vertex", header: "BRepBuilderAPI_MakeVertex.hxx".}

@@ -27,7 +27,7 @@ proc cylinder*(): CylinderObj {.cdecl, constructor, importcpp: "gp_Cylinder(@)",
 proc cylinder*(a3: Ax3Obj; radius: cfloat): CylinderObj {.cdecl, constructor,
     importcpp: "gp_Cylinder(@)", header: "gp_Cylinder.hxx".}
 proc setAxis*(this: var CylinderObj; a1: Ax1Obj) {.cdecl, importcpp: "SetAxis", header: "gp_Cylinder.hxx".}
-proc setLocation*(this: var CylinderObj; loc: PntObj) {.cdecl, importcpp: "SetLocation",
+proc setLocation*(this: var CylinderObj; loc: gp_Pnt) {.cdecl, importcpp: "SetLocation",
     header: "gp_Cylinder.hxx".}
 proc setPosition*(this: var CylinderObj; a3: Ax3Obj) {.cdecl, importcpp: "SetPosition",
     header: "gp_Cylinder.hxx".}
@@ -42,7 +42,7 @@ proc coefficients*(this: CylinderObj; a1: var cfloat; a2: var cfloat; a3: var cf
                   b1: var cfloat; b2: var cfloat; b3: var cfloat; c1: var cfloat;
                   c2: var cfloat; c3: var cfloat; d: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Coefficients", header: "gp_Cylinder.hxx".}
-proc location*(this: CylinderObj): PntObj {.noSideEffect, cdecl, importcpp: "Location",
+proc location*(this: CylinderObj): gp_Pnt {.noSideEffect, cdecl, importcpp: "Location",
                                   header: "gp_Cylinder.hxx".}
 proc position*(this: CylinderObj): Ax3Obj {.noSideEffect, cdecl, importcpp: "Position",
                                   header: "gp_Cylinder.hxx".}
@@ -52,8 +52,8 @@ proc xAxis*(this: CylinderObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "XAxis"
                                header: "gp_Cylinder.hxx".}
 proc yAxis*(this: CylinderObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "YAxis",
                                header: "gp_Cylinder.hxx".}
-proc mirror*(this: var CylinderObj; p: PntObj) {.cdecl, importcpp: "Mirror", header: "gp_Cylinder.hxx".}
-proc mirrored*(this: CylinderObj; p: PntObj): CylinderObj {.noSideEffect, cdecl,
+proc mirror*(this: var CylinderObj; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Cylinder.hxx".}
+proc mirrored*(this: CylinderObj; p: gp_Pnt): CylinderObj {.noSideEffect, cdecl,
     importcpp: "Mirrored", header: "gp_Cylinder.hxx".}
 proc mirror*(this: var CylinderObj; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Cylinder.hxx".}
 proc mirrored*(this: CylinderObj; a1: Ax1Obj): CylinderObj {.noSideEffect, cdecl,
@@ -65,9 +65,9 @@ proc rotate*(this: var CylinderObj; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp:
     header: "gp_Cylinder.hxx".}
 proc rotated*(this: CylinderObj; a1: Ax1Obj; ang: cfloat): CylinderObj {.noSideEffect, cdecl,
     importcpp: "Rotated", header: "gp_Cylinder.hxx".}
-proc scale*(this: var CylinderObj; p: PntObj; s: cfloat) {.cdecl, importcpp: "Scale",
+proc scale*(this: var CylinderObj; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale",
     header: "gp_Cylinder.hxx".}
-proc scaled*(this: CylinderObj; p: PntObj; s: cfloat): CylinderObj {.noSideEffect, cdecl,
+proc scaled*(this: CylinderObj; p: gp_Pnt; s: cfloat): CylinderObj {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Cylinder.hxx".}
 proc transform*(this: var CylinderObj; t: TrsfObj) {.cdecl, importcpp: "Transform",
     header: "gp_Cylinder.hxx".}
@@ -77,7 +77,7 @@ proc translate*(this: var CylinderObj; v: VecObj) {.cdecl, importcpp: "Translate
                                         header: "gp_Cylinder.hxx".}
 proc translated*(this: CylinderObj; v: VecObj): CylinderObj {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Cylinder.hxx".}
-proc translate*(this: var CylinderObj; p1: PntObj; p2: PntObj) {.cdecl, importcpp: "Translate",
+proc translate*(this: var CylinderObj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Cylinder.hxx".}
-proc translated*(this: CylinderObj; p1: PntObj; p2: PntObj): CylinderObj {.noSideEffect, cdecl,
+proc translated*(this: CylinderObj; p1: gp_Pnt; p2: gp_Pnt): CylinderObj {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Cylinder.hxx".}

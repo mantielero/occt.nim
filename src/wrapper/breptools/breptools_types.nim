@@ -9,7 +9,7 @@ import ../gp/gp_types
 ## ! changes to faces, edges and vertices.
 type
   gp_GTrsf* = GTrsf
-  gp_Pnt*   = PntObj
+  #gp_Pnt*   = gp_Pnt
   gp_Trsf*  = TrsfObj
 
 type

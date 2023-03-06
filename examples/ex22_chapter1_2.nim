@@ -56,7 +56,7 @@ proc main =
 
   for i in 0..<numberOfSamplePoints:
     let delta = (i.float * deltaU).cdouble
-    var pointOnCircle:PntObj
+    var pointOnCircle:gp_Pnt
     var tangentVector:VecObj
     lib.d1(delta, circle2, pointOnCircle, tangentVector)
     f1.writeLine( fmt"{pointOnCircle.x} {pointOnCircle.y} {pointOnCircle.z} {tangentVector.x} {tangentVector.y} {tangentVector.z}" )

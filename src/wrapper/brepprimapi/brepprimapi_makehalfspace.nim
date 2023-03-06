@@ -24,9 +24,9 @@ import ../topods/topods_types
 
 
 
-proc halfSpace*(face: TopoDS_Face; refPnt: PntObj): BRepPrimAPI_MakeHalfSpace {.
+proc halfSpace*(face: TopoDS_Face; refPnt: gp_Pnt): BRepPrimAPI_MakeHalfSpace {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeHalfSpace(@)", header: "BRepPrimAPI_MakeHalfSpace.hxx".}
-proc halfSpace*(shell: TopoDS_Shell; refPnt: PntObj): BRepPrimAPI_MakeHalfSpace {.
+proc halfSpace*(shell: TopoDS_Shell; refPnt: gp_Pnt): BRepPrimAPI_MakeHalfSpace {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeHalfSpace(@)", header: "BRepPrimAPI_MakeHalfSpace.hxx".}
 proc solid*(this: BRepPrimAPI_MakeHalfSpace): TopoDS_Solid {.noSideEffect, cdecl,
     importcpp: "Solid", header: "BRepPrimAPI_MakeHalfSpace.hxx".}

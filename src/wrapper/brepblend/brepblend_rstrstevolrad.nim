@@ -68,9 +68,9 @@ proc isSolution*(this: var BRepBlendRstRstEvolRad; sol: MathVector; tol: cfloat)
     cdecl, importcpp: "IsSolution", header: "BRepBlend_RstRstEvolRad.hxx".}
 proc getMinimalDistance*(this: BRepBlendRstRstEvolRad): cfloat {.noSideEffect, cdecl,
     importcpp: "GetMinimalDistance", header: "BRepBlend_RstRstEvolRad.hxx".}
-proc pointOnRst1*(this: BRepBlendRstRstEvolRad): PntObj {.noSideEffect, cdecl,
+proc pointOnRst1*(this: BRepBlendRstRstEvolRad): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnRst1", header: "BRepBlend_RstRstEvolRad.hxx".}
-proc pointOnRst2*(this: BRepBlendRstRstEvolRad): PntObj {.noSideEffect, cdecl,
+proc pointOnRst2*(this: BRepBlendRstRstEvolRad): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnRst2", header: "BRepBlend_RstRstEvolRad.hxx".}
 proc pnt2dOnRst1*(this: BRepBlendRstRstEvolRad): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "Pnt2dOnRst1", header: "BRepBlend_RstRstEvolRad.hxx".}
@@ -97,8 +97,8 @@ proc set*(this: var BRepBlendRstRstEvolRad; choix: cint) {.cdecl, importcpp: "Se
     header: "BRepBlend_RstRstEvolRad.hxx".}
 proc set*(this: var BRepBlendRstRstEvolRad; typeSection: BlendFuncSectionShape) {.
     cdecl, importcpp: "Set", header: "BRepBlend_RstRstEvolRad.hxx".}
-proc centerCircleRst1Rst2*(this: BRepBlendRstRstEvolRad; ptRst1: PntObj; ptRst2: PntObj;
-                          np: VecObj; center: var PntObj; vdMed: var VecObj): bool {.noSideEffect,
+proc centerCircleRst1Rst2*(this: BRepBlendRstRstEvolRad; ptRst1: gp_Pnt; ptRst2: gp_Pnt;
+                          np: VecObj; center: var gp_Pnt; vdMed: var VecObj): bool {.noSideEffect,
     cdecl, importcpp: "CenterCircleRst1Rst2", header: "BRepBlend_RstRstEvolRad.hxx".}
 proc section*(this: var BRepBlendRstRstEvolRad; param: cfloat; u: cfloat; v: cfloat;
              pdeb: var cfloat; pfin: var cfloat; c: var CircObj) {.cdecl,

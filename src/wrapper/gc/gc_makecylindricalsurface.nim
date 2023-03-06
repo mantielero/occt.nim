@@ -30,13 +30,13 @@ proc cylindricalSurface*(a2: Ax2Obj; radius: cfloat): MakeCylindricalSurface {.
     header: "GC_MakeCylindricalSurface.hxx".}
 proc cylindricalSurface*(c: CylinderObj): MakeCylindricalSurface {.cdecl,
     constructor, importcpp: "GC_MakeCylindricalSurface(@)", header: "GC_MakeCylindricalSurface.hxx".}
-proc cylindricalSurface*(cyl: CylinderObj; point: PntObj): MakeCylindricalSurface {.
+proc cylindricalSurface*(cyl: CylinderObj; point: gp_Pnt): MakeCylindricalSurface {.
     cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
 proc cylindricalSurface*(cyl: CylinderObj; dist: cfloat): MakeCylindricalSurface {.
     cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc cylindricalSurface*(p1: PntObj; p2: PntObj; p3: PntObj): MakeCylindricalSurface {.
+proc cylindricalSurface*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): MakeCylindricalSurface {.
     cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
 proc cylindricalSurface*(axis: Ax1Obj; radius: cfloat): MakeCylindricalSurface {.

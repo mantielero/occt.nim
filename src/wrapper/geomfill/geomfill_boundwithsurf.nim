@@ -29,9 +29,9 @@ import geomfill_types
 proc newGeomFillBoundWithSurf*(curveOnSurf: Adaptor3dCurveOnSurface; tol3d: cfloat;
                               tolang: cfloat): GeomFillBoundWithSurf {.cdecl,
     constructor, importcpp: "GeomFill_BoundWithSurf(@)", header: "GeomFill_BoundWithSurf.hxx".}
-proc value*(this: GeomFillBoundWithSurf; u: cfloat): PntObj {.noSideEffect, cdecl,
+proc value*(this: GeomFillBoundWithSurf; u: cfloat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Value", header: "GeomFill_BoundWithSurf.hxx".}
-proc d1*(this: GeomFillBoundWithSurf; u: cfloat; p: var PntObj; v: var VecObj) {.noSideEffect,
+proc d1*(this: GeomFillBoundWithSurf; u: cfloat; p: var gp_Pnt; v: var VecObj) {.noSideEffect,
     cdecl, importcpp: "D1", header: "GeomFill_BoundWithSurf.hxx".}
 proc hasNormals*(this: GeomFillBoundWithSurf): bool {.noSideEffect, cdecl,
     importcpp: "HasNormals", header: "GeomFill_BoundWithSurf.hxx".}

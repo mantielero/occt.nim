@@ -58,7 +58,7 @@ proc signedPlanePntDist*(this: SelectMgrFrustumBuilder; theEq: SelectMgrVec3;
                         thePnt: SelectMgrVec3): cfloat {.noSideEffect, cdecl,
     importcpp: "SignedPlanePntDist", header: "SelectMgr_FrustumBuilder.hxx".}
 proc projectPntOnViewPlane*(this: SelectMgrFrustumBuilder; theX: cfloat;
-                           theY: cfloat; theZ: cfloat): PntObj {.noSideEffect, cdecl,
+                           theY: cfloat; theZ: cfloat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "ProjectPntOnViewPlane", header: "SelectMgr_FrustumBuilder.hxx".}
 
 

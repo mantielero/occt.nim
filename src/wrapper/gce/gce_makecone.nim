@@ -25,17 +25,17 @@ import ../gp/gp_types
 
 proc newGceMakeCone*(a2: Ax2Obj; ang: cfloat; radius: cfloat): GceMakeCone {.cdecl,
     constructor, importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc newGceMakeCone*(cone: ConeObj; point: PntObj): GceMakeCone {.cdecl, constructor,
+proc newGceMakeCone*(cone: ConeObj; point: gp_Pnt): GceMakeCone {.cdecl, constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
 proc newGceMakeCone*(cone: ConeObj; dist: cfloat): GceMakeCone {.cdecl, constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc newGceMakeCone*(p1: PntObj; p2: PntObj; p3: PntObj; p4: PntObj): GceMakeCone {.cdecl, constructor,
+proc newGceMakeCone*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt; p4: gp_Pnt): GceMakeCone {.cdecl, constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc newGceMakeCone*(axis: Ax1Obj; p1: PntObj; p2: PntObj): GceMakeCone {.cdecl, constructor,
+proc newGceMakeCone*(axis: Ax1Obj; p1: gp_Pnt; p2: gp_Pnt): GceMakeCone {.cdecl, constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc newGceMakeCone*(axis: LinObj; p1: PntObj; p2: PntObj): GceMakeCone {.cdecl, constructor,
+proc newGceMakeCone*(axis: LinObj; p1: gp_Pnt; p2: gp_Pnt): GceMakeCone {.cdecl, constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc newGceMakeCone*(p1: PntObj; p2: PntObj; r1: cfloat; r2: cfloat): GceMakeCone {.cdecl,
+proc newGceMakeCone*(p1: gp_Pnt; p2: gp_Pnt; r1: cfloat; r2: cfloat): GceMakeCone {.cdecl,
     constructor, importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
 proc value*(this: GceMakeCone): ConeObj {.noSideEffect, cdecl, importcpp: "Value",
                                    header: "gce_MakeCone.hxx".}

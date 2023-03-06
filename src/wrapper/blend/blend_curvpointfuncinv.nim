@@ -34,7 +34,7 @@ proc derivatives*(this: var BlendCurvPointFuncInv; x: MathVector; d: var MathMat
     cdecl, importcpp: "Derivatives", header: "Blend_CurvPointFuncInv.hxx".}
 proc values*(this: var BlendCurvPointFuncInv; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "Blend_CurvPointFuncInv.hxx".}
-proc set*(this: var BlendCurvPointFuncInv; p: PntObj) {.cdecl, importcpp: "Set",
+proc set*(this: var BlendCurvPointFuncInv; p: gp_Pnt) {.cdecl, importcpp: "Set",
     header: "Blend_CurvPointFuncInv.hxx".}
 proc getTolerance*(this: BlendCurvPointFuncInv; tolerance: var MathVector; tol: cfloat) {.
     noSideEffect, cdecl, importcpp: "GetTolerance", header: "Blend_CurvPointFuncInv.hxx".}

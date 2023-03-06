@@ -72,7 +72,7 @@ proc getTolerance*(this: GeomFillSectionLaw; boundTol: cfloat; surfTol: cfloat;
     cdecl, importcpp: "GetTolerance", header: "GeomFill_SectionLaw.hxx".}
 proc setTolerance*(this: var GeomFillSectionLaw; tol3d: cfloat; tol2d: cfloat) {.cdecl,
     importcpp: "SetTolerance", header: "GeomFill_SectionLaw.hxx".}
-proc barycentreOfSurf*(this: GeomFillSectionLaw): PntObj {.noSideEffect, cdecl,
+proc barycentreOfSurf*(this: GeomFillSectionLaw): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "BarycentreOfSurf", header: "GeomFill_SectionLaw.hxx".}
 proc maximalSection*(this: GeomFillSectionLaw): cfloat {.noSideEffect, cdecl,
     importcpp: "MaximalSection", header: "GeomFill_SectionLaw.hxx".}

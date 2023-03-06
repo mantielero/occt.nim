@@ -79,16 +79,16 @@ proc isVPeriodic*(this: GeomAdaptorSurface): bool {.noSideEffect, cdecl,
     importcpp: "IsVPeriodic", header: "GeomAdaptor_Surface.hxx".}
 proc vPeriod*(this: GeomAdaptorSurface): cfloat {.noSideEffect, cdecl,
     importcpp: "VPeriod", header: "GeomAdaptor_Surface.hxx".}
-proc value*(this: GeomAdaptorSurface; u: cfloat; v: cfloat): PntObj {.noSideEffect, cdecl,
+proc value*(this: GeomAdaptorSurface; u: cfloat; v: cfloat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Value", header: "GeomAdaptor_Surface.hxx".}
-proc d0*(this: GeomAdaptorSurface; u: cfloat; v: cfloat; p: var PntObj) {.noSideEffect, cdecl,
+proc d0*(this: GeomAdaptorSurface; u: cfloat; v: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "GeomAdaptor_Surface.hxx".}
-proc d1*(this: GeomAdaptorSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d1*(this: GeomAdaptorSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj) {.noSideEffect, cdecl, importcpp: "D1", header: "GeomAdaptor_Surface.hxx".}
-proc d2*(this: GeomAdaptorSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d2*(this: GeomAdaptorSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D2", header: "GeomAdaptor_Surface.hxx".}
-proc d3*(this: GeomAdaptorSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+proc d3*(this: GeomAdaptorSurface; u: cfloat; v: cfloat; p: var gp_Pnt; d1u: var VecObj;
         d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj;
         d3uuv: var VecObj; d3uvv: var VecObj) {.noSideEffect, cdecl, importcpp: "D3",
                                     header: "GeomAdaptor_Surface.hxx".}

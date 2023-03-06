@@ -46,7 +46,7 @@ import geom_types
 
 proc newGeomAxis2Placement*(a2: Ax2Obj): GeomAxis2Placement {.cdecl, constructor,
     importcpp: "Geom_Axis2Placement(@)", header: "Geom_Axis2Placement.hxx".}
-proc newGeomAxis2Placement*(p: PntObj; n: DirObj; vx: DirObj): GeomAxis2Placement {.cdecl,
+proc newGeomAxis2Placement*(p: gp_Pnt; n: DirObj; vx: DirObj): GeomAxis2Placement {.cdecl,
     constructor, importcpp: "Geom_Axis2Placement(@)", header: "Geom_Axis2Placement.hxx".}
 proc setAx2*(this: var GeomAxis2Placement; a2: Ax2Obj) {.cdecl, importcpp: "SetAx2",
     header: "Geom_Axis2Placement.hxx".}

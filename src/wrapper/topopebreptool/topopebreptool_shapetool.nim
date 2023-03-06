@@ -28,7 +28,7 @@ import ../geom/geom_types
 
 proc tolerance*(s: TopoDS_Shape): cfloat {.cdecl, importcpp: "TopOpeBRepTool_ShapeTool::Tolerance(@)",
                                        header: "TopOpeBRepTool_ShapeTool.hxx".}
-proc pnt*(s: TopoDS_Shape): PntObj {.cdecl,
+proc pnt*(s: TopoDS_Shape): gp_Pnt {.cdecl,
                               importcpp: "TopOpeBRepTool_ShapeTool::Pnt(@)",
                               header: "TopOpeBRepTool_ShapeTool.hxx".}
 proc basiscurve*(c: Handle[GeomCurve]): Handle[GeomCurve] {.cdecl,

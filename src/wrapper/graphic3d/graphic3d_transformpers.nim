@@ -33,12 +33,12 @@ proc isZoomOrRotate*(theMode: Graphic3dTransModeFlags): bool {.cdecl,
     importcpp: "Graphic3d_TransformPers::IsZoomOrRotate(@)", header: "Graphic3d_TransformPers.hxx".}
 proc isTrihedronOr2d*(theMode: Graphic3dTransModeFlags): bool {.cdecl,
     importcpp: "Graphic3d_TransformPers::IsTrihedronOr2d(@)", header: "Graphic3d_TransformPers.hxx".}
-proc fromDeprecatedParams*(theFlag: Graphic3dTransModeFlags; thePoint: PntObj): Handle[
+proc fromDeprecatedParams*(theFlag: Graphic3dTransModeFlags; thePoint: gp_Pnt): Handle[
     Graphic3dTransformPers] {.cdecl, importcpp: "Graphic3d_TransformPers::FromDeprecatedParams(@)",
                              header: "Graphic3d_TransformPers.hxx".}
 proc newGraphic3dTransformPers*(theMode: Graphic3dTransModeFlags): Graphic3dTransformPers {.
     cdecl, constructor, importcpp: "Graphic3d_TransformPers(@)", header: "Graphic3d_TransformPers.hxx".}
-proc newGraphic3dTransformPers*(theMode: Graphic3dTransModeFlags; thePnt: PntObj): Graphic3dTransformPers {.
+proc newGraphic3dTransformPers*(theMode: Graphic3dTransModeFlags; thePnt: gp_Pnt): Graphic3dTransformPers {.
     cdecl, constructor, importcpp: "Graphic3d_TransformPers(@)", header: "Graphic3d_TransformPers.hxx".}
 #proc newGraphic3dTransformPers*(theMode: Graphic3dTransModeFlags;
 #                               theCorner: AspectTypeOfTriedronPosition;
@@ -53,16 +53,16 @@ proc mode*(this: Graphic3dTransformPers): Graphic3dTransModeFlags {.noSideEffect
 proc flags*(this: Graphic3dTransformPers): Graphic3dTransModeFlags {.noSideEffect,
     cdecl, importcpp: "Flags", header: "Graphic3d_TransformPers.hxx".}
 proc setPersistence*(this: var Graphic3dTransformPers;
-                    theMode: Graphic3dTransModeFlags; thePnt: PntObj) {.cdecl,
+                    theMode: Graphic3dTransModeFlags; thePnt: gp_Pnt) {.cdecl,
     importcpp: "SetPersistence", header: "Graphic3d_TransformPers.hxx".}
 proc setPersistence*(this: var Graphic3dTransformPers;
                     theMode: Graphic3dTransModeFlags;
                     theCorner: AspectTypeOfTriedronPosition;
                     theOffset: Graphic3dVec2i) {.cdecl,
     importcpp: "SetPersistence", header: "Graphic3d_TransformPers.hxx".}
-proc anchorPoint*(this: Graphic3dTransformPers): PntObj {.noSideEffect, cdecl,
+proc anchorPoint*(this: Graphic3dTransformPers): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "AnchorPoint", header: "Graphic3d_TransformPers.hxx".}
-proc setAnchorPoint*(this: var Graphic3dTransformPers; thePnt: PntObj) {.cdecl,
+proc setAnchorPoint*(this: var Graphic3dTransformPers; thePnt: gp_Pnt) {.cdecl,
     importcpp: "SetAnchorPoint", header: "Graphic3d_TransformPers.hxx".}
 proc corner2d*(this: Graphic3dTransformPers): AspectTypeOfTriedronPosition {.
     noSideEffect, cdecl, importcpp: "Corner2d", header: "Graphic3d_TransformPers.hxx".}

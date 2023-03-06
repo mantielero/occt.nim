@@ -39,7 +39,7 @@ proc ParameterOnFace1*(this: BRepExtrema_ExtFF; N: cint; U: var cfloat; V: var c
 proc ParameterOnFace2*(this: BRepExtrema_ExtFF; N: cint; U: var cfloat; V: var cfloat) {.
     noSideEffect, cdecl, importcpp: "ParameterOnFace2",
     header: "BRepExtrema_ExtFF.hxx".}
-proc PointOnFace1*(this: BRepExtrema_ExtFF; N: cint): PntObj {.noSideEffect, cdecl,
+proc PointOnFace1*(this: BRepExtrema_ExtFF; N: cint): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnFace1", header: "BRepExtrema_ExtFF.hxx".}
-proc PointOnFace2*(this: BRepExtrema_ExtFF; N: cint): PntObj {.noSideEffect, cdecl,
+proc PointOnFace2*(this: BRepExtrema_ExtFF; N: cint): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnFace2", header: "BRepExtrema_ExtFF.hxx".}

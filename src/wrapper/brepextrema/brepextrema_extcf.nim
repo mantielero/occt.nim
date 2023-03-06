@@ -38,7 +38,7 @@ proc ParameterOnEdge*(this: BRepExtrema_ExtCF; N: cint): cfloat {.noSideEffect, 
 proc ParameterOnFace*(this: BRepExtrema_ExtCF; N: cint; U: var cfloat; V: var cfloat) {.
     noSideEffect, cdecl, importcpp: "ParameterOnFace",
     header: "BRepExtrema_ExtCF.hxx".}
-proc PointOnEdge*(this: BRepExtrema_ExtCF; N: cint): PntObj {.noSideEffect, cdecl,
+proc PointOnEdge*(this: BRepExtrema_ExtCF; N: cint): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnEdge", header: "BRepExtrema_ExtCF.hxx".}
-proc PointOnFace*(this: BRepExtrema_ExtCF; N: cint): PntObj {.noSideEffect, cdecl,
+proc PointOnFace*(this: BRepExtrema_ExtCF; N: cint): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnFace", header: "BRepExtrema_ExtCF.hxx".}

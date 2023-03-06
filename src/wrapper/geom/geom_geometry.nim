@@ -28,20 +28,20 @@ import geom_types
 
 
 
-proc mirror*(this: var GeomGeometry; p: PntObj) {.cdecl, importcpp: "Mirror", header: "Geom_Geometry.hxx".}
+proc mirror*(this: var GeomGeometry; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "Geom_Geometry.hxx".}
 proc mirror*(this: var GeomGeometry; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "Geom_Geometry.hxx".}
 proc mirror*(this: var GeomGeometry; a2: Ax2Obj) {.cdecl, importcpp: "Mirror", header: "Geom_Geometry.hxx".}
 proc rotate*(this: var GeomGeometry; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rotate",
     header: "Geom_Geometry.hxx".}
-proc scale*(this: var GeomGeometry; p: PntObj; s: cfloat) {.cdecl, importcpp: "Scale",
+proc scale*(this: var GeomGeometry; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale",
     header: "Geom_Geometry.hxx".}
 proc translate*(this: var GeomGeometry; v: VecObj) {.cdecl, importcpp: "Translate",
     header: "Geom_Geometry.hxx".}
-proc translate*(this: var GeomGeometry; p1: PntObj; p2: PntObj) {.cdecl,
+proc translate*(this: var GeomGeometry; p1: gp_Pnt; p2: gp_Pnt) {.cdecl,
     importcpp: "Translate", header: "Geom_Geometry.hxx".}
 proc transform*(this: var GeomGeometry; t: TrsfObj) {.cdecl, importcpp: "Transform",
     header: "Geom_Geometry.hxx".}
-proc mirrored*(this: GeomGeometry; p: PntObj): Handle[GeomGeometry] {.noSideEffect, cdecl,
+proc mirrored*(this: GeomGeometry; p: gp_Pnt): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Mirrored", header: "Geom_Geometry.hxx".}
 proc mirrored*(this: GeomGeometry; a1: Ax1Obj): Handle[GeomGeometry] {.noSideEffect,
     cdecl, importcpp: "Mirrored", header: "Geom_Geometry.hxx".}
@@ -49,13 +49,13 @@ proc mirrored*(this: GeomGeometry; a2: Ax2Obj): Handle[GeomGeometry] {.noSideEff
     cdecl, importcpp: "Mirrored", header: "Geom_Geometry.hxx".}
 proc rotated*(this: GeomGeometry; a1: Ax1Obj; ang: cfloat): Handle[GeomGeometry] {.
     noSideEffect, cdecl, importcpp: "Rotated", header: "Geom_Geometry.hxx".}
-proc scaled*(this: GeomGeometry; p: PntObj; s: cfloat): Handle[GeomGeometry] {.
+proc scaled*(this: GeomGeometry; p: gp_Pnt; s: cfloat): Handle[GeomGeometry] {.
     noSideEffect, cdecl, importcpp: "Scaled", header: "Geom_Geometry.hxx".}
 proc transformed*(this: GeomGeometry; t: TrsfObj): Handle[GeomGeometry] {.noSideEffect,
     cdecl, importcpp: "Transformed", header: "Geom_Geometry.hxx".}
 proc translated*(this: GeomGeometry; v: VecObj): Handle[GeomGeometry] {.noSideEffect,
     cdecl, importcpp: "Translated", header: "Geom_Geometry.hxx".}
-proc translated*(this: GeomGeometry; p1: PntObj; p2: PntObj): Handle[GeomGeometry] {.
+proc translated*(this: GeomGeometry; p1: gp_Pnt; p2: gp_Pnt): Handle[GeomGeometry] {.
     noSideEffect, cdecl, importcpp: "Translated", header: "Geom_Geometry.hxx".}
 proc copy*(this: GeomGeometry): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Geometry.hxx".}

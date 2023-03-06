@@ -26,13 +26,13 @@ import ../topods/topods_types
 
 proc polygon*(): BRepBuilderAPI_MakePolygon {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)", header: "BRepBuilderAPI_MakePolygon.hxx".}
-proc polygon*(p1: PntObj; p2: PntObj): BRepBuilderAPI_MakePolygon {.
+proc polygon*(p1: gp_Pnt; p2: gp_Pnt): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",
     header: "BRepBuilderAPI_MakePolygon.hxx".}
-proc polygon*(p1: PntObj; p2: PntObj; p3: PntObj; close: bool = false): BRepBuilderAPI_MakePolygon {.
+proc polygon*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt; close: bool = false): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",
     header: "BRepBuilderAPI_MakePolygon.hxx".}
-proc polygon*(p1: PntObj; p2: PntObj; p3: PntObj; p4: PntObj;
+proc polygon*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt; p4: gp_Pnt;
                                    close: bool = false): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",
     header: "BRepBuilderAPI_MakePolygon.hxx".}
@@ -48,7 +48,7 @@ proc polygon*(v1: TopoDS_Vertex; v2: TopoDS_Vertex;
                                    close: bool = false): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",
     header: "BRepBuilderAPI_MakePolygon.hxx".}
-proc add*(this: var BRepBuilderAPI_MakePolygon; p: PntObj) {.cdecl, importcpp: "Add",
+proc add*(this: var BRepBuilderAPI_MakePolygon; p: gp_Pnt) {.cdecl, importcpp: "Add",
     header: "BRepBuilderAPI_MakePolygon.hxx".}
 proc add*(this: var BRepBuilderAPI_MakePolygon; v: TopoDS_Vertex) {.cdecl,
     importcpp: "Add", header: "BRepBuilderAPI_MakePolygon.hxx".}

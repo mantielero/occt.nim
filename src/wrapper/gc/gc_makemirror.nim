@@ -25,13 +25,13 @@ import ../geom/geom_types
 
 
 
-proc mirror*(point: PntObj): MakeMirror {.cdecl, constructor,
+proc mirror*(point: gp_Pnt): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
 proc mirror*(axis: Ax1Obj): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
 proc mirror*(line: LinObj): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc mirror*(point: PntObj; direc: DirObj): MakeMirror {.cdecl, constructor,
+proc mirror*(point: gp_Pnt; direc: DirObj): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
 proc mirror*(plane: PlnObj): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}

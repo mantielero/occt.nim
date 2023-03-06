@@ -25,14 +25,14 @@ import geom_types
 ##  commercial license or contractual agreement.
 
 
-proc newGeomCartesianPoint*(p: PntObj): GeomCartesianPoint {.cdecl, constructor,
+proc newGeomCartesianPoint*(p: gp_Pnt): GeomCartesianPoint {.cdecl, constructor,
     importcpp: "Geom_CartesianPoint(@)", header: "Geom_CartesianPoint.hxx".}
 proc newGeomCartesianPoint*(x: cfloat; y: cfloat; z: cfloat): GeomCartesianPoint {.
     cdecl, constructor, importcpp: "Geom_CartesianPoint(@)", header: "Geom_CartesianPoint.hxx".}
 
 proc setCoord*(this: var GeomCartesianPoint; x: cfloat; y: cfloat; z: cfloat) {.cdecl,
     importcpp: "SetCoord", header: "Geom_CartesianPoint.hxx".}
-proc setPnt*(this: var GeomCartesianPoint; p: PntObj) {.cdecl, importcpp: "SetPnt",
+proc setPnt*(this: var GeomCartesianPoint; p: gp_Pnt) {.cdecl, importcpp: "SetPnt",
     header: "Geom_CartesianPoint.hxx".}
 proc setX*(this: var GeomCartesianPoint; x: cfloat) {.cdecl, importcpp: "SetX",
     header: "Geom_CartesianPoint.hxx".}
@@ -42,7 +42,7 @@ proc setZ*(this: var GeomCartesianPoint; z: cfloat) {.cdecl, importcpp: "SetZ",
     header: "Geom_CartesianPoint.hxx".}
 proc coord*(this: GeomCartesianPoint; x: var cfloat; y: var cfloat; z: var cfloat) {.
     noSideEffect, cdecl, importcpp: "Coord", header: "Geom_CartesianPoint.hxx".}
-proc pnt*(this: GeomCartesianPoint): PntObj {.noSideEffect, cdecl, importcpp: "Pnt",
+proc pnt*(this: GeomCartesianPoint): gp_Pnt {.noSideEffect, cdecl, importcpp: "Pnt",
                                        header: "Geom_CartesianPoint.hxx".}
 proc x*(this: GeomCartesianPoint): cfloat {.noSideEffect, cdecl, importcpp: "X",
                                         header: "Geom_CartesianPoint.hxx".}

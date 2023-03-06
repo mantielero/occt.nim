@@ -74,7 +74,7 @@ proc getDomain*(this: GeomFillEvolvedSection; first: var cfloat; last: var cfloa
 proc getTolerance*(this: GeomFillEvolvedSection; boundTol: cfloat; surfTol: cfloat;
                   angleTol: cfloat; tol3d: var TColStdArray1OfReal) {.noSideEffect,
     cdecl, importcpp: "GetTolerance", header: "GeomFill_EvolvedSection.hxx".}
-proc barycentreOfSurf*(this: GeomFillEvolvedSection): PntObj {.noSideEffect, cdecl,
+proc barycentreOfSurf*(this: GeomFillEvolvedSection): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "BarycentreOfSurf", header: "GeomFill_EvolvedSection.hxx".}
 proc maximalSection*(this: GeomFillEvolvedSection): cfloat {.noSideEffect, cdecl,
     importcpp: "MaximalSection", header: "GeomFill_EvolvedSection.hxx".}

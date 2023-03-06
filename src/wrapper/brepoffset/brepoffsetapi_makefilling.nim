@@ -23,7 +23,7 @@ import ../toptools/toptools_types
 
 # discard "forward decl of TopoDS_Face"
 # discard "forward decl of TopoDS_Edge"
-# discard "forward decl of PntObj"
+# discard "forward decl of gp_Pnt"
 # discard "forward decl of TopoDS_Shape"
 #                                                                                                        ## filling
 #                                                                                                               ## object
@@ -187,7 +187,7 @@ proc Add*(this: var BRepOffsetAPI_MakeFilling; Constr: TopoDS_Edge;
     importcpp: "Add".}
 proc Add*(this: var BRepOffsetAPI_MakeFilling; Support: TopoDS_Face;
          Order: GeomAbs_Shape): cint {.cdecl, importcpp: "Add".}
-proc Add*(this: var BRepOffsetAPI_MakeFilling; Point: PntObj): cint {.cdecl,
+proc Add*(this: var BRepOffsetAPI_MakeFilling; Point: gp_Pnt): cint {.cdecl,
     importcpp: "Add".}
 proc Add*(this: var BRepOffsetAPI_MakeFilling; U: cfloat; V: cfloat;
          Support: TopoDS_Face; Order: GeomAbs_Shape): cint {.cdecl, importcpp: "Add",

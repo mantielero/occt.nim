@@ -41,7 +41,7 @@ proc setMaterial*(this: var AIS_TextLabel; a2: Graphic3dMaterialAspect) {.cdecl,
     importcpp: "SetMaterial", header: "AIS_TextLabel.hxx".}
 proc setText*(this: var AIS_TextLabel; theText: TCollectionExtendedString) {.cdecl,
     importcpp: "SetText", header: "AIS_TextLabel.hxx".}
-proc setPosition*(this: var AIS_TextLabel; thePosition: PntObj) {.cdecl,
+proc setPosition*(this: var AIS_TextLabel; thePosition: gp_Pnt) {.cdecl,
     importcpp: "SetPosition", header: "AIS_TextLabel.hxx".}
 proc setHJustification*(this: var AIS_TextLabel;
                        theHJust: Graphic3dHorizontalTextAlignment) {.cdecl,
@@ -63,7 +63,7 @@ proc setOrientation3D*(this: var AIS_TextLabel; theOrientation: Ax2Obj) {.cdecl,
     importcpp: "SetOrientation3D", header: "AIS_TextLabel.hxx".}
 proc unsetOrientation3D*(this: var AIS_TextLabel) {.cdecl,
     importcpp: "UnsetOrientation3D", header: "AIS_TextLabel.hxx".}
-proc position*(this: AIS_TextLabel): PntObj {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: AIS_TextLabel): gp_Pnt {.noSideEffect, cdecl, importcpp: "Position",
                                        header: "AIS_TextLabel.hxx".}
 proc text*(this: AIS_TextLabel): TCollectionExtendedString {.noSideEffect, cdecl,
     importcpp: "Text", header: "AIS_TextLabel.hxx".}

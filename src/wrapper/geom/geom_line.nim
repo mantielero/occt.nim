@@ -33,12 +33,12 @@ proc newGeomLine*(a1: Ax1Obj): GeomLine {.cdecl, constructor, importcpp: "Geom_L
                                    header: "Geom_Line.hxx".}
 proc newGeomLine*(L: LinObj): GeomLine {.cdecl, constructor, importcpp: "Geom_Line(@)",
                                   header: "Geom_Line.hxx".}
-proc newGeomLine*(p: PntObj; v: DirObj): GeomLine {.cdecl, constructor,
+proc newGeomLine*(p: gp_Pnt; v: DirObj): GeomLine {.cdecl, constructor,
                                         importcpp: "Geom_Line(@)", header: "Geom_Line.hxx".}
 proc setLin*(this: var GeomLine; L: LinObj) {.cdecl, importcpp: "SetLin", header: "Geom_Line.hxx".}
 proc setDirection*(this: var GeomLine; v: DirObj) {.cdecl, importcpp: "SetDirection",
     header: "Geom_Line.hxx".}
-proc setLocation*(this: var GeomLine; p: PntObj) {.cdecl, importcpp: "SetLocation",
+proc setLocation*(this: var GeomLine; p: gp_Pnt) {.cdecl, importcpp: "SetLocation",
     header: "Geom_Line.hxx".}
 proc setPosition*(this: var GeomLine; a1: Ax1Obj) {.cdecl, importcpp: "SetPosition",
     header: "Geom_Line.hxx".}
@@ -60,13 +60,13 @@ proc continuity*(this: GeomLine): GeomAbsShape {.noSideEffect, cdecl,
     importcpp: "Continuity", header: "Geom_Line.hxx".}
 proc isCN*(this: GeomLine; n: cint): bool {.noSideEffect, cdecl, importcpp: "IsCN",
                                       header: "Geom_Line.hxx".}
-proc d0*(this: GeomLine; u: cfloat; p: var PntObj) {.noSideEffect, cdecl, importcpp: "D0",
+proc d0*(this: GeomLine; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl, importcpp: "D0",
     header: "Geom_Line.hxx".}
-proc d1*(this: GeomLine; u: cfloat; p: var PntObj; v1: var VecObj) {.noSideEffect, cdecl,
+proc d1*(this: GeomLine; u: cfloat; p: var gp_Pnt; v1: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "Geom_Line.hxx".}
-proc d2*(this: GeomLine; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.noSideEffect,
+proc d2*(this: GeomLine; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj) {.noSideEffect,
     cdecl, importcpp: "D2", header: "Geom_Line.hxx".}
-proc d3*(this: GeomLine; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
+proc d3*(this: GeomLine; u: cfloat; p: var gp_Pnt; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_Line.hxx".}
 proc dn*(this: GeomLine; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl, importcpp: "DN",
     header: "Geom_Line.hxx".}

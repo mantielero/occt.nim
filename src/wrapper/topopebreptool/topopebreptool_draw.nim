@@ -25,11 +25,11 @@ when defined(DRAW):
       importcpp: "TopOpeBRepTool_DrawSegment(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc topOpeBRepToolDrawSegment*(p1: gp_Pnt; p2: gp_Pnt) {.cdecl,
       importcpp: "TopOpeBRepTool_DrawSegment(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc topOpeBRepToolDrawSegment*(p: gp_Pnt; a2: LinObj; par: cfloat; c: DrawColorKind) {.
+  proc topOpeBRepToolDrawSegment*(p: gp_Pnt; a2: gp_Lin; par: cfloat; c: DrawColorKind) {.
       cdecl, importcpp: "TopOpeBRepTool_DrawSegment(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc topOpeBRepToolColorOnState*(s: TopAbsState): DrawColorKind {.cdecl,
       importcpp: "TopOpeBRepTool_ColorOnState(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc topOpeBRepToolDrawSegment*(p: gp_Pnt; L: LinObj; par: cfloat; s: TopAbsState) {.cdecl,
+  proc topOpeBRepToolDrawSegment*(p: gp_Pnt; L: gp_Lin; par: cfloat; s: TopAbsState) {.cdecl,
       importcpp: "TopOpeBRepTool_DrawSegment(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc fdraw_Dins*(pref: TCollectionAsciiString; ss: TopoDS_Shape;
                   snam: TCollectionAsciiString; suff: TCollectionAsciiString = "") {.
@@ -42,9 +42,9 @@ when defined(DRAW):
       cdecl, importcpp: "FDRAW_DINLOE(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc fUN_toolDraw*(aa: TCollectionAsciiString; p: gp_Pnt; d: DirObj) {.cdecl,
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc fUN_toolDraw*(aa: TCollectionAsciiString; p: Pnt2dObj; d: Dir2dObj; i: cint) {.cdecl,
+  proc fUN_toolDraw*(aa: TCollectionAsciiString; p: gp_Pnt2d; d: Dir2dObj; i: cint) {.cdecl,
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc fUN_toolDraw*(aa: TCollectionAsciiString; p2d: Pnt2dObj) {.cdecl,
+  proc fUN_toolDraw*(aa: TCollectionAsciiString; p2d: gp_Pnt2d) {.cdecl,
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc fUN_toolDraw*(aa: TCollectionAsciiString; p: gp_Pnt) {.cdecl,
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}

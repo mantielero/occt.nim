@@ -57,7 +57,7 @@ proc pointOnS*(this: BlendCSFunction): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS", header: "Blend_CSFunction.hxx".}
 proc pointOnC*(this: BlendCSFunction): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnC", header: "Blend_CSFunction.hxx".}
-proc pnt2d*(this: BlendCSFunction): Pnt2dObj {.noSideEffect, cdecl, importcpp: "Pnt2d",
+proc pnt2d*(this: BlendCSFunction): gp_Pnt2d {.noSideEffect, cdecl, importcpp: "Pnt2d",
                                         header: "Blend_CSFunction.hxx".}
 proc parameterOnC*(this: BlendCSFunction): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnC", header: "Blend_CSFunction.hxx".}
@@ -65,7 +65,7 @@ proc isTangencyPoint*(this: BlendCSFunction): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "Blend_CSFunction.hxx".}
 proc tangentOnS*(this: BlendCSFunction): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnS", header: "Blend_CSFunction.hxx".}
-proc tangent2d*(this: BlendCSFunction): Vec2dObj {.noSideEffect, cdecl,
+proc tangent2d*(this: BlendCSFunction): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "Tangent2d", header: "Blend_CSFunction.hxx".}
 proc tangentOnC*(this: BlendCSFunction): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnC", header: "Blend_CSFunction.hxx".}

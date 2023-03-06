@@ -102,13 +102,13 @@ proc getType*(this: GeomAdaptorSurface): GeomAbsSurfaceType {.noSideEffect, cdec
     importcpp: "GetType", header: "GeomAdaptor_Surface.hxx".}
 proc plane*(this: GeomAdaptorSurface): PlnObj {.noSideEffect, cdecl, importcpp: "Plane",
     header: "GeomAdaptor_Surface.hxx".}
-proc cylinder*(this: GeomAdaptorSurface): CylinderObj {.noSideEffect, cdecl,
+proc cylinder*(this: GeomAdaptorSurface): gp_Cylinder {.noSideEffect, cdecl,
     importcpp: "Cylinder", header: "GeomAdaptor_Surface.hxx".}
-proc cone*(this: GeomAdaptorSurface): ConeObj {.noSideEffect, cdecl, importcpp: "Cone",
+proc cone*(this: GeomAdaptorSurface): gp_Cone {.noSideEffect, cdecl, importcpp: "Cone",
     header: "GeomAdaptor_Surface.hxx".}
-proc sphere*(this: GeomAdaptorSurface): SphereObj {.noSideEffect, cdecl,
+proc sphere*(this: GeomAdaptorSurface): gp_Sphere {.noSideEffect, cdecl,
     importcpp: "Sphere", header: "GeomAdaptor_Surface.hxx".}
-proc torus*(this: GeomAdaptorSurface): TorusObj {.noSideEffect, cdecl,
+proc torus*(this: GeomAdaptorSurface): gp_Torus {.noSideEffect, cdecl,
     importcpp: "Torus", header: "GeomAdaptor_Surface.hxx".}
 proc uDegree*(this: GeomAdaptorSurface): cint {.noSideEffect, cdecl,
     importcpp: "UDegree", header: "GeomAdaptor_Surface.hxx".}

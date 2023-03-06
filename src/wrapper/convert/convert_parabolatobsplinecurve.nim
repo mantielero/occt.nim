@@ -21,6 +21,6 @@ import ../gp/gp_types
 discard "forward decl of gp_Parab2d"
 
 
-proc newConvertParabolaToBSplineCurve*(prb: Parab2dObj; u1: cfloat; u2: cfloat): ConvertParabolaToBSplineCurve {.
+proc newConvertParabolaToBSplineCurve*(prb: gp_Parab2d; u1: cfloat; u2: cfloat): ConvertParabolaToBSplineCurve {.
     cdecl, constructor, importcpp: "Convert_ParabolaToBSplineCurve(@)",
     header: "Convert_ParabolaToBSplineCurve.hxx".}

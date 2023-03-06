@@ -31,18 +31,18 @@ import ../geomabs/geomabs_types
 
 proc newGeomLine*(a1: Ax1Obj): GeomLine {.cdecl, constructor, importcpp: "Geom_Line(@)",
                                    header: "Geom_Line.hxx".}
-proc newGeomLine*(L: LinObj): GeomLine {.cdecl, constructor, importcpp: "Geom_Line(@)",
+proc newGeomLine*(L: gp_Lin): GeomLine {.cdecl, constructor, importcpp: "Geom_Line(@)",
                                   header: "Geom_Line.hxx".}
 proc newGeomLine*(p: gp_Pnt; v: DirObj): GeomLine {.cdecl, constructor,
                                         importcpp: "Geom_Line(@)", header: "Geom_Line.hxx".}
-proc setLin*(this: var GeomLine; L: LinObj) {.cdecl, importcpp: "SetLin", header: "Geom_Line.hxx".}
+proc setLin*(this: var GeomLine; L: gp_Lin) {.cdecl, importcpp: "SetLin", header: "Geom_Line.hxx".}
 proc setDirection*(this: var GeomLine; v: DirObj) {.cdecl, importcpp: "SetDirection",
     header: "Geom_Line.hxx".}
 proc setLocation*(this: var GeomLine; p: gp_Pnt) {.cdecl, importcpp: "SetLocation",
     header: "Geom_Line.hxx".}
 proc setPosition*(this: var GeomLine; a1: Ax1Obj) {.cdecl, importcpp: "SetPosition",
     header: "Geom_Line.hxx".}
-proc lin*(this: GeomLine): LinObj {.noSideEffect, cdecl, importcpp: "Lin", header: "Geom_Line.hxx".}
+proc lin*(this: GeomLine): gp_Lin {.noSideEffect, cdecl, importcpp: "Lin", header: "Geom_Line.hxx".}
 proc position*(this: GeomLine): Ax1Obj {.noSideEffect, cdecl, importcpp: "Position",
                                   header: "Geom_Line.hxx".}
 proc reverse*(this: var GeomLine) {.cdecl, importcpp: "Reverse", header: "Geom_Line.hxx".}

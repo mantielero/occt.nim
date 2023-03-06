@@ -39,9 +39,9 @@ import selectmgr_types
 
 proc newSelectMgrRectangularFrustum*(): SelectMgrRectangularFrustum {.cdecl,
     constructor, importcpp: "SelectMgr_RectangularFrustum(@)", header: "SelectMgr_RectangularFrustum.hxx".}
-proc build*(this: var SelectMgrRectangularFrustum; thePoint: Pnt2dObj) {.cdecl,
+proc build*(this: var SelectMgrRectangularFrustum; thePoint: gp_Pnt2d) {.cdecl,
     importcpp: "Build", header: "SelectMgr_RectangularFrustum.hxx".}
-proc build*(this: var SelectMgrRectangularFrustum; theMinPnt: Pnt2dObj; theMaxPnt: Pnt2dObj) {.
+proc build*(this: var SelectMgrRectangularFrustum; theMinPnt: gp_Pnt2d; theMaxPnt: gp_Pnt2d) {.
     cdecl, importcpp: "Build", header: "SelectMgr_RectangularFrustum.hxx".}
 proc scaleAndTransform*(this: SelectMgrRectangularFrustum; theScaleFactor: cint;
                        theTrsf: GTrsf): Handle[SelectMgrBaseFrustum] {.
@@ -86,7 +86,7 @@ proc getFarPnt*(this: SelectMgrRectangularFrustum): gp_Pnt {.noSideEffect, cdecl
     importcpp: "GetFarPnt", header: "SelectMgr_RectangularFrustum.hxx".}
 proc getViewRayDirection*(this: SelectMgrRectangularFrustum): DirObj {.noSideEffect,
     cdecl, importcpp: "GetViewRayDirection", header: "SelectMgr_RectangularFrustum.hxx".}
-proc getMousePosition*(this: SelectMgrRectangularFrustum): Pnt2dObj {.noSideEffect,
+proc getMousePosition*(this: SelectMgrRectangularFrustum): gp_Pnt2d {.noSideEffect,
     cdecl, importcpp: "GetMousePosition", header: "SelectMgr_RectangularFrustum.hxx".}
 proc getPlanes*(this: SelectMgrRectangularFrustum;
                thePlaneEquations: var NCollectionVector[SelectMgrVec4]) {.

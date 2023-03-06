@@ -42,15 +42,15 @@ proc basisCurve*(this: Geom2dOffsetCurve): Handle[Geom2dCurve] {.noSideEffect, c
     importcpp: "BasisCurve", header: "Geom2d_OffsetCurve.hxx".}
 proc continuity*(this: Geom2dOffsetCurve): GeomAbsShape {.noSideEffect, cdecl,
     importcpp: "Continuity", header: "Geom2d_OffsetCurve.hxx".}
-proc d0*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2dObj) {.noSideEffect, cdecl,
+proc d0*(this: Geom2dOffsetCurve; u: cfloat; p: var gp_Pnt2d) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom2d_OffsetCurve.hxx".}
-proc d1*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj) {.noSideEffect,
+proc d1*(this: Geom2dOffsetCurve; u: cfloat; p: var gp_Pnt2d; v1: var gp_Vec2d) {.noSideEffect,
     cdecl, importcpp: "D1", header: "Geom2d_OffsetCurve.hxx".}
-proc d2*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj) {.
+proc d2*(this: Geom2dOffsetCurve; u: cfloat; p: var gp_Pnt2d; v1: var gp_Vec2d; v2: var gp_Vec2d) {.
     noSideEffect, cdecl, importcpp: "D2", header: "Geom2d_OffsetCurve.hxx".}
-proc d3*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj;
-        v3: var Vec2dObj) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_OffsetCurve.hxx".}
-proc dn*(this: Geom2dOffsetCurve; u: cfloat; n: cint): Vec2dObj {.noSideEffect, cdecl,
+proc d3*(this: Geom2dOffsetCurve; u: cfloat; p: var gp_Pnt2d; v1: var gp_Vec2d; v2: var gp_Vec2d;
+        v3: var gp_Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_OffsetCurve.hxx".}
+proc dn*(this: Geom2dOffsetCurve; u: cfloat; n: cint): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom2d_OffsetCurve.hxx".}
 proc firstParameter*(this: Geom2dOffsetCurve): cfloat {.noSideEffect, cdecl,
     importcpp: "FirstParameter", header: "Geom2d_OffsetCurve.hxx".}

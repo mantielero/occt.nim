@@ -30,7 +30,7 @@ proc oz*(): Ax1Obj {.cdecl, importcpp: "gp::OZ(@)", header: "gp.hxx".}
 proc xoy*(): Ax2Obj {.cdecl, importcpp: "gp::XOY(@)", header: "gp.hxx".}
 proc zox*(): Ax2Obj {.cdecl, importcpp: "gp::ZOX(@)", header: "gp.hxx".}
 proc yoz*(): Ax2Obj {.cdecl, importcpp: "gp::YOZ(@)", header: "gp.hxx".}
-proc origin2d*(): Pnt2dObj {.cdecl, importcpp: "gp::Origin2d(@)", header: "gp.hxx".}
+proc origin2d*(): gp_Pnt2d {.cdecl, importcpp: "gp::Origin2d(@)", header: "gp.hxx".}
 proc dX2d*(): Dir2dObj {.cdecl, importcpp: "gp::DX2d(@)", header: "gp.hxx".}
 proc dY2d*(): Dir2dObj {.cdecl, importcpp: "gp::DY2d(@)", header: "gp.hxx".}
 proc oX2d*(): Ax2dObj {.cdecl, importcpp: "gp::OX2d(@)", header: "gp.hxx".}

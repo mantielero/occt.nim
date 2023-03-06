@@ -30,9 +30,9 @@ proc basiscurve2d*(c: Handle[Geom2dCurve]): Handle[Geom2dCurve] {.cdecl,
 
 proc fUN_toolDirC*(par: cfloat; c: Handle[GeomCurve]): DirObj {.cdecl,
     importcpp: "FUN_tool_dirC(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
-proc fUN_toolOnapex*(p2d: Pnt2dObj; s: Handle[GeomSurface]): bool {.cdecl,
+proc fUN_toolOnapex*(p2d: gp_Pnt2d; s: Handle[GeomSurface]): bool {.cdecl,
     importcpp: "FUN_tool_onapex(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
-proc fUN_toolNgS*(p2d: Pnt2dObj; s: Handle[GeomSurface]): DirObj {.cdecl,
+proc fUN_toolNgS*(p2d: gp_Pnt2d; s: Handle[GeomSurface]): DirObj {.cdecl,
     importcpp: "FUN_tool_ngS(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 ##  ----------------------------------------------------------------------
 ##  curve type,surface type :

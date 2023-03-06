@@ -22,11 +22,11 @@ import ../geom2d/geom2d_types
 ##  commercial license or contractual agreement.
 
 discard "forward decl of gp_Pnt"
-discard "forward decl of LinObj"
-discard "forward decl of CircObj"
-discard "forward decl of ElipsObj"
-discard "forward decl of HyprObj"
-discard "forward decl of ParabObj"
+discard "forward decl of gp_Lin"
+discard "forward decl of gp_Circ"
+discard "forward decl of gp_Elips"
+discard "forward decl of gp_Hypr"
+discard "forward decl of gp_Parab"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom_Surface"
@@ -38,45 +38,45 @@ proc newBRepLib_MakeEdge*(V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdg
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: LinObj): BRepLib_MakeEdge {.cdecl, constructor,
+proc newBRepLib_MakeEdge*(L: gp_Lin): BRepLib_MakeEdge {.cdecl, constructor,
     importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: LinObj; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.cdecl,
+proc newBRepLib_MakeEdge*(L: gp_Lin; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: LinObj; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.cdecl,
+proc newBRepLib_MakeEdge*(L: gp_Lin; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: LinObj; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
+proc newBRepLib_MakeEdge*(L: gp_Lin; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: CircObj): BRepLib_MakeEdge {.cdecl, constructor,
+proc newBRepLib_MakeEdge*(L: gp_Circ): BRepLib_MakeEdge {.cdecl, constructor,
     importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: CircObj; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.cdecl,
+proc newBRepLib_MakeEdge*(L: gp_Circ; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: CircObj; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.cdecl,
+proc newBRepLib_MakeEdge*(L: gp_Circ; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: CircObj; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
+proc newBRepLib_MakeEdge*(L: gp_Circ; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: ElipsObj): BRepLib_MakeEdge {.cdecl, constructor,
+proc newBRepLib_MakeEdge*(L: gp_Elips): BRepLib_MakeEdge {.cdecl, constructor,
     importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: ElipsObj; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.
+proc newBRepLib_MakeEdge*(L: gp_Elips; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: ElipsObj; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.
+proc newBRepLib_MakeEdge*(L: gp_Elips; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: ElipsObj; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
+proc newBRepLib_MakeEdge*(L: gp_Elips; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: HyprObj): BRepLib_MakeEdge {.cdecl, constructor,
+proc newBRepLib_MakeEdge*(L: gp_Hypr): BRepLib_MakeEdge {.cdecl, constructor,
     importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: HyprObj; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.cdecl,
+proc newBRepLib_MakeEdge*(L: gp_Hypr; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: HyprObj; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.cdecl,
+proc newBRepLib_MakeEdge*(L: gp_Hypr; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: HyprObj; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
+proc newBRepLib_MakeEdge*(L: gp_Hypr; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: ParabObj): BRepLib_MakeEdge {.cdecl, constructor,
+proc newBRepLib_MakeEdge*(L: gp_Parab): BRepLib_MakeEdge {.cdecl, constructor,
     importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: ParabObj; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.
+proc newBRepLib_MakeEdge*(L: gp_Parab; p1: cfloat; p2: cfloat): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: ParabObj; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.
+proc newBRepLib_MakeEdge*(L: gp_Parab; P1: gp_Pnt; P2: gp_Pnt): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
-proc newBRepLib_MakeEdge*(L: ParabObj; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
+proc newBRepLib_MakeEdge*(L: gp_Parab; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge {.
     cdecl, constructor, importcpp: "BRepLib_MakeEdge(@)".}
 proc newBRepLib_MakeEdge*(L: Handle[Geom_Curve]): BRepLib_MakeEdge {.cdecl,
     constructor, importcpp: "BRepLib_MakeEdge(@)".}

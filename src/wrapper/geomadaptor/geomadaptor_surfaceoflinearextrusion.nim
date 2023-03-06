@@ -89,13 +89,13 @@ proc getType*(this: GeomAdaptorSurfaceOfLinearExtrusion): GeomAbsSurfaceType {.
     noSideEffect, cdecl, importcpp: "GetType", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc plane*(this: GeomAdaptorSurfaceOfLinearExtrusion): PlnObj {.noSideEffect, cdecl,
     importcpp: "Plane", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc cylinder*(this: GeomAdaptorSurfaceOfLinearExtrusion): CylinderObj {.noSideEffect,
+proc cylinder*(this: GeomAdaptorSurfaceOfLinearExtrusion): gp_Cylinder {.noSideEffect,
     cdecl, importcpp: "Cylinder", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc cone*(this: GeomAdaptorSurfaceOfLinearExtrusion): ConeObj {.noSideEffect, cdecl,
+proc cone*(this: GeomAdaptorSurfaceOfLinearExtrusion): gp_Cone {.noSideEffect, cdecl,
     importcpp: "Cone", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc sphere*(this: GeomAdaptorSurfaceOfLinearExtrusion): SphereObj {.noSideEffect,
+proc sphere*(this: GeomAdaptorSurfaceOfLinearExtrusion): gp_Sphere {.noSideEffect,
     cdecl, importcpp: "Sphere", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc torus*(this: GeomAdaptorSurfaceOfLinearExtrusion): TorusObj {.noSideEffect, cdecl,
+proc torus*(this: GeomAdaptorSurfaceOfLinearExtrusion): gp_Torus {.noSideEffect, cdecl,
     importcpp: "Torus", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc uDegree*(this: GeomAdaptorSurfaceOfLinearExtrusion): cint {.noSideEffect, cdecl,
     importcpp: "UDegree", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}

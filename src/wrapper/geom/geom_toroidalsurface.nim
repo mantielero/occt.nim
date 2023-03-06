@@ -31,15 +31,15 @@ import ../tcolstd/tcolstd_types
 
 proc newGeomToroidalSurface*(a3: Ax3Obj; majorRadius: cfloat; minorRadius: cfloat): GeomToroidalSurface {.
     cdecl, constructor, importcpp: "Geom_ToroidalSurface(@)", header: "Geom_ToroidalSurface.hxx".}
-proc newGeomToroidalSurface*(t: TorusObj): GeomToroidalSurface {.cdecl, constructor,
+proc newGeomToroidalSurface*(t: gp_Torus): GeomToroidalSurface {.cdecl, constructor,
     importcpp: "Geom_ToroidalSurface(@)", header: "Geom_ToroidalSurface.hxx".}
 proc setMajorRadius*(this: var GeomToroidalSurface; majorRadius: cfloat) {.cdecl,
     importcpp: "SetMajorRadius", header: "Geom_ToroidalSurface.hxx".}
 proc setMinorRadius*(this: var GeomToroidalSurface; minorRadius: cfloat) {.cdecl,
     importcpp: "SetMinorRadius", header: "Geom_ToroidalSurface.hxx".}
-proc setTorus*(this: var GeomToroidalSurface; t: TorusObj) {.cdecl, importcpp: "SetTorus",
+proc setTorus*(this: var GeomToroidalSurface; t: gp_Torus) {.cdecl, importcpp: "SetTorus",
     header: "Geom_ToroidalSurface.hxx".}
-proc torus*(this: GeomToroidalSurface): TorusObj {.noSideEffect, cdecl,
+proc torus*(this: GeomToroidalSurface): gp_Torus {.noSideEffect, cdecl,
     importcpp: "Torus", header: "Geom_ToroidalSurface.hxx".}
 proc uReversedParameter*(this: GeomToroidalSurface; u: cfloat): cfloat {.noSideEffect,
     cdecl, importcpp: "UReversedParameter", header: "Geom_ToroidalSurface.hxx".}

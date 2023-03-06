@@ -25,14 +25,14 @@ import ../geom/geom_types
 
 
 
-proc circle*(c: CircObj): MakeCircle {.cdecl, constructor,
+proc circle*(c: gp_Circ): MakeCircle {.cdecl, constructor,
                                        importcpp: "GC_MakeCircle(@)",
                                        header: "GC_MakeCircle.hxx".}
 proc circle*(a2: Ax2Obj; radius: cfloat): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc circle*(circ: CircObj; dist: cfloat): MakeCircle {.cdecl, constructor,
+proc circle*(circ: gp_Circ; dist: cfloat): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc circle*(circ: CircObj; point: gp_Pnt): MakeCircle {.cdecl, constructor,
+proc circle*(circ: gp_Circ; point: gp_Pnt): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
 proc circle*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}

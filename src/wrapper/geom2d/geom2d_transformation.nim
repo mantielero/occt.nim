@@ -32,24 +32,24 @@ proc newGeom2dTransformation*(): Geom2dTransformation {.cdecl, constructor,
 proc newGeom2dTransformation*(t: Trsf2dObj): Geom2dTransformation {.cdecl, constructor,
     importcpp: "Geom2d_Transformation(@)", header: "Geom2d_Transformation.hxx".}
     
-proc setMirror*(this: var Geom2dTransformation; p: Pnt2dObj) {.cdecl,
+proc setMirror*(this: var Geom2dTransformation; p: gp_Pnt2d) {.cdecl,
     importcpp: "SetMirror", header: "Geom2d_Transformation.hxx".}
 
 proc setMirror*(this: var Geom2dTransformation; a: Ax2dObj) {.cdecl,
     importcpp: "SetMirror", header: "Geom2d_Transformation.hxx".}
 
-proc setRotation*(this: var Geom2dTransformation; p: Pnt2dObj; ang: cfloat) {.cdecl,
+proc setRotation*(this: var Geom2dTransformation; p: gp_Pnt2d; ang: cfloat) {.cdecl,
     importcpp: "SetRotation", header: "Geom2d_Transformation.hxx".}
-proc setScale*(this: var Geom2dTransformation; p: Pnt2dObj; s: cfloat) {.cdecl,
+proc setScale*(this: var Geom2dTransformation; p: gp_Pnt2d; s: cfloat) {.cdecl,
     importcpp: "SetScale", header: "Geom2d_Transformation.hxx".}
 proc setTransformation*(this: var Geom2dTransformation; fromSystem1: Ax2dObj;
                        toSystem2: Ax2dObj) {.cdecl, importcpp: "SetTransformation",
                                         header: "Geom2d_Transformation.hxx".}
 proc setTransformation*(this: var Geom2dTransformation; toSystem: Ax2dObj) {.cdecl,
     importcpp: "SetTransformation", header: "Geom2d_Transformation.hxx".}
-proc setTranslation*(this: var Geom2dTransformation; v: Vec2dObj) {.cdecl,
+proc setTranslation*(this: var Geom2dTransformation; v: gp_Vec2d) {.cdecl,
     importcpp: "SetTranslation", header: "Geom2d_Transformation.hxx".}
-proc setTranslation*(this: var Geom2dTransformation; p1: Pnt2dObj; p2: Pnt2dObj) {.cdecl,
+proc setTranslation*(this: var Geom2dTransformation; p1: gp_Pnt2d; p2: gp_Pnt2d) {.cdecl,
     importcpp: "SetTranslation", header: "Geom2d_Transformation.hxx".}
 proc setTrsf2d*(this: var Geom2dTransformation; t: Trsf2dObj) {.cdecl,
     importcpp: "SetTrsf2d", header: "Geom2d_Transformation.hxx".}

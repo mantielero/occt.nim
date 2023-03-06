@@ -25,10 +25,10 @@ import ../adaptor2d/adaptor2d_types
 
 
 
-proc project*(p: Pnt2dObj; s: Handle[Adaptor3dHSurface]; c: Handle[Adaptor2dHCurve2d];
+proc project*(p: gp_Pnt2d; s: Handle[Adaptor3dHSurface]; c: Handle[Adaptor2dHCurve2d];
              paramproj: var cfloat; dist: var cfloat): bool {.cdecl,
     importcpp: "BRepBlend_BlendTool::Project(@)", header: "BRepBlend_BlendTool.hxx".}
-proc inters*(p1: Pnt2dObj; p2: Pnt2dObj; s: Handle[Adaptor3dHSurface];
+proc inters*(p1: gp_Pnt2d; p2: gp_Pnt2d; s: Handle[Adaptor3dHSurface];
             c: Handle[Adaptor2dHCurve2d]; param: var cfloat; dist: var cfloat): bool {.
     cdecl, importcpp: "BRepBlend_BlendTool::Inters(@)", header: "BRepBlend_BlendTool.hxx".}
 proc parameter*(v: Handle[Adaptor3dHVertex]; a: Handle[Adaptor2dHCurve2d]): cfloat {.

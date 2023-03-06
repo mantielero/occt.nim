@@ -24,16 +24,16 @@ import gce2d_types
 
 
 
-proc segment*(p1: Pnt2dObj; p2: Pnt2dObj): GCE2dMakeSegment {.cdecl,
+proc segment*(p1: gp_Pnt2d; p2: gp_Pnt2d): GCE2dMakeSegment {.cdecl,
     importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
 
-proc segment*(p1: Pnt2dObj; v: Dir2dObj; p2: Pnt2dObj): GCE2dMakeSegment {.cdecl,
+proc segment*(p1: gp_Pnt2d; v: Dir2dObj; p2: gp_Pnt2d): GCE2dMakeSegment {.cdecl,
     constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
-proc segment*(line: Lin2dObj; u1: cfloat; u2: cfloat): GCE2dMakeSegment {.
+proc segment*(line: gp_Lin2d; u1: cfloat; u2: cfloat): GCE2dMakeSegment {.
     cdecl, constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
-proc segment*(line: Lin2dObj; point: Pnt2dObj; ulast: cfloat): GCE2dMakeSegment {.
+proc segment*(line: gp_Lin2d; point: gp_Pnt2d; ulast: cfloat): GCE2dMakeSegment {.
     cdecl, constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
-proc segment*(line: Lin2dObj; p1: Pnt2dObj; p2: Pnt2dObj): GCE2dMakeSegment {.cdecl,
+proc segment*(line: gp_Lin2d; p1: gp_Pnt2d; p2: gp_Pnt2d): GCE2dMakeSegment {.cdecl,
     constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
 proc value*(this: GCE2dMakeSegment): HandleGeom2dTrimmedCurve {.noSideEffect,
     cdecl, importcpp: "Value", header: "GCE2d_MakeSegment.hxx".}

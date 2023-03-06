@@ -63,9 +63,9 @@ proc uVNodes*(this: PolyTriangulation): TColgpArray1OfPnt2d {.noSideEffect, cdec
     importcpp: "UVNodes", header: "Poly_Triangulation.hxx".}
 proc changeUVNodes*(this: var PolyTriangulation): var TColgpArray1OfPnt2d {.cdecl,
     importcpp: "ChangeUVNodes", header: "Poly_Triangulation.hxx".}
-proc uVNode*(this: PolyTriangulation; theIndex: cint): Pnt2dObj {.noSideEffect, cdecl,
+proc uVNode*(this: PolyTriangulation; theIndex: cint): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "UVNode", header: "Poly_Triangulation.hxx".}
-proc changeUVNode*(this: var PolyTriangulation; theIndex: cint): var Pnt2dObj {.cdecl,
+proc changeUVNode*(this: var PolyTriangulation; theIndex: cint): var gp_Pnt2d {.cdecl,
     importcpp: "ChangeUVNode", header: "Poly_Triangulation.hxx".}
 proc triangles*(this: PolyTriangulation): PolyArray1OfTriangle {.noSideEffect, cdecl,
     importcpp: "Triangles", header: "Poly_Triangulation.hxx".}

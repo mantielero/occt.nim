@@ -25,14 +25,14 @@ import gce2d_types
 
 
 
-proc newGCE2dMakeHyperbola*(h: Hypr2dObj): GCE2dMakeHyperbola {.cdecl, constructor,
+proc newGCE2dMakeHyperbola*(h: gp_Hypr2d): GCE2dMakeHyperbola {.cdecl, constructor,
     importcpp: "GCE2d_MakeHyperbola(@)", header: "GCE2d_MakeHyperbola.hxx".}
 proc newGCE2dMakeHyperbola*(majorAxis: Ax2dObj; majorRadius: cfloat;
                            minorRadius: cfloat; sense: bool): GCE2dMakeHyperbola {.
     cdecl, constructor, importcpp: "GCE2d_MakeHyperbola(@)", header: "GCE2d_MakeHyperbola.hxx".}
 proc newGCE2dMakeHyperbola*(axis: Ax22dObj; majorRadius: cfloat; minorRadius: cfloat): GCE2dMakeHyperbola {.
     cdecl, constructor, importcpp: "GCE2d_MakeHyperbola(@)", header: "GCE2d_MakeHyperbola.hxx".}
-proc newGCE2dMakeHyperbola*(s1: Pnt2dObj; s2: Pnt2dObj; center: Pnt2dObj): GCE2dMakeHyperbola {.
+proc newGCE2dMakeHyperbola*(s1: gp_Pnt2d; s2: gp_Pnt2d; center: gp_Pnt2d): GCE2dMakeHyperbola {.
     cdecl, constructor, importcpp: "GCE2d_MakeHyperbola(@)", header: "GCE2d_MakeHyperbola.hxx".}
 proc value*(this: GCE2dMakeHyperbola): Handle[Geom2dHyperbola] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GCE2d_MakeHyperbola.hxx".}

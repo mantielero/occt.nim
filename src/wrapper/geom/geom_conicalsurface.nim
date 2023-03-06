@@ -30,15 +30,15 @@ import geom_types
 
 proc newGeomConicalSurface*(a3: Ax3Obj; ang: cfloat; radius: cfloat): GeomConicalSurface {.
     cdecl, constructor, importcpp: "Geom_ConicalSurface(@)", header: "Geom_ConicalSurface.hxx".}
-proc newGeomConicalSurface*(c: ConeObj): GeomConicalSurface {.cdecl, constructor,
+proc newGeomConicalSurface*(c: gp_Cone): GeomConicalSurface {.cdecl, constructor,
     importcpp: "Geom_ConicalSurface(@)", header: "Geom_ConicalSurface.hxx".}
-proc setCone*(this: var GeomConicalSurface; c: ConeObj) {.cdecl, importcpp: "SetCone",
+proc setCone*(this: var GeomConicalSurface; c: gp_Cone) {.cdecl, importcpp: "SetCone",
     header: "Geom_ConicalSurface.hxx".}
 proc setRadius*(this: var GeomConicalSurface; r: cfloat) {.cdecl,
     importcpp: "SetRadius", header: "Geom_ConicalSurface.hxx".}
 proc setSemiAngle*(this: var GeomConicalSurface; ang: cfloat) {.cdecl,
     importcpp: "SetSemiAngle", header: "Geom_ConicalSurface.hxx".}
-proc cone*(this: GeomConicalSurface): ConeObj {.noSideEffect, cdecl, importcpp: "Cone",
+proc cone*(this: GeomConicalSurface): gp_Cone {.noSideEffect, cdecl, importcpp: "Cone",
     header: "Geom_ConicalSurface.hxx".}
 proc uReversedParameter*(this: GeomConicalSurface; u: cfloat): cfloat {.noSideEffect,
     cdecl, importcpp: "UReversedParameter", header: "Geom_ConicalSurface.hxx".}

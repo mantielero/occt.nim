@@ -89,7 +89,7 @@ proc add*(this: var BndBox; p: gp_Pnt; d: DirObj) {.cdecl, importcpp: "Add", hea
 proc add*(this: var BndBox; d: DirObj) {.cdecl, importcpp: "Add", header: "Bnd_Box.hxx".}
 proc isOut*(this: BndBox; p: gp_Pnt): bool {.noSideEffect, cdecl, importcpp: "IsOut",
                                     header: "Bnd_Box.hxx".}
-proc isOut*(this: BndBox; L: LinObj): bool {.noSideEffect, cdecl, importcpp: "IsOut",
+proc isOut*(this: BndBox; L: gp_Lin): bool {.noSideEffect, cdecl, importcpp: "IsOut",
                                     header: "Bnd_Box.hxx".}
 proc isOut*(this: BndBox; p: PlnObj): bool {.noSideEffect, cdecl, importcpp: "IsOut",
                                     header: "Bnd_Box.hxx".}

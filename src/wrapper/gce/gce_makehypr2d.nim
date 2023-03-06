@@ -23,18 +23,18 @@ import ../gp/gp_types
 
 
 
-proc newGceMakeHypr2d*(s1: Pnt2dObj; s2: Pnt2dObj; center: Pnt2dObj): GceMakeHypr2d {.cdecl,
+proc newGceMakeHypr2d*(s1: gp_Pnt2d; s2: gp_Pnt2d; center: gp_Pnt2d): GceMakeHypr2d {.cdecl,
     constructor, importcpp: "gce_MakeHypr2d(@)", header: "gce_MakeHypr2d.hxx".}
 proc newGceMakeHypr2d*(majorAxis: Ax2dObj; majorRadius: cfloat; minorRadius: cfloat;
                       sense: bool): GceMakeHypr2d {.cdecl, constructor,
     importcpp: "gce_MakeHypr2d(@)", header: "gce_MakeHypr2d.hxx".}
 proc newGceMakeHypr2d*(a: Ax22dObj; majorRadius: cfloat; minorRadius: cfloat): GceMakeHypr2d {.
     cdecl, constructor, importcpp: "gce_MakeHypr2d(@)", header: "gce_MakeHypr2d.hxx".}
-proc value*(this: GceMakeHypr2d): Hypr2dObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeHypr2d): gp_Hypr2d {.noSideEffect, cdecl, importcpp: "Value",
                                        header: "gce_MakeHypr2d.hxx".}
-proc operator*(this: GceMakeHypr2d): Hypr2dObj {.noSideEffect, cdecl,
+proc operator*(this: GceMakeHypr2d): gp_Hypr2d {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeHypr2d.hxx".}
-converter `hypr2d`*(this: GceMakeHypr2d): Hypr2dObj {.noSideEffect, cdecl,
+converter `hypr2d`*(this: GceMakeHypr2d): gp_Hypr2d {.noSideEffect, cdecl,
     importcpp: "gce_MakeHypr2d::operator gp_Hypr2d", header: "gce_MakeHypr2d.hxx".}
 
 

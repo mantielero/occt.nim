@@ -24,8 +24,8 @@ discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Extrema_Curve2dTool"
 discard "forward decl of Extrema_ExtPElC2d"
-discard "forward decl of Pnt2dObj"
-discard "forward decl of Vec2dObj"
+discard "forward decl of gp_Pnt2d"
+discard "forward decl of gp_Vec2d"
 discard "forward decl of Extrema_POnCurv2d"
 discard "forward decl of Extrema_EPCOfELPCOfLocateExtPC2d"
 discard "forward decl of Extrema_PCFOfEPCOfELPCOfLocateExtPC2d"
@@ -34,18 +34,18 @@ discard "forward decl of Extrema_PCFOfEPCOfELPCOfLocateExtPC2d"
 proc newExtrema_ELPCOfLocateExtPC2d*(): Extrema_ELPCOfLocateExtPC2d {.cdecl,
     constructor, importcpp: "Extrema_ELPCOfLocateExtPC2d(@)",
     header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc newExtrema_ELPCOfLocateExtPC2d*(P: Pnt2dObj; C: Adaptor2d_Curve2d; Uinf: cfloat;
+proc newExtrema_ELPCOfLocateExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d; Uinf: cfloat;
                                     Usup: cfloat; TolF: cfloat = 1.0e-10): Extrema_ELPCOfLocateExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_ELPCOfLocateExtPC2d(@)",
     header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc newExtrema_ELPCOfLocateExtPC2d*(P: Pnt2dObj; C: Adaptor2d_Curve2d;
+proc newExtrema_ELPCOfLocateExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d;
                                     TolF: cfloat = 1.0e-10): Extrema_ELPCOfLocateExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_ELPCOfLocateExtPC2d(@)",
     header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
 proc Initialize*(this: var Extrema_ELPCOfLocateExtPC2d; C: Adaptor2d_Curve2d;
                 Uinf: cfloat; Usup: cfloat; TolF: cfloat = 1.0e-10) {.cdecl,
     importcpp: "Initialize", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc Perform*(this: var Extrema_ELPCOfLocateExtPC2d; P: Pnt2dObj) {.cdecl,
+proc Perform*(this: var Extrema_ELPCOfLocateExtPC2d; P: gp_Pnt2d) {.cdecl,
     importcpp: "Perform", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
 proc IsDone*(this: Extrema_ELPCOfLocateExtPC2d): bool {.noSideEffect, cdecl,
     importcpp: "IsDone", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
@@ -60,6 +60,6 @@ proc Point*(this: Extrema_ELPCOfLocateExtPC2d; N: cint): Extrema_POnCurv2d {.
     noSideEffect, cdecl, importcpp: "Point",
     header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
 proc TrimmedSquareDistances*(this: Extrema_ELPCOfLocateExtPC2d; dist1: var cfloat;
-                            dist2: var cfloat; P1: var Pnt2dObj; P2: var Pnt2dObj) {.
+                            dist2: var cfloat; P1: var gp_Pnt2d; P2: var gp_Pnt2d) {.
     noSideEffect, cdecl, importcpp: "TrimmedSquareDistances",
     header: "Extrema_ELPCOfLocateExtPC2d.hxx".}

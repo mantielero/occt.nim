@@ -33,7 +33,7 @@ proc setXAxis*(this: var Geom2dConic; theAX: Ax2dObj) {.cdecl, importcpp: "SetXA
     header: "Geom2d_Conic.hxx".}
 proc setYAxis*(this: var Geom2dConic; theAY: Ax2dObj) {.cdecl, importcpp: "SetYAxis",
     header: "Geom2d_Conic.hxx".}
-proc setLocation*(this: var Geom2dConic; theP: Pnt2dObj) {.cdecl,
+proc setLocation*(this: var Geom2dConic; theP: gp_Pnt2d) {.cdecl,
     importcpp: "SetLocation", header: "Geom2d_Conic.hxx".}
 proc xAxis*(this: Geom2dConic): Ax2dObj {.noSideEffect, cdecl, importcpp: "XAxis",
                                    header: "Geom2d_Conic.hxx".}
@@ -41,7 +41,7 @@ proc yAxis*(this: Geom2dConic): Ax2dObj {.noSideEffect, cdecl, importcpp: "YAxis
                                    header: "Geom2d_Conic.hxx".}
 proc eccentricity*(this: Geom2dConic): cfloat {.noSideEffect, cdecl,
     importcpp: "Eccentricity", header: "Geom2d_Conic.hxx".}
-proc location*(this: Geom2dConic): Pnt2dObj {.noSideEffect, cdecl, importcpp: "Location",
+proc location*(this: Geom2dConic): gp_Pnt2d {.noSideEffect, cdecl, importcpp: "Location",
                                        header: "Geom2d_Conic.hxx".}
 proc position*(this: Geom2dConic): Ax22dObj {.noSideEffect, cdecl, importcpp: "Position",
                                        header: "Geom2d_Conic.hxx".}

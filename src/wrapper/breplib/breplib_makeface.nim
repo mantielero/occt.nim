@@ -21,10 +21,10 @@ import ../geom/geom_types
 
 discard "forward decl of TopoDS_Face"
 discard "forward decl of PlnObj"
-discard "forward decl of CylinderObj"
-discard "forward decl of ConeObj"
-discard "forward decl of SphereObj"
-discard "forward decl of TorusObj"
+discard "forward decl of gp_Cylinder"
+discard "forward decl of gp_Cone"
+discard "forward decl of gp_Sphere"
+discard "forward decl of gp_Torus"
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of Geom_Curve"
@@ -36,29 +36,29 @@ proc newBRepLib_MakeFace*(F: TopoDS_Face): BRepLib_MakeFace {.cdecl, constructor
     importcpp: "BRepLib_MakeFace(@)".}
 proc newBRepLib_MakeFace*(P: PlnObj): BRepLib_MakeFace {.cdecl, constructor,
     importcpp: "BRepLib_MakeFace(@)".}
-proc newBRepLib_MakeFace*(C: CylinderObj): BRepLib_MakeFace {.cdecl, constructor,
+proc newBRepLib_MakeFace*(C: gp_Cylinder): BRepLib_MakeFace {.cdecl, constructor,
     importcpp: "BRepLib_MakeFace(@)".}
-proc newBRepLib_MakeFace*(C: ConeObj): BRepLib_MakeFace {.cdecl, constructor,
+proc newBRepLib_MakeFace*(C: gp_Cone): BRepLib_MakeFace {.cdecl, constructor,
     importcpp: "BRepLib_MakeFace(@)".}
-proc newBRepLib_MakeFace*(S: SphereObj): BRepLib_MakeFace {.cdecl, constructor,
+proc newBRepLib_MakeFace*(S: gp_Sphere): BRepLib_MakeFace {.cdecl, constructor,
     importcpp: "BRepLib_MakeFace(@)".}
-proc newBRepLib_MakeFace*(C: TorusObj): BRepLib_MakeFace {.cdecl, constructor,
+proc newBRepLib_MakeFace*(C: gp_Torus): BRepLib_MakeFace {.cdecl, constructor,
     importcpp: "BRepLib_MakeFace(@)".}
 proc newBRepLib_MakeFace*(S: Handle[Geom_Surface]; TolDegen: cfloat): BRepLib_MakeFace {.
     cdecl, constructor, importcpp: "BRepLib_MakeFace(@)".}
 proc newBRepLib_MakeFace*(P: PlnObj; UMin: cfloat; UMax: cfloat; VMin: cfloat;
                          VMax: cfloat): BRepLib_MakeFace {.cdecl, constructor,
     importcpp: "BRepLib_MakeFace(@)".}
-proc newBRepLib_MakeFace*(C: CylinderObj; UMin: cfloat; UMax: cfloat; VMin: cfloat;
+proc newBRepLib_MakeFace*(C: gp_Cylinder; UMin: cfloat; UMax: cfloat; VMin: cfloat;
                          VMax: cfloat): BRepLib_MakeFace {.cdecl, constructor,
     importcpp: "BRepLib_MakeFace(@)".}
-proc newBRepLib_MakeFace*(C: ConeObj; UMin: cfloat; UMax: cfloat; VMin: cfloat;
+proc newBRepLib_MakeFace*(C: gp_Cone; UMin: cfloat; UMax: cfloat; VMin: cfloat;
                          VMax: cfloat): BRepLib_MakeFace {.cdecl, constructor,
     importcpp: "BRepLib_MakeFace(@)".}
-proc newBRepLib_MakeFace*(S: SphereObj; UMin: cfloat; UMax: cfloat; VMin: cfloat;
+proc newBRepLib_MakeFace*(S: gp_Sphere; UMin: cfloat; UMax: cfloat; VMin: cfloat;
                          VMax: cfloat): BRepLib_MakeFace {.cdecl, constructor,
     importcpp: "BRepLib_MakeFace(@)".}
-proc newBRepLib_MakeFace*(C: TorusObj; UMin: cfloat; UMax: cfloat; VMin: cfloat;
+proc newBRepLib_MakeFace*(C: gp_Torus; UMin: cfloat; UMax: cfloat; VMin: cfloat;
                          VMax: cfloat): BRepLib_MakeFace {.cdecl, constructor,
     importcpp: "BRepLib_MakeFace(@)".}
 proc newBRepLib_MakeFace*(S: Handle[Geom_Surface]; UMin: cfloat; UMax: cfloat;
@@ -68,13 +68,13 @@ proc newBRepLib_MakeFace*(W: TopoDS_Wire; OnlyPlane: bool = false): BRepLib_Make
     cdecl, constructor, importcpp: "BRepLib_MakeFace(@)".}
 proc newBRepLib_MakeFace*(P: PlnObj; W: TopoDS_Wire; Inside: bool = true): BRepLib_MakeFace {.
     cdecl, constructor, importcpp: "BRepLib_MakeFace(@)".}
-proc newBRepLib_MakeFace*(C: CylinderObj; W: TopoDS_Wire; Inside: bool = true): BRepLib_MakeFace {.
+proc newBRepLib_MakeFace*(C: gp_Cylinder; W: TopoDS_Wire; Inside: bool = true): BRepLib_MakeFace {.
     cdecl, constructor, importcpp: "BRepLib_MakeFace(@)".}
-proc newBRepLib_MakeFace*(C: ConeObj; W: TopoDS_Wire; Inside: bool = true): BRepLib_MakeFace {.
+proc newBRepLib_MakeFace*(C: gp_Cone; W: TopoDS_Wire; Inside: bool = true): BRepLib_MakeFace {.
     cdecl, constructor, importcpp: "BRepLib_MakeFace(@)".}
-proc newBRepLib_MakeFace*(S: SphereObj; W: TopoDS_Wire; Inside: bool = true): BRepLib_MakeFace {.
+proc newBRepLib_MakeFace*(S: gp_Sphere; W: TopoDS_Wire; Inside: bool = true): BRepLib_MakeFace {.
     cdecl, constructor, importcpp: "BRepLib_MakeFace(@)".}
-proc newBRepLib_MakeFace*(C: TorusObj; W: TopoDS_Wire; Inside: bool = true): BRepLib_MakeFace {.
+proc newBRepLib_MakeFace*(C: gp_Torus; W: TopoDS_Wire; Inside: bool = true): BRepLib_MakeFace {.
     cdecl, constructor, importcpp: "BRepLib_MakeFace(@)".}
 proc newBRepLib_MakeFace*(S: Handle[Geom_Surface]; W: TopoDS_Wire;
                          Inside: bool = true): BRepLib_MakeFace {.cdecl, constructor,

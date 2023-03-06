@@ -54,7 +54,7 @@ proc complete*(this: var BRepBlendSurfRstLineBuilder;
               finvP: var BlendSurfPointFuncInv; finvC: var BlendSurfCurvFuncInv;
               pmin: cfloat): bool {.cdecl, importcpp: "Complete", header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc arcToRecadre*(this: var BRepBlendSurfRstLineBuilder; sol: MathVector;
-                  prevIndex: cint; pt2d: var Pnt2dObj; lastpt2d: var Pnt2dObj;
+                  prevIndex: cint; pt2d: var gp_Pnt2d; lastpt2d: var gp_Pnt2d;
                   ponarc: var cfloat): cint {.cdecl, importcpp: "ArcToRecadre",
     header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc isDone*(this: BRepBlendSurfRstLineBuilder): bool {.noSideEffect, cdecl,

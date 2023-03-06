@@ -68,7 +68,7 @@ proc knots*(this: var BlendFuncGenChamfer; tKnots: var TColStdArray1OfReal) {.cd
 proc mults*(this: var BlendFuncGenChamfer; tMults: var TColStdArray1OfInteger) {.cdecl,
     importcpp: "Mults", header: "BlendFunc_GenChamfer.hxx".}
 proc section*(this: var BlendFuncGenChamfer; param: cfloat; u1: cfloat; v1: cfloat;
-             u2: cfloat; v2: cfloat; pdeb: var cfloat; pfin: var cfloat; c: var LinObj) {.cdecl,
+             u2: cfloat; v2: cfloat; pdeb: var cfloat; pfin: var cfloat; c: var gp_Lin) {.cdecl,
     importcpp: "Section", header: "BlendFunc_GenChamfer.hxx".}
 proc section*(this: var BlendFuncGenChamfer; p: BlendPoint;
              poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;

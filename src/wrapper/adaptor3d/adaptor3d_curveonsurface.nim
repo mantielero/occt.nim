@@ -84,15 +84,15 @@ proc resolution*(this: Adaptor3dCurveOnSurface; r3d: cfloat): cfloat {.noSideEff
     cdecl, importcpp: "Resolution", header: "Adaptor3d_CurveOnSurface.hxx".}
 proc getType*(this: Adaptor3dCurveOnSurface): GeomAbsCurveType {.noSideEffect, cdecl,
     importcpp: "GetType", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc line*(this: Adaptor3dCurveOnSurface): LinObj {.noSideEffect, cdecl,
+proc line*(this: Adaptor3dCurveOnSurface): gp_Lin {.noSideEffect, cdecl,
     importcpp: "Line", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc circle*(this: Adaptor3dCurveOnSurface): CircObj {.noSideEffect, cdecl,
+proc circle*(this: Adaptor3dCurveOnSurface): gp_Circ {.noSideEffect, cdecl,
     importcpp: "Circle", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc ellipse*(this: Adaptor3dCurveOnSurface): ElipsObj {.noSideEffect, cdecl,
+proc ellipse*(this: Adaptor3dCurveOnSurface): gp_Elips {.noSideEffect, cdecl,
     importcpp: "Ellipse", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc hyperbola*(this: Adaptor3dCurveOnSurface): HyprObj {.noSideEffect, cdecl,
+proc hyperbola*(this: Adaptor3dCurveOnSurface): gp_Hypr {.noSideEffect, cdecl,
     importcpp: "Hyperbola", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc parabola*(this: Adaptor3dCurveOnSurface): ParabObj {.noSideEffect, cdecl,
+proc parabola*(this: Adaptor3dCurveOnSurface): gp_Parab {.noSideEffect, cdecl,
     importcpp: "Parabola", header: "Adaptor3d_CurveOnSurface.hxx".}
 proc degree*(this: Adaptor3dCurveOnSurface): cint {.noSideEffect, cdecl,
     importcpp: "Degree", header: "Adaptor3d_CurveOnSurface.hxx".}

@@ -17,14 +17,14 @@ import ../adaptor2d/adaptor2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Extrema_CCLocFOfLocECC2d_HeaderFile [NewLine] # _Extrema_CCLocFOfLocECC2d_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Address . hxx > [NewLine] # < float . hxx > [NewLine] # < Pnt2dObj . hxx > [NewLine] # < Vec2dObj . hxx > [NewLine] # < TColStd_SequenceOfReal . hxx > [NewLine] # < Extrema_SequenceOfPOnCurv2d . hxx > [NewLine] # < int . hxx > [NewLine] # < Math_FunctionSetWithDerivatives . hxx > [NewLine] # < bool . hxx > [NewLine] # < Math_Vector . hxx > [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _Extrema_CCLocFOfLocECC2d_HeaderFile [NewLine] # _Extrema_CCLocFOfLocECC2d_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Address . hxx > [NewLine] # < float . hxx > [NewLine] # < gp_Pnt2d . hxx > [NewLine] # < gp_Vec2d . hxx > [NewLine] # < TColStd_SequenceOfReal . hxx > [NewLine] # < Extrema_SequenceOfPOnCurv2d . hxx > [NewLine] # < int . hxx > [NewLine] # < Math_FunctionSetWithDerivatives . hxx > [NewLine] # < bool . hxx > [NewLine] # < Math_Vector . hxx > [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Extrema_Curve2dTool"
 discard "forward decl of Extrema_POnCurv2d"
-discard "forward decl of Pnt2dObj"
-discard "forward decl of Vec2dObj"
+discard "forward decl of gp_Pnt2d"
+discard "forward decl of gp_Vec2d"
 discard "forward decl of Math_Matrix"
 
 proc newExtrema_CCLocFOfLocECC2d*(thetol: cfloat = 1.0e-10): Extrema_CCLocFOfLocECC2d {.
@@ -69,5 +69,5 @@ proc SubIntervalInitialize*(this: var Extrema_CCLocFOfLocECC2d;
     importcpp: "SubIntervalInitialize", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc SearchOfTolerance*(this: var Extrema_CCLocFOfLocECC2d; C: pointer): cfloat {.
     cdecl, importcpp: "SearchOfTolerance", header: "Extrema_CCLocFOfLocECC2d.hxx".}
-## !!!Ignored construct:  # Curve1 Adaptor2d_Curve2d [NewLine] # Curve1_hxx < Adaptor2d_Curve2d . hxx > [NewLine] # Tool1 Extrema_Curve2dTool [NewLine] # Tool1_hxx < Extrema_Curve2dTool . hxx > [NewLine] # Curve2 Adaptor2d_Curve2d [NewLine] # Curve2_hxx < Adaptor2d_Curve2d . hxx > [NewLine] # Tool2 Extrema_Curve2dTool [NewLine] # Tool2_hxx < Extrema_Curve2dTool . hxx > [NewLine] # POnC Extrema_POnCurv2d [NewLine] # POnC_hxx < Extrema_POnCurv2d . hxx > [NewLine] # Pnt Pnt2dObj [NewLine] # Pnt_hxx < Pnt2dObj . hxx > [NewLine] # Vec Vec2dObj [NewLine] # Vec_hxx < Vec2dObj . hxx > [NewLine] # Extrema_SeqPOnC Extrema_SequenceOfPOnCurv2d [NewLine] # Extrema_SeqPOnC_hxx < Extrema_SequenceOfPOnCurv2d . hxx > [NewLine] # Extrema_FuncExtCC Extrema_CCLocFOfLocECC2d [NewLine] # Extrema_FuncExtCC_hxx < Extrema_CCLocFOfLocECC2d . hxx > [NewLine] # < Extrema_FuncExtCC . lxx > [NewLine] # Curve1 [NewLine] # Curve1_hxx [NewLine] # Tool1 [NewLine] # Tool1_hxx [NewLine] # Curve2 [NewLine] # Curve2_hxx [NewLine] # Tool2 [NewLine] # Tool2_hxx [NewLine] # POnC [NewLine] # POnC_hxx [NewLine] # Pnt [NewLine] # Pnt_hxx [NewLine] # Vec [NewLine] # Vec_hxx [NewLine] # Extrema_SeqPOnC [NewLine] # Extrema_SeqPOnC_hxx [NewLine] # Extrema_FuncExtCC [NewLine] # Extrema_FuncExtCC_hxx [NewLine] #  _Extrema_CCLocFOfLocECC2d_HeaderFile
+## !!!Ignored construct:  # Curve1 Adaptor2d_Curve2d [NewLine] # Curve1_hxx < Adaptor2d_Curve2d . hxx > [NewLine] # Tool1 Extrema_Curve2dTool [NewLine] # Tool1_hxx < Extrema_Curve2dTool . hxx > [NewLine] # Curve2 Adaptor2d_Curve2d [NewLine] # Curve2_hxx < Adaptor2d_Curve2d . hxx > [NewLine] # Tool2 Extrema_Curve2dTool [NewLine] # Tool2_hxx < Extrema_Curve2dTool . hxx > [NewLine] # POnC Extrema_POnCurv2d [NewLine] # POnC_hxx < Extrema_POnCurv2d . hxx > [NewLine] # Pnt gp_Pnt2d [NewLine] # Pnt_hxx < gp_Pnt2d . hxx > [NewLine] # Vec gp_Vec2d [NewLine] # Vec_hxx < gp_Vec2d . hxx > [NewLine] # Extrema_SeqPOnC Extrema_SequenceOfPOnCurv2d [NewLine] # Extrema_SeqPOnC_hxx < Extrema_SequenceOfPOnCurv2d . hxx > [NewLine] # Extrema_FuncExtCC Extrema_CCLocFOfLocECC2d [NewLine] # Extrema_FuncExtCC_hxx < Extrema_CCLocFOfLocECC2d . hxx > [NewLine] # < Extrema_FuncExtCC . lxx > [NewLine] # Curve1 [NewLine] # Curve1_hxx [NewLine] # Tool1 [NewLine] # Tool1_hxx [NewLine] # Curve2 [NewLine] # Curve2_hxx [NewLine] # Tool2 [NewLine] # Tool2_hxx [NewLine] # POnC [NewLine] # POnC_hxx [NewLine] # Pnt [NewLine] # Pnt_hxx [NewLine] # Vec [NewLine] # Vec_hxx [NewLine] # Extrema_SeqPOnC [NewLine] # Extrema_SeqPOnC_hxx [NewLine] # Extrema_FuncExtCC [NewLine] # Extrema_FuncExtCC_hxx [NewLine] #  _Extrema_CCLocFOfLocECC2d_HeaderFile
 ## Error: did not expect <!!!

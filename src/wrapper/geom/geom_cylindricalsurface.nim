@@ -31,13 +31,13 @@ import geom_types
 
 proc newGeomCylindricalSurface*(a3: Ax3Obj; radius: cfloat): GeomCylindricalSurface {.
     cdecl, constructor, importcpp: "Geom_CylindricalSurface(@)", header: "Geom_CylindricalSurface.hxx".}
-proc newGeomCylindricalSurface*(c: CylinderObj): GeomCylindricalSurface {.cdecl,
+proc newGeomCylindricalSurface*(c: gp_Cylinder): GeomCylindricalSurface {.cdecl,
     constructor, importcpp: "Geom_CylindricalSurface(@)", header: "Geom_CylindricalSurface.hxx".}
-proc setCylinder*(this: var GeomCylindricalSurface; c: CylinderObj) {.cdecl,
+proc setCylinder*(this: var GeomCylindricalSurface; c: gp_Cylinder) {.cdecl,
     importcpp: "SetCylinder", header: "Geom_CylindricalSurface.hxx".}
 proc setRadius*(this: var GeomCylindricalSurface; r: cfloat) {.cdecl,
     importcpp: "SetRadius", header: "Geom_CylindricalSurface.hxx".}
-proc cylinder*(this: GeomCylindricalSurface): CylinderObj {.noSideEffect, cdecl,
+proc cylinder*(this: GeomCylindricalSurface): gp_Cylinder {.noSideEffect, cdecl,
     importcpp: "Cylinder", header: "Geom_CylindricalSurface.hxx".}
 proc uReversedParameter*(this: GeomCylindricalSurface; u: cfloat): cfloat {.
     noSideEffect, cdecl, importcpp: "UReversedParameter", header: "Geom_CylindricalSurface.hxx".}

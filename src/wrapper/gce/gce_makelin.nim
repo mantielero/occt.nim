@@ -28,15 +28,15 @@ proc newGceMakeLin*(a1: Ax1Obj): GceMakeLin {.cdecl, constructor,
                                        header: "gce_MakeLin.hxx".}
 proc newGceMakeLin*(p: gp_Pnt; v: DirObj): GceMakeLin {.cdecl, constructor,
     importcpp: "gce_MakeLin(@)", header: "gce_MakeLin.hxx".}
-proc newGceMakeLin*(lin: LinObj; point: gp_Pnt): GceMakeLin {.cdecl, constructor,
+proc newGceMakeLin*(lin: gp_Lin; point: gp_Pnt): GceMakeLin {.cdecl, constructor,
     importcpp: "gce_MakeLin(@)", header: "gce_MakeLin.hxx".}
 proc newGceMakeLin*(p1: gp_Pnt; p2: gp_Pnt): GceMakeLin {.cdecl, constructor,
     importcpp: "gce_MakeLin(@)", header: "gce_MakeLin.hxx".}
-proc value*(this: GceMakeLin): LinObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeLin): gp_Lin {.noSideEffect, cdecl, importcpp: "Value",
                                  header: "gce_MakeLin.hxx".}
-proc operator*(this: GceMakeLin): LinObj {.noSideEffect, cdecl, importcpp: "Operator",
+proc operator*(this: GceMakeLin): gp_Lin {.noSideEffect, cdecl, importcpp: "Operator",
                                     header: "gce_MakeLin.hxx".}
-converter `lin`*(this: GceMakeLin): LinObj {.noSideEffect, cdecl, importcpp: "gce_MakeLin::operator gp_Lin",
+converter `lin`*(this: GceMakeLin): gp_Lin {.noSideEffect, cdecl, importcpp: "gce_MakeLin::operator gp_Lin",
                                       header: "gce_MakeLin.hxx".}
 
 

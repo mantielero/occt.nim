@@ -27,7 +27,7 @@ proc newGceMakeMirror*(point: gp_Pnt): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
 proc newGceMakeMirror*(axis: Ax1Obj): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc newGceMakeMirror*(line: LinObj): GceMakeMirror {.cdecl, constructor,
+proc newGceMakeMirror*(line: gp_Lin): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
 proc newGceMakeMirror*(point: gp_Pnt; direc: DirObj): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}

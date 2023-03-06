@@ -25,13 +25,13 @@ import gce2d_types
 
 
 
-proc newGCE2dMakeArcOfEllipse*(elips: Elips2dObj; alpha1: cfloat; alpha2: cfloat;
+proc newGCE2dMakeArcOfEllipse*(elips: gp_Elips2d; alpha1: cfloat; alpha2: cfloat;
                               sense: bool = true): GCE2dMakeArcOfEllipse {.cdecl,
     constructor, importcpp: "GCE2d_MakeArcOfEllipse(@)", header: "GCE2d_MakeArcOfEllipse.hxx".}
-proc newGCE2dMakeArcOfEllipse*(elips: Elips2dObj; p: Pnt2dObj; alpha: cfloat;
+proc newGCE2dMakeArcOfEllipse*(elips: gp_Elips2d; p: gp_Pnt2d; alpha: cfloat;
                               sense: bool = true): GCE2dMakeArcOfEllipse {.cdecl,
     constructor, importcpp: "GCE2d_MakeArcOfEllipse(@)", header: "GCE2d_MakeArcOfEllipse.hxx".}
-proc newGCE2dMakeArcOfEllipse*(elips: Elips2dObj; p1: Pnt2dObj; p2: Pnt2dObj; sense: bool = true): GCE2dMakeArcOfEllipse {.
+proc newGCE2dMakeArcOfEllipse*(elips: gp_Elips2d; p1: gp_Pnt2d; p2: gp_Pnt2d; sense: bool = true): GCE2dMakeArcOfEllipse {.
     cdecl, constructor, importcpp: "GCE2d_MakeArcOfEllipse(@)", header: "GCE2d_MakeArcOfEllipse.hxx".}
 proc value*(this: GCE2dMakeArcOfEllipse): Handle[Geom2dTrimmedCurve] {.noSideEffect,
     cdecl, importcpp: "Value", header: "GCE2d_MakeArcOfEllipse.hxx".}

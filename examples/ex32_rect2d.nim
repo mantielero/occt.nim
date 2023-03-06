@@ -5,13 +5,13 @@
 # Create a rectangle (that would be a wire based on 4 edges)
 import occt
 
-proc newSegment(p1,p2:Pnt2dObj):TopoDS_Edge =  #Edge2dObj = 
+proc newSegment(p1,p2:gp_Pnt2d):TopoDS_Edge =  #Edge2dObj = 
   var l1:HandleGeom2dTrimmedCurve = segment(p1, p2)
   var e = edge2d(l1)
   return e
 
 
-proc rect(p1,p2,p3,p4:Pnt2dObj):BRepBuilderAPI_MakeWire =
+proc rect(p1,p2,p3,p4:gp_Pnt2d):BRepBuilderAPI_MakeWire =
   # https://dev.opencascade.org/doc/refman/html/class_g_c___make_segment.html
   var l1 = newSegment(p1, p2)
   var l2 = newSegment(p2, p3)

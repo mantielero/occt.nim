@@ -21,67 +21,67 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 
-proc elips*(): ElipsObj {.cdecl, constructor, importcpp: "gp_Elips(@)", header: "gp_Elips.hxx".}
-proc elips*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): ElipsObj {.cdecl,
+proc elips*(): gp_Elips {.cdecl, constructor, importcpp: "gp_Elips(@)", header: "gp_Elips.hxx".}
+proc elips*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): gp_Elips {.cdecl,
     constructor, importcpp: "gp_Elips(@)", header: "gp_Elips.hxx".}
-proc setAxis*(this: var ElipsObj; a1: Ax1Obj) {.cdecl, importcpp: "SetAxis", header: "gp_Elips.hxx".}
-proc setLocation*(this: var ElipsObj; p: gp_Pnt) {.cdecl, importcpp: "SetLocation",
+proc setAxis*(this: var gp_Elips; a1: Ax1Obj) {.cdecl, importcpp: "SetAxis", header: "gp_Elips.hxx".}
+proc setLocation*(this: var gp_Elips; p: gp_Pnt) {.cdecl, importcpp: "SetLocation",
                                        header: "gp_Elips.hxx".}
-proc setMajorRadius*(this: var ElipsObj; majorRadius: cfloat) {.cdecl,
+proc setMajorRadius*(this: var gp_Elips; majorRadius: cfloat) {.cdecl,
     importcpp: "SetMajorRadius", header: "gp_Elips.hxx".}
-proc setMinorRadius*(this: var ElipsObj; minorRadius: cfloat) {.cdecl,
+proc setMinorRadius*(this: var gp_Elips; minorRadius: cfloat) {.cdecl,
     importcpp: "SetMinorRadius", header: "gp_Elips.hxx".}
-proc setPosition*(this: var ElipsObj; a2: Ax2Obj) {.cdecl, importcpp: "SetPosition",
+proc setPosition*(this: var gp_Elips; a2: Ax2Obj) {.cdecl, importcpp: "SetPosition",
                                         header: "gp_Elips.hxx".}
-proc area*(this: ElipsObj): cfloat {.noSideEffect, cdecl, importcpp: "Area", header: "gp_Elips.hxx".}
-proc axis*(this: ElipsObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Elips.hxx".}
-proc directrix1*(this: ElipsObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "Directrix1",
+proc area*(this: gp_Elips): cfloat {.noSideEffect, cdecl, importcpp: "Area", header: "gp_Elips.hxx".}
+proc axis*(this: gp_Elips): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Elips.hxx".}
+proc directrix1*(this: gp_Elips): Ax1Obj {.noSideEffect, cdecl, importcpp: "Directrix1",
                                  header: "gp_Elips.hxx".}
-proc directrix2*(this: ElipsObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "Directrix2",
+proc directrix2*(this: gp_Elips): Ax1Obj {.noSideEffect, cdecl, importcpp: "Directrix2",
                                  header: "gp_Elips.hxx".}
-proc eccentricity*(this: ElipsObj): cfloat {.noSideEffect, cdecl,
+proc eccentricity*(this: gp_Elips): cfloat {.noSideEffect, cdecl,
                                       importcpp: "Eccentricity", header: "gp_Elips.hxx".}
-proc focal*(this: ElipsObj): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
+proc focal*(this: gp_Elips): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
                                header: "gp_Elips.hxx".}
-proc focus1*(this: ElipsObj): gp_Pnt {.noSideEffect, cdecl, importcpp: "Focus1",
+proc focus1*(this: gp_Elips): gp_Pnt {.noSideEffect, cdecl, importcpp: "Focus1",
                              header: "gp_Elips.hxx".}
-proc focus2*(this: ElipsObj): gp_Pnt {.noSideEffect, cdecl, importcpp: "Focus2",
+proc focus2*(this: gp_Elips): gp_Pnt {.noSideEffect, cdecl, importcpp: "Focus2",
                              header: "gp_Elips.hxx".}
-proc location*(this: ElipsObj): gp_Pnt {.noSideEffect, cdecl, importcpp: "Location",
+proc location*(this: gp_Elips): gp_Pnt {.noSideEffect, cdecl, importcpp: "Location",
                                header: "gp_Elips.hxx".}
-proc majorRadius*(this: ElipsObj): cfloat {.noSideEffect, cdecl,
+proc majorRadius*(this: gp_Elips): cfloat {.noSideEffect, cdecl,
                                      importcpp: "MajorRadius", header: "gp_Elips.hxx".}
-proc minorRadius*(this: ElipsObj): cfloat {.noSideEffect, cdecl,
+proc minorRadius*(this: gp_Elips): cfloat {.noSideEffect, cdecl,
                                      importcpp: "MinorRadius", header: "gp_Elips.hxx".}
-proc parameter*(this: ElipsObj): cfloat {.noSideEffect, cdecl, importcpp: "Parameter",
+proc parameter*(this: gp_Elips): cfloat {.noSideEffect, cdecl, importcpp: "Parameter",
                                    header: "gp_Elips.hxx".}
-proc position*(this: ElipsObj): Ax2Obj {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: gp_Elips): Ax2Obj {.noSideEffect, cdecl, importcpp: "Position",
                                header: "gp_Elips.hxx".}
-proc xAxis*(this: ElipsObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Elips.hxx".}
-proc yAxis*(this: ElipsObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Elips.hxx".}
-proc mirror*(this: var ElipsObj; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Elips.hxx".}
-proc mirrored*(this: ElipsObj; p: gp_Pnt): ElipsObj {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc xAxis*(this: gp_Elips): Ax1Obj {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Elips.hxx".}
+proc yAxis*(this: gp_Elips): Ax1Obj {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Elips.hxx".}
+proc mirror*(this: var gp_Elips; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Elips.hxx".}
+proc mirrored*(this: gp_Elips; p: gp_Pnt): gp_Elips {.noSideEffect, cdecl, importcpp: "Mirrored",
                                        header: "gp_Elips.hxx".}
-proc mirror*(this: var ElipsObj; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Elips.hxx".}
-proc mirrored*(this: ElipsObj; a1: Ax1Obj): ElipsObj {.noSideEffect, cdecl,
+proc mirror*(this: var gp_Elips; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Elips.hxx".}
+proc mirrored*(this: gp_Elips; a1: Ax1Obj): gp_Elips {.noSideEffect, cdecl,
                                         importcpp: "Mirrored", header: "gp_Elips.hxx".}
-proc mirror*(this: var ElipsObj; a2: Ax2Obj) {.cdecl, importcpp: "Mirror", header: "gp_Elips.hxx".}
-proc mirrored*(this: ElipsObj; a2: Ax2Obj): ElipsObj {.noSideEffect, cdecl,
+proc mirror*(this: var gp_Elips; a2: Ax2Obj) {.cdecl, importcpp: "Mirror", header: "gp_Elips.hxx".}
+proc mirrored*(this: gp_Elips; a2: Ax2Obj): gp_Elips {.noSideEffect, cdecl,
                                         importcpp: "Mirrored", header: "gp_Elips.hxx".}
-proc rotate*(this: var ElipsObj; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rotate",
+proc rotate*(this: var gp_Elips; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rotate",
     header: "gp_Elips.hxx".}
-proc rotated*(this: ElipsObj; a1: Ax1Obj; ang: cfloat): ElipsObj {.noSideEffect, cdecl,
+proc rotated*(this: gp_Elips; a1: Ax1Obj; ang: cfloat): gp_Elips {.noSideEffect, cdecl,
     importcpp: "Rotated", header: "gp_Elips.hxx".}
-proc scale*(this: var ElipsObj; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Elips.hxx".}
-proc scaled*(this: ElipsObj; p: gp_Pnt; s: cfloat): ElipsObj {.noSideEffect, cdecl,
+proc scale*(this: var gp_Elips; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Elips.hxx".}
+proc scaled*(this: gp_Elips; p: gp_Pnt; s: cfloat): gp_Elips {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Elips.hxx".}
-proc transform*(this: var ElipsObj; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Elips.hxx".}
-proc transformed*(this: ElipsObj; t: TrsfObj): ElipsObj {.noSideEffect, cdecl,
+proc transform*(this: var gp_Elips; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Elips.hxx".}
+proc transformed*(this: gp_Elips; t: TrsfObj): gp_Elips {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Elips.hxx".}
-proc translate*(this: var ElipsObj; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Elips.hxx".}
-proc translated*(this: ElipsObj; v: gp_Vec): ElipsObj {.noSideEffect, cdecl,
+proc translate*(this: var gp_Elips; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Elips.hxx".}
+proc translated*(this: gp_Elips; v: gp_Vec): gp_Elips {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Elips.hxx".}
-proc translate*(this: var ElipsObj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
+proc translate*(this: var gp_Elips; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Elips.hxx".}
-proc translated*(this: ElipsObj; p1: gp_Pnt; p2: gp_Pnt): ElipsObj {.noSideEffect, cdecl,
+proc translated*(this: gp_Elips; p1: gp_Pnt; p2: gp_Pnt): gp_Elips {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Elips.hxx".}

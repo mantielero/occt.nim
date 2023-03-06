@@ -21,6 +21,6 @@ import ../gp/gp_types
 discard "forward decl of gp_Hypr2d"
 
 
-proc newConvertHyperbolaToBSplineCurve*(h: Hypr2dObj; u1: cfloat; u2: cfloat): ConvertHyperbolaToBSplineCurve {.
+proc newConvertHyperbolaToBSplineCurve*(h: gp_Hypr2d; u1: cfloat; u2: cfloat): ConvertHyperbolaToBSplineCurve {.
     cdecl, constructor, importcpp: "Convert_HyperbolaToBSplineCurve(@)",
     header: "Convert_HyperbolaToBSplineCurve.hxx".}

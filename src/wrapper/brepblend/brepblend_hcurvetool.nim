@@ -61,15 +61,15 @@ proc resolution*(c: Handle[Adaptor3dHCurve]; r3d: cfloat): cfloat {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Resolution(@)", header: "BRepBlend_HCurveTool.hxx".}
 proc getType*(c: Handle[Adaptor3dHCurve]): GeomAbsCurveType {.cdecl,
     importcpp: "BRepBlend_HCurveTool::GetType(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc line*(c: Handle[Adaptor3dHCurve]): LinObj {.cdecl,
+proc line*(c: Handle[Adaptor3dHCurve]): gp_Lin {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Line(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc circle*(c: Handle[Adaptor3dHCurve]): CircObj {.cdecl,
+proc circle*(c: Handle[Adaptor3dHCurve]): gp_Circ {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Circle(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc ellipse*(c: Handle[Adaptor3dHCurve]): ElipsObj {.cdecl,
+proc ellipse*(c: Handle[Adaptor3dHCurve]): gp_Elips {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Ellipse(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc hyperbola*(c: Handle[Adaptor3dHCurve]): HyprObj {.cdecl,
+proc hyperbola*(c: Handle[Adaptor3dHCurve]): gp_Hypr {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Hyperbola(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc parabola*(c: Handle[Adaptor3dHCurve]): ParabObj {.cdecl,
+proc parabola*(c: Handle[Adaptor3dHCurve]): gp_Parab {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Parabola(@)", header: "BRepBlend_HCurveTool.hxx".}
 proc bezier*(c: Handle[Adaptor3dHCurve]): Handle[GeomBezierCurve] {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Bezier(@)", header: "BRepBlend_HCurveTool.hxx".}

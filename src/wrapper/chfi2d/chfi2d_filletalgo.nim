@@ -65,9 +65,9 @@ proc setParam2*(this: var FilletPoint; theParam2: cfloat) {.cdecl,
     importcpp: "setParam2", header: "ChFi2d_FilletAlgo.hxx".}
 proc getParam2*(this: var FilletPoint): cfloat {.cdecl, importcpp: "getParam2",
     header: "ChFi2d_FilletAlgo.hxx".}
-proc setCenter*(this: var FilletPoint; thePoint: Pnt2dObj) {.cdecl,
+proc setCenter*(this: var FilletPoint; thePoint: gp_Pnt2d) {.cdecl,
     importcpp: "setCenter", header: "ChFi2d_FilletAlgo.hxx".}
-proc getCenter*(this: var FilletPoint): Pnt2dObj {.cdecl, importcpp: "getCenter",
+proc getCenter*(this: var FilletPoint): gp_Pnt2d {.cdecl, importcpp: "getCenter",
     header: "ChFi2d_FilletAlgo.hxx".}
 proc appendValue*(this: var FilletPoint; theValue: cfloat; theValid: bool) {.cdecl,
     importcpp: "appendValue", header: "ChFi2d_FilletAlgo.hxx".}

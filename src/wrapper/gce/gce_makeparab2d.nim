@@ -27,15 +27,15 @@ proc newGceMakeParab2d*(mirrorAxis: Ax2dObj; focal: cfloat; sense: bool = true):
     cdecl, constructor, importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}
 proc newGceMakeParab2d*(a: Ax22dObj; focal: cfloat): GceMakeParab2d {.cdecl, constructor,
     importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}
-proc newGceMakeParab2d*(d: Ax2dObj; f: Pnt2dObj; sense: bool = true): GceMakeParab2d {.cdecl,
+proc newGceMakeParab2d*(d: Ax2dObj; f: gp_Pnt2d; sense: bool = true): GceMakeParab2d {.cdecl,
     constructor, importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}
-proc newGceMakeParab2d*(s1: Pnt2dObj; center: Pnt2dObj; sense: bool = true): GceMakeParab2d {.
+proc newGceMakeParab2d*(s1: gp_Pnt2d; center: gp_Pnt2d; sense: bool = true): GceMakeParab2d {.
     cdecl, constructor, importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}
-proc value*(this: GceMakeParab2d): Parab2dObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeParab2d): gp_Parab2d {.noSideEffect, cdecl, importcpp: "Value",
     header: "gce_MakeParab2d.hxx".}
-proc operator*(this: GceMakeParab2d): Parab2dObj {.noSideEffect, cdecl,
+proc operator*(this: GceMakeParab2d): gp_Parab2d {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeParab2d.hxx".}
-converter `parab2d`*(this: GceMakeParab2d): Parab2dObj {.noSideEffect, cdecl,
+converter `parab2d`*(this: GceMakeParab2d): gp_Parab2d {.noSideEffect, cdecl,
     importcpp: "gce_MakeParab2d::operator gp_Parab2d", header: "gce_MakeParab2d.hxx".}
 
 

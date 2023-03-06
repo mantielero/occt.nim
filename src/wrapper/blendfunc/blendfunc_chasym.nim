@@ -64,11 +64,11 @@ proc isTangencyPoint*(this: BlendFuncChAsym): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_ChAsym.hxx".}
 proc tangentOnS1*(this: BlendFuncChAsym): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnS1", header: "BlendFunc_ChAsym.hxx".}
-proc tangent2dOnS1*(this: BlendFuncChAsym): Vec2dObj {.noSideEffect, cdecl,
+proc tangent2dOnS1*(this: BlendFuncChAsym): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS1", header: "BlendFunc_ChAsym.hxx".}
 proc tangentOnS2*(this: BlendFuncChAsym): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnS2", header: "BlendFunc_ChAsym.hxx".}
-proc tangent2dOnS2*(this: BlendFuncChAsym): Vec2dObj {.noSideEffect, cdecl,
+proc tangent2dOnS2*(this: BlendFuncChAsym): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS2", header: "BlendFunc_ChAsym.hxx".}
 proc twistOnS1*(this: BlendFuncChAsym): bool {.noSideEffect, cdecl,
     importcpp: "TwistOnS1", header: "BlendFunc_ChAsym.hxx".}
@@ -78,7 +78,7 @@ proc tangent*(this: BlendFuncChAsym; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfl
              tgFirst: var gp_Vec; tgLast: var gp_Vec; normFirst: var gp_Vec; normLast: var gp_Vec) {.
     noSideEffect, cdecl, importcpp: "Tangent", header: "BlendFunc_ChAsym.hxx".}
 proc section*(this: var BlendFuncChAsym; param: cfloat; u1: cfloat; v1: cfloat;
-             u2: cfloat; v2: cfloat; pdeb: var cfloat; pfin: var cfloat; c: var LinObj) {.cdecl,
+             u2: cfloat; v2: cfloat; pdeb: var cfloat; pfin: var cfloat; c: var gp_Lin) {.cdecl,
     importcpp: "Section", header: "BlendFunc_ChAsym.hxx".}
 proc isRational*(this: BlendFuncChAsym): bool {.noSideEffect, cdecl,
     importcpp: "IsRational", header: "BlendFunc_ChAsym.hxx".}

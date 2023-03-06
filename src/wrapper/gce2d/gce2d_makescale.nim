@@ -25,7 +25,7 @@ import gce2d_types
 
 
 
-proc newGCE2dMakeScale*(point: Pnt2dObj; scale: cfloat): GCE2dMakeScale {.cdecl,
+proc newGCE2dMakeScale*(point: gp_Pnt2d; scale: cfloat): GCE2dMakeScale {.cdecl,
     constructor, importcpp: "GCE2d_MakeScale(@)", header: "GCE2d_MakeScale.hxx".}
 proc value*(this: GCE2dMakeScale): Handle[Geom2dTransformation] {.noSideEffect,
     cdecl, importcpp: "Value", header: "GCE2d_MakeScale.hxx".}

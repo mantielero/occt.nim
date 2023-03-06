@@ -28,23 +28,23 @@ proc newIntSurfQuadric*(): IntSurfQuadric {.cdecl, constructor,
     importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
 proc newIntSurfQuadric*(p: PlnObj): IntSurfQuadric {.cdecl, constructor,
     importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
-proc newIntSurfQuadric*(c: CylinderObj): IntSurfQuadric {.cdecl, constructor,
+proc newIntSurfQuadric*(c: gp_Cylinder): IntSurfQuadric {.cdecl, constructor,
     importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
-proc newIntSurfQuadric*(s: SphereObj): IntSurfQuadric {.cdecl, constructor,
+proc newIntSurfQuadric*(s: gp_Sphere): IntSurfQuadric {.cdecl, constructor,
     importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
-proc newIntSurfQuadric*(c: ConeObj): IntSurfQuadric {.cdecl, constructor,
+proc newIntSurfQuadric*(c: gp_Cone): IntSurfQuadric {.cdecl, constructor,
     importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
-proc newIntSurfQuadric*(t: TorusObj): IntSurfQuadric {.cdecl, constructor,
+proc newIntSurfQuadric*(t: gp_Torus): IntSurfQuadric {.cdecl, constructor,
     importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
 proc setValue*(this: var IntSurfQuadric; p: PlnObj) {.cdecl, importcpp: "SetValue",
     header: "IntSurf_Quadric.hxx".}
-proc setValue*(this: var IntSurfQuadric; c: CylinderObj) {.cdecl, importcpp: "SetValue",
+proc setValue*(this: var IntSurfQuadric; c: gp_Cylinder) {.cdecl, importcpp: "SetValue",
     header: "IntSurf_Quadric.hxx".}
-proc setValue*(this: var IntSurfQuadric; s: SphereObj) {.cdecl, importcpp: "SetValue",
+proc setValue*(this: var IntSurfQuadric; s: gp_Sphere) {.cdecl, importcpp: "SetValue",
     header: "IntSurf_Quadric.hxx".}
-proc setValue*(this: var IntSurfQuadric; c: ConeObj) {.cdecl, importcpp: "SetValue",
+proc setValue*(this: var IntSurfQuadric; c: gp_Cone) {.cdecl, importcpp: "SetValue",
     header: "IntSurf_Quadric.hxx".}
-proc setValue*(this: var IntSurfQuadric; t: TorusObj) {.cdecl, importcpp: "SetValue",
+proc setValue*(this: var IntSurfQuadric; t: gp_Torus) {.cdecl, importcpp: "SetValue",
     header: "IntSurf_Quadric.hxx".}
 proc distance*(this: IntSurfQuadric; p: gp_Pnt): cfloat {.noSideEffect, cdecl,
     importcpp: "Distance", header: "IntSurf_Quadric.hxx".}
@@ -56,13 +56,13 @@ proc typeQuadric*(this: IntSurfQuadric): GeomAbsSurfaceType {.noSideEffect, cdec
     importcpp: "TypeQuadric", header: "IntSurf_Quadric.hxx".}
 proc plane*(this: IntSurfQuadric): PlnObj {.noSideEffect, cdecl, importcpp: "Plane",
                                      header: "IntSurf_Quadric.hxx".}
-proc sphere*(this: IntSurfQuadric): SphereObj {.noSideEffect, cdecl, importcpp: "Sphere",
+proc sphere*(this: IntSurfQuadric): gp_Sphere {.noSideEffect, cdecl, importcpp: "Sphere",
     header: "IntSurf_Quadric.hxx".}
-proc cylinder*(this: IntSurfQuadric): CylinderObj {.noSideEffect, cdecl,
+proc cylinder*(this: IntSurfQuadric): gp_Cylinder {.noSideEffect, cdecl,
     importcpp: "Cylinder", header: "IntSurf_Quadric.hxx".}
-proc cone*(this: IntSurfQuadric): ConeObj {.noSideEffect, cdecl, importcpp: "Cone",
+proc cone*(this: IntSurfQuadric): gp_Cone {.noSideEffect, cdecl, importcpp: "Cone",
                                      header: "IntSurf_Quadric.hxx".}
-proc torus*(this: IntSurfQuadric): TorusObj {.noSideEffect, cdecl, importcpp: "Torus",
+proc torus*(this: IntSurfQuadric): gp_Torus {.noSideEffect, cdecl, importcpp: "Torus",
                                        header: "IntSurf_Quadric.hxx".}
 proc value*(this: IntSurfQuadric; u: cfloat; v: cfloat): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Value", header: "IntSurf_Quadric.hxx".}

@@ -49,31 +49,31 @@ proc isPeriodic*(this: Adaptor2dHCurve2d): bool {.noSideEffect, cdecl,
     importcpp: "IsPeriodic", header: "Adaptor2d_HCurve2d.hxx".}
 proc period*(this: Adaptor2dHCurve2d): cfloat {.noSideEffect, cdecl,
     importcpp: "Period", header: "Adaptor2d_HCurve2d.hxx".}
-proc value*(this: Adaptor2dHCurve2d; u: cfloat): Pnt2dObj {.noSideEffect, cdecl,
+proc value*(this: Adaptor2dHCurve2d; u: cfloat): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "Value", header: "Adaptor2d_HCurve2d.hxx".}
-proc d0*(this: Adaptor2dHCurve2d; u: cfloat; p: var Pnt2dObj) {.noSideEffect, cdecl,
+proc d0*(this: Adaptor2dHCurve2d; u: cfloat; p: var gp_Pnt2d) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Adaptor2d_HCurve2d.hxx".}
-proc d1*(this: Adaptor2dHCurve2d; u: cfloat; p: var Pnt2dObj; v: var Vec2dObj) {.noSideEffect,
+proc d1*(this: Adaptor2dHCurve2d; u: cfloat; p: var gp_Pnt2d; v: var gp_Vec2d) {.noSideEffect,
     cdecl, importcpp: "D1", header: "Adaptor2d_HCurve2d.hxx".}
-proc d2*(this: Adaptor2dHCurve2d; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj) {.
+proc d2*(this: Adaptor2dHCurve2d; u: cfloat; p: var gp_Pnt2d; v1: var gp_Vec2d; v2: var gp_Vec2d) {.
     noSideEffect, cdecl, importcpp: "D2", header: "Adaptor2d_HCurve2d.hxx".}
-proc d3*(this: Adaptor2dHCurve2d; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj;
-        v3: var Vec2dObj) {.noSideEffect, cdecl, importcpp: "D3", header: "Adaptor2d_HCurve2d.hxx".}
-proc dn*(this: Adaptor2dHCurve2d; u: cfloat; n: cint): Vec2dObj {.noSideEffect, cdecl,
+proc d3*(this: Adaptor2dHCurve2d; u: cfloat; p: var gp_Pnt2d; v1: var gp_Vec2d; v2: var gp_Vec2d;
+        v3: var gp_Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Adaptor2d_HCurve2d.hxx".}
+proc dn*(this: Adaptor2dHCurve2d; u: cfloat; n: cint): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "DN", header: "Adaptor2d_HCurve2d.hxx".}
 proc resolution*(this: Adaptor2dHCurve2d; r3d: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "Resolution", header: "Adaptor2d_HCurve2d.hxx".}
 proc getType*(this: Adaptor2dHCurve2d): GeomAbsCurveType {.noSideEffect, cdecl,
     importcpp: "GetType", header: "Adaptor2d_HCurve2d.hxx".}
-proc line*(this: Adaptor2dHCurve2d): Lin2dObj {.noSideEffect, cdecl, importcpp: "Line",
+proc line*(this: Adaptor2dHCurve2d): gp_Lin2d {.noSideEffect, cdecl, importcpp: "Line",
     header: "Adaptor2d_HCurve2d.hxx".}
-proc circle*(this: Adaptor2dHCurve2d): Circ2dObj {.noSideEffect, cdecl,
+proc circle*(this: Adaptor2dHCurve2d): gp_Circ2d {.noSideEffect, cdecl,
     importcpp: "Circle", header: "Adaptor2d_HCurve2d.hxx".}
-proc ellipse*(this: Adaptor2dHCurve2d): Elips2dObj {.noSideEffect, cdecl,
+proc ellipse*(this: Adaptor2dHCurve2d): gp_Elips2d {.noSideEffect, cdecl,
     importcpp: "Ellipse", header: "Adaptor2d_HCurve2d.hxx".}
-proc hyperbola*(this: Adaptor2dHCurve2d): Hypr2dObj {.noSideEffect, cdecl,
+proc hyperbola*(this: Adaptor2dHCurve2d): gp_Hypr2d {.noSideEffect, cdecl,
     importcpp: "Hyperbola", header: "Adaptor2d_HCurve2d.hxx".}
-proc parabola*(this: Adaptor2dHCurve2d): Parab2dObj {.noSideEffect, cdecl,
+proc parabola*(this: Adaptor2dHCurve2d): gp_Parab2d {.noSideEffect, cdecl,
     importcpp: "Parabola", header: "Adaptor2d_HCurve2d.hxx".}
 proc degree*(this: Adaptor2dHCurve2d): cint {.noSideEffect, cdecl,
     importcpp: "Degree", header: "Adaptor2d_HCurve2d.hxx".}

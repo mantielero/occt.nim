@@ -52,7 +52,7 @@ proc fUN_toolProjPonC2D*(p: gp_Pnt; bac2d: BRepAdaptorCurve2d; pmin: cfloat; pma
 proc fUN_toolProjPonC2D*(p: gp_Pnt; bac2d: BRepAdaptorCurve2d; param: var cfloat;
                         dist: var cfloat): bool {.cdecl,
     importcpp: "FUN_tool_projPonC2D(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc fUN_toolProjPonS*(p: gp_Pnt; s: Handle[GeomSurface]; uv: var Pnt2dObj; dist: var cfloat;
+proc fUN_toolProjPonS*(p: gp_Pnt; s: Handle[GeomSurface]; uv: var gp_Pnt2d; dist: var cfloat;
                       anExtFlag: ExtremaExtFlag = extremaExtFlagMINMAX;
                       anExtAlgo: ExtremaExtAlgo = extremaExtAlgoGrad): bool {.cdecl,
     importcpp: "FUN_tool_projPonS(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
@@ -65,9 +65,9 @@ proc fUN_toolProjPonE*(p: gp_Pnt; tole: cfloat; e: TopoDS_Edge; param: var cfloa
     importcpp: "FUN_tool_projPonE(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 proc fUN_toolProjPonE*(p: gp_Pnt; e: TopoDS_Edge; param: var cfloat; dist: var cfloat): bool {.
     cdecl, importcpp: "FUN_tool_projPonE(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc fUN_toolProjPonboundedF*(p: gp_Pnt; f: TopoDS_Face; uv: var Pnt2dObj; dist: var cfloat): bool {.
+proc fUN_toolProjPonboundedF*(p: gp_Pnt; f: TopoDS_Face; uv: var gp_Pnt2d; dist: var cfloat): bool {.
     cdecl, importcpp: "FUN_tool_projPonboundedF(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc fUN_toolProjPonF*(p: gp_Pnt; f: TopoDS_Face; uv: var Pnt2dObj; dist: var cfloat;
+proc fUN_toolProjPonF*(p: gp_Pnt; f: TopoDS_Face; uv: var gp_Pnt2d; dist: var cfloat;
                       anExtFlag: ExtremaExtFlag = extremaExtFlagMINMAX;
                       anExtAlgo: ExtremaExtAlgo = extremaExtAlgoGrad): bool {.cdecl,
     importcpp: "FUN_tool_projPonF(@)", header: "TopOpeBRepTool_PROJECT.hxx".}

@@ -23,13 +23,13 @@ import ../gp/gp_types
 
 
 
-proc newGceMakeDir2d*(v: Vec2dObj): GceMakeDir2d {.cdecl, constructor,
+proc newGceMakeDir2d*(v: gp_Vec2d): GceMakeDir2d {.cdecl, constructor,
     importcpp: "gce_MakeDir2d(@)", header: "gce_MakeDir2d.hxx".}
 proc newGceMakeDir2d*(coord: XyObj): GceMakeDir2d {.cdecl, constructor,
     importcpp: "gce_MakeDir2d(@)", header: "gce_MakeDir2d.hxx".}
 proc newGceMakeDir2d*(xv: cfloat; yv: cfloat): GceMakeDir2d {.cdecl, constructor,
     importcpp: "gce_MakeDir2d(@)", header: "gce_MakeDir2d.hxx".}
-proc newGceMakeDir2d*(p1: Pnt2dObj; p2: Pnt2dObj): GceMakeDir2d {.cdecl, constructor,
+proc newGceMakeDir2d*(p1: gp_Pnt2d; p2: gp_Pnt2d): GceMakeDir2d {.cdecl, constructor,
     importcpp: "gce_MakeDir2d(@)", header: "gce_MakeDir2d.hxx".}
 proc value*(this: GceMakeDir2d): Dir2dObj {.noSideEffect, cdecl, importcpp: "Value",
                                      header: "gce_MakeDir2d.hxx".}

@@ -25,7 +25,7 @@ import gce2d_types
 
 
 
-proc newGCE2dMakeRotation*(point: Pnt2dObj; angle: cfloat): GCE2dMakeRotation {.cdecl,
+proc newGCE2dMakeRotation*(point: gp_Pnt2d; angle: cfloat): GCE2dMakeRotation {.cdecl,
     constructor, importcpp: "GCE2d_MakeRotation(@)", header: "GCE2d_MakeRotation.hxx".}
 proc value*(this: GCE2dMakeRotation): Handle[Geom2dTransformation] {.noSideEffect,
     cdecl, importcpp: "Value", header: "GCE2d_MakeRotation.hxx".}

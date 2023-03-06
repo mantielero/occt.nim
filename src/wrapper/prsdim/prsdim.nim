@@ -30,7 +30,7 @@ import ../aspect/aspect_types
 
 proc nearest*(aShape: TopoDS_Shape; aPoint: gp_Pnt): gp_Pnt {.cdecl,
     importcpp: "PrsDim::Nearest(@)", header: "PrsDim.hxx".}
-proc nearest*(theLine: LinObj; thePoint: gp_Pnt): gp_Pnt {.cdecl,
+proc nearest*(theLine: gp_Lin; thePoint: gp_Pnt): gp_Pnt {.cdecl,
     importcpp: "PrsDim::Nearest(@)", header: "PrsDim.hxx".}
 proc nearest*(theCurve: Handle[GeomCurve]; thePoint: gp_Pnt; theFirstPoint: gp_Pnt;
              theLastPoint: gp_Pnt; theNearestPoint: var gp_Pnt): bool {.cdecl,
@@ -108,16 +108,16 @@ proc initAngleBetweenCurvilinearFaces*(theFirstFace: TopoDS_Face;
     cdecl, importcpp: "PrsDim::InitAngleBetweenCurvilinearFaces(@)", header: "PrsDim.hxx".}
 proc projectPointOnPlane*(aPoint: gp_Pnt; aPlane: PlnObj): gp_Pnt {.cdecl,
     importcpp: "PrsDim::ProjectPointOnPlane(@)", header: "PrsDim.hxx".}
-proc projectPointOnLine*(aPoint: gp_Pnt; aLine: LinObj): gp_Pnt {.cdecl,
+proc projectPointOnLine*(aPoint: gp_Pnt; aLine: gp_Lin): gp_Pnt {.cdecl,
     importcpp: "PrsDim::ProjectPointOnLine(@)", header: "PrsDim.hxx".}
 proc translatePointToBound*(aPoint: gp_Pnt; aDir: DirObj; aBndBox: BndBox): gp_Pnt {.cdecl,
     importcpp: "PrsDim::TranslatePointToBound(@)", header: "PrsDim.hxx".}
 proc inDomain*(aFirstPar: cfloat; aLastPar: cfloat; anAttachPar: cfloat): bool {.cdecl,
     importcpp: "PrsDim::InDomain(@)", header: "PrsDim.hxx".}
-proc nearestApex*(elips: ElipsObj; pApex: gp_Pnt; nApex: gp_Pnt; fpara: cfloat; lpara: cfloat;
+proc nearestApex*(elips: gp_Elips; pApex: gp_Pnt; nApex: gp_Pnt; fpara: cfloat; lpara: cfloat;
                  isInDomain: var bool): gp_Pnt {.cdecl,
     importcpp: "PrsDim::NearestApex(@)", header: "PrsDim.hxx".}
-proc distanceFromApex*(elips: ElipsObj; apex: gp_Pnt; par: cfloat): cfloat {.cdecl,
+proc distanceFromApex*(elips: gp_Elips; apex: gp_Pnt; par: cfloat): cfloat {.cdecl,
     importcpp: "PrsDim::DistanceFromApex(@)", header: "PrsDim.hxx".}
 proc computeProjEdgePresentation*(aPres: Handle[Prs3dPresentation];
                                  aDrawer: Handle[Prs3dDrawer];

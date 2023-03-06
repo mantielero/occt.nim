@@ -26,19 +26,19 @@ import ../standard/standard_types
 
 
 
-proc newGeom2dParabola*(prb: Parab2dObj): Geom2dParabola {.cdecl, constructor,
+proc newGeom2dParabola*(prb: gp_Parab2d): Geom2dParabola {.cdecl, constructor,
     importcpp: "Geom2d_Parabola(@)", header: "Geom2d_Parabola.hxx".}
 proc newGeom2dParabola*(mirrorAxis: Ax2dObj; focal: cfloat; sense: bool = true): Geom2dParabola {.
     cdecl, constructor, importcpp: "Geom2d_Parabola(@)", header: "Geom2d_Parabola.hxx".}
 proc newGeom2dParabola*(axis: Ax22dObj; focal: cfloat): Geom2dParabola {.cdecl,
     constructor, importcpp: "Geom2d_Parabola(@)", header: "Geom2d_Parabola.hxx".}
-proc newGeom2dParabola*(d: Ax2dObj; f: Pnt2dObj): Geom2dParabola {.cdecl, constructor,
+proc newGeom2dParabola*(d: Ax2dObj; f: gp_Pnt2d): Geom2dParabola {.cdecl, constructor,
     importcpp: "Geom2d_Parabola(@)", header: "Geom2d_Parabola.hxx".}
 proc setFocal*(this: var Geom2dParabola; focal: cfloat) {.cdecl, importcpp: "SetFocal",
     header: "Geom2d_Parabola.hxx".}
-proc setParab2d*(this: var Geom2dParabola; prb: Parab2dObj) {.cdecl,
+proc setParab2d*(this: var Geom2dParabola; prb: gp_Parab2d) {.cdecl,
     importcpp: "SetParab2d", header: "Geom2d_Parabola.hxx".}
-proc parab2d*(this: Geom2dParabola): Parab2dObj {.noSideEffect, cdecl,
+proc parab2d*(this: Geom2dParabola): gp_Parab2d {.noSideEffect, cdecl,
     importcpp: "Parab2d", header: "Geom2d_Parabola.hxx".}
 proc reversedParameter*(this: Geom2dParabola; u: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "ReversedParameter", header: "Geom2d_Parabola.hxx".}
@@ -54,21 +54,21 @@ proc directrix*(this: Geom2dParabola): Ax2dObj {.noSideEffect, cdecl,
     importcpp: "Directrix", header: "Geom2d_Parabola.hxx".}
 proc eccentricity*(this: Geom2dParabola): cfloat {.noSideEffect, cdecl,
     importcpp: "Eccentricity", header: "Geom2d_Parabola.hxx".}
-proc focus*(this: Geom2dParabola): Pnt2dObj {.noSideEffect, cdecl, importcpp: "Focus",
+proc focus*(this: Geom2dParabola): gp_Pnt2d {.noSideEffect, cdecl, importcpp: "Focus",
                                        header: "Geom2d_Parabola.hxx".}
 proc focal*(this: Geom2dParabola): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
                                         header: "Geom2d_Parabola.hxx".}
 proc parameter*(this: Geom2dParabola): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "Geom2d_Parabola.hxx".}
-proc d0*(this: Geom2dParabola; u: cfloat; p: var Pnt2dObj) {.noSideEffect, cdecl,
+proc d0*(this: Geom2dParabola; u: cfloat; p: var gp_Pnt2d) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom2d_Parabola.hxx".}
-proc d1*(this: Geom2dParabola; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj) {.noSideEffect,
+proc d1*(this: Geom2dParabola; u: cfloat; p: var gp_Pnt2d; v1: var gp_Vec2d) {.noSideEffect,
     cdecl, importcpp: "D1", header: "Geom2d_Parabola.hxx".}
-proc d2*(this: Geom2dParabola; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj) {.
+proc d2*(this: Geom2dParabola; u: cfloat; p: var gp_Pnt2d; v1: var gp_Vec2d; v2: var gp_Vec2d) {.
     noSideEffect, cdecl, importcpp: "D2", header: "Geom2d_Parabola.hxx".}
-proc d3*(this: Geom2dParabola; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj;
-        v3: var Vec2dObj) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_Parabola.hxx".}
-proc dn*(this: Geom2dParabola; u: cfloat; n: cint): Vec2dObj {.noSideEffect, cdecl,
+proc d3*(this: Geom2dParabola; u: cfloat; p: var gp_Pnt2d; v1: var gp_Vec2d; v2: var gp_Vec2d;
+        v3: var gp_Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_Parabola.hxx".}
+proc dn*(this: Geom2dParabola; u: cfloat; n: cint): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom2d_Parabola.hxx".}
 proc transform*(this: var Geom2dParabola; t: Trsf2dObj) {.cdecl, importcpp: "Transform",
     header: "Geom2d_Parabola.hxx".}

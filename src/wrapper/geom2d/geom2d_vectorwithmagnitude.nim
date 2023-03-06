@@ -26,15 +26,15 @@ import ../standard/standard_types
 
 
 
-proc newGeom2dVectorWithMagnitude*(v: Vec2dObj): Geom2dVectorWithMagnitude {.cdecl,
+proc newGeom2dVectorWithMagnitude*(v: gp_Vec2d): Geom2dVectorWithMagnitude {.cdecl,
     constructor, importcpp: "Geom2d_VectorWithMagnitude(@)", header: "Geom2d_VectorWithMagnitude.hxx".}
 proc newGeom2dVectorWithMagnitude*(x: cfloat; y: cfloat): Geom2dVectorWithMagnitude {.
     cdecl, constructor, importcpp: "Geom2d_VectorWithMagnitude(@)", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc newGeom2dVectorWithMagnitude*(p1: Pnt2dObj; p2: Pnt2dObj): Geom2dVectorWithMagnitude {.
+proc newGeom2dVectorWithMagnitude*(p1: gp_Pnt2d; p2: gp_Pnt2d): Geom2dVectorWithMagnitude {.
     cdecl, constructor, importcpp: "Geom2d_VectorWithMagnitude(@)", header: "Geom2d_VectorWithMagnitude.hxx".}
 proc setCoord*(this: var Geom2dVectorWithMagnitude; x: cfloat; y: cfloat) {.cdecl,
     importcpp: "SetCoord", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc setVec2d*(this: var Geom2dVectorWithMagnitude; v: Vec2dObj) {.cdecl,
+proc setVec2d*(this: var Geom2dVectorWithMagnitude; v: gp_Vec2d) {.cdecl,
     importcpp: "SetVec2d", header: "Geom2d_VectorWithMagnitude.hxx".}
 proc setX*(this: var Geom2dVectorWithMagnitude; x: cfloat) {.cdecl, importcpp: "SetX",
     header: "Geom2d_VectorWithMagnitude.hxx".}

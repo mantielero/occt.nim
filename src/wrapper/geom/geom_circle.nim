@@ -28,14 +28,14 @@ import geom_types
 
 
 
-proc newGeomCircle*(c: CircObj): GeomCircle {.cdecl, constructor,
+proc newGeomCircle*(c: gp_Circ): GeomCircle {.cdecl, constructor,
                                        importcpp: "Geom_Circle(@)", header: "Geom_Circle.hxx".}
 proc newGeomCircle*(a2: Ax2Obj; radius: cfloat): GeomCircle {.cdecl, constructor,
     importcpp: "Geom_Circle(@)", header: "Geom_Circle.hxx".}
-proc setCirc*(this: var GeomCircle; c: CircObj) {.cdecl, importcpp: "SetCirc", header: "Geom_Circle.hxx".}
+proc setCirc*(this: var GeomCircle; c: gp_Circ) {.cdecl, importcpp: "SetCirc", header: "Geom_Circle.hxx".}
 proc setRadius*(this: var GeomCircle; r: cfloat) {.cdecl, importcpp: "SetRadius",
     header: "Geom_Circle.hxx".}
-proc circ*(this: GeomCircle): CircObj {.noSideEffect, cdecl, importcpp: "Circ",
+proc circ*(this: GeomCircle): gp_Circ {.noSideEffect, cdecl, importcpp: "Circ",
                                  header: "Geom_Circle.hxx".}
 proc radius*(this: GeomCircle): cfloat {.noSideEffect, cdecl, importcpp: "Radius",
                                      header: "Geom_Circle.hxx".}

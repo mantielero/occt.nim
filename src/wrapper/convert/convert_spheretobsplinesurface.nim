@@ -22,14 +22,14 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Sphere"
 
 
-proc newConvertSphereToBSplineSurface*(sph: SphereObj; u1: cfloat; u2: cfloat; v1: cfloat;
+proc newConvertSphereToBSplineSurface*(sph: gp_Sphere; u1: cfloat; u2: cfloat; v1: cfloat;
                                       v2: cfloat): ConvertSphereToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_SphereToBSplineSurface(@)",
     header: "Convert_SphereToBSplineSurface.hxx".}
-proc newConvertSphereToBSplineSurface*(sph: SphereObj; param1: cfloat; param2: cfloat;
+proc newConvertSphereToBSplineSurface*(sph: gp_Sphere; param1: cfloat; param2: cfloat;
                                       uTrim: bool = true): ConvertSphereToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_SphereToBSplineSurface(@)",
     header: "Convert_SphereToBSplineSurface.hxx".}
-proc newConvertSphereToBSplineSurface*(sph: SphereObj): ConvertSphereToBSplineSurface {.
+proc newConvertSphereToBSplineSurface*(sph: gp_Sphere): ConvertSphereToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_SphereToBSplineSurface(@)",
     header: "Convert_SphereToBSplineSurface.hxx".}

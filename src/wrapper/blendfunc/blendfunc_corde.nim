@@ -47,9 +47,9 @@ proc isTangencyPoint*(this: BlendFuncCorde): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_Corde.hxx".}
 proc tangentOnS*(this: BlendFuncCorde): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnS", header: "BlendFunc_Corde.hxx".}
-proc tangent2dOnS*(this: BlendFuncCorde): Vec2dObj {.noSideEffect, cdecl,
+proc tangent2dOnS*(this: BlendFuncCorde): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS", header: "BlendFunc_Corde.hxx".}
-proc derFguide*(this: var BlendFuncCorde; sol: MathVector; derF: var Vec2dObj) {.cdecl,
+proc derFguide*(this: var BlendFuncCorde; sol: MathVector; derF: var gp_Vec2d) {.cdecl,
     importcpp: "DerFguide", header: "BlendFunc_Corde.hxx".}
 proc isSolution*(this: var BlendFuncCorde; sol: MathVector; tol: cfloat): bool {.cdecl,
     importcpp: "IsSolution", header: "BlendFunc_Corde.hxx".}

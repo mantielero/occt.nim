@@ -25,21 +25,21 @@ import gce2d_types
 
 
 
-proc newGCE2dMakeCircle*(c: Circ2dObj): GCE2dMakeCircle {.cdecl, constructor,
+proc newGCE2dMakeCircle*(c: gp_Circ2d): GCE2dMakeCircle {.cdecl, constructor,
     importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
 proc newGCE2dMakeCircle*(a: Ax2dObj; radius: cfloat; sense: bool = true): GCE2dMakeCircle {.
     cdecl, constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
 proc newGCE2dMakeCircle*(a: Ax22dObj; radius: cfloat): GCE2dMakeCircle {.cdecl,
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc newGCE2dMakeCircle*(circ: Circ2dObj; dist: cfloat): GCE2dMakeCircle {.cdecl,
+proc newGCE2dMakeCircle*(circ: gp_Circ2d; dist: cfloat): GCE2dMakeCircle {.cdecl,
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc newGCE2dMakeCircle*(circ: Circ2dObj; point: Pnt2dObj): GCE2dMakeCircle {.cdecl,
+proc newGCE2dMakeCircle*(circ: gp_Circ2d; point: gp_Pnt2d): GCE2dMakeCircle {.cdecl,
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc newGCE2dMakeCircle*(p1: Pnt2dObj; p2: Pnt2dObj; p3: Pnt2dObj): GCE2dMakeCircle {.cdecl,
+proc newGCE2dMakeCircle*(p1: gp_Pnt2d; p2: gp_Pnt2d; p3: gp_Pnt2d): GCE2dMakeCircle {.cdecl,
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc newGCE2dMakeCircle*(p: Pnt2dObj; radius: cfloat; sense: bool = true): GCE2dMakeCircle {.
+proc newGCE2dMakeCircle*(p: gp_Pnt2d; radius: cfloat; sense: bool = true): GCE2dMakeCircle {.
     cdecl, constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc newGCE2dMakeCircle*(center: Pnt2dObj; point: Pnt2dObj; sense: bool = true): GCE2dMakeCircle {.
+proc newGCE2dMakeCircle*(center: gp_Pnt2d; point: gp_Pnt2d; sense: bool = true): GCE2dMakeCircle {.
     cdecl, constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
 proc value*(this: GCE2dMakeCircle): Handle[Geom2dCircle] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GCE2d_MakeCircle.hxx".}

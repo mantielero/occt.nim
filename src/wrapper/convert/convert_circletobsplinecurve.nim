@@ -20,8 +20,8 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Circ2d"
 
 
-proc newConvertCircleToBSplineCurve*(c: Circ2dObj; parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertCircleToBSplineCurve {.
+proc newConvertCircleToBSplineCurve*(c: gp_Circ2d; parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertCircleToBSplineCurve {.
     cdecl, constructor, importcpp: "Convert_CircleToBSplineCurve(@)", header: "Convert_CircleToBSplineCurve.hxx".}
-proc newConvertCircleToBSplineCurve*(c: Circ2dObj; u1: cfloat; u2: cfloat;
+proc newConvertCircleToBSplineCurve*(c: gp_Circ2d; u1: cfloat; u2: cfloat;
     parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertCircleToBSplineCurve {.
     cdecl, constructor, importcpp: "Convert_CircleToBSplineCurve(@)", header: "Convert_CircleToBSplineCurve.hxx".}

@@ -25,9 +25,9 @@ import ../gp/gp_types
 
 proc newGceMakeCirc*(a2: Ax2Obj; radius: cfloat): GceMakeCirc {.cdecl, constructor,
     importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
-proc newGceMakeCirc*(circ: CircObj; dist: cfloat): GceMakeCirc {.cdecl, constructor,
+proc newGceMakeCirc*(circ: gp_Circ; dist: cfloat): GceMakeCirc {.cdecl, constructor,
     importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
-proc newGceMakeCirc*(circ: CircObj; point: gp_Pnt): GceMakeCirc {.cdecl, constructor,
+proc newGceMakeCirc*(circ: gp_Circ; point: gp_Pnt): GceMakeCirc {.cdecl, constructor,
     importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
 proc newGceMakeCirc*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): GceMakeCirc {.cdecl, constructor,
     importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
@@ -39,11 +39,11 @@ proc newGceMakeCirc*(center: gp_Pnt; ptaxis: gp_Pnt; radius: cfloat): GceMakeCir
     constructor, importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
 proc newGceMakeCirc*(axis: Ax1Obj; radius: cfloat): GceMakeCirc {.cdecl, constructor,
     importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
-proc value*(this: GceMakeCirc): CircObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeCirc): gp_Circ {.noSideEffect, cdecl, importcpp: "Value",
                                    header: "gce_MakeCirc.hxx".}
-proc operator*(this: GceMakeCirc): CircObj {.noSideEffect, cdecl, importcpp: "Operator",
+proc operator*(this: GceMakeCirc): gp_Circ {.noSideEffect, cdecl, importcpp: "Operator",
                                       header: "gce_MakeCirc.hxx".}
-converter `circ`*(this: GceMakeCirc): CircObj {.noSideEffect, cdecl,
+converter `circ`*(this: GceMakeCirc): gp_Circ {.noSideEffect, cdecl,
     importcpp: "gce_MakeCirc::operator gp_Circ", header: "gce_MakeCirc.hxx".}
 
 

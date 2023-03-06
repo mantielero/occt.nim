@@ -23,26 +23,26 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Extrema_Curve2dTool"
 discard "forward decl of Extrema_POnCurv2d"
-discard "forward decl of Pnt2dObj"
-discard "forward decl of Vec2dObj"
+discard "forward decl of gp_Pnt2d"
+discard "forward decl of gp_Vec2d"
 discard "forward decl of Extrema_PCLocFOfLocEPCOfLocateExtPC2d"
 
 
 proc newExtrema_LocEPCOfLocateExtPC2d*(): Extrema_LocEPCOfLocateExtPC2d {.cdecl,
     constructor, importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)",
     header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
-proc newExtrema_LocEPCOfLocateExtPC2d*(P: Pnt2dObj; C: Adaptor2d_Curve2d; U0: cfloat;
+proc newExtrema_LocEPCOfLocateExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d; U0: cfloat;
                                       TolU: cfloat): Extrema_LocEPCOfLocateExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)",
     header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
-proc newExtrema_LocEPCOfLocateExtPC2d*(P: Pnt2dObj; C: Adaptor2d_Curve2d; U0: cfloat;
+proc newExtrema_LocEPCOfLocateExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d; U0: cfloat;
                                       Umin: cfloat; Usup: cfloat; TolU: cfloat): Extrema_LocEPCOfLocateExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)",
     header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
 proc Initialize*(this: var Extrema_LocEPCOfLocateExtPC2d; C: Adaptor2d_Curve2d;
                 Umin: cfloat; Usup: cfloat; TolU: cfloat) {.cdecl,
     importcpp: "Initialize", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
-proc Perform*(this: var Extrema_LocEPCOfLocateExtPC2d; P: Pnt2dObj; U0: cfloat) {.cdecl,
+proc Perform*(this: var Extrema_LocEPCOfLocateExtPC2d; P: gp_Pnt2d; U0: cfloat) {.cdecl,
     importcpp: "Perform", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
 proc IsDone*(this: Extrema_LocEPCOfLocateExtPC2d): bool {.noSideEffect, cdecl,
     importcpp: "IsDone", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}

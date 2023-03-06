@@ -37,7 +37,7 @@ proc `z=`*(pnt:var HandleCartesianPointObj; z:SomeNumber) =
 # ===========
 # EXPERIMENTS
 # ===========
-proc newCircle*(c: CircObj): Handle[GeomCircle] {.cdecl, constructor,
+proc newCircle*(c: gp_Circ): Handle[GeomCircle] {.cdecl, constructor,
                                        importcpp: "new Geom_Circle(@)".}#, dynlib: tkg3d.}  #   header: "Geom_Circle.hxx".} 
 
 converter toObj*(val:Handle[GeomCircle]):GeomCircle =

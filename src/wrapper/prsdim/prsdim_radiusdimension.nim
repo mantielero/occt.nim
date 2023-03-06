@@ -25,21 +25,21 @@ import ../topods/topods_types
 
 
 
-proc newPrsDimRadiusDimension*(theCircle: CircObj): PrsDimRadiusDimension {.cdecl,
+proc newPrsDimRadiusDimension*(theCircle: gp_Circ): PrsDimRadiusDimension {.cdecl,
     constructor, importcpp: "PrsDim_RadiusDimension(@)", header: "PrsDim_RadiusDimension.hxx".}
-proc newPrsDimRadiusDimension*(theCircle: CircObj; theAnchorPoint: gp_Pnt): PrsDimRadiusDimension {.
+proc newPrsDimRadiusDimension*(theCircle: gp_Circ; theAnchorPoint: gp_Pnt): PrsDimRadiusDimension {.
     cdecl, constructor, importcpp: "PrsDim_RadiusDimension(@)", header: "PrsDim_RadiusDimension.hxx".}
 proc newPrsDimRadiusDimension*(theShape: TopoDS_Shape): PrsDimRadiusDimension {.
     cdecl, constructor, importcpp: "PrsDim_RadiusDimension(@)", header: "PrsDim_RadiusDimension.hxx".}
-proc circle*(this: PrsDimRadiusDimension): CircObj {.noSideEffect, cdecl,
+proc circle*(this: PrsDimRadiusDimension): gp_Circ {.noSideEffect, cdecl,
     importcpp: "Circle", header: "PrsDim_RadiusDimension.hxx".}
 proc anchorPoint*(this: PrsDimRadiusDimension): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "AnchorPoint", header: "PrsDim_RadiusDimension.hxx".}
 proc shape*(this: PrsDimRadiusDimension): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "Shape", header: "PrsDim_RadiusDimension.hxx".}
-proc setMeasuredGeometry*(this: var PrsDimRadiusDimension; theCircle: CircObj) {.cdecl,
+proc setMeasuredGeometry*(this: var PrsDimRadiusDimension; theCircle: gp_Circ) {.cdecl,
     importcpp: "SetMeasuredGeometry", header: "PrsDim_RadiusDimension.hxx".}
-proc setMeasuredGeometry*(this: var PrsDimRadiusDimension; theCircle: CircObj;
+proc setMeasuredGeometry*(this: var PrsDimRadiusDimension; theCircle: gp_Circ;
                          theAnchorPoint: gp_Pnt; theHasAnchor: bool = true) {.cdecl,
     importcpp: "SetMeasuredGeometry", header: "PrsDim_RadiusDimension.hxx".}
 proc setMeasuredGeometry*(this: var PrsDimRadiusDimension; theShape: TopoDS_Shape) {.

@@ -100,15 +100,15 @@ proc next*(this: ChFiDS_ElSpine): Handle[ChFiDS_SurfData] {.noSideEffect, cdecl,
     importcpp: "Next", header: "ChFiDS_ElSpine.hxx".}
 proc changeNext*(this: var ChFiDS_ElSpine): var Handle[ChFiDS_SurfData] {.cdecl,
     importcpp: "ChangeNext", header: "ChFiDS_ElSpine.hxx".}
-proc line*(this: ChFiDS_ElSpine): LinObj {.noSideEffect, cdecl, importcpp: "Line",
+proc line*(this: ChFiDS_ElSpine): gp_Lin {.noSideEffect, cdecl, importcpp: "Line",
                                     header: "ChFiDS_ElSpine.hxx".}
-proc circle*(this: ChFiDS_ElSpine): CircObj {.noSideEffect, cdecl, importcpp: "Circle",
+proc circle*(this: ChFiDS_ElSpine): gp_Circ {.noSideEffect, cdecl, importcpp: "Circle",
                                        header: "ChFiDS_ElSpine.hxx".}
-proc ellipse*(this: ChFiDS_ElSpine): ElipsObj {.noSideEffect, cdecl,
+proc ellipse*(this: ChFiDS_ElSpine): gp_Elips {.noSideEffect, cdecl,
     importcpp: "Ellipse", header: "ChFiDS_ElSpine.hxx".}
-proc hyperbola*(this: ChFiDS_ElSpine): HyprObj {.noSideEffect, cdecl,
+proc hyperbola*(this: ChFiDS_ElSpine): gp_Hypr {.noSideEffect, cdecl,
     importcpp: "Hyperbola", header: "ChFiDS_ElSpine.hxx".}
-proc parabola*(this: ChFiDS_ElSpine): ParabObj {.noSideEffect, cdecl,
+proc parabola*(this: ChFiDS_ElSpine): gp_Parab {.noSideEffect, cdecl,
     importcpp: "Parabola", header: "ChFiDS_ElSpine.hxx".}
 proc bezier*(this: ChFiDS_ElSpine): Handle[GeomBezierCurve] {.noSideEffect, cdecl,
     importcpp: "Bezier", header: "ChFiDS_ElSpine.hxx".}

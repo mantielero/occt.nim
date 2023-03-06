@@ -28,13 +28,13 @@ proc newGceMakeElips2d*(majorAxis: Ax2dObj; majorRadius: cfloat; minorRadius: cf
     importcpp: "gce_MakeElips2d(@)", header: "gce_MakeElips2d.hxx".}
 proc newGceMakeElips2d*(a: Ax22dObj; majorRadius: cfloat; minorRadius: cfloat): GceMakeElips2d {.
     cdecl, constructor, importcpp: "gce_MakeElips2d(@)", header: "gce_MakeElips2d.hxx".}
-proc newGceMakeElips2d*(s1: Pnt2dObj; s2: Pnt2dObj; center: Pnt2dObj): GceMakeElips2d {.cdecl,
+proc newGceMakeElips2d*(s1: gp_Pnt2d; s2: gp_Pnt2d; center: gp_Pnt2d): GceMakeElips2d {.cdecl,
     constructor, importcpp: "gce_MakeElips2d(@)", header: "gce_MakeElips2d.hxx".}
-proc value*(this: GceMakeElips2d): Elips2dObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeElips2d): gp_Elips2d {.noSideEffect, cdecl, importcpp: "Value",
     header: "gce_MakeElips2d.hxx".}
-proc operator*(this: GceMakeElips2d): Elips2dObj {.noSideEffect, cdecl,
+proc operator*(this: GceMakeElips2d): gp_Elips2d {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeElips2d.hxx".}
-converter `elips2d`*(this: GceMakeElips2d): Elips2dObj {.noSideEffect, cdecl,
+converter `elips2d`*(this: GceMakeElips2d): gp_Elips2d {.noSideEffect, cdecl,
     importcpp: "gce_MakeElips2d::operator gp_Elips2d", header: "gce_MakeElips2d.hxx".}
 
 

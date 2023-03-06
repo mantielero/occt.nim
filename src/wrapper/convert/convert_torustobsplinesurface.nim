@@ -22,14 +22,14 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Torus"
 
 
-proc newConvertTorusToBSplineSurface*(t: TorusObj; u1: cfloat; u2: cfloat; v1: cfloat;
+proc newConvertTorusToBSplineSurface*(t: gp_Torus; u1: cfloat; u2: cfloat; v1: cfloat;
                                      v2: cfloat): ConvertTorusToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_TorusToBSplineSurface(@)",
     header: "Convert_TorusToBSplineSurface.hxx".}
-proc newConvertTorusToBSplineSurface*(t: TorusObj; param1: cfloat; param2: cfloat;
+proc newConvertTorusToBSplineSurface*(t: gp_Torus; param1: cfloat; param2: cfloat;
                                      uTrim: bool = true): ConvertTorusToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_TorusToBSplineSurface(@)",
     header: "Convert_TorusToBSplineSurface.hxx".}
-proc newConvertTorusToBSplineSurface*(t: TorusObj): ConvertTorusToBSplineSurface {.
+proc newConvertTorusToBSplineSurface*(t: gp_Torus): ConvertTorusToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_TorusToBSplineSurface(@)",
     header: "Convert_TorusToBSplineSurface.hxx".}

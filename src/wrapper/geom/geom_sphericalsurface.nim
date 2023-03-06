@@ -30,13 +30,13 @@ import geom_types
 
 proc newGeomSphericalSurface*(a3: Ax3Obj; radius: cfloat): GeomSphericalSurface {.cdecl,
     constructor, importcpp: "Geom_SphericalSurface(@)", header: "Geom_SphericalSurface.hxx".}
-proc newGeomSphericalSurface*(s: SphereObj): GeomSphericalSurface {.cdecl, constructor,
+proc newGeomSphericalSurface*(s: gp_Sphere): GeomSphericalSurface {.cdecl, constructor,
     importcpp: "Geom_SphericalSurface(@)", header: "Geom_SphericalSurface.hxx".}
 proc setRadius*(this: var GeomSphericalSurface; r: cfloat) {.cdecl,
     importcpp: "SetRadius", header: "Geom_SphericalSurface.hxx".}
-proc setSphere*(this: var GeomSphericalSurface; s: SphereObj) {.cdecl,
+proc setSphere*(this: var GeomSphericalSurface; s: gp_Sphere) {.cdecl,
     importcpp: "SetSphere", header: "Geom_SphericalSurface.hxx".}
-proc sphere*(this: GeomSphericalSurface): SphereObj {.noSideEffect, cdecl,
+proc sphere*(this: GeomSphericalSurface): gp_Sphere {.noSideEffect, cdecl,
     importcpp: "Sphere", header: "Geom_SphericalSurface.hxx".}
 proc uReversedParameter*(this: GeomSphericalSurface; u: cfloat): cfloat {.
     noSideEffect, cdecl, importcpp: "UReversedParameter", header: "Geom_SphericalSurface.hxx".}

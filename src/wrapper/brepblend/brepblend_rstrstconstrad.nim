@@ -70,9 +70,9 @@ proc pointOnRst1*(this: BRepBlendRstRstConstRad): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnRst1", header: "BRepBlend_RstRstConstRad.hxx".}
 proc pointOnRst2*(this: BRepBlendRstRstConstRad): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnRst2", header: "BRepBlend_RstRstConstRad.hxx".}
-proc pnt2dOnRst1*(this: BRepBlendRstRstConstRad): Pnt2dObj {.noSideEffect, cdecl,
+proc pnt2dOnRst1*(this: BRepBlendRstRstConstRad): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "Pnt2dOnRst1", header: "BRepBlend_RstRstConstRad.hxx".}
-proc pnt2dOnRst2*(this: BRepBlendRstRstConstRad): Pnt2dObj {.noSideEffect, cdecl,
+proc pnt2dOnRst2*(this: BRepBlendRstRstConstRad): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "Pnt2dOnRst2", header: "BRepBlend_RstRstConstRad.hxx".}
 proc parameterOnRst1*(this: BRepBlendRstRstConstRad): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnRst1", header: "BRepBlend_RstRstConstRad.hxx".}
@@ -82,11 +82,11 @@ proc isTangencyPoint*(this: BRepBlendRstRstConstRad): bool {.noSideEffect, cdecl
     importcpp: "IsTangencyPoint", header: "BRepBlend_RstRstConstRad.hxx".}
 proc tangentOnRst1*(this: BRepBlendRstRstConstRad): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnRst1", header: "BRepBlend_RstRstConstRad.hxx".}
-proc tangent2dOnRst1*(this: BRepBlendRstRstConstRad): Vec2dObj {.noSideEffect, cdecl,
+proc tangent2dOnRst1*(this: BRepBlendRstRstConstRad): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnRst1", header: "BRepBlend_RstRstConstRad.hxx".}
 proc tangentOnRst2*(this: BRepBlendRstRstConstRad): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnRst2", header: "BRepBlend_RstRstConstRad.hxx".}
-proc tangent2dOnRst2*(this: BRepBlendRstRstConstRad): Vec2dObj {.noSideEffect, cdecl,
+proc tangent2dOnRst2*(this: BRepBlendRstRstConstRad): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnRst2", header: "BRepBlend_RstRstConstRad.hxx".}
 proc decroch*(this: BRepBlendRstRstConstRad; sol: MathVector; nRst1: var gp_Vec;
              tgRst1: var gp_Vec; nRst2: var gp_Vec; tgRst2: var gp_Vec): BlendDecrochStatus {.
@@ -99,7 +99,7 @@ proc centerCircleRst1Rst2*(this: BRepBlendRstRstConstRad; ptRst1: gp_Pnt; ptRst2
                           np: gp_Vec; center: var gp_Pnt; vdMed: var gp_Vec): bool {.noSideEffect,
     cdecl, importcpp: "CenterCircleRst1Rst2", header: "BRepBlend_RstRstConstRad.hxx".}
 proc section*(this: var BRepBlendRstRstConstRad; param: cfloat; u: cfloat; v: cfloat;
-             pdeb: var cfloat; pfin: var cfloat; c: var CircObj) {.cdecl,
+             pdeb: var cfloat; pfin: var cfloat; c: var gp_Circ) {.cdecl,
     importcpp: "Section", header: "BRepBlend_RstRstConstRad.hxx".}
 proc isRational*(this: BRepBlendRstRstConstRad): bool {.noSideEffect, cdecl,
     importcpp: "IsRational", header: "BRepBlend_RstRstConstRad.hxx".}

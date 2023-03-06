@@ -27,11 +27,11 @@ proc newGceMakeParab*(a2: Ax2Obj; focal: cfloat): GceMakeParab {.cdecl, construc
     importcpp: "gce_MakeParab(@)", header: "gce_MakeParab.hxx".}
 proc newGceMakeParab*(d: Ax1Obj; f: gp_Pnt): GceMakeParab {.cdecl, constructor,
     importcpp: "gce_MakeParab(@)", header: "gce_MakeParab.hxx".}
-proc value*(this: GceMakeParab): ParabObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeParab): gp_Parab {.noSideEffect, cdecl, importcpp: "Value",
                                      header: "gce_MakeParab.hxx".}
-proc operator*(this: GceMakeParab): ParabObj {.noSideEffect, cdecl,
+proc operator*(this: GceMakeParab): gp_Parab {.noSideEffect, cdecl,
                                         importcpp: "Operator", header: "gce_MakeParab.hxx".}
-converter `parab`*(this: GceMakeParab): ParabObj {.noSideEffect, cdecl,
+converter `parab`*(this: GceMakeParab): gp_Parab {.noSideEffect, cdecl,
     importcpp: "gce_MakeParab::operator gp_Parab", header: "gce_MakeParab.hxx".}
 
 

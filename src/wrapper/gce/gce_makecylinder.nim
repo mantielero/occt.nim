@@ -25,21 +25,21 @@ import ../gp/gp_types
 
 proc cylinder*(a2: Ax2Obj; radius: cfloat): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
-proc cylinder*(cyl: CylinderObj; point: gp_Pnt): GceMakeCylinder {.cdecl,
+proc cylinder*(cyl: gp_Cylinder; point: gp_Pnt): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
-proc cylinder*(cyl: CylinderObj; dist: cfloat): GceMakeCylinder {.cdecl,
+proc cylinder*(cyl: gp_Cylinder; dist: cfloat): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
 proc cylinder*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
 proc cylinder*(axis: Ax1Obj; radius: cfloat): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
-proc cylinder*(circ: CircObj): GceMakeCylinder {.cdecl, constructor,
+proc cylinder*(circ: gp_Circ): GceMakeCylinder {.cdecl, constructor,
     importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
-proc value*(this: GceMakeCylinder): CylinderObj {.noSideEffect, cdecl,
+proc value*(this: GceMakeCylinder): gp_Cylinder {.noSideEffect, cdecl,
     importcpp: "Value", header: "gce_MakeCylinder.hxx".}
-proc operator*(this: GceMakeCylinder): CylinderObj {.noSideEffect, cdecl,
+proc operator*(this: GceMakeCylinder): gp_Cylinder {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeCylinder.hxx".}
-converter `cylinder`*(this: GceMakeCylinder): CylinderObj {.noSideEffect, cdecl,
+converter `cylinder`*(this: GceMakeCylinder): gp_Cylinder {.noSideEffect, cdecl,
     importcpp: "gce_MakeCylinder::operator gp_Cylinder", header: "gce_MakeCylinder.hxx".}
 
 

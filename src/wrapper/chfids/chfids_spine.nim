@@ -121,9 +121,9 @@ proc currentIndexOfElementarySpine*(this: ChFiDS_Spine): cint {.noSideEffect, cd
     importcpp: "CurrentIndexOfElementarySpine", header: "ChFiDS_Spine.hxx".}
 proc getType*(this: ChFiDS_Spine): GeomAbsCurveType {.noSideEffect, cdecl,
     importcpp: "GetType", header: "ChFiDS_Spine.hxx".}
-proc line*(this: ChFiDS_Spine): LinObj {.noSideEffect, cdecl, importcpp: "Line",
+proc line*(this: ChFiDS_Spine): gp_Lin {.noSideEffect, cdecl, importcpp: "Line",
                                   header: "ChFiDS_Spine.hxx".}
-proc circle*(this: ChFiDS_Spine): CircObj {.noSideEffect, cdecl, importcpp: "Circle",
+proc circle*(this: ChFiDS_Spine): gp_Circ {.noSideEffect, cdecl, importcpp: "Circle",
                                      header: "ChFiDS_Spine.hxx".}
 proc firstStatus*(this: ChFiDS_Spine): ChFiDS_State {.noSideEffect, cdecl,
     importcpp: "FirstStatus", header: "ChFiDS_Spine.hxx".}

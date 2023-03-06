@@ -28,17 +28,17 @@ import geom_types
 
 
 
-proc newGeomHyperbola*(h: HyprObj): GeomHyperbola {.cdecl, constructor,
+proc newGeomHyperbola*(h: gp_Hypr): GeomHyperbola {.cdecl, constructor,
     importcpp: "Geom_Hyperbola(@)", header: "Geom_Hyperbola.hxx".}
 proc newGeomHyperbola*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): GeomHyperbola {.
     cdecl, constructor, importcpp: "Geom_Hyperbola(@)", header: "Geom_Hyperbola.hxx".}
-proc setHypr*(this: var GeomHyperbola; h: HyprObj) {.cdecl, importcpp: "SetHypr",
+proc setHypr*(this: var GeomHyperbola; h: gp_Hypr) {.cdecl, importcpp: "SetHypr",
     header: "Geom_Hyperbola.hxx".}
 proc setMajorRadius*(this: var GeomHyperbola; majorRadius: cfloat) {.cdecl,
     importcpp: "SetMajorRadius", header: "Geom_Hyperbola.hxx".}
 proc setMinorRadius*(this: var GeomHyperbola; minorRadius: cfloat) {.cdecl,
     importcpp: "SetMinorRadius", header: "Geom_Hyperbola.hxx".}
-proc hypr*(this: GeomHyperbola): HyprObj {.noSideEffect, cdecl, importcpp: "Hypr",
+proc hypr*(this: GeomHyperbola): gp_Hypr {.noSideEffect, cdecl, importcpp: "Hypr",
                                     header: "Geom_Hyperbola.hxx".}
 proc reversedParameter*(this: GeomHyperbola; u: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "ReversedParameter", header: "Geom_Hyperbola.hxx".}
@@ -54,9 +54,9 @@ proc asymptote1*(this: GeomHyperbola): Ax1Obj {.noSideEffect, cdecl,
     importcpp: "Asymptote1", header: "Geom_Hyperbola.hxx".}
 proc asymptote2*(this: GeomHyperbola): Ax1Obj {.noSideEffect, cdecl,
     importcpp: "Asymptote2", header: "Geom_Hyperbola.hxx".}
-proc conjugateBranch1*(this: GeomHyperbola): HyprObj {.noSideEffect, cdecl,
+proc conjugateBranch1*(this: GeomHyperbola): gp_Hypr {.noSideEffect, cdecl,
     importcpp: "ConjugateBranch1", header: "Geom_Hyperbola.hxx".}
-proc conjugateBranch2*(this: GeomHyperbola): HyprObj {.noSideEffect, cdecl,
+proc conjugateBranch2*(this: GeomHyperbola): gp_Hypr {.noSideEffect, cdecl,
     importcpp: "ConjugateBranch2", header: "Geom_Hyperbola.hxx".}
 proc directrix1*(this: GeomHyperbola): Ax1Obj {.noSideEffect, cdecl,
     importcpp: "Directrix1", header: "Geom_Hyperbola.hxx".}
@@ -74,7 +74,7 @@ proc majorRadius*(this: GeomHyperbola): cfloat {.noSideEffect, cdecl,
     importcpp: "MajorRadius", header: "Geom_Hyperbola.hxx".}
 proc minorRadius*(this: GeomHyperbola): cfloat {.noSideEffect, cdecl,
     importcpp: "MinorRadius", header: "Geom_Hyperbola.hxx".}
-proc otherBranch*(this: GeomHyperbola): HyprObj {.noSideEffect, cdecl,
+proc otherBranch*(this: GeomHyperbola): gp_Hypr {.noSideEffect, cdecl,
     importcpp: "OtherBranch", header: "Geom_Hyperbola.hxx".}
 proc parameter*(this: GeomHyperbola): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "Geom_Hyperbola.hxx".}

@@ -106,13 +106,13 @@ proc getType*(this: BRepAdaptorSurface): GeomAbsSurfaceType {.noSideEffect, cdec
     importcpp: "GetType", header: "BRepAdaptor_Surface.hxx".}
 proc plane*(this: BRepAdaptorSurface): PlnObj {.noSideEffect, cdecl, importcpp: "Plane",
     header: "BRepAdaptor_Surface.hxx".}
-proc cylinder*(this: BRepAdaptorSurface): CylinderObj {.noSideEffect, cdecl,
+proc cylinder*(this: BRepAdaptorSurface): gp_Cylinder {.noSideEffect, cdecl,
     importcpp: "Cylinder", header: "BRepAdaptor_Surface.hxx".}
-proc cone*(this: BRepAdaptorSurface): ConeObj {.noSideEffect, cdecl, importcpp: "Cone",
+proc cone*(this: BRepAdaptorSurface): gp_Cone {.noSideEffect, cdecl, importcpp: "Cone",
     header: "BRepAdaptor_Surface.hxx".}
-proc sphere*(this: BRepAdaptorSurface): SphereObj {.noSideEffect, cdecl,
+proc sphere*(this: BRepAdaptorSurface): gp_Sphere {.noSideEffect, cdecl,
     importcpp: "Sphere", header: "BRepAdaptor_Surface.hxx".}
-proc torus*(this: BRepAdaptorSurface): TorusObj {.noSideEffect, cdecl,
+proc torus*(this: BRepAdaptorSurface): gp_Torus {.noSideEffect, cdecl,
     importcpp: "Torus", header: "BRepAdaptor_Surface.hxx".}
 proc uDegree*(this: BRepAdaptorSurface): cint {.noSideEffect, cdecl,
     importcpp: "UDegree", header: "BRepAdaptor_Surface.hxx".}

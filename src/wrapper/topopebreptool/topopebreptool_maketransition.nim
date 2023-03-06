@@ -28,7 +28,7 @@ import ../topods/topods_types
 proc newTopOpeBRepToolMakeTransition*(): TopOpeBRepToolMakeTransition {.cdecl,
     constructor, importcpp: "TopOpeBRepTool_makeTransition(@)", header: "TopOpeBRepTool_makeTransition.hxx".}
 proc initialize*(this: var TopOpeBRepToolMakeTransition; e: TopoDS_Edge; pbef: cfloat;
-                paft: cfloat; parE: cfloat; fs: TopoDS_Face; uv: Pnt2dObj; factor: cfloat): bool {.
+                paft: cfloat; parE: cfloat; fs: TopoDS_Face; uv: gp_Pnt2d; factor: cfloat): bool {.
     cdecl, importcpp: "Initialize", header: "TopOpeBRepTool_makeTransition.hxx".}
 proc setfactor*(this: var TopOpeBRepToolMakeTransition; factor: cfloat) {.cdecl,
     importcpp: "Setfactor", header: "TopOpeBRepTool_makeTransition.hxx".}

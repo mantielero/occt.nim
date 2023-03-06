@@ -24,19 +24,19 @@ discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Extrema_Curve2dTool"
 discard "forward decl of Extrema_POnCurv2d"
-discard "forward decl of Pnt2dObj"
-discard "forward decl of Vec2dObj"
+discard "forward decl of gp_Pnt2d"
+discard "forward decl of gp_Vec2d"
 discard "forward decl of Extrema_PCFOfEPCOfELPCOfLocateExtPC2d"
 
 
 proc newExtrema_EPCOfELPCOfLocateExtPC2d*(): Extrema_EPCOfELPCOfLocateExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_EPCOfELPCOfLocateExtPC2d(@)",
     header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
-proc newExtrema_EPCOfELPCOfLocateExtPC2d*(P: Pnt2dObj; C: Adaptor2d_Curve2d;
+proc newExtrema_EPCOfELPCOfLocateExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d;
     NbU: cint; TolU: cfloat; TolF: cfloat): Extrema_EPCOfELPCOfLocateExtPC2d {.cdecl,
     constructor, importcpp: "Extrema_EPCOfELPCOfLocateExtPC2d(@)",
     header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
-proc newExtrema_EPCOfELPCOfLocateExtPC2d*(P: Pnt2dObj; C: Adaptor2d_Curve2d;
+proc newExtrema_EPCOfELPCOfLocateExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d;
     NbU: cint; Umin: cfloat; Usup: cfloat; TolU: cfloat; TolF: cfloat): Extrema_EPCOfELPCOfLocateExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_EPCOfELPCOfLocateExtPC2d(@)",
     header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
@@ -51,7 +51,7 @@ proc Initialize*(this: var Extrema_EPCOfELPCOfLocateExtPC2d; C: Adaptor2d_Curve2
 proc Initialize*(this: var Extrema_EPCOfELPCOfLocateExtPC2d; NbU: cint; Umin: cfloat;
                 Usup: cfloat; TolU: cfloat; TolF: cfloat) {.cdecl,
     importcpp: "Initialize", header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
-proc Perform*(this: var Extrema_EPCOfELPCOfLocateExtPC2d; P: Pnt2dObj) {.cdecl,
+proc Perform*(this: var Extrema_EPCOfELPCOfLocateExtPC2d; P: gp_Pnt2d) {.cdecl,
     importcpp: "Perform", header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
 proc IsDone*(this: Extrema_EPCOfELPCOfLocateExtPC2d): bool {.noSideEffect, cdecl,
     importcpp: "IsDone", header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}

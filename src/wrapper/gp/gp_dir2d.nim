@@ -23,7 +23,7 @@ discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Trsf2d"
 
 proc dir2d*(): Dir2dObj {.cdecl, constructor, importcpp: "gp_Dir2d(@)", header: "gp_Dir2d.hxx".}
-proc dir2d*(v: Vec2dObj): Dir2dObj {.cdecl, constructor, importcpp: "gp_Dir2d(@)",
+proc dir2d*(v: gp_Vec2d): Dir2dObj {.cdecl, constructor, importcpp: "gp_Dir2d(@)",
                               header: "gp_Dir2d.hxx".}
 proc dir2d*(coord: XyObj): Dir2dObj {.cdecl, constructor, importcpp: "gp_Dir2d(@)",
                                header: "gp_Dir2d.hxx".}

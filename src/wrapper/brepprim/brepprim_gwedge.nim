@@ -79,7 +79,7 @@ proc hasEdge*(this: BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection
     noSideEffect, cdecl, importcpp: "HasEdge", header: "BRepPrim_GWedge.hxx".}
 proc edge*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection): TopoDS_Edge {.
     cdecl, importcpp: "Edge", header: "BRepPrim_GWedge.hxx".}
-proc line*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection): LinObj {.
+proc line*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection): gp_Lin {.
     cdecl, importcpp: "Line", header: "BRepPrim_GWedge.hxx".}
 proc hasVertex*(this: BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection;
                d3: BRepPrimDirection): bool {.noSideEffect, cdecl,

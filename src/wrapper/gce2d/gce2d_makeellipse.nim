@@ -25,14 +25,14 @@ import gce2d_types
 
 
 
-proc newGCE2dMakeEllipse*(e: Elips2dObj): GCE2dMakeEllipse {.cdecl, constructor,
+proc newGCE2dMakeEllipse*(e: gp_Elips2d): GCE2dMakeEllipse {.cdecl, constructor,
     importcpp: "GCE2d_MakeEllipse(@)", header: "GCE2d_MakeEllipse.hxx".}
 proc newGCE2dMakeEllipse*(majorAxis: Ax2dObj; majorRadius: cfloat; minorRadius: cfloat;
                          sense: bool = true): GCE2dMakeEllipse {.cdecl, constructor,
     importcpp: "GCE2d_MakeEllipse(@)", header: "GCE2d_MakeEllipse.hxx".}
 proc newGCE2dMakeEllipse*(axis: Ax22dObj; majorRadius: cfloat; minorRadius: cfloat): GCE2dMakeEllipse {.
     cdecl, constructor, importcpp: "GCE2d_MakeEllipse(@)", header: "GCE2d_MakeEllipse.hxx".}
-proc newGCE2dMakeEllipse*(s1: Pnt2dObj; s2: Pnt2dObj; center: Pnt2dObj): GCE2dMakeEllipse {.
+proc newGCE2dMakeEllipse*(s1: gp_Pnt2d; s2: gp_Pnt2d; center: gp_Pnt2d): GCE2dMakeEllipse {.
     cdecl, constructor, importcpp: "GCE2d_MakeEllipse(@)", header: "GCE2d_MakeEllipse.hxx".}
 proc value*(this: GCE2dMakeEllipse): Handle[Geom2dEllipse] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GCE2d_MakeEllipse.hxx".}

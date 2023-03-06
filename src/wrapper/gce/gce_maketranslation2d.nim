@@ -23,9 +23,9 @@ import ../gp/gp_types
 
 
 
-proc newGceMakeTranslation2d*(vect: Vec2dObj): GceMakeTranslation2d {.cdecl,
+proc newGceMakeTranslation2d*(vect: gp_Vec2d): GceMakeTranslation2d {.cdecl,
     constructor, importcpp: "gce_MakeTranslation2d(@)", header: "gce_MakeTranslation2d.hxx".}
-proc newGceMakeTranslation2d*(point1: Pnt2dObj; point2: Pnt2dObj): GceMakeTranslation2d {.
+proc newGceMakeTranslation2d*(point1: gp_Pnt2d; point2: gp_Pnt2d): GceMakeTranslation2d {.
     cdecl, constructor, importcpp: "gce_MakeTranslation2d(@)", header: "gce_MakeTranslation2d.hxx".}
 proc value*(this: GceMakeTranslation2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "Value", header: "gce_MakeTranslation2d.hxx".}

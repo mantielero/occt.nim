@@ -36,10 +36,10 @@ proc newGeom2dBezierCurve*(curvePoles: TColgpArray1OfPnt2d;
     cdecl, constructor, importcpp: "Geom2d_BezierCurve(@)", header: "Geom2d_BezierCurve.hxx".}
 proc increase*(this: var Geom2dBezierCurve; degree: cint) {.cdecl,
     importcpp: "Increase", header: "Geom2d_BezierCurve.hxx".}
-proc insertPoleAfter*(this: var Geom2dBezierCurve; index: cint; p: Pnt2dObj;
+proc insertPoleAfter*(this: var Geom2dBezierCurve; index: cint; p: gp_Pnt2d;
                      weight: cfloat = 1.0) {.cdecl, importcpp: "InsertPoleAfter",
     header: "Geom2d_BezierCurve.hxx".}
-proc insertPoleBefore*(this: var Geom2dBezierCurve; index: cint; p: Pnt2dObj;
+proc insertPoleBefore*(this: var Geom2dBezierCurve; index: cint; p: gp_Pnt2d;
                       weight: cfloat = 1.0) {.cdecl, importcpp: "InsertPoleBefore",
     header: "Geom2d_BezierCurve.hxx".}
 proc removePole*(this: var Geom2dBezierCurve; index: cint) {.cdecl,
@@ -49,9 +49,9 @@ proc reversedParameter*(this: Geom2dBezierCurve; u: cfloat): cfloat {.noSideEffe
     cdecl, importcpp: "ReversedParameter", header: "Geom2d_BezierCurve.hxx".}
 proc segment*(this: var Geom2dBezierCurve; u1: cfloat; u2: cfloat) {.cdecl,
     importcpp: "Segment", header: "Geom2d_BezierCurve.hxx".}
-proc setPole*(this: var Geom2dBezierCurve; index: cint; p: Pnt2dObj) {.cdecl,
+proc setPole*(this: var Geom2dBezierCurve; index: cint; p: gp_Pnt2d) {.cdecl,
     importcpp: "SetPole", header: "Geom2d_BezierCurve.hxx".}
-proc setPole*(this: var Geom2dBezierCurve; index: cint; p: Pnt2dObj; weight: cfloat) {.cdecl,
+proc setPole*(this: var Geom2dBezierCurve; index: cint; p: gp_Pnt2d; weight: cfloat) {.cdecl,
     importcpp: "SetPole", header: "Geom2d_BezierCurve.hxx".}
 proc setWeight*(this: var Geom2dBezierCurve; index: cint; weight: cfloat) {.cdecl,
     importcpp: "SetWeight", header: "Geom2d_BezierCurve.hxx".}
@@ -67,17 +67,17 @@ proc continuity*(this: Geom2dBezierCurve): GeomAbsShape {.noSideEffect, cdecl,
     importcpp: "Continuity", header: "Geom2d_BezierCurve.hxx".}
 proc degree*(this: Geom2dBezierCurve): cint {.noSideEffect, cdecl,
     importcpp: "Degree", header: "Geom2d_BezierCurve.hxx".}
-proc d0*(this: Geom2dBezierCurve; u: cfloat; p: var Pnt2dObj) {.noSideEffect, cdecl,
+proc d0*(this: Geom2dBezierCurve; u: cfloat; p: var gp_Pnt2d) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom2d_BezierCurve.hxx".}
-proc d1*(this: Geom2dBezierCurve; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj) {.noSideEffect,
+proc d1*(this: Geom2dBezierCurve; u: cfloat; p: var gp_Pnt2d; v1: var gp_Vec2d) {.noSideEffect,
     cdecl, importcpp: "D1", header: "Geom2d_BezierCurve.hxx".}
-proc d2*(this: Geom2dBezierCurve; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj) {.
+proc d2*(this: Geom2dBezierCurve; u: cfloat; p: var gp_Pnt2d; v1: var gp_Vec2d; v2: var gp_Vec2d) {.
     noSideEffect, cdecl, importcpp: "D2", header: "Geom2d_BezierCurve.hxx".}
-proc d3*(this: Geom2dBezierCurve; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj;
-        v3: var Vec2dObj) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_BezierCurve.hxx".}
-proc dn*(this: Geom2dBezierCurve; u: cfloat; n: cint): Vec2dObj {.noSideEffect, cdecl,
+proc d3*(this: Geom2dBezierCurve; u: cfloat; p: var gp_Pnt2d; v1: var gp_Vec2d; v2: var gp_Vec2d;
+        v3: var gp_Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_BezierCurve.hxx".}
+proc dn*(this: Geom2dBezierCurve; u: cfloat; n: cint): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom2d_BezierCurve.hxx".}
-proc endPoint*(this: Geom2dBezierCurve): Pnt2dObj {.noSideEffect, cdecl,
+proc endPoint*(this: Geom2dBezierCurve): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "EndPoint", header: "Geom2d_BezierCurve.hxx".}
 proc firstParameter*(this: Geom2dBezierCurve): cfloat {.noSideEffect, cdecl,
     importcpp: "FirstParameter", header: "Geom2d_BezierCurve.hxx".}
@@ -85,13 +85,13 @@ proc lastParameter*(this: Geom2dBezierCurve): cfloat {.noSideEffect, cdecl,
     importcpp: "LastParameter", header: "Geom2d_BezierCurve.hxx".}
 proc nbPoles*(this: Geom2dBezierCurve): cint {.noSideEffect, cdecl,
     importcpp: "NbPoles", header: "Geom2d_BezierCurve.hxx".}
-proc pole*(this: Geom2dBezierCurve; index: cint): Pnt2dObj {.noSideEffect, cdecl,
+proc pole*(this: Geom2dBezierCurve; index: cint): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "Pole", header: "Geom2d_BezierCurve.hxx".}
 proc poles*(this: Geom2dBezierCurve; p: var TColgpArray1OfPnt2d) {.noSideEffect, cdecl,
     importcpp: "Poles", header: "Geom2d_BezierCurve.hxx".}
 proc poles*(this: Geom2dBezierCurve): TColgpArray1OfPnt2d {.noSideEffect, cdecl,
     importcpp: "Poles", header: "Geom2d_BezierCurve.hxx".}
-proc startPoint*(this: Geom2dBezierCurve): Pnt2dObj {.noSideEffect, cdecl,
+proc startPoint*(this: Geom2dBezierCurve): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "StartPoint", header: "Geom2d_BezierCurve.hxx".}
 proc weight*(this: Geom2dBezierCurve; index: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "Weight", header: "Geom2d_BezierCurve.hxx".}

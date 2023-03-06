@@ -42,9 +42,9 @@ proc setPoint*(this: var AppParCurvesMultiPoint; index: cint; point: gp_Pnt) {.c
     importcpp: "SetPoint", header: "AppParCurves_MultiPoint.hxx".}
 proc point*(this: AppParCurvesMultiPoint; index: cint): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "Point", header: "AppParCurves_MultiPoint.hxx".}
-proc setPoint2d*(this: var AppParCurvesMultiPoint; index: cint; point: Pnt2dObj) {.cdecl,
+proc setPoint2d*(this: var AppParCurvesMultiPoint; index: cint; point: gp_Pnt2d) {.cdecl,
     importcpp: "SetPoint2d", header: "AppParCurves_MultiPoint.hxx".}
-proc point2d*(this: AppParCurvesMultiPoint; index: cint): Pnt2dObj {.noSideEffect, cdecl,
+proc point2d*(this: AppParCurvesMultiPoint; index: cint): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "Point2d", header: "AppParCurves_MultiPoint.hxx".}
 proc dimension*(this: AppParCurvesMultiPoint; index: cint): cint {.noSideEffect, cdecl,
     importcpp: "Dimension", header: "AppParCurves_MultiPoint.hxx".}

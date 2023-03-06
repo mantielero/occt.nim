@@ -21,8 +21,8 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Cone"
 
 
-proc newConvertConeToBSplineSurface*(c: ConeObj; u1: cfloat; u2: cfloat; v1: cfloat;
+proc newConvertConeToBSplineSurface*(c: gp_Cone; u1: cfloat; u2: cfloat; v1: cfloat;
                                     v2: cfloat): ConvertConeToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_ConeToBSplineSurface(@)", header: "Convert_ConeToBSplineSurface.hxx".}
-proc newConvertConeToBSplineSurface*(c: ConeObj; v1: cfloat; v2: cfloat): ConvertConeToBSplineSurface {.
+proc newConvertConeToBSplineSurface*(c: gp_Cone; v1: cfloat; v2: cfloat): ConvertConeToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_ConeToBSplineSurface(@)", header: "Convert_ConeToBSplineSurface.hxx".}

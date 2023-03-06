@@ -61,15 +61,15 @@ proc setViewport*(this: var SelectMgrBaseFrustum; theX: cfloat; theY: cfloat;
 proc setBuilder*(this: var SelectMgrBaseFrustum;
                 theBuilder: Handle[SelectMgrFrustumBuilder]) {.cdecl,
     importcpp: "SetBuilder", header: "SelectMgr_BaseFrustum.hxx".}
-proc build*(this: var SelectMgrBaseFrustum; a2: Pnt2dObj) {.cdecl, importcpp: "Build",
+proc build*(this: var SelectMgrBaseFrustum; a2: gp_Pnt2d) {.cdecl, importcpp: "Build",
     header: "SelectMgr_BaseFrustum.hxx".}
   ## thePoint
-proc build*(this: var SelectMgrBaseFrustum; a2: Pnt2dObj; ## theMinPt
-           a3: Pnt2dObj) {.cdecl, importcpp: "Build", header: "SelectMgr_BaseFrustum.hxx".}
+proc build*(this: var SelectMgrBaseFrustum; a2: gp_Pnt2d; ## theMinPt
+           a3: gp_Pnt2d) {.cdecl, importcpp: "Build", header: "SelectMgr_BaseFrustum.hxx".}
   ## theMaxPt
-proc build*(this: var SelectMgrBaseFrustum; a2: Pnt2dObj; ## theP1
-           a3: Pnt2dObj;          ## theP2
-           a4: Pnt2dObj) {.cdecl, importcpp: "Build", header: "SelectMgr_BaseFrustum.hxx".}
+proc build*(this: var SelectMgrBaseFrustum; a2: gp_Pnt2d; ## theP1
+           a3: gp_Pnt2d;          ## theP2
+           a4: gp_Pnt2d) {.cdecl, importcpp: "Build", header: "SelectMgr_BaseFrustum.hxx".}
   ## theP3
 proc build*(this: var SelectMgrBaseFrustum; a2: TColgpArray1OfPnt2d) {.cdecl,
     importcpp: "Build", header: "SelectMgr_BaseFrustum.hxx".}

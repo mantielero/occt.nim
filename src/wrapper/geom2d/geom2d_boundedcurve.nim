@@ -26,9 +26,9 @@ import ../standard/standard_types
 
 
 
-proc endPoint*(this: Geom2dBoundedCurve): Pnt2dObj {.noSideEffect, cdecl,
+proc endPoint*(this: Geom2dBoundedCurve): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "EndPoint", header: "Geom2d_BoundedCurve.hxx".}
-proc startPoint*(this: Geom2dBoundedCurve): Pnt2dObj {.noSideEffect, cdecl,
+proc startPoint*(this: Geom2dBoundedCurve): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "StartPoint", header: "Geom2d_BoundedCurve.hxx".}
 proc dumpJson*(this: Geom2dBoundedCurve; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",

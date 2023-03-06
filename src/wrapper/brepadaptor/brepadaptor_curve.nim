@@ -90,15 +90,15 @@ proc resolution*(this: BRepAdaptorCurve; r3d: cfloat): cfloat {.noSideEffect, cd
     importcpp: "Resolution", header: "BRepAdaptor_Curve.hxx".}
 proc getType*(this: BRepAdaptorCurve): GeomAbsCurveType {.noSideEffect, cdecl,
     importcpp: "GetType", header: "BRepAdaptor_Curve.hxx".}
-proc line*(this: BRepAdaptorCurve): LinObj {.noSideEffect, cdecl, importcpp: "Line",
+proc line*(this: BRepAdaptorCurve): gp_Lin {.noSideEffect, cdecl, importcpp: "Line",
                                       header: "BRepAdaptor_Curve.hxx".}
-proc circle*(this: BRepAdaptorCurve): CircObj {.noSideEffect, cdecl, importcpp: "Circle",
+proc circle*(this: BRepAdaptorCurve): gp_Circ {.noSideEffect, cdecl, importcpp: "Circle",
     header: "BRepAdaptor_Curve.hxx".}
-proc ellipse*(this: BRepAdaptorCurve): ElipsObj {.noSideEffect, cdecl,
+proc ellipse*(this: BRepAdaptorCurve): gp_Elips {.noSideEffect, cdecl,
     importcpp: "Ellipse", header: "BRepAdaptor_Curve.hxx".}
-proc hyperbola*(this: BRepAdaptorCurve): HyprObj {.noSideEffect, cdecl,
+proc hyperbola*(this: BRepAdaptorCurve): gp_Hypr {.noSideEffect, cdecl,
     importcpp: "Hyperbola", header: "BRepAdaptor_Curve.hxx".}
-proc parabola*(this: BRepAdaptorCurve): ParabObj {.noSideEffect, cdecl,
+proc parabola*(this: BRepAdaptorCurve): gp_Parab {.noSideEffect, cdecl,
     importcpp: "Parabola", header: "BRepAdaptor_Curve.hxx".}
 proc degree*(this: BRepAdaptorCurve): cint {.noSideEffect, cdecl, importcpp: "Degree",
     header: "BRepAdaptor_Curve.hxx".}

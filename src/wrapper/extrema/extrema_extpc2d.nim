@@ -24,24 +24,24 @@ discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Extrema_Curve2dTool"
 discard "forward decl of Extrema_ExtPElC2d"
-discard "forward decl of Pnt2dObj"
-discard "forward decl of Vec2dObj"
+discard "forward decl of gp_Pnt2d"
+discard "forward decl of gp_Vec2d"
 discard "forward decl of Extrema_POnCurv2d"
 discard "forward decl of Extrema_EPCOfExtPC2d"
 discard "forward decl of Extrema_PCFOfEPCOfExtPC2d"
 
 proc newExtrema_ExtPC2d*(): Extrema_ExtPC2d {.cdecl, constructor,
     importcpp: "Extrema_ExtPC2d(@)", header: "Extrema_ExtPC2d.hxx".}
-proc newExtrema_ExtPC2d*(P: Pnt2dObj; C: Adaptor2d_Curve2d; Uinf: cfloat; Usup: cfloat;
+proc newExtrema_ExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d; Uinf: cfloat; Usup: cfloat;
                         TolF: cfloat = 1.0e-10): Extrema_ExtPC2d {.cdecl, constructor,
     importcpp: "Extrema_ExtPC2d(@)", header: "Extrema_ExtPC2d.hxx".}
-proc newExtrema_ExtPC2d*(P: Pnt2dObj; C: Adaptor2d_Curve2d; TolF: cfloat = 1.0e-10): Extrema_ExtPC2d {.
+proc newExtrema_ExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d; TolF: cfloat = 1.0e-10): Extrema_ExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_ExtPC2d(@)",
     header: "Extrema_ExtPC2d.hxx".}
 proc Initialize*(this: var Extrema_ExtPC2d; C: Adaptor2d_Curve2d; Uinf: cfloat;
                 Usup: cfloat; TolF: cfloat = 1.0e-10) {.cdecl, importcpp: "Initialize",
     header: "Extrema_ExtPC2d.hxx".}
-proc Perform*(this: var Extrema_ExtPC2d; P: Pnt2dObj) {.cdecl, importcpp: "Perform",
+proc Perform*(this: var Extrema_ExtPC2d; P: gp_Pnt2d) {.cdecl, importcpp: "Perform",
     header: "Extrema_ExtPC2d.hxx".}
 proc IsDone*(this: Extrema_ExtPC2d): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                         header: "Extrema_ExtPC2d.hxx".}
@@ -54,6 +54,6 @@ proc IsMin*(this: Extrema_ExtPC2d; N: cint): bool {.noSideEffect, cdecl,
 proc Point*(this: Extrema_ExtPC2d; N: cint): Extrema_POnCurv2d {.noSideEffect, cdecl,
     importcpp: "Point", header: "Extrema_ExtPC2d.hxx".}
 proc TrimmedSquareDistances*(this: Extrema_ExtPC2d; dist1: var cfloat;
-                            dist2: var cfloat; P1: var Pnt2dObj; P2: var Pnt2dObj) {.
+                            dist2: var cfloat; P1: var gp_Pnt2d; P2: var gp_Pnt2d) {.
     noSideEffect, cdecl, importcpp: "TrimmedSquareDistances",
     header: "Extrema_ExtPC2d.hxx".}

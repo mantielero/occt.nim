@@ -45,9 +45,9 @@ proc insertBefore*(this: var IntSurfLineOn2S; i: cint; p: IntSurfPntOn2S) {.cdec
     importcpp: "InsertBefore", header: "IntSurf_LineOn2S.hxx".}
 proc removePoint*(this: var IntSurfLineOn2S; i: cint) {.cdecl,
     importcpp: "RemovePoint", header: "IntSurf_LineOn2S.hxx".}
-proc isOutSurf1Box*(this: var IntSurfLineOn2S; theP: Pnt2dObj): bool {.cdecl,
+proc isOutSurf1Box*(this: var IntSurfLineOn2S; theP: gp_Pnt2d): bool {.cdecl,
     importcpp: "IsOutSurf1Box", header: "IntSurf_LineOn2S.hxx".}
-proc isOutSurf2Box*(this: var IntSurfLineOn2S; theP: Pnt2dObj): bool {.cdecl,
+proc isOutSurf2Box*(this: var IntSurfLineOn2S; theP: gp_Pnt2d): bool {.cdecl,
     importcpp: "IsOutSurf2Box", header: "IntSurf_LineOn2S.hxx".}
 proc isOutBox*(this: var IntSurfLineOn2S; theP: gp_Pnt): bool {.cdecl,
     importcpp: "IsOutBox", header: "IntSurf_LineOn2S.hxx".}

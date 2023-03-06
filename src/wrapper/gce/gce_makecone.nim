@@ -25,23 +25,23 @@ import ../gp/gp_types
 
 proc newGceMakeCone*(a2: Ax2Obj; ang: cfloat; radius: cfloat): GceMakeCone {.cdecl,
     constructor, importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc newGceMakeCone*(cone: ConeObj; point: gp_Pnt): GceMakeCone {.cdecl, constructor,
+proc newGceMakeCone*(cone: gp_Cone; point: gp_Pnt): GceMakeCone {.cdecl, constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc newGceMakeCone*(cone: ConeObj; dist: cfloat): GceMakeCone {.cdecl, constructor,
+proc newGceMakeCone*(cone: gp_Cone; dist: cfloat): GceMakeCone {.cdecl, constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
 proc newGceMakeCone*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt; p4: gp_Pnt): GceMakeCone {.cdecl, constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
 proc newGceMakeCone*(axis: Ax1Obj; p1: gp_Pnt; p2: gp_Pnt): GceMakeCone {.cdecl, constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc newGceMakeCone*(axis: LinObj; p1: gp_Pnt; p2: gp_Pnt): GceMakeCone {.cdecl, constructor,
+proc newGceMakeCone*(axis: gp_Lin; p1: gp_Pnt; p2: gp_Pnt): GceMakeCone {.cdecl, constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
 proc newGceMakeCone*(p1: gp_Pnt; p2: gp_Pnt; r1: cfloat; r2: cfloat): GceMakeCone {.cdecl,
     constructor, importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc value*(this: GceMakeCone): ConeObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeCone): gp_Cone {.noSideEffect, cdecl, importcpp: "Value",
                                    header: "gce_MakeCone.hxx".}
-proc operator*(this: GceMakeCone): ConeObj {.noSideEffect, cdecl, importcpp: "Operator",
+proc operator*(this: GceMakeCone): gp_Cone {.noSideEffect, cdecl, importcpp: "Operator",
                                       header: "gce_MakeCone.hxx".}
-converter `cone`*(this: GceMakeCone): ConeObj {.noSideEffect, cdecl,
+converter `cone`*(this: GceMakeCone): gp_Cone {.noSideEffect, cdecl,
     importcpp: "gce_MakeCone::operator gp_Cone", header: "gce_MakeCone.hxx".}
 
 

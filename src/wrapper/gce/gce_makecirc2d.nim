@@ -27,21 +27,21 @@ proc newGceMakeCirc2d*(xAxis: Ax2dObj; radius: cfloat; sense: bool = true): GceM
     cdecl, constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
 proc newGceMakeCirc2d*(axis: Ax22dObj; radius: cfloat): GceMakeCirc2d {.cdecl,
     constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
-proc newGceMakeCirc2d*(circ: Circ2dObj; dist: cfloat): GceMakeCirc2d {.cdecl, constructor,
+proc newGceMakeCirc2d*(circ: gp_Circ2d; dist: cfloat): GceMakeCirc2d {.cdecl, constructor,
     importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
-proc newGceMakeCirc2d*(circ: Circ2dObj; point: Pnt2dObj): GceMakeCirc2d {.cdecl, constructor,
+proc newGceMakeCirc2d*(circ: gp_Circ2d; point: gp_Pnt2d): GceMakeCirc2d {.cdecl, constructor,
     importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
-proc newGceMakeCirc2d*(p1: Pnt2dObj; p2: Pnt2dObj; p3: Pnt2dObj): GceMakeCirc2d {.cdecl,
+proc newGceMakeCirc2d*(p1: gp_Pnt2d; p2: gp_Pnt2d; p3: gp_Pnt2d): GceMakeCirc2d {.cdecl,
     constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
-proc newGceMakeCirc2d*(center: Pnt2dObj; radius: cfloat; sense: bool = true): GceMakeCirc2d {.
+proc newGceMakeCirc2d*(center: gp_Pnt2d; radius: cfloat; sense: bool = true): GceMakeCirc2d {.
     cdecl, constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
-proc newGceMakeCirc2d*(center: Pnt2dObj; point: Pnt2dObj; sense: bool = true): GceMakeCirc2d {.
+proc newGceMakeCirc2d*(center: gp_Pnt2d; point: gp_Pnt2d; sense: bool = true): GceMakeCirc2d {.
     cdecl, constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
-proc value*(this: GceMakeCirc2d): Circ2dObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeCirc2d): gp_Circ2d {.noSideEffect, cdecl, importcpp: "Value",
                                        header: "gce_MakeCirc2d.hxx".}
-proc operator*(this: GceMakeCirc2d): Circ2dObj {.noSideEffect, cdecl,
+proc operator*(this: GceMakeCirc2d): gp_Circ2d {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeCirc2d.hxx".}
-converter `circ2d`*(this: GceMakeCirc2d): Circ2dObj {.noSideEffect, cdecl,
+converter `circ2d`*(this: GceMakeCirc2d): gp_Circ2d {.noSideEffect, cdecl,
     importcpp: "gce_MakeCirc2d::operator gp_Circ2d", header: "gce_MakeCirc2d.hxx".}
 
 

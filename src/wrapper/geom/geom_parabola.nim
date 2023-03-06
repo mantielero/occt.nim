@@ -28,7 +28,7 @@ import geom_types
 
 
 
-proc newGeomParabola*(prb: ParabObj): GeomParabola {.cdecl, constructor,
+proc newGeomParabola*(prb: gp_Parab): GeomParabola {.cdecl, constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
 proc newGeomParabola*(a2: Ax2Obj; focal: cfloat): GeomParabola {.cdecl, constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
@@ -36,9 +36,9 @@ proc newGeomParabola*(d: Ax1Obj; f: gp_Pnt): GeomParabola {.cdecl, constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
 proc setFocal*(this: var GeomParabola; focal: cfloat) {.cdecl, importcpp: "SetFocal",
     header: "Geom_Parabola.hxx".}
-proc setParab*(this: var GeomParabola; prb: ParabObj) {.cdecl, importcpp: "SetParab",
+proc setParab*(this: var GeomParabola; prb: gp_Parab) {.cdecl, importcpp: "SetParab",
     header: "Geom_Parabola.hxx".}
-proc parab*(this: GeomParabola): ParabObj {.noSideEffect, cdecl, importcpp: "Parab",
+proc parab*(this: GeomParabola): gp_Parab {.noSideEffect, cdecl, importcpp: "Parab",
                                      header: "Geom_Parabola.hxx".}
 proc reversedParameter*(this: GeomParabola; u: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "ReversedParameter", header: "Geom_Parabola.hxx".}

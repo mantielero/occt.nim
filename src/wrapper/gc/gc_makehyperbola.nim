@@ -25,7 +25,7 @@ import ../geom/geom_types
 
 
 
-proc hyperbola*(h: HyprObj): MakeHyperbola {.cdecl, constructor,
+proc hyperbola*(h: gp_Hypr): MakeHyperbola {.cdecl, constructor,
     importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
 proc hyperbola*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): MakeHyperbola {.
     cdecl, constructor, importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}

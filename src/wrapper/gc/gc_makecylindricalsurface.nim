@@ -28,12 +28,12 @@ import ../geom/geom_types
 proc cylindricalSurface*(a2: Ax2Obj; radius: cfloat): MakeCylindricalSurface {.
     cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc cylindricalSurface*(c: CylinderObj): MakeCylindricalSurface {.cdecl,
+proc cylindricalSurface*(c: gp_Cylinder): MakeCylindricalSurface {.cdecl,
     constructor, importcpp: "GC_MakeCylindricalSurface(@)", header: "GC_MakeCylindricalSurface.hxx".}
-proc cylindricalSurface*(cyl: CylinderObj; point: gp_Pnt): MakeCylindricalSurface {.
+proc cylindricalSurface*(cyl: gp_Cylinder; point: gp_Pnt): MakeCylindricalSurface {.
     cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc cylindricalSurface*(cyl: CylinderObj; dist: cfloat): MakeCylindricalSurface {.
+proc cylindricalSurface*(cyl: gp_Cylinder; dist: cfloat): MakeCylindricalSurface {.
     cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
 proc cylindricalSurface*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): MakeCylindricalSurface {.
@@ -42,7 +42,7 @@ proc cylindricalSurface*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt): MakeCylindricalSur
 proc cylindricalSurface*(axis: Ax1Obj; radius: cfloat): MakeCylindricalSurface {.
     cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc cylindricalSurface*(circ: CircObj): MakeCylindricalSurface {.cdecl,
+proc cylindricalSurface*(circ: gp_Circ): MakeCylindricalSurface {.cdecl,
     constructor, importcpp: "GC_MakeCylindricalSurface(@)", header: "GC_MakeCylindricalSurface.hxx".}
 proc value*(this: MakeCylindricalSurface): Handle[GeomCylindricalSurface] {.
     noSideEffect, cdecl, importcpp: "Value", header: "GC_MakeCylindricalSurface.hxx".}

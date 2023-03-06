@@ -88,13 +88,13 @@ proc getType*(s: Handle[Adaptor3dHSurface]): GeomAbsSurfaceType {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::GetType(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc plane*(s: Handle[Adaptor3dHSurface]): PlnObj {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Plane(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc cylinder*(s: Handle[Adaptor3dHSurface]): CylinderObj {.cdecl,
+proc cylinder*(s: Handle[Adaptor3dHSurface]): gp_Cylinder {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Cylinder(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc cone*(s: Handle[Adaptor3dHSurface]): ConeObj {.cdecl,
+proc cone*(s: Handle[Adaptor3dHSurface]): gp_Cone {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Cone(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc torus*(s: Handle[Adaptor3dHSurface]): TorusObj {.cdecl,
+proc torus*(s: Handle[Adaptor3dHSurface]): gp_Torus {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Torus(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc sphere*(s: Handle[Adaptor3dHSurface]): SphereObj {.cdecl,
+proc sphere*(s: Handle[Adaptor3dHSurface]): gp_Sphere {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Sphere(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc bezier*(s: Handle[Adaptor3dHSurface]): Handle[GeomBezierSurface] {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Bezier(@)", header: "Adaptor3d_HSurfaceTool.hxx".}

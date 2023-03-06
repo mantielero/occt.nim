@@ -27,11 +27,11 @@ proc newGceMakeElips*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): Gce
     cdecl, constructor, importcpp: "gce_MakeElips(@)", header: "gce_MakeElips.hxx".}
 proc newGceMakeElips*(s1: gp_Pnt; s2: gp_Pnt; center: gp_Pnt): GceMakeElips {.cdecl, constructor,
     importcpp: "gce_MakeElips(@)", header: "gce_MakeElips.hxx".}
-proc value*(this: GceMakeElips): ElipsObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeElips): gp_Elips {.noSideEffect, cdecl, importcpp: "Value",
                                      header: "gce_MakeElips.hxx".}
-proc operator*(this: GceMakeElips): ElipsObj {.noSideEffect, cdecl,
+proc operator*(this: GceMakeElips): gp_Elips {.noSideEffect, cdecl,
                                         importcpp: "Operator", header: "gce_MakeElips.hxx".}
-converter `elips`*(this: GceMakeElips): ElipsObj {.noSideEffect, cdecl,
+converter `elips`*(this: GceMakeElips): gp_Elips {.noSideEffect, cdecl,
     importcpp: "gce_MakeElips::operator gp_Elips", header: "gce_MakeElips.hxx".}
 
 

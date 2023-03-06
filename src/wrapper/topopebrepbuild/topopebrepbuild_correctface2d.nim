@@ -45,7 +45,7 @@ proc setMapOfTrans2dInfo*(this: var TopOpeBRepBuildCorrectFace2d;
     importcpp: "SetMapOfTrans2dInfo", header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
 proc mapOfTrans2dInfo*(this: var TopOpeBRepBuildCorrectFace2d): var TopToolsIndexedDataMapOfShapeShape {.
     cdecl, importcpp: "MapOfTrans2dInfo", header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
-proc getP2dFL*(aFace: TopoDS_Face; anEdge: TopoDS_Edge; p2dF: var Pnt2dObj; p2dL: var Pnt2dObj) {.
+proc getP2dFL*(aFace: TopoDS_Face; anEdge: TopoDS_Edge; p2dF: var gp_Pnt2d; p2dL: var gp_Pnt2d) {.
     cdecl, importcpp: "TopOpeBRepBuild_CorrectFace2d::GetP2dFL(@)", header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
 proc checkList*(aFace: TopoDS_Face; aHeadList: var TopToolsListOfShape) {.cdecl,
     importcpp: "TopOpeBRepBuild_CorrectFace2d::CheckList(@)", header: "TopOpeBRepBuild_CorrectFace2d.hxx".}

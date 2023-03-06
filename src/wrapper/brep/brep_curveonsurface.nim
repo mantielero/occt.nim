@@ -32,9 +32,9 @@ import ../geom2d/geom2d_types
 proc newBRepCurveOnSurface*(pc: Handle[Geom2dCurve]; s: Handle[GeomSurface];
                            L: TopLocLocation): BRepCurveOnSurface {.cdecl,
     constructor, importcpp: "BRep_CurveOnSurface(@)", header: "BRep_CurveOnSurface.hxx".}
-proc setUVPoints*(this: var BRepCurveOnSurface; p1: Pnt2dObj; p2: Pnt2dObj) {.cdecl,
+proc setUVPoints*(this: var BRepCurveOnSurface; p1: gp_Pnt2d; p2: gp_Pnt2d) {.cdecl,
     importcpp: "SetUVPoints", header: "BRep_CurveOnSurface.hxx".}
-proc uVPoints*(this: BRepCurveOnSurface; p1: var Pnt2dObj; p2: var Pnt2dObj) {.noSideEffect,
+proc uVPoints*(this: BRepCurveOnSurface; p1: var gp_Pnt2d; p2: var gp_Pnt2d) {.noSideEffect,
     cdecl, importcpp: "UVPoints", header: "BRep_CurveOnSurface.hxx".}
 proc d0*(this: BRepCurveOnSurface; u: cfloat; p: var gp_Pnt) {.noSideEffect, cdecl,
     importcpp: "D0", header: "BRep_CurveOnSurface.hxx".}

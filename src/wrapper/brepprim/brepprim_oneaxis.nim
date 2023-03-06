@@ -47,7 +47,7 @@ proc makeEmptyMeridianEdge*(this: BRepPrimOneAxis; ang: cfloat): TopoDS_Edge {.
     noSideEffect, cdecl, importcpp: "MakeEmptyMeridianEdge", header: "BRepPrim_OneAxis.hxx".}
 proc setMeridianPCurve*(this: BRepPrimOneAxis; e: var TopoDS_Edge; f: TopoDS_Face) {.
     noSideEffect, cdecl, importcpp: "SetMeridianPCurve", header: "BRepPrim_OneAxis.hxx".}
-proc meridianValue*(this: BRepPrimOneAxis; v: cfloat): Pnt2dObj {.noSideEffect, cdecl,
+proc meridianValue*(this: BRepPrimOneAxis; v: cfloat): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "MeridianValue", header: "BRepPrim_OneAxis.hxx".}
 proc meridianOnAxis*(this: BRepPrimOneAxis; v: cfloat): bool {.noSideEffect, cdecl,
     importcpp: "MeridianOnAxis", header: "BRepPrim_OneAxis.hxx".}

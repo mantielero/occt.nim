@@ -29,7 +29,7 @@ proc mirror*(point: gp_Pnt): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
 proc mirror*(axis: Ax1Obj): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc mirror*(line: LinObj): MakeMirror {.cdecl, constructor,
+proc mirror*(line: gp_Lin): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
 proc mirror*(point: gp_Pnt; direc: DirObj): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}

@@ -25,13 +25,13 @@ import gce2d_types
 
 
 
-proc newGCE2dMakeArcOfHyperbola*(hypr: Hypr2dObj; alpha1: cfloat; alpha2: cfloat;
+proc newGCE2dMakeArcOfHyperbola*(hypr: gp_Hypr2d; alpha1: cfloat; alpha2: cfloat;
                                 sense: bool = true): GCE2dMakeArcOfHyperbola {.cdecl,
     constructor, importcpp: "GCE2d_MakeArcOfHyperbola(@)", header: "GCE2d_MakeArcOfHyperbola.hxx".}
-proc newGCE2dMakeArcOfHyperbola*(hypr: Hypr2dObj; p: Pnt2dObj; alpha: cfloat;
+proc newGCE2dMakeArcOfHyperbola*(hypr: gp_Hypr2d; p: gp_Pnt2d; alpha: cfloat;
                                 sense: bool = true): GCE2dMakeArcOfHyperbola {.cdecl,
     constructor, importcpp: "GCE2d_MakeArcOfHyperbola(@)", header: "GCE2d_MakeArcOfHyperbola.hxx".}
-proc newGCE2dMakeArcOfHyperbola*(hypr: Hypr2dObj; p1: Pnt2dObj; p2: Pnt2dObj; sense: bool = true): GCE2dMakeArcOfHyperbola {.
+proc newGCE2dMakeArcOfHyperbola*(hypr: gp_Hypr2d; p1: gp_Pnt2d; p2: gp_Pnt2d; sense: bool = true): GCE2dMakeArcOfHyperbola {.
     cdecl, constructor, importcpp: "GCE2d_MakeArcOfHyperbola(@)", header: "GCE2d_MakeArcOfHyperbola.hxx".}
 proc value*(this: GCE2dMakeArcOfHyperbola): Handle[Geom2dTrimmedCurve] {.
     noSideEffect, cdecl, importcpp: "Value", header: "GCE2d_MakeArcOfHyperbola.hxx".}

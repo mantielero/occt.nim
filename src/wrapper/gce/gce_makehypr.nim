@@ -27,11 +27,11 @@ proc newGceMakeHypr*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): GceM
     cdecl, constructor, importcpp: "gce_MakeHypr(@)", header: "gce_MakeHypr.hxx".}
 proc newGceMakeHypr*(s1: gp_Pnt; s2: gp_Pnt; center: gp_Pnt): GceMakeHypr {.cdecl, constructor,
     importcpp: "gce_MakeHypr(@)", header: "gce_MakeHypr.hxx".}
-proc value*(this: GceMakeHypr): HyprObj {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeHypr): gp_Hypr {.noSideEffect, cdecl, importcpp: "Value",
                                    header: "gce_MakeHypr.hxx".}
-proc operator*(this: GceMakeHypr): HyprObj {.noSideEffect, cdecl, importcpp: "Operator",
+proc operator*(this: GceMakeHypr): gp_Hypr {.noSideEffect, cdecl, importcpp: "Operator",
                                       header: "gce_MakeHypr.hxx".}
-converter `hypr`*(this: GceMakeHypr): HyprObj {.noSideEffect, cdecl,
+converter `hypr`*(this: GceMakeHypr): gp_Hypr {.noSideEffect, cdecl,
     importcpp: "gce_MakeHypr::operator gp_Hypr", header: "gce_MakeHypr.hxx".}
 
 

@@ -57,9 +57,9 @@ proc pointOnRst1*(this: BlendRstRstFunction): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnRst1", header: "Blend_RstRstFunction.hxx".}
 proc pointOnRst2*(this: BlendRstRstFunction): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnRst2", header: "Blend_RstRstFunction.hxx".}
-proc pnt2dOnRst1*(this: BlendRstRstFunction): Pnt2dObj {.noSideEffect, cdecl,
+proc pnt2dOnRst1*(this: BlendRstRstFunction): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "Pnt2dOnRst1", header: "Blend_RstRstFunction.hxx".}
-proc pnt2dOnRst2*(this: BlendRstRstFunction): Pnt2dObj {.noSideEffect, cdecl,
+proc pnt2dOnRst2*(this: BlendRstRstFunction): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "Pnt2dOnRst2", header: "Blend_RstRstFunction.hxx".}
 proc parameterOnRst1*(this: BlendRstRstFunction): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnRst1", header: "Blend_RstRstFunction.hxx".}
@@ -69,11 +69,11 @@ proc isTangencyPoint*(this: BlendRstRstFunction): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "Blend_RstRstFunction.hxx".}
 proc tangentOnRst1*(this: BlendRstRstFunction): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnRst1", header: "Blend_RstRstFunction.hxx".}
-proc tangent2dOnRst1*(this: BlendRstRstFunction): Vec2dObj {.noSideEffect, cdecl,
+proc tangent2dOnRst1*(this: BlendRstRstFunction): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnRst1", header: "Blend_RstRstFunction.hxx".}
 proc tangentOnRst2*(this: BlendRstRstFunction): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnRst2", header: "Blend_RstRstFunction.hxx".}
-proc tangent2dOnRst2*(this: BlendRstRstFunction): Vec2dObj {.noSideEffect, cdecl,
+proc tangent2dOnRst2*(this: BlendRstRstFunction): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnRst2", header: "Blend_RstRstFunction.hxx".}
 proc decroch*(this: BlendRstRstFunction; sol: MathVector; nRst1: var gp_Vec;
              tgRst1: var gp_Vec; nRst2: var gp_Vec; tgRst2: var gp_Vec): BlendDecrochStatus {.

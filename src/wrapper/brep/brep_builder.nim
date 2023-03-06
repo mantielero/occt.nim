@@ -84,8 +84,8 @@ proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[Geom2dCurve];
                 s: Handle[GeomSurface]; L: TopLocLocation; tol: cfloat) {.
     noSideEffect, cdecl, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[Geom2dCurve];
-                s: Handle[GeomSurface]; L: TopLocLocation; tol: cfloat; pf: Pnt2dObj;
-                pl: Pnt2dObj) {.noSideEffect, cdecl, importcpp: "UpdateEdge",
+                s: Handle[GeomSurface]; L: TopLocLocation; tol: cfloat; pf: gp_Pnt2d;
+                pl: gp_Pnt2d) {.noSideEffect, cdecl, importcpp: "UpdateEdge",
                            header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c1: Handle[Geom2dCurve];
                 c2: Handle[Geom2dCurve]; s: Handle[GeomSurface]; L: TopLocLocation;
@@ -93,7 +93,7 @@ proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c1: Handle[Geom2dCurve];
                              header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c1: Handle[Geom2dCurve];
                 c2: Handle[Geom2dCurve]; s: Handle[GeomSurface]; L: TopLocLocation;
-                tol: cfloat; pf: Pnt2dObj; pl: Pnt2dObj) {.noSideEffect, cdecl,
+                tol: cfloat; pf: gp_Pnt2d; pl: gp_Pnt2d) {.noSideEffect, cdecl,
     importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; p: Handle[PolyPolygon3D]) {.
     noSideEffect, cdecl, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}

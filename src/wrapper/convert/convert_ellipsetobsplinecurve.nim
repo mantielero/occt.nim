@@ -22,10 +22,10 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Elips2d"
 
 
-proc newConvertEllipseToBSplineCurve*(e: Elips2dObj; parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertEllipseToBSplineCurve {.
+proc newConvertEllipseToBSplineCurve*(e: gp_Elips2d; parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertEllipseToBSplineCurve {.
     cdecl, constructor, importcpp: "Convert_EllipseToBSplineCurve(@)",
     header: "Convert_EllipseToBSplineCurve.hxx".}
-proc newConvertEllipseToBSplineCurve*(e: Elips2dObj; u1: cfloat; u2: cfloat;
+proc newConvertEllipseToBSplineCurve*(e: gp_Elips2d; u1: cfloat; u2: cfloat;
     parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertEllipseToBSplineCurve {.
     cdecl, constructor, importcpp: "Convert_EllipseToBSplineCurve(@)",
     header: "Convert_EllipseToBSplineCurve.hxx".}

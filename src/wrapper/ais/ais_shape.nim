@@ -130,17 +130,17 @@ proc selectionType*(theSelMode: cint): TopAbsShapeEnum {.cdecl,
     importcpp: "AIS_Shape::SelectionType(@)", header: "AIS_Shape.hxx".}
 proc selectionMode*(theShapeType: TopAbsShapeEnum): cint {.cdecl,
     importcpp: "AIS_Shape::SelectionMode(@)", header: "AIS_Shape.hxx".}
-proc textureRepeatUV*(this: AIS_Shape): Pnt2dObj {.noSideEffect, cdecl,
+proc textureRepeatUV*(this: AIS_Shape): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "TextureRepeatUV", header: "AIS_Shape.hxx".}
-proc setTextureRepeatUV*(this: var AIS_Shape; theRepeatUV: Pnt2dObj) {.cdecl,
+proc setTextureRepeatUV*(this: var AIS_Shape; theRepeatUV: gp_Pnt2d) {.cdecl,
     importcpp: "SetTextureRepeatUV", header: "AIS_Shape.hxx".}
-proc textureOriginUV*(this: AIS_Shape): Pnt2dObj {.noSideEffect, cdecl,
+proc textureOriginUV*(this: AIS_Shape): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "TextureOriginUV", header: "AIS_Shape.hxx".}
-proc setTextureOriginUV*(this: var AIS_Shape; theOriginUV: Pnt2dObj) {.cdecl,
+proc setTextureOriginUV*(this: var AIS_Shape; theOriginUV: gp_Pnt2d) {.cdecl,
     importcpp: "SetTextureOriginUV", header: "AIS_Shape.hxx".}
-proc textureScaleUV*(this: AIS_Shape): Pnt2dObj {.noSideEffect, cdecl,
+proc textureScaleUV*(this: AIS_Shape): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "TextureScaleUV", header: "AIS_Shape.hxx".}
-proc setTextureScaleUV*(this: var AIS_Shape; theScaleUV: Pnt2dObj) {.cdecl,
+proc setTextureScaleUV*(this: var AIS_Shape; theScaleUV: gp_Pnt2d) {.cdecl,
     importcpp: "SetTextureScaleUV", header: "AIS_Shape.hxx".}
 proc computeHlrPresentation*(theProjector: Handle[Graphic3dCamera];
                             thePrs: Handle[Prs3dPresentation];

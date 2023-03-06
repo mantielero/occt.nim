@@ -49,13 +49,13 @@ proc position*(this: PlnObj): Ax3Obj {.noSideEffect, cdecl, importcpp: "Position
                              header: "gp_Pln.hxx".}
 proc distance*(this: PlnObj; p: gp_Pnt): cfloat {.noSideEffect, cdecl, importcpp: "Distance",
                                       header: "gp_Pln.hxx".}
-proc distance*(this: PlnObj; L: LinObj): cfloat {.noSideEffect, cdecl, importcpp: "Distance",
+proc distance*(this: PlnObj; L: gp_Lin): cfloat {.noSideEffect, cdecl, importcpp: "Distance",
                                       header: "gp_Pln.hxx".}
 proc distance*(this: PlnObj; other: PlnObj): cfloat {.noSideEffect, cdecl,
     importcpp: "Distance", header: "gp_Pln.hxx".}
 proc squareDistance*(this: PlnObj; p: gp_Pnt): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareDistance", header: "gp_Pln.hxx".}
-proc squareDistance*(this: PlnObj; L: LinObj): cfloat {.noSideEffect, cdecl,
+proc squareDistance*(this: PlnObj; L: gp_Lin): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareDistance", header: "gp_Pln.hxx".}
 proc squareDistance*(this: PlnObj; other: PlnObj): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareDistance", header: "gp_Pln.hxx".}
@@ -63,7 +63,7 @@ proc xAxis*(this: PlnObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "XAxis", hea
 proc yAxis*(this: PlnObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Pln.hxx".}
 proc contains*(this: PlnObj; p: gp_Pnt; linearTolerance: cfloat): bool {.noSideEffect, cdecl,
     importcpp: "Contains", header: "gp_Pln.hxx".}
-proc contains*(this: PlnObj; L: LinObj; linearTolerance: cfloat; angularTolerance: cfloat): bool {.
+proc contains*(this: PlnObj; L: gp_Lin; linearTolerance: cfloat; angularTolerance: cfloat): bool {.
     noSideEffect, cdecl, importcpp: "Contains", header: "gp_Pln.hxx".}
 proc mirror*(this: var PlnObj; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Pln.hxx".}
 proc mirrored*(this: PlnObj; p: gp_Pnt): PlnObj {.noSideEffect, cdecl, importcpp: "Mirrored",

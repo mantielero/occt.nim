@@ -23,7 +23,7 @@ import ../gp/gp_types
 
 
 
-proc newGceMakeRotation2d*(point: Pnt2dObj; angle: cfloat): GceMakeRotation2d {.cdecl,
+proc newGceMakeRotation2d*(point: gp_Pnt2d; angle: cfloat): GceMakeRotation2d {.cdecl,
     constructor, importcpp: "gce_MakeRotation2d(@)", header: "gce_MakeRotation2d.hxx".}
 proc value*(this: GceMakeRotation2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "Value", header: "gce_MakeRotation2d.hxx".}

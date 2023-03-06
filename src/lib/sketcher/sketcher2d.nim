@@ -42,7 +42,7 @@ proc `y=`*(obj:var Point2dObj; val:SomeNumber) =
   obj[1] = val.float
 
 
-proc pnt2d(p: Point2dObj):Pnt2dObj =
+proc pnt2d(p: Point2dObj):gp_Pnt2d =
   pnt2d(p.x, p.y)
 
 

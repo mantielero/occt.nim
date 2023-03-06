@@ -25,7 +25,7 @@ import ../geom/geom_types
 
 
 
-proc rotation*(line: LinObj; angle: cfloat): MakeRotation {.cdecl, constructor,
+proc rotation*(line: gp_Lin; angle: cfloat): MakeRotation {.cdecl, constructor,
     importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
 proc rotation*(axis: Ax1Obj; angle: cfloat): MakeRotation {.cdecl, constructor,
     importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}

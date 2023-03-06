@@ -41,10 +41,10 @@ proc firstParameter*(this: AppContFunction): cfloat {.noSideEffect, cdecl,
 proc lastParameter*(this: AppContFunction): cfloat {.noSideEffect, cdecl,
     importcpp: "LastParameter", header: "AppCont_Function.hxx".}
 proc value*(this: AppContFunction; theU: cfloat;
-           thePnt2d: var NCollectionArray1[Pnt2dObj];
+           thePnt2d: var NCollectionArray1[gp_Pnt2d];
            thePnt: var NCollectionArray1[gp_Pnt]): bool {.noSideEffect, cdecl,
     importcpp: "Value", header: "AppCont_Function.hxx".}
-proc d1*(this: AppContFunction; theU: cfloat; theVec2d: var NCollectionArray1[Vec2dObj];
+proc d1*(this: AppContFunction; theU: cfloat; theVec2d: var NCollectionArray1[gp_Vec2d];
         theVec: var NCollectionArray1[gp_Vec]): bool {.noSideEffect, cdecl,
     importcpp: "D1", header: "AppCont_Function.hxx".}
 proc periodInformation*(this: AppContFunction; a2: cint; isPeriodic: var bool;

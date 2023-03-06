@@ -62,11 +62,11 @@ proc isTangencyPoint*(this: BlendFuncRuled): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_Ruled.hxx".}
 proc tangentOnS1*(this: BlendFuncRuled): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnS1", header: "BlendFunc_Ruled.hxx".}
-proc tangent2dOnS1*(this: BlendFuncRuled): Vec2dObj {.noSideEffect, cdecl,
+proc tangent2dOnS1*(this: BlendFuncRuled): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS1", header: "BlendFunc_Ruled.hxx".}
 proc tangentOnS2*(this: BlendFuncRuled): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnS2", header: "BlendFunc_Ruled.hxx".}
-proc tangent2dOnS2*(this: BlendFuncRuled): Vec2dObj {.noSideEffect, cdecl,
+proc tangent2dOnS2*(this: BlendFuncRuled): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS2", header: "BlendFunc_Ruled.hxx".}
 proc tangent*(this: BlendFuncRuled; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
              tgFirst: var gp_Vec; tgLast: var gp_Vec; normFirst: var gp_Vec; normLast: var gp_Vec) {.

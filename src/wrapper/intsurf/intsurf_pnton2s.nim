@@ -37,7 +37,7 @@ proc setValue*(this: var IntSurfPntOn2S; u1: cfloat; v1: cfloat; u2: cfloat; v2:
     cdecl, importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
 proc value*(this: IntSurfPntOn2S): gp_Pnt {.noSideEffect, cdecl, importcpp: "Value",
                                      header: "IntSurf_PntOn2S.hxx".}
-proc valueOnSurface*(this: IntSurfPntOn2S; onFirst: bool): Pnt2dObj {.noSideEffect, cdecl,
+proc valueOnSurface*(this: IntSurfPntOn2S; onFirst: bool): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "ValueOnSurface", header: "IntSurf_PntOn2S.hxx".}
 proc parametersOnS1*(this: IntSurfPntOn2S; u1: var cfloat; v1: var cfloat) {.
     noSideEffect, cdecl, importcpp: "ParametersOnS1", header: "IntSurf_PntOn2S.hxx".}

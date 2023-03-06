@@ -90,13 +90,13 @@ proc getType*(this: Adaptor3dHSurface): GeomAbsSurfaceType {.noSideEffect, cdecl
     importcpp: "GetType", header: "Adaptor3d_HSurface.hxx".}
 proc plane*(this: Adaptor3dHSurface): PlnObj {.noSideEffect, cdecl, importcpp: "Plane",
                                         header: "Adaptor3d_HSurface.hxx".}
-proc cylinder*(this: Adaptor3dHSurface): CylinderObj {.noSideEffect, cdecl,
+proc cylinder*(this: Adaptor3dHSurface): gp_Cylinder {.noSideEffect, cdecl,
     importcpp: "Cylinder", header: "Adaptor3d_HSurface.hxx".}
-proc cone*(this: Adaptor3dHSurface): ConeObj {.noSideEffect, cdecl, importcpp: "Cone",
+proc cone*(this: Adaptor3dHSurface): gp_Cone {.noSideEffect, cdecl, importcpp: "Cone",
                                         header: "Adaptor3d_HSurface.hxx".}
-proc sphere*(this: Adaptor3dHSurface): SphereObj {.noSideEffect, cdecl,
+proc sphere*(this: Adaptor3dHSurface): gp_Sphere {.noSideEffect, cdecl,
     importcpp: "Sphere", header: "Adaptor3d_HSurface.hxx".}
-proc torus*(this: Adaptor3dHSurface): TorusObj {.noSideEffect, cdecl, importcpp: "Torus",
+proc torus*(this: Adaptor3dHSurface): gp_Torus {.noSideEffect, cdecl, importcpp: "Torus",
     header: "Adaptor3d_HSurface.hxx".}
 proc uDegree*(this: Adaptor3dHSurface): cint {.noSideEffect, cdecl,
     importcpp: "UDegree", header: "Adaptor3d_HSurface.hxx".}

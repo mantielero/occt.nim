@@ -61,7 +61,7 @@ proc pointOnS*(this: BlendFuncCSCircular): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnS", header: "BlendFunc_CSCircular.hxx".}
 proc pointOnC*(this: BlendFuncCSCircular): gp_Pnt {.noSideEffect, cdecl,
     importcpp: "PointOnC", header: "BlendFunc_CSCircular.hxx".}
-proc pnt2d*(this: BlendFuncCSCircular): Pnt2dObj {.noSideEffect, cdecl,
+proc pnt2d*(this: BlendFuncCSCircular): gp_Pnt2d {.noSideEffect, cdecl,
     importcpp: "Pnt2d", header: "BlendFunc_CSCircular.hxx".}
 proc parameterOnC*(this: BlendFuncCSCircular): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnC", header: "BlendFunc_CSCircular.hxx".}
@@ -69,7 +69,7 @@ proc isTangencyPoint*(this: BlendFuncCSCircular): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_CSCircular.hxx".}
 proc tangentOnS*(this: BlendFuncCSCircular): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnS", header: "BlendFunc_CSCircular.hxx".}
-proc tangent2d*(this: BlendFuncCSCircular): Vec2dObj {.noSideEffect, cdecl,
+proc tangent2d*(this: BlendFuncCSCircular): gp_Vec2d {.noSideEffect, cdecl,
     importcpp: "Tangent2d", header: "BlendFunc_CSCircular.hxx".}
 proc tangentOnC*(this: BlendFuncCSCircular): gp_Vec {.noSideEffect, cdecl,
     importcpp: "TangentOnC", header: "BlendFunc_CSCircular.hxx".}
@@ -81,7 +81,7 @@ proc set*(this: var BlendFuncCSCircular; radius: cfloat; choix: cint) {.cdecl,
 proc set*(this: var BlendFuncCSCircular; typeSection: BlendFuncSectionShape) {.cdecl,
     importcpp: "Set", header: "BlendFunc_CSCircular.hxx".}
 proc section*(this: var BlendFuncCSCircular; param: cfloat; u: cfloat; v: cfloat;
-             w: cfloat; pdeb: var cfloat; pfin: var cfloat; c: var CircObj) {.cdecl,
+             w: cfloat; pdeb: var cfloat; pfin: var cfloat; c: var gp_Circ) {.cdecl,
     importcpp: "Section", header: "BlendFunc_CSCircular.hxx".}
 proc section*(this: var BlendFuncCSCircular; p: BlendPoint;
              poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;

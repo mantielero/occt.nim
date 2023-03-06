@@ -123,14 +123,14 @@ proc range*(e: TopoDS_Edge; s: Handle[GeomSurface]; L: TopLocLocation;
 proc range*(e: TopoDS_Edge; f: TopoDS_Face; first: var cfloat; last: var cfloat) {.cdecl,
     importcpp: "BRep_Tool::Range(@)", header: "BRep_Tool.hxx".}
 proc uVPoints*(e: TopoDS_Edge; s: Handle[GeomSurface]; L: TopLocLocation;
-              pFirst: var Pnt2dObj; pLast: var Pnt2dObj) {.cdecl,
+              pFirst: var gp_Pnt2d; pLast: var gp_Pnt2d) {.cdecl,
     importcpp: "BRep_Tool::UVPoints(@)", header: "BRep_Tool.hxx".}
-proc uVPoints*(e: TopoDS_Edge; f: TopoDS_Face; pFirst: var Pnt2dObj; pLast: var Pnt2dObj) {.
+proc uVPoints*(e: TopoDS_Edge; f: TopoDS_Face; pFirst: var gp_Pnt2d; pLast: var gp_Pnt2d) {.
     cdecl, importcpp: "BRep_Tool::UVPoints(@)", header: "BRep_Tool.hxx".}
 proc setUVPoints*(e: TopoDS_Edge; s: Handle[GeomSurface]; L: TopLocLocation;
-                 pFirst: Pnt2dObj; pLast: Pnt2dObj) {.cdecl,
+                 pFirst: gp_Pnt2d; pLast: gp_Pnt2d) {.cdecl,
     importcpp: "BRep_Tool::SetUVPoints(@)", header: "BRep_Tool.hxx".}
-proc setUVPoints*(e: TopoDS_Edge; f: TopoDS_Face; pFirst: Pnt2dObj; pLast: Pnt2dObj) {.cdecl,
+proc setUVPoints*(e: TopoDS_Edge; f: TopoDS_Face; pFirst: gp_Pnt2d; pLast: gp_Pnt2d) {.cdecl,
     importcpp: "BRep_Tool::SetUVPoints(@)", header: "BRep_Tool.hxx".}
 proc hasContinuity*(e: TopoDS_Edge; f1: TopoDS_Face; f2: TopoDS_Face): bool {.cdecl,
     importcpp: "BRep_Tool::HasContinuity(@)", header: "BRep_Tool.hxx".}
@@ -160,7 +160,7 @@ proc parameter*(v: TopoDS_Vertex; e: TopoDS_Edge; f: TopoDS_Face): cfloat {.cdec
 proc parameter*(v: TopoDS_Vertex; e: TopoDS_Edge; s: Handle[GeomSurface];
                L: TopLocLocation): cfloat {.cdecl,
     importcpp: "BRep_Tool::Parameter(@)", header: "BRep_Tool.hxx".}
-proc parameters*(v: TopoDS_Vertex; f: TopoDS_Face): Pnt2dObj {.cdecl,
+proc parameters*(v: TopoDS_Vertex; f: TopoDS_Face): gp_Pnt2d {.cdecl,
     importcpp: "BRep_Tool::Parameters(@)", header: "BRep_Tool.hxx".}
 proc maxTolerance*(theShape: TopoDS_Shape; theSubShape: TopAbsShapeEnum): cfloat {.
     cdecl, importcpp: "BRep_Tool::MaxTolerance(@)", header: "BRep_Tool.hxx".}

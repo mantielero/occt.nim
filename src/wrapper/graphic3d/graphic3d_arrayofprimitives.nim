@@ -88,7 +88,7 @@ proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt; theNorm
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt; theNormal: DirObj;
                theColor32: cint): cint {.cdecl, importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt; theTexel: Pnt2dObj): cint {.
+proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt; theTexel: gp_Pnt2d): cint {.
     cdecl, importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: cfloat; theY: cfloat;
                theZ: cfloat; theTX: cfloat; theTY: cfloat): cint {.cdecl,
@@ -98,7 +98,7 @@ proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: cfloat; theY: cfloat
 #               theTX: StandardShortReal; theTY: StandardShortReal): cint {.cdecl,
 #    importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: gp_Pnt; theNormal: DirObj;
-               theTexel: Pnt2dObj): cint {.cdecl, importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
+               theTexel: gp_Pnt2d): cint {.cdecl, importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: cfloat; theY: cfloat;
                theZ: cfloat; theNX: cfloat; theNY: cfloat; theNZ: cfloat; theTX: cfloat;
                theTY: cfloat): cint {.cdecl, importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
@@ -133,7 +133,7 @@ proc setVertexNormal*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
                      theNX: cfloat; theNY: cfloat; theNZ: cfloat) {.cdecl,
     importcpp: "SetVertexNormal", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc setVertexTexel*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
-                    theTexel: Pnt2dObj) {.cdecl, importcpp: "SetVertexTexel",
+                    theTexel: gp_Pnt2d) {.cdecl, importcpp: "SetVertexTexel",
                                      header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc setVertexTexel*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
                     theTX: cfloat; theTY: cfloat) {.cdecl,
@@ -158,7 +158,7 @@ proc vertexNormal*(this: Graphic3dArrayOfPrimitives; theRank: cint): DirObj {.
 proc vertexNormal*(this: Graphic3dArrayOfPrimitives; theRank: cint;
                   theNX: var cfloat; theNY: var cfloat; theNZ: var cfloat) {.
     noSideEffect, cdecl, importcpp: "VertexNormal", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexTexel*(this: Graphic3dArrayOfPrimitives; theRank: cint): Pnt2dObj {.
+proc vertexTexel*(this: Graphic3dArrayOfPrimitives; theRank: cint): gp_Pnt2d {.
     noSideEffect, cdecl, importcpp: "VertexTexel", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc vertexTexel*(this: Graphic3dArrayOfPrimitives; theRank: cint; theTX: var cfloat;
                  theTY: var cfloat) {.noSideEffect, cdecl, importcpp: "VertexTexel",

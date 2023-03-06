@@ -22,61 +22,61 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 
-proc cone*(): ConeObj {.cdecl, constructor, importcpp: "gp_Cone(@)", header: "gp_Cone.hxx".}
-proc cone*(a3: Ax3Obj; ang: cfloat; radius: cfloat): ConeObj {.cdecl, constructor,
+proc cone*(): gp_Cone {.cdecl, constructor, importcpp: "gp_Cone(@)", header: "gp_Cone.hxx".}
+proc cone*(a3: Ax3Obj; ang: cfloat; radius: cfloat): gp_Cone {.cdecl, constructor,
     importcpp: "gp_Cone(@)", header: "gp_Cone.hxx".}
-proc setAxis*(this: var ConeObj; a1: Ax1Obj) {.cdecl, importcpp: "SetAxis", header: "gp_Cone.hxx".}
-proc setLocation*(this: var ConeObj; loc: gp_Pnt) {.cdecl, importcpp: "SetLocation",
+proc setAxis*(this: var gp_Cone; a1: Ax1Obj) {.cdecl, importcpp: "SetAxis", header: "gp_Cone.hxx".}
+proc setLocation*(this: var gp_Cone; loc: gp_Pnt) {.cdecl, importcpp: "SetLocation",
                                         header: "gp_Cone.hxx".}
-proc setPosition*(this: var ConeObj; a3: Ax3Obj) {.cdecl, importcpp: "SetPosition",
+proc setPosition*(this: var gp_Cone; a3: Ax3Obj) {.cdecl, importcpp: "SetPosition",
                                        header: "gp_Cone.hxx".}
-proc setRadius*(this: var ConeObj; r: cfloat) {.cdecl, importcpp: "SetRadius",
+proc setRadius*(this: var gp_Cone; r: cfloat) {.cdecl, importcpp: "SetRadius",
                                        header: "gp_Cone.hxx".}
-proc setSemiAngle*(this: var ConeObj; ang: cfloat) {.cdecl, importcpp: "SetSemiAngle",
+proc setSemiAngle*(this: var gp_Cone; ang: cfloat) {.cdecl, importcpp: "SetSemiAngle",
     header: "gp_Cone.hxx".}
-proc apex*(this: ConeObj): gp_Pnt {.noSideEffect, cdecl, importcpp: "Apex", header: "gp_Cone.hxx".}
-proc uReverse*(this: var ConeObj) {.cdecl, importcpp: "UReverse", header: "gp_Cone.hxx".}
-proc vReverse*(this: var ConeObj) {.cdecl, importcpp: "VReverse", header: "gp_Cone.hxx".}
-proc direct*(this: ConeObj): bool {.noSideEffect, cdecl, importcpp: "Direct",
+proc apex*(this: gp_Cone): gp_Pnt {.noSideEffect, cdecl, importcpp: "Apex", header: "gp_Cone.hxx".}
+proc uReverse*(this: var gp_Cone) {.cdecl, importcpp: "UReverse", header: "gp_Cone.hxx".}
+proc vReverse*(this: var gp_Cone) {.cdecl, importcpp: "VReverse", header: "gp_Cone.hxx".}
+proc direct*(this: gp_Cone): bool {.noSideEffect, cdecl, importcpp: "Direct",
                              header: "gp_Cone.hxx".}
-proc axis*(this: ConeObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Cone.hxx".}
-proc coefficients*(this: ConeObj; a1: var cfloat; a2: var cfloat; a3: var cfloat;
+proc axis*(this: gp_Cone): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Cone.hxx".}
+proc coefficients*(this: gp_Cone; a1: var cfloat; a2: var cfloat; a3: var cfloat;
                   b1: var cfloat; b2: var cfloat; b3: var cfloat; c1: var cfloat;
                   c2: var cfloat; c3: var cfloat; d: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Coefficients", header: "gp_Cone.hxx".}
-proc location*(this: ConeObj): gp_Pnt {.noSideEffect, cdecl, importcpp: "Location",
+proc location*(this: gp_Cone): gp_Pnt {.noSideEffect, cdecl, importcpp: "Location",
                               header: "gp_Cone.hxx".}
-proc position*(this: ConeObj): Ax3Obj {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: gp_Cone): Ax3Obj {.noSideEffect, cdecl, importcpp: "Position",
                               header: "gp_Cone.hxx".}
-proc refRadius*(this: ConeObj): cfloat {.noSideEffect, cdecl, importcpp: "RefRadius",
+proc refRadius*(this: gp_Cone): cfloat {.noSideEffect, cdecl, importcpp: "RefRadius",
                                   header: "gp_Cone.hxx".}
-proc semiAngle*(this: ConeObj): cfloat {.noSideEffect, cdecl, importcpp: "SemiAngle",
+proc semiAngle*(this: gp_Cone): cfloat {.noSideEffect, cdecl, importcpp: "SemiAngle",
                                   header: "gp_Cone.hxx".}
-proc xAxis*(this: ConeObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Cone.hxx".}
-proc yAxis*(this: ConeObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Cone.hxx".}
-proc mirror*(this: var ConeObj; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Cone.hxx".}
-proc mirrored*(this: ConeObj; p: gp_Pnt): ConeObj {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc xAxis*(this: gp_Cone): Ax1Obj {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Cone.hxx".}
+proc yAxis*(this: gp_Cone): Ax1Obj {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Cone.hxx".}
+proc mirror*(this: var gp_Cone; p: gp_Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Cone.hxx".}
+proc mirrored*(this: gp_Cone; p: gp_Pnt): gp_Cone {.noSideEffect, cdecl, importcpp: "Mirrored",
                                      header: "gp_Cone.hxx".}
-proc mirror*(this: var ConeObj; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Cone.hxx".}
-proc mirrored*(this: ConeObj; a1: Ax1Obj): ConeObj {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var gp_Cone; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Cone.hxx".}
+proc mirrored*(this: gp_Cone; a1: Ax1Obj): gp_Cone {.noSideEffect, cdecl, importcpp: "Mirrored",
                                       header: "gp_Cone.hxx".}
-proc mirror*(this: var ConeObj; a2: Ax2Obj) {.cdecl, importcpp: "Mirror", header: "gp_Cone.hxx".}
-proc mirrored*(this: ConeObj; a2: Ax2Obj): ConeObj {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var gp_Cone; a2: Ax2Obj) {.cdecl, importcpp: "Mirror", header: "gp_Cone.hxx".}
+proc mirrored*(this: gp_Cone; a2: Ax2Obj): gp_Cone {.noSideEffect, cdecl, importcpp: "Mirrored",
                                       header: "gp_Cone.hxx".}
-proc rotate*(this: var ConeObj; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rotate",
+proc rotate*(this: var gp_Cone; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rotate",
     header: "gp_Cone.hxx".}
-proc rotated*(this: ConeObj; a1: Ax1Obj; ang: cfloat): ConeObj {.noSideEffect, cdecl,
+proc rotated*(this: gp_Cone; a1: Ax1Obj; ang: cfloat): gp_Cone {.noSideEffect, cdecl,
     importcpp: "Rotated", header: "gp_Cone.hxx".}
-proc scale*(this: var ConeObj; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Cone.hxx".}
-proc scaled*(this: ConeObj; p: gp_Pnt; s: cfloat): ConeObj {.noSideEffect, cdecl,
+proc scale*(this: var gp_Cone; p: gp_Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Cone.hxx".}
+proc scaled*(this: gp_Cone; p: gp_Pnt; s: cfloat): gp_Cone {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Cone.hxx".}
-proc transform*(this: var ConeObj; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Cone.hxx".}
-proc transformed*(this: ConeObj; t: TrsfObj): ConeObj {.noSideEffect, cdecl,
+proc transform*(this: var gp_Cone; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Cone.hxx".}
+proc transformed*(this: gp_Cone; t: TrsfObj): gp_Cone {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Cone.hxx".}
-proc translate*(this: var ConeObj; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Cone.hxx".}
-proc translated*(this: ConeObj; v: gp_Vec): ConeObj {.noSideEffect, cdecl,
+proc translate*(this: var gp_Cone; v: gp_Vec) {.cdecl, importcpp: "Translate", header: "gp_Cone.hxx".}
+proc translated*(this: gp_Cone; v: gp_Vec): gp_Cone {.noSideEffect, cdecl,
                                        importcpp: "Translated", header: "gp_Cone.hxx".}
-proc translate*(this: var ConeObj; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
+proc translate*(this: var gp_Cone; p1: gp_Pnt; p2: gp_Pnt) {.cdecl, importcpp: "Translate",
     header: "gp_Cone.hxx".}
-proc translated*(this: ConeObj; p1: gp_Pnt; p2: gp_Pnt): ConeObj {.noSideEffect, cdecl,
+proc translated*(this: gp_Cone; p1: gp_Pnt; p2: gp_Pnt): gp_Cone {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Cone.hxx".}

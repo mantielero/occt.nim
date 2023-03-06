@@ -8,7 +8,7 @@ import ../../wrapper/geom2d/geom2d_includes
 
 
 # 2D point
-proc cartesianPoint(p: Pnt2dObj): Handle[Geom2dCartesianPoint] {.cdecl, 
+proc cartesianPoint(p: gp_Pnt2d): Handle[Geom2dCartesianPoint] {.cdecl, 
     importcpp: "new Geom2d_CartesianPoint(@)", header: "Geom2d_CartesianPoint.hxx".}
 
 proc cartesianPoint(x: cfloat; y: cfloat): Handle[Geom2dCartesianPoint] {.cdecl, 
@@ -102,5 +102,5 @@ proc trimmedCurve*[T:Geom2dCurve | Geom2dEllipse](c: Handle[T];
             theAdjustPeriodic: bool = true): Handle[Geom2dTrimmedCurve] {.
     cdecl, importcpp: "new Geom2d_TrimmedCurve(@)", header: "Geom2d_TrimmedCurve.hxx".}
 
-proc getPnt*[T:Geom2dTrimmedCurve|Geom2dEllipse; N:SomeNumber](c:Handle[T]; val:N):Pnt2dObj =
+proc getPnt*[T:Geom2dTrimmedCurve|Geom2dEllipse; N:SomeNumber](c:Handle[T]; val:N):gp_Pnt2d =
   `*`(c).value(val.cfloat)

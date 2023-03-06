@@ -28,23 +28,23 @@ proc trsf2d*(): Trsf2dObj {.cdecl, constructor, importcpp: "gp_Trsf2d(@)",
                          header: "gp_Trsf2d.hxx".}
 proc trsf2d*(t: TrsfObj): Trsf2dObj {.cdecl, constructor, importcpp: "gp_Trsf2d(@)",
                                header: "gp_Trsf2d.hxx".}
-proc setMirror*(this: var Trsf2dObj; p: Pnt2dObj) {.cdecl, importcpp: "SetMirror",
+proc setMirror*(this: var Trsf2dObj; p: gp_Pnt2d) {.cdecl, importcpp: "SetMirror",
                                         header: "gp_Trsf2d.hxx".}
 proc setMirror*(this: var Trsf2dObj; a: Ax2dObj) {.cdecl, importcpp: "SetMirror",
                                        header: "gp_Trsf2d.hxx".}
-proc setRotation*(this: var Trsf2dObj; p: Pnt2dObj; ang: cfloat) {.cdecl,
+proc setRotation*(this: var Trsf2dObj; p: gp_Pnt2d; ang: cfloat) {.cdecl,
     importcpp: "SetRotation", header: "gp_Trsf2d.hxx".}
-proc setScale*(this: var Trsf2dObj; p: Pnt2dObj; s: cfloat) {.cdecl, importcpp: "SetScale",
+proc setScale*(this: var Trsf2dObj; p: gp_Pnt2d; s: cfloat) {.cdecl, importcpp: "SetScale",
     header: "gp_Trsf2d.hxx".}
 proc setTransformation*(this: var Trsf2dObj; fromSystem1: Ax2dObj; toSystem2: Ax2dObj) {.cdecl,
     importcpp: "SetTransformation", header: "gp_Trsf2d.hxx".}
 proc setTransformation*(this: var Trsf2dObj; toSystem: Ax2dObj) {.cdecl,
     importcpp: "SetTransformation", header: "gp_Trsf2d.hxx".}
-proc setTranslation*(this: var Trsf2dObj; v: Vec2dObj) {.cdecl, importcpp: "SetTranslation",
+proc setTranslation*(this: var Trsf2dObj; v: gp_Vec2d) {.cdecl, importcpp: "SetTranslation",
     header: "gp_Trsf2d.hxx".}
-proc setTranslation*(this: var Trsf2dObj; p1: Pnt2dObj; p2: Pnt2dObj) {.cdecl,
+proc setTranslation*(this: var Trsf2dObj; p1: gp_Pnt2d; p2: gp_Pnt2d) {.cdecl,
     importcpp: "SetTranslation", header: "gp_Trsf2d.hxx".}
-proc setTranslationPart*(this: var Trsf2dObj; v: Vec2dObj) {.cdecl,
+proc setTranslationPart*(this: var Trsf2dObj; v: gp_Vec2d) {.cdecl,
     importcpp: "SetTranslationPart", header: "gp_Trsf2d.hxx".}
 proc setScaleFactor*(this: var Trsf2dObj; s: cfloat) {.cdecl, importcpp: "SetScaleFactor",
     header: "gp_Trsf2d.hxx".}

@@ -22,10 +22,10 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Cylinder"
 
 
-proc newConvertCylinderToBSplineSurface*(cyl: CylinderObj; u1: cfloat; u2: cfloat;
+proc newConvertCylinderToBSplineSurface*(cyl: gp_Cylinder; u1: cfloat; u2: cfloat;
                                         v1: cfloat; v2: cfloat): ConvertCylinderToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_CylinderToBSplineSurface(@)",
     header: "Convert_CylinderToBSplineSurface.hxx".}
-proc newConvertCylinderToBSplineSurface*(cyl: CylinderObj; v1: cfloat; v2: cfloat): ConvertCylinderToBSplineSurface {.
+proc newConvertCylinderToBSplineSurface*(cyl: gp_Cylinder; v1: cfloat; v2: cfloat): ConvertCylinderToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_CylinderToBSplineSurface(@)",
     header: "Convert_CylinderToBSplineSurface.hxx".}

@@ -72,10 +72,10 @@ proc setWindowSize*(this: var SelectMgrSelectingVolumeManager; theWidth: cint;
                    theHeight: cint) {.cdecl, importcpp: "SetWindowSize",
                                     header: "SelectMgr_SelectingVolumeManager.hxx".}
 proc buildSelectingVolume*(this: var SelectMgrSelectingVolumeManager;
-                          thePoint: Pnt2dObj) {.cdecl,
+                          thePoint: gp_Pnt2d) {.cdecl,
     importcpp: "BuildSelectingVolume", header: "SelectMgr_SelectingVolumeManager.hxx".}
 proc buildSelectingVolume*(this: var SelectMgrSelectingVolumeManager;
-                          theMinPt: Pnt2dObj; theMaxPt: Pnt2dObj) {.cdecl,
+                          theMinPt: gp_Pnt2d; theMaxPt: gp_Pnt2d) {.cdecl,
     importcpp: "BuildSelectingVolume", header: "SelectMgr_SelectingVolumeManager.hxx".}
 proc buildSelectingVolume*(this: var SelectMgrSelectingVolumeManager;
                           thePoints: TColgpArray1OfPnt2d) {.cdecl,
@@ -140,7 +140,7 @@ proc getNearPickedPnt*(this: SelectMgrSelectingVolumeManager): gp_Pnt {.noSideEf
     cdecl, importcpp: "GetNearPickedPnt", header: "SelectMgr_SelectingVolumeManager.hxx".}
 proc getFarPickedPnt*(this: SelectMgrSelectingVolumeManager): gp_Pnt {.noSideEffect,
     cdecl, importcpp: "GetFarPickedPnt", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc getMousePosition*(this: SelectMgrSelectingVolumeManager): Pnt2dObj {.noSideEffect,
+proc getMousePosition*(this: SelectMgrSelectingVolumeManager): gp_Pnt2d {.noSideEffect,
     cdecl, importcpp: "GetMousePosition", header: "SelectMgr_SelectingVolumeManager.hxx".}
 proc activeVolume*(this: SelectMgrSelectingVolumeManager): Handle[
     SelectMgrBaseFrustum] {.noSideEffect, cdecl, importcpp: "ActiveVolume",

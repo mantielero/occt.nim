@@ -13,3 +13,5 @@ experiments/wrapper2/nimcache
 !/examples/*.*
 /examples/.cache/
 !/examples/* */
+!/examples/api
+/examples/api/borrame

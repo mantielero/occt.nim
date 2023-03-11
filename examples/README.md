@@ -12,6 +12,8 @@ Here there are some resources for inspiration
 - https://occtutorials.wordpress.com
 - https://neweopencascade.wordpress.com/
 - https://opencascade.blogspot.com/
+- https://github.com/quirxi/occBasicSamples
+- https://documentation.help/Open-Cascade/
 
 ## Alternative API
 I'd like to provide an alternative API more inspired by [RepliCAD](https://replicad.xyz/), [CADquery](https://github.com/CadQuery/cadquery) and [CQparts](https://cqparts.github.io/). Some examples:

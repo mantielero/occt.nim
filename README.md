@@ -1,7 +1,7 @@
 # occt
 OpenCascade nim wrapper.
 
-Further documentation in [occt.nim site](https://mantielero.github.io/occt-site/)
+[//]: Further documentation in [occt.nim site](https://mantielero.github.io/occt-site/)
 
 # Purpose
 Creating CAD models. The following has been done with **occt.nim**.

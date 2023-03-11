@@ -15,5 +15,31 @@ The following has been done with **occt.nim**.
 [3d model viewer](https://3dviewer.net/embed.html#model=https://raw.githubusercontent.com/mantielero/occt.nim/main/examples/bottle.stp$camera=-8.39009,-87.10222,124.60955,0.00000,0.00000,38.50000,0.00000,1.00000,0.00000,45.00000$cameramode=perspective$envsettings=fishermans_bastion,off$backgroundcolor=255,255,255,255$defaultcolor=200,200,200$edgesettings=off,0,0,0,1)
 
 
+# How to install?
+Right now I am only testing it in Linux (ArchLinux). You can install OpenCascade like:
+```sh
+$ yay -S opencascade
+``` 
+In order to install the bindings:
+```sh
+$ nimble install https://github.com/mantielero/occt.nim
+```
+
+
 # Status
-Preliminar status. Some of the examples currently compiles and run. But the coverage of the library still is pretty low.
+Right now, a significant part of the library is wrapped. There are 75 packages already wrapped (in better or worst shape). For sure, there are much more functions wrapped than what you might need.
+
+Most of the bindings are untested. On the other hand, they should work (or they should work with very little modification).
+
+Wrapping the functions is the first step. Later you need more convenient functions that make the library more convenient to use (more "Nim-ish" -if that word exists-).
+
+# Library structure
+The wrapped packages are located under `src/wrapper`.
+
+In the folder `src/lib`, some functions are included in order to make easier dealing with OpenCascade.
+
+# I wanna help!
+There are many things that can be done:
+1. Using the library. This will help to detect issues. This is about populating the `examples` folder.
+2. Improving the usability. Some examples on how to improve the usability can be found in [src/lib/foundation/gp.nim](https://github.com/mantielero/occt.nim/blob/main/src/lib/foundation/gp.nimsrc/lib/foundation/gp.nim) or [src/lib/foundation/iter.nim](https://github.com/mantielero/occt.nim/blob/main/src/lib/foundation/iter.nim).
+3. Adding easier API's like CadQuery or RepliCAD are proposing. An example is [src/lib/sketcher/sketcher2d.nim](https://github.com/mantielero/occt.nim/blob/main/src/lib/sketcher/sketcher2d.nim). With that API you can do things like [examples/api/sketcher2d_01.nim](https://github.com/mantielero/occt.nim/blob/main/examples/api/sketcher2d_01.nim).

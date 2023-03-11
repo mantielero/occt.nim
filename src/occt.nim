@@ -6,11 +6,11 @@ export occt_wrapper
 
 
 # Porqué no está accesible `$` desde point.
-import lib/primitives/[point, primitives]
-export point, primitives
+import lib/foundation/[gp]
+export gp
 
-import lib/handles/[cartesian_point]
-export cartesian_point
+import lib/primitives/[primitives]
+export primitives
 
 import lib/exporter/[toStep]
 export toStep
@@ -31,8 +31,8 @@ export breplib
 import lib/explorer/explorer
 export explorer
 
-import lib/geom/geom
-export geom
+import lib/geom/[cartesian_point, geom]
+export cartesian_point, geom
 
 import lib/geom2d/[geom2d, gce2d]
 export geom2d, gce2d

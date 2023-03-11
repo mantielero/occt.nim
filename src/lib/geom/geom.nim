@@ -10,10 +10,9 @@ proc cylindricalSurface*(a3: gp_Ax3; radius: cfloat): Handle[GeomCylindricalSurf
   newHandle( newCylindricalSurface(a3, radius) )
 
 
+# -------------
 
 
-#----
-#Handle[geom_types.GeomSurface]
 converter toPlane*(aSurface:Handle[Geom_Surface]): Handle[GeomPlane] =
   return downcast[Geom_Surface, GeomPlane](aSurface)
 

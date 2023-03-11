@@ -7,4 +7,4 @@ let
   myHeight = 70
   aPnt1 = pnt( myWidth, myThickness, myHeight)
 
-echo aPnt1.x
+echo aPnt1.x  # Will print:  50.0

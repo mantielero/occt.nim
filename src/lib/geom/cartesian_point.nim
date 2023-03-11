@@ -10,7 +10,14 @@ import ../../wrapper/gp/[gp_types]
 # ------------------
 type
   HandleCartesianPointObj* = Handle[GeomCartesianPoint]
-  
+
+# proc newGeomCartesianPoint*(p: gp_Pnt): GeomCartesianPoint {.cdecl, constructor,
+#     importcpp: "new Geom_CartesianPoint(@)", header: "Geom_CartesianPoint.hxx".}
+# proc newGeomCartesianPoint*(x: cfloat; y: cfloat; z: cfloat): GeomCartesianPoint {.
+#     cdecl, constructor, importcpp: "new Geom_CartesianPoint(@)", header: "Geom_CartesianPoint.hxx".}
+
+
+
 proc newPnt*[X,Y,Z:SomeNumber](x:X;y:Y;z:Z):HandleCartesianPointObj =
   newHandle( cnew newGeomCartesianPoint( (x).cfloat, (y).cfloat, (z).cfloat ) ) 
 

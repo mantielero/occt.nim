@@ -2,6 +2,7 @@
 # 2D
 # ===========
 # https://dev.opencascade.org/content/what-difference-between-classes-geomplane-and-gppln-and-similar-pairs-classes
+import std/[strformat]
 import ../../wrapper/gp/gp_includes
 import ../../wrapper/standard/standard_includes
 import ../../wrapper/geom2d/geom2d_includes
@@ -14,21 +15,26 @@ proc cartesianPoint(p: gp_Pnt2d): Handle[Geom2dCartesianPoint] {.cdecl,
 proc cartesianPoint(x: cfloat; y: cfloat): Handle[Geom2dCartesianPoint] {.cdecl, 
     importcpp: "new Geom2d_CartesianPoint(@)", header: "Geom2d_CartesianPoint.hxx".}
 
-proc pnt*[X,Y: SomeNumber](x:X; y:Y):Handle[Geom2d_CartesianPoint] =
+proc newPnt*[X,Y: SomeNumber](x:X; y:Y):Handle[Geom2d_CartesianPoint] =
   ## created a point 2D; returns a handle to the point
   cartesianPoint(x.cfloat, y.cfloat)
 
-# proc x*(p:Handle[Geom2d_CartesianPoint] ): float =
-#   `*`(p).x
 
-# proc y*(p:Handle[Geom2d_CartesianPoint] ): float =
-#   `*`(p).y
+proc x*(p:Handle[Geom2d_CartesianPoint] ): float =
+  `*`(p).x
 
-# proc `x=`*(p:Handle[Geom2d_CartesianPoint]; val: SomeNumber ) =
-#   `*`(p).setX(val.cfloat)
+proc y*(p:Handle[Geom2d_CartesianPoint] ): float =
+  `*`(p).y
 
-# proc `y=`*(p:Handle[Geom2d_CartesianPoint]; val: SomeNumber ) =
-#   `*`(p).setY(val.cfloat)
+proc `$`*(pnt:Handle[Geom2dCartesianPoint]):string =
+  return fmt"HandleGeom2dCartesianPointObj(x:{pnt.x}, y:{pnt.y})"
+
+
+proc `x=`*(p:Handle[Geom2d_CartesianPoint]; val: SomeNumber ) =
+  `*`(p).setX(val.cfloat)
+
+proc `y=`*(p:Handle[Geom2d_CartesianPoint]; val: SomeNumber ) =
+  `*`(p).setY(val.cfloat)
 
 proc distance*[T:Handle[Geom2d_CartesianPoint]](p1, p2:T): float =
   #`*`(p1).distance(p2)
@@ -44,7 +50,6 @@ proc direction(x: cfloat; y: cfloat): Handle[Geom2dDirection] {.cdecl,
 
 proc dir*[X,Y: SomeNumber](x:X; y:Y): Handle[Geom2dDirection] =
   direction(x.cfloat, y.cfloat)
-
 
 
 proc magnitude*(d:Handle[Geom2dDirection] ): float =

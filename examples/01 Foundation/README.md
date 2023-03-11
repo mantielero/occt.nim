@@ -8,16 +8,24 @@ The toolkits involved [here](https://dev.opencascade.org/doc/refman/html/module_
 
 # Data types - Handle
 [info](https://old.opencascade.com/doc/occt-7.5.0/overview/html/occt_user_guides__foundation_classes.html#occt_fcug_2_1)
-We can use manipulate data by value or by handle.
+
+We can manipulate data by value or by handle.
 
 In C++, you would do:
 ```c++
 Handle(MyClass) anObject = new MyClass();
 ```
 
-The equivalent in Nim:
+There are several ways to do the same in Nim. In Nim, `Handle` it is also a template, so `Handle(MyClass)` in C++ is equivalent to `Handle[MyClass]` in Nim. The advantage with Nim is that most of the time you won't need to define that type in Nim.
+
+In Nim, something similar could be achieved by:
 ```nim
 var anObject:Handle[MyClass] = newHandle( cnew MyClass() )
+```
+
+but in practice I try to create constructors so that the following is valid:
+```nim
+var anObjectRef = newMyClass()
 ```
 
 ## TODO: to simplify the management with Handles.

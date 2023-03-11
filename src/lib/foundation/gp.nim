@@ -15,43 +15,43 @@ type
 
 
 type
-  Point* = gp_Pnt | gp_Xyz | gp_Dir  | gp_Vec  
+  gpPoint* = gp_Pnt | gp_Xyz | gp_Dir  | gp_Vec  
 
 
-proc x*[T:Point](p:T):float =
+proc x*[T:gpPoint](p:T):float =
   p.x.float
 
-proc y*[T:Point](p:T):float =
+proc y*[T:gpPoint](p:T):float =
   p.y.float
 
-proc z*[T:Point](p:T):float =
+proc z*[T:gpPoint](p:T):float =
   p.z.float
 
 
-proc `x=`*[T:Point, V:SomeNumber](pnt:var T,val:V) =
+proc `x=`*[T:gpPoint, V:SomeNumber](pnt:var T, val:V) =
   pnt.setX(val.cfloat)
 
-proc `y=`*[T:Point, V:SomeNumber](pnt:var T,val:V) =
+proc `y=`*[T:gpPoint, V:SomeNumber](pnt:var T, val:V) =
   pnt.setY(val.cfloat)
 
-proc `z=`*[T:Point, V:SomeNumber](pnt:var T,val:V) =
+proc `z=`*[T:gpPoint, V:SomeNumber](pnt:var T, val:V) =
   pnt.setZ(val.cfloat)
 
 
 proc `$`*(pnt:gp_Pnt):string =
-  &"Pnt(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
+  &"gp_Pnt(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 
 proc `$`*(pnt:gp_Vec):string =
-  &"Vec(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
+  &"gp_Vec(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 
 proc `$`*(pnt:gp_Xyz):string =
-  &"Xyz(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
+  &"gp_Xyz(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 
-proc `[]`*[P:Point, I:SomeInteger](pnt:P, idx:I):float =
+proc `[]`*[P:gpPoint, I:SomeInteger](pnt:P, idx:I):float =
   pnt.coord(idx.cint + 1.cint)
 
 
-proc `[]=`*[P:Point, I:SomeInteger, X:SomeNumber](pnt:var P, idx:I, val:X) =
+proc `[]=`*[P:gpPoint, I:SomeInteger, X:SomeNumber](pnt:var P, idx:I, val:X) =
   let tmp = val.cfloat
   case idx:
   of 0: pnt.x = tmp
@@ -59,7 +59,7 @@ proc `[]=`*[P:Point, I:SomeInteger, X:SomeNumber](pnt:var P, idx:I, val:X) =
   of 2: pnt.z = tmp
   else: raise newException(ValueError, "the index should be 0..2")
 
-proc set*[P:Point, X,Y,Z:SomeNumber](pnt:var P, x:X, y:Y, z:Z) =
+proc set*[P:gpPoint, X,Y,Z:SomeNumber](pnt:var P, x:X, y:Y, z:Z) =
   pnt.setCoord(x.cfloat, y.cfloat, z.cfloat)
 
 #------

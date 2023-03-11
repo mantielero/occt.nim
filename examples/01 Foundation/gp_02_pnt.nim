@@ -22,8 +22,8 @@ var pnt3 = pnt()
 pnt3.set(-1,-2,-3)
 echo pnt3            # Shows: Pnt(x:-1.0, y:-2.0, z:-3.0)
 
-#echo pnt3[0]
-echo pnt3[0]," ", pnt3[1], " ", pnt3[2]                 # Shows: -1.0 -2.0 -3.0
+
+echo pnt3[0]," ", pnt3[1], " ", pnt3[2]  # Shows: -1.0 -2.0 -3.0
 
 echo pnt1.distance(pnt2), " == ", distance(pnt1, pnt2)  # 5.161395072937012 == 5.161395072937012
 echo pnt1.squareDistance(pnt2)                          # 26.63999938964844

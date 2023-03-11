@@ -1,10 +1,14 @@
 # occt
-OpenCascade nim wrapper.
+OpenCascade is an open-source software development platform used for building 3D modeling and visualization applications. It provides a set of tools that allow developers to create complex geometric models and perform operations on them, such as Boolean operations, intersections, and extrusions. 
 
-[//]: Further documentation in [occt.nim site](https://mantielero.github.io/occt-site/)
+OpenCascade is often used in the engineering, architecture, and manufacturing industries for designing and analyzing objects and structures.
 
-# Purpose
-Creating CAD models. The following has been done with **occt.nim**.
+This is a wrapper that enables using OpenCascade from Nim.
+
+> The site it is not maintained. Maybe in the future: Further documentation in [occt.nim site](https://mantielero.github.io/occt-site/)
+
+# Example
+The following has been done with **occt.nim**.
 
 ![](./examples/bottle.png)
 

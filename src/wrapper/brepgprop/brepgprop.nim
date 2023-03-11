@@ -22,6 +22,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of GProp_GProps"
 discard "forward decl of gp_Pln"
 
+{.push header:"BRepGProp.hxx".}
 proc LinearProperties*(S: TopoDS_Shape; LProps: var GProp_GProps;
                       SkipShared: bool = false; UseTriangulation: bool = false) {.cdecl,
     importcpp: "BRepGProp::LinearProperties(@)".}
@@ -48,3 +49,4 @@ proc VolumePropertiesGK*(S: TopoDS_Shape; VProps: var GProp_GProps; thePln: gp_P
                         IsUseSpan: bool = false; CGFlag: bool = false;
                         IFlag: bool = false; SkipShared: bool = false): cfloat {.cdecl,
     importcpp: "BRepGProp::VolumePropertiesGK(@)".}
+{.pop.}

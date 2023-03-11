@@ -29,16 +29,25 @@ proc main =
   echo "Created box with hole, file is written to boxWithHole.stp"
  
   # We compute some volumetric properties of the resulting shape
-  #GProp_GProps volumeProperties;
-  #BRepGProp::VolumeProperties(boxWithHole,volumeProperties);
- 
+  var volumeProperties:GProp_GProps
+  VolumeProperties(boxWithHole, volumeProperties) 
+
   # Compute the volume of the model
+  #setPrecision(14)   # std::setprecision(14)
+  echo volumeProperties.Mass()
   #std::cout << std::setprecision(14) << "Volume of the model is: " << volumeProperties.Mass() << std::endl;
      
   # Compute the center of mass
-  #std::cout << "Center of mass is: " << volumeProperties.CentreOfMass().X() << " " << volumeProperties.CentreOfMass().Y() << " " << volumeProperties.CentreOfMass().Z() << std::endl;
- 
+  var com = volumeProperties.CentreOfMass()
+  echo "Center of mass is: ", com
+     
+
   # Compute the matrix of inertia
+  var inertiaMatrix = volumeProperties.MatrixOfInertia()
+  echo typeof(inertiaMatrix)
+  for i in 1..3:
+    for j in 1..3:
+      echo inertiaMatrix(i.cint, j.cint)
   #[     gp_Mat inertiaMatrix = volumeProperties.MatrixOfInertia();
     std::cout << "Matrix of inertia: " << std::endl;
     for (int i = 1; i <= 3; ++i) {

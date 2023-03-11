@@ -43,3 +43,9 @@ There are many things that can be done:
 1. Using the library. This will help to detect issues. This is about populating the `examples` folder.
 2. Improving the usability. Some examples on how to improve the usability can be found in [src/lib/foundation/gp.nim](https://github.com/mantielero/occt.nim/blob/main/src/lib/foundation/gp.nimsrc/lib/foundation/gp.nim) or [src/lib/foundation/iter.nim](https://github.com/mantielero/occt.nim/blob/main/src/lib/foundation/iter.nim).
 3. Adding easier API's like CadQuery or RepliCAD are proposing. An example is [src/lib/sketcher/sketcher2d.nim](https://github.com/mantielero/occt.nim/blob/main/src/lib/sketcher/sketcher2d.nim). With that API you can do things like [examples/api/sketcher2d_01.nim](https://github.com/mantielero/occt.nim/blob/main/examples/api/sketcher2d_01.nim).
+4. [OCCTUtils](https://github.com/ulikoehler/OCCUtils): seems interesting as well. It could serve as inspiration also. See also https://techoverflow.net/category/opencascade/
+5. If you wanna add a new package, [here](https://github.com/mantielero/occt.nim/tree/main/src/wrapper/breptools) you can find some instructions. It is pretty straightforward.
+
+# License
+I don't know much about licenses (any advise is wellcomed). My code is BSD, but you need to fulfill whatever [OpenCascade license requires](https://dev.opencascade.org/resources/licensing) which is: GNU Lesser General Public License (LGPL) version 2.1.
+

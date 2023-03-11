@@ -10,17 +10,16 @@ proc main =
  
   # Create a simple box with a size 100x100x50, centered around the origin
   let lowerLeftCornerOfBox = pnt(-50.0,-50.0,0.0)
-  var boxMaker = box(lowerLeftCornerOfBox,100,100,50)  # tkprim/brepprimapi/brepprimapi_makebox | tkmath/bvh/bvh_box 
-  echo typeof(boxMaker)
-  var myBox:TopoDS_Shape = boxMaker.shape()
+  var boxMaker = box(lowerLeftCornerOfBox,100,100,50)
+  var myBox = boxMaker.shape()
      
   # Create a cylinder with a radius 25.0 and height 50.0, centered at the origin 
   var cylinderMaker = cylinder(25.0,50.0)
-  var myCylinder:TopoDS_Shape = cylinderMaker.shape()
+  var myCylinder = cylinderMaker.shape()
  
   # Cut the cylinder out from the box
   var cutMaker = cut(myBox,myCylinder)
-  var boxWithHole:TopoDS_Shape = cutMaker.shape()
+  var boxWithHole = cutMaker.shape()
      
   # Write the resulting shape to a file
   var writer = newSTEPControlWriter() 

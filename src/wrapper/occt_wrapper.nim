@@ -71,6 +71,7 @@ import topabs/topabs_includes
 import adaptor3d/adaptor3d_includes
 import geomadaptor/geomadaptor_includes
 import tcolgeom/tcolgeom_includes
+import gprop/gprop_includes
 
 # TKGeomAlgo
 import law/law_includes
@@ -125,6 +126,7 @@ import brepcheck/brepcheck_includes
 import brepextrema/brepextrema_includes
 import brepbuilderapi/brepbuilderapi_includes
 import breplib/breplib_includes
+import brepgprop/brepgprop_includes
 
 
 # TKStep
@@ -211,6 +213,7 @@ export topabs_includes
 export adaptor3d_includes
 export geomadaptor_includes
 export tcolgeom_includes
+export gprop_includes
 
 
 # TKGeomAlgo
@@ -263,7 +266,7 @@ export brepcheck_includes
 export brepextrema_includes
 export brepbuilderapi_includes
 export breplib_includes
-
+export brepgprop_includes
 
 
 # TKStep

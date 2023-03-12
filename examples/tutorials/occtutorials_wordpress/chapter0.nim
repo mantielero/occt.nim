@@ -1,7 +1,7 @@
 # https://occtutorials.wordpress.com/2015/12/04/chapter-o-box-with-hole/#more-40
-# nim cpp -r ex20_chapter0
+# nim cpp -r chapter0
 import occt
-
+import os # for stdout
 proc main =
   echo """
 ------- OpenCASCADE Tutorial by Laszlo Kudela -------
@@ -33,7 +33,7 @@ proc main =
   VolumeProperties(boxWithHole, volumeProperties) 
 
   # Compute the volume of the model
-  #setPrecision(14)   # std::setprecision(14)
+  setPrecision(14)   # std::setprecision(14)
   echo volumeProperties.Mass()
   #std::cout << std::setprecision(14) << "Volume of the model is: " << volumeProperties.Mass() << std::endl;
      
@@ -44,18 +44,14 @@ proc main =
 
   # Compute the matrix of inertia
   var inertiaMatrix = volumeProperties.MatrixOfInertia()
+  echo "Matrix of inertia:"
   echo typeof(inertiaMatrix)
   for i in 1..3:
     for j in 1..3:
-      echo inertiaMatrix(i.cint, j.cint)
-  #[     gp_Mat inertiaMatrix = volumeProperties.MatrixOfInertia();
-    std::cout << "Matrix of inertia: " << std::endl;
-    for (int i = 1; i <= 3; ++i) {
-        for (int j = 1; j <= 3; ++j) {
-            std::cout << inertiaMatrix(i,j) << "\t";
-        }
-        std::cout << std::endl;
-    } 
-  ]#
+      #echo inertiaMatrix(i.cint, j.cint)
+      stdout.write inertiaMatrix(i.cint, j.cint)
+      stdout.write " "
+    stdout.flushFile
+    echo ""
 
 main()

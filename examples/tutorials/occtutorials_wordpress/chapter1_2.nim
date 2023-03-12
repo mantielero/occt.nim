@@ -32,9 +32,6 @@ proc main =
   Evaluating geometric entities happens through the ElClib package
   ElClib = Elementary Curve operations
   We now evaluate 15 points on the circle and write the resulting coordinates into a file
-  
-  TODO: bindings for this package do not exist.
-  https://dev.opencascade.org/doc/refman/html/class_el_c_lib.html
   ]# 
 
   # Divide the interval into 100 points
@@ -44,6 +41,7 @@ proc main =
   let f = open("chapter1_2_circlePoints.txt", fmWrite)
   defer: f.close()
 
+  # the Elementary Curve computations Library to evaluate points on the circle
   #var lib:ElCLib
   for i in 0..<numberOfSamplePoints:
     let delta = (i.float * deltaU).cdouble
@@ -58,7 +56,7 @@ proc main =
     let delta = (i.float * deltaU).cdouble
     var pointOnCircle:gp_Pnt
     var tangentVector:gp_Vec
-    lib.d1(delta, circle2, pointOnCircle, tangentVector)
+    d1(delta, circle2, pointOnCircle, tangentVector)
     f1.writeLine( fmt"{pointOnCircle.x} {pointOnCircle.y} {pointOnCircle.z} {tangentVector.x} {tangentVector.y} {tangentVector.z}" )
   
   #[ 
@@ -68,6 +66,4 @@ proc main =
   ]#
 
 main()
-
-
 

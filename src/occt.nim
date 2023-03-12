@@ -4,6 +4,9 @@ import wrapper/occt_wrapper
 export occt_wrapper
 
 
+# <iomanip>
+import lib/foundation/[std]
+export std
 
 # Porqué no está accesible `$` desde point.
 import lib/foundation/[gp]

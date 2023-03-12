@@ -4,25 +4,6 @@
 import cnew
 
 
-# import tkernel/tkernel
-# import tkmath/tkmath
-# import tkgeombase/tkgeombase
-# import tkg3d/tkg3d
-# import tkg2d/tkg2d
-# import tkbrep/tkbrep
-# import tktopalgo/tktopalgo
-# import tkprim/tkprim
-# import tkfillet/tkfillet
-# import tkbool/tkbool
-# import tkgeomalgo/tkgeomalgo
-# import tkbo/tkbo
-# import tkxsbase/tkxsbase
-
-# import tkv3d/tkv3d
-# import tkservice/tkservice
-# import tkopengl/tkopengl
-
-
 # TKBO
 import bopalgo/bopalgo_includes
 import brepalgoapi/brepalgoapi_includes

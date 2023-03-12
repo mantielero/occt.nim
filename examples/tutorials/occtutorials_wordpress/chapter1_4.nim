@@ -12,17 +12,18 @@ proc main() =
   #echo typeof(box)
 
   # Create a cylinder with a radius 25.0 and height 50.0, centered at the origin 
-  cylinderMaker = MakeCylinder(25.0,50.0)
-  cylinder = cylinderMaker.shape
+  var cylinderMaker = cylinder(25.0,50.0)
+  var aCylinder = cylinderMaker.shape
 
   # Cut the cylinder out from the box
-  cutMaker = BRepAlgoAPI_Cut(box,cylinder)
-  boxWithHole = cutMaker.shape
+  var cutMaker = cut(box, aCylinder)
+  var boxWithHole = cutMaker.shape
 
-  # Write the resulting shape to a file
-  let writer:STEPControl_Writer
-  writer.transfer( boxWithHole, STEPControl_AsIs)
-  writer.Write("boxWithHole.stp")
+  # Write the resulti2ng shape to a file
+  boxWithHole.toStep("boxWithHole.stp")
+  # var writer:STEPControl_Writer
+  # writer.transfer( boxWithHole, STEPControl_AsIs)
+  # writer.Write("boxWithHole.stp")
 
 
 
@@ -68,10 +69,10 @@ proc main() =
 
   let deltaU = 2.0*Pi/(resolution - 1).float
 
-  var lib:ElCLib
+  #var lib:ElCLib
   for i in 0..<resolution:
     let delta = (i.float * deltaU).cdouble
-    let pointOnCircle = lib.value(delta, circle)
+    let pointOnCircle = value(delta, circle)
     pointsOnCircle[i] = pointOnCircle
 
   #[
@@ -91,8 +92,8 @@ proc main() =
     let thirdPntOfTriangle = centerPoint
 
     # https://github.com/lvk88/OccTutorial/blob/master/Chapter1_Basics/src/AreaCalculations.cpp
-    let vec1 = Vec(thirdPntOfTriangle, secondPntOfTriangle)
-    let vec2 = Vec(thirdPntOfTriangle, firstPntOfTriangle)
+    let vec1 = vec(thirdPntOfTriangle, secondPntOfTriangle)
+    let vec2 = vec(thirdPntOfTriangle, firstPntOfTriangle)
     let area = vec1.crossed(vec2).magnitude / 2.0
     totalArea += area
          

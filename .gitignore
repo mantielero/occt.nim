@@ -17,5 +17,10 @@ experiments/wrapper2/nimcache
 
 !examples/tutorials
 
-examples/tutorials/*
-!examples/tutorials/*.*
+examples/tutorials/occt_tutorial/*
+!examples/tutorials/occt_tutorial/*.nim
+
+examples/tutorials/occtutorials_wordpress/*
+!examples/tutorials/occtutorials_wordpress/*.nim
+
+

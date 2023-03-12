@@ -42,7 +42,6 @@ proc main =
   defer: f.close()
 
   # the Elementary Curve computations Library to evaluate points on the circle
-  #var lib:ElCLib
   for i in 0..<numberOfSamplePoints:
     let delta = (i.float * deltaU).cdouble
     let pointOnCircle =  value(delta, circle)  #lib.value(delta, circle)
@@ -52,7 +51,7 @@ proc main =
   let f1 = open("chapter1_2_circleTangents.txt", fmWrite)
   defer: f1.close()  
 
-  for i in 0..<numberOfSamplePoints:
+  for i in 0 ..< numberOfSamplePoints:
     let delta = (i.float * deltaU).cdouble
     var pointOnCircle:gp_Pnt
     var tangentVector:gp_Vec

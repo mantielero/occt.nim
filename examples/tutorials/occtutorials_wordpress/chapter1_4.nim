@@ -7,12 +7,10 @@ proc main() =
   # Create a simple box with a size 100x100x50, centered around the origin
   let lowerLeftCornerOfBox = pnt(-50, -50, 0)
   let boxMaker = box( lowerLeftCornerOfBox, 100, 100, 50)
-  #echo typeof(boxMaker)
   let box = boxMaker.shape()
-  #echo typeof(box)
 
   # Create a cylinder with a radius 25.0 and height 50.0, centered at the origin 
-  var cylinderMaker = cylinder(25.0,50.0)
+  var cylinderMaker = cylinder(25, 50)
   var aCylinder = cylinderMaker.shape
 
   # Cut the cylinder out from the box
@@ -21,10 +19,6 @@ proc main() =
 
   # Write the resulti2ng shape to a file
   boxWithHole.toStep("boxWithHole.stp")
-  # var writer:STEPControl_Writer
-  # writer.transfer( boxWithHole, STEPControl_AsIs)
-  # writer.Write("boxWithHole.stp")
-
 
 
   # Create a circle like before
@@ -58,9 +52,7 @@ proc main() =
   standard convention of 0-19  
   ]#
   
-  #//Distribute the points and write them out to a file
-  #PointOnCurveDistribution::distributePointsOnCurve(circle,pointsOnCircle,0.0,2.0*PI,resolution);
-  #WriteCoordinatesToFile::writeCoordinatesToFile("chapter3points.txt",pointsOnCircle);  
+  #Distribute the points and write them out to a file
   var pointsOnCircle:array[resolution, gp_Pnt]  # A seq would be an option too
 
   # Template function, small wrapper around the evaluator functions 
@@ -70,7 +62,7 @@ proc main() =
   let deltaU = 2.0*Pi/(resolution - 1).float
 
   #var lib:ElCLib
-  for i in 0..<resolution:
+  for i in 0 ..< resolution:
     let delta = (i.float * deltaU).cdouble
     let pointOnCircle = value(delta, circle)
     pointsOnCircle[i] = pointOnCircle
@@ -104,49 +96,3 @@ proc main() =
 
 main()
 
-
-#[
-
-#include "BRepAlgoAPI_Cut.hxx"
-#include "STEPControl_Writer.hxx"
-
-#include "BRepGProp.hxx"
-#include "GProp_GProps.hxx"
- 
- 
-int main(int argc, char *argv[])
-{
-        std::cout << "------- OpenCASCADE Tutorial by Laszlo Kudela -------" << std::endl;  
-        std::cout << "------- Chapter 0: Demonstrative example      -------" << std::endl;  
-     
-
- 
-
-     
-
- 
-    std::cout << "Created box with hole, file is written to boxWithHole.stp" << std::endl;  
- 
-    //We compute some volumetric properties of the resulting shape
-        GProp_GProps volumeProperties;
-    BRepGProp::VolumeProperties(boxWithHole,volumeProperties);
- 
-    //Compute the volume of the model
-    std::cout << std::setprecision(14) << "Volume of the model is: " << volumeProperties.Mass() << std::endl;
-     
-    //Compute the center of mass
-    std::cout << "Center of mass is: " << volumeProperties.CentreOfMass().X() << " " << volumeProperties.CentreOfMass().Y() << " " << volumeProperties.CentreOfMass().Z() << std::endl;
- 
-    //Compute the matrix of inertia
-    gp_Mat inertiaMatrix = volumeProperties.MatrixOfInertia();
-    std::cout << "Matrix of inertia: " << std::endl;
-    for (int i = 1; i <= 3; ++i) {
-        for (int j = 1; j <= 3; ++j) {
-            std::cout << inertiaMatrix(i,j) << "\t";
-        }
-        std::cout << std::endl;
-    }
- 
-    return 0;
-}  
-]#

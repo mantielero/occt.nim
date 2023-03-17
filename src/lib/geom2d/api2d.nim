@@ -1,6 +1,7 @@
 # New 2D objects
 import math
-
+import std/strformat
+import ../../wrapper/occt_wrapper
 # Points
 type
   Point2dObj* = array[2, float]
@@ -27,4 +28,6 @@ proc distance*(p1,p2: Point2dObj):float =
 # Vector
 
 
+proc `$`*(p: gp_Pnt2d): string =
+  return &"gp_Pnt2d( x: {p.x}, y: {p.y} )"
 

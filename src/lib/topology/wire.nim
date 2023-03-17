@@ -10,6 +10,8 @@ proc `&=`*[T:TopoDS_Edge|TopoDS_Wire](wire:var BRepBuilderAPI_MakeWire; edge:T) 
 #   ## converter (see types involved)
 #   this.wire
 
+
+
 proc wire*(edges: varargs[TopoDS_Edge]): BRepBuilderAPI_MakeWire =
   result = newWire() 
   for edge in edges:

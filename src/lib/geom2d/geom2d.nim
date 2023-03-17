@@ -95,7 +95,7 @@ proc magnitude*(d:V ): float =
 
 
 # tkg2d/geom2d
-proc ellipse*[T:gp_Ax2d|gp_Ax22d]( axis: T; 
+proc newEllipse*[T:gp_Ax2d|gp_Ax22d]( axis: T; 
                majorRadius: cfloat; 
                minorRadius: cfloat): Handle[Geom2dEllipse] {.
     cdecl, importcpp: "new Geom2d_Ellipse(@)", header: "Geom2d_Ellipse.hxx".}

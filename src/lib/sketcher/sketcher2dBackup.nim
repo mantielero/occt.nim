@@ -12,106 +12,114 @@ import ../topology/wire
 import ../explorer/explorer
 import ../exporter/toStep
 import ../tkoffset/tkoffset
-import common
-import ../geom2d/geom2d
 
 type
-  GeometryRef = Handle[Geom2d_CartesianPoint] | Handle[Geom2dTrimmedCurve]
+  Point2dObj*   = array[2, float] # Point/Coord/Vector 2D
+  Segment2dObj* = tuple[p1,p2:Point2dObj]
 
+  PointObj*   = array[3, float] # Point/Coord/Vector 3D
+
+  Sketch2dObj* = object
+    points*:seq[Point2dObj]
+    segments*:seq[TopoDS_Edge]
+    wires*:seq[TopoDS_Wire]
+    shapes*:seq[TopoDS_Shape]
+  Sketch2dRef* = ref Sketch2dObj
+
+  #Wire3dObj = TopoDS_Wire
+
+
+proc x*(obj:Point2dObj):float =
+  obj[0]
+
+proc y*(obj:Point2dObj):float =
+  obj[1]
+
+proc `x=`*(obj:var Point2dObj; val:SomeNumber) =
+  obj[0] = val.float
+
+proc `y=`*(obj:var Point2dObj; val:SomeNumber) =
+  obj[1] = val.float
+
+
+proc pnt2d(p: Point2dObj):gp_Pnt2d =
+  pnt2d(p.x, p.y)
+
+
+# proc wire*(edges: varargs[TopoDS_Edge]): BRepBuilderAPI_MakeWire =
+#   result = newWire() 
+#   for edge in edges:
+#     result &= edge
+
+
+#
+# proc `x+=`*(v1: var Point2dObj; v2:SomeNumber) =
+#   v1.x = v1.x + v2.float 
 
 # ---------------------------------------------------------
 
-proc start*[X,Y: SomeNumber](x:X; y:Y):gp_Pnt2d {.discardable.} =
+proc start*[X,Y: SomeNumber](x:X; y:Y):Sketch2dRef =
   ## starting point in the 2D sketch
-  return pnt2d(x,y)
-
-
-proc vLine*(ini: gp_Pnt2d; 
-            distance: SomeNumber): seq[Handle[Geom2dTrimmedCurve]] {.discardable.} =
+  #result = new Sketch2dRef
+  #result.points &= [x.float, y.float]
+  #result.current = 
+  return pnt(x,y)
+  
+proc vLine*(skt: Sketch2dRef; distance: SomeNumber): Sketch2dRef {.discardable.} =
   ## draw vertical line from last vertex
-  var aPnt = ini
-  aPnt.y = aPnt.y + distance
-  return @[segment(ini, aPnt).value]
+  var aPnt1 = skt.points[skt.points.high]
+  var aPnt2 = aPnt1
+  aPnt2.y = aPnt2.y + distance
+  skt.points &= aPnt2
+  #echo typeof( edge2d(aPnt1.pnt2d, aPnt2.pnt2d))
+  var e:TopoDS_Edge = edge2d(aPnt1.pnt2d, aPnt2.pnt2d).toTopoDS_Edge
+  skt.segments &= e
+  return skt
 
-proc getLastPoint*(edges: seq[Handle[Geom2dTrimmedCurve]]): gp_Pnt2d =
-  ## get the last point in a sequence
-  let lastEdgeRef = edges[ edges.high ]
-  let lastEdgeObj:Geom2dTrimmedCurve = `*`(lastEdgeRef)
-  return lastEdgeObj.endPoint 
+proc hLine*(skt: Sketch2dRef; distance: SomeNumber): Sketch2dRef {.discardable.} =
+  ## draw vertical line from last vertex
+  var aPnt1 = skt.points[skt.points.high]
+  var aPnt2 = aPnt1
+  aPnt2.x = aPnt2.x + distance
+  skt.points &= aPnt2
+  #echo typeof( edge2d(aPnt1.pnt2d, aPnt2.pnt2d))
+  var e:TopoDS_Edge = edge2d(aPnt1.pnt2d, aPnt2.pnt2d).toTopoDS_Edge
+  skt.segments &= e
+  return skt
 
-
-proc vLine*(edges: seq[Handle[Geom2dTrimmedCurve]]; 
-            distance: SomeNumber): seq[Handle[Geom2dTrimmedCurve]] {.discardable.} =
-  ## draw vertical line from last segment
-  var ini = edges.getLastPoint()
-  return edges & ini.vline(distance)[0]
-
-
-proc hLine*(ini: gp_Pnt2d; 
-            distance: SomeNumber): seq[Handle[Geom2dTrimmedCurve]] {.discardable.} =
-  ## draw horizontal line from last vertex
-  var aPnt = ini
-  aPnt.x = aPnt.x + distance 
-  return @[segment(ini, aPnt).value]
-
-proc hLine*(edges: seq[Handle[Geom2dTrimmedCurve]]; 
-            distance: SomeNumber): seq[Handle[Geom2dTrimmedCurve]] {.discardable.} =
-  ## draw horizontal line from last vertex
-  var ini = edges.getLastPoint()
-  return edges & ini.hline(distance)[0]
+proc edge2d*(L: Handle[Geom2dTrimmedCurve]): Edge2dObj {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge2d(@)", header: "BRepBuilderAPI_MakeEdge2d.hxx".}
 
 
-
-proc threePointsArc*[P1X:SomeNumber,P1Y:SomeNumber,
-                     P2X:SomeNumber,P2Y: SomeNumber](
-        ini: gp_Pnt2d;  
-        p1x: P1X; p1y: P1Y; 
-        p2x: P2X; p2y: P2Y): seq[Handle[Geom2dTrimmedCurve]] =
-  ## draws an arc from a point using two additional points
+proc threePointsArc*[P1X:SomeNumber,P1Y:SomeNumber,P2X:SomeNumber,P2Y: SomeNumber](skt: Sketch2dRef; 
+                     p1x: P1X; p1y: P1Y; 
+                     p2x: P2X; p2y: P2Y): Sketch2dRef =
+  ## draws an arc from latest point using two additional points
+  var ini = pnt2d( skt.points[skt.points.high] )
+  skt.points &= [p1x.float,p1y.float]
   var middle = pnt2d(p1x, p1y)
+  skt.points &= [p2x.float,p2y.float]
   var latest = pnt2d(p2x, p2y)
 
-  return @[newGCE2dMakeArcOfCircle( ini,
+  var arc = newGCE2dMakeArcOfCircle( ini,
                                      middle,
-                                     latest).value]
+                                     latest).value # HandleGeom2dTrimmedCurve
 
-proc threePointsArc*[P1X:SomeNumber,P1Y:SomeNumber,
-                     P2X:SomeNumber,P2Y: SomeNumber](
-        edges: seq[Handle[Geom2dTrimmedCurve]];  
-        p1x: P1X; p1y: P1Y; 
-        p2x: P2X; p2y: P2Y): seq[Handle[Geom2dTrimmedCurve]] =
-  ## draws an arc from latest point using two additional points
-  var ini = edges.getLastPoint()
-  return edges & ini.threePointsArc(p1x,p1y, p2x, p2y )
+  var e = edge2d(arc)
+  skt.segments &= e  
+
+  return skt
 
 
-
-
-# ------
-
-proc wire*(edges: varargs[Handle[Geom2dTrimmedCurve]]): TopoDS_Wire =
-  var aMakeWire = newWire() 
-  for e in edges:
-    aMakeWire.add(e.edge2d.edge)
-
-  #var aMakeWire = aRectangle.wire
-  buildCurves3d(aMakeWire)
-  return aMakeWire.toTopoDSWire
-  #echo typeof(aWire)
-  #let aFace = face(aWire)
-
-
-#-------
-proc closeWithMirror*(edges: seq[Handle[Geom2dTrimmedCurve]]): TopoDS_Wire {.discardable.} = 
+proc closeWithMirror*(skt: Sketch2dRef): TopoDS_Wire {.discardable.} = 
 
   # Create the wire (BRepBuilderAPI_MakeWire)
-  # var w:BRepBuilderAPI_MakeWire = newWire()
-  # for s in skt.segments:
-  #   w &= s.edge
-  var aPnt1 = `*`(edges[0]).startPoint
-  var aPnt2 = `*`(edges[edges.high]).endPoint
+  var w:BRepBuilderAPI_MakeWire = newWire()
+  for s in skt.segments:
+    w &= s.edge
 
-  var v = newGeom2dVectorWithMagnitude( aPnt1, aPnt2 )
+  var v = newGeom2dVectorWithMagnitude( pnt2d(skt.points[0]), 
+                                        pnt2d(skt.points[skt.points.high]) )
   v.normalize
 
   #newGCE2dMakeMirror*(axis: gp_Ax2d): GCE2dMakeMirror
@@ -120,15 +128,13 @@ proc closeWithMirror*(edges: seq[Handle[Geom2dTrimmedCurve]]): TopoDS_Wire {.dis
 
   # transformation - not used 
   var aTrsf = newGeom2dTransformation()
-  var ax = ax2d( aPnt1, dir2d(v.x, v.y) )
+  var ax = ax2d( pnt2d(skt.points[0]), dir2d(v.x, v.y) )
   #var ax = oX2d() # ox2ax2d( pnt2d(skt.points[0]), dir2d(v.x, v.y) )  
   aTrsf.setMirror(ax) 
   var trf = aTrsf.trsf2d.trsf
 
   # Apply transformation
-  var aWire = edges.wire
-
-  var aBRepTrsf = transform(aWire, trf)
+  var aBRepTrsf = transform(w, trf)
   #aWire &= aBRepTrsf.shape.wire
   var aMirroredWire = aBRepTrsf.wire
   #var newWireReversed = newWire.reversed.wire
@@ -140,47 +146,11 @@ proc closeWithMirror*(edges: seq[Handle[Geom2dTrimmedCurve]]): TopoDS_Wire {.dis
   #var aMirroredShape = aB.shape
   #var aMirroredWire = aMirroredShape.wire
 
-  let myWireProfile = aWire & aMirroredWire 
+  let myWireProfile = w & aMirroredWire 
 
   buildCurves3d(myWireProfile)  
 
   return myWireProfile
-
-
-# ------
-
-
-proc extrude*( aWire: TopoDS_Wire; 
-               height: SomeNumber ): TopoDS_Shape {.discardable.} =
-  let aFace = face(aWire)
-  let aPrismVec = vec(0, 0, height)
-  return prism(aFace, aPrismVec)
-
-proc extrude*( edges: seq[Handle[Geom2dTrimmedCurve]]; 
-               height: SomeNumber ): TopoDS_Shape {.discardable.} =
-
-  let aWire = edges.wire
-  aWire.extrude(height)
-
-proc fillet*(aBody: TopoDS_Shape; radius: SomeNumber): TopoDS_Shape {.discardable.}=
-  var mkFillet = fillet(aBody)
-
-  for anEdge in aBody.getEdges():
-    mkFillet.add( radius.float, anEdge )  # myThickness / 12.0
-
-  return mkFillet.shape()
-
-proc `+`*(a, b: TopoDS_Shape): TopoDS_Shape =
-  a.fuse(b)
-
-
-
-
-#[ 
-
-
-
-
 
 
 #[
@@ -319,10 +289,19 @@ proc `+`*(a, b: TopoDS_Shape): TopoDS_Shape =
 ]#
 # ------------------ THE FOLLOWING SHOULDN'T BE HERE -----------------
 
+proc extrude*( aWire: TopoDS_Wire; height: SomeNumber ): TopoDS_Shape {.discardable.} =
+  let aFace  = aWire.face.face
+  let aPrismVec = vec(0, 0, height)
+  return prism(aFace, aPrismVec)
 
 
+proc fillet*(aBody: TopoDS_Shape; radius: SomeNumber): TopoDS_Shape {.discardable.}=
+  var mkFillet = fillet(aBody)
 
+  for anEdge in aBody.getEdges():
+    mkFillet.add( radius.float, anEdge )  # myThickness / 12.0
 
+  return mkFillet.shape()
 
 
 proc cylinder*[R,H: SomeNumber]( radius: R; height: H;
@@ -387,4 +366,3 @@ since changes can be made easily by adjusting the
 parameters that define the shell and its features.
 ]#
 
- ]#

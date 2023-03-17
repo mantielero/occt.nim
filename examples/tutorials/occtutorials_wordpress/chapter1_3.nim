@@ -35,9 +35,7 @@ proc main() =
   standard convention of 0-19  
   ]#
   
-  #//Distribute the points and write them out to a file
-  #PointOnCurveDistribution::distributePointsOnCurve(circle,pointsOnCircle,0.0,2.0*PI,resolution);
-  #WriteCoordinatesToFile::writeCoordinatesToFile("chapter3points.txt",pointsOnCircle);  
+  # Distribute the points and write them out to a file
   var pointsOnCircle:array[resolution, gp_Pnt]  # A seq would be an option too
 
   # Template function, small wrapper around the evaluator functions 
@@ -78,8 +76,7 @@ proc main() =
   echo fmt"Reference area: {circle.area}"
   echo fmt"Error: {abs( (totalArea-circle.area)/circle.area )}"
 
-when isMainModule:
-  main()
+main()
 
 
 

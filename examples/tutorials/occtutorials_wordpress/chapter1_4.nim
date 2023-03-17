@@ -1,98 +1,108 @@
-# https://occtutorials.wordpress.com/2015/12/14/chapter-1-3-polygonizing-a-circle/
-import ../src/occt
-import math  # For Pi
-import strformat  # For fmt"Hello {name}" like formatting
+# https://github.com/lvk88/OccTutorial/blob/master/Chapter1_Basics/runners/chapter1_4.cpp
+#[
+OpenCASCADE tutorial by Laszlo Kudela
+November 2015
+This example demonstrates the usage of OpenCASCADE's built in
+optimization algorithms. In this example, we fit a circle onto a 
+scattered set of points, using math_BFGS. Check out LeastSquaresFitting.hpp
+for more details.
+]#
+import occt
+import std/[math, strformat, random]
+
+
+proc distributePointsOnCurve*[T:gp_Circ; N,M: SomeNumber](curve: T;
+                              lowerLimit:N; upperLimit: M;
+                              resolution: int):seq[gp_Pnt] =
+  # https://github.com/lvk88/OccTutorial/blob/master/Chapter1_Basics/inc/PointOnCurveDistributor.hpp
+  var deltaU = (upperLimit.float - lowerLimit.float) / (resolution - 1)
+  for i in 0 ..< resolution:
+    result &= value(i * deltaU, curve)
+
 
 proc main() =
-  # Create a simple box with a size 100x100x50, centered around the origin
-  let lowerLeftCornerOfBox = pnt(-50, -50, 0)
-  let boxMaker = box( lowerLeftCornerOfBox, 100, 100, 50)
-  let box = boxMaker.shape()
-
-  # Create a cylinder with a radius 25.0 and height 50.0, centered at the origin 
-  var cylinderMaker = cylinder(25, 50)
-  var aCylinder = cylinderMaker.shape
-
-  # Cut the cylinder out from the box
-  var cutMaker = cut(box, aCylinder)
-  var boxWithHole = cutMaker.shape
-
-  # Write the resulti2ng shape to a file
-  boxWithHole.toStep("boxWithHole.stp")
-
-
   # Create a circle like before
-  let centerPoint = pnt(2.5, 2.5, 0)
-  let normalDirection = dir(0,0,1)
-  let xDirection = dir(1,0,0)
-  let axis = ax2(centerPoint, normalDirection, xDirection)
-
+  let 
+    centerPoint = pnt(2.5, 2.5, 0)
+    axis        = ax2( centerPoint, 
+                       dir(0,0,1),  # normal direction
+                       dir(1,0,0) ) # 'x' direction
+  
   # Creating the circle
   let circle = circ(axis, 2.5)
 
-  # Some convenience functions provided by the circle class
-  echo "Circle area is: ", circle.area
-  echo "Circle circumference is: ", circle.length
-
-  # Create a scaled copy of the circle
-  let circle2 = circle.scaled( pnt(2.5,2.5,0.0), 2.0)
-  echo "Scaled circle area is: ", circle2.area
-  echo "Scaled circle circumference is: ", circle2.length
-  #[
-  Evaluating geometric entities happens through the ElClib package
-  ElClib = Elementary Curve operations
-  We now evaluate 15 points on the circle and write the resulting coordinates into a file
-  ]# 
-  # Divide the interval into 100 points
+  # Distribute the points and write them out to a file
   const resolution = 20
+  var pointsOnCircle = circle.distributePointsOnCurve(0,2*Pi, resolution)
 
-  #[
-  Here, an array of gp_Pnt is allocated, with 20 elements
-  Note that the indexing runs from 1 to 20, instead of the
-  standard convention of 0-19  
-  ]#
-  
-  #Distribute the points and write them out to a file
-  var pointsOnCircle:array[resolution, gp_Pnt]  # A seq would be an option too
 
-  # Template function, small wrapper around the evaluator functions 
-  # of ElCLib that we were talking about in the previous tutorial:
-  # https://github.com/lvk88/OccTutorial/blob/master/Chapter1_Basics/inc/PointOnCurveDistributor.hpp
-
-  let deltaU = 2.0*Pi/(resolution - 1).float
-
-  #var lib:ElCLib
+  # Seed random generator
+  randomize()
+  var pointsForLeastSquaresFit:seq[gp_Pnt]
   for i in 0 ..< resolution:
-    let delta = (i.float * deltaU).cdouble
-    let pointOnCircle = value(delta, circle)
-    pointsOnCircle[i] = pointOnCircle
+    # Create two random numbers between -0.25 and 0.25
+    var randomXShift = rand(0.5) - 0.25
+    var randomYShift = rand(0.5) - 0.25
+    var p = pointsOnCircle[i]
+    pointsForLeastSquaresFit &= pnt( p.x + randomXShift, p.y + randomYShift, p.z)
 
-  #[
-  Sum the area of the small triangles, to get an approximate area
-  The for loop builds triangles with two corners on the circumference
-  and the center of the circle as third point
-  ]#
-  var totalArea = 0.0
-  for i in 0..<resolution:
-    let firstPntOfTriangle = pointsOnCircle[i]
-    var secondPntOfTriangle:gp_Pnt
-    if (i+1) != resolution:
-      secondPntOfTriangle = pointsOnCircle[i+1]
-    else:
-      secondPntOfTriangle = pointsOnCircle[0]
-    
-    let thirdPntOfTriangle = centerPoint
+  let f = open("chapter1_4_randomPoints.txt", fmWrite)
+  defer: f.close()
 
-    # https://github.com/lvk88/OccTutorial/blob/master/Chapter1_Basics/src/AreaCalculations.cpp
-    let vec1 = vec(thirdPntOfTriangle, secondPntOfTriangle)
-    let vec2 = vec(thirdPntOfTriangle, firstPntOfTriangle)
-    let area = vec1.crossed(vec2).magnitude / 2.0
-    totalArea += area
-         
-  echo fmt"Polygonized area: {totalArea}"
-  echo fmt"Reference area: {circle.area}"
-  echo fmt"Error: {abs( (totalArea-circle.area)/circle.area )}"
-
+  for p in pointsForLeastSquaresFit:
+    f.writeLine( fmt"{p.x} {p.y} {p.z}" )  
 
 main()
 
+#[
+
+#include "Chapter1_Basics/inc/PointOnCurveDistributor.hpp"
+#include "Chapter1_Basics/inc/WriteCoordinatesToFile.hpp"
+#include "Chapter1_Basics/inc/LeastSquaresFitting.hpp"
+#include "Utilities/inc/constants.hpp"
+
+#include "TColgp_HArray1OfPnt.hxx"
+
+#include <cstdlib>
+#include <ctime>
+
+
+int main(int argc, char *argv[])
+{
+
+	gp_Circ fittedCircle = LeastSquaresFitting::fitLeastSquaresCircleToPoints(pointsForLeastSquaresFit);
+
+	PointOnCurveDistribution::distributePointsOnCurve(fittedCircle,pointsOnCircle,0.0,2.0*PI,resolution);
+	WriteCoordinatesToFile::writeCoordinatesToFile("chapter4_fittedpoints.txt",pointsOnCircle);
+
+
+	
+	return 0;
+}
+]#
+
+#[
+class LeastSquaresFitting
+{
+public:
+	LeastSquaresFitting ();
+	virtual ~LeastSquaresFitting ();
+
+	static gp_Circ fitLeastSquaresCircleToPoints(const Handle_TColgp_HArray1OfPnt& points);
+
+private:
+	struct InitialGuessForLeastSquaresFitting
+	{
+		InitialGuessForLeastSquaresFitting(gp_Pnt center, double radius)
+		{
+			myCenterPoint = center;
+			myRadius = radius;
+		}
+		gp_Pnt myCenterPoint;
+		double myRadius;
+	};
+
+	static InitialGuessForLeastSquaresFitting findInitialGuess(const Handle_TColgp_HArray1OfPnt& points);	
+
+};
+]#

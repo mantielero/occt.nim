@@ -13,7 +13,7 @@ proc main =
 
   # Convert: TopoDS_Solid -> Handle[AIS_Shape]
   # https://dev.opencascade.org/content/understanding-basic-example
-  var aShapePrs:Handle[AIS_Shape] = newHandle( cnew newAIS_Shape( solid) )  # Handle(AIS_Shape) 
+  var aShapePrs:Handle[AIS_Shape] =  newAIS_Shape( solid)   # Handle(AIS_Shape) 
 
   # Viewer  https://github.com/nim-lang/Nim/issues/4108  https://forum.nim-lang.org/t/8660#56349
   
@@ -23,10 +23,8 @@ proc main =
   #var tmp2 = cnew newAIS_InteractiveContext(theViewer) 
   #echo tmp2 == nil
 
+  var aContext = newAIS_InteractiveContext(theViewer)    # HandleAISInteractiveContext
 
-  # Handle(AIS_InteractiveContext) aContext = new AIS_InteractiveContext (theViewer);
-  var aContext:HandleAIS_InteractiveContext = newHandle( cnew newAIS_InteractiveContext(theViewer) )   # HandleAISInteractiveContext
-  echo "ok2"  
   #echo repr aContext
   #if aContext.isNull:
   #  echo "NULL"

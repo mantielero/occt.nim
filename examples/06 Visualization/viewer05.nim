@@ -8,11 +8,11 @@ proc main =
     raise newException(ValueError, "Can't export null shape to STEP")
 
   var theViewer:Handle[V3d_Viewer]
-  var aContext:Handle[AIS_InteractiveContext] = newHandle( cnew newAIS_InteractiveContext(theViewer) )
+  var aContext:Handle[AIS_InteractiveContext] = newAIS_InteractiveContext(theViewer) 
   #var aWedgeMaker:
   #aWedgeMaker (theWedgeDX, theWedgeDY, theWedgeDZ, theWedgeLtx); 
   var aShape:TopoDS_Solid = solid #aShape = aWedgeMaker.Solid();
-  var aShapePrs:Handle[AIS_Shape] = newHandle( cnew newAIS_Shape(aShape) )
+  var aShapePrs:Handle[AIS_Shape] = newAIS_Shape(aShape)
   #Handle(AIS_Shape) aShapePrs =  # creation of the presentable object
   `*`(aContext).display(aShapePrs, AIS_Shaded.cint, 0, true) #;   // display the presentable object and redraw 3d viewer
 

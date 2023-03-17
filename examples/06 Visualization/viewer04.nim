@@ -82,7 +82,7 @@ proc getContextAndView*():tuple[context:Handle[AIS_InteractiveContext], view:Han
   `*`(myView).changeRenderingParams().renderResolutionScale = 2.0
 
   # interactive context and demo scene
-  var myContext = newHandle( cnew newAISInteractiveContext(aViewer) )
+  var myContext = newAISInteractiveContext(aViewer)
 
   #var aSolid:TopoDS_Solid = box(100.0,100.0,100.0).solid()
   var mybox = box(1.0, 2.0, 3.0)
@@ -92,7 +92,7 @@ proc getContextAndView*():tuple[context:Handle[AIS_InteractiveContext], view:Han
     raise newException(ValueError, "Can't export null shape to STEP")
 
   var aShape:TopoDS_Shape = solid
-  var aShapeAis:Handle[AIS_Shape] = newHandle( cnew newAISShape(aShape) )
+  var aShapeAis:Handle[AIS_Shape] = newAISShape(aShape)
   var aShapePrs:Handle[AIS_InteractiveObject] = newHandle( cast[ptr AIS_InteractiveObject](aShapeAis.get) )
   `*`(myContext).display(aShapeAis, AIS_Shaded.cint, 0, false)
   `*`(myView).fitAll(0.01, false)
@@ -111,6 +111,7 @@ proc getContextAndView*():tuple[context:Handle[AIS_InteractiveContext], view:Han
 
 var
   deleteMessage: x.Atom
+
 proc main =
   var aViewer:OcctAisHello
   (aViewer.myContext, aViewer.myView) = getContextAndView()

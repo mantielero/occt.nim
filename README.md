@@ -17,9 +17,16 @@ The following has been done with **occt.nim**.
 
 # How to install?
 Right now I am only testing it in Linux (ArchLinux). You can install OpenCascade like:
+
+- ArchLinux:
 ```sh
 $ yay -S opencascade
 ``` 
+- Ubuntu:
+```sh
+$ sudo apt install libocct-foundation-dev
+```
+
 In order to install the bindings:
 ```sh
 $ nimble install https://github.com/mantielero/occt.nim

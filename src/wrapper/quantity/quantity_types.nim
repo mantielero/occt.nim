@@ -2,6 +2,7 @@
 # DEPENDS:  NCollectionArray1[QuantityColor]  NCollectionArray2[QuantityColor]  enum ## ! Normalized linear RGB (red, green, blue) values within range [0..1] for each component
 
 import ../ncollection/ncollection_types
+
 type
   QuantityAcceleration* = cfloat
 
@@ -364,7 +365,121 @@ type
 
   QuantityWork* = cfloat
 
-  QuantityColor* = object # FIXME
+type
+  Quantity_Color* {.importcpp: "Quantity_Color", 
+                    header: "Quantity_Color.hxx", bycopy.} = object ##
+    ## !
+    ## Creates
+    ## Quantity_NOC_YELLOW
+    ## color
+    ## (for
+    ## historical
+    ## reasons).
+    ##
+    ## !
+    ## Returns
+    ## the
+    ## color
+    ## from
+    ## Quantity_NameOfColor
+    ## enumeration
+    ## nearest
+    ## to
+    ## specified
+    ## RGB
+    ## values.
+    ##
+    ## !@name
+    ## Routines
+    ## converting
+    ## colors
+    ## between
+    ## different
+    ## encodings
+    ## and
+    ## color
+    ## spaces
+    ##
+    ## !
+    ## Parses
+    ## the
+    ## string
+    ## as
+    ## a
+    ## hex
+    ## color
+    ## (like
+    ## "#FF0"
+    ## for
+    ## short
+    ## sRGB
+    ## color,
+    ## or
+    ## "#FFFF00"
+    ## for
+    ## sRGB
+    ## color)
+    ##
+    ## !
+    ## @param
+    ## theHexColorString
+    ## the
+    ## string
+    ## to
+    ## be
+    ## parsed
+    ##
+    ## !
+    ## @param
+    ## theColor
+    ## a
+    ## color
+    ## that
+    ## is
+    ## a
+    ## result
+    ## of
+    ## parsing
+    ##
+    ## !
+    ## @return
+    ## true
+    ## if
+    ## parsing
+    ## was
+    ## successful,
+    ## or
+    ## false
+    ## otherwise
+    ##
+    ## !
+    ## Returns
+    ## the
+    ## value
+    ## used
+    ## to
+    ## compare
+    ## two
+    ## colors
+    ## for
+    ## equality;
+    ## 0.0001
+    ## by
+    ## default.
+    ##
+    ## !
+    ## Returns
+    ## the
+    ## values
+    ## of
+    ## a
+    ## predefined
+    ## color
+    ## according
+    ## to
+    ## the
+    ## mode.
+
   QuantityColorRGBA* = object # FIXME
   QuantityDate* = object # FIXME
   QuantityPeriod* = object # FIXME

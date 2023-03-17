@@ -38,8 +38,11 @@ proc coord*(this: gp_Pnt2d; index: cint): cfloat {.noSideEffect, cdecl, importcp
     header: "gp_Pnt2d.hxx".}
 proc coord*(this: gp_Pnt2d; xp: var cfloat; yp: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Coord", header: "gp_Pnt2d.hxx".}
-proc x*(this: gp_Pnt2d): cfloat {.noSideEffect, cdecl, importcpp: "X", header: "gp_Pnt2d.hxx".}
-proc y*(this: gp_Pnt2d): cfloat {.noSideEffect, cdecl, importcpp: "Y", header: "gp_Pnt2d.hxx".}
+
+proc x*(this: gp_Pnt2d): float {.noSideEffect, cdecl, importcpp: "X", header: "gp_Pnt2d.hxx".}
+
+proc y*(this: gp_Pnt2d): float {.noSideEffect, cdecl, importcpp: "Y", header: "gp_Pnt2d.hxx".}
+
 proc xy*(this: gp_Pnt2d): gp_Xy {.noSideEffect, cdecl, importcpp: "XY", header: "gp_Pnt2d.hxx".}
 proc coord*(this: gp_Pnt2d): gp_Xy {.noSideEffect, cdecl, importcpp: "Coord", header: "gp_Pnt2d.hxx".}
 proc changeCoord*(this: var gp_Pnt2d): var gp_Xy {.cdecl, importcpp: "ChangeCoord",

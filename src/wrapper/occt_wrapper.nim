@@ -122,6 +122,11 @@ import prs3d/prs3d_includes
 import prsmgr/prsmgr_includes
 import graphic3d/graphic3d_includes
 
+# TKXCAF
+import xcafdoc/xcafdoc_includes
+
+# TKXDESTEP
+import stepcafcontrol/stepcafcontrol_includes
 
 # TKXSBase
 import transfer/transfer_includes
@@ -173,6 +178,8 @@ export standard_package
 export ncollection_package
 export tcolstd_includes
 export message_includes
+export quantity_includes
+export tcollection_includes
 
 # TKFillet
 export brepfilletapi_includes
@@ -264,7 +271,12 @@ export prs3d_includes
 export prsmgr_includes
 export graphic3d_includes
 
+# TKXCAF
+export xcafdoc_includes
 
+
+# TKXDESTEP
+export stepcafcontrol_includes
 
 # TKXSBase
 export transfer_includes

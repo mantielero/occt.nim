@@ -46,11 +46,14 @@ export edge, wire, compound
 
 
 #========== NEW API ===============
-import lib/sketcher/sketcher2d
-export sketcher2d
+import lib/sketcher/[common, sketcher2d, ellipse, circle, rectangle]
+export common, sketcher2d, ellipse, circle, rectangle
 
 import lib/topo2d/topo2d
 export topo2d
+
+import lib/geom2d/[api2d]
+export api2d
 #proc `$`*(pnt:gp_Pnt):string =
 #  &"Pnt(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 

@@ -37,8 +37,9 @@ import ../aspect/aspect_types
 
 
 
-proc newAIS_InteractiveContext*(mainViewer: Handle[V3dViewer]): AIS_InteractiveContext {.
-    cdecl, constructor, importcpp: "AIS_InteractiveContext(@)", header: "AIS_InteractiveContext.hxx".}
+proc newAIS_InteractiveContext*(mainViewer: Handle[V3dViewer]): Handle[AIS_InteractiveContext] {.
+    cdecl, importcpp: "new AIS_InteractiveContext(@)", header: "AIS_InteractiveContext.hxx".}
+
 proc destroyAIS_InteractiveContext*(this: var AIS_InteractiveContext) {.cdecl,
     importcpp: "#.~AIS_InteractiveContext()", header: "AIS_InteractiveContext.hxx".}
 proc displayStatus*(this: AIS_InteractiveContext;

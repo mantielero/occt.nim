@@ -64,8 +64,9 @@ import ../bnd/bnd_types
 
 
 
-proc newAIS_Shape*(shap: TopoDS_Shape): AIS_Shape {.cdecl, constructor,
-    importcpp: "AIS_Shape(@)", header: "AIS_Shape.hxx".}
+proc newAIS_Shape*(shap: TopoDS_Shape): Handle[AIS_Shape] {.cdecl, 
+    importcpp: "new AIS_Shape(@)", header: "AIS_Shape.hxx".}
+
 proc signature*(this: AIS_Shape): cint {.noSideEffect, cdecl, importcpp: "Signature",
                                      header: "AIS_Shape.hxx".}
 proc `type`*(this: AIS_Shape): AIS_KindOfInteractive {.noSideEffect, cdecl,

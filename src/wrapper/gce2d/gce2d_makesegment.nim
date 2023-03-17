@@ -1,5 +1,6 @@
 import ../gp/gp_types
 import ../geom2d/geom2d_types
+import ../standard/standard_types
 import gce2d_types
 
 
@@ -35,10 +36,10 @@ proc segment*(line: gp_Lin2d; point: gp_Pnt2d; ulast: cfloat): GCE2dMakeSegment 
     cdecl, constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
 proc segment*(line: gp_Lin2d; p1: gp_Pnt2d; p2: gp_Pnt2d): GCE2dMakeSegment {.cdecl,
     constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
-proc value*(this: GCE2dMakeSegment): HandleGeom2dTrimmedCurve {.noSideEffect,
+proc value*(this: GCE2dMakeSegment): Handle[Geom2dTrimmedCurve] {.noSideEffect,
     cdecl, importcpp: "Value", header: "GCE2d_MakeSegment.hxx".}
 
-converter toHandleGeom2dTrimmedCurve*(this: GCE2dMakeSegment): HandleGeom2dTrimmedCurve {.
+converter toHandleGeom2dTrimmedCurve*(this: GCE2dMakeSegment): Handle[Geom2dTrimmedCurve] {.
     noSideEffect, cdecl,
     importcpp: "(Handle_Geom2d_TrimmedCurve)(#)", header: "GCE2d_MakeSegment.hxx".}
 

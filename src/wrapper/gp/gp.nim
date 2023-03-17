@@ -17,21 +17,23 @@ import gp_types
 ##  commercial license or contractual agreement.
 
 
+{.push cdecl, header: "gp.hxx".}
 
+proc resolution*(): cfloat {.importcpp: "gp::Resolution(@)".}
 
-proc resolution*(): cfloat {.cdecl, importcpp: "gp::Resolution(@)", header: "gp.hxx".}
-proc origin*(): gp_Pnt {.cdecl, importcpp: "gp::Origin(@)", header: "gp.hxx".}
-proc dxAsDir*(): gp_Dir {.cdecl, importcpp: "gp::DX(@)", header: "gp.hxx".}
-proc dyAsDir*(): gp_Dir {.cdecl, importcpp: "gp::DY(@)", header: "gp.hxx".}
-proc dzAsDir*(): gp_Dir {.cdecl, importcpp: "gp::DZ(@)", header: "gp.hxx".}
-proc ox*(): gp_Ax1 {.cdecl, importcpp: "gp::OX(@)", header: "gp.hxx".}
-proc oy*(): gp_Ax1 {.cdecl, importcpp: "gp::OY(@)", header: "gp.hxx".}
-proc oz*(): gp_Ax1 {.cdecl, importcpp: "gp::OZ(@)", header: "gp.hxx".}
-proc xoy*(): gp_Ax2 {.cdecl, importcpp: "gp::XOY(@)", header: "gp.hxx".}
-proc zox*(): gp_Ax2 {.cdecl, importcpp: "gp::ZOX(@)", header: "gp.hxx".}
-proc yoz*(): gp_Ax2 {.cdecl, importcpp: "gp::YOZ(@)", header: "gp.hxx".}
-proc origin2d*(): gp_Pnt2d {.cdecl, importcpp: "gp::Origin2d(@)", header: "gp.hxx".}
-proc dX2d*(): gp_Dir2d {.cdecl, importcpp: "gp::DX2d(@)", header: "gp.hxx".}
-proc dY2d*(): gp_Dir2d {.cdecl, importcpp: "gp::DY2d(@)", header: "gp.hxx".}
-proc oX2d*(): gp_Ax2d {.cdecl, importcpp: "gp::OX2d(@)", header: "gp.hxx".}
-proc oY2d*(): gp_Ax2d {.cdecl, importcpp: "gp::OY2d(@)", header: "gp.hxx".}
+proc origin*(): gp_Pnt {.importcpp: "gp::Origin(@)".}
+proc dxAsDir*(): gp_Dir {.importcpp: "gp::DX(@)".}
+proc dyAsDir*(): gp_Dir {.importcpp: "gp::DY(@)".}
+proc dzAsDir*(): gp_Dir {.importcpp: "gp::DZ(@)".}
+proc ox*(): gp_Ax1 {.importcpp: "gp::OX(@)".}
+proc oy*(): gp_Ax1 {.importcpp: "gp::OY(@)".}
+proc oz*(): gp_Ax1 {.importcpp: "gp::OZ(@)".}
+proc xoy*(): gp_Ax2 {.importcpp: "gp::XOY(@)".}
+proc zox*(): gp_Ax2 {.importcpp: "gp::ZOX(@)".}
+proc yoz*(): gp_Ax2 {.importcpp: "gp::YOZ(@)".}
+proc origin2d*(): gp_Pnt2d {.importcpp: "gp::Origin2d(@)".}
+proc dX2d*(): gp_Dir2d {.importcpp: "gp::DX2d(@)".}
+proc dY2d*(): gp_Dir2d {.importcpp: "gp::DY2d(@)".}
+proc oX2d*(): gp_Ax2d {.importcpp: "gp::OX2d(@)".}
+proc oY2d*(): gp_Ax2d {.importcpp: "gp::OY2d(@)".}
+{.pop.}

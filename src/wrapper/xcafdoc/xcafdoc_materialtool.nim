@@ -1,4 +1,9 @@
+import ../tdf/tdf_types
 import xcafdoc_types
+import ../standard/standard_types
+import ../tcollection/tcollection_types
+
+
 
 ##  Created on: 2003-03-05
 ##  Created by: Sergey KUUL
@@ -15,60 +20,55 @@ import xcafdoc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of XCAFDoc_ShapeTool"
-discard "forward decl of TDF_Label"
-discard "forward decl of Standard_GUID"
-discard "forward decl of TCollection_HAsciiString"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of XCAFDoc_MaterialTool"
 
-proc newXCAFDoc_MaterialTool*(): XCAFDoc_MaterialTool {.cdecl, constructor,
+
+
+
+proc newXCAFDocMaterialTool*(): XCAFDocMaterialTool {.cdecl, constructor,
     importcpp: "XCAFDoc_MaterialTool(@)", header: "XCAFDoc_MaterialTool.hxx".}
-proc Set*(L: TDF_Label): handle[XCAFDoc_MaterialTool] {.cdecl,
+proc set*(L: TDF_Label): Handle[XCAFDocMaterialTool] {.cdecl,
     importcpp: "XCAFDoc_MaterialTool::Set(@)", header: "XCAFDoc_MaterialTool.hxx".}
-proc GetID*(): Standard_GUID {.cdecl, importcpp: "XCAFDoc_MaterialTool::GetID(@)",
-                            header: "XCAFDoc_MaterialTool.hxx".}
-proc BaseLabel*(this: XCAFDoc_MaterialTool): TDF_Label {.noSideEffect, cdecl,
+proc getID*(): StandardGUID {.cdecl, importcpp: "XCAFDoc_MaterialTool::GetID(@)",
+                           header: "XCAFDoc_MaterialTool.hxx".}
+proc baseLabel*(this: XCAFDocMaterialTool): TDF_Label {.noSideEffect, cdecl,
     importcpp: "BaseLabel", header: "XCAFDoc_MaterialTool.hxx".}
-proc ShapeTool*(this: var XCAFDoc_MaterialTool): handle[XCAFDoc_ShapeTool] {.cdecl,
+proc shapeTool*(this: var XCAFDocMaterialTool): Handle[XCAFDocShapeTool] {.cdecl,
     importcpp: "ShapeTool", header: "XCAFDoc_MaterialTool.hxx".}
-proc IsMaterial*(this: XCAFDoc_MaterialTool; lab: TDF_Label): bool {.noSideEffect,
+proc isMaterial*(this: XCAFDocMaterialTool; lab: TDF_Label): bool {.noSideEffect,
     cdecl, importcpp: "IsMaterial", header: "XCAFDoc_MaterialTool.hxx".}
-proc GetMaterialLabels*(this: XCAFDoc_MaterialTool; Labels: var TDF_LabelSequence) {.
+proc getMaterialLabels*(this: XCAFDocMaterialTool; labels: var TDF_LabelSequence) {.
     noSideEffect, cdecl, importcpp: "GetMaterialLabels",
     header: "XCAFDoc_MaterialTool.hxx".}
-proc AddMaterial*(this: XCAFDoc_MaterialTool;
-                 aName: handle[TCollection_HAsciiString];
-                 aDescription: handle[TCollection_HAsciiString]; aDensity: cfloat;
-                 aDensName: handle[TCollection_HAsciiString];
-                 aDensValType: handle[TCollection_HAsciiString]): TDF_Label {.
+proc addMaterial*(this: XCAFDocMaterialTool;
+                 aName: Handle[TCollectionHAsciiString];
+                 aDescription: Handle[TCollectionHAsciiString]; aDensity: cfloat;
+                 aDensName: Handle[TCollectionHAsciiString];
+                 aDensValType: Handle[TCollectionHAsciiString]): TDF_Label {.
     noSideEffect, cdecl, importcpp: "AddMaterial",
     header: "XCAFDoc_MaterialTool.hxx".}
-proc SetMaterial*(this: XCAFDoc_MaterialTool; L: TDF_Label; MatL: TDF_Label) {.
+proc setMaterial*(this: XCAFDocMaterialTool; L: TDF_Label; matL: TDF_Label) {.
     noSideEffect, cdecl, importcpp: "SetMaterial",
     header: "XCAFDoc_MaterialTool.hxx".}
-proc SetMaterial*(this: XCAFDoc_MaterialTool; L: TDF_Label;
-                 aName: handle[TCollection_HAsciiString];
-                 aDescription: handle[TCollection_HAsciiString]; aDensity: cfloat;
-                 aDensName: handle[TCollection_HAsciiString];
-                 aDensValType: handle[TCollection_HAsciiString]) {.noSideEffect,
+proc setMaterial*(this: XCAFDocMaterialTool; L: TDF_Label;
+                 aName: Handle[TCollectionHAsciiString];
+                 aDescription: Handle[TCollectionHAsciiString]; aDensity: cfloat;
+                 aDensName: Handle[TCollectionHAsciiString];
+                 aDensValType: Handle[TCollectionHAsciiString]) {.noSideEffect,
     cdecl, importcpp: "SetMaterial", header: "XCAFDoc_MaterialTool.hxx".}
-proc GetMaterial*(this: XCAFDoc_MaterialTool; MatL: TDF_Label;
-                 aName: var handle[TCollection_HAsciiString];
-                 aDescription: var handle[TCollection_HAsciiString];
+proc getMaterial*(this: XCAFDocMaterialTool; matL: TDF_Label;
+                 aName: var Handle[TCollectionHAsciiString];
+                 aDescription: var Handle[TCollectionHAsciiString];
                  aDensity: var cfloat;
-                 aDensName: var handle[TCollection_HAsciiString];
-                 aDensValType: var handle[TCollection_HAsciiString]): bool {.
+                 aDensName: var Handle[TCollectionHAsciiString];
+                 aDensValType: var Handle[TCollectionHAsciiString]): bool {.
     noSideEffect, cdecl, importcpp: "GetMaterial",
     header: "XCAFDoc_MaterialTool.hxx".}
-proc GetDensityForShape*(ShapeL: TDF_Label): cfloat {.cdecl,
+proc getDensityForShape*(shapeL: TDF_Label): cfloat {.cdecl,
     importcpp: "XCAFDoc_MaterialTool::GetDensityForShape(@)",
     header: "XCAFDoc_MaterialTool.hxx".}
-proc ID*(this: XCAFDoc_MaterialTool): Standard_GUID {.noSideEffect, cdecl,
+proc id*(this: XCAFDocMaterialTool): StandardGUID {.noSideEffect, cdecl,
     importcpp: "ID", header: "XCAFDoc_MaterialTool.hxx".}
-proc DumpJson*(this: XCAFDoc_MaterialTool; theOStream: var Standard_OStream;
+proc dumpJson*(this: XCAFDocMaterialTool; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "XCAFDoc_MaterialTool.hxx".}
-## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( XCAFDoc_MaterialTool , TDataStd_GenericEmpty ) private : opencascade :: handle < XCAFDoc_ShapeTool > [end of template] myShapeTool ;
-## Error: token expected: ) but got: ,!!!
+

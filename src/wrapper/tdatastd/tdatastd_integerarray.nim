@@ -1,3 +1,10 @@
+import ../tcolstd/tcolstd_types
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 1999-06-16
 ##  Created by: Sergey RUIN
 ##  Copyright (c) 1999 Matra Datavision
@@ -14,36 +21,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TDataStd_DeltaOnModificationOfIntArray"
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDF_DeltaOnModification"
-discard "forward decl of TDataStd_IntegerArray"
-type
-  HandleTDataStdIntegerArray* = Handle[TDataStdIntegerArray]
 
-## ! Contains an array of integers.
 
-type
-  TDataStdIntegerArray* {.importcpp: "TDataStd_IntegerArray",
-                         header: "TDataStd_IntegerArray.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                          ## !
-                                                                                          ## class
-                                                                                          ## methods
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## =============
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## the
-                                                                                          ## GUID
-                                                                                          ## for
-                                                                                          ## arrays
-                                                                                          ## of
-                                                                                          ## integers.
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_IntegerArray::GetID(@)",
@@ -65,8 +44,8 @@ proc setID*(this: var TDataStdIntegerArray) {.cdecl, importcpp: "SetID",
     header: "TDataStd_IntegerArray.hxx".}
 proc value*(this: TDataStdIntegerArray; index: cint): cint {.noSideEffect, cdecl,
     importcpp: "Value", header: "TDataStd_IntegerArray.hxx".}
-proc `()`*(this: TDataStdIntegerArray; index: cint): cint {.noSideEffect, cdecl,
-    importcpp: "#(@)", header: "TDataStd_IntegerArray.hxx".}
+#proc `()`*(this: TDataStdIntegerArray; index: cint): cint {.noSideEffect, cdecl,
+#    importcpp: "#(@)", header: "TDataStd_IntegerArray.hxx".}
 proc lower*(this: TDataStdIntegerArray): cint {.noSideEffect, cdecl,
     importcpp: "Lower", header: "TDataStd_IntegerArray.hxx".}
 proc upper*(this: TDataStdIntegerArray): cint {.noSideEffect, cdecl,
@@ -104,3 +83,4 @@ proc deltaOnModification*(this: TDataStdIntegerArray;
 proc dumpJson*(this: TDataStdIntegerArray; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TDataStd_IntegerArray.hxx".}
+

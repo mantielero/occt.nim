@@ -1,3 +1,9 @@
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 1999-06-25
 ##  Created by: Sergey RUIN
 ##  Copyright (c) 1999 Matra Datavision
@@ -14,72 +20,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TDF_Label"
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDF_DataSet"
-discard "forward decl of TDataStd_Directory"
-type
-  HandleTDataStdDirectory* = Handle[TDataStdDirectory]
 
-## ! Associates a directory in the data framework with
-## ! a TDataStd_TagSource attribute.
-## ! You can create a new directory label and add
-## ! sub-directory or object labels to it,
 
-type
-  TDataStdDirectory* {.importcpp: "TDataStd_Directory",
-                      header: "TDataStd_Directory.hxx", bycopy.} = object of TDataStdGenericEmpty ##
-                                                                                           ## !
-                                                                                           ## class
-                                                                                           ## methods
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## =============
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Searches
-                                                                                           ## for
-                                                                                           ## a
-                                                                                           ## directory
-                                                                                           ## attribute
-                                                                                           ## on
-                                                                                           ## the
-                                                                                           ## label
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## current,
-                                                                                           ## or
-                                                                                           ## on
-                                                                                           ## one
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## father
-                                                                                           ## labels
-                                                                                           ## of
-                                                                                           ## current.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## If
-                                                                                           ## a
-                                                                                           ## directory
-                                                                                           ## attribute
-                                                                                           ## is
-                                                                                           ## found,
-                                                                                           ## true
-                                                                                           ## is
-                                                                                           ## returned,
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## and
-                                                                                           ## the
-                                                                                           ## attribute
-                                                                                           ## found
-                                                                                           ## is
-                                                                                           ## set
-                                                                                           ## as
-                                                                                           ## D.
 
 
 proc find*(current: TDF_Label; d: var Handle[TDataStdDirectory]): bool {.cdecl,
@@ -100,3 +42,4 @@ proc id*(this: TDataStdDirectory): StandardGUID {.noSideEffect, cdecl,
     importcpp: "ID", header: "TDataStd_Directory.hxx".}
 proc dump*(this: TDataStdDirectory; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, cdecl, importcpp: "Dump", header: "TDataStd_Directory.hxx".}
+

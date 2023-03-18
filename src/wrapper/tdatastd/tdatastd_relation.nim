@@ -1,3 +1,10 @@
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tcollection/tcollection_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 1997-12-10
 ##  Created by: Denis PASCAL
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -14,28 +21,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TDataStd_Relation"
-type
-  HandleTDataStdRelation* = Handle[TDataStdRelation]
 
-## ! Relation attribute.
-## ! ==================
-## !
-## ! *  Data Structure of  the  Expression is stored in a
-## ! string and references to variables used by the string
-## !
-## ! Warning:  To be consistent,  each  Variable  referenced by  the
-## ! relation must have its equivalent in the string
 
-type
-  TDataStdRelation* {.importcpp: "TDataStd_Relation",
-                     header: "TDataStd_Relation.hxx", bycopy.} = object of TDataStdExpression ##
-                                                                                       ## !
-                                                                                       ## class
-                                                                                       ## methods
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## =============
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_Relation::GetID(@)",
@@ -55,3 +42,4 @@ proc dump*(this: TDataStdRelation; anOS: var StandardOStream): var StandardOStre
 proc dumpJson*(this: TDataStdRelation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TDataStd_Relation.hxx".}
+

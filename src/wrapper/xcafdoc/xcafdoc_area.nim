@@ -1,4 +1,8 @@
+import ../tdf/tdf_types
 import xcafdoc_types
+import ../standard/standard_types
+
+
 
 ##  Created on: 2000-09-08
 ##  Created by: data exchange team
@@ -15,32 +19,28 @@ import xcafdoc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of XCAFDoc_Area"
 
 
-proc newXCAFDoc_Area*(): XCAFDoc_Area {.cdecl, constructor,
-                                     importcpp: "XCAFDoc_Area(@)",
-                                     header: "XCAFDoc_Area.hxx".}
-proc GetID*(): Standard_GUID {.cdecl, importcpp: "XCAFDoc_Area::GetID(@)",
-                            header: "XCAFDoc_Area.hxx".}
-proc ID*(this: XCAFDoc_Area): Standard_GUID {.noSideEffect, cdecl, importcpp: "ID",
+
+
+proc newXCAFDocArea*(): XCAFDocArea {.cdecl, constructor,
+                                   importcpp: "XCAFDoc_Area(@)",
+                                   header: "XCAFDoc_Area.hxx".}
+proc getID*(): StandardGUID {.cdecl, importcpp: "XCAFDoc_Area::GetID(@)",
+                           header: "XCAFDoc_Area.hxx".}
+proc id*(this: XCAFDocArea): StandardGUID {.noSideEffect, cdecl, importcpp: "ID",
+                                        header: "XCAFDoc_Area.hxx".}
+proc set*(this: var XCAFDocArea; vol: cfloat) {.cdecl, importcpp: "Set",
     header: "XCAFDoc_Area.hxx".}
-proc Set*(this: var XCAFDoc_Area; vol: cfloat) {.cdecl, importcpp: "Set",
-    header: "XCAFDoc_Area.hxx".}
-proc Set*(label: TDF_Label; area: cfloat): handle[XCAFDoc_Area] {.cdecl,
+proc set*(label: TDF_Label; area: cfloat): Handle[XCAFDocArea] {.cdecl,
     importcpp: "XCAFDoc_Area::Set(@)", header: "XCAFDoc_Area.hxx".}
-proc Get*(this: XCAFDoc_Area): cfloat {.noSideEffect, cdecl, importcpp: "Get",
-                                    header: "XCAFDoc_Area.hxx".}
-proc Get*(label: TDF_Label; area: var cfloat): bool {.cdecl,
+proc get*(this: XCAFDocArea): cfloat {.noSideEffect, cdecl, importcpp: "Get",
+                                   header: "XCAFDoc_Area.hxx".}
+proc get*(label: TDF_Label; area: var cfloat): bool {.cdecl,
     importcpp: "XCAFDoc_Area::Get(@)", header: "XCAFDoc_Area.hxx".}
-proc Dump*(this: XCAFDoc_Area; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: XCAFDocArea; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, cdecl, importcpp: "Dump", header: "XCAFDoc_Area.hxx".}
-proc DumpJson*(this: XCAFDoc_Area; theOStream: var Standard_OStream;
+proc dumpJson*(this: XCAFDocArea; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "XCAFDoc_Area.hxx".}
-## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( XCAFDoc_Area , TDataStd_Real ) }
-## Error: token expected: ) but got: ,!!!
+

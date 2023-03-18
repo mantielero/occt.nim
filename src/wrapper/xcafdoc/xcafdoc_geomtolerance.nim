@@ -1,4 +1,8 @@
+import ../tdf/tdf_types
 import xcafdoc_types
+import ../standard/standard_types
+import ../xcafdimtolobjects/xcafdimtolobjects_types
+
 
 ##  Created on: 2015-08-06
 ##  Created by: Ilya Novikov
@@ -15,35 +19,31 @@ import xcafdoc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of XCAFDimTolObjects_GeomToleranceObject"
 when defined(GetObject):
   discard
-discard "forward decl of XCAFDoc_GeomTolerance"
 
-proc newXCAFDoc_GeomTolerance*(): XCAFDoc_GeomTolerance {.cdecl, constructor,
+
+
+
+proc newXCAFDocGeomTolerance*(): XCAFDocGeomTolerance {.cdecl, constructor,
     importcpp: "XCAFDoc_GeomTolerance(@)", header: "XCAFDoc_GeomTolerance.hxx".}
-proc newXCAFDoc_GeomTolerance*(theObj: handle[XCAFDoc_GeomTolerance]): XCAFDoc_GeomTolerance {.
+proc newXCAFDocGeomTolerance*(theObj: Handle[XCAFDocGeomTolerance]): XCAFDocGeomTolerance {.
     cdecl, constructor, importcpp: "XCAFDoc_GeomTolerance(@)",
     header: "XCAFDoc_GeomTolerance.hxx".}
-proc GetID*(): Standard_GUID {.cdecl, importcpp: "XCAFDoc_GeomTolerance::GetID(@)",
-                            header: "XCAFDoc_GeomTolerance.hxx".}
-proc Set*(theLabel: TDF_Label): handle[XCAFDoc_GeomTolerance] {.cdecl,
+proc getID*(): StandardGUID {.cdecl, importcpp: "XCAFDoc_GeomTolerance::GetID(@)",
+                           header: "XCAFDoc_GeomTolerance.hxx".}
+proc set*(theLabel: TDF_Label): Handle[XCAFDocGeomTolerance] {.cdecl,
     importcpp: "XCAFDoc_GeomTolerance::Set(@)",
     header: "XCAFDoc_GeomTolerance.hxx".}
-proc SetObject*(this: var XCAFDoc_GeomTolerance; theGeomToleranceObject: handle[
-    XCAFDimTolObjects_GeomToleranceObject]) {.cdecl, importcpp: "SetObject",
+proc setObject*(this: var XCAFDocGeomTolerance; theGeomToleranceObject: Handle[
+    XCAFDimTolObjectsGeomToleranceObject]) {.cdecl, importcpp: "SetObject",
     header: "XCAFDoc_GeomTolerance.hxx".}
-proc GetObject*(this: XCAFDoc_GeomTolerance): handle[
-    XCAFDimTolObjects_GeomToleranceObject] {.noSideEffect, cdecl,
+proc getObject*(this: XCAFDocGeomTolerance): Handle[
+    XCAFDimTolObjectsGeomToleranceObject] {.noSideEffect, cdecl,
     importcpp: "GetObject", header: "XCAFDoc_GeomTolerance.hxx".}
-proc ID*(this: XCAFDoc_GeomTolerance): Standard_GUID {.noSideEffect, cdecl,
+proc id*(this: XCAFDocGeomTolerance): StandardGUID {.noSideEffect, cdecl,
     importcpp: "ID", header: "XCAFDoc_GeomTolerance.hxx".}
-proc DumpJson*(this: XCAFDoc_GeomTolerance; theOStream: var Standard_OStream;
+proc dumpJson*(this: XCAFDocGeomTolerance; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "XCAFDoc_GeomTolerance.hxx".}
-## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( XCAFDoc_GeomTolerance , TDataStd_GenericEmpty ) }
-## Error: token expected: ) but got: ,!!!
+

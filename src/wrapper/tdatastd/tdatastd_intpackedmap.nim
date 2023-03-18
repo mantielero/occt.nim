@@ -1,3 +1,10 @@
+import ../tcolstd/tcolstd_types
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 2007-07-31
 ##  Created by: Sergey ZARITCHNY
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -13,35 +20,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TDataStd_DeltaOnModificationOfIntPackedMap"
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDF_DeltaOnModification"
-discard "forward decl of TDataStd_IntPackedMap"
-type
-  HandleTDataStdIntPackedMap* = Handle[TDataStdIntPackedMap]
 
-## ! Attribute for storing TColStd_PackedMapOfInteger
 
-type
-  TDataStdIntPackedMap* {.importcpp: "TDataStd_IntPackedMap",
-                         header: "TDataStd_IntPackedMap.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                          ## !
-                                                                                          ## class
-                                                                                          ## methods
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## =============
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## the
-                                                                                          ## GUID
-                                                                                          ## of
-                                                                                          ## the
-                                                                                          ## attribute.
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_IntPackedMap::GetID(@)",
@@ -95,3 +75,4 @@ proc deltaOnModification*(this: TDataStdIntPackedMap;
 proc dumpJson*(this: TDataStdIntPackedMap; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TDataStd_IntPackedMap.hxx".}
+

@@ -1,0 +1,141 @@
+{.passL:"-lTKLCAF".}
+{.passC:"-I/usr/include/opencascade/".}
+
+import tdf
+import tdf_attribute
+import tdf_attributearray1
+import tdf_attributedatamap
+import tdf_attributedelta
+import tdf_attributedeltalist
+import tdf_attributedoublemap
+import tdf_attributeindexedmap
+#import tdf_attributeiterator
+import tdf_attributelist
+import tdf_attributemap
+import tdf_attributesequence
+#import tdf_childiditerator
+#import tdf_childiterator
+import tdf_closuremode
+import tdf_closuretool
+import tdf_comparisontool
+import tdf_copylabel
+import tdf_copytool
+import tdf_data
+#import tdf_datamapiteratorofattributedatamap
+#import tdf_datamapiteratoroflabeldatamap
+#import tdf_datamapiteratoroflabelintegermap
+import tdf_dataset
+import tdf_defaultdeltaonmodification
+import tdf_defaultdeltaonremoval
+import tdf_delta
+import tdf_deltalist
+import tdf_deltaonaddition
+import tdf_deltaonforget
+import tdf_deltaonmodification
+import tdf_deltaonremoval
+import tdf_deltaonresume
+import tdf_derivedattribute
+# import tdf_doublemapiteratorofattributedoublemap
+# import tdf_doublemapiteratorofguidprogidmap
+# import tdf_doublemapiteratoroflabeldoublemap
+import tdf_guidprogidmap
+import tdf_hallocator
+import tdf_hattributearray1
+import tdf_idfilter
+import tdf_idlist
+import tdf_idmap
+import tdf_label
+import tdf_labeldatamap
+import tdf_labeldoublemap
+import tdf_labelindexedmap
+import tdf_labelintegermap
+import tdf_labellist
+import tdf_labelmap
+import tdf_labelmaphasher
+import tdf_labelnode
+import tdf_labelnodeptr
+import tdf_labelsequence
+# import tdf_listiteratorofattributedeltalist
+# import tdf_listiteratorofattributelist
+# import tdf_listiteratorofdeltalist
+# import tdf_listiteratorofidlist
+# import tdf_listiteratoroflabellist
+# import tdf_mapiteratorofattributemap
+# import tdf_mapiteratorofidmap
+# import tdf_mapiteratoroflabelmap
+import tdf_reference
+import tdf_relocationtable
+import tdf_tagsource
+import tdf_tool
+import tdf_transaction
+import tdf_types
+
+
+export tdf
+export tdf_attribute
+export tdf_attributearray1
+export tdf_attributedatamap
+export tdf_attributedelta
+export tdf_attributedeltalist
+export tdf_attributedoublemap
+export tdf_attributeindexedmap
+# export tdf_attributeiterator
+export tdf_attributelist
+export tdf_attributemap
+export tdf_attributesequence
+# export tdf_childiditerator
+# export tdf_childiterator
+export tdf_closuremode
+export tdf_closuretool
+export tdf_comparisontool
+export tdf_copylabel
+export tdf_copytool
+export tdf_data
+# export tdf_datamapiteratorofattributedatamap
+# export tdf_datamapiteratoroflabeldatamap
+# export tdf_datamapiteratoroflabelintegermap
+export tdf_dataset
+export tdf_defaultdeltaonmodification
+export tdf_defaultdeltaonremoval
+export tdf_delta
+export tdf_deltalist
+export tdf_deltaonaddition
+export tdf_deltaonforget
+export tdf_deltaonmodification
+export tdf_deltaonremoval
+export tdf_deltaonresume
+export tdf_derivedattribute
+# export tdf_doublemapiteratorofattributedoublemap
+# export tdf_doublemapiteratorofguidprogidmap
+# export tdf_doublemapiteratoroflabeldoublemap
+export tdf_guidprogidmap
+export tdf_hallocator
+export tdf_hattributearray1
+export tdf_idfilter
+export tdf_idlist
+export tdf_idmap
+export tdf_label
+export tdf_labeldatamap
+export tdf_labeldoublemap
+export tdf_labelindexedmap
+export tdf_labelintegermap
+export tdf_labellist
+export tdf_labelmap
+export tdf_labelmaphasher
+export tdf_labelnode
+export tdf_labelnodeptr
+export tdf_labelsequence
+# export tdf_listiteratorofattributedeltalist
+# export tdf_listiteratorofattributelist
+# export tdf_listiteratorofdeltalist
+# export tdf_listiteratorofidlist
+# export tdf_listiteratoroflabellist
+# export tdf_mapiteratorofattributemap
+# export tdf_mapiteratorofidmap
+# export tdf_mapiteratoroflabelmap
+export tdf_reference
+export tdf_relocationtable
+export tdf_tagsource
+export tdf_tool
+export tdf_transaction
+export tdf_types

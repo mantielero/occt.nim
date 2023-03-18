@@ -1,3 +1,10 @@
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tcollection/tcollection_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 1997-12-10
 ##  Created by: Denis PASCAL
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -14,41 +21,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TCollection_ExtendedString"
-discard "forward decl of TDataStd_Real"
-discard "forward decl of TDataStd_Expression"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDF_DataSet"
-discard "forward decl of TDataStd_Variable"
-type
-  HandleTDataStdVariable* = Handle[TDataStdVariable]
 
-## ! Variable attribute.
-## ! ==================
-## !
-## ! * A variable is  associated to a TDataStd_Real (which
-## ! contains its    current  value) and  a   TDataStd_Name
-## ! attribute (which  contains  its name).  It  contains a
-## ! constant flag, and a Unit
-## !
-## ! * An  expression may  be assigned  to a variable.   In
-## ! thatcase the expression  is handled by the  associated
-## ! Expression Attribute  and the Variable returns True to
-## ! the method <IsAssigned>.
 
-type
-  TDataStdVariable* {.importcpp: "TDataStd_Variable",
-                     header: "TDataStd_Variable.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                  ## !
-                                                                                  ## class
-                                                                                  ## methods
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## =============
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_Variable::GetID(@)",
@@ -106,3 +80,4 @@ proc dump*(this: TDataStdVariable; anOS: var StandardOStream): var StandardOStre
 proc dumpJson*(this: TDataStdVariable; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TDataStd_Variable.hxx".}
+

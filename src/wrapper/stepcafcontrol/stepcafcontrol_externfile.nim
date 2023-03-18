@@ -3,6 +3,7 @@ import ../standard/standard_types
 import ../stepcontrol/stepcontrol_types
 import ../ifselect/ifselect_types
 import ../tcollection/tcollection_types
+import ../tdf/tdf_types
 
 ##  Created on: 2000-09-28
 ##  Created by: Andrey BETENEV

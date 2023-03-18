@@ -1,3 +1,10 @@
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tcollection/tcollection_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 1997-07-31
 ##  Created by: Denis PASCAL
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -14,38 +21,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of TDF_Label"
-discard "forward decl of TCollection_ExtendedString"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDataStd_Name"
-type
-  HandleTDataStdName* = Handle[TDataStdName]
 
-## ! Used to define a name attribute containing a string which specifies the name.
 
-type
-  TDataStdName* {.importcpp: "TDataStd_Name", header: "TDataStd_Name.hxx", bycopy.} = object of TDataStdGenericExtString ##
-                                                                                                               ## !
-                                                                                                               ## class
-                                                                                                               ## methods
-                                                                                                               ## working
-                                                                                                               ## on
-                                                                                                               ## the
-                                                                                                               ## name
-                                                                                                               ## itself
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## ========================================
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## Returns
-                                                                                                               ## the
-                                                                                                               ## GUID
-                                                                                                               ## for
-                                                                                                               ## name
-                                                                                                               ## attributes.
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_Name::GetID(@)",
@@ -66,3 +43,4 @@ proc setID*(this: var TDataStdName) {.cdecl, importcpp: "SetID",
                                   header: "TDataStd_Name.hxx".}
 proc dump*(this: TDataStdName; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, cdecl, importcpp: "Dump", header: "TDataStd_Name.hxx".}
+

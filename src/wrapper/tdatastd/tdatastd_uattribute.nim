@@ -1,3 +1,9 @@
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 1999-06-11
 ##  Created by: Sergey RUIN
 ##  Copyright (c) 1999 Matra Datavision
@@ -14,50 +20,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TDF_Label"
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDF_DataSet"
-discard "forward decl of TDataStd_UAttribute"
-type
-  HandleTDataStdUAttribute* = Handle[TDataStdUAttribute]
-  TDataStdUAttribute* {.importcpp: "TDataStd_UAttribute",
-                       header: "TDataStd_UAttribute.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                      ## !
-                                                                                      ## api
-                                                                                      ## class
-                                                                                      ## methods
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## =============
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Find,
-                                                                                      ## or
-                                                                                      ## create,
-                                                                                      ## a
-                                                                                      ## UAttribute
-                                                                                      ## attribute
-                                                                                      ## with
-                                                                                      ## <LocalID>
-                                                                                      ## as
-                                                                                      ## Local
-                                                                                      ## GUID.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## The
-                                                                                      ## UAttribute
-                                                                                      ## attribute
-                                                                                      ## is
-                                                                                      ## returned.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## UAttribute
-                                                                                      ## methods
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## ============
 
 
 proc set*(label: TDF_Label; localID: StandardGUID): Handle[TDataStdUAttribute] {.
@@ -83,3 +45,4 @@ proc dump*(this: TDataStdUAttribute; anOS: var StandardOStream): var StandardOSt
 proc dumpJson*(this: TDataStdUAttribute; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TDataStd_UAttribute.hxx".}
+

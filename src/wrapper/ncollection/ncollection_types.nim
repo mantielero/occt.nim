@@ -239,6 +239,8 @@ type
       importcpp: "NCollection_Array1<\'0>::Iterator",
       header: "NCollection_Array1.hxx", bycopy,pure, inheritable.} = object 
 
+
+
   NCollectionDataMapIterator*[TheKeyType; TheItemType; Hasher] {.
       importcpp: "NCollection_DataMap<\'0,\'1,\'2>::Iterator",
       header: "NCollection_DataMap.hxx", bycopy,pure, inheritable.} = object
@@ -380,7 +382,22 @@ type
 
   NCollectionListListNode* = NCollectionTListNode[TheItemType]
 
-  NCollectionListIterator* = NCollectionTListIterator[TheItemType]
+  #-----
+  NCollectionListIterator*[TheItemType] {.
+      importcpp: "NCollection_List<\'0>::Iterator",
+      header: "NCollection_List.hxx", bycopy.} = object of NCollectionBaseList 
+
+  #NCollectionListIterator* = NCollectionTListIterator[TheItemType]
+  #-----
+
+
+#[
+  NCollectionSparseArrayIterator*[TheItemType] {.
+      importcpp: "NCollection_SparseArray<\'0>::Iterator",
+      header: "NCollection_SparseArray.hxx", bycopy.} = object of NCollectionSparseArrayConstIterator 
+
+]#
+
 
   NCollectionListconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
       NCollectionListIterator, TheItemType, true]

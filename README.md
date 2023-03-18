@@ -56,3 +56,59 @@ There are many things that can be done:
 # License
 I don't know much about licenses (any advise is wellcomed). My code is BSD, but you need to fulfill whatever [OpenCascade license requires](https://dev.opencascade.org/resources/licensing) which is: GNU Lesser General Public License (LGPL) version 2.1.
 
+# How to add a new package
+1. Create the new package folder. For example `src/wrapper/pcdm`.
+
+2. Copy the files `genGenerator.nim` and `ed.nim` from `src/wrapper/cdm` into the new folder.
+
+3. In `genGenerator.nim` modify the following lines:
+```
+let prefix = "CDM"
+let packageName = "cdm"
+```
+The `prefix` indicate the starting string for the header files under `/usr/include/opencascade`.
+
+The `packageName` is the name of the created folder.
+
+4. Execute `genGenerator`:
+```
+nim c -r genGenerator
+```
+this will create a new file `gen.nim` and copy opencascade headers locally.
+
+5. Execute `gen.nim`:
+```
+nim c -r gen
+```
+this will execute `c2nim` under the hood.
+
+If all the headers were removed, then everything went fine. If not, you will have to play with `gen.nim` commenting parts of the headers in order to avoid `c2nim` failing.
+
+6. Then we edit `src/wrapper/pp.nim` (not a beauty). Around line 650, you have something like:
+```
+let folder = "cdm"
+let toolkit = "TKCDF"
+```
+comment those lines and add two similar lines with the name of the new folder and the name of the associated toolkit for the package. In this case:
+```
+#let folder = "cdm"
+#let toolkit = "TKCDF"
+
+let folder = "pcdm"
+let toolkit = "TKCDF"
+```
+
+7. Execute it, by going into folder `src/wrapper` and then:
+```
+nim c -r pp
+```
+
+Notes:
+a. Fixing `Iterator`. Iterators are defined in `ncollection_types`. If you have something like:
+```
+StorageDataMapIteratorOfMapOfPers* = Iterator....
+```
+probably needs to be:
+```
+StorageDataMapIteratorOfMapOfPers* = NCollectionDataMapIterator....
+```

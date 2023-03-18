@@ -1,3 +1,9 @@
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 1997-07-29
 ##  Created by: Denis PASCAL
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -14,55 +20,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TDF_Label"
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDataStd_Real"
-discard "forward decl of TDataStd_Integer"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDataStd_NoteBook"
-type
-  HandleTDataStdNoteBook* = Handle[TDataStdNoteBook]
 
-## ! NoteBook Object attribute
 
-type
-  TDataStdNoteBook* {.importcpp: "TDataStd_NoteBook",
-                     header: "TDataStd_NoteBook.hxx", bycopy.} = object of TDataStdGenericEmpty ##
-                                                                                         ## !
-                                                                                         ## class
-                                                                                         ## methods
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## =============
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## try
-                                                                                         ## to
-                                                                                         ## retrieve
-                                                                                         ## a
-                                                                                         ## NoteBook
-                                                                                         ## attribute
-                                                                                         ## at
-                                                                                         ## <current>
-                                                                                         ## label
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## or
-                                                                                         ## in
-                                                                                         ## fathers
-                                                                                         ## label
-                                                                                         ## of
-                                                                                         ## <current>.
-                                                                                         ## Returns
-                                                                                         ## True
-                                                                                         ## if
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## found
-                                                                                         ## and
-                                                                                         ## set
-                                                                                         ## <N>.
 
 
 proc find*(current: TDF_Label; n: var Handle[TDataStdNoteBook]): bool {.cdecl,
@@ -81,3 +40,4 @@ proc id*(this: TDataStdNoteBook): StandardGUID {.noSideEffect, cdecl, importcpp:
     header: "TDataStd_NoteBook.hxx".}
 proc dump*(this: TDataStdNoteBook; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, cdecl, importcpp: "Dump", header: "TDataStd_NoteBook.hxx".}
+

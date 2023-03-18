@@ -1,4 +1,7 @@
 import xcafdoc_types
+import ../standard/standard_types
+
+
 
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -17,10 +20,11 @@ import xcafdoc_types
 
 
 
-proc newXCAFDoc_VisMaterialPBR*(): XCAFDoc_VisMaterialPBR {.cdecl, constructor,
+proc newXCAFDocVisMaterialPBR*(): XCAFDocVisMaterialPBR {.cdecl, constructor,
     importcpp: "XCAFDoc_VisMaterialPBR(@)", header: "XCAFDoc_VisMaterialPBR.hxx".}
-proc IsEqual*(this: XCAFDoc_VisMaterialPBR; theOther: XCAFDoc_VisMaterialPBR): bool {.
+proc isEqual*(this: XCAFDocVisMaterialPBR; theOther: XCAFDocVisMaterialPBR): bool {.
     noSideEffect, cdecl, importcpp: "IsEqual", header: "XCAFDoc_VisMaterialPBR.hxx".}
-proc DumpJson*(this: XCAFDoc_VisMaterialPBR; theOStream: var Standard_OStream;
+proc dumpJson*(this: XCAFDocVisMaterialPBR; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "XCAFDoc_VisMaterialPBR.hxx".}
+

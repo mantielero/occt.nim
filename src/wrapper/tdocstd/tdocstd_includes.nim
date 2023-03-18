@@ -1,0 +1,47 @@
+{.passL:"-lTKLCAF".}
+{.passC:"-I/usr/include/opencascade/".}
+
+import tdocstd
+import tdocstd_application
+import tdocstd_applicationdelta
+import tdocstd_compounddelta
+import tdocstd_context
+import tdocstd_datamapiteratoroflabelidmapdatamap
+import tdocstd_document
+import tdocstd_formatversion
+import tdocstd_labelidmapdatamap
+import tdocstd_modified
+import tdocstd_multitransactionmanager
+import tdocstd_owner
+import tdocstd_pathparser
+import tdocstd_sequenceofapplicationdelta
+import tdocstd_sequenceofdocument
+import tdocstd_types
+import tdocstd_xlink
+import tdocstd_xlinkiterator
+import tdocstd_xlinkptr
+import tdocstd_xlinkroot
+import tdocstd_xlinktool
+
+
+export tdocstd
+export tdocstd_application
+export tdocstd_applicationdelta
+export tdocstd_compounddelta
+export tdocstd_context
+export tdocstd_datamapiteratoroflabelidmapdatamap
+export tdocstd_document
+export tdocstd_formatversion
+export tdocstd_labelidmapdatamap
+export tdocstd_modified
+export tdocstd_multitransactionmanager
+export tdocstd_owner
+export tdocstd_pathparser
+export tdocstd_sequenceofapplicationdelta
+export tdocstd_sequenceofdocument
+export tdocstd_types
+export tdocstd_xlink
+export tdocstd_xlinkiterator
+export tdocstd_xlinkptr
+export tdocstd_xlinkroot
+export tdocstd_xlinktool

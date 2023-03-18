@@ -41,6 +41,7 @@ proc newNCollectionStlIterator*[Category; BaseIterator; ItemType;
 proc `iterator`*[Category; BaseIterator; ItemType; IsConstant: static[bool]](
     this: NCollectionStlIterator[Category, BaseIterator, ItemType, IsConstant]): BaseIterator {.
     noSideEffect, cdecl, importcpp: "Iterator", header: "NCollection_StlIterator.hxx".}
+
 proc changeIterator*[Category; BaseIterator; ItemType; IsConstant: static[bool]](this: var NCollectionStlIterator[
     Category, BaseIterator, ItemType, IsConstant]): var BaseIterator {.cdecl,
     importcpp: "ChangeIterator", header: "NCollection_StlIterator.hxx".}

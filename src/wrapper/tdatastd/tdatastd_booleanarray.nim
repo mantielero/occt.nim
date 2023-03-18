@@ -1,3 +1,10 @@
+import ../tcolstd/tcolstd_types
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 2007-05-29
 ##  Created by: Vlad Romashko
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -13,32 +20,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDataStd_BooleanArray"
-type
-  HandleTDataStdBooleanArray* = Handle[TDataStdBooleanArray]
 
-## ! An array of boolean values.
 
-type
-  TDataStdBooleanArray* {.importcpp: "TDataStd_BooleanArray",
-                         header: "TDataStd_BooleanArray.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                          ## !
-                                                                                          ## Static
-                                                                                          ## methods
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## ==============
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## an
-                                                                                          ## ID
-                                                                                          ## for
-                                                                                          ## array.
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_BooleanArray::GetID(@)",
@@ -59,8 +42,8 @@ proc setID*(this: var TDataStdBooleanArray) {.cdecl, importcpp: "SetID",
     header: "TDataStd_BooleanArray.hxx".}
 proc value*(this: TDataStdBooleanArray; index: cint): bool {.noSideEffect, cdecl,
     importcpp: "Value", header: "TDataStd_BooleanArray.hxx".}
-proc `()`*(this: TDataStdBooleanArray; index: cint): bool {.noSideEffect, cdecl,
-    importcpp: "#(@)", header: "TDataStd_BooleanArray.hxx".}
+#proc `()`*(this: TDataStdBooleanArray; index: cint): bool {.noSideEffect, cdecl,
+#    importcpp: "#(@)", header: "TDataStd_BooleanArray.hxx".}
 proc lower*(this: TDataStdBooleanArray): cint {.noSideEffect, cdecl,
     importcpp: "Lower", header: "TDataStd_BooleanArray.hxx".}
 proc upper*(this: TDataStdBooleanArray): cint {.noSideEffect, cdecl,
@@ -89,3 +72,4 @@ proc dump*(this: TDataStdBooleanArray; os: var StandardOStream): var StandardOSt
 proc dumpJson*(this: TDataStdBooleanArray; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TDataStd_BooleanArray.hxx".}
+

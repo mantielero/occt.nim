@@ -1,3 +1,9 @@
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 1999-08-02
 ##  Created by: Denis PASCAL
 ##  Copyright (c) 1999 Matra Datavision
@@ -14,21 +20,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDataStd_Current"
-type
-  HandleTDataStdCurrent* = Handle[TDataStdCurrent]
 
-## ! this attribute,  located at root label,  manage an
-## ! access to a current label.
 
-type
-  TDataStdCurrent* {.importcpp: "TDataStd_Current", header: "TDataStd_Current.hxx",
-                    bycopy.} = object of TDF_Attribute ## ! class methods
-                                                  ## ! =============
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_Current::GetID(@)",
@@ -60,3 +53,4 @@ proc dump*(this: TDataStdCurrent; anOS: var StandardOStream): var StandardOStrea
 proc dumpJson*(this: TDataStdCurrent; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TDataStd_Current.hxx".}
+

@@ -1,4 +1,8 @@
+import ../tdf/tdf_types
 import xcafdoc_types
+import ../standard/standard_types
+import ../xcafdimtolobjects/xcafdimtolobjects_types
+
 
 ##  Created on: 2015-08-06
 ##  Created by: Ilya Novikov
@@ -15,31 +19,26 @@ import xcafdoc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of XCAFDimTolObjects_DimensionObject"
 when defined(GetObject):
   discard
-discard "forward decl of XCAFDoc_Dimension"
 
 
-proc newXCAFDoc_Dimension*(): XCAFDoc_Dimension {.cdecl, constructor,
+
+
+proc newXCAFDocDimension*(): XCAFDocDimension {.cdecl, constructor,
     importcpp: "XCAFDoc_Dimension(@)", header: "XCAFDoc_Dimension.hxx".}
-proc GetID*(): Standard_GUID {.cdecl, importcpp: "XCAFDoc_Dimension::GetID(@)",
-                            header: "XCAFDoc_Dimension.hxx".}
-proc Set*(theLabel: TDF_Label): handle[XCAFDoc_Dimension] {.cdecl,
+proc getID*(): StandardGUID {.cdecl, importcpp: "XCAFDoc_Dimension::GetID(@)",
+                           header: "XCAFDoc_Dimension.hxx".}
+proc set*(theLabel: TDF_Label): Handle[XCAFDocDimension] {.cdecl,
     importcpp: "XCAFDoc_Dimension::Set(@)", header: "XCAFDoc_Dimension.hxx".}
-proc ID*(this: XCAFDoc_Dimension): Standard_GUID {.noSideEffect, cdecl,
-    importcpp: "ID", header: "XCAFDoc_Dimension.hxx".}
-proc SetObject*(this: var XCAFDoc_Dimension;
-               theDimensionObject: handle[XCAFDimTolObjects_DimensionObject]) {.
+proc id*(this: XCAFDocDimension): StandardGUID {.noSideEffect, cdecl, importcpp: "ID",
+    header: "XCAFDoc_Dimension.hxx".}
+proc setObject*(this: var XCAFDocDimension;
+               theDimensionObject: Handle[XCAFDimTolObjectsDimensionObject]) {.
     cdecl, importcpp: "SetObject", header: "XCAFDoc_Dimension.hxx".}
-proc GetObject*(this: XCAFDoc_Dimension): handle[XCAFDimTolObjects_DimensionObject] {.
+proc getObject*(this: XCAFDocDimension): Handle[XCAFDimTolObjectsDimensionObject] {.
     noSideEffect, cdecl, importcpp: "GetObject", header: "XCAFDoc_Dimension.hxx".}
-proc DumpJson*(this: XCAFDoc_Dimension; theOStream: var Standard_OStream;
+proc dumpJson*(this: XCAFDocDimension; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "XCAFDoc_Dimension.hxx".}
-## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( XCAFDoc_Dimension , TDataStd_GenericEmpty ) }
-## Error: token expected: ) but got: ,!!!
+

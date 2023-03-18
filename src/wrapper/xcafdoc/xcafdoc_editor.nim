@@ -1,4 +1,9 @@
+import ../tdf/tdf_types
 import xcafdoc_types
+import ../standard/standard_types
+import ../ncollection/ncollection_types
+
+
 
 ##  Created on: 2015-05-14
 ##  Created by: Ilya Novikov
@@ -15,28 +20,30 @@ import xcafdoc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of XCAFDoc_VisMaterial"
-discard "forward decl of XCAFDoc_ShapeTool"
 
-proc Expand*(theDoc: TDF_Label; theShape: TDF_Label; theRecursively: bool = true): bool {.
+
+proc expand*(theDoc: TDF_Label; theShape: TDF_Label; theRecursively: bool = true): bool {.
     cdecl, importcpp: "XCAFDoc_Editor::Expand(@)", header: "XCAFDoc_Editor.hxx".}
-proc Expand*(theDoc: TDF_Label; theRecursively: bool = true): bool {.cdecl,
+proc expand*(theDoc: TDF_Label; theRecursively: bool = true): bool {.cdecl,
     importcpp: "XCAFDoc_Editor::Expand(@)", header: "XCAFDoc_Editor.hxx".}
-proc Extract*(theSrcLabels: TDF_LabelSequence; theDstLabel: TDF_Label;
+proc extract*(theSrcLabels: TDF_LabelSequence; theDstLabel: TDF_Label;
              theIsNoVisMat: bool = false): bool {.cdecl,
     importcpp: "XCAFDoc_Editor::Extract(@)", header: "XCAFDoc_Editor.hxx".}
-proc Extract*(theSrcLabel: TDF_Label; theDstLabel: TDF_Label;
+proc extract*(theSrcLabel: TDF_Label; theDstLabel: TDF_Label;
              theIsNoVisMat: bool = false): bool {.cdecl,
     importcpp: "XCAFDoc_Editor::Extract(@)", header: "XCAFDoc_Editor.hxx".}
-proc CloneShapeLabel*(theSrcLabel: TDF_Label;
-                     theSrcShapeTool: handle[XCAFDoc_ShapeTool];
-                     theDstShapeTool: handle[XCAFDoc_ShapeTool];
+proc cloneShapeLabel*(theSrcLabel: TDF_Label;
+                     theSrcShapeTool: Handle[XCAFDocShapeTool];
+                     theDstShapeTool: Handle[XCAFDocShapeTool];
                      theMap: var TDF_LabelDataMap): TDF_Label {.cdecl,
     importcpp: "XCAFDoc_Editor::CloneShapeLabel(@)", header: "XCAFDoc_Editor.hxx".}
-proc CloneMetaData*(theSrcLabel: TDF_Label; theDstLabel: TDF_Label; theVisMatMap: ptr NCollection_DataMap[
-    handle[XCAFDoc_VisMaterial], handle[XCAFDoc_VisMaterial]];
-                   theToCopyColor: bool = true; theToCopyLayer: bool = true;
-                   theToCopyMaterial: bool = true;
-                   theToCopyVisMaterial: bool = true;
-                   theToCopyAttributes: bool = true) {.cdecl,
-    importcpp: "XCAFDoc_Editor::CloneMetaData(@)", header: "XCAFDoc_Editor.hxx".}
+
+
+# proc cloneMetaData*(theSrcLabel: TDF_Label; theDstLabel: TDF_Label; theVisMatMap: ptr NCollectionDataMap[
+#     Handle[XCAFDocVisMaterial], Handle[XCAFDocVisMaterial]];
+#                    theToCopyColor: bool = true; theToCopyLayer: bool = true;
+#                    theToCopyMaterial: bool = true;
+#                    theToCopyVisMaterial: bool = true;
+#                    theToCopyAttributes: bool = true) {.cdecl,
+#     importcpp: "XCAFDoc_Editor::CloneMetaData(@)", header: "XCAFDoc_Editor.hxx".}
+

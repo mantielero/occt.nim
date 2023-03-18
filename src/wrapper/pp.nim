@@ -84,7 +84,7 @@ proc createTypesFile*(pattern:string) =
     var txt = ""
     var tmp = d.split('/')
     var prefix = tmp[tmp.high]
-  #for fname in walkFiles("./tk*/*/*.nim"): 
+  #for fname in walkFiles("./*/*.nim"): 
 
     # Get the files within the subfolder
     for fname in walkFiles(fmt"{d}/{prefix}*.nim"):
@@ -119,7 +119,7 @@ proc createTypesFile*(pattern:string) =
 proc renameTypes*(replaceTypes:seq[tuple[a,b:string]]) =
   #var txt = ""
   #for fname in walkFiles(fmt"./{prefix}*.nim"):
-  for fname in walkFiles("./tk*/*/*.nim"): 
+  for fname in walkFiles("./*/*.nim"): 
     var txt = fname.readFile()
     for (a,b) in replaceTypes:
       txt = txt.replace(" " & a & ",", " " & b & ",")
@@ -143,7 +143,7 @@ proc renameTypes*(replaceTypes:seq[tuple[a,b:string]]) =
 # ---------------
 proc renameProcs*(replaceProcs:seq[tuple[a,b:string]]) =
   #var txt = ""
-  for fname in walkFiles("./tk*/*/*.nim"): 
+  for fname in walkFiles("./*/*.nim"): 
   #for fname in walkFiles(fmt"./{prefix}*.nim"):
     var txt = fname.readFile()
     for (a,b) in replaceProcs:
@@ -184,9 +184,9 @@ proc convertIncludesToImports*(fname:string) = #replaceProcs:seq[tuple[a,b:strin
 
 
 proc convertIncludesToImports*() = #replaceProcs:seq[tuple[a,b:string]]) =
-  for fname in walkFiles("./tk*/*/*.nim"): 
+  for fname in walkFiles("./*/*.nim"): 
     convertIncludesToImports(fname)
-  for fname in walkFiles("./tk*/*.nim"): 
+  for fname in walkFiles("./*.nim"): 
     convertIncludesToImports(fname)    
 
 
@@ -230,10 +230,10 @@ proc getLinesPairs(lines:seq[string]):seq[tuple[a,b:int]] =
 
 proc likelyImports():Table[string,string] =
   # creates a table relating as follows: gp --> tkmath/gp/gp_types
-  for i in walkDirs("./tk*/*"):
+  for i in walkDirs("./*"):
     var tmp = i.split('/')
     var name = tmp[tmp.high]
-    result[name] = i[2..i.high] & fmt"/{name}_types"
+    result[name] = i[2..i.high] & fmt"/{name}_types" 
     #result &= (name, )
 
 proc getTypeName(data:var string; line:string) =
@@ -402,7 +402,7 @@ proc addImport(fname:string;
         var currentFolders = currentPath.split('/')
 
         if currentFolders[0] != tmp2[0]:
-          imports.incl( "import ../../" & paths[i] & "\n" )
+          imports.incl( "import ../" & paths[i] & "\n" )
         else:
           if currentFolders[1] != tmp2[1]:
             imports.incl(  "import ../" & paths[i].split('/',1)[1] & "\n"  )
@@ -454,7 +454,7 @@ proc reorderContent(fname:string) =
       var currentFolders = currentPath.split('/')
       #var txt = ""
       if currentFolders[0] != tmp2[0]:
-        newtxt &=  "import ../../" & paths[i] & "\n"
+        newtxt &=  "import ../" & paths[i] & "\n"
       else:
         if currentFolders[1] != tmp2[1]:
           newtxt &=  "import ../" & paths[i] & "\n"
@@ -546,14 +546,15 @@ proc findProcDependencies(fname:string):HashSet[string] =
   return procTypes - toHashSet([""])
     
 proc getType2Library():Table[string, string] =
-  for i in walkDirs("./tk*/*"):
-    var tmp = i.split('/')
-    var name = tmp[tmp.high]
-    var fname = i[2..i.high] & fmt"/{name}_types"
-    # get types for the file
-    var typs = getTyps(fname & ".nim")
-    for typ in typs:
-      result[typ.name] = fname
+  for i in walkDirs("./*"):
+    if not i.endsWith("wrapperlib"): # Exclude this lib
+      var tmp = i.split('/')
+      var name = tmp[tmp.high]
+      var fname = i[2..i.high] & fmt"/{name}_types"
+      # get types for the file
+      var typs = getTyps(fname & ".nim")
+      for typ in typs:
+        result[typ.name] = fname
 
 proc addImports(fname:string) =
   var typ2import = getType2Library()
@@ -636,65 +637,102 @@ for typ in typs:
 #"./tkmath/gp"
 #createTypesFile("./tk*/*")
 
-let folder = "tdatastd"
+#let folder = "tdf"
+#let toolkit = "TKLCAF"
 
-createTypesFile(&"./{folder}")
+# let folder = "xcafdoc"
+# let toolkit = "TKXCAF"
 
-#reorderContent("./tkopengl/opengl/opengl_types.nim")
-reorderContent(&"./{folder}/{folder}_types.nim")
+# let folder = "xcafdimtolobjects"
+# let toolkit = "TKXCAF"
 
-for fname in walkFiles("*/*.nim"):
-  if fname.startsWith(&"{folder}"):
-#   #if not fname.startsWith("tkernel") and not fname.startsWith("tkmath"):
-#     if not fname.endsWith("_types.nim") and not fname.endsWith("_includes.nim"): 
-      echo "Functions: ", fname
-      addImports(fname)
+# let folder = "tdocstd"
+# let toolkit = "TKLCAF"
 
-#addImports("tkg3d/geomadaptor/geomadaptor.nim")
-
-
-#for fname in walkFiles("./tk*/*/*_types.nim"):
-#  if not fname.startsWith("./tkernel/") and not fname.startsWith("./tkmath/"):
-#    reorderContent(fname)
-
-#addImportsToTypes("./tk*/*/*_types.nim")
-#correctIncludes("./tk*/*")
-
-# 2. Rename types
-# thmath/gp
-var replaceTypes: seq[tuple[a,b:string]]
-var tmp = @["Ax1", "Ax2", "Ax2d", "Ax3", "Ax22d", "Circ", "Circ2d", "Cone", "Cylinder",
-  "Dir", "Dir2d", "Elips", "Elips2d", "EulerSequence", "Gtrfs", "Gtrsf2d", "Hypr", "Hypr2d",
-  "Lin", "Lin2d", "Mat", "Mat2d", "Parab", "Parab2d", "Pln", "Pnt", "Pnt2d", "Quaternion",
-  "QuaternionSlerp", "Sphere", "Torus", "Trsf", "Trsf2d", "TrsfForm", "Vec", "Vec2d",
-  "VectorWithNullmag", "Xy", "Xyz" ]
-
-#for i in tmp:
-#  replaceTypes &= (i,  i & "Obj")  
+#let folder = "cdf"
+#let toolkit = "TKCDF"
 
 
+#let folder = "cdm"
+#let toolkit = "TKCDF"
 
+# let folder = "pcdm"
+# let toolkit = "TKCDF"
 
-#renameTypes(replaceTypes)
+# let folder = "storage"
+# let toolkit = "TKernel"
 
-# 3. Rename procs
-var replaceProcs: seq[tuple[a,b:string]]
-#for i in tmp:
-#  replaceProcs &= ("new" & i, i.toLowerAscii)
+#let folder = "ldom"
+#let toolkit = "TKCDF"
 
+#let folder = "resource"
+#let toolkit = "TKernel"
 
-#renameProcs(replaceProcs)
+# let folder = "unitsmethods"
+# let toolkit = "TKernel"
 
+# let folder = "xcafnoteobjects"
+# let toolkit = "TKXCAF"
 
-# ......
-# 10. Other mods
-#------
+let folder = "osd"
+let toolkit = "TKernel"
 
-#"tkmath/gp/gp_types.nim".appendBeg("import tkernel/standard/[standard_handle]")
+iterator getFileList(folder, startsWith, extension:string):string =
+  var pattern = folder  / startsWith & &"*.{extension}"
+  for i in walkFiles(pattern):
+    yield i
 
 
 
-#convertIncludesToImports()
+
+
+proc processTypes =
+  # Creates the file with  the types
+  createTypesFile(&"./{folder}")
+
+  # Reorder the content in the types file
+  reorderContent(&"./{folder}/{folder}_types.nim")
+
+  # Look for the required imports for each file in the folder.
+  for fname in walkFiles("*/*.nim"):
+    if fname.startsWith(&"{folder}"):
+        let endName = fname.rsplit('/', 1)[1]
+
+        if endName != "gen.nim" and endName != "genGenerator.nim" and endName != "ed.nim":
+          echo "Adding imports to file: ", fname
+          addImports(fname)
+
+
+
+
+proc generateIncludes =
+  var output = "{.passL:\"-l" & toolkit & "\".}\n"
+  output &= "{.passC:\"-I/usr/include/opencascade/\".}\n\n"
+
+  var imports,exports:string
+  for fname in getFileList(folder, folder, "nim"):
+    var filename = fname.rsplit('/',1)[1]
+    filename = filename.split('.')[0]
+    imports &= &"import {filename}\n"
+    exports &= &"export {filename}\n"      
+  output &= imports & "\n\n" & exports
+
+  var includesFname = &"{folder}/{folder}_includes.nim"
+  includesFname.writeFile( output )
+
+
+proc main =
+  processTypes()
+  generateIncludes()
+
+main()
+# FIXME: parece que sigue generando imports ../../
+#    sed -i 's/\.\.\/\.\.\//\.\.\//g' tdocstd*.nim
+
+
+
+
+
 
 
 # TODO: reorder types "object of ..."

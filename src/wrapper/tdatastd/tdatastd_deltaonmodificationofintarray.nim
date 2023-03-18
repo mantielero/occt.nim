@@ -1,3 +1,8 @@
+import tdatastd_types
+import ../standard/standard_types
+
+
+
 ##  Created on: 2007-09-06
 ##  Created by: Sergey ZARITCHNY
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -13,23 +18,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TDataStd_IntegerArray"
-discard "forward decl of TDataStd_DeltaOnModificationOfIntArray"
-type
-  HandleTDataStdDeltaOnModificationOfIntArray* = Handle[
-      TDataStdDeltaOnModificationOfIntArray]
 
-## ! This class provides default services for an
-## ! AttributeDelta on a MODIFICATION action.
 
-type
-  TDataStdDeltaOnModificationOfIntArray* {.
-      importcpp: "TDataStd_DeltaOnModificationOfIntArray",
-      header: "TDataStd_DeltaOnModificationOfIntArray.hxx", bycopy.} = object of TDF_DeltaOnModification ##
-                                                                                                  ## !
-                                                                                                  ## Initializes
-                                                                                                  ## a
-                                                                                                  ## TDF_DeltaOnModification.
 
 
 proc newTDataStdDeltaOnModificationOfIntArray*(arr: Handle[TDataStdIntegerArray]): TDataStdDeltaOnModificationOfIntArray {.
@@ -37,3 +27,4 @@ proc newTDataStdDeltaOnModificationOfIntArray*(arr: Handle[TDataStdIntegerArray]
     header: "TDataStd_DeltaOnModificationOfIntArray.hxx".}
 proc apply*(this: var TDataStdDeltaOnModificationOfIntArray) {.cdecl,
     importcpp: "Apply", header: "TDataStd_DeltaOnModificationOfIntArray.hxx".}
+

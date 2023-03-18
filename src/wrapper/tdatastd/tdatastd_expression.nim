@@ -1,3 +1,10 @@
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tcollection/tcollection_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 1997-12-16
 ##  Created by: Denis PASCAL
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -14,33 +21,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TCollection_ExtendedString"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDataStd_Expression"
-type
-  HandleTDataStdExpression* = Handle[TDataStdExpression]
 
-## ! Expression attribute.
-## ! ====================
-## !
-## ! * Data Structure  of the Expression   is stored in a
-## ! string and references to variables used by the string
-## !
-## ! Warning:  To be consistent,  each  Variable  referenced by  the
-## ! expression must have its equivalent in the string
 
-type
-  TDataStdExpression* {.importcpp: "TDataStd_Expression",
-                       header: "TDataStd_Expression.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                      ## !
-                                                                                      ## class
-                                                                                      ## methods
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## =============
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_Expression::GetID(@)",
@@ -72,3 +54,4 @@ proc dump*(this: TDataStdExpression; anOS: var StandardOStream): var StandardOSt
 proc dumpJson*(this: TDataStdExpression; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TDataStd_Expression.hxx".}
+

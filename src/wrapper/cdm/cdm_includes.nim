@@ -1,0 +1,41 @@
+{.passL:"-lTKCDF".}
+{.passC:"-I/usr/include/opencascade/".}
+
+import cdm_application
+import cdm_canclosestatus
+import cdm_datamapiteratorofmetadatalookuptable
+import cdm_document
+import cdm_documenthasher
+import cdm_documentpointer
+import cdm_listiteratoroflistofdocument
+import cdm_listiteratoroflistofreferences
+import cdm_listofdocument
+import cdm_listofreferences
+import cdm_mapiteratorofmapofdocument
+import cdm_mapofdocument
+import cdm_metadata
+import cdm_metadatalookuptable
+import cdm_namesdirectory
+import cdm_reference
+import cdm_referenceiterator
+import cdm_types
+
+
+export cdm_application
+export cdm_canclosestatus
+export cdm_datamapiteratorofmetadatalookuptable
+export cdm_document
+export cdm_documenthasher
+export cdm_documentpointer
+export cdm_listiteratoroflistofdocument
+export cdm_listiteratoroflistofreferences
+export cdm_listofdocument
+export cdm_listofreferences
+export cdm_mapiteratorofmapofdocument
+export cdm_mapofdocument
+export cdm_metadata
+export cdm_metadatalookuptable
+export cdm_namesdirectory
+export cdm_reference
+export cdm_referenceiterator
+export cdm_types

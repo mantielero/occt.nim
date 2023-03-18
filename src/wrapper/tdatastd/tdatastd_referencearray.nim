@@ -1,3 +1,9 @@
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 2007-05-29
 ##  Created by: Vlad Romashko
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -13,38 +19,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDF_DataSet"
-discard "forward decl of TDataStd_ReferenceArray"
-type
-  HandleTDataStdReferenceArray* = Handle[TDataStdReferenceArray]
 
-## ! Contains an array of references to the labels.
 
-type
-  TDataStdReferenceArray* {.importcpp: "TDataStd_ReferenceArray",
-                           header: "TDataStd_ReferenceArray.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                              ## !
-                                                                                              ## Static
-                                                                                              ## methods
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## ==============
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## the
-                                                                                              ## ID
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## array
-                                                                                              ## of
-                                                                                              ## references
-                                                                                              ## (labels)
-                                                                                              ## attribute.
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_ReferenceArray::GetID(@)",
@@ -65,8 +41,8 @@ proc setID*(this: var TDataStdReferenceArray) {.cdecl, importcpp: "SetID",
     header: "TDataStd_ReferenceArray.hxx".}
 proc value*(this: TDataStdReferenceArray; index: cint): TDF_Label {.noSideEffect,
     cdecl, importcpp: "Value", header: "TDataStd_ReferenceArray.hxx".}
-proc `()`*(this: TDataStdReferenceArray; index: cint): TDF_Label {.noSideEffect, cdecl,
-    importcpp: "#(@)", header: "TDataStd_ReferenceArray.hxx".}
+#proc `()`*(this: TDataStdReferenceArray; index: cint): TDF_Label {.noSideEffect, cdecl,
+#    importcpp: "#(@)", header: "TDataStd_ReferenceArray.hxx".}
 proc lower*(this: TDataStdReferenceArray): cint {.noSideEffect, cdecl,
     importcpp: "Lower", header: "TDataStd_ReferenceArray.hxx".}
 proc upper*(this: TDataStdReferenceArray): cint {.noSideEffect, cdecl,
@@ -99,3 +75,4 @@ proc dump*(this: TDataStdReferenceArray; anOS: var StandardOStream): var Standar
 proc dumpJson*(this: TDataStdReferenceArray; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TDataStd_ReferenceArray.hxx".}
+

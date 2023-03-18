@@ -19,3 +19,5 @@ If the processing goes well, the header gets deleted. Otherwise, the file `gen.n
 If it fails, edit it so that the appropriate lines of the header are commented.
 
 
+Finally, use `../pp.nim`.
+

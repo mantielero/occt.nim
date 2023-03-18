@@ -5,11 +5,12 @@ import ../standard/standard_types
 import ../gp/gp_types
 import ../graphic3d/graphic3d_types
 import ../tcolstd/tcolstd_types
+import ../osd/osd_types
 
 type
   Select3D_SensitiveEntity* = object # FIXME
 
-  OSD_Thread* = object of RootObj  # FIXME  
+  #OSD_Thread* = object of RootObj  # FIXME  
 
 
   MediaTimer* = object  # FIXME
@@ -34,10 +35,10 @@ type
   ImageSupportedFormats* = object  # FIXME
   ImageCompressedPixMap* = object  # FIXME
   PerfCounters* = object  # FIXME
-  OSD_Timer* = object  # FIXME
+  #OSD_Timer* = object  # FIXME
   Graphic3dArrayOfIndexedMapOfStructure* = object  # FIXME
   MediaFrame* = object  # FIXME
-  OSD_Path* = object  # FIXME
+  #OSD_Path* = object  # FIXME
 
   SelectBasicsSelectingVolumeManager* = object of RootObj # FIXME
 

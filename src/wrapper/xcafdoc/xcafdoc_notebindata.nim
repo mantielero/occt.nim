@@ -1,4 +1,10 @@
+import ../tdf/tdf_types
+import ../tcolstd/tcolstd_types
 import xcafdoc_types
+import ../standard/standard_types
+import ../tcollection/tcollection_types
+import ../osd/osd_types
+
 
 ##  Copyright (c) 2017-2018 OPEN CASCADE SAS
 ##
@@ -13,53 +19,50 @@ import xcafdoc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of OSD_File"
 
 
-proc GetID*(): Standard_GUID {.cdecl, importcpp: "XCAFDoc_NoteBinData::GetID(@)",
-                            header: "XCAFDoc_NoteBinData.hxx".}
-proc Get*(theLabel: TDF_Label): handle[XCAFDoc_NoteBinData] {.cdecl,
+proc getID*(): StandardGUID {.cdecl, importcpp: "XCAFDoc_NoteBinData::GetID(@)",
+                           header: "XCAFDoc_NoteBinData.hxx".}
+proc get*(theLabel: TDF_Label): Handle[XCAFDocNoteBinData] {.cdecl,
     importcpp: "XCAFDoc_NoteBinData::Get(@)", header: "XCAFDoc_NoteBinData.hxx".}
-proc Set*(theLabel: TDF_Label; theUserName: TCollection_ExtendedString;
-         theTimeStamp: TCollection_ExtendedString;
-         theTitle: TCollection_ExtendedString;
-         theMIMEtype: TCollection_AsciiString; theFile: var OSD_File): handle[
-    XCAFDoc_NoteBinData] {.cdecl, importcpp: "XCAFDoc_NoteBinData::Set(@)",
-                          header: "XCAFDoc_NoteBinData.hxx".}
-proc Set*(theLabel: TDF_Label; theUserName: TCollection_ExtendedString;
-         theTimeStamp: TCollection_ExtendedString;
-         theTitle: TCollection_ExtendedString;
-         theMIMEtype: TCollection_AsciiString;
-         theData: handle[TColStd_HArray1OfByte]): handle[XCAFDoc_NoteBinData] {.
+proc set*(theLabel: TDF_Label; theUserName: TCollectionExtendedString;
+         theTimeStamp: TCollectionExtendedString;
+         theTitle: TCollectionExtendedString; theMIMEtype: TCollectionAsciiString;
+         theFile: var OSD_File): Handle[XCAFDocNoteBinData] {.cdecl,
+    importcpp: "XCAFDoc_NoteBinData::Set(@)", header: "XCAFDoc_NoteBinData.hxx".}
+proc set*(theLabel: TDF_Label; theUserName: TCollectionExtendedString;
+         theTimeStamp: TCollectionExtendedString;
+         theTitle: TCollectionExtendedString; theMIMEtype: TCollectionAsciiString;
+         theData: Handle[TColStdHArray1OfByte]): Handle[XCAFDocNoteBinData] {.
     cdecl, importcpp: "XCAFDoc_NoteBinData::Set(@)",
     header: "XCAFDoc_NoteBinData.hxx".}
-proc newXCAFDoc_NoteBinData*(): XCAFDoc_NoteBinData {.cdecl, constructor,
+proc newXCAFDocNoteBinData*(): XCAFDocNoteBinData {.cdecl, constructor,
     importcpp: "XCAFDoc_NoteBinData(@)", header: "XCAFDoc_NoteBinData.hxx".}
-proc Set*(this: var XCAFDoc_NoteBinData; theTitle: TCollection_ExtendedString;
-         theMIMEtype: TCollection_AsciiString; theFile: var OSD_File): bool {.cdecl,
+proc set*(this: var XCAFDocNoteBinData; theTitle: TCollectionExtendedString;
+         theMIMEtype: TCollectionAsciiString; theFile: var OSD_File): bool {.cdecl,
     importcpp: "Set", header: "XCAFDoc_NoteBinData.hxx".}
-proc Set*(this: var XCAFDoc_NoteBinData; theTitle: TCollection_ExtendedString;
-         theMIMEtype: TCollection_AsciiString;
-         theData: handle[TColStd_HArray1OfByte]) {.cdecl, importcpp: "Set",
+proc set*(this: var XCAFDocNoteBinData; theTitle: TCollectionExtendedString;
+         theMIMEtype: TCollectionAsciiString;
+         theData: Handle[TColStdHArray1OfByte]) {.cdecl, importcpp: "Set",
     header: "XCAFDoc_NoteBinData.hxx".}
-proc Title*(this: XCAFDoc_NoteBinData): TCollection_ExtendedString {.noSideEffect,
+proc title*(this: XCAFDocNoteBinData): TCollectionExtendedString {.noSideEffect,
     cdecl, importcpp: "Title", header: "XCAFDoc_NoteBinData.hxx".}
-proc MIMEtype*(this: XCAFDoc_NoteBinData): TCollection_AsciiString {.noSideEffect,
+proc mIMEtype*(this: XCAFDocNoteBinData): TCollectionAsciiString {.noSideEffect,
     cdecl, importcpp: "MIMEtype", header: "XCAFDoc_NoteBinData.hxx".}
-proc Size*(this: XCAFDoc_NoteBinData): cint {.noSideEffect, cdecl, importcpp: "Size",
+proc size*(this: XCAFDocNoteBinData): cint {.noSideEffect, cdecl, importcpp: "Size",
     header: "XCAFDoc_NoteBinData.hxx".}
-proc Data*(this: XCAFDoc_NoteBinData): handle[TColStd_HArray1OfByte] {.noSideEffect,
+proc data*(this: XCAFDocNoteBinData): Handle[TColStdHArray1OfByte] {.noSideEffect,
     cdecl, importcpp: "Data", header: "XCAFDoc_NoteBinData.hxx".}
-proc ID*(this: XCAFDoc_NoteBinData): Standard_GUID {.noSideEffect, cdecl,
+proc id*(this: XCAFDocNoteBinData): StandardGUID {.noSideEffect, cdecl,
     importcpp: "ID", header: "XCAFDoc_NoteBinData.hxx".}
-proc NewEmpty*(this: XCAFDoc_NoteBinData): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: XCAFDocNoteBinData): Handle[TDF_Attribute] {.noSideEffect,
     cdecl, importcpp: "NewEmpty", header: "XCAFDoc_NoteBinData.hxx".}
-proc Restore*(this: var XCAFDoc_NoteBinData; theAttrFrom: handle[TDF_Attribute]) {.
+proc restore*(this: var XCAFDocNoteBinData; theAttrFrom: Handle[TDF_Attribute]) {.
     cdecl, importcpp: "Restore", header: "XCAFDoc_NoteBinData.hxx".}
-proc Paste*(this: XCAFDoc_NoteBinData; theAttrInto: handle[TDF_Attribute];
-           theRT: handle[TDF_RelocationTable]) {.noSideEffect, cdecl,
+proc paste*(this: XCAFDocNoteBinData; theAttrInto: Handle[TDF_Attribute];
+           theRT: Handle[TDF_RelocationTable]) {.noSideEffect, cdecl,
     importcpp: "Paste", header: "XCAFDoc_NoteBinData.hxx".}
-proc Dump*(this: XCAFDoc_NoteBinData; theOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: XCAFDocNoteBinData; theOS: var StandardOStream): var StandardOStream {.
     noSideEffect, cdecl, importcpp: "Dump", header: "XCAFDoc_NoteBinData.hxx".}
-type
-  Handle_XCAFDoc_NoteBinData* = handle[XCAFDoc_NoteBinData]
+
+

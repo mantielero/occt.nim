@@ -1,3 +1,8 @@
+import ../tcolstd/tcolstd_types
+import tdatastd_types
+
+
+
 ##  Created on: 1995-05-10
 ##  Created by: Denis PASCAL
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -14,9 +19,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TDataStdHLabelArray1* {.importcpp: "TDataStd_HLabelArray1",
-                         header: "TDataStd_HLabelArray1.hxx", bycopy.} = object of TDataStdLabelArray1
 
 
 proc newTDataStdHLabelArray1*(theLower: cint; theUpper: cint): TDataStdHLabelArray1 {.
@@ -30,3 +32,4 @@ proc newTDataStdHLabelArray1*(theOther: TDataStdLabelArray1): TDataStdHLabelArra
     header: "TDataStd_HLabelArray1.hxx".}
 proc array1*(this: TDataStdHLabelArray1): TDataStdLabelArray1 {.noSideEffect, cdecl,
     importcpp: "Array1", header: "TDataStd_HLabelArray1.hxx".}
+

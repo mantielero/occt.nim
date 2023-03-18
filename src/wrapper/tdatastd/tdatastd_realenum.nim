@@ -1,3 +1,6 @@
+
+
+
 ##  Created on: 1995-05-10
 ##  Created by: Denis PASCAL
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,8 +20,6 @@
 ## ! The terms of this enumeration define the
 ## ! semantics of a real number value.
 
-type
-  TDataStdRealEnum* {.size: sizeof(cint), importcpp: "TDataStd_RealEnum",
-                     header: "TDataStd_RealEnum.hxx".} = enum
-    TDataStdSCALAR, TDataStdLENGTH, TDataStdANGULAR
+
+
 

@@ -1,3 +1,8 @@
+import tdatastd_types
+import ../standard/standard_types
+
+
+
 ##  Created on: 2008-01-23
 ##  Created by: Sergey ZARITCHNY
 ##  Copyright (c) 2008-2014 OPEN CASCADE SAS
@@ -13,24 +18,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TColStd_HPackedMapOfInteger"
-discard "forward decl of TDataStd_IntPackedMap"
-discard "forward decl of TDataStd_DeltaOnModificationOfIntPackedMap"
-type
-  HandleTDataStdDeltaOnModificationOfIntPackedMap* = Handle[
-      TDataStdDeltaOnModificationOfIntPackedMap]
 
-## ! This class provides default services for an
-## ! AttributeDelta on a MODIFICATION action.
 
-type
-  TDataStdDeltaOnModificationOfIntPackedMap* {.
-      importcpp: "TDataStd_DeltaOnModificationOfIntPackedMap",
-      header: "TDataStd_DeltaOnModificationOfIntPackedMap.hxx", bycopy.} = object of TDF_DeltaOnModification ##
-                                                                                                      ## !
-                                                                                                      ## Initializes
-                                                                                                      ## a
-                                                                                                      ## TDF_DeltaOnModification.
 
 
 proc newTDataStdDeltaOnModificationOfIntPackedMap*(
@@ -40,3 +29,4 @@ proc newTDataStdDeltaOnModificationOfIntPackedMap*(
     header: "TDataStd_DeltaOnModificationOfIntPackedMap.hxx".}
 proc apply*(this: var TDataStdDeltaOnModificationOfIntPackedMap) {.cdecl,
     importcpp: "Apply", header: "TDataStd_DeltaOnModificationOfIntPackedMap.hxx".}
+

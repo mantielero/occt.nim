@@ -1,3 +1,10 @@
+import ../tcolstd/tcolstd_types
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 1999-06-16
 ##  Created by: Sergey RUIN
 ##  Copyright (c) 1999 Matra Datavision
@@ -14,36 +21,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TDataStd_DeltaOnModificationOfRealArray"
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDF_DeltaOnModification"
-discard "forward decl of TDataStd_RealArray"
-type
-  HandleTDataStdRealArray* = Handle[TDataStdRealArray]
 
-## ! A framework for an attribute composed of a real number array.
 
-type
-  TDataStdRealArray* {.importcpp: "TDataStd_RealArray",
-                      header: "TDataStd_RealArray.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                    ## !
-                                                                                    ## class
-                                                                                    ## methods
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## =============
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## Returns
-                                                                                    ## the
-                                                                                    ## GUID
-                                                                                    ## for
-                                                                                    ## arrays
-                                                                                    ## of
-                                                                                    ## reals.
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_RealArray::GetID(@)",
@@ -64,8 +43,8 @@ proc setValue*(this: var TDataStdRealArray; index: cint; value: cfloat) {.cdecl,
     importcpp: "SetValue", header: "TDataStd_RealArray.hxx".}
 proc value*(this: TDataStdRealArray; index: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "Value", header: "TDataStd_RealArray.hxx".}
-proc `()`*(this: TDataStdRealArray; index: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "#(@)", header: "TDataStd_RealArray.hxx".}
+#proc `()`*(this: TDataStdRealArray; index: cint): cfloat {.noSideEffect, cdecl,
+#    importcpp: "#(@)", header: "TDataStd_RealArray.hxx".}
 proc lower*(this: TDataStdRealArray): cint {.noSideEffect, cdecl, importcpp: "Lower",
     header: "TDataStd_RealArray.hxx".}
 proc upper*(this: TDataStdRealArray): cint {.noSideEffect, cdecl, importcpp: "Upper",
@@ -102,3 +81,4 @@ proc deltaOnModification*(this: TDataStdRealArray;
 proc dumpJson*(this: TDataStdRealArray; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TDataStd_RealArray.hxx".}
+

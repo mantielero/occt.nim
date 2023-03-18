@@ -1,3 +1,10 @@
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tcollection/tcollection_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 1998-01-15
 ##  Created by: Denis PASCAL
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -14,18 +21,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TDataStd_Comment"
-type
-  HandleTDataStdComment* = Handle[TDataStdComment]
 
-## ! Comment attribute. may be  associated to any label
-## ! to store user comment.
 
-type
-  TDataStdComment* {.importcpp: "TDataStd_Comment", header: "TDataStd_Comment.hxx",
-                    bycopy.} = object of TDataStdGenericExtString ## ! class methods
-                                                             ## ! =============
-                                                             ## ! Returns the GUID for comments.
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_Comment::GetID(@)",
@@ -45,3 +42,4 @@ proc setID*(this: var TDataStdComment) {.cdecl, importcpp: "SetID",
                                      header: "TDataStd_Comment.hxx".}
 proc dump*(this: TDataStdComment; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, cdecl, importcpp: "Dump", header: "TDataStd_Comment.hxx".}
+

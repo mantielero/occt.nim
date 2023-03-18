@@ -1,3 +1,8 @@
+import tdatastd_types
+import ../standard/standard_types
+
+
+
 ##  Created on: 2000-01-26
 ##  Created by: Denis PASCAL
 ##  Copyright (c) 2000-2014 OPEN CASCADE SAS
@@ -13,15 +18,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TDataStd_TreeNode"
-type
-  TDataStdChildNodeIterator* {.importcpp: "TDataStd_ChildNodeIterator",
-                              header: "TDataStd_ChildNodeIterator.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Creates
-                                                                                     ## an
-                                                                                     ## empty
-                                                                                     ## iterator.
 
 
 proc newTDataStdChildNodeIterator*(): TDataStdChildNodeIterator {.cdecl,
@@ -43,3 +39,4 @@ proc nextBrother*(this: var TDataStdChildNodeIterator) {.cdecl,
 proc value*(this: TDataStdChildNodeIterator): Handle[TDataStdTreeNode] {.
     noSideEffect, cdecl, importcpp: "Value",
     header: "TDataStd_ChildNodeIterator.hxx".}
+

@@ -1,3 +1,9 @@
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 2007-05-29
 ##  Created by: Vlad Romashko
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -13,26 +19,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDataStd_Tick"
-type
-  HandleTDataStdTick* = Handle[TDataStdTick]
 
-## ! Defines a boolean attribute.
-## ! If it exists at a label - true,
-## ! Otherwise - false.
 
-type
-  TDataStdTick* {.importcpp: "TDataStd_Tick", header: "TDataStd_Tick.hxx", bycopy.} = object of TDataStdGenericEmpty ##
-                                                                                                           ## !
-                                                                                                           ## Static
-                                                                                                           ## methods
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## ==============
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_Tick::GetID(@)",
@@ -46,3 +34,4 @@ proc id*(this: TDataStdTick): StandardGUID {.noSideEffect, cdecl, importcpp: "ID
     header: "TDataStd_Tick.hxx".}
 proc dump*(this: TDataStdTick; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, cdecl, importcpp: "Dump", header: "TDataStd_Tick.hxx".}
+

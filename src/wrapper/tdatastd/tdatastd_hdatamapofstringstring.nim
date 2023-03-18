@@ -1,3 +1,7 @@
+import tdatastd_types
+
+
+
 ##  Created on: 2007-08-17
 ##  Created by: Sergey ZARITCHNY
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -16,9 +20,6 @@
 ## ! Extension of TDataStd_DataMapOfStringString class
 ## ! to be manipulated by handle.
 
-type
-  TDataStdHDataMapOfStringString* {.importcpp: "TDataStd_HDataMapOfStringString", header: "TDataStd_HDataMapOfStringString.hxx",
-                                   bycopy.} = object of StandardTransient
 
 
 proc newTDataStdHDataMapOfStringString*(nbBuckets: cint = 1): TDataStdHDataMapOfStringString {.
@@ -32,5 +33,5 @@ proc map*(this: TDataStdHDataMapOfStringString): TDataStdDataMapOfStringString {
     header: "TDataStd_HDataMapOfStringString.hxx".}
 proc changeMap*(this: var TDataStdHDataMapOfStringString): var TDataStdDataMapOfStringString {.
     cdecl, importcpp: "ChangeMap", header: "TDataStd_HDataMapOfStringString.hxx".}
-type
-  HandleTDataStdHDataMapOfStringString* = Handle[TDataStdHDataMapOfStringString]
+
+

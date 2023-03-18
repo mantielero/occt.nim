@@ -2,6 +2,7 @@ import stepcafcontrol_types
 import ../standard/standard_types
 import ../tcollection/tcollection_types
 import ../topods/topods_types
+import ../xcafdimtolobjects/xcafdimtolobjects_types
 #
 ##  Created on: 2015-09-10
 ##  Created by: Irina Krylova

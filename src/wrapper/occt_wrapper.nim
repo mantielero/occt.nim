@@ -21,6 +21,11 @@ import brep/brep_includes
 import brepadaptor/brepadaptor_includes
 import topexp/topexp_includes
 
+# TKCDF
+import cdf/cdf_includes
+import cdm/cdm_includes
+import pcdm/pcdm_includes
+import ldom/ldom_includes
 
 # TKernel
 import standard/standard_package
@@ -29,6 +34,10 @@ import tcolstd/tcolstd_includes
 import message/message_includes
 import quantity/quantity_includes
 import tcollection/tcollection_includes
+import storage/storage_includes
+import resource/resource_includes
+import unitsmethods/unitsmethods_includes
+import osd/osd_includes
 
 # TKFillet
 import brepfilletapi/brepfilletapi_includes
@@ -69,6 +78,11 @@ import appcont/appcont_includes
 import appparcurves/appparcurves_includes
 import extrema/extrema_includes
 import gce2d/gce2d_includes
+
+# TKLKAF
+import tdf/tdf_includes
+import tdatastd/tdatastd_includes
+import tdocstd/tdocstd_includes
 
 # TKMath
 
@@ -124,6 +138,8 @@ import graphic3d/graphic3d_includes
 
 # TKXCAF
 import xcafdoc/xcafdoc_includes
+import xcafdimtolobjects/xcafdimtolobjects_includes
+import xcafnoteobjects/xcafnoteobjects_includes
 
 # TKXDESTEP
 import stepcafcontrol/stepcafcontrol_includes
@@ -172,6 +188,11 @@ export brep_includes
 export brepadaptor_includes
 export topexp_includes
 
+# TKCDF
+export cdf_includes
+export cdm_includes
+export pcdm_includes
+export ldom_includes
 
 # TKernel
 export standard_package
@@ -180,6 +201,10 @@ export tcolstd_includes
 export message_includes
 export quantity_includes
 export tcollection_includes
+export storage_includes
+export resource_includes
+export unitsmethods_includes
+export osd_includes
 
 # TKFillet
 export brepfilletapi_includes
@@ -218,6 +243,11 @@ export appcont_includes
 export appparcurves_includes
 export extrema_includes
 export gce2d_includes
+
+# TKLKAF
+export tdf_includes
+export tdatastd_includes
+export tdocstd_includes
 
 # TKMath
 export gp_includes
@@ -273,7 +303,8 @@ export graphic3d_includes
 
 # TKXCAF
 export xcafdoc_includes
-
+export xcafdimtolobjects_includes
+export xcafnoteobjects_includes
 
 # TKXDESTEP
 export stepcafcontrol_includes

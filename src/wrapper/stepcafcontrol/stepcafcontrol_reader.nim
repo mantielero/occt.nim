@@ -5,6 +5,9 @@ import ../ifselect/ifselect_types
 import ../message/message_types
 import ../tcollection/tcollection_types
 import ../ncollection/ncollection_types
+import ../tdf/tdf_types
+import ../xcafdoc/xcafdoc_types
+import ../tdocstd/tdocstd_types
 ##  Created on: 2000-08-15
 ##  Created by: Andrey BETENEV
 ##  Copyright (c) 2000-2014 OPEN CASCADE SAS

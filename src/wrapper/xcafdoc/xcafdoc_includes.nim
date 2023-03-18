@@ -1,6 +1,7 @@
 {.passL:"-lTKXCAF".}
 {.passC:"-I/usr/include/opencascade/".}
 
+import xcafdoc
 import xcafdoc_area
 import xcafdoc_assemblyitemid
 import xcafdoc_assemblyitemref
@@ -25,11 +26,10 @@ import xcafdoc_lengthunit
 import xcafdoc_location
 import xcafdoc_material
 import xcafdoc_materialtool
-import xcafdoc
+import xcafdoc_note
 import xcafdoc_noteballoon
 import xcafdoc_notebindata
 import xcafdoc_notecomment
-import xcafdoc_note
 import xcafdoc_notestool
 import xcafdoc_partid
 import xcafdoc_shapemaptool
@@ -37,11 +37,14 @@ import xcafdoc_shapetool
 import xcafdoc_types
 import xcafdoc_view
 import xcafdoc_viewtool
-import xcafdoc_vismaterialcommon
 import xcafdoc_vismaterial
+import xcafdoc_vismaterialcommon
 import xcafdoc_vismaterialpbr
 import xcafdoc_vismaterialtool
 import xcafdoc_volume
+
+
+export xcafdoc
 export xcafdoc_area
 export xcafdoc_assemblyitemid
 export xcafdoc_assemblyitemref
@@ -66,11 +69,10 @@ export xcafdoc_lengthunit
 export xcafdoc_location
 export xcafdoc_material
 export xcafdoc_materialtool
-export xcafdoc
+export xcafdoc_note
 export xcafdoc_noteballoon
 export xcafdoc_notebindata
 export xcafdoc_notecomment
-export xcafdoc_note
 export xcafdoc_notestool
 export xcafdoc_partid
 export xcafdoc_shapemaptool
@@ -78,8 +80,8 @@ export xcafdoc_shapetool
 export xcafdoc_types
 export xcafdoc_view
 export xcafdoc_viewtool
-export xcafdoc_vismaterialcommon
 export xcafdoc_vismaterial
+export xcafdoc_vismaterialcommon
 export xcafdoc_vismaterialpbr
 export xcafdoc_vismaterialtool
 export xcafdoc_volume

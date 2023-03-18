@@ -1,4 +1,7 @@
 import xcafdoc_types
+import ../standard/standard_types
+
+
 
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -13,15 +16,15 @@ import xcafdoc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_Aspects"
-discard "forward decl of Graphic3d_MaterialAspect"
 
-proc newXCAFDoc_VisMaterialCommon*(): XCAFDoc_VisMaterialCommon {.cdecl,
-    constructor, importcpp: "XCAFDoc_VisMaterialCommon(@)",
+
+proc newXCAFDocVisMaterialCommon*(): XCAFDocVisMaterialCommon {.cdecl, constructor,
+    importcpp: "XCAFDoc_VisMaterialCommon(@)",
     header: "XCAFDoc_VisMaterialCommon.hxx".}
-proc IsEqual*(this: XCAFDoc_VisMaterialCommon; theOther: XCAFDoc_VisMaterialCommon): bool {.
+proc isEqual*(this: XCAFDocVisMaterialCommon; theOther: XCAFDocVisMaterialCommon): bool {.
     noSideEffect, cdecl, importcpp: "IsEqual",
     header: "XCAFDoc_VisMaterialCommon.hxx".}
-proc DumpJson*(this: XCAFDoc_VisMaterialCommon; theOStream: var Standard_OStream;
+proc dumpJson*(this: XCAFDocVisMaterialCommon; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "XCAFDoc_VisMaterialCommon.hxx".}
+

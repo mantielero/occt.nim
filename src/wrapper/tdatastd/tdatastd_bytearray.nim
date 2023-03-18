@@ -1,3 +1,10 @@
+import ../tcolstd/tcolstd_types
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 2007-05-29
 ##  Created by: Vlad Romashko
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -13,34 +20,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TDataStd_DeltaOnModificationOfByteArray"
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDF_DeltaOnModification"
-discard "forward decl of TDataStd_ByteArray"
-type
-  HandleTDataStdByteArray* = Handle[TDataStdByteArray]
 
-## ! An array of Byte (unsigned char) values.
 
-type
-  TDataStdByteArray* {.importcpp: "TDataStd_ByteArray",
-                      header: "TDataStd_ByteArray.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                    ## !
-                                                                                    ## Static
-                                                                                    ## methods
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## ==============
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## Returns
-                                                                                    ## an
-                                                                                    ## ID
-                                                                                    ## for
-                                                                                    ## array.
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_ByteArray::GetID(@)",
@@ -61,8 +42,8 @@ proc setID*(this: var TDataStdByteArray) {.cdecl, importcpp: "SetID",
                                        header: "TDataStd_ByteArray.hxx".}
 proc value*(this: TDataStdByteArray; index: cint): StandardByte {.noSideEffect, cdecl,
     importcpp: "Value", header: "TDataStd_ByteArray.hxx".}
-proc `()`*(this: TDataStdByteArray; index: cint): StandardByte {.noSideEffect, cdecl,
-    importcpp: "#(@)", header: "TDataStd_ByteArray.hxx".}
+#proc `()`*(this: TDataStdByteArray; index: cint): StandardByte {.noSideEffect, cdecl,
+#    importcpp: "#(@)", header: "TDataStd_ByteArray.hxx".}
 proc lower*(this: TDataStdByteArray): cint {.noSideEffect, cdecl, importcpp: "Lower",
     header: "TDataStd_ByteArray.hxx".}
 proc upper*(this: TDataStdByteArray): cint {.noSideEffect, cdecl, importcpp: "Upper",
@@ -100,3 +81,4 @@ proc deltaOnModification*(this: TDataStdByteArray;
 proc dumpJson*(this: TDataStdByteArray; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TDataStd_ByteArray.hxx".}
+

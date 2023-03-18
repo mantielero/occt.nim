@@ -109,7 +109,7 @@ type
 
   Streamsize* {.importcpp:"std::streamsize".} = object
 
-  StandardOStream* {.importcpp:"std::ostream".} = object
+  StandardOStream* {.importcpp:"std::ostream", pure, inheritable.} = object
 
   StandardSStream* {.importcpp:"std::stringstream".} = object
 

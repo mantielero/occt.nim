@@ -1,4 +1,12 @@
+import ../tdf/tdf_types
+import ../tcolstd/tcolstd_types
+import ../topods/topods_types
 import xcafdoc_types
+import ../standard/standard_types
+import ../ncollection/ncollection_types
+import ../tcollection/tcollection_types
+
+
 
 ##  Created on: 2004-01-09
 ##  Created by: Sergey KUUL
@@ -15,163 +23,157 @@ import xcafdoc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of XCAFDoc_ShapeTool"
-discard "forward decl of TDF_Label"
-discard "forward decl of Standard_GUID"
-discard "forward decl of TCollection_HAsciiString"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of XCAFDoc_DimTolTool"
 
-proc newXCAFDoc_DimTolTool*(): XCAFDoc_DimTolTool {.cdecl, constructor,
+
+
+
+proc newXCAFDocDimTolTool*(): XCAFDocDimTolTool {.cdecl, constructor,
     importcpp: "XCAFDoc_DimTolTool(@)", header: "XCAFDoc_DimTolTool.hxx".}
-proc Set*(L: TDF_Label): handle[XCAFDoc_DimTolTool] {.cdecl,
+proc set*(L: TDF_Label): Handle[XCAFDocDimTolTool] {.cdecl,
     importcpp: "XCAFDoc_DimTolTool::Set(@)", header: "XCAFDoc_DimTolTool.hxx".}
-proc GetID*(): Standard_GUID {.cdecl, importcpp: "XCAFDoc_DimTolTool::GetID(@)",
-                            header: "XCAFDoc_DimTolTool.hxx".}
-proc BaseLabel*(this: XCAFDoc_DimTolTool): TDF_Label {.noSideEffect, cdecl,
+proc getID*(): StandardGUID {.cdecl, importcpp: "XCAFDoc_DimTolTool::GetID(@)",
+                           header: "XCAFDoc_DimTolTool.hxx".}
+proc baseLabel*(this: XCAFDocDimTolTool): TDF_Label {.noSideEffect, cdecl,
     importcpp: "BaseLabel", header: "XCAFDoc_DimTolTool.hxx".}
-proc ShapeTool*(this: var XCAFDoc_DimTolTool): handle[XCAFDoc_ShapeTool] {.cdecl,
+proc shapeTool*(this: var XCAFDocDimTolTool): Handle[XCAFDocShapeTool] {.cdecl,
     importcpp: "ShapeTool", header: "XCAFDoc_DimTolTool.hxx".}
-proc IsDimension*(this: XCAFDoc_DimTolTool; theLab: TDF_Label): bool {.noSideEffect,
+proc isDimension*(this: XCAFDocDimTolTool; theLab: TDF_Label): bool {.noSideEffect,
     cdecl, importcpp: "IsDimension", header: "XCAFDoc_DimTolTool.hxx".}
-proc GetDimensionLabels*(this: XCAFDoc_DimTolTool; theLabels: var TDF_LabelSequence) {.
+proc getDimensionLabels*(this: XCAFDocDimTolTool; theLabels: var TDF_LabelSequence) {.
     noSideEffect, cdecl, importcpp: "GetDimensionLabels",
     header: "XCAFDoc_DimTolTool.hxx".}
-proc SetDimension*(this: XCAFDoc_DimTolTool; theFirstLS: TDF_LabelSequence;
+proc setDimension*(this: XCAFDocDimTolTool; theFirstLS: TDF_LabelSequence;
                   theSecondLS: TDF_LabelSequence; theDimL: TDF_Label) {.
     noSideEffect, cdecl, importcpp: "SetDimension", header: "XCAFDoc_DimTolTool.hxx".}
-proc SetDimension*(this: XCAFDoc_DimTolTool; theFirstL: TDF_Label;
+proc setDimension*(this: XCAFDocDimTolTool; theFirstL: TDF_Label;
                   theSecondL: TDF_Label; theDimL: TDF_Label) {.noSideEffect, cdecl,
     importcpp: "SetDimension", header: "XCAFDoc_DimTolTool.hxx".}
-proc SetDimension*(this: XCAFDoc_DimTolTool; theL: TDF_Label; theDimL: TDF_Label) {.
+proc setDimension*(this: XCAFDocDimTolTool; theL: TDF_Label; theDimL: TDF_Label) {.
     noSideEffect, cdecl, importcpp: "SetDimension", header: "XCAFDoc_DimTolTool.hxx".}
-proc GetRefDimensionLabels*(this: XCAFDoc_DimTolTool; theShapeL: TDF_Label;
+proc getRefDimensionLabels*(this: XCAFDocDimTolTool; theShapeL: TDF_Label;
                            theDimensions: var TDF_LabelSequence): bool {.
     noSideEffect, cdecl, importcpp: "GetRefDimensionLabels",
     header: "XCAFDoc_DimTolTool.hxx".}
-proc AddDimension*(this: var XCAFDoc_DimTolTool): TDF_Label {.cdecl,
+proc addDimension*(this: var XCAFDocDimTolTool): TDF_Label {.cdecl,
     importcpp: "AddDimension", header: "XCAFDoc_DimTolTool.hxx".}
-proc IsGeomTolerance*(this: XCAFDoc_DimTolTool; theLab: TDF_Label): bool {.
+proc isGeomTolerance*(this: XCAFDocDimTolTool; theLab: TDF_Label): bool {.
     noSideEffect, cdecl, importcpp: "IsGeomTolerance",
     header: "XCAFDoc_DimTolTool.hxx".}
-proc GetGeomToleranceLabels*(this: XCAFDoc_DimTolTool;
+proc getGeomToleranceLabels*(this: XCAFDocDimTolTool;
                             theLabels: var TDF_LabelSequence) {.noSideEffect, cdecl,
     importcpp: "GetGeomToleranceLabels", header: "XCAFDoc_DimTolTool.hxx".}
-proc SetGeomTolerance*(this: XCAFDoc_DimTolTool; theL: TDF_Label;
+proc setGeomTolerance*(this: XCAFDocDimTolTool; theL: TDF_Label;
                       theGeomTolL: TDF_Label) {.noSideEffect, cdecl,
     importcpp: "SetGeomTolerance", header: "XCAFDoc_DimTolTool.hxx".}
-proc SetGeomTolerance*(this: XCAFDoc_DimTolTool; theL: TDF_LabelSequence;
+proc setGeomTolerance*(this: XCAFDocDimTolTool; theL: TDF_LabelSequence;
                       theGeomTolL: TDF_Label) {.noSideEffect, cdecl,
     importcpp: "SetGeomTolerance", header: "XCAFDoc_DimTolTool.hxx".}
-proc GetRefGeomToleranceLabels*(this: XCAFDoc_DimTolTool; theShapeL: TDF_Label;
+proc getRefGeomToleranceLabels*(this: XCAFDocDimTolTool; theShapeL: TDF_Label;
                                theDimTols: var TDF_LabelSequence): bool {.
     noSideEffect, cdecl, importcpp: "GetRefGeomToleranceLabels",
     header: "XCAFDoc_DimTolTool.hxx".}
-proc AddGeomTolerance*(this: var XCAFDoc_DimTolTool): TDF_Label {.cdecl,
+proc addGeomTolerance*(this: var XCAFDocDimTolTool): TDF_Label {.cdecl,
     importcpp: "AddGeomTolerance", header: "XCAFDoc_DimTolTool.hxx".}
-proc IsDimTol*(this: XCAFDoc_DimTolTool; theLab: TDF_Label): bool {.noSideEffect,
-    cdecl, importcpp: "IsDimTol", header: "XCAFDoc_DimTolTool.hxx".}
-proc GetDimTolLabels*(this: XCAFDoc_DimTolTool; Labels: var TDF_LabelSequence) {.
+proc isDimTol*(this: XCAFDocDimTolTool; theLab: TDF_Label): bool {.noSideEffect, cdecl,
+    importcpp: "IsDimTol", header: "XCAFDoc_DimTolTool.hxx".}
+proc getDimTolLabels*(this: XCAFDocDimTolTool; labels: var TDF_LabelSequence) {.
     noSideEffect, cdecl, importcpp: "GetDimTolLabels",
     header: "XCAFDoc_DimTolTool.hxx".}
-proc FindDimTol*(this: XCAFDoc_DimTolTool; theKind: cint;
-                theVal: handle[TColStd_HArray1OfReal];
-                theName: handle[TCollection_HAsciiString];
-                theDescription: handle[TCollection_HAsciiString];
+proc findDimTol*(this: XCAFDocDimTolTool; theKind: cint;
+                theVal: Handle[TColStdHArray1OfReal];
+                theName: Handle[TCollectionHAsciiString];
+                theDescription: Handle[TCollectionHAsciiString];
                 lab: var TDF_Label): bool {.noSideEffect, cdecl,
                                         importcpp: "FindDimTol",
                                         header: "XCAFDoc_DimTolTool.hxx".}
-proc FindDimTol*(this: XCAFDoc_DimTolTool; theKind: cint;
-                theVal: handle[TColStd_HArray1OfReal];
-                theName: handle[TCollection_HAsciiString];
-                theDescription: handle[TCollection_HAsciiString]): TDF_Label {.
+proc findDimTol*(this: XCAFDocDimTolTool; theKind: cint;
+                theVal: Handle[TColStdHArray1OfReal];
+                theName: Handle[TCollectionHAsciiString];
+                theDescription: Handle[TCollectionHAsciiString]): TDF_Label {.
     noSideEffect, cdecl, importcpp: "FindDimTol", header: "XCAFDoc_DimTolTool.hxx".}
-proc AddDimTol*(this: XCAFDoc_DimTolTool; theKind: cint;
-               theVal: handle[TColStd_HArray1OfReal];
-               theName: handle[TCollection_HAsciiString];
-               theDescription: handle[TCollection_HAsciiString]): TDF_Label {.
+proc addDimTol*(this: XCAFDocDimTolTool; theKind: cint;
+               theVal: Handle[TColStdHArray1OfReal];
+               theName: Handle[TCollectionHAsciiString];
+               theDescription: Handle[TCollectionHAsciiString]): TDF_Label {.
     noSideEffect, cdecl, importcpp: "AddDimTol", header: "XCAFDoc_DimTolTool.hxx".}
-proc SetDimTol*(this: XCAFDoc_DimTolTool; theL: TDF_Label; theDimTolL: TDF_Label) {.
+proc setDimTol*(this: XCAFDocDimTolTool; theL: TDF_Label; theDimTolL: TDF_Label) {.
     noSideEffect, cdecl, importcpp: "SetDimTol", header: "XCAFDoc_DimTolTool.hxx".}
-proc SetDimTol*(this: XCAFDoc_DimTolTool; theL: TDF_Label; theKind: cint;
-               theVal: handle[TColStd_HArray1OfReal];
-               theName: handle[TCollection_HAsciiString];
-               theDescription: handle[TCollection_HAsciiString]): TDF_Label {.
+proc setDimTol*(this: XCAFDocDimTolTool; theL: TDF_Label; theKind: cint;
+               theVal: Handle[TColStdHArray1OfReal];
+               theName: Handle[TCollectionHAsciiString];
+               theDescription: Handle[TCollectionHAsciiString]): TDF_Label {.
     noSideEffect, cdecl, importcpp: "SetDimTol", header: "XCAFDoc_DimTolTool.hxx".}
-proc GetRefShapeLabel*(this: XCAFDoc_DimTolTool; theL: TDF_Label;
+proc getRefShapeLabel*(this: XCAFDocDimTolTool; theL: TDF_Label;
                       theShapeLFirst: var TDF_LabelSequence;
                       theShapeLSecond: var TDF_LabelSequence): bool {.noSideEffect,
     cdecl, importcpp: "GetRefShapeLabel", header: "XCAFDoc_DimTolTool.hxx".}
-proc GetDimTol*(this: XCAFDoc_DimTolTool; theDimTolL: TDF_Label; theKind: var cint;
-               theVal: var handle[TColStd_HArray1OfReal];
-               theName: var handle[TCollection_HAsciiString];
-               theDescription: var handle[TCollection_HAsciiString]): bool {.
+proc getDimTol*(this: XCAFDocDimTolTool; theDimTolL: TDF_Label; theKind: var cint;
+               theVal: var Handle[TColStdHArray1OfReal];
+               theName: var Handle[TCollectionHAsciiString];
+               theDescription: var Handle[TCollectionHAsciiString]): bool {.
     noSideEffect, cdecl, importcpp: "GetDimTol", header: "XCAFDoc_DimTolTool.hxx".}
-proc IsDatum*(this: XCAFDoc_DimTolTool; lab: TDF_Label): bool {.noSideEffect, cdecl,
+proc isDatum*(this: XCAFDocDimTolTool; lab: TDF_Label): bool {.noSideEffect, cdecl,
     importcpp: "IsDatum", header: "XCAFDoc_DimTolTool.hxx".}
-proc GetDatumLabels*(this: XCAFDoc_DimTolTool; Labels: var TDF_LabelSequence) {.
+proc getDatumLabels*(this: XCAFDocDimTolTool; labels: var TDF_LabelSequence) {.
     noSideEffect, cdecl, importcpp: "GetDatumLabels",
     header: "XCAFDoc_DimTolTool.hxx".}
-proc FindDatum*(this: XCAFDoc_DimTolTool;
-               theName: handle[TCollection_HAsciiString];
-               theDescription: handle[TCollection_HAsciiString];
-               theIdentification: handle[TCollection_HAsciiString];
+proc findDatum*(this: XCAFDocDimTolTool; theName: Handle[TCollectionHAsciiString];
+               theDescription: Handle[TCollectionHAsciiString];
+               theIdentification: Handle[TCollectionHAsciiString];
                lab: var TDF_Label): bool {.noSideEffect, cdecl,
                                        importcpp: "FindDatum",
                                        header: "XCAFDoc_DimTolTool.hxx".}
-proc AddDatum*(this: XCAFDoc_DimTolTool; theName: handle[TCollection_HAsciiString];
-              theDescription: handle[TCollection_HAsciiString];
-              theIdentification: handle[TCollection_HAsciiString]): TDF_Label {.
+proc addDatum*(this: XCAFDocDimTolTool; theName: Handle[TCollectionHAsciiString];
+              theDescription: Handle[TCollectionHAsciiString];
+              theIdentification: Handle[TCollectionHAsciiString]): TDF_Label {.
     noSideEffect, cdecl, importcpp: "AddDatum", header: "XCAFDoc_DimTolTool.hxx".}
-proc AddDatum*(this: var XCAFDoc_DimTolTool): TDF_Label {.cdecl,
-    importcpp: "AddDatum", header: "XCAFDoc_DimTolTool.hxx".}
-proc SetDatum*(this: XCAFDoc_DimTolTool; theShapeLabels: TDF_LabelSequence;
+proc addDatum*(this: var XCAFDocDimTolTool): TDF_Label {.cdecl, importcpp: "AddDatum",
+    header: "XCAFDoc_DimTolTool.hxx".}
+proc setDatum*(this: XCAFDocDimTolTool; theShapeLabels: TDF_LabelSequence;
               theDatumL: TDF_Label) {.noSideEffect, cdecl, importcpp: "SetDatum",
                                     header: "XCAFDoc_DimTolTool.hxx".}
-proc SetDatum*(this: XCAFDoc_DimTolTool; theL: TDF_Label; theTolerL: TDF_Label;
-              theName: handle[TCollection_HAsciiString];
-              theDescription: handle[TCollection_HAsciiString];
-              theIdentification: handle[TCollection_HAsciiString]) {.noSideEffect,
+proc setDatum*(this: XCAFDocDimTolTool; theL: TDF_Label; theTolerL: TDF_Label;
+              theName: Handle[TCollectionHAsciiString];
+              theDescription: Handle[TCollectionHAsciiString];
+              theIdentification: Handle[TCollectionHAsciiString]) {.noSideEffect,
     cdecl, importcpp: "SetDatum", header: "XCAFDoc_DimTolTool.hxx".}
-proc SetDatumToGeomTol*(this: XCAFDoc_DimTolTool; theDatumL: TDF_Label;
+proc setDatumToGeomTol*(this: XCAFDocDimTolTool; theDatumL: TDF_Label;
                        theTolerL: TDF_Label) {.noSideEffect, cdecl,
     importcpp: "SetDatumToGeomTol", header: "XCAFDoc_DimTolTool.hxx".}
-proc GetDatum*(this: XCAFDoc_DimTolTool; theDatumL: TDF_Label;
-              theName: var handle[TCollection_HAsciiString];
-              theDescription: var handle[TCollection_HAsciiString];
-              theIdentification: var handle[TCollection_HAsciiString]): bool {.
+proc getDatum*(this: XCAFDocDimTolTool; theDatumL: TDF_Label;
+              theName: var Handle[TCollectionHAsciiString];
+              theDescription: var Handle[TCollectionHAsciiString];
+              theIdentification: var Handle[TCollectionHAsciiString]): bool {.
     noSideEffect, cdecl, importcpp: "GetDatum", header: "XCAFDoc_DimTolTool.hxx".}
-proc GetDatumOfTolerLabels*(this: XCAFDoc_DimTolTool; theDimTolL: TDF_Label;
+proc getDatumOfTolerLabels*(this: XCAFDocDimTolTool; theDimTolL: TDF_Label;
                            theDatums: var TDF_LabelSequence): bool {.noSideEffect,
     cdecl, importcpp: "GetDatumOfTolerLabels", header: "XCAFDoc_DimTolTool.hxx".}
-proc GetDatumWithObjectOfTolerLabels*(this: XCAFDoc_DimTolTool;
+proc getDatumWithObjectOfTolerLabels*(this: XCAFDocDimTolTool;
                                      theDimTolL: TDF_Label;
                                      theDatums: var TDF_LabelSequence): bool {.
     noSideEffect, cdecl, importcpp: "GetDatumWithObjectOfTolerLabels",
     header: "XCAFDoc_DimTolTool.hxx".}
-proc GetTolerOfDatumLabels*(this: XCAFDoc_DimTolTool; theDatumL: TDF_Label;
+proc getTolerOfDatumLabels*(this: XCAFDocDimTolTool; theDatumL: TDF_Label;
                            theTols: var TDF_LabelSequence): bool {.noSideEffect,
     cdecl, importcpp: "GetTolerOfDatumLabels", header: "XCAFDoc_DimTolTool.hxx".}
-proc GetRefDatumLabel*(this: XCAFDoc_DimTolTool; theShapeL: TDF_Label;
+proc getRefDatumLabel*(this: XCAFDocDimTolTool; theShapeL: TDF_Label;
                       theDatum: var TDF_LabelSequence): bool {.noSideEffect, cdecl,
     importcpp: "GetRefDatumLabel", header: "XCAFDoc_DimTolTool.hxx".}
-proc IsLocked*(this: XCAFDoc_DimTolTool; theViewL: TDF_Label): bool {.noSideEffect,
+proc isLocked*(this: XCAFDocDimTolTool; theViewL: TDF_Label): bool {.noSideEffect,
     cdecl, importcpp: "IsLocked", header: "XCAFDoc_DimTolTool.hxx".}
-proc Lock*(this: XCAFDoc_DimTolTool; theViewL: TDF_Label) {.noSideEffect, cdecl,
+proc lock*(this: XCAFDocDimTolTool; theViewL: TDF_Label) {.noSideEffect, cdecl,
     importcpp: "Lock", header: "XCAFDoc_DimTolTool.hxx".}
-proc GetGDTPresentations*(this: XCAFDoc_DimTolTool; theGDTLabelToShape: var NCollection_IndexedDataMap[
+proc getGDTPresentations*(this: XCAFDocDimTolTool; theGDTLabelToShape: var NCollectionIndexedDataMap[
     TDF_Label, TopoDS_Shape, TDF_LabelMapHasher]) {.noSideEffect, cdecl,
     importcpp: "GetGDTPresentations", header: "XCAFDoc_DimTolTool.hxx".}
-proc SetGDTPresentations*(this: var XCAFDoc_DimTolTool; theGDTLabelToPrs: var NCollection_IndexedDataMap[
+proc setGDTPresentations*(this: var XCAFDocDimTolTool; theGDTLabelToPrs: var NCollectionIndexedDataMap[
     TDF_Label, TopoDS_Shape, TDF_LabelMapHasher]) {.cdecl,
     importcpp: "SetGDTPresentations", header: "XCAFDoc_DimTolTool.hxx".}
-proc Unlock*(this: XCAFDoc_DimTolTool; theViewL: TDF_Label) {.noSideEffect, cdecl,
+proc unlock*(this: XCAFDocDimTolTool; theViewL: TDF_Label) {.noSideEffect, cdecl,
     importcpp: "Unlock", header: "XCAFDoc_DimTolTool.hxx".}
-proc ID*(this: XCAFDoc_DimTolTool): Standard_GUID {.noSideEffect, cdecl,
+proc id*(this: XCAFDocDimTolTool): StandardGUID {.noSideEffect, cdecl,
     importcpp: "ID", header: "XCAFDoc_DimTolTool.hxx".}
-proc DumpJson*(this: XCAFDoc_DimTolTool; theOStream: var Standard_OStream;
+proc dumpJson*(this: XCAFDocDimTolTool; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "XCAFDoc_DimTolTool.hxx".}
-## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( XCAFDoc_DimTolTool , TDataStd_GenericEmpty ) private : opencascade :: handle < XCAFDoc_ShapeTool > [end of template] myShapeTool ;
-## Error: token expected: ) but got: ,!!!
+

@@ -1,4 +1,11 @@
+import ../tdf/tdf_types
+import ../tcolstd/tcolstd_types
+import ../topods/topods_types
 import xcafdoc_types
+import ../standard/standard_types
+import ../tcollection/tcollection_types
+
+
 
 ##  Created on: 2000-09-26
 ##  Created by: Pavel TELKOV.
@@ -15,112 +22,105 @@ import xcafdoc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of XCAFDoc_ShapeTool"
-discard "forward decl of TDF_Label"
-discard "forward decl of Standard_GUID"
-discard "forward decl of TCollection_ExtendedString"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of XCAFDoc_LayerTool"
 
-proc newXCAFDoc_LayerTool*(): XCAFDoc_LayerTool {.cdecl, constructor,
+
+
+
+proc newXCAFDocLayerTool*(): XCAFDocLayerTool {.cdecl, constructor,
     importcpp: "XCAFDoc_LayerTool(@)", header: "XCAFDoc_LayerTool.hxx".}
-proc Set*(L: TDF_Label): handle[XCAFDoc_LayerTool] {.cdecl,
+proc set*(L: TDF_Label): Handle[XCAFDocLayerTool] {.cdecl,
     importcpp: "XCAFDoc_LayerTool::Set(@)", header: "XCAFDoc_LayerTool.hxx".}
-proc GetID*(): Standard_GUID {.cdecl, importcpp: "XCAFDoc_LayerTool::GetID(@)",
-                            header: "XCAFDoc_LayerTool.hxx".}
-proc BaseLabel*(this: XCAFDoc_LayerTool): TDF_Label {.noSideEffect, cdecl,
+proc getID*(): StandardGUID {.cdecl, importcpp: "XCAFDoc_LayerTool::GetID(@)",
+                           header: "XCAFDoc_LayerTool.hxx".}
+proc baseLabel*(this: XCAFDocLayerTool): TDF_Label {.noSideEffect, cdecl,
     importcpp: "BaseLabel", header: "XCAFDoc_LayerTool.hxx".}
-proc ShapeTool*(this: var XCAFDoc_LayerTool): handle[XCAFDoc_ShapeTool] {.cdecl,
+proc shapeTool*(this: var XCAFDocLayerTool): Handle[XCAFDocShapeTool] {.cdecl,
     importcpp: "ShapeTool", header: "XCAFDoc_LayerTool.hxx".}
-proc IsLayer*(this: XCAFDoc_LayerTool; lab: TDF_Label): bool {.noSideEffect, cdecl,
+proc isLayer*(this: XCAFDocLayerTool; lab: TDF_Label): bool {.noSideEffect, cdecl,
     importcpp: "IsLayer", header: "XCAFDoc_LayerTool.hxx".}
-proc GetLayer*(this: XCAFDoc_LayerTool; lab: TDF_Label;
-              aLayer: var TCollection_ExtendedString): bool {.noSideEffect, cdecl,
+proc getLayer*(this: XCAFDocLayerTool; lab: TDF_Label;
+              aLayer: var TCollectionExtendedString): bool {.noSideEffect, cdecl,
     importcpp: "GetLayer", header: "XCAFDoc_LayerTool.hxx".}
-proc FindLayer*(this: XCAFDoc_LayerTool; aLayer: TCollection_ExtendedString;
+proc findLayer*(this: XCAFDocLayerTool; aLayer: TCollectionExtendedString;
                lab: var TDF_Label): bool {.noSideEffect, cdecl,
                                        importcpp: "FindLayer",
                                        header: "XCAFDoc_LayerTool.hxx".}
-proc FindLayer*(this: XCAFDoc_LayerTool; aLayer: TCollection_ExtendedString;
+proc findLayer*(this: XCAFDocLayerTool; aLayer: TCollectionExtendedString;
                theToFindWithProperty: bool = false; theToFindVisible: bool = true): TDF_Label {.
     noSideEffect, cdecl, importcpp: "FindLayer", header: "XCAFDoc_LayerTool.hxx".}
-proc AddLayer*(this: XCAFDoc_LayerTool; theLayer: TCollection_ExtendedString): TDF_Label {.
+proc addLayer*(this: XCAFDocLayerTool; theLayer: TCollectionExtendedString): TDF_Label {.
     noSideEffect, cdecl, importcpp: "AddLayer", header: "XCAFDoc_LayerTool.hxx".}
-proc AddLayer*(this: XCAFDoc_LayerTool; theLayer: TCollection_ExtendedString;
+proc addLayer*(this: XCAFDocLayerTool; theLayer: TCollectionExtendedString;
               theToFindVisible: bool): TDF_Label {.noSideEffect, cdecl,
     importcpp: "AddLayer", header: "XCAFDoc_LayerTool.hxx".}
-proc RemoveLayer*(this: XCAFDoc_LayerTool; lab: TDF_Label) {.noSideEffect, cdecl,
+proc removeLayer*(this: XCAFDocLayerTool; lab: TDF_Label) {.noSideEffect, cdecl,
     importcpp: "RemoveLayer", header: "XCAFDoc_LayerTool.hxx".}
-proc GetLayerLabels*(this: XCAFDoc_LayerTool; Labels: var TDF_LabelSequence) {.
+proc getLayerLabels*(this: XCAFDocLayerTool; labels: var TDF_LabelSequence) {.
     noSideEffect, cdecl, importcpp: "GetLayerLabels",
     header: "XCAFDoc_LayerTool.hxx".}
-proc SetLayer*(this: XCAFDoc_LayerTool; L: TDF_Label; LayerL: TDF_Label;
+proc setLayer*(this: XCAFDocLayerTool; L: TDF_Label; layerL: TDF_Label;
               shapeInOneLayer: bool = false) {.noSideEffect, cdecl,
     importcpp: "SetLayer", header: "XCAFDoc_LayerTool.hxx".}
-proc SetLayer*(this: XCAFDoc_LayerTool; L: TDF_Label;
-              aLayer: TCollection_ExtendedString; shapeInOneLayer: bool = false) {.
+proc setLayer*(this: XCAFDocLayerTool; L: TDF_Label;
+              aLayer: TCollectionExtendedString; shapeInOneLayer: bool = false) {.
     noSideEffect, cdecl, importcpp: "SetLayer", header: "XCAFDoc_LayerTool.hxx".}
-proc UnSetLayers*(this: XCAFDoc_LayerTool; L: TDF_Label) {.noSideEffect, cdecl,
+proc unSetLayers*(this: XCAFDocLayerTool; L: TDF_Label) {.noSideEffect, cdecl,
     importcpp: "UnSetLayers", header: "XCAFDoc_LayerTool.hxx".}
-proc UnSetOneLayer*(this: XCAFDoc_LayerTool; L: TDF_Label;
-                   aLayer: TCollection_ExtendedString): bool {.noSideEffect, cdecl,
+proc unSetOneLayer*(this: XCAFDocLayerTool; L: TDF_Label;
+                   aLayer: TCollectionExtendedString): bool {.noSideEffect, cdecl,
     importcpp: "UnSetOneLayer", header: "XCAFDoc_LayerTool.hxx".}
-proc UnSetOneLayer*(this: XCAFDoc_LayerTool; L: TDF_Label; aLayerL: TDF_Label): bool {.
+proc unSetOneLayer*(this: XCAFDocLayerTool; L: TDF_Label; aLayerL: TDF_Label): bool {.
     noSideEffect, cdecl, importcpp: "UnSetOneLayer", header: "XCAFDoc_LayerTool.hxx".}
-proc IsSet*(this: XCAFDoc_LayerTool; L: TDF_Label; aLayer: TCollection_ExtendedString): bool {.
+proc isSet*(this: XCAFDocLayerTool; L: TDF_Label; aLayer: TCollectionExtendedString): bool {.
     noSideEffect, cdecl, importcpp: "IsSet", header: "XCAFDoc_LayerTool.hxx".}
-proc IsSet*(this: XCAFDoc_LayerTool; L: TDF_Label; aLayerL: TDF_Label): bool {.
+proc isSet*(this: XCAFDocLayerTool; L: TDF_Label; aLayerL: TDF_Label): bool {.
     noSideEffect, cdecl, importcpp: "IsSet", header: "XCAFDoc_LayerTool.hxx".}
-proc GetLayers*(this: var XCAFDoc_LayerTool; L: TDF_Label;
-               aLayerS: var handle[TColStd_HSequenceOfExtendedString]): bool {.
-    cdecl, importcpp: "GetLayers", header: "XCAFDoc_LayerTool.hxx".}
-proc GetLayers*(this: var XCAFDoc_LayerTool; L: TDF_Label;
+proc getLayers*(this: var XCAFDocLayerTool; L: TDF_Label;
+               aLayerS: var Handle[TColStdHSequenceOfExtendedString]): bool {.cdecl,
+    importcpp: "GetLayers", header: "XCAFDoc_LayerTool.hxx".}
+proc getLayers*(this: var XCAFDocLayerTool; L: TDF_Label;
                aLayerLS: var TDF_LabelSequence): bool {.cdecl,
     importcpp: "GetLayers", header: "XCAFDoc_LayerTool.hxx".}
-proc GetLayers*(this: var XCAFDoc_LayerTool; L: TDF_Label): handle[
-    TColStd_HSequenceOfExtendedString] {.cdecl, importcpp: "GetLayers",
-                                        header: "XCAFDoc_LayerTool.hxx".}
-proc GetShapesOfLayer*(this: XCAFDoc_LayerTool; layerL: TDF_Label;
-                      ShLabels: var TDF_LabelSequence) {.noSideEffect, cdecl,
+proc getLayers*(this: var XCAFDocLayerTool; L: TDF_Label): Handle[
+    TColStdHSequenceOfExtendedString] {.cdecl, importcpp: "GetLayers",
+                                       header: "XCAFDoc_LayerTool.hxx".}
+proc getShapesOfLayer*(this: XCAFDocLayerTool; layerL: TDF_Label;
+                      shLabels: var TDF_LabelSequence) {.noSideEffect, cdecl,
     importcpp: "GetShapesOfLayer", header: "XCAFDoc_LayerTool.hxx".}
-proc IsVisible*(this: XCAFDoc_LayerTool; layerL: TDF_Label): bool {.noSideEffect,
-    cdecl, importcpp: "IsVisible", header: "XCAFDoc_LayerTool.hxx".}
-proc SetVisibility*(this: XCAFDoc_LayerTool; layerL: TDF_Label;
-                   isvisible: bool = true) {.noSideEffect, cdecl,
-    importcpp: "SetVisibility", header: "XCAFDoc_LayerTool.hxx".}
-proc SetLayer*(this: var XCAFDoc_LayerTool; Sh: TopoDS_Shape; LayerL: TDF_Label;
+proc isVisible*(this: XCAFDocLayerTool; layerL: TDF_Label): bool {.noSideEffect, cdecl,
+    importcpp: "IsVisible", header: "XCAFDoc_LayerTool.hxx".}
+proc setVisibility*(this: XCAFDocLayerTool; layerL: TDF_Label; isvisible: bool = true) {.
+    noSideEffect, cdecl, importcpp: "SetVisibility", header: "XCAFDoc_LayerTool.hxx".}
+proc setLayer*(this: var XCAFDocLayerTool; sh: TopoDS_Shape; layerL: TDF_Label;
               shapeInOneLayer: bool = false): bool {.cdecl, importcpp: "SetLayer",
     header: "XCAFDoc_LayerTool.hxx".}
-proc SetLayer*(this: var XCAFDoc_LayerTool; Sh: TopoDS_Shape;
-              aLayer: TCollection_ExtendedString; shapeInOneLayer: bool = false): bool {.
+proc setLayer*(this: var XCAFDocLayerTool; sh: TopoDS_Shape;
+              aLayer: TCollectionExtendedString; shapeInOneLayer: bool = false): bool {.
     cdecl, importcpp: "SetLayer", header: "XCAFDoc_LayerTool.hxx".}
-proc UnSetLayers*(this: var XCAFDoc_LayerTool; Sh: TopoDS_Shape): bool {.cdecl,
+proc unSetLayers*(this: var XCAFDocLayerTool; sh: TopoDS_Shape): bool {.cdecl,
     importcpp: "UnSetLayers", header: "XCAFDoc_LayerTool.hxx".}
-proc UnSetOneLayer*(this: var XCAFDoc_LayerTool; Sh: TopoDS_Shape;
-                   aLayer: TCollection_ExtendedString): bool {.cdecl,
+proc unSetOneLayer*(this: var XCAFDocLayerTool; sh: TopoDS_Shape;
+                   aLayer: TCollectionExtendedString): bool {.cdecl,
     importcpp: "UnSetOneLayer", header: "XCAFDoc_LayerTool.hxx".}
-proc UnSetOneLayer*(this: var XCAFDoc_LayerTool; Sh: TopoDS_Shape; aLayerL: TDF_Label): bool {.
+proc unSetOneLayer*(this: var XCAFDocLayerTool; sh: TopoDS_Shape; aLayerL: TDF_Label): bool {.
     cdecl, importcpp: "UnSetOneLayer", header: "XCAFDoc_LayerTool.hxx".}
-proc IsSet*(this: var XCAFDoc_LayerTool; Sh: TopoDS_Shape;
-           aLayer: TCollection_ExtendedString): bool {.cdecl, importcpp: "IsSet",
+proc isSet*(this: var XCAFDocLayerTool; sh: TopoDS_Shape;
+           aLayer: TCollectionExtendedString): bool {.cdecl, importcpp: "IsSet",
     header: "XCAFDoc_LayerTool.hxx".}
-proc IsSet*(this: var XCAFDoc_LayerTool; Sh: TopoDS_Shape; aLayerL: TDF_Label): bool {.
+proc isSet*(this: var XCAFDocLayerTool; sh: TopoDS_Shape; aLayerL: TDF_Label): bool {.
     cdecl, importcpp: "IsSet", header: "XCAFDoc_LayerTool.hxx".}
-proc GetLayers*(this: var XCAFDoc_LayerTool; Sh: TopoDS_Shape;
-               aLayerS: var handle[TColStd_HSequenceOfExtendedString]): bool {.
-    cdecl, importcpp: "GetLayers", header: "XCAFDoc_LayerTool.hxx".}
-proc GetLayers*(this: var XCAFDoc_LayerTool; Sh: TopoDS_Shape;
+proc getLayers*(this: var XCAFDocLayerTool; sh: TopoDS_Shape;
+               aLayerS: var Handle[TColStdHSequenceOfExtendedString]): bool {.cdecl,
+    importcpp: "GetLayers", header: "XCAFDoc_LayerTool.hxx".}
+proc getLayers*(this: var XCAFDocLayerTool; sh: TopoDS_Shape;
                aLayerLS: var TDF_LabelSequence): bool {.cdecl,
     importcpp: "GetLayers", header: "XCAFDoc_LayerTool.hxx".}
-proc GetLayers*(this: var XCAFDoc_LayerTool; Sh: TopoDS_Shape): handle[
-    TColStd_HSequenceOfExtendedString] {.cdecl, importcpp: "GetLayers",
-                                        header: "XCAFDoc_LayerTool.hxx".}
-proc ID*(this: XCAFDoc_LayerTool): Standard_GUID {.noSideEffect, cdecl,
-    importcpp: "ID", header: "XCAFDoc_LayerTool.hxx".}
-proc DumpJson*(this: XCAFDoc_LayerTool; theOStream: var Standard_OStream;
+proc getLayers*(this: var XCAFDocLayerTool; sh: TopoDS_Shape): Handle[
+    TColStdHSequenceOfExtendedString] {.cdecl, importcpp: "GetLayers",
+                                       header: "XCAFDoc_LayerTool.hxx".}
+proc id*(this: XCAFDocLayerTool): StandardGUID {.noSideEffect, cdecl, importcpp: "ID",
+    header: "XCAFDoc_LayerTool.hxx".}
+proc dumpJson*(this: XCAFDocLayerTool; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "XCAFDoc_LayerTool.hxx".}
-## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( XCAFDoc_LayerTool , TDataStd_GenericEmpty ) private : opencascade :: handle < XCAFDoc_ShapeTool > [end of template] myShapeTool ;
-## Error: token expected: ) but got: ,!!!
+

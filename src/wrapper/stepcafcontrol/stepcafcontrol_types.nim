@@ -4,38 +4,24 @@ import ../ncollection/ncollection_types
 import ../topods/topods_types
 import ../tcolstd/tcolstd_types
 import ../toptools/toptools_types
+import ../tdf/tdf_types
 
 type
-  TDF_Label* = object # FIXME
-  TDF_LabelMapHasher* = object # FIXME
-  Iterator*[A,B,C] = object # FIXME
   StepBasic_ProductDefinition* = object # FIXME
   StepRepr_CompoundRepresentationItem* = object # FIXME
-  XCAFDimTolObjects_DimensionModifiersSequence* = object # FIXME
   StepShape_LimitsAndFits* = object
-  XCAFDimTolObjects_DimensionFormVariance* = object # FIXME
-  XCAFDimTolObjects_DimensionGrade* = object # FIXME
-  XCAFDimTolObjects_DimensionType* = object # FIXME
-  XCAFDimTolObjects_DatumTargetType* = object # FIXME
-  XCAFDimTolObjects_DimensionQualifier* = object # FIXME
-  XCAFDimTolObjects_GeomToleranceTypeValue* = object # FIXME
-  XCAFDimTolObjects_DimensionModif* = object # FIXME
-  XCAFDimTolObjects_GeomToleranceType* = object # FIXME
   StepDimTol_GeometricToleranceType* = object # FIXME
   StepDimTol_GeometricTolerance* = object # FIXME
-  XCAFDimTolObjects_GeomToleranceModif* = object # FIXME
   StepDimTol_GeometricToleranceModifier* = object # FIXME
-  XCAFDimTolObjects_DatumModifiersSequence* = object # FIXME
-  XCAFDimTolObjects_DatumModifWithValue* = object # FIXME
+
   StepBasic_Unit* = object # FIXME
   StepDimTol_HArray1OfDatumReferenceModifier* = object # FIXME
   StepVisual_TessellatedGeometricSet* = object # FIXME
-  TDocStd_Document* = object # FIXME
+  #TDocStd_Document* = object # FIXME
   StepRepr_NextAssemblyUsageOccurrence* = object  # FIXME
-  XCAFDoc_ShapeTool* = object # FIXME
   STEPConstruct_Tool* = object # FIXME
-  XCAFDoc_DataMapOfShapeLabel* = object # FIXME
-  TDF_LabelSequence* = object # FIXME
+
+
   
   
 
@@ -89,20 +75,20 @@ type
 type
   STEPCAFControl_DataMapOfLabelExternFile* = NCollection_DataMap[TDF_Label,
       Handle[STEPCAFControl_ExternFile], TDF_LabelMapHasher]
-  STEPCAFControl_DataMapIteratorOfDataMapOfLabelExternFile* = Iterator[TDF_Label,
+  STEPCAFControl_DataMapIteratorOfDataMapOfLabelExternFile* = NCollection_DataMapIterator[TDF_Label,
       Handle[STEPCAFControl_ExternFile], TDF_LabelMapHasher]
 
 type
   STEPCAFControl_DataMapOfLabelShape* = NCollection_DataMap[TDF_Label,
       TopoDS_Shape, TDF_LabelMapHasher]
-  STEPCAFControl_DataMapIteratorOfDataMapOfLabelShape* = Iterator[TDF_Label,
+  STEPCAFControl_DataMapIteratorOfDataMapOfLabelShape* = NCollection_DataMapIterator[TDF_Label,
       TopoDS_Shape, TDF_LabelMapHasher]
 
 type
   STEPCAFControl_DataMapOfPDExternFile* = NCollection_DataMap[
       Handle[StepBasic_ProductDefinition], Handle[STEPCAFControl_ExternFile],
       TColStd_MapTransientHasher]
-  STEPCAFControl_DataMapIteratorOfDataMapOfPDExternFile* = Iterator[
+  STEPCAFControl_DataMapIteratorOfDataMapOfPDExternFile* = NCollection_DataMapIterator[
       Handle[StepBasic_ProductDefinition], Handle[STEPCAFControl_ExternFile],
       TColStd_MapTransientHasher]
 
@@ -110,20 +96,20 @@ type
   STEPCAFControl_DataMapOfSDRExternFile* = NCollection_DataMap[
       Handle[StepShape_ShapeDefinitionRepresentation],
       Handle[STEPCAFControl_ExternFile], TColStd_MapTransientHasher]
-  STEPCAFControl_DataMapIteratorOfDataMapOfSDRExternFile* = Iterator[
+  STEPCAFControl_DataMapIteratorOfDataMapOfSDRExternFile* = NCollection_DataMapIterator[
       Handle[StepShape_ShapeDefinitionRepresentation],
       Handle[STEPCAFControl_ExternFile], TColStd_MapTransientHasher]
 
 type
   STEPCAFControl_DataMapOfShapePD* = NCollection_DataMap[TopoDS_Shape,
       Handle[StepBasic_ProductDefinition], TopTools_ShapeMapHasher]
-  STEPCAFControl_DataMapIteratorOfDataMapOfShapePD* = Iterator[TopoDS_Shape,
+  STEPCAFControl_DataMapIteratorOfDataMapOfShapePD* = NCollection_DataMapIterator[TopoDS_Shape,
       Handle[StepBasic_ProductDefinition], TopTools_ShapeMapHasher]
 
 type
   STEPCAFControl_DataMapOfShapeSDR* = NCollection_DataMap[TopoDS_Shape,
       Handle[StepShape_ShapeDefinitionRepresentation], TopTools_ShapeMapHasher]
-  STEPCAFControl_DataMapIteratorOfDataMapOfShapeSDR* = Iterator[TopoDS_Shape,
+  STEPCAFControl_DataMapIteratorOfDataMapOfShapeSDR* = NCollection_DataMapIterator[TopoDS_Shape,
       Handle[StepShape_ShapeDefinitionRepresentation], TopTools_ShapeMapHasher]
 
 

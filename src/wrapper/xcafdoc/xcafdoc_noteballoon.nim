@@ -1,4 +1,9 @@
+import ../tdf/tdf_types
 import xcafdoc_types
+import ../standard/standard_types
+import ../tcollection/tcollection_types
+
+
 
 ##  Copyright (c) 2017-2018 OPEN CASCADE SAS
 ##
@@ -17,16 +22,19 @@ import xcafdoc_types
 ## ! Contains a textual comment.
 
 
-proc Get*(theLabel: TDF_Label): handle[XCAFDoc_NoteBalloon] {.cdecl,
+
+proc getID*(): StandardGUID {.cdecl, importcpp: "XCAFDoc_NoteBalloon::GetID(@)",
+                           header: "XCAFDoc_NoteBalloon.hxx".}
+proc get*(theLabel: TDF_Label): Handle[XCAFDocNoteBalloon] {.cdecl,
     importcpp: "XCAFDoc_NoteBalloon::Get(@)", header: "XCAFDoc_NoteBalloon.hxx".}
-proc Set*(theLabel: TDF_Label; theUserName: TCollection_ExtendedString;
-         theTimeStamp: TCollection_ExtendedString;
-         theComment: TCollection_ExtendedString): handle[XCAFDoc_NoteBalloon] {.
+proc set*(theLabel: TDF_Label; theUserName: TCollectionExtendedString;
+         theTimeStamp: TCollectionExtendedString;
+         theComment: TCollectionExtendedString): Handle[XCAFDocNoteBalloon] {.
     cdecl, importcpp: "XCAFDoc_NoteBalloon::Set(@)",
     header: "XCAFDoc_NoteBalloon.hxx".}
-proc newXCAFDoc_NoteBalloon*(): XCAFDoc_NoteBalloon {.cdecl, constructor,
+proc newXCAFDocNoteBalloon*(): XCAFDocNoteBalloon {.cdecl, constructor,
     importcpp: "XCAFDoc_NoteBalloon(@)", header: "XCAFDoc_NoteBalloon.hxx".}
-proc ID*(this: XCAFDoc_NoteBalloon): Standard_GUID {.noSideEffect, cdecl,
+proc id*(this: XCAFDocNoteBalloon): StandardGUID {.noSideEffect, cdecl,
     importcpp: "ID", header: "XCAFDoc_NoteBalloon.hxx".}
-type
-  Handle_XCAFDoc_NoteBalloon* = handle[XCAFDoc_NoteBalloon]
+
+

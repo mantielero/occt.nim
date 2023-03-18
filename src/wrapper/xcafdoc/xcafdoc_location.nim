@@ -1,4 +1,9 @@
+import ../toploc/toploc_types
+import ../tdf/tdf_types
 import xcafdoc_types
+import ../standard/standard_types
+
+
 
 ##  Created on: 2000-08-15
 ##  Created by: data exchange team
@@ -15,32 +20,30 @@ import xcafdoc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TopLoc_Location"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of XCAFDoc_Location"
 
-proc newXCAFDoc_Location*(): XCAFDoc_Location {.cdecl, constructor,
+
+
+
+proc newXCAFDocLocation*(): XCAFDocLocation {.cdecl, constructor,
     importcpp: "XCAFDoc_Location(@)", header: "XCAFDoc_Location.hxx".}
-proc GetID*(): Standard_GUID {.cdecl, importcpp: "XCAFDoc_Location::GetID(@)",
-                            header: "XCAFDoc_Location.hxx".}
-proc Set*(label: TDF_Label; Loc: TopLoc_Location): handle[XCAFDoc_Location] {.cdecl,
+proc getID*(): StandardGUID {.cdecl, importcpp: "XCAFDoc_Location::GetID(@)",
+                           header: "XCAFDoc_Location.hxx".}
+proc set*(label: TDF_Label; loc: TopLocLocation): Handle[XCAFDocLocation] {.cdecl,
     importcpp: "XCAFDoc_Location::Set(@)", header: "XCAFDoc_Location.hxx".}
-proc Set*(this: var XCAFDoc_Location; Loc: TopLoc_Location) {.cdecl, importcpp: "Set",
+proc set*(this: var XCAFDocLocation; loc: TopLocLocation) {.cdecl, importcpp: "Set",
     header: "XCAFDoc_Location.hxx".}
-proc Get*(this: XCAFDoc_Location): TopLoc_Location {.noSideEffect, cdecl,
+proc get*(this: XCAFDocLocation): TopLocLocation {.noSideEffect, cdecl,
     importcpp: "Get", header: "XCAFDoc_Location.hxx".}
-proc ID*(this: XCAFDoc_Location): Standard_GUID {.noSideEffect, cdecl,
-    importcpp: "ID", header: "XCAFDoc_Location.hxx".}
-proc Restore*(this: var XCAFDoc_Location; With: handle[TDF_Attribute]) {.cdecl,
+proc id*(this: XCAFDocLocation): StandardGUID {.noSideEffect, cdecl, importcpp: "ID",
+    header: "XCAFDoc_Location.hxx".}
+proc restore*(this: var XCAFDocLocation; with: Handle[TDF_Attribute]) {.cdecl,
     importcpp: "Restore", header: "XCAFDoc_Location.hxx".}
-proc NewEmpty*(this: XCAFDoc_Location): handle[TDF_Attribute] {.noSideEffect, cdecl,
+proc newEmpty*(this: XCAFDocLocation): Handle[TDF_Attribute] {.noSideEffect, cdecl,
     importcpp: "NewEmpty", header: "XCAFDoc_Location.hxx".}
-proc Paste*(this: XCAFDoc_Location; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, cdecl,
+proc paste*(this: XCAFDocLocation; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, cdecl,
     importcpp: "Paste", header: "XCAFDoc_Location.hxx".}
-proc DumpJson*(this: XCAFDoc_Location; theOStream: var Standard_OStream;
+proc dumpJson*(this: XCAFDocLocation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "XCAFDoc_Location.hxx".}
+

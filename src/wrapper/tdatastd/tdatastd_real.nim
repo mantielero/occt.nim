@@ -1,3 +1,9 @@
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 1997-02-06
 ##  Created by: Denis PASCAL
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -14,33 +20,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TDF_Label"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDataStd_Real"
-type
-  HandleTDataStdReal* = Handle[TDataStdReal]
 
-## ! The basis to define a real number attribute.
 
-type
-  TDataStdReal* {.importcpp: "TDataStd_Real", header: "TDataStd_Real.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                                    ## !
-                                                                                                    ## class
-                                                                                                    ## methods
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## =============
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Returns
-                                                                                                    ## the
-                                                                                                    ## default
-                                                                                                    ## GUID
-                                                                                                    ## for
-                                                                                                    ## real
-                                                                                                    ## numbers.
-    ## ! An obsolete field that will be removed in next versions.
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_Real::GetID(@)",
@@ -80,3 +61,4 @@ proc dump*(this: TDataStdReal; anOS: var StandardOStream): var StandardOStream {
 proc dumpJson*(this: TDataStdReal; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TDataStd_Real.hxx".}
+

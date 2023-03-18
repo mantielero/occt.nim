@@ -1,4 +1,9 @@
+import ../tdf/tdf_types
 import xcafdoc_types
+import ../standard/standard_types
+import ../tcollection/tcollection_types
+import ../xcafnoteobjects/xcafnoteobjects_types
+
 
 ##  Copyright (c) 2017-2018 OPEN CASCADE SAS
 ##
@@ -13,38 +18,35 @@ import xcafdoc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_RelocationTable"
 
 
-proc IsMine*(theLabel: TDF_Label): bool {.cdecl,
+proc isMine*(theLabel: TDF_Label): bool {.cdecl,
                                       importcpp: "XCAFDoc_Note::IsMine(@)",
                                       header: "XCAFDoc_Note.hxx".}
-proc Get*(theLabel: TDF_Label): handle[XCAFDoc_Note] {.cdecl,
+proc get*(theLabel: TDF_Label): Handle[XCAFDocNote] {.cdecl,
     importcpp: "XCAFDoc_Note::Get(@)", header: "XCAFDoc_Note.hxx".}
-proc Set*(this: var XCAFDoc_Note; theUserName: TCollection_ExtendedString;
-         theTimeStamp: TCollection_ExtendedString) {.cdecl, importcpp: "Set",
+proc set*(this: var XCAFDocNote; theUserName: TCollectionExtendedString;
+         theTimeStamp: TCollectionExtendedString) {.cdecl, importcpp: "Set",
     header: "XCAFDoc_Note.hxx".}
-proc UserName*(this: XCAFDoc_Note): TCollection_ExtendedString {.noSideEffect, cdecl,
+proc userName*(this: XCAFDocNote): TCollectionExtendedString {.noSideEffect, cdecl,
     importcpp: "UserName", header: "XCAFDoc_Note.hxx".}
-proc TimeStamp*(this: XCAFDoc_Note): TCollection_ExtendedString {.noSideEffect,
-    cdecl, importcpp: "TimeStamp", header: "XCAFDoc_Note.hxx".}
-proc IsOrphan*(this: XCAFDoc_Note): bool {.noSideEffect, cdecl, importcpp: "IsOrphan",
-                                       header: "XCAFDoc_Note.hxx".}
-proc GetObject*(this: XCAFDoc_Note): handle[XCAFNoteObjects_NoteObject] {.
+proc timeStamp*(this: XCAFDocNote): TCollectionExtendedString {.noSideEffect, cdecl,
+    importcpp: "TimeStamp", header: "XCAFDoc_Note.hxx".}
+proc isOrphan*(this: XCAFDocNote): bool {.noSideEffect, cdecl, importcpp: "IsOrphan",
+                                      header: "XCAFDoc_Note.hxx".}
+proc getObject*(this: XCAFDocNote): Handle[XCAFNoteObjectsNoteObject] {.
     noSideEffect, cdecl, importcpp: "GetObject", header: "XCAFDoc_Note.hxx".}
-proc SetObject*(this: var XCAFDoc_Note;
-               theObject: handle[XCAFNoteObjects_NoteObject]) {.cdecl,
-    importcpp: "SetObject", header: "XCAFDoc_Note.hxx".}
-proc Restore*(this: var XCAFDoc_Note; theAttrFrom: handle[TDF_Attribute]) {.cdecl,
+proc setObject*(this: var XCAFDocNote; theObject: Handle[XCAFNoteObjectsNoteObject]) {.
+    cdecl, importcpp: "SetObject", header: "XCAFDoc_Note.hxx".}
+proc restore*(this: var XCAFDocNote; theAttrFrom: Handle[TDF_Attribute]) {.cdecl,
     importcpp: "Restore", header: "XCAFDoc_Note.hxx".}
-proc Paste*(this: XCAFDoc_Note; theAttrInto: handle[TDF_Attribute];
-           theRT: handle[TDF_RelocationTable]) {.noSideEffect, cdecl,
+proc paste*(this: XCAFDocNote; theAttrInto: Handle[TDF_Attribute];
+           theRT: Handle[TDF_RelocationTable]) {.noSideEffect, cdecl,
     importcpp: "Paste", header: "XCAFDoc_Note.hxx".}
-proc Dump*(this: XCAFDoc_Note; theOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: XCAFDocNote; theOS: var StandardOStream): var StandardOStream {.
     noSideEffect, cdecl, importcpp: "Dump", header: "XCAFDoc_Note.hxx".}
-proc DumpJson*(this: XCAFDoc_Note; theOStream: var Standard_OStream;
+proc dumpJson*(this: XCAFDocNote; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "XCAFDoc_Note.hxx".}
-type
-  Handle_XCAFDoc_Note* = handle[XCAFDoc_Note]
+
+

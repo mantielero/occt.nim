@@ -1,3 +1,11 @@
+import ../tcolstd/tcolstd_types
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tcollection/tcollection_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 2002-01-16
 ##  Created by: Michael PONIKAROV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -13,36 +21,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TDataStd_DeltaOnModificationOfExtStringArray"
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TCollection_ExtendedString"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDF_DeltaOnModification"
-discard "forward decl of TDataStd_ExtStringArray"
-type
-  HandleTDataStdExtStringArray* = Handle[TDataStdExtStringArray]
 
-## ! ExtStringArray Attribute. Handles an array of UNICODE strings (represented by the TCollection_ExtendedString class).
 
-type
-  TDataStdExtStringArray* {.importcpp: "TDataStd_ExtStringArray",
-                           header: "TDataStd_ExtStringArray.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                              ## !
-                                                                                              ## class
-                                                                                              ## methods
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## =============
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## the
-                                                                                              ## GUID
-                                                                                              ## for
-                                                                                              ## the
-                                                                                              ## attribute.
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_ExtStringArray::GetID(@)",
@@ -65,8 +45,8 @@ proc setID*(this: var TDataStdExtStringArray) {.cdecl, importcpp: "SetID",
     header: "TDataStd_ExtStringArray.hxx".}
 proc value*(this: TDataStdExtStringArray; index: cint): TCollectionExtendedString {.
     noSideEffect, cdecl, importcpp: "Value", header: "TDataStd_ExtStringArray.hxx".}
-proc `()`*(this: TDataStdExtStringArray; index: cint): TCollectionExtendedString {.
-    noSideEffect, cdecl, importcpp: "#(@)", header: "TDataStd_ExtStringArray.hxx".}
+#proc `()`*(this: TDataStdExtStringArray; index: cint): TCollectionExtendedString {.
+#    noSideEffect, cdecl, importcpp: "#(@)", header: "TDataStd_ExtStringArray.hxx".}
 proc lower*(this: TDataStdExtStringArray): cint {.noSideEffect, cdecl,
     importcpp: "Lower", header: "TDataStd_ExtStringArray.hxx".}
 proc upper*(this: TDataStdExtStringArray): cint {.noSideEffect, cdecl,
@@ -104,3 +84,4 @@ proc deltaOnModification*(this: TDataStdExtStringArray;
 proc dumpJson*(this: TDataStdExtStringArray; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TDataStd_ExtStringArray.hxx".}
+

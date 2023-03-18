@@ -1,3 +1,9 @@
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 1999-06-10
 ##  Created by: Vladislav ROMASHKO
 ##  Copyright (c) 1999 Matra Datavision
@@ -14,59 +20,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TDataStd_ChildNodeIterator"
-discard "forward decl of TDF_Label"
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_AttributeDelta"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDF_DataSet"
-discard "forward decl of TDataStd_TreeNode"
-type
-  HandleTDataStdTreeNode* = Handle[TDataStdTreeNode]
 
-## ! Allows you to define an explicit tree of labels
-## ! which you can also edit.
-## ! Without this class, the data structure cannot be fully edited.
-## ! This service is required if for presentation
-## ! purposes, you want to create an application with
-## ! a tree which allows you to organize and link data
-## ! as a function of application features.
 
-type
-  TDataStdTreeNode* {.importcpp: "TDataStd_TreeNode",
-                     header: "TDataStd_TreeNode.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                  ## !
-                                                                                  ## class
-                                                                                  ## methods
-                                                                                  ## working
-                                                                                  ## on
-                                                                                  ## the
-                                                                                  ## node
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## ===================================
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## true
-                                                                                  ## if
-                                                                                  ## the
-                                                                                  ## tree
-                                                                                  ## node
-                                                                                  ## T
-                                                                                  ## is
-                                                                                  ## found
-                                                                                  ## on
-                                                                                  ## the
-                                                                                  ## label
-                                                                                  ## L.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Otherwise,
-                                                                                  ## false
-                                                                                  ## is
-                                                                                  ## returned.
 
 
 proc find*(L: TDF_Label; t: var Handle[TDataStdTreeNode]): bool {.cdecl,
@@ -167,3 +122,4 @@ proc dump*(this: TDataStdTreeNode; anOS: var StandardOStream): var StandardOStre
 proc dumpJson*(this: TDataStdTreeNode; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TDataStd_TreeNode.hxx".}
+

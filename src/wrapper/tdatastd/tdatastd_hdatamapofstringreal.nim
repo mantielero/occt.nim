@@ -1,3 +1,7 @@
+import tdatastd_types
+
+
+
 ##  Created on: 2007-08-17
 ##  Created by: Sergey ZARITCHNY
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -16,10 +20,6 @@
 ## ! Extension of TDataStd_DataMapOfStringReal class
 ## ! to be manipulated by handle.
 
-type
-  TDataStdHDataMapOfStringReal* {.importcpp: "TDataStd_HDataMapOfStringReal",
-                                 header: "TDataStd_HDataMapOfStringReal.hxx",
-                                 bycopy.} = object of StandardTransient
 
 
 proc newTDataStdHDataMapOfStringReal*(nbBuckets: cint = 1): TDataStdHDataMapOfStringReal {.
@@ -33,5 +33,5 @@ proc map*(this: TDataStdHDataMapOfStringReal): TDataStdDataMapOfStringReal {.
     header: "TDataStd_HDataMapOfStringReal.hxx".}
 proc changeMap*(this: var TDataStdHDataMapOfStringReal): var TDataStdDataMapOfStringReal {.
     cdecl, importcpp: "ChangeMap", header: "TDataStd_HDataMapOfStringReal.hxx".}
-type
-  HandleTDataStdHDataMapOfStringReal* = Handle[TDataStdHDataMapOfStringReal]
+
+

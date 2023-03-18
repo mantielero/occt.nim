@@ -1,4 +1,9 @@
+import ../tdf/tdf_types
 import xcafdoc_types
+import ../standard/standard_types
+import ../tcollection/tcollection_types
+
+
 
 ##  Copyright (c) 2017-2018 OPEN CASCADE SAS
 ##
@@ -18,31 +23,31 @@ import xcafdoc_types
 
 
 
-proc GetID*(): Standard_GUID {.cdecl, importcpp: "XCAFDoc_NoteComment::GetID(@)",
-                            header: "XCAFDoc_NoteComment.hxx".}
-proc Get*(theLabel: TDF_Label): handle[XCAFDoc_NoteComment] {.cdecl,
+proc getID*(): StandardGUID {.cdecl, importcpp: "XCAFDoc_NoteComment::GetID(@)",
+                           header: "XCAFDoc_NoteComment.hxx".}
+proc get*(theLabel: TDF_Label): Handle[XCAFDocNoteComment] {.cdecl,
     importcpp: "XCAFDoc_NoteComment::Get(@)", header: "XCAFDoc_NoteComment.hxx".}
-proc Set*(theLabel: TDF_Label; theUserName: TCollection_ExtendedString;
-         theTimeStamp: TCollection_ExtendedString;
-         theComment: TCollection_ExtendedString): handle[XCAFDoc_NoteComment] {.
+proc set*(theLabel: TDF_Label; theUserName: TCollectionExtendedString;
+         theTimeStamp: TCollectionExtendedString;
+         theComment: TCollectionExtendedString): Handle[XCAFDocNoteComment] {.
     cdecl, importcpp: "XCAFDoc_NoteComment::Set(@)",
     header: "XCAFDoc_NoteComment.hxx".}
-proc newXCAFDoc_NoteComment*(): XCAFDoc_NoteComment {.cdecl, constructor,
+proc newXCAFDocNoteComment*(): XCAFDocNoteComment {.cdecl, constructor,
     importcpp: "XCAFDoc_NoteComment(@)", header: "XCAFDoc_NoteComment.hxx".}
-proc Set*(this: var XCAFDoc_NoteComment; theComment: TCollection_ExtendedString) {.
+proc set*(this: var XCAFDocNoteComment; theComment: TCollectionExtendedString) {.
     cdecl, importcpp: "Set", header: "XCAFDoc_NoteComment.hxx".}
-proc Comment*(this: XCAFDoc_NoteComment): TCollection_ExtendedString {.noSideEffect,
+proc comment*(this: XCAFDocNoteComment): TCollectionExtendedString {.noSideEffect,
     cdecl, importcpp: "Comment", header: "XCAFDoc_NoteComment.hxx".}
-proc ID*(this: XCAFDoc_NoteComment): Standard_GUID {.noSideEffect, cdecl,
+proc id*(this: XCAFDocNoteComment): StandardGUID {.noSideEffect, cdecl,
     importcpp: "ID", header: "XCAFDoc_NoteComment.hxx".}
-proc NewEmpty*(this: XCAFDoc_NoteComment): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: XCAFDocNoteComment): Handle[TDF_Attribute] {.noSideEffect,
     cdecl, importcpp: "NewEmpty", header: "XCAFDoc_NoteComment.hxx".}
-proc Restore*(this: var XCAFDoc_NoteComment; theAttrFrom: handle[TDF_Attribute]) {.
+proc restore*(this: var XCAFDocNoteComment; theAttrFrom: Handle[TDF_Attribute]) {.
     cdecl, importcpp: "Restore", header: "XCAFDoc_NoteComment.hxx".}
-proc Paste*(this: XCAFDoc_NoteComment; theAttrInto: handle[TDF_Attribute];
-           theRT: handle[TDF_RelocationTable]) {.noSideEffect, cdecl,
+proc paste*(this: XCAFDocNoteComment; theAttrInto: Handle[TDF_Attribute];
+           theRT: Handle[TDF_RelocationTable]) {.noSideEffect, cdecl,
     importcpp: "Paste", header: "XCAFDoc_NoteComment.hxx".}
-proc Dump*(this: XCAFDoc_NoteComment; theOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: XCAFDocNoteComment; theOS: var StandardOStream): var StandardOStream {.
     noSideEffect, cdecl, importcpp: "Dump", header: "XCAFDoc_NoteComment.hxx".}
-type
-  Handle_XCAFDoc_NoteComment* = handle[XCAFDoc_NoteComment]
+
+

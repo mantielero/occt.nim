@@ -1,3 +1,7 @@
+import tdatastd_types
+
+
+
 ##  Created on: 2007-08-17
 ##  Created by: Sergey ZARITCHNY
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -16,10 +20,6 @@
 ## ! Extension of TDataStd_DataMapOfStringHArray1OfReal class
 ## ! to be manipulated by handle.
 
-type
-  TDataStdHDataMapOfStringHArray1OfReal* {.
-      importcpp: "TDataStd_HDataMapOfStringHArray1OfReal",
-      header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx", bycopy.} = object of StandardTransient
 
 
 proc newTDataStdHDataMapOfStringHArray1OfReal*(nbBuckets: cint = 1): TDataStdHDataMapOfStringHArray1OfReal {.
@@ -35,6 +35,5 @@ proc map*(this: TDataStdHDataMapOfStringHArray1OfReal): TDataStdDataMapOfStringH
 proc changeMap*(this: var TDataStdHDataMapOfStringHArray1OfReal): var TDataStdDataMapOfStringHArray1OfReal {.
     cdecl, importcpp: "ChangeMap",
     header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx".}
-type
-  HandleTDataStdHDataMapOfStringHArray1OfReal* = Handle[
-      TDataStdHDataMapOfStringHArray1OfReal]
+
+

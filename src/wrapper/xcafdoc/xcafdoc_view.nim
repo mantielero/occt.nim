@@ -1,4 +1,8 @@
+import ../tdf/tdf_types
 import xcafdoc_types
+import ../standard/standard_types
+
+
 
 ##  Created on: 2016-10-19
 ##  Created by: Irina KRYLOVA
@@ -15,27 +19,23 @@ import xcafdoc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_GUID"
-discard "forward decl of TDF_Label"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of XCAFView_Object"
 when defined(GetObject):
   discard
-discard "forward decl of XCAFDoc_View"
 
-proc newXCAFDoc_View*(): XCAFDoc_View {.cdecl, constructor,
-                                     importcpp: "XCAFDoc_View(@)",
-                                     header: "XCAFDoc_View.hxx".}
-proc GetID*(): Standard_GUID {.cdecl, importcpp: "XCAFDoc_View::GetID(@)",
-                            header: "XCAFDoc_View.hxx".}
-proc Set*(theLabel: TDF_Label): handle[XCAFDoc_View] {.cdecl,
+
+
+
+proc newXCAFDocView*(): XCAFDocView {.cdecl, constructor,
+                                   importcpp: "XCAFDoc_View(@)",
+                                   header: "XCAFDoc_View.hxx".}
+proc getID*(): StandardGUID {.cdecl, importcpp: "XCAFDoc_View::GetID(@)",
+                           header: "XCAFDoc_View.hxx".}
+proc set*(theLabel: TDF_Label): Handle[XCAFDocView] {.cdecl,
     importcpp: "XCAFDoc_View::Set(@)", header: "XCAFDoc_View.hxx".}
-proc ID*(this: XCAFDoc_View): Standard_GUID {.noSideEffect, cdecl, importcpp: "ID",
-    header: "XCAFDoc_View.hxx".}
-proc SetObject*(this: var XCAFDoc_View; theViewObject: handle[XCAFView_Object]) {.
-    cdecl, importcpp: "SetObject", header: "XCAFDoc_View.hxx".}
-proc GetObject*(this: XCAFDoc_View): handle[XCAFView_Object] {.noSideEffect, cdecl,
+proc id*(this: XCAFDocView): StandardGUID {.noSideEffect, cdecl, importcpp: "ID",
+                                        header: "XCAFDoc_View.hxx".}
+proc setObject*(this: var XCAFDocView; theViewObject: Handle[XCAFViewObject]) {.cdecl,
+    importcpp: "SetObject", header: "XCAFDoc_View.hxx".}
+proc getObject*(this: XCAFDocView): Handle[XCAFViewObject] {.noSideEffect, cdecl,
     importcpp: "GetObject", header: "XCAFDoc_View.hxx".}
-## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( XCAFDoc_View , TDataStd_GenericEmpty ) }
-## Error: token expected: ) but got: ,!!!
+

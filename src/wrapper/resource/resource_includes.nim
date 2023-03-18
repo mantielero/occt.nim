@@ -1,0 +1,23 @@
+{.passL:"-lTKernel".}
+{.passC:"-I/usr/include/opencascade/".}
+
+import resource_convertunicode
+import resource_datamapofasciistringasciistring
+import resource_datamapofasciistringextendedstring
+import resource_formattype
+import resource_lexicalcompare
+import resource_manager
+import resource_nosuchresource
+import resource_types
+import resource_unicode
+
+
+export resource_convertunicode
+export resource_datamapofasciistringasciistring
+export resource_datamapofasciistringextendedstring
+export resource_formattype
+export resource_lexicalcompare
+export resource_manager
+export resource_nosuchresource
+export resource_types
+export resource_unicode

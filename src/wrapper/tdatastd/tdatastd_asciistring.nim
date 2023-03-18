@@ -1,3 +1,10 @@
+import ../stepcafcontrol/stepcafcontrol_types
+import tdatastd_types
+import ../standard/standard_types
+import ../tcollection/tcollection_types
+import ../tdf/tdf_types
+
+
 ##  Created on: 2007-07-31
 ##  Created by: Sergey ZARITCHNY
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -13,33 +20,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TDF_Label"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of TDF_Attribute"
-discard "forward decl of TDF_RelocationTable"
-discard "forward decl of TDataStd_AsciiString"
-type
-  HandleTDataStdAsciiString* = Handle[TDataStdAsciiString]
 
-## ! Used to define an AsciiString attribute containing a TCollection_AsciiString
 
-type
-  TDataStdAsciiString* {.importcpp: "TDataStd_AsciiString",
-                        header: "TDataStd_AsciiString.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                        ## !
-                                                                                        ## class
-                                                                                        ## methods
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## =============
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## the
-                                                                                        ## GUID
-                                                                                        ## of
-                                                                                        ## the
-                                                                                        ## attribute.
 
 
 proc getID*(): StandardGUID {.cdecl, importcpp: "TDataStd_AsciiString::GetID(@)",
@@ -76,3 +58,4 @@ proc dump*(this: TDataStdAsciiString; anOS: var StandardOStream): var StandardOS
 proc dumpJson*(this: TDataStdAsciiString; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TDataStd_AsciiString.hxx".}
+

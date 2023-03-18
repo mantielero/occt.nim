@@ -1,3 +1,7 @@
+import tdatastd_types
+
+
+
 ##  Created on: 2007-08-17
 ##  Created by: Sergey ZARITCHNY
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -16,10 +20,6 @@
 ## ! Extension of TDataStd_DataMapOfStringHArray1OfInteger class
 ## ! to be manipulated by handle.
 
-type
-  TDataStdHDataMapOfStringHArray1OfInteger* {.
-      importcpp: "TDataStd_HDataMapOfStringHArray1OfInteger",
-      header: "TDataStd_HDataMapOfStringHArray1OfInteger.hxx", bycopy.} = object of StandardTransient
 
 
 proc newTDataStdHDataMapOfStringHArray1OfInteger*(nbBuckets: cint = 1): TDataStdHDataMapOfStringHArray1OfInteger {.
@@ -35,6 +35,5 @@ proc map*(this: TDataStdHDataMapOfStringHArray1OfInteger): TDataStdDataMapOfStri
 proc changeMap*(this: var TDataStdHDataMapOfStringHArray1OfInteger): var TDataStdDataMapOfStringHArray1OfInteger {.
     cdecl, importcpp: "ChangeMap",
     header: "TDataStd_HDataMapOfStringHArray1OfInteger.hxx".}
-type
-  HandleTDataStdHDataMapOfStringHArray1OfInteger* = Handle[
-      TDataStdHDataMapOfStringHArray1OfInteger]
+
+

@@ -1,4 +1,9 @@
+import ../tdf/tdf_types
 import xcafdoc_types
+import ../standard/standard_types
+import ../tcollection/tcollection_types
+import ../gp/gp_types
+
 
 ##  Created on: 2016-11-29
 ##  Created by: Irina KRYLOVA
@@ -15,68 +20,68 @@ import xcafdoc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of XCAFDoc_ClippingPlaneTool"
 
-proc newXCAFDoc_ClippingPlaneTool*(): XCAFDoc_ClippingPlaneTool {.cdecl,
-    constructor, importcpp: "XCAFDoc_ClippingPlaneTool(@)",
+
+
+
+proc newXCAFDocClippingPlaneTool*(): XCAFDocClippingPlaneTool {.cdecl, constructor,
+    importcpp: "XCAFDoc_ClippingPlaneTool(@)",
     header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc Set*(theLabel: TDF_Label): handle[XCAFDoc_ClippingPlaneTool] {.cdecl,
+proc set*(theLabel: TDF_Label): Handle[XCAFDocClippingPlaneTool] {.cdecl,
     importcpp: "XCAFDoc_ClippingPlaneTool::Set(@)",
     header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc GetID*(): Standard_GUID {.cdecl,
-                            importcpp: "XCAFDoc_ClippingPlaneTool::GetID(@)",
-                            header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc BaseLabel*(this: XCAFDoc_ClippingPlaneTool): TDF_Label {.noSideEffect, cdecl,
+proc getID*(): StandardGUID {.cdecl,
+                           importcpp: "XCAFDoc_ClippingPlaneTool::GetID(@)",
+                           header: "XCAFDoc_ClippingPlaneTool.hxx".}
+proc baseLabel*(this: XCAFDocClippingPlaneTool): TDF_Label {.noSideEffect, cdecl,
     importcpp: "BaseLabel", header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc IsClippingPlane*(this: XCAFDoc_ClippingPlaneTool; theLabel: TDF_Label): bool {.
+proc isClippingPlane*(this: XCAFDocClippingPlaneTool; theLabel: TDF_Label): bool {.
     noSideEffect, cdecl, importcpp: "IsClippingPlane",
     header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc GetClippingPlane*(this: XCAFDoc_ClippingPlaneTool; theLabel: TDF_Label;
-                      thePlane: var gp_Pln;
-                      theName: var TCollection_ExtendedString; theCapping: var bool): bool {.
-    noSideEffect, cdecl, importcpp: "GetClippingPlane",
-    header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc GetClippingPlane*(this: XCAFDoc_ClippingPlaneTool; theLabel: TDF_Label;
-                      thePlane: var gp_Pln;
-                      theName: var handle[TCollection_HAsciiString];
+proc getClippingPlane*(this: XCAFDocClippingPlaneTool; theLabel: TDF_Label;
+                      thePlane: var gp_Pln; theName: var TCollectionExtendedString;
                       theCapping: var bool): bool {.noSideEffect, cdecl,
     importcpp: "GetClippingPlane", header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc AddClippingPlane*(this: XCAFDoc_ClippingPlaneTool; thePlane: gp_Pln;
-                      theName: TCollection_ExtendedString; theCapping: bool): TDF_Label {.
+proc getClippingPlane*(this: XCAFDocClippingPlaneTool; theLabel: TDF_Label;
+                      thePlane: var gp_Pln;
+                      theName: var Handle[TCollectionHAsciiString];
+                      theCapping: var bool): bool {.noSideEffect, cdecl,
+    importcpp: "GetClippingPlane", header: "XCAFDoc_ClippingPlaneTool.hxx".}
+proc addClippingPlane*(this: XCAFDocClippingPlaneTool; thePlane: gp_Pln;
+                      theName: TCollectionExtendedString; theCapping: bool): TDF_Label {.
     noSideEffect, cdecl, importcpp: "AddClippingPlane",
     header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc AddClippingPlane*(this: XCAFDoc_ClippingPlaneTool; thePlane: gp_Pln;
-                      theName: handle[TCollection_HAsciiString]; theCapping: bool): TDF_Label {.
+proc addClippingPlane*(this: XCAFDocClippingPlaneTool; thePlane: gp_Pln;
+                      theName: Handle[TCollectionHAsciiString]; theCapping: bool): TDF_Label {.
     noSideEffect, cdecl, importcpp: "AddClippingPlane",
     header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc AddClippingPlane*(this: XCAFDoc_ClippingPlaneTool; thePlane: gp_Pln;
-                      theName: TCollection_ExtendedString): TDF_Label {.
+proc addClippingPlane*(this: XCAFDocClippingPlaneTool; thePlane: gp_Pln;
+                      theName: TCollectionExtendedString): TDF_Label {.
     noSideEffect, cdecl, importcpp: "AddClippingPlane",
     header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc AddClippingPlane*(this: XCAFDoc_ClippingPlaneTool; thePlane: gp_Pln;
-                      theName: handle[TCollection_HAsciiString]): TDF_Label {.
+proc addClippingPlane*(this: XCAFDocClippingPlaneTool; thePlane: gp_Pln;
+                      theName: Handle[TCollectionHAsciiString]): TDF_Label {.
     noSideEffect, cdecl, importcpp: "AddClippingPlane",
     header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc RemoveClippingPlane*(this: XCAFDoc_ClippingPlaneTool; theLabel: TDF_Label): bool {.
+proc removeClippingPlane*(this: XCAFDocClippingPlaneTool; theLabel: TDF_Label): bool {.
     noSideEffect, cdecl, importcpp: "RemoveClippingPlane",
     header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc GetClippingPlanes*(this: XCAFDoc_ClippingPlaneTool;
-                       Labels: var TDF_LabelSequence) {.noSideEffect, cdecl,
+proc getClippingPlanes*(this: XCAFDocClippingPlaneTool;
+                       labels: var TDF_LabelSequence) {.noSideEffect, cdecl,
     importcpp: "GetClippingPlanes", header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc UpdateClippingPlane*(this: XCAFDoc_ClippingPlaneTool; theLabelL: TDF_Label;
-                         thePlane: gp_Pln; theName: TCollection_ExtendedString) {.
+proc updateClippingPlane*(this: XCAFDocClippingPlaneTool; theLabelL: TDF_Label;
+                         thePlane: gp_Pln; theName: TCollectionExtendedString) {.
     noSideEffect, cdecl, importcpp: "UpdateClippingPlane",
     header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc SetCapping*(this: var XCAFDoc_ClippingPlaneTool; theClippingPlaneL: TDF_Label;
+proc setCapping*(this: var XCAFDocClippingPlaneTool; theClippingPlaneL: TDF_Label;
                 theCapping: bool) {.cdecl, importcpp: "SetCapping",
                                   header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc GetCapping*(this: XCAFDoc_ClippingPlaneTool; theClippingPlaneL: TDF_Label): bool {.
+proc getCapping*(this: XCAFDocClippingPlaneTool; theClippingPlaneL: TDF_Label): bool {.
     noSideEffect, cdecl, importcpp: "GetCapping",
     header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc GetCapping*(this: XCAFDoc_ClippingPlaneTool; theClippingPlaneL: TDF_Label;
+proc getCapping*(this: XCAFDocClippingPlaneTool; theClippingPlaneL: TDF_Label;
                 theCapping: var bool): bool {.noSideEffect, cdecl,
     importcpp: "GetCapping", header: "XCAFDoc_ClippingPlaneTool.hxx".}
-proc ID*(this: XCAFDoc_ClippingPlaneTool): Standard_GUID {.noSideEffect, cdecl,
+proc id*(this: XCAFDocClippingPlaneTool): StandardGUID {.noSideEffect, cdecl,
     importcpp: "ID", header: "XCAFDoc_ClippingPlaneTool.hxx".}
-## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( XCAFDoc_ClippingPlaneTool , TDataStd_GenericEmpty ) }
-## Error: token expected: ) but got: ,!!!
+

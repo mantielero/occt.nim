@@ -1,3 +1,8 @@
+import ../tcolstd/tcolstd_types
+import tdatastd_types
+
+
+
 ##  Created on: 2007-08-17
 ##  Created by: Sergey ZARITCHNY
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -16,9 +21,6 @@
 ## ! Extension of TColStd_DataMapOfStringInteger class
 ## ! to be manipulated by handle.
 
-type
-  TDataStdHDataMapOfStringInteger* {.importcpp: "TDataStd_HDataMapOfStringInteger", header: "TDataStd_HDataMapOfStringInteger.hxx",
-                                    bycopy.} = object of StandardTransient
 
 
 proc newTDataStdHDataMapOfStringInteger*(nbBuckets: cint = 1): TDataStdHDataMapOfStringInteger {.
@@ -32,5 +34,5 @@ proc map*(this: TDataStdHDataMapOfStringInteger): TColStdDataMapOfStringInteger 
     header: "TDataStd_HDataMapOfStringInteger.hxx".}
 proc changeMap*(this: var TDataStdHDataMapOfStringInteger): var TColStdDataMapOfStringInteger {.
     cdecl, importcpp: "ChangeMap", header: "TDataStd_HDataMapOfStringInteger.hxx".}
-type
-  HandleTDataStdHDataMapOfStringInteger* = Handle[TDataStdHDataMapOfStringInteger]
+
+

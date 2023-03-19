@@ -29,32 +29,32 @@ discard "forward decl of STEPCAFControl_ExternFile"
 proc newSTEPCAFControl_ExternFile*(): STEPCAFControl_ExternFile {.cdecl,
     constructor, importcpp: "STEPCAFControl_ExternFile(@)",
     header: "STEPCAFControl_ExternFile.hxx".}
-proc SetWS*(this: var STEPCAFControl_ExternFile; WS: Handle[XSControl_WorkSession]) {.
+proc setWS*(this: var STEPCAFControl_ExternFile; WS: Handle[XSControl_WorkSession]) {.
     cdecl, importcpp: "SetWS", header: "STEPCAFControl_ExternFile.hxx".}
-proc GetWS*(this: STEPCAFControl_ExternFile): Handle[XSControl_WorkSession] {.
+proc getWS*(this: STEPCAFControl_ExternFile): Handle[XSControl_WorkSession] {.
     noSideEffect, cdecl, importcpp: "GetWS", header: "STEPCAFControl_ExternFile.hxx".}
-proc SetLoadStatus*(this: var STEPCAFControl_ExternFile; stat: IFSelect_ReturnStatus) {.
+proc setLoadStatus*(this: var STEPCAFControl_ExternFile; stat: IFSelect_ReturnStatus) {.
     cdecl, importcpp: "SetLoadStatus", header: "STEPCAFControl_ExternFile.hxx".}
-proc GetLoadStatus*(this: STEPCAFControl_ExternFile): IFSelect_ReturnStatus {.
+proc getLoadStatus*(this: STEPCAFControl_ExternFile): IFSelect_ReturnStatus {.
     noSideEffect, cdecl, importcpp: "GetLoadStatus",
     header: "STEPCAFControl_ExternFile.hxx".}
-proc SetTransferStatus*(this: var STEPCAFControl_ExternFile; isok: bool) {.cdecl,
+proc setTransferStatus*(this: var STEPCAFControl_ExternFile; isok: bool) {.cdecl,
     importcpp: "SetTransferStatus", header: "STEPCAFControl_ExternFile.hxx".}
-proc GetTransferStatus*(this: STEPCAFControl_ExternFile): bool {.noSideEffect, cdecl,
+proc getTransferStatus*(this: STEPCAFControl_ExternFile): bool {.noSideEffect, cdecl,
     importcpp: "GetTransferStatus", header: "STEPCAFControl_ExternFile.hxx".}
-proc SetWriteStatus*(this: var STEPCAFControl_ExternFile;
+proc setWriteStatus*(this: var STEPCAFControl_ExternFile;
                     stat: IFSelect_ReturnStatus) {.cdecl,
     importcpp: "SetWriteStatus", header: "STEPCAFControl_ExternFile.hxx".}
-proc GetWriteStatus*(this: STEPCAFControl_ExternFile): IFSelect_ReturnStatus {.
+proc getWriteStatus*(this: STEPCAFControl_ExternFile): IFSelect_ReturnStatus {.
     noSideEffect, cdecl, importcpp: "GetWriteStatus",
     header: "STEPCAFControl_ExternFile.hxx".}
-proc SetName*(this: var STEPCAFControl_ExternFile;
+proc setName*(this: var STEPCAFControl_ExternFile;
              name: Handle[TCollection_HAsciiString]) {.cdecl, importcpp: "SetName",
     header: "STEPCAFControl_ExternFile.hxx".}
-proc GetName*(this: STEPCAFControl_ExternFile): Handle[TCollection_HAsciiString] {.
+proc getName*(this: STEPCAFControl_ExternFile): Handle[TCollection_HAsciiString] {.
     noSideEffect, cdecl, importcpp: "GetName",
     header: "STEPCAFControl_ExternFile.hxx".}
-proc SetLabel*(this: var STEPCAFControl_ExternFile; L: TDF_Label) {.cdecl,
+proc setLabel*(this: var STEPCAFControl_ExternFile; L: TDF_Label) {.cdecl,
     importcpp: "SetLabel", header: "STEPCAFControl_ExternFile.hxx".}
-proc GetLabel*(this: STEPCAFControl_ExternFile): TDF_Label {.noSideEffect, cdecl,
+proc getLabel*(this: STEPCAFControl_ExternFile): TDF_Label {.noSideEffect, cdecl,
     importcpp: "GetLabel", header: "STEPCAFControl_ExternFile.hxx".}

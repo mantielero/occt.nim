@@ -46,74 +46,74 @@ proc newSTEPCAFControl_Reader*(WS: Handle[XSControl_WorkSession];
     header: "STEPCAFControl_Reader.hxx".}
 proc destroySTEPCAFControl_Reader*(this: var STEPCAFControl_Reader) {.cdecl,
     importcpp: "#.~STEPCAFControl_Reader()", header: "STEPCAFControl_Reader.hxx".}
-proc Init*(this: var STEPCAFControl_Reader; WS: Handle[XSControl_WorkSession];
+proc init*(this: var STEPCAFControl_Reader; WS: Handle[XSControl_WorkSession];
           scratch: bool = true) {.cdecl, importcpp: "Init",
                               header: "STEPCAFControl_Reader.hxx".}
-proc ReadFile*(this: var STEPCAFControl_Reader; filename: cstring): IFSelect_ReturnStatus {.
+proc readFile*(this: var STEPCAFControl_Reader; filename: cstring): IFSelect_ReturnStatus {.
     cdecl, importcpp: "ReadFile", header: "STEPCAFControl_Reader.hxx".}
-proc NbRootsForTransfer*(this: var STEPCAFControl_Reader): cint {.cdecl,
+proc nbRootsForTransfer*(this: var STEPCAFControl_Reader): cint {.cdecl,
     importcpp: "NbRootsForTransfer", header: "STEPCAFControl_Reader.hxx".}
-proc TransferOneRoot*(this: var STEPCAFControl_Reader; num: cint;
+proc transferOneRoot*(this: var STEPCAFControl_Reader; num: cint;
                      doc: var Handle[TDocStd_Document]; theProgress: Message_ProgressRange = Message_ProgressRange()): bool {.
     cdecl, importcpp: "TransferOneRoot", header: "STEPCAFControl_Reader.hxx".}
-proc Transfer*(this: var STEPCAFControl_Reader; doc: var Handle[TDocStd_Document];
+proc transfer*(this: var STEPCAFControl_Reader; doc: var Handle[TDocStd_Document];
               theProgress: Message_ProgressRange = Message_ProgressRange()): bool {.
     cdecl, importcpp: "Transfer", header: "STEPCAFControl_Reader.hxx".}
-proc Perform*(this: var STEPCAFControl_Reader; filename: TCollection_AsciiString;
+proc perform*(this: var STEPCAFControl_Reader; filename: TCollection_AsciiString;
              doc: var Handle[TDocStd_Document];
              theProgress: Message_ProgressRange = Message_ProgressRange()): bool {.
     cdecl, importcpp: "Perform", header: "STEPCAFControl_Reader.hxx".}
-proc Perform*(this: var STEPCAFControl_Reader; filename: cstring;
+proc perform*(this: var STEPCAFControl_Reader; filename: cstring;
              doc: var Handle[TDocStd_Document];
              theProgress: Message_ProgressRange = Message_ProgressRange()): bool {.
     cdecl, importcpp: "Perform", header: "STEPCAFControl_Reader.hxx".}
-# proc ExternFiles*(this: STEPCAFControl_Reader): NCollection_DataMap[
+# proc externFiles*(this: STEPCAFControl_Reader): NCollection_DataMap[
 #     TCollection_AsciiString, Handle[STEPCAFControl_ExternFile]] {.noSideEffect,
 #     cdecl, importcpp: "ExternFiles", header: "STEPCAFControl_Reader.hxx".}
-proc ExternFile*(this: STEPCAFControl_Reader; name: cstring;
+proc externFile*(this: STEPCAFControl_Reader; name: cstring;
                 ef: var Handle[STEPCAFControl_ExternFile]): bool {.noSideEffect,
     cdecl, importcpp: "ExternFile", header: "STEPCAFControl_Reader.hxx".}
-proc ChangeReader*(this: var STEPCAFControl_Reader): var STEPControl_Reader {.cdecl,
+proc changeReader*(this: var STEPCAFControl_Reader): var STEPControl_Reader {.cdecl,
     importcpp: "ChangeReader", header: "STEPCAFControl_Reader.hxx".}
-proc Reader*(this: STEPCAFControl_Reader): STEPControl_Reader {.noSideEffect, cdecl,
+proc reader*(this: STEPCAFControl_Reader): STEPControl_Reader {.noSideEffect, cdecl,
     importcpp: "Reader", header: "STEPCAFControl_Reader.hxx".}
-proc FindInstance*(NAUO: Handle[StepRepr_NextAssemblyUsageOccurrence];
+proc findInstance*(NAUO: Handle[StepRepr_NextAssemblyUsageOccurrence];
                   STool: Handle[XCAFDoc_ShapeTool]; Tool: STEPConstruct_Tool;
                   ShapeLabelMap: XCAFDoc_DataMapOfShapeLabel): TDF_Label {.cdecl,
     importcpp: "STEPCAFControl_Reader::FindInstance(@)",
     header: "STEPCAFControl_Reader.hxx".}
-proc SetColorMode*(this: var STEPCAFControl_Reader; colormode: bool) {.cdecl,
+proc setColorMode*(this: var STEPCAFControl_Reader; colormode: bool) {.cdecl,
     importcpp: "SetColorMode", header: "STEPCAFControl_Reader.hxx".}
-proc GetColorMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
+proc getColorMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
     importcpp: "GetColorMode", header: "STEPCAFControl_Reader.hxx".}
-proc SetNameMode*(this: var STEPCAFControl_Reader; namemode: bool) {.cdecl,
+proc setNameMode*(this: var STEPCAFControl_Reader; namemode: bool) {.cdecl,
     importcpp: "SetNameMode", header: "STEPCAFControl_Reader.hxx".}
-proc GetNameMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
+proc getNameMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
     importcpp: "GetNameMode", header: "STEPCAFControl_Reader.hxx".}
-proc SetLayerMode*(this: var STEPCAFControl_Reader; layermode: bool) {.cdecl,
+proc setLayerMode*(this: var STEPCAFControl_Reader; layermode: bool) {.cdecl,
     importcpp: "SetLayerMode", header: "STEPCAFControl_Reader.hxx".}
-proc GetLayerMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
+proc getLayerMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
     importcpp: "GetLayerMode", header: "STEPCAFControl_Reader.hxx".}
-proc SetPropsMode*(this: var STEPCAFControl_Reader; propsmode: bool) {.cdecl,
+proc setPropsMode*(this: var STEPCAFControl_Reader; propsmode: bool) {.cdecl,
     importcpp: "SetPropsMode", header: "STEPCAFControl_Reader.hxx".}
-proc GetPropsMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
+proc getPropsMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
     importcpp: "GetPropsMode", header: "STEPCAFControl_Reader.hxx".}
-proc SetSHUOMode*(this: var STEPCAFControl_Reader; shuomode: bool) {.cdecl,
+proc setSHUOMode*(this: var STEPCAFControl_Reader; shuomode: bool) {.cdecl,
     importcpp: "SetSHUOMode", header: "STEPCAFControl_Reader.hxx".}
-proc GetSHUOMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
+proc getSHUOMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
     importcpp: "GetSHUOMode", header: "STEPCAFControl_Reader.hxx".}
-proc SetGDTMode*(this: var STEPCAFControl_Reader; gdtmode: bool) {.cdecl,
+proc setGDTMode*(this: var STEPCAFControl_Reader; gdtmode: bool) {.cdecl,
     importcpp: "SetGDTMode", header: "STEPCAFControl_Reader.hxx".}
-proc GetGDTMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
+proc getGDTMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
     importcpp: "GetGDTMode", header: "STEPCAFControl_Reader.hxx".}
-proc SetMatMode*(this: var STEPCAFControl_Reader; matmode: bool) {.cdecl,
+proc setMatMode*(this: var STEPCAFControl_Reader; matmode: bool) {.cdecl,
     importcpp: "SetMatMode", header: "STEPCAFControl_Reader.hxx".}
-proc GetMatMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
+proc getMatMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
     importcpp: "GetMatMode", header: "STEPCAFControl_Reader.hxx".}
-proc SetViewMode*(this: var STEPCAFControl_Reader; viewmode: bool) {.cdecl,
+proc setViewMode*(this: var STEPCAFControl_Reader; viewmode: bool) {.cdecl,
     importcpp: "SetViewMode", header: "STEPCAFControl_Reader.hxx".}
-proc GetViewMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
+proc getViewMode*(this: STEPCAFControl_Reader): bool {.noSideEffect, cdecl,
     importcpp: "GetViewMode", header: "STEPCAFControl_Reader.hxx".}
-proc GetShapeLabelMap*(this: STEPCAFControl_Reader): XCAFDoc_DataMapOfShapeLabel {.
+proc getShapeLabelMap*(this: STEPCAFControl_Reader): XCAFDoc_DataMapOfShapeLabel {.
     noSideEffect, cdecl, importcpp: "GetShapeLabelMap",
     header: "STEPCAFControl_Reader.hxx".}

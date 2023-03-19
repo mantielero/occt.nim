@@ -34,72 +34,72 @@ proc newSTEPCAFControl_Writer*(WS: Handle[XSControl_WorkSession];
                               scratch: bool = true): STEPCAFControl_Writer {.cdecl,
     constructor, importcpp: "STEPCAFControl_Writer(@)",
     header: "STEPCAFControl_Writer.hxx".}
-proc Init*(this: var STEPCAFControl_Writer; WS: Handle[XSControl_WorkSession];
+proc init*(this: var STEPCAFControl_Writer; WS: Handle[XSControl_WorkSession];
           scratch: bool = true) {.cdecl, importcpp: "Init",
                               header: "STEPCAFControl_Writer.hxx".}
-proc Write*(this: var STEPCAFControl_Writer; filename: cstring): IFSelect_ReturnStatus {.
+proc write*(this: var STEPCAFControl_Writer; filename: cstring): IFSelect_ReturnStatus {.
     cdecl, importcpp: "Write", header: "STEPCAFControl_Writer.hxx".}
-proc Transfer*(this: var STEPCAFControl_Writer; doc: Handle[TDocStd_Document];
+proc transfer*(this: var STEPCAFControl_Writer; doc: Handle[TDocStd_Document];
               mode: STEPControl_StepModelType = STEPControl_AsIs;
               multi: cstring = "0";
               theProgress: Message_ProgressRange = Message_ProgressRange()): bool {.
     cdecl, importcpp: "Transfer", header: "STEPCAFControl_Writer.hxx".}
-proc Transfer*(this: var STEPCAFControl_Writer; L: TDF_Label;
+proc transfer*(this: var STEPCAFControl_Writer; L: TDF_Label;
               mode: STEPControl_StepModelType = STEPControl_AsIs;
               multi: cstring = "0";
               theProgress: Message_ProgressRange = Message_ProgressRange()): bool {.
     cdecl, importcpp: "Transfer", header: "STEPCAFControl_Writer.hxx".}
-proc Transfer*(this: var STEPCAFControl_Writer; L: TDF_LabelSequence;
+proc transfer*(this: var STEPCAFControl_Writer; L: TDF_LabelSequence;
               mode: STEPControl_StepModelType = STEPControl_AsIs;
               multi: cstring = "0";
               theProgress: Message_ProgressRange = Message_ProgressRange()): bool {.
     cdecl, importcpp: "Transfer", header: "STEPCAFControl_Writer.hxx".}
-proc Perform*(this: var STEPCAFControl_Writer; doc: Handle[TDocStd_Document];
+proc perform*(this: var STEPCAFControl_Writer; doc: Handle[TDocStd_Document];
              filename: TCollection_AsciiString;
              theProgress: Message_ProgressRange = Message_ProgressRange()): bool {.
     cdecl, importcpp: "Perform", header: "STEPCAFControl_Writer.hxx".}
-proc Perform*(this: var STEPCAFControl_Writer; doc: Handle[TDocStd_Document];
+proc perform*(this: var STEPCAFControl_Writer; doc: Handle[TDocStd_Document];
              filename: cstring;
              theProgress: Message_ProgressRange = Message_ProgressRange()): bool {.
     cdecl, importcpp: "Perform", header: "STEPCAFControl_Writer.hxx".}
-# proc ExternFiles*(this: STEPCAFControl_Writer): NCollection_DataMap[
+# proc externFiles*(this: STEPCAFControl_Writer): NCollection_DataMap[
 #     TCollection_AsciiString, Handle[STEPCAFControl_ExternFile]] {.noSideEffect,
 #     cdecl, importcpp: "ExternFiles", header: "STEPCAFControl_Writer.hxx".}
-proc ExternFile*(this: STEPCAFControl_Writer; L: TDF_Label;
+proc externFile*(this: STEPCAFControl_Writer; L: TDF_Label;
                 ef: var Handle[STEPCAFControl_ExternFile]): bool {.noSideEffect,
     cdecl, importcpp: "ExternFile", header: "STEPCAFControl_Writer.hxx".}
-proc ExternFile*(this: STEPCAFControl_Writer; name: cstring;
+proc externFile*(this: STEPCAFControl_Writer; name: cstring;
                 ef: var Handle[STEPCAFControl_ExternFile]): bool {.noSideEffect,
     cdecl, importcpp: "ExternFile", header: "STEPCAFControl_Writer.hxx".}
-proc ChangeWriter*(this: var STEPCAFControl_Writer): var STEPControl_Writer {.cdecl,
+proc changeWriter*(this: var STEPCAFControl_Writer): var STEPControl_Writer {.cdecl,
     importcpp: "ChangeWriter", header: "STEPCAFControl_Writer.hxx".}
-proc Writer*(this: STEPCAFControl_Writer): STEPControl_Writer {.noSideEffect, cdecl,
+proc writer*(this: STEPCAFControl_Writer): STEPControl_Writer {.noSideEffect, cdecl,
     importcpp: "Writer", header: "STEPCAFControl_Writer.hxx".}
-proc SetColorMode*(this: var STEPCAFControl_Writer; colormode: bool) {.cdecl,
+proc setColorMode*(this: var STEPCAFControl_Writer; colormode: bool) {.cdecl,
     importcpp: "SetColorMode", header: "STEPCAFControl_Writer.hxx".}
-proc GetColorMode*(this: STEPCAFControl_Writer): bool {.noSideEffect, cdecl,
+proc getColorMode*(this: STEPCAFControl_Writer): bool {.noSideEffect, cdecl,
     importcpp: "GetColorMode", header: "STEPCAFControl_Writer.hxx".}
-proc SetNameMode*(this: var STEPCAFControl_Writer; namemode: bool) {.cdecl,
+proc setNameMode*(this: var STEPCAFControl_Writer; namemode: bool) {.cdecl,
     importcpp: "SetNameMode", header: "STEPCAFControl_Writer.hxx".}
-proc GetNameMode*(this: STEPCAFControl_Writer): bool {.noSideEffect, cdecl,
+proc getNameMode*(this: STEPCAFControl_Writer): bool {.noSideEffect, cdecl,
     importcpp: "GetNameMode", header: "STEPCAFControl_Writer.hxx".}
-proc SetLayerMode*(this: var STEPCAFControl_Writer; layermode: bool) {.cdecl,
+proc setLayerMode*(this: var STEPCAFControl_Writer; layermode: bool) {.cdecl,
     importcpp: "SetLayerMode", header: "STEPCAFControl_Writer.hxx".}
-proc GetLayerMode*(this: STEPCAFControl_Writer): bool {.noSideEffect, cdecl,
+proc getLayerMode*(this: STEPCAFControl_Writer): bool {.noSideEffect, cdecl,
     importcpp: "GetLayerMode", header: "STEPCAFControl_Writer.hxx".}
-proc SetPropsMode*(this: var STEPCAFControl_Writer; propsmode: bool) {.cdecl,
+proc setPropsMode*(this: var STEPCAFControl_Writer; propsmode: bool) {.cdecl,
     importcpp: "SetPropsMode", header: "STEPCAFControl_Writer.hxx".}
-proc GetPropsMode*(this: STEPCAFControl_Writer): bool {.noSideEffect, cdecl,
+proc getPropsMode*(this: STEPCAFControl_Writer): bool {.noSideEffect, cdecl,
     importcpp: "GetPropsMode", header: "STEPCAFControl_Writer.hxx".}
-proc SetSHUOMode*(this: var STEPCAFControl_Writer; shuomode: bool) {.cdecl,
+proc setSHUOMode*(this: var STEPCAFControl_Writer; shuomode: bool) {.cdecl,
     importcpp: "SetSHUOMode", header: "STEPCAFControl_Writer.hxx".}
-proc GetSHUOMode*(this: STEPCAFControl_Writer): bool {.noSideEffect, cdecl,
+proc getSHUOMode*(this: STEPCAFControl_Writer): bool {.noSideEffect, cdecl,
     importcpp: "GetSHUOMode", header: "STEPCAFControl_Writer.hxx".}
-proc SetDimTolMode*(this: var STEPCAFControl_Writer; dimtolmode: bool) {.cdecl,
+proc setDimTolMode*(this: var STEPCAFControl_Writer; dimtolmode: bool) {.cdecl,
     importcpp: "SetDimTolMode", header: "STEPCAFControl_Writer.hxx".}
-proc GetDimTolMode*(this: STEPCAFControl_Writer): bool {.noSideEffect, cdecl,
+proc getDimTolMode*(this: STEPCAFControl_Writer): bool {.noSideEffect, cdecl,
     importcpp: "GetDimTolMode", header: "STEPCAFControl_Writer.hxx".}
-proc SetMaterialMode*(this: var STEPCAFControl_Writer; matmode: bool) {.cdecl,
+proc setMaterialMode*(this: var STEPCAFControl_Writer; matmode: bool) {.cdecl,
     importcpp: "SetMaterialMode", header: "STEPCAFControl_Writer.hxx".}
-proc GetMaterialMode*(this: STEPCAFControl_Writer): bool {.noSideEffect, cdecl,
+proc getMaterialMode*(this: STEPCAFControl_Writer): bool {.noSideEffect, cdecl,
     importcpp: "GetMaterialMode", header: "STEPCAFControl_Writer.hxx".}

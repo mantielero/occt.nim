@@ -20,5 +20,5 @@ discard "forward decl of STEPCAFControl_Controller"
 proc newSTEPCAFControl_Controller*(): STEPCAFControl_Controller {.cdecl,
     constructor, importcpp: "STEPCAFControl_Controller(@)",
     header: "STEPCAFControl_Controller.hxx".}
-proc Init*(): bool {.cdecl, importcpp: "STEPCAFControl_Controller::Init(@)",
+proc init*(): bool {.cdecl, importcpp: "STEPCAFControl_Controller::Init(@)",
                   header: "STEPCAFControl_Controller.hxx".}

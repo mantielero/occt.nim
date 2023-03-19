@@ -21,12 +21,12 @@ discard "forward decl of STEPCAFControl_ActorWrite"
 proc newSTEPCAFControl_ActorWrite*(): STEPCAFControl_ActorWrite {.cdecl,
     constructor, importcpp: "STEPCAFControl_ActorWrite(@)",
     header: "STEPCAFControl_ActorWrite.hxx".}
-proc IsAssembly*(this: STEPCAFControl_ActorWrite; S: var TopoDS_Shape): bool {.
+proc isAssembly*(this: STEPCAFControl_ActorWrite; S: var TopoDS_Shape): bool {.
     noSideEffect, cdecl, importcpp: "IsAssembly",
     header: "STEPCAFControl_ActorWrite.hxx".}
-proc SetStdMode*(this: var STEPCAFControl_ActorWrite; stdmode: bool = true) {.cdecl,
+proc setStdMode*(this: var STEPCAFControl_ActorWrite; stdmode: bool = true) {.cdecl,
     importcpp: "SetStdMode", header: "STEPCAFControl_ActorWrite.hxx".}
-proc ClearMap*(this: var STEPCAFControl_ActorWrite) {.cdecl, importcpp: "ClearMap",
+proc clearMap*(this: var STEPCAFControl_ActorWrite) {.cdecl, importcpp: "ClearMap",
     header: "STEPCAFControl_ActorWrite.hxx".}
-proc RegisterAssembly*(this: var STEPCAFControl_ActorWrite; S: TopoDS_Shape) {.cdecl,
+proc registerAssembly*(this: var STEPCAFControl_ActorWrite; S: TopoDS_Shape) {.cdecl,
     importcpp: "RegisterAssembly", header: "STEPCAFControl_ActorWrite.hxx".}

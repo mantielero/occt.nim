@@ -54,6 +54,12 @@ export topo2d
 
 import lib/geom2d/[api2d]
 export api2d
+
+
+import lib/utils/[surface]
+export surface
+
+
 #proc `$`*(pnt:gp_Pnt):string =
 #  &"Pnt(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 

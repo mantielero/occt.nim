@@ -1,3 +1,13 @@
+#[
+It looks like this won't be implemented while the following RFC is not implemented:
+
+  https://github.com/nim-lang/RFCs/issues/174
+
+  https://forum.nim-lang.org/t/10026
+
+https://github.com/gkv311/occt-hello/issues/3
+]#
+
 import occt
 #import x11/xlib
 import x11/[x, xutil]
@@ -28,22 +38,82 @@ proc view(this:OcctAisHello):Handle[V3d_View] =
 
 # Handle expose event
 # https://dev.opencascade.org/doc/refman/html/class_a_i_s___view_controller.html#a4265b9ecc5d7fda71c7b883ec03fd636
-method processExpose(this:var OcctAisHello) {.exportc.} = 
-  if not this.myView.isNull:
-    this.flushViewEvents( this.myContext, this.myView, true )
+# method processExpose(this:var OcctAisHello) {.exportc.} = 
+#   if not this.myView.isNull:
+#     this.flushViewEvents( this.myContext, this.myView, true )
+
+
+#[
+Lo que debería aparecer dentro de la clase:
+
+virtual void ProcessExpose() override
+
+]#
+
+#https://forum.nim-lang.org/t/9089
+proc processExpose() {.exportcpp:"AIS_ViewController::ProcessExpose",
+      codegenDecl: """
+#ifdef ProcessExpose_SHOULD_BE_DEFINED
+  $1 $2 $3
+#else
+  #define ProcessExpose_SHOULD_BE_DEFINED
+#endif
+""".} = 
+  var this {.nodecl, importc, global.}: ptr OcctAisHello
+  #return (this[]).a
+  if not (this[]).myView.isNull:
+    (this[]).flushViewEvents( (this[]).myContext, (this[]).myView, true )
+
+proc processExpose(self: OcctAisHello) {.importcpp: "#.$1(@)", nodecl.}
 
 # Handle window resize event.
-method processConfigure(this:var OcctAisHello; theIsResized:bool) {.exportc.} = 
-  if not this.myView.isNull and theIsResized:
-    discard doResize(*(window(*(this.myView))))
-    mustBeResized( *(this.myView) )
-    invalidate( *(this.myView) )
-    this.flushViewEvents( this.myContext, this.myView, true )
+# method processConfigure(this:var OcctAisHello; theIsResized:bool) {.exportc.} = 
+#   if not this.myView.isNull and theIsResized:
+#     discard doResize(*(window(*(this.myView))))
+#     mustBeResized( *(this.myView) )
+#     invalidate( *(this.myView) )
+#     this.flushViewEvents( this.myContext, this.myView, true )
+
+proc processConfigure(
+      theIsResized:bool) {.exportcpp:"AIS_ViewController::ProcessConfigure",
+     codegenDecl: """
+#ifdef ProcessConfigure_SHOULD_BE_DEFINED
+  $1 $2 $3
+#else
+  #define ProcessConfigure_SHOULD_BE_DEFINED
+#endif
+""".} = 
+  var this {.nodecl, importc, global.}: ptr OcctAisHello
+  if not (this[]).myView.isNull and theIsResized:
+    discard doResize(*(window(*((this[]).myView))))
+    mustBeResized( *((this[]).myView) )
+    invalidate( *((this[]).myView) )
+    (this[]).flushViewEvents( (this[]).myContext, (this[]).myView, true )
+
+
+proc processConfigure(self: OcctAisHello; theIsResized:bool) {.importcpp: "#.$1(@)", nodecl.}
+
 
 # Handle input.
-method processInput(this:var OcctAisHello) {.exportc.} =
-  if not this.myView.isNull:
-    this.processExpose()
+# method processInput(this:var OcctAisHello) {.exportc.} =
+#   if not this.myView.isNull:
+#     this.processExpose()
+
+
+proc processInput() {.exportcpp:"AIS_ViewController::ProcessInput",
+     codegenDecl: """
+#ifdef ProcessInput_SHOULD_BE_DEFINED
+  $1 $2 $3
+#else
+  #define ProcessInput_SHOULD_BE_DEFINED
+#endif
+"""
+.} =
+  var this {.nodecl, importc, global.}: ptr OcctAisHello
+  if not (this[]).myView.isNull:
+    (this[]).processExpose()
+
+proc processInput(self: OcctAisHello) {.importcpp: "#.$1(@)", nodecl.}
 
 
 # --------------------------------------
@@ -139,3 +209,21 @@ proc main =
     #  return 0 #; // exit when window is closed
 
 main()
+
+
+#[ https://github.com/gkv311/occt-hello/issues/3
+Don't know what is actually wrong, but I see two potential issues with Nim code:
+
+XSelectInput is not called from original C++ sample. It is required to
+activate mouse/keyboard/resize window events to be actually
+received by X11 event loop.
+
+Methods OcctAisHello::ProcessExpose(), ::ProcessConfigure() and
+::ProcessInput() in C++ sample override implementation of the base
+class AIS_ViewController, and this is really important for sample
+to work as expected. I have some doubts that OcctAisHello type 
+definition in your Nim code with it's methods declaration like 
+processExpose() in actually defines a true C++ subclass with 
+corresponding overridden methods (and not duplicates or 
+redeclarations). But I'm not familiar with Nim.
+]#

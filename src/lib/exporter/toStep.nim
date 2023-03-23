@@ -10,12 +10,30 @@ import ../../wrapper/xcafdoc/xcafdoc_includes
 import ../../wrapper/tdf/tdf_types
 import ../../wrapper/tcollection/tcollection_includes
 import ../../wrapper/quantity/quantity_includes
+import ../../wrapper/message/message_includes
+import ../../wrapper/ncollection/ncollection_package
+import ../../wrapper/graphic3d/graphic3d_includes
 
 type
   T = TopoDS_Shape | TopoDS_Solid | TopoDS_Wire | AIS_Shape 
 
+iterator items*[T](objs: NCollection_Sequence[T]): T =
+  var iter = newNCollectionSequenceIterator[T](objs)
+  while iter.more():
+    yield iter.value
+    iter.next()  
+
+proc setPrintersToFail() =
+  var messenger = defaultMessenger()
+  var printers = `*`(messenger).printers()
+  for printer in printers.items:
+    `*`(printer).setTraceLevel(MessageFail)
+
 # Based on: https://github.com/ulikoehler/OCCUtils/blob/master/src/STEPExport.cxx
 proc toStep*( solid: T; fname:string; unit: string = "MM") =
+  # Disables the green message from STEP in the console
+  setPrintersToFail()
+
   # if shape.isNull:
   #   raise newException( ValueError, "can't export null shape to STEP")
 
@@ -45,6 +63,9 @@ proc newTDocStdApplicationRef*(): Handle[TDocStdApplication] {.cdecl, constructo
 
 
 proc toStep*(doc:Handle[TDocStd_Document]; filename:string) =
+  # Disables the green message from STEP in the console
+  setPrintersToFail()
+
   var writer:STEPCAFControl_Writer 
   writer.setMaterialMode(true)
   writer.setDimTolMode(true)
@@ -64,6 +85,7 @@ type
     colorTool*:  Handle[XCAFDocColorTool]
     layerTool*:  Handle[XCAFDocLayerTool]
     dimTolTool*: Handle[XCAFDocDimTolTool]
+    materialTool*: Handle[XCAFDocMaterialTool]
     shapeLabels*: seq[TDF_Label]
 
 
@@ -83,6 +105,7 @@ proc newDocument*(): XdeApp =
   result.colorTool  = colorTool( `*`(result.doc).main ) 
   result.layerTool  = layerTool( `*`(result.doc).main )
   result.dimTolTool = dimTolTool( `*`(result.doc).main )
+  result.materialTool = materialTool(`*`(result.doc).main )
 
 proc addShape*(app:var XdeApp; shape: TopoDS_Shape; color: QuantityColor) =
   var shapeLabel = `*`(app.shapeTool).newShape()
@@ -94,4 +117,13 @@ proc addShape*(app:var XdeApp; shape: TopoDS_Shape; color: QuantityColor) =
   if not status:
     raise newException(ValueError, "failed while setting the color of a shape")
   
+# proc addShape*( app:var XdeApp; shape: TopoDS_Shape; 
+#                 material: Handle[Graphic3dMaterialAspect]) =
+#   var shapeLabel = `*`(app.shapeTool).newShape()
+#   app.shapeLabels &= shapeLabel
+#   `*`(app.shapeTool).setShape(shapeLabel, shape )
 
+#   # XCAFDocColorGen, XCAFDocColorSurf, XCAFDocColorCurv
+#   var status = `*`(app.materialTool).setMaterial( shape, material) #, XCAFDocColorGen )  
+#   if not status:
+#     raise newException(ValueError, "failed while setting the color of a shape")

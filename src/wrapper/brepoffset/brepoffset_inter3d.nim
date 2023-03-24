@@ -1,5 +1,5 @@
 import brepoffset_types
-import ../standard/standard_types
+#import ../standard/standard_types
 import ../topods/topods_types
 import ../toptools/toptools_types
 import ../message/message_types

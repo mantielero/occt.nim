@@ -1,5 +1,5 @@
 import osd_types
-import ../selectmgr/selectmgr_types
+#import ../selectmgr/selectmgr_types
 import ../tcollection/tcollection_types
 
 

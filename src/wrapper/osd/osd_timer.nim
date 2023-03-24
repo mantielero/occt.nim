@@ -1,6 +1,6 @@
 import osd_types
 import ../standard/standard_types
-import ../selectmgr/selectmgr_types
+#import ../selectmgr/selectmgr_types
 
 
 

@@ -1,7 +1,7 @@
 import ../tcollection/tcollection_types
 import ../standard/standard_types
 import graphic3d_types
-import ../selectmgr/selectmgr_types
+#import ../selectmgr/selectmgr_types
 import ../osd/osd_types
 
 

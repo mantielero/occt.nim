@@ -1,4 +1,4 @@
-import toploc_types
+#import toploc_types
 
 ##  Created on: 1990-12-19
 ##  Created by: Christophe MARION

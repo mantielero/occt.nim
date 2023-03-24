@@ -1,4 +1,4 @@
-import ../brep/brep_types
+#import ../brep/brep_types
 import ../brepbuilderapi/brepbuilderapi_types
 type
   BRepFilletAPI_LocalOperation* {.importcpp: "BRepFilletAPI_LocalOperation",

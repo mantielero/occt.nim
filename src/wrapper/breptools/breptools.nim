@@ -2,7 +2,7 @@ import breptools_types
 import ../topods/topods_types
 import ../bnd/bnd_types
 import ../standard/standard_types
-import ../toptools/toptools_types
+#import ../toptools/toptools_types
 import ../message/message_types
 import ../toptools/toptools_types
 import ../brep/brep_types

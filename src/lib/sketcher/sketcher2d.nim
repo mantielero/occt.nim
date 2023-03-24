@@ -6,17 +6,17 @@ OpenCascade provides:
 Some inspiration:
 https://github.com/sgenoud/replicad/blob/d1feafcca65ad45475855fe492b6ec2a6527d421/packages/replicad/src/Sketcher2d.ts
 ]#
-import std/sequtils
+#import std/sequtils
 import ../../wrapper/occt_wrapper
 import ../topology/wire
 import ../explorer/explorer
-import ../exporter/toStep
-import ../tkoffset/tkoffset
+#import ../exporter/toStep
+#import ../tkoffset/tkoffset
 import common
 import ../geom2d/geom2d
 
-type
-  GeometryRef = Handle[Geom2d_CartesianPoint] | Handle[Geom2dTrimmedCurve]
+# type
+#   GeometryRef = Handle[Geom2d_CartesianPoint] | Handle[Geom2dTrimmedCurve]
 
 
 # ---------------------------------------------------------

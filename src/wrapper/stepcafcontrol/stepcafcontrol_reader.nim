@@ -4,7 +4,7 @@ import ../stepcontrol/stepcontrol_types
 import ../ifselect/ifselect_types
 import ../message/message_types
 import ../tcollection/tcollection_types
-import ../ncollection/ncollection_types
+#import ../ncollection/ncollection_types
 import ../tdf/tdf_types
 import ../xcafdoc/xcafdoc_types
 import ../tdocstd/tdocstd_types

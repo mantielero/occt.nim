@@ -1,4 +1,4 @@
-import brepextrema_types
+#import brepextrema_types
 import ../topods/topods_types
 import ../gp/gp_types
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS

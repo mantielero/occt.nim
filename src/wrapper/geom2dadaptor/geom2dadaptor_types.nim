@@ -1,6 +1,6 @@
 import ../adaptor2d/adaptor2d_types
-import ../geom2d/geom2d_types
-import ../geom/geom_types
+# import ../geom2d/geom2d_types
+# import ../geom/geom_types
 import ../standard/standard_types
 type
   Geom2dAdaptor* {.importcpp: "Geom2dAdaptor", header: "Geom2dAdaptor.hxx", bycopy.} = object 

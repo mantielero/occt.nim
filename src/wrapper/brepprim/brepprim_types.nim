@@ -1,4 +1,4 @@
-import ../brep/brep_types
+#import ../brep/brep_types
 type
   BRepSweepPrism* = object # FIXME
    

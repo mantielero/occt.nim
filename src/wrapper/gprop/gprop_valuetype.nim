@@ -1,4 +1,4 @@
-import gprop_types
+#import gprop_types
 
 ##  Created on: 1991-03-12
 ##  Created by: Michel CHAUVAT

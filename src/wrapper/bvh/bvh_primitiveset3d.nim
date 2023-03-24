@@ -1,4 +1,4 @@
-import bvh_types
+#import bvh_types
 
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##

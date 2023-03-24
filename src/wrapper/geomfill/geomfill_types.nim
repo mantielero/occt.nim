@@ -3,7 +3,7 @@ import ../approx/approx_types
 import ../adaptor3d/adaptor3d_types
 import ../math/math_types
 import ../ncollection/ncollection_types
-import ../geom/geom_types
+#import ../geom/geom_types
 import ../standard/standard_types
 import ../gp/gp_types
 

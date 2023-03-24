@@ -1,4 +1,4 @@
-import precision_types
+#import precision_types
 
 ##  Created on: 1993-02-17
 ##  Created by: Remi LEQUETTE

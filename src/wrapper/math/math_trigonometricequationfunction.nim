@@ -1,5 +1,5 @@
 import math_types
-import ../standard/standard_types    
+#import ../standard/standard_types    
 ##  Created on: 1991-05-13
 ##  Created by: Laurent Painnot
 ##  Copyright (c) 1991-1999 Matra Datavision

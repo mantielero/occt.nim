@@ -1,6 +1,6 @@
 import bvh_types
 import ../standard/standard_types
-import ../ncollection/ncollection_types
+#import ../ncollection/ncollection_types
 ##  Created on: 2013-12-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS

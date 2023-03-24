@@ -1,4 +1,4 @@
-import ../../wrapper/gce2d/gce2d_types
+#import ../../wrapper/gce2d/gce2d_types
 import ../../wrapper/standard/standard_types
 import ../../wrapper/geom2d/geom2d_includes
 import ../../wrapper/geom/geom_includes

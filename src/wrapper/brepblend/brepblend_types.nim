@@ -1,7 +1,7 @@
 import ../appblend/appblend_types
 import ../blend/blend_types
 import ../approx/approx_types
-import ../brep/brep_types
+#import ../brep/brep_types
 import ../blendfunc/blendfunc_types
 import ../ncollection/ncollection_types
 import ../standard/standard_types

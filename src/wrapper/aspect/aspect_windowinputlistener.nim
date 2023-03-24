@@ -1,5 +1,5 @@
 import aspect_types
-import ../standard/standard_types
+#import ../standard/standard_types
 import ../ncollection/ncollection_types
 import ../graphic3d/graphic3d_types
 import ../selectmgr/selectmgr_types

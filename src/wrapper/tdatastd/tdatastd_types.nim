@@ -4,12 +4,12 @@ import ../tcollection/tcollection_types
 import ../tcolstd/tcolstd_types
 import ../tdf/tdf_types
 
-type
-  #TDF_Attribute* = object of RootObj# FIXME
-  #TDF_DeltaOnModification* = object of RootObj# FIXME
-  #TDF_Label* = object # FIXME
-  #TDF_IDList* = object # FIXEME
-  Iterator[A,B] = object # FIXME
+# type
+#   #TDF_Attribute* = object of RootObj# FIXME
+#   #TDF_DeltaOnModification* = object of RootObj# FIXME
+#   #TDF_Label* = object # FIXME
+#   #TDF_IDList* = object # FIXEME
+#   Iterator[A,B] = object # FIXME
 
 type
   TDataStd* {.importcpp: "TDataStd", header: "TDataStd.hxx", bycopy.} = object 

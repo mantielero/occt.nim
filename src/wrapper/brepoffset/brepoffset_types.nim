@@ -3,7 +3,7 @@ import ../topods/topods_types
 import ../toptools/toptools_types
 import ../standard/standard_types
 import ../brepbuilderapi/brepbuilderapi_types
-import ../brepprim/brepprim_types
+#import ../brepprim/brepprim_types
 import ../brepprimapi/brepprimapi_types
 import ../tcolstd/tcolstd_types
 

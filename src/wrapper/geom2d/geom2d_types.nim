@@ -1,4 +1,4 @@
-import ../geom/geom_types
+# import ../geom/geom_types
 import ../standard/standard_types
 
 type

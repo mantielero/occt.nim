@@ -1,7 +1,7 @@
 {.experimental: "callOperator".}
 
 import bvh_types
-import ../standard/standard_types
+#import ../standard/standard_types
  
 
 ##  Created on: 2014-09-11

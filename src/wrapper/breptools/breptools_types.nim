@@ -2,7 +2,7 @@ import ../standard/standard_types
 import ../ncollection/ncollection_types
 import ../topods/topods_types
 import ../toptools/toptools_types
-import ../gp/gp_types
+#import ../gp/gp_types
 #import tcolgp/tcolgp_types
 
 ## ! Defines geometric modifications to a shape, i.e.

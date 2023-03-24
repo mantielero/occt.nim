@@ -1,4 +1,4 @@
-import ../selectmgr/selectmgr_types
+#import ../selectmgr/selectmgr_types
 import ../tcollection/tcollection_types
 import osd_types
 import ../quantity/quantity_types

@@ -1,4 +1,4 @@
-import elclib_types
+#import elclib_types
 import ../gp/gp_types
 ##  Created on: 1991-09-10
 ##  Created by: Michel Chauvat

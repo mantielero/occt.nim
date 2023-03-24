@@ -1,4 +1,4 @@
-import ../brep/brep_types
+#import ../brep/brep_types
 import ../bnd/bnd_types
 import ../gp/gp_types
 import ../ncollection/ncollection_types

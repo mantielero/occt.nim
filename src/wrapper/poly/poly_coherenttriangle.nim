@@ -1,7 +1,7 @@
 import poly_types
-import ../standard/standard_types
-import ../gp/gp_types
-import ../ncollection/ncollection_types
+# import ../standard/standard_types
+# import ../gp/gp_types
+# import ../ncollection/ncollection_types
 
 ##  Created on: 2007-11-24
 ##  Created by: Alexander GRIGORIEV

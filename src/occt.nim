@@ -18,8 +18,8 @@ export primitives
 import lib/exporter/[toStep]
 export toStep
 
-import lib/foundation/[iter, types]
-export iter, types
+import lib/foundation/[iter, ncollection, types]
+export iter, ncollection, types
 
 import lib/gc/[gc]
 export gc
@@ -40,8 +40,8 @@ export cartesian_point, geom
 import lib/geom2d/[geom2d, gce2d]
 export geom2d, gce2d
 
-import lib/topology/[edge, wire, compound]
-export edge, wire, compound
+import lib/topology/[edge, wire, compound, shape]
+export edge, wire, compound, shape
 
 
 
@@ -56,8 +56,8 @@ import lib/geom2d/[api2d]
 export api2d
 
 
-import lib/utils/[surface]
-export surface
+import lib/utils/[surface, shape]
+export shape, surface
 
 
 #proc `$`*(pnt:gp_Pnt):string =

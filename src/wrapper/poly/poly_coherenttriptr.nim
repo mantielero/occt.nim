@@ -1,6 +1,6 @@
 import poly_types
 import ../standard/standard_types
-import ../gp/gp_types
+#import ../gp/gp_types
 import ../ncollection/ncollection_types
 
 ##  Created on: 2007-12-08

@@ -1,6 +1,6 @@
 {.experimental: "callOperator".}
 import bvh_types
-import ../standard/standard_types
+#import ../standard/standard_types
 import ../ncollection/ncollection_types
 ##  Created on: 2016-04-13
 ##  Created by: Denis BOGOLEPOV

@@ -1,7 +1,7 @@
 import ../tdf/tdf_types
 import xcafdoc_types
 import ../standard/standard_types
-import ../ncollection/ncollection_types
+#import ../ncollection/ncollection_types
 
 
 

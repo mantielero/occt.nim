@@ -1,7 +1,7 @@
-import brepoffset_types
-import ../standard/standard_types
+#import brepoffset_types
+#import ../standard/standard_types
 import ../topods/topods_types
-import ../toptools/toptools_types
+#import ../toptools/toptools_types
 
 
 ##  Created on: 1996-08-30

@@ -1,4 +1,4 @@
-import extrema_types
+#import extrema_types
 import ../gp/gp_types
 import ../standard/standard_types
 import ../adaptor2d/adaptor2d_types

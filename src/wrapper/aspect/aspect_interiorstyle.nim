@@ -1,4 +1,4 @@
-import aspect_types
+#import aspect_types
 
 
 
@@ -20,8 +20,6 @@ import aspect_types
 
 ## ! Interior types for primitive faces.
 
-const
-  aspectIS_HOLLOW = aspectIS_EMPTY.AspectInteriorStyle ## !< transparent surface interior
 
 
 

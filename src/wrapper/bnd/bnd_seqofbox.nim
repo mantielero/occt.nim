@@ -1,4 +1,4 @@
-import bnd_types
+#import bnd_types
 
 ##  Created on: 1991-01-08
 ##  Created by: Didier Piffault

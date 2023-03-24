@@ -1,4 +1,4 @@
-import brepgprop_types
+#import brepgprop_types
 import ../brepadaptor/brepadaptor_types
 import ../gp/gp_types
 import ../geomabs/geomabs_types

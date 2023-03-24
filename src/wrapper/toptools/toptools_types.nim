@@ -2,7 +2,7 @@ import ../topods/topods_types
 import ../tcolstd/tcolstd_types
 import ../bnd/bnd_types
 import ../ncollection/ncollection_types
-import ../message/message_types
+#import ../message/message_types
 
 type
   TopTools_FormatVersion* = object # FIXME

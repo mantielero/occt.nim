@@ -1,4 +1,4 @@
-import geomabs_types
+#import geomabs_types
 
 ##  Created on: 1993-02-22
 ##  Created by: Modelistation

@@ -1,10 +1,10 @@
 import ../adaptor2d/adaptor2d_types
 import ../geom2dadaptor/geom2dadaptor_types
 import ../adaptor3d/adaptor3d_types
-import ../brep/brep_types
-import ../geom2d/geom2d_types
+# import ../brep/brep_types
+# import ../geom2d/geom2d_types
 import ../ncollection/ncollection_types
-import ../geom/geom_types
+# import ../geom/geom_types
 import ../standard/standard_types
 type
   BRepAdaptorCompCurve* {.importcpp: "BRepAdaptor_CompCurve",

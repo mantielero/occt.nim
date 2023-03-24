@@ -3,7 +3,7 @@ import system
 import ../../wrapper/occt_wrapper
 #import ../../wrapper
 import ../geom/geom
-import ../../wrapper/breptools/[breptools_types, breptools_wireexplorer]
+import ../../wrapper/breptools/[breptools_wireexplorer] # breptools_types,
 import ../../wrapper/topabs/topabs_types
 
 
@@ -20,25 +20,31 @@ import ../../wrapper/topabs/topabs_types
 
 # Compound
 iterator getCompounds*(body:TopoDS_Shape):TopoDS_Face =
-  var aFaceExplorer = newExplorer(body, topAbsCOMPOUND) # myBodyFused?
+  var aFaceExplorer = newExplorer(body, topAbsCOMPOUND)
   while aFaceExplorer.more():
     yield aFaceExplorer.current.face
     aFaceExplorer.next()
 
 # CompSolid
 iterator getCompsolids*(body:TopoDS_Shape):TopoDS_Face =
-  var aFaceExplorer = newExplorer(body, topAbsCOMPSOLID) # myBodyFused?
+  var aFaceExplorer = newExplorer(body, topAbsCOMPSOLID) 
   while aFaceExplorer.more():
     yield aFaceExplorer.current.face
     aFaceExplorer.next()
 
 # Faces
 iterator getFaces*(body:TopoDS_Shape):TopoDS_Face =
-  var aFaceExplorer = newExplorer(body, topAbsFACE) # myBodyFused?
+  var aFaceExplorer = newExplorer(body, topAbsFACE) 
   while aFaceExplorer.more():
     yield aFaceExplorer.current.face
     aFaceExplorer.next()
 
+# Solids
+iterator getSolids*(body:TopoDS_Shape):TopoDS_Shape =
+  var aFaceExplorer = newExplorer(body, topAbsSOLID)
+  while aFaceExplorer.more():
+    yield aFaceExplorer.current
+    aFaceExplorer.next()
 
 iterator getPlanes*(body:TopoDS_Shape): TopoDS_Face =
   for face in body.getFaces():

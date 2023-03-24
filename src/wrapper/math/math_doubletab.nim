@@ -1,7 +1,7 @@
 {.experimental: "callOperator".}
 
 import math_types
-import ../standard/standard_types
+#import ../standard/standard_types
 ##  Created on: 1992-02-07
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1992-1999 Matra Datavision

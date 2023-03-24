@@ -1,4 +1,4 @@
-import brepgprop_types
+#import brepgprop_types
 import ../topods/topods_types
 import ../gprop/gprop_types
 import ../gp/gp_types

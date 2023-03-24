@@ -1,4 +1,4 @@
-import gprop_types
+#import gprop_types
 
 ##  Created on: 1991-03-12
 ##  Created by: Michel CHAUVAT
@@ -19,4 +19,4 @@ import gprop_types
 ## ! This exception is raised when a method makes reference to
 ## ! an undefined inertia axis of symmetry.
 
-discard "forward decl of GProp_UndefinedAxis"
+#discard "forward decl of GProp_UndefinedAxis"

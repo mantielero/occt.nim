@@ -1,4 +1,4 @@
-import ../gc/gc_types
+#import ../gc/gc_types
 type
   GceErrorType* {.size: sizeof(cint), importcpp: "gce_ErrorType",
                  header: "gce_ErrorType.hxx".} = enum

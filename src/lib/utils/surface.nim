@@ -1,7 +1,7 @@
 import ../../wrapper/topods/topods_types
 import ../../wrapper/gprop/gprop_includes
 import ../../wrapper/brepgprop/brepgprop_includes
-import ../sketcher/rectangle
+#import ../sketcher/rectangle
 
 proc area*(face: TopoDS_Shape):float =
   ## get the total surface area of a face, solid etc.

@@ -1,12 +1,8 @@
 import ../../wrapper/gc/[gc_types,gc_makesegment, gc_makearcofcircle]
 import ../../wrapper/brepbuilderapi/[brepbuilderapi_types,brepbuilderapi_makeedge]
 
-import ../../wrapper/geom/[geom_types,geom_circle]
+#import ../../wrapper/geom/[geom_types,geom_circle]
 
-#import ../../wrapper
-#import ../../wrapper
-
-#proc edge*(obj:)
 
 proc edge*(obj: MakeSegment): EdgeObj =
   edge(obj.toHandleGeomTrimmedCurve)

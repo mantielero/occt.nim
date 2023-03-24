@@ -1,5 +1,5 @@
 import ../../wrapper/occt_wrapper
-import ../explorer/explorer
+#import ../explorer/explorer
 
 #----
 proc pnt*[X,Y: SomeNumber](x: X; y: Y): gp_Pnt2d =

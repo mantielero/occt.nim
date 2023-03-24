@@ -1,5 +1,5 @@
-import ../gce/gce_types
-import ../gc/gc_types
+# import ../gce/gce_types
+# import ../gc/gc_types
 
 type
   GCE2dMakeMirror* {.importcpp: "GCE2d_MakeMirror", header: "GCE2d_MakeMirror.hxx",

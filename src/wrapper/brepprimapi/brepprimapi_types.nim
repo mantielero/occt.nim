@@ -1,5 +1,5 @@
-import ../brepprim/brepprim_types
-import ../brep/brep_types
+#import ../brepprim/brepprim_types
+#import ../brep/brep_types
 import ../brepbuilderapi/brepbuilderapi_types
 #export ../brepprim/brepprim_types
 type

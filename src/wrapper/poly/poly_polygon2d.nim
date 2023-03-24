@@ -1,7 +1,7 @@
 import poly_types
 import ../standard/standard_types
-import ../gp/gp_types
-import ../ncollection/ncollection_types
+# import ../gp/gp_types
+# import ../ncollection/ncollection_types
 import ../tcolgp/tcolgp_types
 ##  Created on: 1995-03-09
 ##  Created by: Laurent PAINNOT

@@ -1,6 +1,6 @@
 import brepoffset_types
-import ../toptools/toptools_types
-import ../standard/standard_types
+#import ../toptools/toptools_types
+#import ../standard/standard_types
 
 ##  Created on: 1996-09-05
 ##  Created by: Yves FRICAUD
